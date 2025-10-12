@@ -83,16 +83,20 @@ export default function ShelvesPage() {
             defaultOpen={shelf.key === "plan-to-read"}
           >
             {filteredShelves[shelf.key].length > 0 ? (
-              <div className="grid grid-cols-2 gap-3 px-4">
+              <div className="flex gap-3 overflow-x-auto pb-2 px-4 scrollbar-hide">
                 {filteredShelves[shelf.key].map((userBook) => (
-                  <BookCard
+                  <div 
                     key={userBook.id}
-                    title={userBook.book.title}
-                    author={userBook.book.authors[0]}
-                    coverUrl={userBook.book.coverUrl}
-                    status={userBook.status}
-                    onClick={() => console.log(`Clicked ${userBook.book.title}`)}
-                  />
+                    className="w-32 flex-shrink-0"
+                  >
+                    <BookCard
+                      title={userBook.book.title}
+                      author={userBook.book.authors[0]}
+                      coverUrl={userBook.book.coverUrl}
+                      status={userBook.status}
+                      onClick={() => console.log(`Clicked ${userBook.book.title}`)}
+                    />
+                  </div>
                 ))}
               </div>
             ) : (

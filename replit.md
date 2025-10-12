@@ -24,6 +24,7 @@ BookShelf.ai is a mobile-first Progressive Web App (PWA) designed for tracking p
   - Searches for alternative popular editions when primary source has no cover
   - Generates nice placeholder covers for books with no images (Amazon-style)
   - Fixed "Nineteen Eighty-Four" to display proper cover
+- ✅ Unified book card sizing across Shelves and Browse pages (128px width, 2:3 aspect ratio)
 - 🚧 TODO: Connect Settings page to persist preferences via backend APIs
 - 🚧 TODO: Update Browse page to dynamically load categories based on user preferences
 
