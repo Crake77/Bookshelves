@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Settings, LogOut, Sparkles, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getUserBooks, DEMO_USER_ID } from "@/lib/api";
-import { apiRequest } from "@/lib/queryClient";
+import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
@@ -37,10 +37,23 @@ export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
     },
     onSuccess: (data) => {
       setEmbeddingStatus(data);
-      toast({
-        title: "Batch Job Complete",
-        description: `✓ ${data.successCount} embeddings generated, ✗ ${data.errorCount} failed`,
-      });
+      
+      // Invalidate queries to refresh the UI
+      queryClient.invalidateQueries({ queryKey: ["/api/books/missing-embeddings"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/user-books", DEMO_USER_ID] });
+      
+      if (data.quotaExceeded) {
+        toast({
+          title: "Quota Limit Reached",
+          description: "OpenAI quota exceeded. Please try again later or upgrade your quota.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Batch Job Complete",
+          description: `✓ ${data.successCount} embeddings generated, ✗ ${data.errorCount} failed`,
+        });
+      }
     },
     onError: (error: any) => {
       toast({

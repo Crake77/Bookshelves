@@ -383,8 +383,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const results: any[] = [];
       let successCount = 0;
       let errorCount = 0;
+      let quotaExceededCount = 0;
+      const maxConsecutive429s = 2; // Stop after 2 consecutive 429s
 
       for (const book of (booksWithoutEmbeddings.rows as any[])) {
+        // Abort if we've hit quota limit repeatedly
+        if (quotaExceededCount >= maxConsecutive429s) {
+          console.log(`⚠ Stopping batch job - OpenAI quota exceeded ${quotaExceededCount} times`);
+          results.push({
+            bookId: null,
+            title: "Batch aborted",
+            status: "aborted",
+            error: "OpenAI quota exceeded - please try again later or upgrade your quota"
+          });
+          break;
+        }
+
         try {
           // Rate limiting delay
           if (results.length > 0) {
@@ -401,8 +415,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
           results.push({ bookId: book.id, title: book.title, status: "success" });
           successCount++;
+          quotaExceededCount = 0; // Reset on success
           console.log(`✓ Generated embedding for: ${book.title}`);
         } catch (embeddingError: any) {
+          const is429 = embeddingError.message?.includes("429") || embeddingError.message?.includes("quota");
+          if (is429) {
+            quotaExceededCount++;
+          } else {
+            quotaExceededCount = 0; // Reset if it's not a quota error
+          }
+          
           results.push({ bookId: book.id, title: book.title, status: "error", error: embeddingError.message });
           errorCount++;
           console.error(`✗ Failed to generate embedding for: ${book.title}`, embeddingError.message);
@@ -410,10 +432,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       res.json({
-        message: `Batch job completed`,
+        message: quotaExceededCount >= maxConsecutive429s 
+          ? "Batch job aborted due to quota limits"
+          : "Batch job completed",
         totalProcessed: results.length,
         successCount,
         errorCount,
+        quotaExceeded: quotaExceededCount >= maxConsecutive429s,
         results,
       });
     } catch (error) {
