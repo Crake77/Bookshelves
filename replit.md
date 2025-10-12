@@ -25,16 +25,25 @@ BookShelf.ai is a mobile-first Progressive Web App (PWA) designed for tracking p
   - Generates nice placeholder covers for books with no images (Amazon-style)
   - Fixed "Nineteen Eighty-Four" to display proper cover
 - ✅ Unified book card sizing across Shelves and Browse pages (128px width, 2:3 aspect ratio)
-- ✅ Implemented ShelfSelectionDialog for moving books between shelves:
-  - Click any book card to open dialog showing enabled default + custom shelves
-  - Highlights current shelf with check icon
-  - Update button moves book to selected shelf
-  - Red "Remove From Shelves" button at bottom for deletion
-  - Fixed state sync bug: dialog now shows correct current shelf on open
-  - Fixed reset bug: add book dialog always defaults to "Reading"
 - ✅ Updated database schema to support custom shelves (removed enum constraint from status field)
 - ✅ ShelvesPage now dynamically renders both default and enabled custom shelves
 - ✅ Books remain visible after being moved to custom shelves (critical bug fix)
+- ✅ **Comprehensive Rating System Implementation:**
+  - Added 0-100 rating scale to user_books table
+  - Created book_stats table tracking average rating, total ratings, and site ranking
+  - Backend API: PATCH /api/user-books/:id/rating and GET /api/book-stats/:bookId
+  - Auto-recalculates book statistics after each rating update
+  - Site rankings displayed with K suffix formatting (#105K for 105,000)
+- ✅ **Redesigned BookDetailDialog with AniList-inspired layout:**
+  - Blurred cover image background with gradient overlay
+  - Three-widget horizontal layout: Shelf Selector | Page Count | Score Input
+  - Stats section displaying average score percentage and site ranking
+  - Book summary/description section with expandable text
+  - Unified experience: works identically from Browse (add new) and Shelves (edit existing)
+  - Smart detection: shows "Add to Shelf" for new books, rating for library books
+  - Rating saves on blur, shelf changes save immediately
+  - Fixed gradient overlay click blocking (pointer-events-none)
+  - Proper query guards prevent unnecessary API calls
 - 🚧 TODO: Connect Settings page to persist preferences via backend APIs
 - 🚧 TODO: Update Browse page to dynamically load categories based on user preferences
 
