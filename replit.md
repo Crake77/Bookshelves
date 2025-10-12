@@ -20,6 +20,10 @@ BookShelf.ai is a mobile-first Progressive Web App (PWA) designed for tracking p
 - ✅ Implemented batch embedding generation with rate limiting (5 seconds between books, max 10 per batch)
 - ✅ Added Profile page UI for monitoring and triggering embedding generation
 - ✅ Graceful error handling for OpenAI quota limits - shows success/failure counts
+- ✅ Enhanced cover image system with intelligent fallbacks:
+  - Searches for alternative popular editions when primary source has no cover
+  - Generates nice placeholder covers for books with no images (Amazon-style)
+  - Fixed "Nineteen Eighty-Four" to display proper cover
 - 🚧 TODO: Connect Settings page to persist preferences via backend APIs
 - 🚧 TODO: Update Browse page to dynamically load categories based on user preferences
 

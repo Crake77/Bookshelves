@@ -11,6 +11,42 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Find alternative cover for a book
+async function findAlternativeCover(title: string, author?: string): Promise<string | null> {
+  try {
+    // Search for popular editions with covers
+    const searchQuery = author ? `${title} ${author}` : title;
+    const response = await fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchQuery)}&orderBy=relevance&maxResults=10`
+    );
+    const data = await response.json();
+    
+    // Find the first result with a cover image
+    const bookWithCover = data.items?.find((item: any) => 
+      item.volumeInfo.imageLinks?.thumbnail
+    );
+    
+    if (bookWithCover?.volumeInfo.imageLinks?.thumbnail) {
+      return bookWithCover.volumeInfo.imageLinks.thumbnail.replace("http://", "https://");
+    }
+    
+    // Try Open Library as fallback
+    const olResponse = await fetch(
+      `https://openlibrary.org/search.json?q=${encodeURIComponent(searchQuery)}&limit=10`
+    );
+    const olData = await olResponse.json();
+    
+    const olBookWithCover = olData.docs?.find((doc: any) => doc.cover_i);
+    if (olBookWithCover?.cover_i) {
+      return `https://covers.openlibrary.org/b/id/${olBookWithCover.cover_i}-M.jpg`;
+    }
+  } catch (error) {
+    console.error("Error finding alternative cover:", error);
+  }
+  
+  return null;
+}
+
 // Google Books API search
 async function searchGoogleBooks(query: string) {
   const response = await fetch(
@@ -18,17 +54,38 @@ async function searchGoogleBooks(query: string) {
   );
   const data = await response.json();
   
-  return data.items?.map((item: any) => ({
-    googleBooksId: item.id,
-    title: item.volumeInfo.title,
-    authors: item.volumeInfo.authors || ["Unknown Author"],
-    description: item.volumeInfo.description || "",
-    coverUrl: item.volumeInfo.imageLinks?.thumbnail?.replace("http://", "https://") || null,
-    publishedDate: item.volumeInfo.publishedDate || null,
-    pageCount: item.volumeInfo.pageCount || null,
-    categories: item.volumeInfo.categories || [],
-    isbn: item.volumeInfo.industryIdentifiers?.[0]?.identifier || null,
-  })) || [];
+  const results = await Promise.all(
+    (data.items || []).map(async (item: any) => {
+      let coverUrl = item.volumeInfo.imageLinks?.thumbnail?.replace("http://", "https://") || null;
+      
+      // If no cover found, try to find alternative cover
+      if (!coverUrl && item.volumeInfo.title) {
+        coverUrl = await findAlternativeCover(
+          item.volumeInfo.title,
+          item.volumeInfo.authors?.[0]
+        );
+      }
+      
+      // If still no cover, use placeholder pattern
+      if (!coverUrl) {
+        coverUrl = `placeholder:${encodeURIComponent(item.volumeInfo.title)}:${encodeURIComponent(item.volumeInfo.authors?.[0] || "Unknown Author")}`;
+      }
+      
+      return {
+        googleBooksId: item.id,
+        title: item.volumeInfo.title,
+        authors: item.volumeInfo.authors || ["Unknown Author"],
+        description: item.volumeInfo.description || "",
+        coverUrl,
+        publishedDate: item.volumeInfo.publishedDate || null,
+        pageCount: item.volumeInfo.pageCount || null,
+        categories: item.volumeInfo.categories || [],
+        isbn: item.volumeInfo.industryIdentifiers?.[0]?.identifier || null,
+      };
+    })
+  );
+  
+  return results;
 }
 
 // Open Library API fallback
@@ -38,19 +95,40 @@ async function searchOpenLibrary(query: string) {
   );
   const data = await response.json();
   
-  return data.docs?.map((doc: any) => ({
-    googleBooksId: `ol-${doc.key}`,
-    title: doc.title,
-    authors: doc.author_name || ["Unknown Author"],
-    description: doc.first_sentence?.join(" ") || "",
-    coverUrl: doc.cover_i 
-      ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg`
-      : null,
-    publishedDate: doc.first_publish_year?.toString() || null,
-    pageCount: doc.number_of_pages_median || null,
-    categories: doc.subject?.slice(0, 3) || [],
-    isbn: doc.isbn?.[0] || null,
-  })) || [];
+  const results = await Promise.all(
+    (data.docs || []).map(async (doc: any) => {
+      let coverUrl = doc.cover_i 
+        ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg`
+        : null;
+      
+      // If no cover found, try to find alternative cover
+      if (!coverUrl && doc.title) {
+        coverUrl = await findAlternativeCover(
+          doc.title,
+          doc.author_name?.[0]
+        );
+      }
+      
+      // If still no cover, use placeholder pattern
+      if (!coverUrl) {
+        coverUrl = `placeholder:${encodeURIComponent(doc.title)}:${encodeURIComponent(doc.author_name?.[0] || "Unknown Author")}`;
+      }
+      
+      return {
+        googleBooksId: `ol-${doc.key}`,
+        title: doc.title,
+        authors: doc.author_name || ["Unknown Author"],
+        description: doc.first_sentence?.join(" ") || "",
+        coverUrl,
+        publishedDate: doc.first_publish_year?.toString() || null,
+        pageCount: doc.number_of_pages_median || null,
+        categories: doc.subject?.slice(0, 3) || [],
+        isbn: doc.isbn?.[0] || null,
+      };
+    })
+  );
+  
+  return results;
 }
 
 // Generate embeddings using OpenAI
@@ -464,6 +542,55 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Get books without embeddings error:", error);
       res.status(500).json({ error: "Failed to get books without embeddings" });
+    }
+  });
+
+  // Fix missing covers for existing books
+  app.post("/api/books/fix-covers", async (req, res) => {
+    try {
+      // Get books with missing or placeholder covers
+      const booksWithoutCovers = await db.execute(sql`
+        SELECT * FROM ${books} 
+        WHERE cover_url IS NULL OR cover_url LIKE 'placeholder:%'
+      `);
+
+      const results: any[] = [];
+      
+      for (const book of (booksWithoutCovers.rows as any[])) {
+        try {
+          // Try to find alternative cover
+          const coverUrl = await findAlternativeCover(book.title, book.authors?.[0]);
+          
+          if (coverUrl) {
+            await db.execute(sql`
+              UPDATE ${books} 
+              SET cover_url = ${coverUrl}
+              WHERE id = ${book.id}
+            `);
+            results.push({ bookId: book.id, title: book.title, status: "success", coverUrl });
+          } else {
+            // Set placeholder
+            const placeholderUrl = `placeholder:${encodeURIComponent(book.title)}:${encodeURIComponent(book.authors?.[0] || "Unknown Author")}`;
+            await db.execute(sql`
+              UPDATE ${books} 
+              SET cover_url = ${placeholderUrl}
+              WHERE id = ${book.id}
+            `);
+            results.push({ bookId: book.id, title: book.title, status: "placeholder", coverUrl: placeholderUrl });
+          }
+        } catch (error: any) {
+          results.push({ bookId: book.id, title: book.title, status: "error", error: error.message });
+        }
+      }
+
+      res.json({
+        message: "Cover fix job completed",
+        totalProcessed: results.length,
+        results,
+      });
+    } catch (error) {
+      console.error("Fix covers error:", error);
+      res.status(500).json({ error: "Failed to fix book covers" });
     }
   });
 

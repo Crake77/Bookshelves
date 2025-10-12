@@ -25,6 +25,13 @@ export default function BookCard({
     "plan-to-read": "bg-chart-1/20 text-chart-1 border-chart-1",
   };
 
+  // Check if this is a placeholder cover
+  const isPlaceholder = coverUrl?.startsWith("placeholder:");
+  const placeholderData = isPlaceholder && coverUrl ? {
+    title: decodeURIComponent(coverUrl.split(":")[1] || title),
+    author: decodeURIComponent(coverUrl.split(":")[2] || author)
+  } : null;
+
   return (
     <div
       data-testid={`book-card-${title.toLowerCase().replace(/\s+/g, "-")}`}
@@ -32,15 +39,36 @@ export default function BookCard({
       className="group relative rounded-lg overflow-hidden shadow-lg hover-elevate active-elevate-2 cursor-pointer transition-transform"
     >
       <div className="aspect-[2/3] relative">
-        {coverUrl ? (
+        {coverUrl && !isPlaceholder ? (
           <img 
             src={coverUrl} 
             alt={title}
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full gradient-card flex items-center justify-center">
-            <Book className="w-12 h-12 text-foreground/30" />
+          <div className="w-full h-full bg-muted flex flex-col items-center justify-center p-4 relative overflow-hidden">
+            {/* Decorative background pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M30,70 Q30,50 40,40 L45,35 Q50,30 50,20 L50,0" fill="none" stroke="currentColor" strokeWidth="2" />
+                <circle cx="35" cy="45" r="3" fill="currentColor" />
+                <circle cx="40" cy="55" r="2" fill="currentColor" />
+              </svg>
+            </div>
+            
+            {/* No Image Available text */}
+            <div className="relative z-10 text-center">
+              <Book className="w-10 h-10 text-muted-foreground/40 mb-3 mx-auto" />
+              <div className="text-xs text-muted-foreground/60 font-medium mb-2">No image available</div>
+              <div className="text-sm font-semibold text-foreground/80 line-clamp-3 px-2">
+                {placeholderData?.title || title}
+              </div>
+              {(placeholderData?.author || author) && (
+                <div className="text-xs text-muted-foreground/70 mt-2 line-clamp-1">
+                  by {placeholderData?.author || author}
+                </div>
+              )}
+            </div>
           </div>
         )}
         
