@@ -25,6 +25,16 @@ BookShelf.ai is a mobile-first Progressive Web App (PWA) designed for tracking p
   - Generates nice placeholder covers for books with no images (Amazon-style)
   - Fixed "Nineteen Eighty-Four" to display proper cover
 - ✅ Unified book card sizing across Shelves and Browse pages (128px width, 2:3 aspect ratio)
+- ✅ Implemented ShelfSelectionDialog for moving books between shelves:
+  - Click any book card to open dialog showing enabled default + custom shelves
+  - Highlights current shelf with check icon
+  - Update button moves book to selected shelf
+  - Red "Remove From Shelves" button at bottom for deletion
+  - Fixed state sync bug: dialog now shows correct current shelf on open
+  - Fixed reset bug: add book dialog always defaults to "Reading"
+- ✅ Updated database schema to support custom shelves (removed enum constraint from status field)
+- ✅ ShelvesPage now dynamically renders both default and enabled custom shelves
+- ✅ Books remain visible after being moved to custom shelves (critical bug fix)
 - 🚧 TODO: Connect Settings page to persist preferences via backend APIs
 - 🚧 TODO: Update Browse page to dynamically load categories based on user preferences
 
