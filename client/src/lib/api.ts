@@ -25,8 +25,8 @@ export interface UserBook {
   book: BookSearchResult;
 }
 
-// Mock user ID for demo
-export const DEMO_USER_ID = "demo-user-123";
+// Demo user ID
+export const DEMO_USER_ID = "550e8400-e29b-41d4-a716-446655440000";
 
 export async function searchBooks(query: string): Promise<BookSearchResult[]> {
   const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
