@@ -64,9 +64,7 @@ export const userBooks = pgTable("user_books", {
   id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
   userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
-  status: text("status", { 
-    enum: ["reading", "completed", "on-hold", "dropped", "plan-to-read"] 
-  }).notNull(),
+  status: text("status").notNull(), // Supports both default and custom shelf slugs
   addedAt: timestamp("added_at").defaultNow().notNull(),
 });
 
