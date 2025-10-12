@@ -195,6 +195,19 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
     setRatingInput(newValue.toString());
   };
 
+  const handleNumberPad = (num: string) => {
+    const current = ratingInput || "0";
+    const newValue = current === "0" ? num : current + num;
+    const parsed = parseInt(newValue);
+    if (parsed <= 100) {
+      setRatingInput(newValue);
+    }
+  };
+
+  const handleBackspace = () => {
+    setRatingInput(prev => prev.slice(0, -1) || "0");
+  };
+
   if (!book) return null;
 
   const isPending = ingestMutation.isPending || addToShelfMutation.isPending || 
@@ -342,62 +355,94 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-64 p-6" align="center">
-                <div className="space-y-4">
-                  <div className="text-center">
-                    <div className="text-sm text-muted-foreground mb-2">Score</div>
-                    <div className="text-5xl font-bold tracking-tight mb-4">
-                      {ratingInput || "0"}
+              <PopoverContent 
+                className="w-full max-w-md p-0 border-0" 
+                align="center"
+                side="bottom"
+                sideOffset={-200}
+              >
+                <div className="bg-background rounded-t-3xl shadow-2xl" style={{ height: '33vh', minHeight: '300px' }}>
+                  {/* Display and Controls */}
+                  <div className="p-6 pb-4 border-b border-border/50">
+                    <div className="text-center mb-4">
+                      <div className="text-sm text-muted-foreground mb-2">Score</div>
+                      <div className="text-6xl font-bold tracking-tight">
+                        {ratingInput || "0"}
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => adjustRating(-1)}
+                        className="h-12 w-12 rounded-full"
+                        data-testid="button-rating-decrease"
+                      >
+                        <Minus className="h-5 w-5" />
+                      </Button>
+                      
+                      <Button
+                        onClick={handleUpdateRating}
+                        className="px-8"
+                        disabled={updateRatingMutation.isPending}
+                        data-testid="button-save-rating"
+                      >
+                        {updateRatingMutation.isPending ? "Saving..." : "Save"}
+                      </Button>
+                      
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => adjustRating(1)}
+                        className="h-12 w-12 rounded-full"
+                        data-testid="button-rating-increase"
+                      >
+                        <Plus className="h-5 w-5" />
+                      </Button>
                     </div>
                   </div>
-                  
-                  <div className="flex items-center gap-3">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => adjustRating(-5)}
-                      className="h-12 w-12 rounded-full"
-                      data-testid="button-rating-decrease"
-                    >
-                      <Minus className="h-5 w-5" />
-                    </Button>
-                    
-                    <Input
-                      type="number"
-                      min="0"
-                      max="100"
-                      value={ratingInput}
-                      onChange={(e) => setRatingInput(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          handleUpdateRating();
-                        }
-                      }}
-                      placeholder="0"
-                      className="h-12 text-center text-lg font-medium"
-                      autoFocus
-                      data-testid="input-rating"
-                    />
-                    
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => adjustRating(5)}
-                      className="h-12 w-12 rounded-full"
-                      data-testid="button-rating-increase"
-                    >
-                      <Plus className="h-5 w-5" />
-                    </Button>
-                  </div>
 
-                  <Button
-                    onClick={handleUpdateRating}
-                    className="w-full"
-                    disabled={updateRatingMutation.isPending}
-                    data-testid="button-save-rating"
-                  >
-                    {updateRatingMutation.isPending ? "Saving..." : "Save Rating"}
-                  </Button>
+                  {/* Number Pad */}
+                  <div className="p-4">
+                    <div className="grid grid-cols-3 gap-2">
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+                        <Button
+                          key={num}
+                          variant="ghost"
+                          onClick={() => handleNumberPad(num.toString())}
+                          className="h-12 text-lg font-medium hover-elevate"
+                          data-testid={`button-numpad-${num}`}
+                        >
+                          {num}
+                        </Button>
+                      ))}
+                      <Button
+                        variant="ghost"
+                        onClick={handleBackspace}
+                        className="h-12 text-lg font-medium hover-elevate"
+                        data-testid="button-numpad-backspace"
+                      >
+                        ←
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        onClick={() => handleNumberPad("0")}
+                        className="h-12 text-lg font-medium hover-elevate"
+                        data-testid="button-numpad-0"
+                      >
+                        0
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        onClick={() => setRatingInput("0")}
+                        className="h-12 text-lg font-medium hover-elevate"
+                        data-testid="button-numpad-clear"
+                      >
+                        C
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </PopoverContent>
             </Popover>
