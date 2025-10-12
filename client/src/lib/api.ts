@@ -24,7 +24,7 @@ export interface UserBook {
   id: string;
   userId: string;
   bookId: string;
-  status: "reading" | "completed" | "on-hold" | "dropped" | "plan-to-read";
+  status: string; // Supports both default and custom shelf slugs
   addedAt: string;
   book: BookSearchResult;
 }

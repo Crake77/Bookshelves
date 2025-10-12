@@ -4,7 +4,7 @@ interface BookCardProps {
   title: string;
   author: string;
   coverUrl?: string;
-  status?: "reading" | "completed" | "on-hold" | "dropped" | "plan-to-read";
+  status?: string; // Supports both default and custom shelf slugs
   releaseInfo?: string;
   onClick?: () => void;
 }
@@ -17,12 +17,17 @@ export default function BookCard({
   releaseInfo,
   onClick 
 }: BookCardProps) {
-  const statusColors = {
+  const statusColors: Record<string, string> = {
     reading: "bg-chart-3/20 text-chart-3 border-chart-3",
     completed: "bg-chart-3/20 text-chart-3 border-chart-3",
     "on-hold": "bg-chart-4/20 text-chart-4 border-chart-4",
     dropped: "bg-destructive/20 text-destructive border-destructive",
     "plan-to-read": "bg-chart-1/20 text-chart-1 border-chart-1",
+  };
+  
+  // Get status color, use primary color for custom shelves
+  const getStatusColor = (status: string) => {
+    return statusColors[status] || "bg-primary/20 text-primary border-primary";
   };
 
   // Check if this is a placeholder cover
@@ -75,7 +80,7 @@ export default function BookCard({
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
         
         {status && (
-          <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-[10px] font-medium border ${statusColors[status]}`}>
+          <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-[10px] font-medium border ${getStatusColor(status)}`}>
             {status.replace("-", " ")}
           </div>
         )}
