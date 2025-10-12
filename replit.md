@@ -41,9 +41,17 @@ BookShelf.ai is a mobile-first Progressive Web App (PWA) designed for tracking p
   - Book summary/description section with expandable text
   - Unified experience: works identically from Browse (add new) and Shelves (edit existing)
   - Smart detection: shows "Add to Shelf" for new books, rating for library books
-  - Rating saves on blur, shelf changes save immediately
+  - Shelf changes save immediately
   - Fixed gradient overlay click blocking (pointer-events-none)
   - Proper query guards prevent unnecessary API calls
+- ✅ **Enhanced Rating Popover Interface:**
+  - Click score button to open clean rating input popover
+  - Large number display (5xl) shows current rating in real-time
+  - Centered input field with autofocus for quick typing
+  - Plus/Minus buttons for 5-point increments/decrements
+  - Enter key shortcut to save rating instantly
+  - "Save Rating" button commits changes and closes popover
+  - Disabled for non-library books, enabled for owned books
 - 🚧 TODO: Connect Settings page to persist preferences via backend APIs
 - 🚧 TODO: Update Browse page to dynamically load categories based on user preferences
 

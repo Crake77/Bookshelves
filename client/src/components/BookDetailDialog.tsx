@@ -27,7 +27,12 @@ import {
   type UserBook
 } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Minus, Plus } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 interface BookDetailDialogProps {
   book: BookSearchResult | null;
@@ -47,6 +52,7 @@ function formatRanking(ranking: number | null): string {
 export default function BookDetailDialog({ book, open, onOpenChange }: BookDetailDialogProps) {
   const [selectedStatus, setSelectedStatus] = useState<string>("reading");
   const [ratingInput, setRatingInput] = useState<string>("");
+  const [isRatingPopoverOpen, setIsRatingPopoverOpen] = useState(false);
   const { toast } = useToast();
 
   // Fetch user's books to check if this book is already in library
@@ -180,6 +186,13 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
       userBookId: existingUserBook.id,
       rating,
     });
+    setIsRatingPopoverOpen(false);
+  };
+
+  const adjustRating = (delta: number) => {
+    const current = parseInt(ratingInput) || 0;
+    const newValue = Math.max(0, Math.min(100, current + delta));
+    setRatingInput(newValue.toString());
   };
 
   if (!book) return null;
@@ -313,21 +326,81 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
             </div>
 
             {/* Right Widget - Score Input */}
-            <div className="flex items-center gap-1">
-              <Input
-                type="number"
-                min="0"
-                max="100"
-                value={ratingInput}
-                onChange={(e) => setRatingInput(e.target.value)}
-                onBlur={handleUpdateRating}
-                placeholder="Score"
-                className="h-8 text-xs text-center"
-                disabled={!existingUserBook}
-                data-testid="input-rating"
-              />
-              <span className="text-xs text-muted-foreground">%</span>
-            </div>
+            <Popover open={isRatingPopoverOpen} onOpenChange={setIsRatingPopoverOpen}>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full justify-center text-xs h-auto py-2 px-3"
+                  disabled={!existingUserBook}
+                  data-testid="button-rating-trigger"
+                >
+                  {ratingInput ? (
+                    <span className="font-semibold">{ratingInput}%</span>
+                  ) : (
+                    <span className="text-muted-foreground">Score</span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-64 p-6" align="center">
+                <div className="space-y-4">
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-2">Score</div>
+                    <div className="text-5xl font-bold tracking-tight mb-4">
+                      {ratingInput || "0"}
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => adjustRating(-5)}
+                      className="h-12 w-12 rounded-full"
+                      data-testid="button-rating-decrease"
+                    >
+                      <Minus className="h-5 w-5" />
+                    </Button>
+                    
+                    <Input
+                      type="number"
+                      min="0"
+                      max="100"
+                      value={ratingInput}
+                      onChange={(e) => setRatingInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          handleUpdateRating();
+                        }
+                      }}
+                      placeholder="0"
+                      className="h-12 text-center text-lg font-medium"
+                      autoFocus
+                      data-testid="input-rating"
+                    />
+                    
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => adjustRating(5)}
+                      className="h-12 w-12 rounded-full"
+                      data-testid="button-rating-increase"
+                    >
+                      <Plus className="h-5 w-5" />
+                    </Button>
+                  </div>
+
+                  <Button
+                    onClick={handleUpdateRating}
+                    className="w-full"
+                    disabled={updateRatingMutation.isPending}
+                    data-testid="button-save-rating"
+                  >
+                    {updateRatingMutation.isPending ? "Saving..." : "Save Rating"}
+                  </Button>
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
 
