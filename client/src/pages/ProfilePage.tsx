@@ -1,10 +1,20 @@
+import { useQuery } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import ProfileStats from "@/components/ProfileStats";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Settings, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getUserBooks, DEMO_USER_ID } from "@/lib/api";
 
 export default function ProfilePage() {
+  const { data: userBooks = [] } = useQuery({
+    queryKey: ["/api/user-books", DEMO_USER_ID],
+    queryFn: () => getUserBooks(DEMO_USER_ID),
+  });
+
+  const completedBooks = userBooks.filter(ub => ub.status === "completed");
+  const readingBooks = userBooks.filter(ub => ub.status === "reading");
+
   return (
     <div className="pb-20">
       <AppHeader title="Profile" />
@@ -14,7 +24,7 @@ export default function ProfilePage() {
           <Avatar className="w-20 h-20 border-2 border-primary">
             <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=reader" />
             <AvatarFallback className="bg-primary text-primary-foreground font-display text-2xl">
-              JD
+              BL
             </AvatarFallback>
           </Avatar>
           
@@ -33,7 +43,24 @@ export default function ProfilePage() {
           </Button>
         </div>
 
-        <ProfileStats />
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-xl bg-card p-4 border border-card-border">
+            <div className="font-display text-2xl font-semibold text-foreground">
+              {completedBooks.length}
+            </div>
+            <div className="text-xs text-muted-foreground mt-1">
+              Books Read
+            </div>
+          </div>
+          <div className="rounded-xl bg-card p-4 border border-card-border">
+            <div className="font-display text-2xl font-semibold text-foreground">
+              {readingBooks.length}
+            </div>
+            <div className="text-xs text-muted-foreground mt-1">
+              Currently Reading
+            </div>
+          </div>
+        </div>
 
         <div className="rounded-xl bg-card p-4 border border-card-border">
           <h3 className="font-semibold mb-3">Favorite Genres</h3>
@@ -52,13 +79,13 @@ export default function ProfilePage() {
         <div className="rounded-xl bg-card p-4 border border-card-border">
           <h3 className="font-semibold mb-3">Reading Goal 2024</h3>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-muted-foreground">18 of 50 books</span>
-            <span className="text-sm font-medium">36%</span>
+            <span className="text-sm text-muted-foreground">{completedBooks.length} of 50 books</span>
+            <span className="text-sm font-medium">{Math.round((completedBooks.length / 50) * 100)}%</span>
           </div>
           <div className="h-2 bg-muted rounded-full overflow-hidden">
             <div 
               className="h-full bg-primary rounded-full transition-all"
-              style={{ width: "36%" }}
+              style={{ width: `${Math.min((completedBooks.length / 50) * 100, 100)}%` }}
             />
           </div>
         </div>

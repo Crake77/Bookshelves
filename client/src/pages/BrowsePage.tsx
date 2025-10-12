@@ -1,14 +1,28 @@
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import BookCard from "@/components/BookCard";
 import GenreCard from "@/components/GenreCard";
 import RecommendationCard from "@/components/RecommendationCard";
+import SearchBar from "@/components/SearchBar";
 import { ChevronRight } from "lucide-react";
+import { searchBooks, getRecommendations, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
 
 export default function BrowsePage() {
-  const upcomingBooks = [
-    { title: "The Winds of Winter", author: "George R.R. Martin", releaseInfo: "Premieres in 6 months" },
-    { title: "Doors of Stone", author: "Patrick Rothfuss", releaseInfo: "Premieres in 8 months" },
-  ];
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const { data: searchResults = [], isLoading: isSearching } = useQuery({
+    queryKey: ["/api/search", searchQuery],
+    queryFn: () => searchBooks(searchQuery),
+    enabled: searchQuery.length > 2,
+  });
+
+  const { data: recommendations = [] } = useQuery({
+    queryKey: ["/api/recs", DEMO_USER_ID],
+    queryFn: () => getRecommendations(DEMO_USER_ID),
+  });
+
+  const upcomingBooks: BookSearchResult[] = []; // Can be populated from a specific API or data source
 
   const genres = [
     { name: "Fantasy", count: 42, color: "250 70% 60%" },
@@ -17,84 +31,109 @@ export default function BrowsePage() {
     { name: "Romance", count: 12, color: "340 70% 60%" },
   ];
 
-  const recommendations = [
-    {
-      title: "The Fifth Season",
-      author: "N.K. Jemisin",
-      rationale: "Based on your love for complex world-building and character-driven narratives.",
-    },
-    {
-      title: "Children of Time",
-      author: "Adrian Tchaikovsky",
-      rationale: "Similar themes to the sci-fi novels you've been enjoying lately.",
-    },
-  ];
-
   return (
     <div className="pb-20">
       <AppHeader title="Discover" />
       
-      <div className="px-4 py-4 space-y-6">
-        <section>
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="font-display text-lg font-semibold">Upcoming Releases</h2>
-            <button className="text-sm text-primary flex items-center gap-1 hover-elevate px-2 py-1 rounded">
-              See All
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-          <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4">
-            {upcomingBooks.map((book) => (
-              <div key={book.title} className="w-32 flex-shrink-0">
+      <div className="px-4 py-4">
+        <SearchBar
+          value={searchQuery}
+          onChange={setSearchQuery}
+          placeholder="Search for books..."
+        />
+      </div>
+
+      {searchQuery.length > 2 && (
+        <div className="px-4 py-4">
+          <h2 className="font-display text-lg font-semibold mb-3">Search Results</h2>
+          {isSearching ? (
+            <div className="text-center text-muted-foreground py-8">Searching...</div>
+          ) : searchResults.length > 0 ? (
+            <div className="grid grid-cols-2 gap-3">
+              {searchResults.slice(0, 10).map((book) => (
                 <BookCard
+                  key={book.googleBooksId}
                   title={book.title}
-                  author={book.author}
-                  releaseInfo={book.releaseInfo}
+                  author={book.authors[0]}
+                  coverUrl={book.coverUrl}
                   onClick={() => console.log(`Clicked ${book.title}`)}
                 />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-muted-foreground py-8">No results found</div>
+          )}
+        </div>
+      )}
+
+      {!searchQuery && (
+        <div className="px-4 py-4 space-y-6">
+          {upcomingBooks.length > 0 && (
+            <section>
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="font-display text-lg font-semibold">Upcoming Releases</h2>
+                <button className="text-sm text-primary flex items-center gap-1 hover-elevate px-2 py-1 rounded">
+                  See All
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
-            ))}
-          </div>
-        </section>
+              <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4">
+                {upcomingBooks.map((book) => (
+                  <div key={book.googleBooksId} className="w-32 flex-shrink-0">
+                    <BookCard
+                      title={book.title}
+                      author={book.authors[0]}
+                      coverUrl={book.coverUrl}
+                      onClick={() => console.log(`Clicked ${book.title}`)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
-        <section>
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="font-display text-lg font-semibold">Browse by Genre</h2>
-            <button className="text-sm text-primary flex items-center gap-1 hover-elevate px-2 py-1 rounded">
-              See All
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {genres.map((genre) => (
-              <GenreCard
-                key={genre.name}
-                genre={genre.name}
-                bookCount={genre.count}
-                color={genre.color}
-                onClick={() => console.log(`Clicked ${genre.name}`)}
-              />
-            ))}
-          </div>
-        </section>
+          <section>
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="font-display text-lg font-semibold">Browse by Genre</h2>
+              <button className="text-sm text-primary flex items-center gap-1 hover-elevate px-2 py-1 rounded">
+                See All
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {genres.map((genre) => (
+                <GenreCard
+                  key={genre.name}
+                  genre={genre.name}
+                  bookCount={genre.count}
+                  color={genre.color}
+                  onClick={() => console.log(`Clicked ${genre.name}`)}
+                />
+              ))}
+            </div>
+          </section>
 
-        <section>
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="font-display text-lg font-semibold">AI Recommended</h2>
-          </div>
-          <div className="space-y-3">
-            {recommendations.map((rec) => (
-              <RecommendationCard
-                key={rec.title}
-                title={rec.title}
-                author={rec.author}
-                rationale={rec.rationale}
-                onClick={() => console.log(`Clicked ${rec.title}`)}
-              />
-            ))}
-          </div>
-        </section>
-      </div>
+          {recommendations.length > 0 && (
+            <section>
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="font-display text-lg font-semibold">AI Recommended</h2>
+              </div>
+              <div className="space-y-3">
+                {recommendations.slice(0, 3).map((rec) => (
+                  <RecommendationCard
+                    key={rec.googleBooksId}
+                    title={rec.title}
+                    author={rec.authors[0]}
+                    coverUrl={rec.coverUrl}
+                    rationale={rec.rationale}
+                    onClick={() => console.log(`Clicked ${rec.title}`)}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      )}
     </div>
   );
 }
