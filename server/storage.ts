@@ -1,11 +1,13 @@
 import { db } from "../db/index";
 import { eq, sql, desc, and } from "drizzle-orm";
 import { 
-  users, books, userBooks, bookEmbeddings,
+  users, books, userBooks, bookEmbeddings, customShelves, browseCategoryPreferences,
   type User, type InsertUser,
   type Book, type InsertBook,
   type UserBook, type InsertUserBook,
-  type InsertBookEmbedding
+  type InsertBookEmbedding,
+  type CustomShelf, type InsertCustomShelf,
+  type BrowseCategoryPreference, type InsertBrowseCategoryPreference
 } from "@shared/schema";
 
 export interface IStorage {
@@ -30,6 +32,18 @@ export interface IStorage {
   createBookEmbedding(embedding: InsertBookEmbedding): Promise<void>;
   getBookEmbedding(bookId: string): Promise<{ bookId: string; embedding: number[] } | undefined>;
   getSimilarBooks(embedding: number[], limit: number, excludeBookIds?: string[]): Promise<Book[]>;
+
+  // Custom shelves methods
+  getCustomShelves(userId: string): Promise<CustomShelf[]>;
+  createCustomShelf(shelf: InsertCustomShelf): Promise<CustomShelf>;
+  updateCustomShelf(id: string, updates: Partial<InsertCustomShelf>): Promise<CustomShelf | undefined>;
+  deleteCustomShelf(id: string): Promise<void>;
+
+  // Browse category preferences methods
+  getBrowseCategories(userId: string): Promise<BrowseCategoryPreference[]>;
+  createBrowseCategory(category: InsertBrowseCategoryPreference): Promise<BrowseCategoryPreference>;
+  updateBrowseCategory(id: string, updates: Partial<InsertBrowseCategoryPreference>): Promise<BrowseCategoryPreference | undefined>;
+  deleteBrowseCategory(id: string): Promise<void>;
 }
 
 export class DbStorage implements IStorage {
@@ -147,6 +161,60 @@ export class DbStorage implements IStorage {
     `;
 
     return db.execute(query).then((result: any) => result.rows as Book[]);
+  }
+
+  // Custom shelves methods
+  async getCustomShelves(userId: string): Promise<CustomShelf[]> {
+    return db
+      .select()
+      .from(customShelves)
+      .where(eq(customShelves.userId, userId))
+      .orderBy(customShelves.order);
+  }
+
+  async createCustomShelf(shelf: InsertCustomShelf): Promise<CustomShelf> {
+    const [result] = await db.insert(customShelves).values(shelf).returning();
+    return result;
+  }
+
+  async updateCustomShelf(id: string, updates: Partial<InsertCustomShelf>): Promise<CustomShelf | undefined> {
+    const [result] = await db
+      .update(customShelves)
+      .set(updates)
+      .where(eq(customShelves.id, id))
+      .returning();
+    return result;
+  }
+
+  async deleteCustomShelf(id: string): Promise<void> {
+    await db.delete(customShelves).where(eq(customShelves.id, id));
+  }
+
+  // Browse category preferences methods
+  async getBrowseCategories(userId: string): Promise<BrowseCategoryPreference[]> {
+    return db
+      .select()
+      .from(browseCategoryPreferences)
+      .where(eq(browseCategoryPreferences.userId, userId))
+      .orderBy(browseCategoryPreferences.order);
+  }
+
+  async createBrowseCategory(category: InsertBrowseCategoryPreference): Promise<BrowseCategoryPreference> {
+    const [result] = await db.insert(browseCategoryPreferences).values(category).returning();
+    return result;
+  }
+
+  async updateBrowseCategory(id: string, updates: Partial<InsertBrowseCategoryPreference>): Promise<BrowseCategoryPreference | undefined> {
+    const [result] = await db
+      .update(browseCategoryPreferences)
+      .set(updates)
+      .where(eq(browseCategoryPreferences.id, id))
+      .returning();
+    return result;
+  }
+
+  async deleteBrowseCategory(id: string): Promise<void> {
+    await db.delete(browseCategoryPreferences).where(eq(browseCategoryPreferences.id, id));
   }
 }
 

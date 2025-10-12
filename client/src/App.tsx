@@ -8,9 +8,11 @@ import InstallPrompt from "@/components/InstallPrompt";
 import ShelvesPage from "@/pages/ShelvesPage";
 import BrowsePage from "@/pages/BrowsePage";
 import ProfilePage from "@/pages/ProfilePage";
+import SettingsPage from "@/pages/SettingsPage";
 
 function App() {
   const [activeTab, setActiveTab] = useState<"shelves" | "browse" | "profile">("shelves");
+  const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -25,13 +27,17 @@ function App() {
   }, []);
 
   const renderPage = () => {
+    if (showSettings) {
+      return <SettingsPage onBack={() => setShowSettings(false)} />;
+    }
+
     switch (activeTab) {
       case "shelves":
         return <ShelvesPage />;
       case "browse":
         return <BrowsePage />;
       case "profile":
-        return <ProfilePage />;
+        return <ProfilePage onOpenSettings={() => setShowSettings(true)} />;
       default:
         return <ShelvesPage />;
     }
@@ -42,7 +48,7 @@ function App() {
       <TooltipProvider>
         <div className="min-h-screen bg-background">
           {renderPage()}
-          <BottomNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+          {!showSettings && <BottomNavigation activeTab={activeTab} onTabChange={setActiveTab} />}
           <InstallPrompt />
         </div>
         <Toaster />

@@ -6,7 +6,11 @@ import { Settings, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getUserBooks, DEMO_USER_ID } from "@/lib/api";
 
-export default function ProfilePage() {
+interface ProfilePageProps {
+  onOpenSettings: () => void;
+}
+
+export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
   const { data: userBooks = [] } = useQuery({
     queryKey: ["/api/user-books", DEMO_USER_ID],
     queryFn: () => getUserBooks(DEMO_USER_ID),
@@ -37,7 +41,7 @@ export default function ProfilePage() {
             size="icon" 
             variant="ghost"
             data-testid="button-settings"
-            onClick={() => console.log("Settings clicked")}
+            onClick={onOpenSettings}
           >
             <Settings className="w-5 h-5" />
           </Button>

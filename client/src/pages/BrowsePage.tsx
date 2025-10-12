@@ -1,13 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
-import BookCard from "@/components/BookCard";
+import HorizontalBookRow from "@/components/HorizontalBookRow";
 import BookDetailDialog from "@/components/BookDetailDialog";
-import GenreCard from "@/components/GenreCard";
-import RecommendationCard from "@/components/RecommendationCard";
 import SearchBar from "@/components/SearchBar";
-import { ChevronRight } from "lucide-react";
-import { searchBooks, getRecommendations, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
+import { searchBooks, getUserBooks, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
 
 export default function BrowsePage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,24 +17,58 @@ export default function BrowsePage() {
     enabled: searchQuery.length > 2,
   });
 
-  const { data: recommendations = [] } = useQuery({
-    queryKey: ["/api/recs", DEMO_USER_ID],
-    queryFn: () => getRecommendations(DEMO_USER_ID),
+  const { data: userBooks = [] } = useQuery({
+    queryKey: ["/api/user-books", DEMO_USER_ID],
+    queryFn: () => getUserBooks(DEMO_USER_ID),
   });
 
-  const upcomingBooks: BookSearchResult[] = []; // Can be populated from a specific API or data source
-
-  const genres = [
-    { name: "Fantasy", count: 42, color: "250 70% 60%" },
-    { name: "Science Fiction", count: 28, color: "210 80% 55%" },
-    { name: "Mystery", count: 15, color: "140 60% 50%" },
-    { name: "Romance", count: 12, color: "340 70% 60%" },
-  ];
+  // Get categories from user's books
+  const getCategories = () => {
+    const allCategories = new Set<string>();
+    userBooks.forEach(ub => {
+      ub.book.categories?.forEach(cat => allCategories.add(cat));
+    });
+    return Array.from(allCategories);
+  };
 
   const handleBookClick = (book: BookSearchResult) => {
     setSelectedBook(book);
     setDialogOpen(true);
   };
+
+  // Get books for "Your Next Reads" (plan-to-read status)
+  const nextReadsBooks = userBooks
+    .filter(ub => ub.status === "plan-to-read")
+    .map(ub => ub.book);
+
+  // Get books for "New for You" (recently added)
+  const newForYouBooks = userBooks
+    .sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime())
+    .slice(0, 10)
+    .map(ub => ub.book);
+
+  // Get genre-specific books
+  const getBooksByGenre = async (genre: string): Promise<BookSearchResult[]> => {
+    try {
+      const results = await searchBooks(genre);
+      return results.slice(0, 10);
+    } catch {
+      return [];
+    }
+  };
+
+  const [fantasyBooks, setFantasyBooks] = useState<BookSearchResult[]>([]);
+  const [sciFiBooks, setSciFiBooks] = useState<BookSearchResult[]>([]);
+  const [mysteryBooks, setMysteryBooks] = useState<BookSearchResult[]>([]);
+  const [romanceBooks, setRomanceBooks] = useState<BookSearchResult[]>([]);
+
+  useEffect(() => {
+    // Load genre books on mount
+    getBooksByGenre("Fantasy").then(setFantasyBooks);
+    getBooksByGenre("Science Fiction").then(setSciFiBooks);
+    getBooksByGenre("Mystery").then(setMysteryBooks);
+    getBooksByGenre("Romance").then(setRomanceBooks);
+  }, []);
 
   return (
     <div className="pb-20">
@@ -51,7 +82,7 @@ export default function BrowsePage() {
         />
       </div>
 
-      {searchQuery.length > 2 && (
+      {searchQuery.length > 2 ? (
         <div className="px-4 py-4">
           <h2 className="font-display text-lg font-semibold mb-3">Search Results</h2>
           {isSearching ? (
@@ -59,87 +90,73 @@ export default function BrowsePage() {
           ) : searchResults.length > 0 ? (
             <div className="grid grid-cols-2 gap-3">
               {searchResults.slice(0, 10).map((book) => (
-                <BookCard
-                  key={book.googleBooksId}
-                  title={book.title}
-                  author={book.authors[0]}
-                  coverUrl={book.coverUrl}
+                <div 
+                  key={book.googleBooksId} 
+                  className="cursor-pointer"
                   onClick={() => handleBookClick(book)}
-                />
+                  data-testid={`search-result-${book.googleBooksId}`}
+                >
+                  <img
+                    src={book.coverUrl || "/placeholder-book.png"}
+                    alt={book.title}
+                    className="w-full h-48 object-cover rounded-lg mb-2"
+                  />
+                  <h3 className="font-medium text-sm line-clamp-2">{book.title}</h3>
+                  <p className="text-xs text-muted-foreground">{book.authors[0]}</p>
+                </div>
               ))}
             </div>
           ) : (
             <div className="text-center text-muted-foreground py-8">No results found</div>
           )}
         </div>
-      )}
-
-      {!searchQuery && (
-        <div className="px-4 py-4 space-y-6">
-          {upcomingBooks.length > 0 && (
-            <section>
-              <div className="flex items-center justify-between mb-3">
-                <h2 className="font-display text-lg font-semibold">Upcoming Releases</h2>
-                <button className="text-sm text-primary flex items-center gap-1 hover-elevate px-2 py-1 rounded">
-                  See All
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-              <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4">
-                {upcomingBooks.map((book) => (
-                  <div key={book.googleBooksId} className="w-32 flex-shrink-0">
-                    <BookCard
-                      title={book.title}
-                      author={book.authors[0]}
-                      coverUrl={book.coverUrl}
-                      onClick={() => console.log(`Clicked ${book.title}`)}
-                    />
-                  </div>
-                ))}
-              </div>
-            </section>
+      ) : (
+        <div className="space-y-6">
+          {/* Your Next Reads */}
+          {nextReadsBooks.length > 0 && (
+            <HorizontalBookRow
+              title="Your Next Reads"
+              books={nextReadsBooks}
+              onBookClick={handleBookClick}
+            />
           )}
 
-          <section>
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="font-display text-lg font-semibold">Browse by Genre</h2>
-              <button className="text-sm text-primary flex items-center gap-1 hover-elevate px-2 py-1 rounded">
-                See All
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              {genres.map((genre) => (
-                <GenreCard
-                  key={genre.name}
-                  genre={genre.name}
-                  bookCount={genre.count}
-                  color={genre.color}
-                  onClick={() => console.log(`Clicked ${genre.name}`)}
-                />
-              ))}
-            </div>
-          </section>
-
-          {recommendations.length > 0 && (
-            <section>
-              <div className="flex items-center justify-between mb-3">
-                <h2 className="font-display text-lg font-semibold">AI Recommended</h2>
-              </div>
-              <div className="space-y-3">
-                {recommendations.slice(0, 3).map((rec) => (
-                  <RecommendationCard
-                    key={rec.googleBooksId}
-                    title={rec.title}
-                    author={rec.authors[0]}
-                    coverUrl={rec.coverUrl}
-                    rationale={rec.rationale}
-                    onClick={() => handleBookClick(rec)}
-                  />
-                ))}
-              </div>
-            </section>
+          {/* New for You */}
+          {newForYouBooks.length > 0 && (
+            <HorizontalBookRow
+              title="New for You"
+              books={newForYouBooks}
+              onBookClick={handleBookClick}
+            />
           )}
+
+          {/* Fantasy */}
+          <HorizontalBookRow
+            title="Fantasy"
+            books={fantasyBooks}
+            onBookClick={handleBookClick}
+          />
+
+          {/* Science Fiction */}
+          <HorizontalBookRow
+            title="Sci-Fi"
+            books={sciFiBooks}
+            onBookClick={handleBookClick}
+          />
+
+          {/* Mystery */}
+          <HorizontalBookRow
+            title="Mystery"
+            books={mysteryBooks}
+            onBookClick={handleBookClick}
+          />
+
+          {/* Romance */}
+          <HorizontalBookRow
+            title="Romance"
+            books={romanceBooks}
+            onBookClick={handleBookClick}
+          />
         </div>
       )}
 

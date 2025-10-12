@@ -13,6 +13,12 @@ BookShelf.ai is a mobile-first Progressive Web App (PWA) designed for tracking p
 - ✅ PWA install prompt now works correctly on iPhone
 - ✅ E2E testing validated: search → book detail → add to shelf → verify in shelves
 - ✅ Complete documentation with deployment instructions for Capacitor/Expo
+- ✅ Redesigned Browse page with Netflix-style horizontal scrollable rows (Fantasy, Sci-Fi, Mystery, Romance, etc.)
+- ✅ Added Settings page for customizing shelves and browse categories
+- ✅ Implemented database schema for custom shelves and browse category preferences
+- ✅ Created backend API routes for managing custom shelves and browse categories
+- 🚧 IN PROGRESS: Connect Settings page to persist preferences via backend APIs
+- 🚧 IN PROGRESS: Update Browse page to dynamically load categories based on user preferences
 
 ## User Preferences
 

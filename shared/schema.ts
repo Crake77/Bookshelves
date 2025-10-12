@@ -77,3 +77,42 @@ export const insertUserBookSchema = createInsertSchema(userBooks).omit({
 
 export type InsertUserBook = z.infer<typeof insertUserBookSchema>;
 export type UserBook = typeof userBooks.$inferSelect;
+
+// Custom shelves (user-defined shelf types)
+export const customShelves = pgTable("custom_shelves", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  slug: text("slug").notNull(),
+  isEnabled: integer("is_enabled").notNull().default(1), // 1 = enabled, 0 = disabled
+  order: integer("order").notNull().default(0),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertCustomShelfSchema = createInsertSchema(customShelves).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertCustomShelf = z.infer<typeof insertCustomShelfSchema>;
+export type CustomShelf = typeof customShelves.$inferSelect;
+
+// Browse category preferences
+export const browseCategoryPreferences = pgTable("browse_category_preferences", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  categoryType: text("category_type").notNull(), // 'genre', 'custom', 'system'
+  categoryName: text("category_name").notNull(),
+  categorySlug: text("category_slug").notNull(),
+  isEnabled: integer("is_enabled").notNull().default(1),
+  order: integer("order").notNull().default(0),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertBrowseCategoryPreferenceSchema = createInsertSchema(browseCategoryPreferences).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertBrowseCategoryPreference = z.infer<typeof insertBrowseCategoryPreferenceSchema>;
+export type BrowseCategoryPreference = typeof browseCategoryPreferences.$inferSelect;

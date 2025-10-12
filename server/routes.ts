@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertBookSchema, insertUserBookSchema } from "@shared/schema";
+import { insertBookSchema, insertUserBookSchema, insertCustomShelfSchema, insertBrowseCategoryPreferenceSchema } from "@shared/schema";
 import { z } from "zod";
 import OpenAI from "openai";
 
@@ -260,6 +260,108 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Remove user book error:", error);
       res.status(500).json({ error: "Failed to remove book from shelf" });
+    }
+  });
+
+  // Custom Shelves API
+  app.get("/api/custom-shelves/:userId", async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const shelves = await storage.getCustomShelves(userId);
+      res.json(shelves);
+    } catch (error) {
+      console.error("Get custom shelves error:", error);
+      res.status(500).json({ error: "Failed to get custom shelves" });
+    }
+  });
+
+  app.post("/api/custom-shelves", async (req, res) => {
+    try {
+      const shelfData = insertCustomShelfSchema.parse(req.body);
+      const shelf = await storage.createCustomShelf(shelfData);
+      res.json(shelf);
+    } catch (error) {
+      console.error("Create custom shelf error:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: error.errors });
+      }
+      res.status(500).json({ error: "Failed to create custom shelf" });
+    }
+  });
+
+  app.patch("/api/custom-shelves/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const shelf = await storage.updateCustomShelf(id, req.body);
+      if (!shelf) {
+        return res.status(404).json({ error: "Custom shelf not found" });
+      }
+      res.json(shelf);
+    } catch (error) {
+      console.error("Update custom shelf error:", error);
+      res.status(500).json({ error: "Failed to update custom shelf" });
+    }
+  });
+
+  app.delete("/api/custom-shelves/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await storage.deleteCustomShelf(id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Delete custom shelf error:", error);
+      res.status(500).json({ error: "Failed to delete custom shelf" });
+    }
+  });
+
+  // Browse Categories API
+  app.get("/api/browse-categories/:userId", async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const categories = await storage.getBrowseCategories(userId);
+      res.json(categories);
+    } catch (error) {
+      console.error("Get browse categories error:", error);
+      res.status(500).json({ error: "Failed to get browse categories" });
+    }
+  });
+
+  app.post("/api/browse-categories", async (req, res) => {
+    try {
+      const categoryData = insertBrowseCategoryPreferenceSchema.parse(req.body);
+      const category = await storage.createBrowseCategory(categoryData);
+      res.json(category);
+    } catch (error) {
+      console.error("Create browse category error:", error);
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ error: error.errors });
+      }
+      res.status(500).json({ error: "Failed to create browse category" });
+    }
+  });
+
+  app.patch("/api/browse-categories/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const category = await storage.updateBrowseCategory(id, req.body);
+      if (!category) {
+        return res.status(404).json({ error: "Browse category not found" });
+      }
+      res.json(category);
+    } catch (error) {
+      console.error("Update browse category error:", error);
+      res.status(500).json({ error: "Failed to update browse category" });
+    }
+  });
+
+  app.delete("/api/browse-categories/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await storage.deleteBrowseCategory(id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Delete browse category error:", error);
+      res.status(500).json({ error: "Failed to delete browse category" });
     }
   });
 
