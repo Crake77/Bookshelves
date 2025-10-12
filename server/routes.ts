@@ -114,15 +114,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
         // Create new book
         book = await storage.createBook(bookData);
         
-        // Generate and store embedding if description exists
-        if (book.description) {
-          const embeddingText = `${book.title} by ${book.authors.join(", ")}. ${book.description}`;
-          const embedding = await generateEmbedding(embeddingText);
-          
-          await storage.createBookEmbedding({
-            bookId: book.id,
-            embedding: embedding as any,
-          });
+        // Try to generate and store embedding if description exists (optional, graceful degradation)
+        if (book.description && process.env.OPENAI_API_KEY) {
+          try {
+            const embeddingText = `${book.title} by ${book.authors.join(", ")}. ${book.description}`;
+            const embedding = await generateEmbedding(embeddingText);
+            
+            await storage.createBookEmbedding({
+              bookId: book.id,
+              embedding: embedding as any,
+            });
+          } catch (embeddingError: any) {
+            // Log embedding error but don't fail the request
+            console.warn("Failed to generate embedding (continuing without it):", embeddingError.message);
+          }
         }
       }
 
@@ -159,7 +164,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const validEmbeddings = userEmbeddings.filter(e => e !== undefined);
       
+      // If no embeddings available (OpenAI quota exceeded), return empty recommendations
       if (validEmbeddings.length === 0) {
+        console.warn("No embeddings available for recommendations");
         return res.json([]);
       }
 
@@ -172,12 +179,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get similar books
       const recommendations = await storage.getSimilarBooks(avgEmbedding, 5, userBookIds);
 
-      // Generate rationales for recommendations
+      // Generate rationales for recommendations (with graceful fallback)
       const userBookTitles = userBooks.slice(0, 3).map(ub => ub.book.title);
       const recsWithRationale = await Promise.all(
         recommendations.map(async (book) => {
-          const rationale = await generateRationale(userBookTitles, book.title);
-          return { ...book, rationale };
+          try {
+            const rationale = await generateRationale(userBookTitles, book.title);
+            return { ...book, rationale };
+          } catch (rationaleError: any) {
+            // Fallback rationale if OpenAI fails
+            console.warn("Failed to generate rationale (using fallback):", rationaleError.message);
+            return { 
+              ...book, 
+              rationale: "A great match for your reading preferences based on similar themes and style."
+            };
+          }
         })
       );
 

@@ -12,6 +12,10 @@ export interface BookSearchResult {
   isbn?: string;
 }
 
+export interface IngestedBook extends BookSearchResult {
+  id: string;
+}
+
 export interface BookRecommendation extends BookSearchResult {
   rationale: string;
 }
@@ -34,7 +38,7 @@ export async function searchBooks(query: string): Promise<BookSearchResult[]> {
   return response.json();
 }
 
-export async function ingestBook(book: Partial<BookSearchResult>): Promise<BookSearchResult> {
+export async function ingestBook(book: Partial<BookSearchResult>): Promise<IngestedBook> {
   const res = await apiRequest("POST", "/api/ingest", book);
   return res.json();
 }

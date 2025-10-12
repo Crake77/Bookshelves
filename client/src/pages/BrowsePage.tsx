@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import BookCard from "@/components/BookCard";
+import BookDetailDialog from "@/components/BookDetailDialog";
 import GenreCard from "@/components/GenreCard";
 import RecommendationCard from "@/components/RecommendationCard";
 import SearchBar from "@/components/SearchBar";
@@ -10,6 +11,8 @@ import { searchBooks, getRecommendations, DEMO_USER_ID, type BookSearchResult } 
 
 export default function BrowsePage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedBook, setSelectedBook] = useState<BookSearchResult | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const { data: searchResults = [], isLoading: isSearching } = useQuery({
     queryKey: ["/api/search", searchQuery],
@@ -30,6 +33,11 @@ export default function BrowsePage() {
     { name: "Mystery", count: 15, color: "140 60% 50%" },
     { name: "Romance", count: 12, color: "340 70% 60%" },
   ];
+
+  const handleBookClick = (book: BookSearchResult) => {
+    setSelectedBook(book);
+    setDialogOpen(true);
+  };
 
   return (
     <div className="pb-20">
@@ -56,7 +64,7 @@ export default function BrowsePage() {
                   title={book.title}
                   author={book.authors[0]}
                   coverUrl={book.coverUrl}
-                  onClick={() => console.log(`Clicked ${book.title}`)}
+                  onClick={() => handleBookClick(book)}
                 />
               ))}
             </div>
@@ -126,7 +134,7 @@ export default function BrowsePage() {
                     author={rec.authors[0]}
                     coverUrl={rec.coverUrl}
                     rationale={rec.rationale}
-                    onClick={() => console.log(`Clicked ${rec.title}`)}
+                    onClick={() => handleBookClick(rec)}
                   />
                 ))}
               </div>
@@ -134,6 +142,12 @@ export default function BrowsePage() {
           )}
         </div>
       )}
+
+      <BookDetailDialog
+        book={selectedBook}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
     </div>
   );
 }
