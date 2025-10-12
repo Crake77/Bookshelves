@@ -65,6 +65,7 @@ export const userBooks = pgTable("user_books", {
   userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
   status: text("status").notNull(), // Supports both default and custom shelf slugs
+  rating: integer("rating"), // User's rating 0-100
   addedAt: timestamp("added_at").defaultNow().notNull(),
 });
 
@@ -114,3 +115,21 @@ export const insertBrowseCategoryPreferenceSchema = createInsertSchema(browseCat
 
 export type InsertBrowseCategoryPreference = z.infer<typeof insertBrowseCategoryPreferenceSchema>;
 export type BrowseCategoryPreference = typeof browseCategoryPreferences.$inferSelect;
+
+// Book statistics (aggregated ratings and rankings)
+export const bookStats = pgTable("book_stats", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  bookId: uuid("book_id").notNull().unique().references(() => books.id, { onDelete: "cascade" }),
+  averageRating: integer("average_rating"), // Average of all user ratings (0-100)
+  totalRatings: integer("total_ratings").notNull().default(0), // Count of ratings
+  ranking: integer("ranking"), // Global ranking position (1 = highest rated)
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const insertBookStatsSchema = createInsertSchema(bookStats).omit({
+  id: true,
+  updatedAt: true,
+});
+
+export type InsertBookStats = z.infer<typeof insertBookStatsSchema>;
+export type BookStats = typeof bookStats.$inferSelect;

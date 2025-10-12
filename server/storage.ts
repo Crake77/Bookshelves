@@ -1,13 +1,14 @@
 import { db } from "../db/index";
 import { eq, sql, desc, and } from "drizzle-orm";
 import { 
-  users, books, userBooks, bookEmbeddings, customShelves, browseCategoryPreferences,
+  users, books, userBooks, bookEmbeddings, customShelves, browseCategoryPreferences, bookStats,
   type User, type InsertUser,
   type Book, type InsertBook,
   type UserBook, type InsertUserBook,
   type InsertBookEmbedding,
   type CustomShelf, type InsertCustomShelf,
-  type BrowseCategoryPreference, type InsertBrowseCategoryPreference
+  type BrowseCategoryPreference, type InsertBrowseCategoryPreference,
+  type BookStats, type InsertBookStats
 } from "@shared/schema";
 
 export interface IStorage {
@@ -44,6 +45,14 @@ export interface IStorage {
   createBrowseCategory(category: InsertBrowseCategoryPreference): Promise<BrowseCategoryPreference>;
   updateBrowseCategory(id: string, updates: Partial<InsertBrowseCategoryPreference>): Promise<BrowseCategoryPreference | undefined>;
   deleteBrowseCategory(id: string): Promise<void>;
+
+  // Rating methods
+  updateUserBookRating(id: string, rating: number): Promise<UserBook | undefined>;
+  
+  // Book stats methods
+  getBookStats(bookId: string): Promise<BookStats | undefined>;
+  upsertBookStats(stats: InsertBookStats): Promise<BookStats>;
+  recalculateBookStats(bookId: string): Promise<BookStats>;
 }
 
 export class DbStorage implements IStorage {
@@ -97,6 +106,7 @@ export class DbStorage implements IStorage {
         userId: userBooks.userId,
         bookId: userBooks.bookId,
         status: userBooks.status,
+        rating: userBooks.rating,
         addedAt: userBooks.addedAt,
         book: books,
       })
@@ -215,6 +225,81 @@ export class DbStorage implements IStorage {
 
   async deleteBrowseCategory(id: string): Promise<void> {
     await db.delete(browseCategoryPreferences).where(eq(browseCategoryPreferences.id, id));
+  }
+
+  // Rating methods
+  async updateUserBookRating(id: string, rating: number): Promise<UserBook | undefined> {
+    const [userBook] = await db
+      .update(userBooks)
+      .set({ rating })
+      .where(eq(userBooks.id, id))
+      .returning();
+    
+    if (userBook) {
+      // Recalculate book stats after rating update
+      await this.recalculateBookStats(userBook.bookId);
+    }
+    
+    return userBook;
+  }
+
+  // Book stats methods
+  async getBookStats(bookId: string): Promise<BookStats | undefined> {
+    const [stats] = await db.select().from(bookStats).where(eq(bookStats.bookId, bookId));
+    return stats;
+  }
+
+  async upsertBookStats(stats: InsertBookStats): Promise<BookStats> {
+    const [result] = await db
+      .insert(bookStats)
+      .values(stats)
+      .onConflictDoUpdate({
+        target: bookStats.bookId,
+        set: {
+          averageRating: stats.averageRating,
+          totalRatings: stats.totalRatings,
+          ranking: stats.ranking,
+          updatedAt: sql`now()`,
+        },
+      })
+      .returning();
+    return result;
+  }
+
+  async recalculateBookStats(bookId: string): Promise<BookStats> {
+    // Get all ratings for this book
+    const userBooksWithRatings = await db
+      .select()
+      .from(userBooks)
+      .where(and(
+        eq(userBooks.bookId, bookId),
+        sql`${userBooks.rating} IS NOT NULL`
+      ));
+
+    const totalRatings = userBooksWithRatings.length;
+    const averageRating = totalRatings > 0
+      ? Math.round(
+          userBooksWithRatings.reduce((sum, ub) => sum + (ub.rating || 0), 0) / totalRatings
+        )
+      : null;
+
+    // Calculate ranking (get count of books with higher average rating)
+    const higherRatedBooks = await db.execute(sql`
+      SELECT COUNT(*)::int as count
+      FROM ${bookStats}
+      WHERE ${bookStats.averageRating} > ${averageRating}
+      AND ${bookStats.totalRatings} >= 3
+    `);
+    
+    const ranking = averageRating ? (higherRatedBooks.rows[0] as any).count + 1 : null;
+
+    // Upsert the stats
+    return this.upsertBookStats({
+      bookId,
+      averageRating,
+      totalRatings,
+      ranking,
+    });
   }
 }
 

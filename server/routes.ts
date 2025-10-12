@@ -343,6 +343,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Update book rating
+  app.patch("/api/user-books/:id/rating", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { rating } = req.body;
+      
+      if (typeof rating !== 'number' || rating < 0 || rating > 100) {
+        return res.status(400).json({ error: "Rating must be a number between 0 and 100" });
+      }
+      
+      const userBook = await storage.updateUserBookRating(id, rating);
+      if (!userBook) {
+        return res.status(404).json({ error: "User book not found" });
+      }
+      
+      res.json(userBook);
+    } catch (error) {
+      console.error("Update rating error:", error);
+      res.status(500).json({ error: "Failed to update rating" });
+    }
+  });
+
+  // Book Stats API
+  app.get("/api/book-stats/:bookId", async (req, res) => {
+    try {
+      const { bookId } = req.params;
+      const stats = await storage.getBookStats(bookId);
+      res.json(stats || { averageRating: null, totalRatings: 0, ranking: null });
+    } catch (error) {
+      console.error("Get book stats error:", error);
+      res.status(500).json({ error: "Failed to get book stats" });
+    }
+  });
+
   // Custom Shelves API
   app.get("/api/custom-shelves/:userId", async (req, res) => {
     try {

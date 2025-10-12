@@ -25,8 +25,18 @@ export interface UserBook {
   userId: string;
   bookId: string;
   status: string; // Supports both default and custom shelf slugs
+  rating: number | null; // User's rating 0-100
   addedAt: string;
   book: BookSearchResult;
+}
+
+export interface BookStats {
+  id: string;
+  bookId: string;
+  averageRating: number | null;
+  totalRatings: number;
+  ranking: number | null;
+  updatedAt: string;
 }
 
 // Demo user ID
@@ -137,4 +147,17 @@ export async function updateBrowseCategory(id: string, updates: Partial<Omit<Bro
 
 export async function deleteBrowseCategory(id: string): Promise<void> {
   await apiRequest("DELETE", `/api/browse-categories/${id}`);
+}
+
+// Rating API
+export async function updateBookRating(userBookId: string, rating: number): Promise<UserBook> {
+  const res = await apiRequest("PATCH", `/api/user-books/${userBookId}/rating`, { rating });
+  return res.json();
+}
+
+// Book Stats API
+export async function getBookStats(bookId: string): Promise<BookStats | null> {
+  const response = await fetch(`/api/book-stats/${bookId}`);
+  if (!response.ok) return null;
+  return response.json();
 }
