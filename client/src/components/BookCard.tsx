@@ -77,7 +77,7 @@ export default function BookCard({
           </div>
         )}
         
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent pointer-events-none" />
         
         {status && (
           <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-[10px] font-medium border ${getStatusColor(status)}`}>

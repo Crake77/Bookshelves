@@ -4,12 +4,12 @@ import AppHeader from "@/components/AppHeader";
 import SearchBar from "@/components/SearchBar";
 import ShelfSection from "@/components/ShelfSection";
 import BookCard from "@/components/BookCard";
-import ShelfSelectionDialog from "@/components/ShelfSelectionDialog";
-import { getUserBooks, getCustomShelves, DEMO_USER_ID, type UserBook } from "@/lib/api";
+import BookDetailDialog from "@/components/BookDetailDialog";
+import { getUserBooks, getCustomShelves, DEMO_USER_ID, type UserBook, type BookSearchResult } from "@/lib/api";
 
 export default function ShelvesPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedUserBook, setSelectedUserBook] = useState<UserBook | null>(null);
+  const [selectedBook, setSelectedBook] = useState<BookSearchResult | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
   const { data: userBooks = [], isLoading } = useQuery({
@@ -105,7 +105,7 @@ export default function ShelvesPage() {
                       coverUrl={userBook.book.coverUrl}
                       status={userBook.status}
                       onClick={() => {
-                        setSelectedUserBook(userBook);
+                        setSelectedBook(userBook.book);
                         setDialogOpen(true);
                       }}
                     />
@@ -121,11 +121,10 @@ export default function ShelvesPage() {
         ))}
       </div>
 
-      <ShelfSelectionDialog
+      <BookDetailDialog
+        book={selectedBook}
         open={dialogOpen}
         onOpenChange={setDialogOpen}
-        userBook={selectedUserBook}
-        bookTitle={selectedUserBook?.book.title || ""}
       />
     </div>
   );
