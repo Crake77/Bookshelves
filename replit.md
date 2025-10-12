@@ -17,8 +17,11 @@ BookShelf.ai is a mobile-first Progressive Web App (PWA) designed for tracking p
 - ✅ Added Settings page for customizing shelves and browse categories
 - ✅ Implemented database schema for custom shelves and browse category preferences
 - ✅ Created backend API routes for managing custom shelves and browse categories
-- 🚧 IN PROGRESS: Connect Settings page to persist preferences via backend APIs
-- 🚧 IN PROGRESS: Update Browse page to dynamically load categories based on user preferences
+- ✅ Implemented batch embedding generation with rate limiting (5 seconds between books, max 10 per batch)
+- ✅ Added Profile page UI for monitoring and triggering embedding generation
+- ✅ Graceful error handling for OpenAI quota limits - shows success/failure counts
+- 🚧 TODO: Connect Settings page to persist preferences via backend APIs
+- 🚧 TODO: Update Browse page to dynamically load categories based on user preferences
 
 ## User Preferences
 

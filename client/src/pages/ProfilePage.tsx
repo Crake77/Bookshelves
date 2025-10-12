@@ -1,19 +1,54 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import ProfileStats from "@/components/ProfileStats";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Settings, LogOut } from "lucide-react";
+import { Settings, LogOut, Sparkles, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getUserBooks, DEMO_USER_ID } from "@/lib/api";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 interface ProfilePageProps {
   onOpenSettings: () => void;
 }
 
 export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
+  const { toast } = useToast();
+  const [embeddingStatus, setEmbeddingStatus] = useState<any>(null);
+  
   const { data: userBooks = [] } = useQuery({
     queryKey: ["/api/user-books", DEMO_USER_ID],
     queryFn: () => getUserBooks(DEMO_USER_ID),
+  });
+
+  const { data: missingEmbeddings } = useQuery<{ count: number; books: any[] }>({
+    queryKey: ["/api/books/missing-embeddings"],
+    refetchInterval: 30000,
+  });
+
+  const batchEmbeddingMutation = useMutation({
+    mutationFn: async () => {
+      const res = await apiRequest("POST", "/api/batch/generate-embeddings", {
+        delayMs: 5000,
+        limit: 10,
+      });
+      return res.json();
+    },
+    onSuccess: (data) => {
+      setEmbeddingStatus(data);
+      toast({
+        title: "Batch Job Complete",
+        description: `✓ ${data.successCount} embeddings generated, ✗ ${data.errorCount} failed`,
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Batch Job Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
   });
 
   const completedBooks = userBooks.filter(ub => ub.status === "completed");
@@ -92,6 +127,45 @@ export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
               style={{ width: `${Math.min((completedBooks.length / 50) * 100, 100)}%` }}
             />
           </div>
+        </div>
+
+        <div className="rounded-xl bg-card p-4 border border-card-border space-y-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="font-semibold">AI Embeddings</h3>
+              <p className="text-xs text-muted-foreground mt-1">
+                {missingEmbeddings?.count || 0} books need embeddings
+              </p>
+            </div>
+            <Sparkles className="w-5 h-5 text-primary" />
+          </div>
+          
+          <Button
+            variant="outline"
+            className="w-full"
+            data-testid="button-generate-embeddings"
+            onClick={() => batchEmbeddingMutation.mutate()}
+            disabled={batchEmbeddingMutation.isPending || !missingEmbeddings?.count}
+          >
+            {batchEmbeddingMutation.isPending ? (
+              <>
+                <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                Generating Embeddings...
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-4 h-4 mr-2" />
+                Generate Embeddings
+              </>
+            )}
+          </Button>
+
+          {embeddingStatus && (
+            <div className="text-xs text-muted-foreground space-y-1">
+              <div>✓ Success: {embeddingStatus.successCount}</div>
+              <div>✗ Failed: {embeddingStatus.errorCount}</div>
+            </div>
+          )}
         </div>
 
         <Button

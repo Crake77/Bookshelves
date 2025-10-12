@@ -1,8 +1,10 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertBookSchema, insertUserBookSchema, insertCustomShelfSchema, insertBrowseCategoryPreferenceSchema } from "@shared/schema";
+import { insertBookSchema, insertUserBookSchema, insertCustomShelfSchema, insertBrowseCategoryPreferenceSchema, books, bookEmbeddings } from "@shared/schema";
 import { z } from "zod";
+import { sql } from "drizzle-orm";
+import { db } from "../db/index";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
@@ -362,6 +364,81 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Delete browse category error:", error);
       res.status(500).json({ error: "Failed to delete browse category" });
+    }
+  });
+
+  // Batch job to generate embeddings for books without them
+  app.post("/api/batch/generate-embeddings", async (req, res) => {
+    try {
+      const { delayMs = 5000, limit = 10 } = req.body; // Default: 5 seconds between each, max 10 books
+      
+      // Get books without embeddings
+      const booksWithoutEmbeddings = await db.execute(sql`
+        SELECT b.* FROM ${books} b
+        LEFT JOIN ${bookEmbeddings} be ON b.id = be.book_id
+        WHERE be.id IS NULL AND b.description IS NOT NULL
+        LIMIT ${limit}
+      `);
+
+      const results: any[] = [];
+      let successCount = 0;
+      let errorCount = 0;
+
+      for (const book of (booksWithoutEmbeddings.rows as any[])) {
+        try {
+          // Rate limiting delay
+          if (results.length > 0) {
+            await new Promise(resolve => setTimeout(resolve, delayMs));
+          }
+
+          const embeddingText = `${book.title} by ${book.authors?.join(", ")}. ${book.description}`;
+          const embedding = await generateEmbedding(embeddingText);
+          
+          await storage.createBookEmbedding({
+            bookId: book.id,
+            embedding: embedding as any,
+          });
+
+          results.push({ bookId: book.id, title: book.title, status: "success" });
+          successCount++;
+          console.log(`✓ Generated embedding for: ${book.title}`);
+        } catch (embeddingError: any) {
+          results.push({ bookId: book.id, title: book.title, status: "error", error: embeddingError.message });
+          errorCount++;
+          console.error(`✗ Failed to generate embedding for: ${book.title}`, embeddingError.message);
+        }
+      }
+
+      res.json({
+        message: `Batch job completed`,
+        totalProcessed: results.length,
+        successCount,
+        errorCount,
+        results,
+      });
+    } catch (error) {
+      console.error("Batch embedding generation error:", error);
+      res.status(500).json({ error: "Failed to run batch embedding job" });
+    }
+  });
+
+  // Get books without embeddings (for monitoring)
+  app.get("/api/books/missing-embeddings", async (req, res) => {
+    try {
+      const booksWithoutEmbeddings = await db.execute(sql`
+        SELECT b.id, b.title, b.authors, b.description 
+        FROM ${books} b
+        LEFT JOIN ${bookEmbeddings} be ON b.id = be.book_id
+        WHERE be.id IS NULL
+      `);
+
+      res.json({
+        count: booksWithoutEmbeddings.rows.length,
+        books: booksWithoutEmbeddings.rows,
+      });
+    } catch (error) {
+      console.error("Get books without embeddings error:", error);
+      res.status(500).json({ error: "Failed to get books without embeddings" });
     }
   });
 
