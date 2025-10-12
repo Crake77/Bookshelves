@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { ingestBook, addBookToShelf, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
+import { ingestBook, addBookToShelf, getCustomShelves, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
 import { Loader2 } from "lucide-react";
 
@@ -28,6 +28,13 @@ interface BookDetailDialogProps {
 export default function BookDetailDialog({ book, open, onOpenChange }: BookDetailDialogProps) {
   const [selectedStatus, setSelectedStatus] = useState<string>("reading");
   const { toast } = useToast();
+
+  // Fetch custom shelves
+  const { data: customShelves = [] } = useQuery({
+    queryKey: ["/api/custom-shelves", DEMO_USER_ID],
+    queryFn: () => getCustomShelves(DEMO_USER_ID),
+    enabled: open,
+  });
 
   const ingestMutation = useMutation({
     mutationFn: ingestBook,
@@ -138,6 +145,13 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
                   <SelectItem value="plan-to-read">Plan to Read</SelectItem>
                   <SelectItem value="on-hold">On Hold</SelectItem>
                   <SelectItem value="dropped">Dropped</SelectItem>
+                  {customShelves
+                    .filter(shelf => shelf.isEnabled === 1)
+                    .map(shelf => (
+                      <SelectItem key={shelf.id} value={shelf.slug}>
+                        {shelf.name}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>

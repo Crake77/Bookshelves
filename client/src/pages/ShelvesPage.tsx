@@ -4,10 +4,13 @@ import AppHeader from "@/components/AppHeader";
 import SearchBar from "@/components/SearchBar";
 import ShelfSection from "@/components/ShelfSection";
 import BookCard from "@/components/BookCard";
-import { getUserBooks, DEMO_USER_ID } from "@/lib/api";
+import ShelfSelectionDialog from "@/components/ShelfSelectionDialog";
+import { getUserBooks, DEMO_USER_ID, type UserBook } from "@/lib/api";
 
 export default function ShelvesPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedUserBook, setSelectedUserBook] = useState<UserBook | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const { data: userBooks = [], isLoading } = useQuery({
     queryKey: ["/api/user-books", DEMO_USER_ID],
@@ -94,7 +97,10 @@ export default function ShelvesPage() {
                       author={userBook.book.authors[0]}
                       coverUrl={userBook.book.coverUrl}
                       status={userBook.status}
-                      onClick={() => console.log(`Clicked ${userBook.book.title}`)}
+                      onClick={() => {
+                        setSelectedUserBook(userBook);
+                        setDialogOpen(true);
+                      }}
                     />
                   </div>
                 ))}
@@ -107,6 +113,13 @@ export default function ShelvesPage() {
           </ShelfSection>
         ))}
       </div>
+
+      <ShelfSelectionDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        userBook={selectedUserBook}
+        bookTitle={selectedUserBook?.book.title || ""}
+      />
     </div>
   );
 }
