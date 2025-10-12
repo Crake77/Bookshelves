@@ -4,6 +4,16 @@
 
 BookShelf.ai is a mobile-first Progressive Web App (PWA) designed for tracking personal reading journeys with AI-powered book recommendations. The application uses OpenAI embeddings and vector similarity search to provide intelligent book suggestions based on users' reading histories. Built with a dark, AniList-inspired aesthetic, it features smart shelf organization, multi-source book search, and offline support through service workers.
 
+## Recent Changes
+
+### October 12, 2025
+- ✅ Fixed service worker registration by adding static file serving middleware
+- ✅ Implemented BookDetailDialog for adding books to shelves with status selection
+- ✅ Added graceful error handling for OpenAI API quota limits (embeddings and rationales are optional)
+- ✅ PWA install prompt now works correctly on iPhone
+- ✅ E2E testing validated: search → book detail → add to shelf → verify in shelves
+- ✅ Complete documentation with deployment instructions for Capacitor/Expo
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
