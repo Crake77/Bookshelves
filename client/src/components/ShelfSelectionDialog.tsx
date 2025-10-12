@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { getCustomShelves, updateBookStatus, removeBookFromShelf, DEMO_USER_ID, type UserBook } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
 import { Trash2, Check } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 interface ShelfOption {
@@ -35,7 +35,14 @@ export default function ShelfSelectionDialog({
   bookTitle,
 }: ShelfSelectionDialogProps) {
   const { toast } = useToast();
-  const [selectedShelf, setSelectedShelf] = useState<string>(userBook?.status || "");
+  const [selectedShelf, setSelectedShelf] = useState<string>("");
+
+  // Sync selected shelf with current userBook when dialog opens
+  useEffect(() => {
+    if (open && userBook?.status) {
+      setSelectedShelf(userBook.status);
+    }
+  }, [open, userBook?.status]);
 
   // Fetch custom shelves
   const { data: customShelves = [] } = useQuery({

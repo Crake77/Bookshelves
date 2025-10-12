@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import {
   Dialog,
@@ -28,6 +28,13 @@ interface BookDetailDialogProps {
 export default function BookDetailDialog({ book, open, onOpenChange }: BookDetailDialogProps) {
   const [selectedStatus, setSelectedStatus] = useState<string>("reading");
   const { toast } = useToast();
+
+  // Reset to default when dialog opens
+  useEffect(() => {
+    if (open) {
+      setSelectedStatus("reading");
+    }
+  }, [open]);
 
   // Fetch custom shelves
   const { data: customShelves = [] } = useQuery({
