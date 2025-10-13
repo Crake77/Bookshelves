@@ -1,10 +1,33 @@
-import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMemo, useState } from "react";
+import { useQuery, useQueries, type UseQueryResult } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import HorizontalBookRow from "@/components/HorizontalBookRow";
 import BookDetailDialog from "@/components/BookDetailDialog";
 import SearchBar from "@/components/SearchBar";
-import { searchBooks, getUserBooks, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
+import {
+  searchBooks,
+  getUserBooks,
+  getBrowseCategories,
+  getRecommendations,
+  DEMO_USER_ID,
+  type BookSearchResult,
+} from "@/lib/api";
+import type { BookRecommendation } from "@/lib/api";
+
+type BrowseCategoryConfig = {
+  categoryName: string;
+  categorySlug: string;
+  categoryType: "system" | "genre" | "custom";
+};
+
+const FALLBACK_BROWSE_CATEGORIES: BrowseCategoryConfig[] = [
+  { categoryName: "Your Next Reads", categorySlug: "your-next-reads", categoryType: "system" },
+  { categoryName: "New for You", categorySlug: "new-for-you", categoryType: "system" },
+  { categoryName: "Fantasy", categorySlug: "fantasy", categoryType: "genre" },
+  { categoryName: "Sci-Fi", categorySlug: "sci-fi", categoryType: "genre" },
+  { categoryName: "Mystery", categorySlug: "mystery", categoryType: "genre" },
+  { categoryName: "Romance", categorySlug: "romance", categoryType: "genre" },
+];
 
 export default function BrowsePage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,53 +45,92 @@ export default function BrowsePage() {
     queryFn: () => getUserBooks(DEMO_USER_ID),
   });
 
-  // Get categories from user's books
-  const getCategories = () => {
-    const allCategories = new Set<string>();
-    userBooks.forEach(ub => {
-      ub.book.categories?.forEach(cat => allCategories.add(cat));
-    });
-    return Array.from(allCategories);
-  };
+  const { data: recommendations = [], isLoading: isLoadingRecommendations } = useQuery<BookRecommendation[]>({
+    queryKey: ["/api/recs", DEMO_USER_ID],
+    queryFn: () => getRecommendations(DEMO_USER_ID),
+  });
+
+  const { data: browseCategoryPrefs = [], isLoading: isLoadingBrowseCategories } = useQuery({
+    queryKey: ["/api/browse-categories", DEMO_USER_ID],
+    queryFn: () => getBrowseCategories(DEMO_USER_ID),
+  });
 
   const handleBookClick = (book: BookSearchResult) => {
     setSelectedBook(book);
     setDialogOpen(true);
   };
 
-  // Get books for "Your Next Reads" (plan-to-read status)
-  const nextReadsBooks = userBooks
-    .filter(ub => ub.status === "plan-to-read")
-    .map(ub => ub.book);
+  const nextReadsBooks = useMemo(
+    () =>
+      userBooks
+        .filter((ub) => ub.status === "plan-to-read")
+        .map((ub) => ub.book),
+    [userBooks]
+  );
 
-  // Get books for "New for You" (recently added)
-  const newForYouBooks = userBooks
-    .sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime())
-    .slice(0, 10)
-    .map(ub => ub.book);
+  const recentlyAddedBooks = useMemo(
+    () =>
+      [...userBooks]
+        .sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime())
+        .slice(0, 12)
+        .map((ub) => ub.book),
+    [userBooks]
+  );
 
-  // Get genre-specific books
-  const getBooksByGenre = async (genre: string): Promise<BookSearchResult[]> => {
-    try {
-      const results = await searchBooks(genre);
-      return results.slice(0, 10);
-    } catch {
-      return [];
+  const { books: newForYouBooks, isAi: hasAiRecommendations } = useMemo(() => {
+    const aiBooks = recommendations.slice(0, 12);
+    if (aiBooks.length > 0) {
+      return { books: aiBooks, isAi: true };
     }
-  };
+    return { books: recentlyAddedBooks, isAi: false };
+  }, [recommendations, recentlyAddedBooks]);
 
-  const [fantasyBooks, setFantasyBooks] = useState<BookSearchResult[]>([]);
-  const [sciFiBooks, setSciFiBooks] = useState<BookSearchResult[]>([]);
-  const [mysteryBooks, setMysteryBooks] = useState<BookSearchResult[]>([]);
-  const [romanceBooks, setRomanceBooks] = useState<BookSearchResult[]>([]);
+  const browseCategories = useMemo<BrowseCategoryConfig[]>(() => {
+    if (!browseCategoryPrefs || browseCategoryPrefs.length === 0) {
+      return FALLBACK_BROWSE_CATEGORIES;
+    }
 
-  useEffect(() => {
-    // Load genre books on mount
-    getBooksByGenre("Fantasy").then(setFantasyBooks);
-    getBooksByGenre("Science Fiction").then(setSciFiBooks);
-    getBooksByGenre("Mystery").then(setMysteryBooks);
-    getBooksByGenre("Romance").then(setRomanceBooks);
-  }, []);
+    const enabled = browseCategoryPrefs
+      .filter((category) => category.isEnabled !== 0)
+      .sort((a, b) => a.order - b.order)
+      .map<BrowseCategoryConfig>((category) => ({
+        categoryName: category.categoryName,
+        categorySlug: category.categorySlug,
+        categoryType:
+          (category.categoryType as BrowseCategoryConfig["categoryType"]) || "genre",
+      }));
+
+    return enabled.length > 0 ? enabled : FALLBACK_BROWSE_CATEGORIES;
+  }, [browseCategoryPrefs]);
+
+  const discoveryCategories = useMemo(
+    () => browseCategories.filter((category) => category.categoryType !== "system"),
+    [browseCategories]
+  );
+
+  const discoveryQueries = useQueries({
+    queries: discoveryCategories.map((category) => ({
+      queryKey: ["/api/browse-category", category.categorySlug],
+      queryFn: async () => {
+        const queryTerm =
+          category.categoryType === "genre"
+            ? category.categoryName
+            : `${category.categoryName} books`;
+        const results = await searchBooks(queryTerm);
+        return results.slice(0, 12);
+      },
+      enabled: searchQuery.length <= 2 && category.categoryName.trim().length > 0,
+      staleTime: 1000 * 60 * 30,
+    })),
+  }) as UseQueryResult<BookSearchResult[]>[];
+
+  const discoveryQueryMap = useMemo(() => {
+    const map = new Map<string, UseQueryResult<BookSearchResult[]>>();
+    discoveryCategories.forEach((category, index) => {
+      map.set(category.categorySlug, discoveryQueries[index]);
+    });
+    return map;
+  }, [discoveryCategories, discoveryQueries]);
 
   return (
     <div className="pb-20">
@@ -102,7 +164,9 @@ export default function BrowsePage() {
                     className="w-full h-48 object-cover rounded-lg mb-2"
                   />
                   <h3 className="font-medium text-sm line-clamp-2">{book.title}</h3>
-                  <p className="text-xs text-muted-foreground">{book.authors[0]}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {book.authors?.[0] ?? "Unknown author"}
+                  </p>
                 </div>
               ))}
             </div>
@@ -111,52 +175,68 @@ export default function BrowsePage() {
           )}
         </div>
       ) : (
-        <div className="space-y-6">
-          {/* Your Next Reads */}
-          {nextReadsBooks.length > 0 && (
-            <HorizontalBookRow
-              title="Your Next Reads"
-              books={nextReadsBooks}
-              onBookClick={handleBookClick}
-            />
-          )}
+        <div className="space-y-8">
+          {browseCategories.map((category) => {
+            if (category.categoryType === "system") {
+              if (category.categorySlug === "your-next-reads") {
+                if (nextReadsBooks.length === 0) return null;
 
-          {/* New for You */}
-          {newForYouBooks.length > 0 && (
-            <HorizontalBookRow
-              title="New for You"
-              books={newForYouBooks}
-              onBookClick={handleBookClick}
-            />
-          )}
+                return (
+                  <HorizontalBookRow
+                    key={category.categorySlug}
+                    title={category.categoryName}
+                    books={nextReadsBooks}
+                    onBookClick={handleBookClick}
+                    subtitle="Pulled from your Plan to Read shelf"
+                  />
+                );
+              }
 
-          {/* Fantasy */}
-          <HorizontalBookRow
-            title="Fantasy"
-            books={fantasyBooks}
-            onBookClick={handleBookClick}
-          />
+              if (category.categorySlug === "new-for-you") {
+                const showRow = isLoadingRecommendations || newForYouBooks.length > 0;
+                if (!showRow) return null;
 
-          {/* Science Fiction */}
-          <HorizontalBookRow
-            title="Sci-Fi"
-            books={sciFiBooks}
-            onBookClick={handleBookClick}
-          />
+                return (
+                  <HorizontalBookRow
+                    key={category.categorySlug}
+                    title={category.categoryName}
+                    books={newForYouBooks}
+                    onBookClick={handleBookClick}
+                    isLoading={isLoadingRecommendations}
+                    subtitle={
+                      hasAiRecommendations
+                        ? "AI-powered picks based on your shelves"
+                        : "Recently added to your library"
+                    }
+                  />
+                );
+              }
 
-          {/* Mystery */}
-          <HorizontalBookRow
-            title="Mystery"
-            books={mysteryBooks}
-            onBookClick={handleBookClick}
-          />
+              return null;
+            }
 
-          {/* Romance */}
-          <HorizontalBookRow
-            title="Romance"
-            books={romanceBooks}
-            onBookClick={handleBookClick}
-          />
+            const categoryQuery = discoveryQueryMap.get(category.categorySlug);
+            const categoryBooks = categoryQuery?.data ?? [];
+            const isLoadingCategory = Boolean(
+              categoryQuery?.isLoading ||
+              categoryQuery?.isFetching ||
+              isLoadingBrowseCategories
+            );
+
+            if (!isLoadingCategory && categoryBooks.length === 0) {
+              return null;
+            }
+
+            return (
+              <HorizontalBookRow
+                key={category.categorySlug}
+                title={category.categoryName}
+                books={categoryBooks}
+                onBookClick={handleBookClick}
+                isLoading={isLoadingCategory}
+              />
+            );
+          })}
         </div>
       )}
 
