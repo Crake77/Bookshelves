@@ -1,21 +1,31 @@
 // api/custom-shelves/[userId].ts
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { sql, ensureSchema, ensureDefaultShelves } from '../_db';
 
-/**
- * Temporary stub that returns an empty list of custom shelves for a user.
- * This matches your existing client call shape: /api/custom-shelves/:userId
- * We'll replace this with real DB logic next.
- */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const userId = String((req.query?.userId ?? '')).trim();
+  const userId = String(req.query?.userId ?? '').trim();
+  if (!userId) return res.status(400).json({ message: 'Missing userId' });
 
-  if (!userId) {
-    return res.status(400).json({ message: 'Missing userId' });
+  try {
+    // Make sure tables exist and defaults are present
+    await ensureSchema();
+    await ensureDefaultShelves(userId);
+
+    // Return shelves for this user
+    const rows = await sql/* sql */`
+      SELECT
+        id,
+        name,
+        position,
+        created_at AS "createdAt"
+      FROM shelves
+      WHERE user_id = ${userId}
+      ORDER BY position, id;
+    `;
+
+    return res.status(200).json(rows);
+  } catch (err: any) {
+    console.error('custom-shelves error:', err);
+    return res.status(500).json({ message: 'DB error', error: String(err?.message || err) });
   }
-
-  // TODO: replace with DB fetch
-  // Example shape your UI likely expects: [{ id, name, order, createdAt }, ...]
-  const shelves: any[] = [];
-
-  return res.status(200).json(shelves);
 }
