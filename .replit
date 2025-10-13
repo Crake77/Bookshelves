@@ -1,5 +1,5 @@
 modules = ["nodejs-20", "web", "postgresql-16"]
-run = "npm run dev"
+run = "echo '🚫 Do not run servers here. Use git push and Vercel will deploy.'"
 hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 
 [nix]
