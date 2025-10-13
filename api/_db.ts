@@ -1,15 +1,21 @@
 // api/_db.ts
 import { neon } from '@neondatabase/serverless';
 
-if (!process.env.DATABASE_URL) {
-  throw new Error('Missing DATABASE_URL env var');
+/**
+ * Get a Neon SQL client on demand (runtime), so we don't crash at import time
+ * if env vars are not yet wired during cold starts.
+ */
+export function getSql() {
+  const url = process.env.DATABASE_URL;
+  if (!url) {
+    throw new Error('Missing DATABASE_URL env var');
+  }
+  return neon(url);
 }
-
-// Neon SQL client for serverless environments (Vercel)
-export const sql = neon(process.env.DATABASE_URL);
 
 // Create tables if they don't exist
 export async function ensureSchema() {
+  const sql = getSql();
   await sql/* sql */`
     CREATE TABLE IF NOT EXISTS shelves (
       id BIGSERIAL PRIMARY KEY,
@@ -37,6 +43,7 @@ export async function ensureSchema() {
 
 // Seed the five default shelves if user has none (idempotent)
 export async function ensureDefaultShelves(userId: string) {
+  const sql = getSql();
   const defaults = [
     'Did Not Finish',
     'Waiting to Read',
