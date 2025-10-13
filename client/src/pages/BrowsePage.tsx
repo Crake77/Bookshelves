@@ -1,79 +1,152 @@
-import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useMemo, useState } from "react";
 import AppHeader from "@/components/AppHeader";
 import HorizontalBookRow from "@/components/HorizontalBookRow";
 import BookDetailDialog from "@/components/BookDetailDialog";
 import SearchBar from "@/components/SearchBar";
-import { searchBooks, getUserBooks, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
+import { Api, type BookSearchResult } from "@/lib/api";
+
+const SKELETON_ROWS = [
+  { id: "fantasy", title: "Popular in Fantasy" },
+  { id: "science_fiction", title: "Trending in Sci-Fi" },
+  { id: "mystery", title: "Mystery & Thrillers" },
+  { id: "historical_fiction", title: "Historical Fiction" },
+  { id: "romance", title: "Romance Picks" },
+];
+
+type BrowseRow = {
+  id: string;
+  title: string;
+  items: BookSearchResult[];
+};
 
 export default function BrowsePage() {
+  const [rows, setRows] = useState<BrowseRow[]>([]);
+  const [rowsLoading, setRowsLoading] = useState(true);
+  const [rowsError, setRowsError] = useState<string | null>(null);
+
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<BookSearchResult[] | null>(null);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [searchError, setSearchError] = useState<string | null>(null);
+
   const [selectedBook, setSelectedBook] = useState<BookSearchResult | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const { data: searchResults = [], isLoading: isSearching } = useQuery({
-    queryKey: ["/api/search", searchQuery],
-    queryFn: () => searchBooks(searchQuery),
-    enabled: searchQuery.length > 2,
-  });
+  useEffect(() => {
+    setRowsLoading(true);
+    setRowsError(null);
+    Api.browseRows()
+      .then((data) => {
+        setRows(data.rows);
+      })
+      .catch((error) => {
+        setRowsError(String(error));
+        setRows([]);
+      })
+      .finally(() => {
+        setRowsLoading(false);
+      });
+  }, []);
 
-  const { data: userBooks = [] } = useQuery({
-    queryKey: ["/api/user-books", DEMO_USER_ID],
-    queryFn: () => getUserBooks(DEMO_USER_ID),
-  });
+  useEffect(() => {
+    const trimmed = searchQuery.trim();
+    if (trimmed.length < 3) {
+      setSearchResults(null);
+      setSearchError(null);
+      setSearchLoading(false);
+      return;
+    }
 
-  // Get categories from user's books
-  const getCategories = () => {
-    const allCategories = new Set<string>();
-    userBooks.forEach(ub => {
-      ub.book.categories?.forEach(cat => allCategories.add(cat));
-    });
-    return Array.from(allCategories);
-  };
+    let cancelled = false;
+    setSearchLoading(true);
+    setSearchError(null);
+
+    Api.search(trimmed, 1)
+      .then(({ items }) => {
+        if (!cancelled) {
+          setSearchResults(items);
+        }
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setSearchError(String(error));
+          setSearchResults([]);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setSearchLoading(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [searchQuery]);
+
+  const visibleRows = useMemo(() => {
+    if (rowsLoading && rows.length === 0) {
+      return SKELETON_ROWS.map((row) => ({ ...row, items: [] as BookSearchResult[] }));
+    }
+    return rows;
+  }, [rows, rowsLoading]);
 
   const handleBookClick = (book: BookSearchResult) => {
     setSelectedBook(book);
     setDialogOpen(true);
   };
 
-  // Get books for "Your Next Reads" (plan-to-read status)
-  const nextReadsBooks = userBooks
-    .filter(ub => ub.status === "plan-to-read")
-    .map(ub => ub.book);
+  const renderSearchResults = () => {
+    if (!searchResults || searchResults.length === 0) {
+      if (searchLoading) {
+        return <div className="text-center text-muted-foreground py-8">Searching...</div>;
+      }
 
-  // Get books for "New for You" (recently added)
-  const newForYouBooks = userBooks
-    .sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime())
-    .slice(0, 10)
-    .map(ub => ub.book);
+      if (searchError) {
+        return (
+          <div className="text-center text-destructive py-8">
+            Unable to load search results. Please try again.
+          </div>
+        );
+      }
 
-  // Get genre-specific books
-  const getBooksByGenre = async (genre: string): Promise<BookSearchResult[]> => {
-    try {
-      const results = await searchBooks(genre);
-      return results.slice(0, 10);
-    } catch {
-      return [];
+      if (searchQuery.trim().length < 3) {
+        return (
+          <div className="text-center text-muted-foreground py-8">
+            Start typing to search the Open Library catalog.
+          </div>
+        );
+      }
+
+      return <div className="text-center text-muted-foreground py-8">No results found.</div>;
     }
+
+    return (
+      <div className="grid grid-cols-2 gap-3">
+        {searchResults.map((book) => (
+          <div
+            key={book.id}
+            className="cursor-pointer"
+            onClick={() => handleBookClick(book)}
+            data-testid={`search-result-${book.id.replace(/\W+/g, "-")}`}
+          >
+            <img
+              src={book.cover || "/placeholder-book.png"}
+              alt={book.title ?? "Untitled"}
+              className="w-full h-48 object-cover rounded-lg mb-2"
+            />
+            <h3 className="font-medium text-sm line-clamp-2">{book.title ?? "Untitled"}</h3>
+            <p className="text-xs text-muted-foreground">{book.author ?? "Unknown author"}</p>
+          </div>
+        ))}
+      </div>
+    );
   };
-
-  const [fantasyBooks, setFantasyBooks] = useState<BookSearchResult[]>([]);
-  const [sciFiBooks, setSciFiBooks] = useState<BookSearchResult[]>([]);
-  const [mysteryBooks, setMysteryBooks] = useState<BookSearchResult[]>([]);
-  const [romanceBooks, setRomanceBooks] = useState<BookSearchResult[]>([]);
-
-  useEffect(() => {
-    // Load genre books on mount
-    getBooksByGenre("Fantasy").then(setFantasyBooks);
-    getBooksByGenre("Science Fiction").then(setSciFiBooks);
-    getBooksByGenre("Mystery").then(setMysteryBooks);
-    getBooksByGenre("Romance").then(setRomanceBooks);
-  }, []);
 
   return (
     <div className="pb-20">
       <AppHeader title="Discover" />
-      
+
       <div className="px-4 py-4">
         <SearchBar
           value={searchQuery}
@@ -82,81 +155,28 @@ export default function BrowsePage() {
         />
       </div>
 
-      {searchQuery.length > 2 ? (
+      {searchQuery.trim().length >= 3 ? (
         <div className="px-4 py-4">
           <h2 className="font-display text-lg font-semibold mb-3">Search Results</h2>
-          {isSearching ? (
-            <div className="text-center text-muted-foreground py-8">Searching...</div>
-          ) : searchResults.length > 0 ? (
-            <div className="grid grid-cols-2 gap-3">
-              {searchResults.slice(0, 10).map((book) => (
-                <div 
-                  key={book.googleBooksId} 
-                  className="cursor-pointer"
-                  onClick={() => handleBookClick(book)}
-                  data-testid={`search-result-${book.googleBooksId}`}
-                >
-                  <img
-                    src={book.coverUrl || "/placeholder-book.png"}
-                    alt={book.title}
-                    className="w-full h-48 object-cover rounded-lg mb-2"
-                  />
-                  <h3 className="font-medium text-sm line-clamp-2">{book.title}</h3>
-                  <p className="text-xs text-muted-foreground">{book.authors[0]}</p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center text-muted-foreground py-8">No results found</div>
-          )}
+          {renderSearchResults()}
         </div>
       ) : (
-        <div className="space-y-6">
-          {/* Your Next Reads */}
-          {nextReadsBooks.length > 0 && (
-            <HorizontalBookRow
-              title="Your Next Reads"
-              books={nextReadsBooks}
-              onBookClick={handleBookClick}
-            />
+        <div className="space-y-8">
+          {rowsError && !rowsLoading && (
+            <div className="px-4 text-destructive text-sm">
+              {rowsError}
+            </div>
           )}
 
-          {/* New for You */}
-          {newForYouBooks.length > 0 && (
+          {visibleRows.map((row) => (
             <HorizontalBookRow
-              title="New for You"
-              books={newForYouBooks}
+              key={row.id}
+              title={row.title}
+              books={row.items}
               onBookClick={handleBookClick}
+              isLoading={rowsLoading}
             />
-          )}
-
-          {/* Fantasy */}
-          <HorizontalBookRow
-            title="Fantasy"
-            books={fantasyBooks}
-            onBookClick={handleBookClick}
-          />
-
-          {/* Science Fiction */}
-          <HorizontalBookRow
-            title="Sci-Fi"
-            books={sciFiBooks}
-            onBookClick={handleBookClick}
-          />
-
-          {/* Mystery */}
-          <HorizontalBookRow
-            title="Mystery"
-            books={mysteryBooks}
-            onBookClick={handleBookClick}
-          />
-
-          {/* Romance */}
-          <HorizontalBookRow
-            title="Romance"
-            books={romanceBooks}
-            onBookClick={handleBookClick}
-          />
+          ))}
         </div>
       )}
 

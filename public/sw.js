@@ -1,6 +1,6 @@
 // public/sw.js
 // BUMP THIS when you change the SW so it updates for users.
-const CACHE_NAME = 'bookshelf-ai-v2';
+const CACHE_NAME = 'bookshelf-ai-v3';
 
 const PRECACHE_URLS = [
   '/',               // SPA shell

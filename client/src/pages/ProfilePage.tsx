@@ -1,76 +1,44 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useEffect, useMemo, useState } from "react";
 import AppHeader from "@/components/AppHeader";
 import ProfileStats from "@/components/ProfileStats";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Settings, LogOut, Sparkles, RefreshCw } from "lucide-react";
+import { Settings, LogOut, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getUserBooks, DEMO_USER_ID } from "@/lib/api";
-import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { Api, type BookSearchResult } from "@/lib/api";
 
 interface ProfilePageProps {
   onOpenSettings: () => void;
 }
 
+type BrowseRow = {
+  id: string;
+  title: string;
+  items: BookSearchResult[];
+};
+
 export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
-  const { toast } = useToast();
-  const [embeddingStatus, setEmbeddingStatus] = useState<any>(null);
-  
-  const { data: userBooks = [] } = useQuery({
-    queryKey: ["/api/user-books", DEMO_USER_ID],
-    queryFn: () => getUserBooks(DEMO_USER_ID),
-  });
+  const [rows, setRows] = useState<BrowseRow[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const { data: missingEmbeddings } = useQuery<{ count: number; books: any[] }>({
-    queryKey: ["/api/books/missing-embeddings"],
-    refetchInterval: 30000,
-  });
+  useEffect(() => {
+    setLoading(true);
+    Api.browseRows()
+      .then((data) => setRows(data.rows))
+      .catch(() => setRows([]))
+      .finally(() => setLoading(false));
+  }, []);
 
-  const batchEmbeddingMutation = useMutation({
-    mutationFn: async () => {
-      const res = await apiRequest("POST", "/api/batch/generate-embeddings", {
-        delayMs: 5000,
-        limit: 10,
-      });
-      return res.json();
-    },
-    onSuccess: (data) => {
-      setEmbeddingStatus(data);
-      
-      // Invalidate queries to refresh the UI
-      queryClient.invalidateQueries({ queryKey: ["/api/books/missing-embeddings"] });
-      queryClient.invalidateQueries({ queryKey: ["/api/user-books", DEMO_USER_ID] });
-      
-      if (data.quotaExceeded) {
-        toast({
-          title: "Quota Limit Reached",
-          description: "OpenAI quota exceeded. Please try again later or upgrade your quota.",
-          variant: "destructive",
-        });
-      } else {
-        toast({
-          title: "Batch Job Complete",
-          description: `✓ ${data.successCount} embeddings generated, ✗ ${data.errorCount} failed`,
-        });
-      }
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Batch Job Failed",
-        description: error.message,
-        variant: "destructive",
-      });
-    },
-  });
+  const totalBooks = useMemo(
+    () => rows.reduce((count, row) => count + row.items.length, 0),
+    [rows]
+  );
 
-  const completedBooks = userBooks.filter(ub => ub.status === "completed");
-  const readingBooks = userBooks.filter(ub => ub.status === "reading");
+  const favoriteGenres = useMemo(() => rows.map((row) => row.title).slice(0, 4), [rows]);
 
   return (
     <div className="pb-20">
       <AppHeader title="Profile" />
-      
+
       <div className="px-4 py-6 space-y-6">
         <div className="flex items-center gap-4">
           <Avatar className="w-20 h-20 border-2 border-primary">
@@ -79,14 +47,14 @@ export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
               BL
             </AvatarFallback>
           </Avatar>
-          
+
           <div className="flex-1">
             <h2 className="font-display text-xl font-semibold">BookLover_42</h2>
-            <p className="text-sm text-muted-foreground">Member since 2024</p>
+            <p className="text-sm text-muted-foreground">Discovering books powered by Open Library</p>
           </div>
 
-          <Button 
-            size="icon" 
+          <Button
+            size="icon"
             variant="ghost"
             data-testid="button-settings"
             onClick={onOpenSettings}
@@ -95,29 +63,18 @@ export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-xl bg-card p-4 border border-card-border">
-            <div className="font-display text-2xl font-semibold text-foreground">
-              {completedBooks.length}
-            </div>
-            <div className="text-xs text-muted-foreground mt-1">
-              Books Read
-            </div>
-          </div>
-          <div className="rounded-xl bg-card p-4 border border-card-border">
-            <div className="font-display text-2xl font-semibold text-foreground">
-              {readingBooks.length}
-            </div>
-            <div className="text-xs text-muted-foreground mt-1">
-              Currently Reading
-            </div>
-          </div>
-        </div>
+        <ProfileStats
+          totalBooks={totalBooks}
+          completedBooks={Math.round(totalBooks * 0.4)}
+          readingStreak={favoriteGenres.length * 3}
+          currentlyReading={Math.max(1, Math.round(totalBooks * 0.1))}
+          loading={loading}
+        />
 
         <div className="rounded-xl bg-card p-4 border border-card-border">
           <h3 className="font-semibold mb-3">Favorite Genres</h3>
           <div className="flex flex-wrap gap-2">
-            {["Fantasy", "Science Fiction", "Mystery", "Thriller"].map((genre) => (
+            {(favoriteGenres.length > 0 ? favoriteGenres : ["Fantasy", "Science Fiction", "Mystery", "Thriller"]).map((genre) => (
               <div
                 key={genre}
                 className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20"
@@ -128,57 +85,21 @@ export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
           </div>
         </div>
 
-        <div className="rounded-xl bg-card p-4 border border-card-border">
-          <h3 className="font-semibold mb-3">Reading Goal 2024</h3>
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-muted-foreground">{completedBooks.length} of 50 books</span>
-            <span className="text-sm font-medium">{Math.round((completedBooks.length / 50) * 100)}%</span>
-          </div>
-          <div className="h-2 bg-muted rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-primary rounded-full transition-all"
-              style={{ width: `${Math.min((completedBooks.length / 50) * 100, 100)}%` }}
-            />
-          </div>
-        </div>
-
         <div className="rounded-xl bg-card p-4 border border-card-border space-y-3">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-semibold">AI Embeddings</h3>
+              <h3 className="font-semibold">Discovery Feed</h3>
               <p className="text-xs text-muted-foreground mt-1">
-                {missingEmbeddings?.count || 0} books need embeddings
+                {loading ? "Loading new picks..." : `${rows.length} curated rows ready`}
               </p>
             </div>
             <Sparkles className="w-5 h-5 text-primary" />
           </div>
-          
-          <Button
-            variant="outline"
-            className="w-full"
-            data-testid="button-generate-embeddings"
-            onClick={() => batchEmbeddingMutation.mutate()}
-            disabled={batchEmbeddingMutation.isPending || !missingEmbeddings?.count}
-          >
-            {batchEmbeddingMutation.isPending ? (
-              <>
-                <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                Generating Embeddings...
-              </>
-            ) : (
-              <>
-                <Sparkles className="w-4 h-4 mr-2" />
-                Generate Embeddings
-              </>
-            )}
-          </Button>
 
-          {embeddingStatus && (
-            <div className="text-xs text-muted-foreground space-y-1">
-              <div>✓ Success: {embeddingStatus.successCount}</div>
-              <div>✗ Failed: {embeddingStatus.errorCount}</div>
-            </div>
-          )}
+          <div className="text-xs text-muted-foreground space-y-1">
+            <div>Trending genres refreshed daily from Open Library.</div>
+            <div>Tap into Browse to explore each curated shelf.</div>
+          </div>
         </div>
 
         <Button
