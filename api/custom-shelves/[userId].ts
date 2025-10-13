@@ -7,12 +7,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!userId) return res.status(400).json({ message: 'Missing userId' });
 
   try {
+    const sql = getSql();
+
     // Ensure tables/default rows exist
-    await ensureSchema();
-    await ensureDefaultShelves(userId);
+    await ensureSchema(sql);
+    await ensureDefaultShelves(sql, userId);
 
     // Query shelves for this user
-    const sql = getSql();
     const rows = await sql/* sql */`
       SELECT
         id,
@@ -24,9 +25,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ORDER BY position, id;
     `;
 
-    return res.status(200).json(rows);
-  } catch (err: any) {
+    const shelves = rows.map((row) => ({
+      id: String((row as Record<string, unknown>).id),
+      name: String((row as Record<string, unknown>).name ?? ''),
+      position: Number((row as Record<string, unknown>).position ?? 0),
+      createdAt: String((row as Record<string, unknown>).createdAt ?? ''),
+    }));
+
+    return res.status(200).json(shelves);
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : String(err);
     console.error('custom-shelves error:', err);
-    return res.status(500).json({ message: 'DB error', error: String(err?.message || err) });
+    return res.status(500).json({ message: 'DB error', error: errorMessage });
   }
 }
