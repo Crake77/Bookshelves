@@ -1,11 +1,13 @@
 // api/_db.ts
 import { neon } from '@neondatabase/serverless';
 
+export type SqlClient = ReturnType<typeof neon>;
+
 /**
- * Get a Neon SQL client on demand (runtime), so we don't crash at import time
- * if env vars are not yet wired during cold starts.
+ * Lazily create a Neon SQL client when needed. This avoids crashes during cold
+ * starts if environment variables have not been injected yet.
  */
-export function getSql() {
+export function getSql(): SqlClient {
   const url = process.env.DATABASE_URL;
   if (!url) {
     throw new Error('Missing DATABASE_URL env var');
@@ -13,9 +15,9 @@ export function getSql() {
   return neon(url);
 }
 
-// Create tables if they don't exist
-export async function ensureSchema() {
-  const sql = getSql();
+let ensureSchemaPromise: Promise<void> | null = null;
+
+async function runSchemaMigrations(sql: SqlClient) {
   await sql/* sql */`
     CREATE TABLE IF NOT EXISTS shelves (
       id BIGSERIAL PRIMARY KEY,
@@ -41,9 +43,19 @@ export async function ensureSchema() {
   await sql/* sql */`CREATE INDEX IF NOT EXISTS idx_user_books_user ON user_books(user_id);`;
 }
 
+// Create tables if they don't exist (run only once per process)
+export function ensureSchema(sql: SqlClient) {
+  if (!ensureSchemaPromise) {
+    ensureSchemaPromise = runSchemaMigrations(sql).catch((err) => {
+      ensureSchemaPromise = null;
+      throw err;
+    });
+  }
+  return ensureSchemaPromise;
+}
+
 // Seed the five default shelves if user has none (idempotent)
-export async function ensureDefaultShelves(userId: string) {
-  const sql = getSql();
+export async function ensureDefaultShelves(sql: SqlClient, userId: string) {
   const defaults = [
     'Did Not Finish',
     'Waiting to Read',
