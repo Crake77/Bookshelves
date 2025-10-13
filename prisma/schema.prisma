@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // if a later step errors about a "shadow database",
+  // we'll add: shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  title     String
+  createdAt DateTime @default(now())
+}
