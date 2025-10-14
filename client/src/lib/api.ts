@@ -5,7 +5,7 @@ export type { BookSearchResult as OpenLibraryBook } from "@shared/types";
 export const API_BASE = import.meta.env.VITE_API_BASE || "";
 
 async function getJSON<T>(path: string): Promise<T> {
-  const r = await fetch(`${API_BASE}${path}`);
+  const r = await fetch(withBase(path));
   if (!r.ok) throw new Error(`${path} ${r.status}`);
   return r.json();
 }
