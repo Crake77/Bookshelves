@@ -64,12 +64,14 @@ export const userBooks = pgTable("user_books", {
   id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
   userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
-  status: text("status").notNull(), // Supports both default and custom shelf slugs
+  status: text("status"), // Supports both default and custom shelf slugs
   rating: integer("rating"), // User's rating 0-100
   addedAt: timestamp("added_at").defaultNow().notNull(),
 });
 
-export const insertUserBookSchema = createInsertSchema(userBooks).omit({
+export const insertUserBookSchema = createInsertSchema(userBooks, {
+  status: z.string().nullable().optional(),
+}).omit({
   id: true,
   addedAt: true,
 });

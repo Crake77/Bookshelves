@@ -99,11 +99,11 @@ export default function ShelvesPage() {
                     key={userBook.id}
                     className="w-32 flex-shrink-0"
                   >
-                    <BookCard
+                      <BookCard
                       title={userBook.book.title}
                       author={userBook.book.authors[0]}
                       coverUrl={userBook.book.coverUrl}
-                      status={userBook.status}
+                      status={userBook.status ?? undefined}
                       onClick={() => {
                         setSelectedBook(userBook.book);
                         setDialogOpen(true);

@@ -26,7 +26,7 @@ export interface IStorage {
   // User books methods
   getUserBooks(userId: string, status?: string): Promise<(UserBook & { book: Book })[]>;
   addUserBook(userBook: InsertUserBook): Promise<UserBook>;
-  updateUserBookStatus(id: string, status: string): Promise<UserBook | undefined>;
+  updateUserBookStatus(id: string, status: string | null): Promise<UserBook | undefined>;
   removeUserBook(id: string): Promise<void>;
 
   // Embeddings methods
@@ -121,7 +121,7 @@ export class DbStorage implements IStorage {
     return userBook;
   }
 
-  async updateUserBookStatus(id: string, status: string): Promise<UserBook | undefined> {
+  async updateUserBookStatus(id: string, status: string | null): Promise<UserBook | undefined> {
     const [userBook] = await db
       .update(userBooks)
       .set({ status: status as any })

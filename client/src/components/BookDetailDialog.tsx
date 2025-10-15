@@ -50,7 +50,7 @@ function formatRanking(ranking: number | null): string {
 }
 
 export default function BookDetailDialog({ book, open, onOpenChange }: BookDetailDialogProps) {
-  const [selectedStatus, setSelectedStatus] = useState<string>("reading");
+  const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [ratingInput, setRatingInput] = useState<string>("");
   const [isRatingPopoverOpen, setIsRatingPopoverOpen] = useState(false);
   const { toast } = useToast();
@@ -74,6 +74,32 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
     enabled: open,
   });
 
+  const defaultShelves = [
+    { name: "Reading", slug: "reading" },
+    { name: "Completed", slug: "completed" },
+    { name: "On Hold", slug: "on-hold" },
+    { name: "Dropped", slug: "dropped" },
+    { name: "Plan to Read", slug: "plan-to-read" },
+  ];
+
+  const allShelves = [
+    ...defaultShelves,
+    ...customShelves
+      .filter((shelf) => shelf.isEnabled === 1)
+      .map((shelf) => ({
+        name: shelf.name,
+        slug: shelf.slug,
+      })),
+  ];
+
+  const getShelfDisplayName = (slug: string | null): string => {
+    if (!slug) return "Select Shelf";
+    return (
+      allShelves.find((s) => s.slug === slug)?.name ??
+      slug.replace(/-/g, " ")
+    );
+  };
+
   // Fetch book stats (only if book is in library)
   const { data: bookStats } = useQuery({
     queryKey: ["/api/book-stats", existingUserBook?.bookId],
@@ -84,10 +110,10 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
   // Reset state when dialog opens
   useEffect(() => {
     if (open && existingUserBook) {
-      setSelectedStatus(existingUserBook.status);
+      setSelectedStatus(existingUserBook.status ?? null);
       setRatingInput(existingUserBook.rating?.toString() || "");
     } else if (open) {
-      setSelectedStatus("reading");
+      setSelectedStatus(null);
       setRatingInput("");
     }
   }, [open, existingUserBook]);
@@ -97,27 +123,41 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
   });
 
   const addToShelfMutation = useMutation({
-    mutationFn: async ({ bookId, status }: { bookId: string; status: string }) => {
+    mutationFn: async ({ bookId, status }: { bookId: string; status: string | null }) => {
       return addBookToShelf(DEMO_USER_ID, bookId, status);
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/user-books"] });
+    onSuccess: (created) => {
+      setSelectedStatus(created.status ?? null);
+      queryClient.invalidateQueries({ queryKey: ["/api/user-books", DEMO_USER_ID] });
       toast({
-        title: "Added to shelf!",
-        description: `"${book?.title}" has been added to your library.`,
+        title: "Saved to library!",
+        description: created.status
+          ? `"${book?.title ?? "Book"}" added to ${getShelfDisplayName(created.status)}.`
+          : `"${book?.title ?? "Book"}" added to your library.`,
       });
     },
   });
 
   const updateStatusMutation = useMutation({
-    mutationFn: async ({ userBookId, status }: { userBookId: string; status: string }) => {
+    mutationFn: async ({ userBookId, status }: { userBookId: string; status: string | null }) => {
       return updateBookStatus(userBookId, status);
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/user-books"] });
+    onSuccess: (updated) => {
+      setSelectedStatus(updated.status ?? null);
+      queryClient.invalidateQueries({ queryKey: ["/api/user-books", DEMO_USER_ID] });
       toast({
-        title: "Shelf updated!",
-        description: `Book moved to ${selectedStatus}.`,
+        title: updated.status ? "Shelf updated!" : "Removed from shelves",
+        description: updated.status
+          ? `"${book?.title ?? "Book"}" moved to ${getShelfDisplayName(updated.status)}.`
+          : `"${book?.title ?? "Book"}" removed from your shelves.`,
+        variant: updated.status ? "default" : "destructive",
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to update shelf",
+        variant: "destructive",
       });
     },
   });
@@ -127,7 +167,7 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
       return updateBookRating(userBookId, rating);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/user-books"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/user-books", DEMO_USER_ID] });
       queryClient.invalidateQueries({ queryKey: ["/api/book-stats"] });
       toast({
         title: "Rating saved!",
@@ -161,14 +201,6 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
         variant: "destructive",
       });
     }
-  };
-
-  const handleUpdateStatus = async () => {
-    if (!existingUserBook) return;
-    await updateStatusMutation.mutateAsync({
-      userBookId: existingUserBook.id,
-      status: selectedStatus,
-    });
   };
 
   const handleUpdateRating = async () => {
@@ -210,29 +242,15 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
 
   if (!book) return null;
 
-  const isPending = ingestMutation.isPending || addToShelfMutation.isPending || 
-    updateStatusMutation.isPending || updateRatingMutation.isPending;
+  const isPending =
+    ingestMutation.isPending ||
+    addToShelfMutation.isPending ||
+    updateStatusMutation.isPending ||
+    updateRatingMutation.isPending;
 
-  // Build shelves list (default + enabled custom)
-  const defaultShelves = [
-    { name: "Reading", slug: "reading" },
-    { name: "Completed", slug: "completed" },
-    { name: "On Hold", slug: "on-hold" },
-    { name: "Dropped", slug: "dropped" },
-    { name: "Plan to Read", slug: "plan-to-read" },
-  ];
-
-  const allShelves = [
-    ...defaultShelves,
-    ...customShelves
-      .filter(shelf => shelf.isEnabled === 1)
-      .map(shelf => ({
-        name: shelf.name,
-        slug: shelf.slug,
-      }))
-  ];
-
-  const selectedShelfName = allShelves.find(s => s.slug === selectedStatus)?.name || "Reading";
+  const hasAssignedShelf = Boolean(selectedStatus);
+  const selectedShelfName = getShelfDisplayName(selectedStatus);
+  const selectOptionLabel = hasAssignedShelf ? "Remove" : "Select Shelf";
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -312,7 +330,23 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
                   <ChevronDown className="w-3 h-3 ml-1 flex-shrink-0" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-[180px]">
+              <DropdownMenuContent align="start" className="w-[200px]">
+                <DropdownMenuItem
+                  key="__select"
+                  onClick={() => {
+                    setSelectedStatus(null);
+                    if (existingUserBook) {
+                      updateStatusMutation.mutate({
+                        userBookId: existingUserBook.id,
+                        status: null,
+                      });
+                    }
+                  }}
+                  className={hasAssignedShelf ? "text-destructive focus:text-destructive" : ""}
+                  data-testid="option-shelf-none"
+                >
+                  {selectOptionLabel}
+                </DropdownMenuItem>
                 {allShelves.map((shelf) => (
                   <DropdownMenuItem
                     key={shelf.slug}

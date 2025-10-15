@@ -24,7 +24,7 @@ export interface UserBook {
   id: string;
   userId: string;
   bookId: string;
-  status: string; // Supports both default and custom shelf slugs
+  status: string | null; // Supports both default and custom shelf slugs
   rating: number | null; // User's rating 0-100
   addedAt: string;
   book: BookSearchResult;
@@ -210,14 +210,14 @@ async function searchGoogleBooksFallback(query: string): Promise<BookSearchResul
       googleBooksId: String(item.id ?? volume.title ?? fallbackId),
       title: String(volume.title ?? "Untitled"),
       authors: Array.isArray(volume.authors) && volume.authors.length > 0
-        ? volume.authors.map((author) => String(author))
+        ? volume.authors.map((author: unknown) => String(author))
         : ["Unknown Author"],
       description: volume.description ? String(volume.description) : undefined,
       coverUrl,
       publishedDate: volume.publishedDate ? String(volume.publishedDate) : undefined,
       pageCount: typeof volume.pageCount === "number" ? volume.pageCount : undefined,
       categories: Array.isArray(volume.categories)
-        ? volume.categories.map((category) => String(category))
+        ? volume.categories.map((category: unknown) => String(category))
         : undefined,
       isbn: Array.isArray(volume.industryIdentifiers) && volume.industryIdentifiers.length > 0
         ? String(volume.industryIdentifiers[0]?.identifier ?? "")
@@ -277,19 +277,15 @@ export async function getUserBooks(userId: string, status?: string): Promise<Use
 export async function addBookToShelf(
   userId: string, 
   bookId: string, 
-  status: string
+  status: string | null
 ): Promise<UserBook> {
   const res = await apiRequest("POST", "/api/user-books", { userId, bookId, status });
   return res.json();
 }
 
-export async function updateBookStatus(userBookId: string, status: string): Promise<UserBook> {
+export async function updateBookStatus(userBookId: string, status: string | null): Promise<UserBook> {
   const res = await apiRequest("PATCH", `/api/user-books/${userBookId}`, { status });
   return res.json();
-}
-
-export async function removeBookFromShelf(userBookId: string): Promise<void> {
-  await apiRequest("DELETE", `/api/user-books/${userBookId}`);
 }
 
 export async function getRecommendations(userId: string): Promise<BookRecommendation[]> {

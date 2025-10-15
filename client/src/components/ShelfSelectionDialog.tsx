@@ -1,7 +1,7 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { getCustomShelves, updateBookStatus, removeBookFromShelf, DEMO_USER_ID, type UserBook } from "@/lib/api";
+import { getCustomShelves, updateBookStatus, DEMO_USER_ID, type UserBook } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
 import { Trash2, Check } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -35,12 +35,14 @@ export default function ShelfSelectionDialog({
   bookTitle,
 }: ShelfSelectionDialogProps) {
   const { toast } = useToast();
-  const [selectedShelf, setSelectedShelf] = useState<string>("");
+  const [selectedShelf, setSelectedShelf] = useState<string | null>(null);
 
   // Sync selected shelf with current userBook when dialog opens
   useEffect(() => {
-    if (open && userBook?.status) {
-      setSelectedShelf(userBook.status);
+    if (open) {
+      setSelectedShelf(userBook?.status ?? null);
+    } else {
+      setSelectedShelf(null);
     }
   }, [open, userBook?.status]);
 
@@ -63,21 +65,38 @@ export default function ShelfSelectionDialog({
       }))
   ];
 
+  const getShelfName = (slug: string | null): string => {
+    if (!slug) return "Select Shelf";
+    return (
+      allShelves.find((shelf) => shelf.slug === slug)?.name ??
+      slug.replace(/-/g, " ")
+    );
+  };
+
+  const currentStatus = userBook?.status ?? null;
+  const hasExistingStatus = Boolean(currentStatus);
+  const hasChanges = selectedShelf !== currentStatus;
+
   // Update status mutation
   const updateMutation = useMutation({
-    mutationFn: async (newStatus: string) => {
+    mutationFn: async (newStatus: string | null) => {
       if (!userBook) throw new Error("No user book selected");
       return updateBookStatus(userBook.id, newStatus);
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/user-books"] });
+    onSuccess: (updated) => {
+      setSelectedShelf(updated.status ?? null);
+      queryClient.invalidateQueries({ queryKey: ["/api/user-books", DEMO_USER_ID] });
+      const shelfName = getShelfName(updated.status ?? null);
       toast({
-        title: "Shelf updated",
-        description: `"${bookTitle}" moved to ${allShelves.find(s => s.slug === selectedShelf)?.name}`,
+        title: updated.status ? "Shelf updated" : "Removed from shelves",
+        description: updated.status
+          ? `"${bookTitle}" moved to ${shelfName}`
+          : `"${bookTitle}" removed from your shelves`,
+        variant: updated.status ? "default" : "destructive",
       });
       onOpenChange(false);
     },
-    onError: (error) => {
+    onError: () => {
       toast({
         title: "Error",
         description: "Failed to update shelf",
@@ -86,39 +105,18 @@ export default function ShelfSelectionDialog({
     },
   });
 
-  // Remove mutation
-  const removeMutation = useMutation({
-    mutationFn: async () => {
-      if (!userBook) throw new Error("No user book selected");
-      return removeBookFromShelf(userBook.id);
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/user-books"] });
-      toast({
-        title: "Book removed",
-        description: `"${bookTitle}" removed from all shelves`,
-      });
-      onOpenChange(false);
-    },
-    onError: (error) => {
-      toast({
-        title: "Error",
-        description: "Failed to remove book",
-        variant: "destructive",
-      });
-    },
-  });
-
   const handleUpdate = () => {
-    if (selectedShelf && selectedShelf !== userBook?.status) {
-      updateMutation.mutate(selectedShelf);
-    } else {
+    const currentStatus = userBook?.status ?? null;
+    if (selectedShelf === currentStatus) {
       onOpenChange(false);
+      return;
     }
+    updateMutation.mutate(selectedShelf ?? null);
   };
 
   const handleRemove = () => {
-    removeMutation.mutate();
+    setSelectedShelf(null);
+    updateMutation.mutate(null);
   };
 
   return (
@@ -129,6 +127,24 @@ export default function ShelfSelectionDialog({
         </DialogHeader>
 
         <div className="space-y-2 py-4">
+          <button
+            key="__select"
+            onClick={() => setSelectedShelf(null)}
+            className={`w-full px-4 py-3 rounded-lg text-left flex items-center justify-between transition-colors ${
+              selectedShelf === null
+                ? "bg-primary/20 text-primary font-medium"
+                : hasExistingStatus
+                  ? "text-destructive hover:text-destructive"
+                  : "text-foreground/70 hover-elevate"
+            }`}
+            data-testid="option-shelf-none"
+          >
+            <span>{hasExistingStatus ? "Remove" : "Select Shelf"}</span>
+            {selectedShelf === null && (
+              <Check className="w-5 h-5" data-testid="icon-selected" />
+            )}
+          </button>
+
           {allShelves.map((shelf) => (
             <button
               key={shelf.slug}
@@ -152,7 +168,7 @@ export default function ShelfSelectionDialog({
           <Button
             className="w-full"
             onClick={handleUpdate}
-            disabled={updateMutation.isPending || !selectedShelf}
+            disabled={updateMutation.isPending || !hasChanges}
             data-testid="button-update-shelf"
           >
             {updateMutation.isPending ? "Updating..." : "Update"}
@@ -162,10 +178,10 @@ export default function ShelfSelectionDialog({
             variant="destructive"
             className="w-full"
             onClick={handleRemove}
-            disabled={removeMutation.isPending}
+            disabled={updateMutation.isPending || !hasExistingStatus}
             data-testid="button-remove-from-shelves"
           >
-            {removeMutation.isPending ? (
+            {updateMutation.isPending ? (
               "Removing..."
             ) : (
               <>

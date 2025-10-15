@@ -317,7 +317,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.patch("/api/user-books/:id", async (req, res) => {
     try {
       const { id } = req.params;
-      const { status } = req.body;
+      if (!Object.prototype.hasOwnProperty.call(req.body ?? {}, "status")) {
+        return res.status(400).json({ error: "status is required" });
+      }
+
+      const rawStatus = (req.body as { status?: unknown }).status;
+      if (rawStatus !== null && typeof rawStatus !== "string") {
+        return res.status(400).json({ error: "status must be string or null" });
+      }
+
+      const status = rawStatus === null || rawStatus === "" ? null : (rawStatus as string);
       
       const userBook = await storage.updateUserBookStatus(id, status);
       if (!userBook) {
