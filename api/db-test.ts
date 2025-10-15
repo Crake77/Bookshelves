@@ -6,7 +6,7 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
   try {
     const sql = getSql();
     const rows = await sql/* sql */`select 1 as ok`;
-    return res.status(200).json({ ok: rows[0]?.ok === 1, rows });
+    return res.status(200).json({ ok: (rows as any[])[0]?.ok === 1, rows });
   } catch (e: any) {
     return res.status(200).json({
       ok: false,

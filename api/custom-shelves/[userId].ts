@@ -25,7 +25,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ORDER BY position, id;
     `;
 
-    const shelves = rows.map((row) => ({
+    const shelves = (rows as any[]).map((row) => ({
       id: String((row as Record<string, unknown>).id),
       name: String((row as Record<string, unknown>).name ?? ''),
       position: Number((row as Record<string, unknown>).position ?? 0),
