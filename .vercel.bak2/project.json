@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_qntMwpXAP3dreWG8Wdl5sVWnHOaL",
+  "orgId": "team_nRVoT9KeIy2lDAdjqeDdzfW9",
+  "projectName": "bookshelves",
+  "settings": {
+    "createdAt": 1760323363795,
+    "framework": "vite",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": "dist/public",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "22.x"
+  }
+}
