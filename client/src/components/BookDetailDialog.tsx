@@ -27,6 +27,7 @@ import {
   type UserBook
 } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
+import { cn } from "@/lib/utils";
 import { ChevronDown, Minus, Plus } from "lucide-react";
 import {
   Popover,
@@ -254,37 +255,51 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md p-0 gap-0" data-testid="dialog-book-detail">
+      <DialogContent
+        data-variant="book-detail"
+        className={cn(
+          "flex !translate-y-0 flex-col overflow-hidden p-0",
+          "!top-[4vh] h-[calc(100dvh-3rem)] max-h-[calc(100dvh-3rem)] max-w-[95vw]",
+          "sm:!top-1/2 sm:h-auto sm:max-h-[85vh] sm:!-translate-y-1/2 sm:max-w-2xl lg:max-w-3xl"
+        )}
+        data-testid="dialog-book-detail"
+      >
+        <div className="flex-1 overflow-y-auto">
         {/* Cover and Title Section */}
-        <div className="relative">
+        <div className="relative overflow-hidden px-6 pt-10 pb-6 text-center">
           {book.coverUrl ? (
-            <div className="w-full aspect-[2/3] overflow-hidden">
+            <>
               <img
                 src={book.coverUrl}
                 alt={book.title}
-                className="w-full h-full object-cover blur-xl opacity-40"
+                className="absolute inset-0 h-full w-full object-cover opacity-40 blur-xl -z-20"
               />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent -z-10" />
+            </>
           ) : (
-            <div className="w-full aspect-[2/3] bg-muted/40" />
+            <div className="absolute inset-0 bg-muted/40 -z-10" />
           )}
-          
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-          
-          <div className="absolute inset-0 flex flex-col items-center justify-end p-6 pb-4">
+
+          <div className="mx-auto flex max-w-md flex-col items-center gap-3">
             {book.coverUrl && (
               <img
                 src={book.coverUrl}
                 alt={book.title}
-                className="w-32 h-48 object-cover rounded-lg shadow-2xl mb-4"
+                className="w-32 h-48 rounded-lg object-cover shadow-2xl"
                 data-testid="img-book-cover"
               />
             )}
-            
-            <h2 className="font-display text-xl font-bold text-center mb-1" data-testid="text-book-title">
+
+            <h2
+              className="font-display text-xl font-bold"
+              data-testid="text-book-title"
+            >
               {book.title}
             </h2>
-            <p className="text-sm text-muted-foreground text-center" data-testid="text-book-author">
+            <p
+              className="text-sm text-muted-foreground"
+              data-testid="text-book-author"
+            >
               {book.authors.join(", ")}
             </p>
           </div>
@@ -494,6 +509,8 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
             </p>
           </div>
         )}
+
+        </div>
 
         {/* Action Button (only show for new books) */}
         {!existingUserBook && (

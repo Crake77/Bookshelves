@@ -182,9 +182,9 @@ function cloneDemoBooks(status?: string): UserBook[] {
   }));
 }
 
-async function searchGoogleBooksFallback(query: string): Promise<BookSearchResult[]> {
+async function searchGoogleBooksFallback(query: string, startIndex: number = 0): Promise<BookSearchResult[]> {
   const response = await fetch(
-    `${GOOGLE_BOOKS_API_BASE}?q=${encodeURIComponent(query)}&maxResults=20`
+    `${GOOGLE_BOOKS_API_BASE}?q=${encodeURIComponent(query)}&maxResults=20&startIndex=${Math.max(0, startIndex)}`
   );
 
   if (!response.ok) {
@@ -226,13 +226,25 @@ async function searchGoogleBooksFallback(query: string): Promise<BookSearchResul
   });
 }
 
-export async function searchBooks(query: string): Promise<BookSearchResult[]> {
+interface SearchBooksOptions {
+  startIndex?: number;
+}
+
+export async function searchBooks(
+  query: string,
+  options: SearchBooksOptions = {}
+): Promise<BookSearchResult[]> {
   if (!query.trim()) {
     return [];
   }
 
   try {
-    const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+    const params = new URLSearchParams({ q: query });
+    if (typeof options.startIndex === "number" && options.startIndex > 0) {
+      params.set("startIndex", String(options.startIndex));
+    }
+
+    const response = await fetch(`/api/search?${params.toString()}`);
     if (!response.ok) {
       throw new Error(`Failed to search books: ${response.status}`);
     }
@@ -243,7 +255,7 @@ export async function searchBooks(query: string): Promise<BookSearchResult[]> {
     throw new Error("Malformed search response");
   } catch (error) {
     console.warn("[searchBooks] Falling back to Google Books API", error);
-    return searchGoogleBooksFallback(query);
+    return searchGoogleBooksFallback(query, options.startIndex ?? 0);
   }
 }
 

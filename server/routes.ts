@@ -47,10 +47,13 @@ async function findAlternativeCover(title: string, author?: string): Promise<str
   return null;
 }
 
+const GOOGLE_BOOKS_PAGE_SIZE = 20;
+const OPEN_LIBRARY_PAGE_SIZE = 20;
+
 // Google Books API search
-async function searchGoogleBooks(query: string) {
+async function searchGoogleBooks(query: string, startIndex: number = 0) {
   const response = await fetch(
-    `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=20`
+    `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=${GOOGLE_BOOKS_PAGE_SIZE}&startIndex=${Math.max(0, startIndex)}`
   );
   const data = await response.json();
   
@@ -89,9 +92,10 @@ async function searchGoogleBooks(query: string) {
 }
 
 // Open Library API fallback
-async function searchOpenLibrary(query: string) {
+async function searchOpenLibrary(query: string, startIndex: number = 0) {
+  const offset = Math.max(0, startIndex);
   const response = await fetch(
-    `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&limit=20`
+    `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&limit=${OPEN_LIBRARY_PAGE_SIZE}&offset=${offset}`
   );
   const data = await response.json();
   
@@ -168,11 +172,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Query parameter 'q' is required" });
       }
 
-      let results = await searchGoogleBooks(query);
+      const startIndex = Number.parseInt(req.query.startIndex as string ?? "0");
+      const safeStartIndex = Number.isFinite(startIndex) && startIndex >= 0 ? startIndex : 0;
+
+      let results = await searchGoogleBooks(query, safeStartIndex);
       
       // Fallback to Open Library if Google Books returns no results
       if (results.length === 0) {
-        results = await searchOpenLibrary(query);
+        results = await searchOpenLibrary(query, safeStartIndex);
       }
 
       res.json(results);

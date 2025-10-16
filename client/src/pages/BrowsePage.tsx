@@ -1,10 +1,173 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer, useCallback, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import HorizontalBookRow from "@/components/HorizontalBookRow";
 import BookDetailDialog from "@/components/BookDetailDialog";
 import SearchBar from "@/components/SearchBar";
 import { searchBooks, getUserBooks, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
+
+const GENRE_BATCH_SIZE = 20;
+const MIN_GENRE_APPEND = 12;
+const MAX_GENRE_REQUESTS = 6;
+const MAX_GENRE_PAGES = 40; // up to 800 results per genre
+const MAX_START_INDEX = MAX_GENRE_PAGES * GENRE_BATCH_SIZE;
+
+interface GenreState {
+  books: BookSearchResult[];
+  loadCount: number;
+  isLoading: boolean;
+  hasMore: boolean;
+}
+
+type GenreAction =
+  | { type: "REQUEST" }
+  | { type: "SUCCESS"; books: BookSearchResult[]; hasMore: boolean }
+  | { type: "RESET" }
+  | { type: "FAIL" };
+
+const initialGenreState: GenreState = {
+  books: [],
+  loadCount: 0,
+  isLoading: false,
+  hasMore: true,
+};
+
+function genreReducer(state: GenreState, action: GenreAction): GenreState {
+  switch (action.type) {
+    case "REQUEST":
+      return { ...state, isLoading: true };
+    case "SUCCESS": {
+      const incoming = action.books ?? [];
+      const nextBooks =
+        incoming.length > 0 ? [...state.books, ...incoming] : state.books;
+      return {
+        books: nextBooks,
+        loadCount: state.loadCount + 1,
+        isLoading: false,
+        hasMore: action.hasMore,
+      };
+    }
+    case "RESET":
+      return initialGenreState;
+    case "FAIL":
+      return { ...state, isLoading: false };
+    default:
+      return state;
+  }
+}
+
+function useGenreCarousel(query: string) {
+  const [state, dispatch] = useReducer(genreReducer, initialGenreState);
+  const stateRef = useRef(state);
+  const seenIdsRef = useRef(new Set<string>());
+  const nextStartIndexRef = useRef(0);
+
+  const hasUnusedStartIndices = useCallback(() => {
+    return nextStartIndexRef.current < MAX_START_INDEX;
+  }, []);
+
+  const getNextStartIndex = useCallback((): number | null => {
+    if (nextStartIndexRef.current >= MAX_START_INDEX) {
+      return null;
+    }
+    const next = nextStartIndexRef.current;
+    nextStartIndexRef.current += GENRE_BATCH_SIZE;
+    return next;
+  }, []);
+
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
+
+  useEffect(() => {
+    dispatch({ type: "RESET" });
+    seenIdsRef.current = new Set<string>();
+    nextStartIndexRef.current = 0;
+  }, [query]);
+
+  const loadMore = useCallback(
+    async (): Promise<void> => {
+      const snapshot = stateRef.current;
+      if (snapshot.isLoading || !snapshot.hasMore) {
+        return;
+      }
+
+      dispatch({ type: "REQUEST" });
+
+      try {
+        const seenIds = seenIdsRef.current;
+        const freshBooks: BookSearchResult[] = [];
+        let hasMore = true;
+        let requests = 0;
+
+        while (
+          freshBooks.length < MIN_GENRE_APPEND &&
+          requests < MAX_GENRE_REQUESTS &&
+          hasMore
+        ) {
+          const startIndex = getNextStartIndex();
+          if (startIndex === null) {
+            hasMore = false;
+            break;
+          }
+
+          const results = await searchBooks(query, { startIndex });
+          requests += 1;
+
+          if (!Array.isArray(results) || results.length === 0) {
+            continue;
+          }
+
+          const unique = results.filter((book) => {
+            const id = book.googleBooksId;
+            if (!id || seenIds.has(id)) {
+              return false;
+            }
+            seenIds.add(id);
+            return true;
+          });
+
+          freshBooks.push(...unique);
+
+          if (results.length < GENRE_BATCH_SIZE) {
+            hasMore = false;
+          }
+        }
+
+        const moreAvailable = hasUnusedStartIndices();
+        const finalHasMore = hasMore && moreAvailable && freshBooks.length > 0;
+
+        if (freshBooks.length === 0) {
+          dispatch({
+            type: "SUCCESS",
+            books: [],
+            hasMore: false,
+          });
+          return;
+        }
+
+        dispatch({
+          type: "SUCCESS",
+          books: freshBooks,
+          hasMore: finalHasMore,
+        });
+      } catch (error) {
+        console.error(`[BrowsePage] Failed to load ${query} books`, error);
+        dispatch({ type: "FAIL" });
+      }
+    },
+    [getNextStartIndex, hasUnusedStartIndices, query]
+  );
+
+  useEffect(() => {
+    const current = stateRef.current;
+    if (current.loadCount === 0 && current.books.length === 0 && !current.isLoading) {
+      void loadMore();
+    }
+  }, [loadMore]);
+
+  return { ...state, loadMore };
+}
 
 export default function BrowsePage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -47,28 +210,10 @@ export default function BrowsePage() {
     .slice(0, 10)
     .map(ub => ub.book);
 
-  // Get genre-specific books
-  const getBooksByGenre = async (genre: string): Promise<BookSearchResult[]> => {
-    try {
-      const results = await searchBooks(genre);
-      return results.slice(0, 10);
-    } catch {
-      return [];
-    }
-  };
-
-  const [fantasyBooks, setFantasyBooks] = useState<BookSearchResult[]>([]);
-  const [sciFiBooks, setSciFiBooks] = useState<BookSearchResult[]>([]);
-  const [mysteryBooks, setMysteryBooks] = useState<BookSearchResult[]>([]);
-  const [romanceBooks, setRomanceBooks] = useState<BookSearchResult[]>([]);
-
-  useEffect(() => {
-    // Load genre books on mount
-    getBooksByGenre("Fantasy").then(setFantasyBooks);
-    getBooksByGenre("Science Fiction").then(setSciFiBooks);
-    getBooksByGenre("Mystery").then(setMysteryBooks);
-    getBooksByGenre("Romance").then(setRomanceBooks);
-  }, []);
+  const fantasyCarousel = useGenreCarousel("Fantasy");
+  const sciFiCarousel = useGenreCarousel("Science Fiction");
+  const mysteryCarousel = useGenreCarousel("Mystery");
+  const romanceCarousel = useGenreCarousel("Romance");
 
   return (
     <div className="pb-20">
@@ -133,29 +278,65 @@ export default function BrowsePage() {
           {/* Fantasy */}
           <HorizontalBookRow
             title="Fantasy"
-            books={fantasyBooks}
+            books={fantasyCarousel.books}
             onBookClick={handleBookClick}
+            onEndReached={
+              fantasyCarousel.hasMore
+                ? () => {
+                    void fantasyCarousel.loadMore();
+                  }
+                : undefined
+            }
+            isLoadingMore={fantasyCarousel.isLoading}
+            hasMore={fantasyCarousel.hasMore}
           />
 
           {/* Science Fiction */}
           <HorizontalBookRow
             title="Sci-Fi"
-            books={sciFiBooks}
+            books={sciFiCarousel.books}
             onBookClick={handleBookClick}
+            onEndReached={
+              sciFiCarousel.hasMore
+                ? () => {
+                    void sciFiCarousel.loadMore();
+                  }
+                : undefined
+            }
+            isLoadingMore={sciFiCarousel.isLoading}
+            hasMore={sciFiCarousel.hasMore}
           />
 
           {/* Mystery */}
           <HorizontalBookRow
             title="Mystery"
-            books={mysteryBooks}
+            books={mysteryCarousel.books}
             onBookClick={handleBookClick}
+            onEndReached={
+              mysteryCarousel.hasMore
+                ? () => {
+                    void mysteryCarousel.loadMore();
+                  }
+                : undefined
+            }
+            isLoadingMore={mysteryCarousel.isLoading}
+            hasMore={mysteryCarousel.hasMore}
           />
 
           {/* Romance */}
           <HorizontalBookRow
             title="Romance"
-            books={romanceBooks}
+            books={romanceCarousel.books}
             onBookClick={handleBookClick}
+            onEndReached={
+              romanceCarousel.hasMore
+                ? () => {
+                    void romanceCarousel.loadMore();
+                  }
+                : undefined
+            }
+            isLoadingMore={romanceCarousel.isLoading}
+            hasMore={romanceCarousel.hasMore}
           />
         </div>
       )}

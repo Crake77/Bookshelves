@@ -1,3 +1,4 @@
+import type { UIEvent } from "react";
 import BookCard from "./BookCard";
 import { ChevronRight } from "lucide-react";
 import { type BookSearchResult } from "@/lib/api";
@@ -7,10 +8,35 @@ interface HorizontalBookRowProps {
   books: BookSearchResult[];
   onBookClick: (book: BookSearchResult) => void;
   onSeeAll?: () => void;
+  onEndReached?: () => void;
+  isLoadingMore?: boolean;
+  hasMore?: boolean;
 }
 
-export default function HorizontalBookRow({ title, books, onBookClick, onSeeAll }: HorizontalBookRowProps) {
+export default function HorizontalBookRow({
+  title,
+  books,
+  onBookClick,
+  onSeeAll,
+  onEndReached,
+  isLoadingMore = false,
+  hasMore = true,
+}: HorizontalBookRowProps) {
   if (books.length === 0) return null;
+
+  const handleScroll = (event: UIEvent<HTMLDivElement>) => {
+    if (!onEndReached || isLoadingMore || !hasMore) {
+      return;
+    }
+
+    const target = event.currentTarget;
+    const distanceFromEnd =
+      target.scrollWidth - target.scrollLeft - target.clientWidth;
+
+    if (distanceFromEnd < 120) {
+      onEndReached();
+    }
+  };
 
   return (
     <section className="mb-6" data-testid={`section-${title.toLowerCase().replace(/\s+/g, '-')}`}>
@@ -27,7 +53,10 @@ export default function HorizontalBookRow({ title, books, onBookClick, onSeeAll 
           </button>
         )}
       </div>
-      <div className="flex gap-3 overflow-x-auto pb-2 px-4 scrollbar-hide">
+      <div
+        className="flex gap-3 overflow-x-auto pb-2 px-4 scrollbar-hide"
+        onScroll={handleScroll}
+      >
         {books.map((book) => (
           <div 
             key={book.googleBooksId} 
@@ -42,6 +71,11 @@ export default function HorizontalBookRow({ title, books, onBookClick, onSeeAll 
             />
           </div>
         ))}
+        {isLoadingMore && (
+          <div className="w-32 flex-shrink-0 flex items-center justify-center text-xs text-muted-foreground">
+            Loading…
+          </div>
+        )}
       </div>
     </section>
   );

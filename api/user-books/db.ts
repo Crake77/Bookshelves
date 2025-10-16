@@ -157,6 +157,25 @@ export async function ensureDemoUserSeed(userId: string) {
   }
 }
 
+export interface BookInput {
+  googleBooksId: string;
+  title: string;
+  authors?: string[];
+  description?: string;
+  coverUrl?: string;
+  publishedDate?: string;
+  pageCount?: number | null;
+  categories?: string[];
+  isbn?: string;
+}
+
+export interface IngestedBookPayload extends BookInput {
+  id: string;
+  authors: string[];
+  categories?: string[];
+  pageCount?: number;
+}
+
 export async function listUserBooks(userId: string, status?: string): Promise<UserBookPayload[]> {
   const sql = getSql();
   await ensureSchema(sql);
@@ -236,6 +255,108 @@ async function getUserBookById(userBookId: string): Promise<UserBookPayload | nu
 
   if (rows.length === 0) return null;
   return mapRow(rows[0]);
+}
+
+export async function upsertBook(book: BookInput): Promise<IngestedBookPayload> {
+  const sql = getSql();
+  await ensureSchema(sql);
+
+  const authors =
+    Array.isArray(book.authors) && book.authors.length > 0
+      ? book.authors
+      : ["Unknown Author"];
+
+  const categories =
+    Array.isArray(book.categories) && book.categories.length > 0
+      ? book.categories
+      : null;
+
+  const insertResult = (await sql`
+    INSERT INTO books (
+      google_books_id,
+      title,
+      authors,
+      description,
+      cover_url,
+      published_date,
+      page_count,
+      categories,
+      isbn
+    )
+    VALUES (
+      ${book.googleBooksId},
+      ${book.title},
+      ${authors},
+      ${book.description ?? null},
+      ${book.coverUrl ?? null},
+      ${book.publishedDate ?? null},
+      ${book.pageCount ?? null},
+      ${categories},
+      ${book.isbn ?? null}
+    )
+    ON CONFLICT (google_books_id)
+    DO UPDATE SET
+      title = EXCLUDED.title,
+      authors = EXCLUDED.authors,
+      description = EXCLUDED.description,
+      cover_url = EXCLUDED.cover_url,
+      published_date = EXCLUDED.published_date,
+      page_count = EXCLUDED.page_count,
+      categories = EXCLUDED.categories,
+      isbn = EXCLUDED.isbn
+    RETURNING id
+  `) as Array<{ id: string }>;
+
+  const id = insertResult[0]?.id;
+  if (!id) {
+    throw new Error("Failed to upsert book");
+  }
+
+  const rows = (await sql`
+    SELECT
+      id,
+      google_books_id,
+      title,
+      authors,
+      description,
+      cover_url,
+      published_date,
+      page_count,
+      categories,
+      isbn
+    FROM books
+    WHERE id = ${id}
+    LIMIT 1
+  `) as Array<{
+    id: string;
+    google_books_id: string | null;
+    title: string;
+    authors: string[] | null;
+    description: string | null;
+    cover_url: string | null;
+    published_date: string | null;
+    page_count: number | null;
+    categories: string[] | null;
+    isbn: string | null;
+  }>;
+
+  const row = rows[0];
+  if (!row) {
+    throw new Error("Failed to load book after upsert");
+  }
+
+  return {
+    id: row.id,
+    googleBooksId: row.google_books_id ?? book.googleBooksId,
+    title: row.title,
+    authors: row.authors ?? authors,
+    description: row.description ?? undefined,
+    coverUrl: row.cover_url ?? undefined,
+    publishedDate: row.published_date ?? undefined,
+    pageCount: row.page_count ?? undefined,
+    categories: row.categories ?? undefined,
+    isbn: row.isbn ?? undefined,
+  };
 }
 
 export async function addUserBook(userId: string, bookId: string, status: string | null): Promise<UserBookPayload> {
