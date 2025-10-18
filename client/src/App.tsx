@@ -16,14 +16,6 @@ function App() {
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
-    
-    // Register service worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then(reg => console.log('Service Worker registered', reg))
-        .catch(err => console.log('Service Worker registration failed', err));
-    }
   }, []);
 
   // Allow children/components to request navigation (e.g., from chips)
