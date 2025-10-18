@@ -536,10 +536,39 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
       `;
 
   const rows = Array.isArray(queryResult) ? (queryResult as RawBookRow[]) : [];
-  if (rows.length === 0 && genre) {
+  let books = rows.map(toBookPayload);
+
+  // If no results for a specific genre, fallback to global popular
+  if (books.length === 0 && genre) {
     return fetchPopular(sql, { ...params, genre: null });
   }
-  return rows.map(toBookPayload);
+
+  // Top up to requested limit using remote volumes if needed
+  if (books.length < params.limit) {
+    const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
+    const remoteQuery = genre && genre.length > 0 ? `subject:${genre}` : "best selling books";
+    let remoteCursor = params.offset;
+    let attempts = 0;
+
+    while (books.length < params.limit && attempts < 5) {
+      const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
+      remoteCursor += remoteVolumes.length;
+      attempts++;
+      if (remoteVolumes.length === 0) break;
+
+      for (const volume of remoteVolumes) {
+        const payload = seedVolumeToBookPayload(volume);
+        if (!payload) continue;
+        const key = (payload.googleBooksId || "").toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        books.push(payload);
+        if (books.length >= params.limit) break;
+      }
+    }
+  }
+
+  return books.slice(0, params.limit);
 }
 
 async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<BookPayload[]> {
