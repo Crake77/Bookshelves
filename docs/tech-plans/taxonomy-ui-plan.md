@@ -210,24 +210,25 @@ Phase 3 (optional):
   - [x] Schema: add taxonomy tables in `shared/schema.ts` (genre, subgenre, crosstag, age_market)
   - [x] Schema: add link tables (book_primary_subgenre, book_subgenre_candidate, book_cross_tag, book_age_market) + indexes
   - [x] Seeds: idempotent upsert-by-slug for Genres/Subgenres/CrossTags/AgeMarkets
-  - [ ] Mapping: source category/BISAC/Thema → subgenre.slug
-  - [ ] Ingest: apply mapping + heuristics to populate links
+  - [x] Mapping: source category keywords → subgenre + cross tags (heuristics)
+  - [x] Ingest: apply mapping + heuristics to populate links
   - [ ] API: extend `api/browse.ts` to accept `genre|subgenre|tag` and use taxonomy, else fallback
   - [ ] UI: Book modal chips beneath Summary (Genres/Subgenres/Tags + Show All)
   - [ ] Validation: run Playwright e2e shelf-status on preview
 
 - In Progress
-  - Mapping: source category/BISAC/Thema → subgenre.slug — implement mapping files and loader
+  - API: extend `api/browse.ts` to accept `genre|subgenre|tag` and use taxonomy (fallback to categories[])
 
 - Handoff Snapshot
-  - Next file: `server/routes.ts` (ingest path) and `api/ingest.ts` — add mapping + heuristics to populate taxonomy links
-  - Next action: implement mapping tables (source category/BISAC → subgenre.slug) and basic keyword heuristics for cross tags
-  - Resume prompt: “Open docs/tech-plans/taxonomy-ui-plan.md and continue with the Mapping task under Day-to-Day Tracker.”
+  - Next file: `api/browse.ts`
+  - Next action: accept `subgenre` & `tag` query params; filter via taxonomy link tables if present, else fallback to `books.categories`
+  - Resume prompt: “Open docs/tech-plans/taxonomy-ui-plan.md and implement taxonomy-aware filters in /api/browse.”
 
 - Session Log
   - 2025-10-18: Created tech plan; added day-to-day tracker and handoff snapshot.
   - 2025-10-18: Implemented taxonomy + link tables in `shared/schema.ts`; updated tracker to Seeds next.
   - 2025-10-18: Added idempotent taxonomy seed endpoint at `api/taxonomy-seed.ts`.
+  - 2025-10-18: Added heuristic mapping in `shared/taxonomy.ts` and applied taxonomy on ingest in `api/ingest.ts`.
 
 ## How to Resume in a New Codex Session
 
