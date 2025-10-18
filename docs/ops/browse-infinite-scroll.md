@@ -32,3 +32,8 @@ Rollback plan
 - Client change is localized to `useInfiniteQuery` paging. Revert only if you also change the API to always return full pages.
 - The link-table creation in `api/taxonomy-seed.ts` is idempotent and safe to keep.
 
+Follow-ups / TODO
+- Cover/Title mismatches: add a normalization pipeline to ensure the displayed cover matches the returned title/author.
+  - Prefer Google Books imageLinks for the exact volume; fall back only if no Google cover is available.
+  - Add a lightweight verifier (title/author string similarity) and a re-fetch step for suspect cover/title pairs.
+  - Provide a one-off endpoint to refresh covers for a given `googleBooksId` when mismatches are reported.

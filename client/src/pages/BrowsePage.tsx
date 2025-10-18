@@ -6,7 +6,8 @@ import {
 } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import HorizontalBookRow from "@/components/HorizontalBookRow";
-import SafeBookDialog from "@/components/SafeBookDialog";
+import { lazy, Suspense } from "react";
+const BookDetailDialog = lazy(() => import("@/components/BookDetailDialog"));
 import SearchBar from "@/components/SearchBar";
 import {
   searchBooks,
@@ -348,7 +349,11 @@ export default function BrowsePage() {
         </div>
       )}
 
-      <SafeBookDialog book={selectedBook} open={dialogOpen} onOpenChange={setDialogOpen} />
+      {dialogOpen && (
+        <Suspense fallback={null}>
+          <BookDetailDialog book={selectedBook} open={dialogOpen} onOpenChange={setDialogOpen} />
+        </Suspense>
+      )}
     </div>
   );
 }
