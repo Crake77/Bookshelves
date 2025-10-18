@@ -1,178 +1,232 @@
-import { useState, useEffect, useReducer, useCallback, useRef } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect, useMemo } from "react";
+import {
+  useQuery,
+  useInfiniteQuery,
+  type InfiniteData,
+} from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import HorizontalBookRow from "@/components/HorizontalBookRow";
 import BookDetailDialog from "@/components/BookDetailDialog";
 import SearchBar from "@/components/SearchBar";
-import { searchBooks, getUserBooks, DEMO_USER_ID, type BookSearchResult } from "@/lib/api";
+import {
+  searchBooks,
+  fetchBrowseBooks,
+  DEMO_USER_ID,
+  type BookSearchResult,
+  type BrowseAlgo,
+} from "@/lib/api";
+import { consumePendingBrowseFilter, type BrowseFilter } from "@/lib/browseFilter";
+import { getFallbackBrowse } from "@/lib/browseFallback";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useCategoryPreferences } from "@/hooks/usePreferences";
 
-const GENRE_BATCH_SIZE = 20;
-const MIN_GENRE_APPEND = 12;
-const MAX_GENRE_REQUESTS = 6;
-const MAX_GENRE_PAGES = 40; // up to 800 results per genre
-const MAX_START_INDEX = MAX_GENRE_PAGES * GENRE_BATCH_SIZE;
+const CAROUSEL_PAGE_SIZE = 12;
+const RANKING_STORAGE_KEY = "bookshelves:browse-ranking";
 
-interface GenreState {
-  books: BookSearchResult[];
-  loadCount: number;
-  isLoading: boolean;
-  hasMore: boolean;
+interface UseBrowseCarouselArgs {
+  algo: BrowseAlgo;
+  userId?: string;
+  genre?: string | null;
+  subgenre?: string | null;
+  tag?: string | null;
 }
 
-type GenreAction =
-  | { type: "REQUEST" }
-  | { type: "SUCCESS"; books: BookSearchResult[]; hasMore: boolean }
-  | { type: "RESET" }
-  | { type: "FAIL" };
+function useBrowseCarousel({ algo, userId, genre, subgenre, tag }: UseBrowseCarouselArgs) {
+  const fallbackBooks = useMemo(
+    () => getFallbackBrowse(algo, genre ?? undefined),
+    [algo, genre]
+  );
+  const fallbackInfiniteData = useMemo<InfiniteData<BookSearchResult[], number>>(() => {
+    return {
+      pages: [fallbackBooks],
+      pageParams: [0],
+    };
+  }, [fallbackBooks]);
 
-const initialGenreState: GenreState = {
-  books: [],
-  loadCount: 0,
-  isLoading: false,
-  hasMore: true,
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    isFetchingNextPage,
+    isLoading,
+    status,
+    error,
+  } = useInfiniteQuery({
+    queryKey: ["browse", algo, genre ?? "all", subgenre ?? "", tag ?? "", userId ?? "anon"],
+    initialPageParam: 0,
+    queryFn: async ({ pageParam = 0, signal }) =>
+      fetchBrowseBooks({
+        algo,
+        userId,
+        genre: genre ?? undefined,
+        subgenre: subgenre ?? undefined,
+        tag: tag ?? undefined,
+        limit: CAROUSEL_PAGE_SIZE,
+        offset: pageParam,
+        signal,
+      }),
+    getNextPageParam: (
+      lastPage: BookSearchResult[],
+      _pages: BookSearchResult[][],
+      lastPageParam: number
+    ) => (Array.isArray(lastPage) && lastPage.length > 0 ? lastPageParam + lastPage.length : undefined),
+    staleTime: 1000 * 60,
+    gcTime: 1000 * 60 * 5,
+    placeholderData: (previousData) => previousData ?? fallbackInfiniteData,
+  });
+
+  const rawBooks = useMemo(() => (data?.pages ?? []).flat(), [data]);
+  const hasRealData = status === "success" && rawBooks.length > 0;
+  const displayBooks = hasRealData ? rawBooks : fallbackBooks;
+  const errorMessage =
+    status === "error"
+      ? error instanceof Error
+        ? error.message
+        : "Failed to load recommendations"
+      : null;
+  const isInitialLoadInFlight =
+    isLoading || (isFetching && !hasRealData);
+  const resolvedHasNextPage = hasNextPage ?? (!hasRealData && displayBooks.length > 0);
+
+  return {
+    books: displayBooks,
+    offset: displayBooks.length,
+    isLoading: isInitialLoadInFlight,
+    hasMore: resolvedHasNextPage,
+    error: errorMessage,
+    loadMore: resolvedHasNextPage ? () => fetchNextPage() : undefined,
+    isLoadingMore: isFetchingNextPage,
+  };
+}
+
+const RANKING_OPTIONS: Array<{ value: BrowseAlgo; label: string }> = [
+  { value: "popular", label: "Most Popular" },
+  { value: "rating", label: "Highest User Rating" },
+  { value: "recent", label: "Recently Added" },
+  { value: "for-you", label: "For You" },
+];
+
+function isBrowseAlgo(value: string | null): value is BrowseAlgo {
+  return value === "popular" || value === "rating" || value === "recent" || value === "for-you";
+}
+
+const CATEGORY_GENRE_MAP: Record<string, string> = {
+  fantasy: "Fantasy",
+  "sci-fi": "Science Fiction",
+  "science-fiction": "Science Fiction",
+  mystery: "Mystery",
+  romance: "Romance",
 };
 
-function genreReducer(state: GenreState, action: GenreAction): GenreState {
-  switch (action.type) {
-    case "REQUEST":
-      return { ...state, isLoading: true };
-    case "SUCCESS": {
-      const incoming = action.books ?? [];
-      const nextBooks =
-        incoming.length > 0 ? [...state.books, ...incoming] : state.books;
-      return {
-        books: nextBooks,
-        loadCount: state.loadCount + 1,
-        isLoading: false,
-        hasMore: action.hasMore,
-      };
-    }
-    case "RESET":
-      return initialGenreState;
-    case "FAIL":
-      return { ...state, isLoading: false };
-    default:
-      return state;
-  }
+interface CategoryConfig {
+  key: string;
+  title: string;
+  algo: BrowseAlgo;
+  genre?: string | null;
+  emptyMessage?: string;
 }
 
-function useGenreCarousel(query: string) {
-  const [state, dispatch] = useReducer(genreReducer, initialGenreState);
-  const stateRef = useRef(state);
-  const seenIdsRef = useRef(new Set<string>());
-  const nextStartIndexRef = useRef(0);
+interface CategoryCarouselProps {
+  config: CategoryConfig;
+  onBookClick: (book: BookSearchResult) => void;
+}
 
-  const hasUnusedStartIndices = useCallback(() => {
-    return nextStartIndexRef.current < MAX_START_INDEX;
-  }, []);
+function CategoryCarousel({ config, onBookClick }: CategoryCarouselProps) {
+  const carousel = useBrowseCarousel({
+    algo: config.algo,
+    userId: DEMO_USER_ID,
+    genre: config.genre ?? undefined,
+  });
 
-  const getNextStartIndex = useCallback((): number | null => {
-    if (nextStartIndexRef.current >= MAX_START_INDEX) {
-      return null;
-    }
-    const next = nextStartIndexRef.current;
-    nextStartIndexRef.current += GENRE_BATCH_SIZE;
-    return next;
-  }, []);
+  const initialLoading = carousel.books.length === 0 && carousel.isLoading;
+  const loadingMore = carousel.isLoading && carousel.books.length > 0;
 
-  useEffect(() => {
-    stateRef.current = state;
-  }, [state]);
-
-  useEffect(() => {
-    dispatch({ type: "RESET" });
-    seenIdsRef.current = new Set<string>();
-    nextStartIndexRef.current = 0;
-  }, [query]);
-
-  const loadMore = useCallback(
-    async (): Promise<void> => {
-      const snapshot = stateRef.current;
-      if (snapshot.isLoading || !snapshot.hasMore) {
-        return;
-      }
-
-      dispatch({ type: "REQUEST" });
-
-      try {
-        const seenIds = seenIdsRef.current;
-        const freshBooks: BookSearchResult[] = [];
-        let hasMore = true;
-        let requests = 0;
-
-        while (
-          freshBooks.length < MIN_GENRE_APPEND &&
-          requests < MAX_GENRE_REQUESTS &&
-          hasMore
-        ) {
-          const startIndex = getNextStartIndex();
-          if (startIndex === null) {
-            hasMore = false;
-            break;
-          }
-
-          const results = await searchBooks(query, { startIndex });
-          requests += 1;
-
-          if (!Array.isArray(results) || results.length === 0) {
-            continue;
-          }
-
-          const unique = results.filter((book) => {
-            const id = book.googleBooksId;
-            if (!id || seenIds.has(id)) {
-              return false;
+  return (
+    <HorizontalBookRow
+      title={config.title}
+      books={carousel.books}
+      onBookClick={onBookClick}
+      onEndReached={
+        carousel.hasMore && carousel.loadMore
+          ? () => {
+              void carousel.loadMore?.();
             }
-            seenIds.add(id);
-            return true;
-          });
-
-          freshBooks.push(...unique);
-
-          if (results.length < GENRE_BATCH_SIZE) {
-            hasMore = false;
-          }
-        }
-
-        const moreAvailable = hasUnusedStartIndices();
-        const finalHasMore = hasMore && moreAvailable && freshBooks.length > 0;
-
-        if (freshBooks.length === 0) {
-          dispatch({
-            type: "SUCCESS",
-            books: [],
-            hasMore: false,
-          });
-          return;
-        }
-
-        dispatch({
-          type: "SUCCESS",
-          books: freshBooks,
-          hasMore: finalHasMore,
-        });
-      } catch (error) {
-        console.error(`[BrowsePage] Failed to load ${query} books`, error);
-        dispatch({ type: "FAIL" });
+          : undefined
       }
-    },
-    [getNextStartIndex, hasUnusedStartIndices, query]
+      isInitialLoading={initialLoading}
+      isLoadingMore={loadingMore}
+      hasMore={carousel.hasMore}
+      errorMessage={carousel.error}
+      emptyMessage={config.emptyMessage}
+    />
   );
-
-  useEffect(() => {
-    const current = stateRef.current;
-    if (current.loadCount === 0 && current.books.length === 0 && !current.isLoading) {
-      void loadMore();
-    }
-  }, [loadMore]);
-
-  return { ...state, loadMore };
 }
 
 export default function BrowsePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBook, setSelectedBook] = useState<BookSearchResult | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [ranking, setRanking] = useState<BrowseAlgo>("popular");
+  const [pendingFilter, setPendingFilter] = useState<BrowseFilter | null>(null);
+  const categoryPreferences = useCategoryPreferences();
+  const enabledCategories = useMemo(
+    () => categoryPreferences.filter((category) => category.isEnabled),
+    [categoryPreferences]
+  );
+
+  const categoryConfigs = useMemo<CategoryConfig[]>(() => {
+    return enabledCategories.map((category, index) => {
+      let algo: BrowseAlgo = "popular";
+      let genre: string | null | undefined = null;
+      let emptyMessage: string | undefined;
+
+      if (category.categoryType === "system") {
+        if (category.slug === "your-next-reads") {
+          algo = "for-you";
+          emptyMessage =
+            "Add a few books to your shelves or rate recent reads to unlock personalized picks.";
+        } else if (category.slug === "new-for-you") {
+          algo = "recent";
+        } else {
+          algo = "popular";
+        }
+      } else {
+        const mappedGenre = CATEGORY_GENRE_MAP[category.slug] ?? category.name;
+        genre = mappedGenre;
+      }
+
+      return {
+        key: `${category.slug}-${index}`,
+        title: category.name,
+        algo,
+        genre,
+        emptyMessage,
+      } satisfies CategoryConfig;
+    });
+  }, [enabledCategories]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = window.localStorage.getItem(RANKING_STORAGE_KEY);
+    if (stored && isBrowseAlgo(stored)) {
+      setRanking(stored);
+    }
+    // Consume any pending filter handoff from chips
+    const pf = consumePendingBrowseFilter();
+    if (pf) setPendingFilter(pf);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(RANKING_STORAGE_KEY, ranking);
+  }, [ranking]);
 
   const { data: searchResults = [], isLoading: isSearching } = useQuery({
     queryKey: ["/api/search", searchQuery],
@@ -180,51 +234,47 @@ export default function BrowsePage() {
     enabled: searchQuery.length > 2,
   });
 
-  const { data: userBooks = [] } = useQuery({
-    queryKey: ["/api/user-books", DEMO_USER_ID],
-    queryFn: () => getUserBooks(DEMO_USER_ID),
-  });
-
-  // Get categories from user's books
-  const getCategories = () => {
-    const allCategories = new Set<string>();
-    userBooks.forEach(ub => {
-      ub.book.categories?.forEach(cat => allCategories.add(cat));
-    });
-    return Array.from(allCategories);
-  };
-
   const handleBookClick = (book: BookSearchResult) => {
     setSelectedBook(book);
     setDialogOpen(true);
   };
 
-  // Get books for "Your Next Reads" (plan-to-read status)
-  const nextReadsBooks = userBooks
-    .filter(ub => ub.status === "plan-to-read")
-    .map(ub => ub.book);
+  const featuredCarousel = useBrowseCarousel({ algo: ranking, userId: DEMO_USER_ID });
 
-  // Get books for "New for You" (recently added)
-  const newForYouBooks = userBooks
-    .sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime())
-    .slice(0, 10)
-    .map(ub => ub.book);
+  const rankingOption = RANKING_OPTIONS.find((option) => option.value === ranking) ?? RANKING_OPTIONS[0];
 
-  const fantasyCarousel = useGenreCarousel("Fantasy");
-  const sciFiCarousel = useGenreCarousel("Science Fiction");
-  const mysteryCarousel = useGenreCarousel("Mystery");
-  const romanceCarousel = useGenreCarousel("Romance");
+  const featuredInitialLoading = featuredCarousel.books.length === 0 && featuredCarousel.isLoading;
+  const featuredLoadingMore = featuredCarousel.isLoading && featuredCarousel.books.length > 0;
 
   return (
     <div className="pb-20">
       <AppHeader title="Discover" />
-      
-      <div className="px-4 py-4">
-        <SearchBar
-          value={searchQuery}
-          onChange={setSearchQuery}
-          placeholder="Search for books..."
-        />
+
+      <div className="px-4 pt-4 space-y-3">
+        <div className="flex justify-end">
+          <Select value={ranking} onValueChange={(value) => setRanking(value as BrowseAlgo)}>
+            <SelectTrigger
+              className="w-48 justify-between"
+              data-testid="browse-ranking-toggle"
+              aria-label="Browse ranking toggle"
+            >
+              <SelectValue placeholder="Select ranking" />
+            </SelectTrigger>
+            <SelectContent align="end">
+              {RANKING_OPTIONS.map((option) => (
+                <SelectItem
+                  key={option.value}
+                  value={option.value}
+                  data-testid={`browse-ranking-${option.value}`}
+                >
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <SearchBar value={searchQuery} onChange={setSearchQuery} placeholder="Search for books..." />
       </div>
 
       {searchQuery.length > 2 ? (
@@ -235,8 +285,8 @@ export default function BrowsePage() {
           ) : searchResults.length > 0 ? (
             <div className="grid grid-cols-2 gap-3">
               {searchResults.slice(0, 10).map((book) => (
-                <div 
-                  key={book.googleBooksId} 
+                <div
+                  key={book.googleBooksId}
                   className="cursor-pointer"
                   onClick={() => handleBookClick(book)}
                   data-testid={`search-result-${book.googleBooksId}`}
@@ -256,96 +306,87 @@ export default function BrowsePage() {
           )}
         </div>
       ) : (
-        <div className="space-y-6">
-          {/* Your Next Reads */}
-          {nextReadsBooks.length > 0 && (
-            <HorizontalBookRow
-              title="Your Next Reads"
-              books={nextReadsBooks}
-              onBookClick={handleBookClick}
-            />
+        <div className="space-y-6 pt-4">
+          {pendingFilter && (
+            <FilteredCarousel filter={pendingFilter} ranking={ranking} onBookClick={handleBookClick} />
+          )}
+          {featuredCarousel.error && (
+            <div className="px-4 text-sm text-destructive">
+              We couldn&apos;t load recommendations right now. Please try again in a moment.
+            </div>
           )}
 
-          {/* New for You */}
-          {newForYouBooks.length > 0 && (
-            <HorizontalBookRow
-              title="New for You"
-              books={newForYouBooks}
-              onBookClick={handleBookClick}
-            />
-          )}
-
-          {/* Fantasy */}
           <HorizontalBookRow
-            title="Fantasy"
-            books={fantasyCarousel.books}
+            title={rankingOption.label}
+            books={featuredCarousel.books}
             onBookClick={handleBookClick}
             onEndReached={
-              fantasyCarousel.hasMore
+              featuredCarousel.hasMore && featuredCarousel.loadMore
                 ? () => {
-                    void fantasyCarousel.loadMore();
+                    void featuredCarousel.loadMore?.();
                   }
                 : undefined
             }
-            isLoadingMore={fantasyCarousel.isLoading}
-            hasMore={fantasyCarousel.hasMore}
-          />
-
-          {/* Science Fiction */}
-          <HorizontalBookRow
-            title="Sci-Fi"
-            books={sciFiCarousel.books}
-            onBookClick={handleBookClick}
-            onEndReached={
-              sciFiCarousel.hasMore
-                ? () => {
-                    void sciFiCarousel.loadMore();
-                  }
+            isInitialLoading={featuredInitialLoading}
+            isLoadingMore={featuredLoadingMore}
+            hasMore={featuredCarousel.hasMore}
+            errorMessage={featuredCarousel.error}
+            emptyMessage={
+              ranking === "for-you"
+                ? "Add a few books to your shelves or rate recent reads to unlock personalized picks."
                 : undefined
             }
-            isLoadingMore={sciFiCarousel.isLoading}
-            hasMore={sciFiCarousel.hasMore}
           />
 
-          {/* Mystery */}
-          <HorizontalBookRow
-            title="Mystery"
-            books={mysteryCarousel.books}
-            onBookClick={handleBookClick}
-            onEndReached={
-              mysteryCarousel.hasMore
-                ? () => {
-                    void mysteryCarousel.loadMore();
-                  }
-                : undefined
-            }
-            isLoadingMore={mysteryCarousel.isLoading}
-            hasMore={mysteryCarousel.hasMore}
-          />
-
-          {/* Romance */}
-          <HorizontalBookRow
-            title="Romance"
-            books={romanceCarousel.books}
-            onBookClick={handleBookClick}
-            onEndReached={
-              romanceCarousel.hasMore
-                ? () => {
-                    void romanceCarousel.loadMore();
-                  }
-                : undefined
-            }
-            isLoadingMore={romanceCarousel.isLoading}
-            hasMore={romanceCarousel.hasMore}
-          />
+          {categoryConfigs.map((config) => (
+            <CategoryCarousel key={config.key} config={config} onBookClick={handleBookClick} />
+          ))}
         </div>
       )}
 
-      <BookDetailDialog
-        book={selectedBook}
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-      />
+      <BookDetailDialog book={selectedBook} open={dialogOpen} onOpenChange={setDialogOpen} />
     </div>
+  );
+}
+
+interface FilteredCarouselProps {
+  filter: BrowseFilter;
+  ranking: BrowseAlgo;
+  onBookClick: (book: BookSearchResult) => void;
+}
+
+function FilteredCarousel({ filter, ranking, onBookClick }: FilteredCarouselProps) {
+  const args: UseBrowseCarouselArgs = { algo: ranking, userId: DEMO_USER_ID };
+  let title = "Filtered";
+  if (filter.kind === "genre") {
+    (args as any).genre = filter.label;
+    title = filter.label;
+  } else if (filter.kind === "subgenre") {
+    (args as any).genre = undefined;
+    (args as any).subgenre = filter.slug;
+    title = filter.label;
+  } else if (filter.kind === "tag") {
+    (args as any).tag = filter.slug;
+    title = `#${filter.label}`;
+  }
+
+  const carousel = useBrowseCarousel(args);
+
+  const initialLoading = carousel.books.length === 0 && carousel.isLoading;
+  const loadingMore = carousel.isLoading && carousel.books.length > 0;
+
+  return (
+    <HorizontalBookRow
+      title={title}
+      books={carousel.books}
+      onBookClick={onBookClick}
+      onEndReached={
+        carousel.hasMore && carousel.loadMore ? () => void carousel.loadMore?.() : undefined
+      }
+      isInitialLoading={initialLoading}
+      isLoadingMore={loadingMore}
+      hasMore={carousel.hasMore}
+      errorMessage={carousel.error}
+    />
   );
 }

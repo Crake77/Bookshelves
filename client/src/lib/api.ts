@@ -39,6 +39,73 @@ export interface BookStats {
   updatedAt: string;
 }
 
+export type BrowseAlgo = "popular" | "rating" | "recent" | "for-you";
+
+export interface BrowseRequestOptions {
+  algo: BrowseAlgo;
+  userId?: string;
+  genre?: string;
+  subgenre?: string;
+  tag?: string;
+  limit?: number;
+  offset?: number;
+  signal?: AbortSignal;
+}
+
+export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<BookSearchResult[]> {
+  const params = new URLSearchParams();
+  params.set("algo", options.algo);
+  if (options.userId) params.set("userId", options.userId);
+  if (options.genre) params.set("genre", options.genre);
+  if (options.subgenre) params.set("subgenre", options.subgenre);
+  if (options.tag) params.set("tag", options.tag);
+  if (typeof options.limit === "number") params.set("limit", String(options.limit));
+  if (typeof options.offset === "number") params.set("offset", String(options.offset));
+
+  try {
+    const response = await fetch(`/api/browse?${params.toString()}`, {
+      signal: options.signal,
+    });
+    if (!response.ok) {
+      console.warn(`[fetchBrowseBooks] request failed (${response.status})`);
+      throw new Error(`Failed to load browse books: ${response.status}`);
+    }
+    const payload = await response.json();
+    if (Array.isArray(payload) && payload.length > 0) {
+      return payload;
+    }
+    console.warn("[fetchBrowseBooks] API returned empty payload, using fallback");
+  } catch (error) {
+    console.warn("[fetchBrowseBooks] falling back due to error", error);
+  }
+
+  if (options.offset && options.offset > 0) {
+    return [];
+  }
+
+  return getFallbackBrowse(options.algo, options.genre);
+}
+
+// Taxonomy for a book (from DB, best-effort)
+export interface BookTaxonomy {
+  genre?: { slug: string; name: string };
+  subgenre?: { slug: string; name: string };
+  tags: Array<{ slug: string; name: string; group: string }>;
+  allTagCount: number;
+}
+
+export async function getBookTaxonomy(googleBooksId: string): Promise<BookTaxonomy | null> {
+  try {
+    const response = await fetch(`/api/book-taxonomy?googleBooksId=${encodeURIComponent(googleBooksId)}`);
+    if (!response.ok) return null;
+    const payload = await response.json();
+    if (payload?.ok && payload?.data) return payload.data as BookTaxonomy;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 // Demo user ID
 export const DEMO_USER_ID = "550e8400-e29b-41d4-a716-446655440000";
 
@@ -182,6 +249,13 @@ function cloneDemoBooks(status?: string): UserBook[] {
   }));
 }
 
+function syncDemoUserBookStatus(userBookId: string, status: string | null) {
+  const match = DEMO_USER_BOOKS.find((userBook) => userBook.id === userBookId);
+  if (match) {
+    match.status = status;
+  }
+}
+
 async function searchGoogleBooksFallback(query: string, startIndex: number = 0): Promise<BookSearchResult[]> {
   const response = await fetch(
     `${GOOGLE_BOOKS_API_BASE}?q=${encodeURIComponent(query)}&maxResults=20&startIndex=${Math.max(0, startIndex)}`
@@ -275,10 +349,10 @@ export async function getUserBooks(userId: string, status?: string): Promise<Use
       throw new Error(`Failed to get user books: ${response.status}`);
     }
     const data = await response.json();
-    if (Array.isArray(data) && data.length > 0) {
+    if (Array.isArray(data)) {
       return data;
     }
-    console.warn("[getUserBooks] API returned empty array, using demo data");
+    console.warn("[getUserBooks] API returned non-array payload, using demo data");
     return cloneDemoBooks(status);
   } catch (error) {
     console.warn("[getUserBooks] Falling back to demo books", error);
@@ -292,12 +366,16 @@ export async function addBookToShelf(
   status: string | null
 ): Promise<UserBook> {
   const res = await apiRequest("POST", "/api/user-books", { userId, bookId, status });
-  return res.json();
+  const created: UserBook = await res.json();
+  syncDemoUserBookStatus(created.id, created.status ?? null);
+  return created;
 }
 
 export async function updateBookStatus(userBookId: string, status: string | null): Promise<UserBook> {
   const res = await apiRequest("PATCH", `/api/user-books/${userBookId}`, { status });
-  return res.json();
+  const updated: UserBook = await res.json();
+  syncDemoUserBookStatus(userBookId, updated.status ?? null);
+  return updated;
 }
 
 export async function getRecommendations(userId: string): Promise<BookRecommendation[]> {
@@ -381,3 +459,4 @@ export async function getBookStats(bookId: string): Promise<BookStats | null> {
   if (!response.ok) return null;
   return response.json();
 }
+import { getFallbackBrowse } from "./browseFallback";

@@ -26,6 +26,18 @@ function App() {
     }
   }, []);
 
+  // Allow children/components to request navigation (e.g., from chips)
+  useEffect(() => {
+    const onNavigate = (e: Event) => {
+      const detail = (e as CustomEvent<any>).detail;
+      if (detail?.tab === "browse") {
+        setActiveTab("browse");
+      }
+    };
+    window.addEventListener("bookshelves:navigate", onNavigate as EventListener);
+    return () => window.removeEventListener("bookshelves:navigate", onNavigate as EventListener);
+  }, []);
+
   const renderPage = () => {
     if (showSettings) {
       return <SettingsPage onBack={() => setShowSettings(false)} />;
