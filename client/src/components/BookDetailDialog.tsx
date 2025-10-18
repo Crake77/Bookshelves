@@ -5,7 +5,6 @@ import {
   DialogContent,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,8 +33,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useShelfPreferences } from "@/hooks/usePreferences";
-import { getBookTaxonomy } from "@/lib/api";
-import { navigateToBrowseWithFilter } from "@/lib/browseFilter";
+import BookTaxonomyChips from "@/components/BookTaxonomyChips";
 
 type HydratedUserBook = UserBook & { book?: BookSearchResult };
 
@@ -99,41 +97,7 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
     );
   };
 
-  // Fetch taxonomy (best-effort). If the book hasn't been seeded to DB (e.g., external search only), this may return null.
-  const { data: taxonomy } = useQuery({
-    queryKey: ["/api/book-taxonomy", book?.googleBooksId],
-    queryFn: () => getBookTaxonomy(book!.googleBooksId),
-    enabled: open && !!book?.googleBooksId,
-  });
-
-  const [showAllTags, setShowAllTags] = useState(false);
-
-  // If the book has not been ingested yet, taxonomy may be empty. Ingest on open
-  // (best-effort) so chips can appear without requiring the user to add the book
-  // to a shelf first. Refetch taxonomy afterwards.
-  const ingestAttemptedRef = useRef<string | null>(null);
-  useEffect(() => {
-    if (!open || !book?.googleBooksId) return;
-    // Reset attempt marker when book changes
-    if (ingestAttemptedRef.current && ingestAttemptedRef.current !== book.googleBooksId) {
-      ingestAttemptedRef.current = null;
-    }
-    const alreadyTried = ingestAttemptedRef.current === book.googleBooksId;
-    if (taxonomy || alreadyTried) return;
-    (async () => {
-      try {
-        ingestAttemptedRef.current = book.googleBooksId;
-        await ingestMutation.mutateAsync(book);
-        // Give the server a brief moment, then refetch taxonomy
-        setTimeout(() => {
-          queryClient.invalidateQueries({ queryKey: ["/api/book-taxonomy", book.googleBooksId] });
-        }, 50);
-      } catch (e) {
-        // Ignore ingest failures; chips remain hidden if unavailable
-        console.warn("[book-dialog] auto-ingest skipped:", (e as any)?.message ?? e);
-      }
-    })();
-  }, [open, book, taxonomy, ingestMutation, queryClient]);
+  // Taxonomy moved to a lazily-loaded chunk via BookTaxonomyChips
 
   // Fetch book stats (only if book is in library)
   const { data: bookStats } = useQuery({
@@ -589,60 +553,7 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
         </div>
 
         {/* Taxonomy chips (above Summary) */}
-        {(taxonomy?.genre || taxonomy?.subgenre || (taxonomy?.tags?.length ?? 0) > 0) && (
-          <div className="px-6 py-4 border-b border-border/50">
-            <div className="flex items-start gap-4">
-              {/* TAGS (left, many chips) */}
-              <div className="flex-1">
-                <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Tags</div>
-                <div className="flex flex-wrap gap-2">
-                  {(showAllTags ? taxonomy?.tags ?? [] : (taxonomy?.tags ?? []).slice(0, 12)).map((t) => (
-                    <Badge
-                      key={t.slug}
-                      variant="secondary"
-                      className="cursor-pointer"
-                      onClick={() => navigateToBrowseWithFilter({ kind: "tag", slug: t.slug, label: t.name })}
-                    >
-                      #{t.name}
-                    </Badge>
-                  ))}
-                </div>
-                {((taxonomy?.tags?.length ?? 0) > 12) && (
-                  <div className="mt-2">
-                    <Button variant="ghost" size="sm" onClick={() => setShowAllTags((v) => !v)}>
-                      {showAllTags ? "Show Less" : `Show All ${(taxonomy?.allTagCount ?? taxonomy?.tags?.length) || 0} Tags`}
-                    </Button>
-                  </div>
-                )}
-              </div>
-
-              {/* GENRES (right, 1–2 chips) */}
-              <div className="w-40 flex-shrink-0">
-                <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Genres</div>
-                <div className="flex flex-wrap gap-2">
-                  {taxonomy?.genre && (
-                    <Badge
-                      variant="outline"
-                      className="cursor-pointer"
-                      onClick={() => navigateToBrowseWithFilter({ kind: "genre", slug: taxonomy.genre.slug, label: taxonomy.genre.name })}
-                    >
-                      {taxonomy.genre.name}
-                    </Badge>
-                  )}
-                  {taxonomy?.subgenre && (
-                    <Badge
-                      variant="outline"
-                      className="cursor-pointer"
-                      onClick={() => navigateToBrowseWithFilter({ kind: "subgenre", slug: taxonomy.subgenre.slug, label: taxonomy.subgenre.name })}
-                    >
-                      {taxonomy.subgenre.name}
-                    </Badge>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {book && <BookTaxonomyChips book={book} />}
 
         {/* Summary Section */}
         {book.description && (
