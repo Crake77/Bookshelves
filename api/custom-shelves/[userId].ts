@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { ensureDemoUserSeed } from "../user-books/db.js";
+import { ensureDemoUserSeed } from "../../server/lib/user-books-db.js";
 
 const DEFAULT_SHELVES = [
   { id: "reading", name: "Reading", position: 0, createdAt: "2024-01-01T00:00:00.000Z" },

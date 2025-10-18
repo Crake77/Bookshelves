@@ -1,6 +1,6 @@
 // api/db-test.ts
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getSql } from './_db';
+import { getSql } from '../server/lib/api-db.js';
 
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
   try {

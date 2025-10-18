@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { z } from "zod";
-import { upsertBook, type BookInput } from "./user-books/db.js";
+import { upsertBook, type BookInput } from "../server/lib/user-books-db.js";
 import { detectTaxonomy } from "../shared/taxonomy.js";
 import { neon } from "@neondatabase/serverless";
 
