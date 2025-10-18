@@ -207,9 +207,9 @@ Phase 3 (optional):
 - Current Focus: Phase 1 — Schema + Seeds
 
 - Next Steps
-  - [ ] Schema: add taxonomy tables in `shared/schema.ts` (genre, subgenre, crosstag, age_market)
-  - [ ] Schema: add link tables (book_primary_subgenre, book_subgenre_candidate, book_cross_tag, book_age_market) + indexes
-  - [ ] Seeds: idempotent upsert-by-slug for Genres/Subgenres/CrossTags/AgeMarkets
+  - [x] Schema: add taxonomy tables in `shared/schema.ts` (genre, subgenre, crosstag, age_market)
+  - [x] Schema: add link tables (book_primary_subgenre, book_subgenre_candidate, book_cross_tag, book_age_market) + indexes
+  - [x] Seeds: idempotent upsert-by-slug for Genres/Subgenres/CrossTags/AgeMarkets
   - [ ] Mapping: source category/BISAC/Thema → subgenre.slug
   - [ ] Ingest: apply mapping + heuristics to populate links
   - [ ] API: extend `api/browse.ts` to accept `genre|subgenre|tag` and use taxonomy, else fallback
@@ -217,15 +217,17 @@ Phase 3 (optional):
   - [ ] Validation: run Playwright e2e shelf-status on preview
 
 - In Progress
-  - Schema: add taxonomy tables in `shared/schema.ts` — start with `genre` and `subgenre` (slug unique, enabled, timestamps)
+  - Mapping: source category/BISAC/Thema → subgenre.slug — implement mapping files and loader
 
 - Handoff Snapshot
-  - Next file: `shared/schema.ts`
-  - Next action: define `genre` and `subgenre` tables with slugs + indexes
-  - Resume prompt: “Open docs/tech-plans/taxonomy-ui-plan.md and start with the Schema task under Next Steps.”
+  - Next file: `server/routes.ts` (ingest path) and `api/ingest.ts` — add mapping + heuristics to populate taxonomy links
+  - Next action: implement mapping tables (source category/BISAC → subgenre.slug) and basic keyword heuristics for cross tags
+  - Resume prompt: “Open docs/tech-plans/taxonomy-ui-plan.md and continue with the Mapping task under Day-to-Day Tracker.”
 
 - Session Log
   - 2025-10-18: Created tech plan; added day-to-day tracker and handoff snapshot.
+  - 2025-10-18: Implemented taxonomy + link tables in `shared/schema.ts`; updated tracker to Seeds next.
+  - 2025-10-18: Added idempotent taxonomy seed endpoint at `api/taxonomy-seed.ts`.
 
 ## How to Resume in a New Codex Session
 
