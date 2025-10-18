@@ -108,6 +108,33 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
 
   const [showAllTags, setShowAllTags] = useState(false);
 
+  // If the book has not been ingested yet, taxonomy may be empty. Ingest on open
+  // (best-effort) so chips can appear without requiring the user to add the book
+  // to a shelf first. Refetch taxonomy afterwards.
+  const ingestAttemptedRef = useRef<string | null>(null);
+  useEffect(() => {
+    if (!open || !book?.googleBooksId) return;
+    // Reset attempt marker when book changes
+    if (ingestAttemptedRef.current && ingestAttemptedRef.current !== book.googleBooksId) {
+      ingestAttemptedRef.current = null;
+    }
+    const alreadyTried = ingestAttemptedRef.current === book.googleBooksId;
+    if (taxonomy || alreadyTried) return;
+    (async () => {
+      try {
+        ingestAttemptedRef.current = book.googleBooksId;
+        await ingestMutation.mutateAsync(book);
+        // Give the server a brief moment, then refetch taxonomy
+        setTimeout(() => {
+          queryClient.invalidateQueries({ queryKey: ["/api/book-taxonomy", book.googleBooksId] });
+        }, 50);
+      } catch (e) {
+        // Ignore ingest failures; chips remain hidden if unavailable
+        console.warn("[book-dialog] auto-ingest skipped:", (e as any)?.message ?? e);
+      }
+    })();
+  }, [open, book, taxonomy, ingestMutation, queryClient]);
+
   // Fetch book stats (only if book is in library)
   const { data: bookStats } = useQuery({
     queryKey: ["/api/book-stats", existingUserBook?.bookId],

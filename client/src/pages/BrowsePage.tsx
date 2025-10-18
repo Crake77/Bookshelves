@@ -72,11 +72,15 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag }: UseBrowseCaro
         offset: pageParam,
         signal,
       }),
+    // Offset-based pagination: advance by the fixed page size when a full page is returned.
+    // If the API returns fewer than the page size, treat as the end.
     getNextPageParam: (
       lastPage: BookSearchResult[],
       _pages: BookSearchResult[][],
       lastPageParam: number
-    ) => (Array.isArray(lastPage) && lastPage.length > 0 ? lastPageParam + lastPage.length : undefined),
+    ) => (Array.isArray(lastPage) && lastPage.length === CAROUSEL_PAGE_SIZE
+      ? lastPageParam + CAROUSEL_PAGE_SIZE
+      : undefined),
     staleTime: 1000 * 60,
     gcTime: 1000 * 60 * 5,
     placeholderData: (previousData) => previousData ?? fallbackInfiniteData,
