@@ -5,7 +5,8 @@ import SearchBar from "@/components/SearchBar";
 import ShelfSection from "@/components/ShelfSection";
 import BookCard from "@/components/BookCard";
 import BookDetailDialog from "@/components/BookDetailDialog";
-import { getUserBooks, getCustomShelves, DEMO_USER_ID, type UserBook, type BookSearchResult } from "@/lib/api";
+import { getUserBooks, DEMO_USER_ID, type UserBook, type BookSearchResult } from "@/lib/api";
+import { useShelfPreferences } from "@/hooks/usePreferences";
 
 export default function ShelvesPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,29 +18,8 @@ export default function ShelvesPage() {
     queryFn: () => getUserBooks(DEMO_USER_ID),
   });
 
-  const { data: customShelves = [] } = useQuery({
-    queryKey: ["/api/custom-shelves", DEMO_USER_ID],
-    queryFn: () => getCustomShelves(DEMO_USER_ID),
-  });
-
-  // Build complete shelves list (default + enabled custom)
-  const defaultShelves = [
-    { name: "Reading", slug: "reading" },
-    { name: "Completed", slug: "completed" },
-    { name: "On Hold", slug: "on-hold" },
-    { name: "Dropped", slug: "dropped" },
-    { name: "Plan to Read", slug: "plan-to-read" },
-  ];
-
-  const allShelves = [
-    ...defaultShelves,
-    ...customShelves
-      .filter(shelf => shelf.isEnabled === 1)
-      .map(shelf => ({
-        name: shelf.name,
-        slug: shelf.slug,
-      }))
-  ];
+  const shelfPreferences = useShelfPreferences();
+  const enabledShelves = shelfPreferences.filter((shelf) => shelf.isEnabled);
 
   // Filter books by search
   const filteredBooks = searchQuery
@@ -50,29 +30,18 @@ export default function ShelvesPage() {
     : userBooks;
 
   // Create shelf sections with counts
-  const shelves = allShelves.map(shelf => ({
+  const shelves = enabledShelves.map((shelf) => ({
     name: shelf.name,
     slug: shelf.slug,
-    count: userBooks.filter(ub => ub.status === shelf.slug).length,
-    books: filteredBooks.filter(ub => ub.status === shelf.slug),
+    count: userBooks.filter((ub) => ub.status === shelf.slug).length,
+    books: filteredBooks.filter((ub) => ub.status === shelf.slug),
   }));
-
-  if (isLoading) {
-    return (
-      <div className="pb-20">
-        <AppHeader title="Books" subtitle="Loading your library..." />
-        <div className="px-4 py-8 text-center text-muted-foreground">
-          Loading your books...
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="pb-20">
       <AppHeader 
         title="Books" 
-        subtitle={`${userBooks.length} books in your library`}
+        subtitle={isLoading ? "Loading your library..." : `${userBooks.length} books in your library`}
       />
       
       <div className="px-4 py-4">
@@ -85,14 +54,24 @@ export default function ShelvesPage() {
       </div>
 
       <div className="px-2">
-        {shelves.map((shelf) => (
+        {shelves.map((shelf, index) => (
           <ShelfSection
             key={shelf.slug}
             title={shelf.name}
             count={shelf.count}
-            defaultOpen={shelf.slug === "plan-to-read"}
+            defaultOpen={index === 0 || shelf.slug === "plan-to-read"}
           >
-            {shelf.books.length > 0 ? (
+            {isLoading ? (
+              <div className="flex gap-3 overflow-x-auto pb-2 px-4 scrollbar-hide">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div key={`skeleton-${i}`} className="w-32 flex-shrink-0 animate-pulse">
+                    <div className="w-full h-48 rounded-lg bg-muted" />
+                    <div className="mt-2 h-4 bg-muted rounded" />
+                    <div className="mt-1 h-3 bg-muted rounded" />
+                  </div>
+                ))}
+              </div>
+            ) : shelf.books.length > 0 ? (
               <div className="flex gap-3 overflow-x-auto pb-2 px-4 scrollbar-hide">
                 {shelf.books.map((userBook: UserBook) => (
                   <div 
