@@ -4,7 +4,8 @@ import AppHeader from "@/components/AppHeader";
 import SearchBar from "@/components/SearchBar";
 import ShelfSection from "@/components/ShelfSection";
 import BookCard from "@/components/BookCard";
-import BookDetailDialog from "@/components/BookDetailDialog";
+import { lazy, Suspense } from "react";
+const BookDetailDialog = lazy(() => import("@/components/BookDetailDialog"));
 import { getUserBooks, DEMO_USER_ID, type UserBook, type BookSearchResult } from "@/lib/api";
 import { useShelfPreferences } from "@/hooks/usePreferences";
 
@@ -100,11 +101,13 @@ export default function ShelvesPage() {
         ))}
       </div>
 
-      <BookDetailDialog
-        book={selectedBook}
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-      />
+      <Suspense>
+        <BookDetailDialog
+          book={selectedBook}
+          open={dialogOpen}
+          onOpenChange={setDialogOpen}
+        />
+      </Suspense>
     </div>
   );
 }
