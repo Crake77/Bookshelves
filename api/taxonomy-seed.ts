@@ -56,6 +56,50 @@ async function ensureTaxonomySchema(sql: SqlClient) {
       created_at timestamptz NOT NULL DEFAULT now(),
       updated_at timestamptz NOT NULL DEFAULT now()
     )`;
+
+  // Link tables (safe to create even if unused yet)
+  await sql/* sql */`
+    CREATE TABLE IF NOT EXISTS book_primary_subgenres (
+      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+      book_id uuid NOT NULL REFERENCES books(id) ON DELETE CASCADE,
+      subgenre_id uuid NOT NULL REFERENCES subgenres(id) ON DELETE CASCADE,
+      confidence real,
+      created_at timestamptz NOT NULL DEFAULT now(),
+      updated_at timestamptz NOT NULL DEFAULT now(),
+      CONSTRAINT uq_book_primary_subgenre_book UNIQUE (book_id)
+    )`;
+
+  await sql/* sql */`
+    CREATE TABLE IF NOT EXISTS book_subgenre_candidates (
+      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+      book_id uuid NOT NULL REFERENCES books(id) ON DELETE CASCADE,
+      subgenre_id uuid NOT NULL REFERENCES subgenres(id) ON DELETE CASCADE,
+      confidence real NOT NULL,
+      created_at timestamptz NOT NULL DEFAULT now(),
+      updated_at timestamptz NOT NULL DEFAULT now(),
+      CONSTRAINT uq_book_subgenre_candidate UNIQUE (book_id, subgenre_id)
+    )`;
+
+  await sql/* sql */`
+    CREATE TABLE IF NOT EXISTS book_cross_tags (
+      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+      book_id uuid NOT NULL REFERENCES books(id) ON DELETE CASCADE,
+      cross_tag_id uuid NOT NULL REFERENCES cross_tags(id) ON DELETE CASCADE,
+      confidence real,
+      created_at timestamptz NOT NULL DEFAULT now(),
+      updated_at timestamptz NOT NULL DEFAULT now(),
+      CONSTRAINT uq_book_cross_tag UNIQUE (book_id, cross_tag_id)
+    )`;
+
+  await sql/* sql */`
+    CREATE TABLE IF NOT EXISTS book_age_markets (
+      id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+      book_id uuid NOT NULL REFERENCES books(id) ON DELETE CASCADE,
+      age_market_id uuid NOT NULL REFERENCES age_markets(id) ON DELETE CASCADE,
+      created_at timestamptz NOT NULL DEFAULT now(),
+      updated_at timestamptz NOT NULL DEFAULT now(),
+      CONSTRAINT uq_book_age_market UNIQUE (book_id, age_market_id)
+    )`;
 }
 
 const GENRES: Array<{ slug: string; name: string; enabled?: boolean }> = [
@@ -354,4 +398,3 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ ok: false, error: error?.message ?? "Failed to seed taxonomy" });
   }
 }
-
