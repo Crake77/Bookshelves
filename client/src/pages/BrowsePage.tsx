@@ -349,9 +349,11 @@ export default function BrowsePage() {
         </div>
       )}
 
-      <Suspense>
-        <BookDetailDialog book={selectedBook} open={dialogOpen} onOpenChange={setDialogOpen} />
-      </Suspense>
+      {dialogOpen && (
+        <Suspense>
+          <BookDetailDialog book={selectedBook} open={dialogOpen} onOpenChange={setDialogOpen} />
+        </Suspense>
+      )}
     </div>
   );
 }
