@@ -213,11 +213,11 @@ Phase 3 (optional):
   - [x] Mapping: source category keywords → subgenre + cross tags (heuristics)
   - [x] Ingest: apply mapping + heuristics to populate links
   - [x] API: extend `api/browse.ts` to accept `genre|subgenre|tag` and use taxonomy, else fallback
-  - [ ] UI: Book modal chips beneath Summary (Genres/Subgenres/Tags + Show All)
+  - [x] UI: Book modal chips beneath Summary (Genres/Subgenres/Tags + Show All)
   - [ ] Validation: run Playwright e2e shelf-status on preview
 
 - In Progress
-  - UI: Book modal chips beneath Summary; chip click → Browse with filters; non-blocking if no taxonomy
+  - Validation: seed taxonomy on preview, sanity-check browse filters, run Playwright e2e
 
 - Handoff Snapshot
   - Next file: `api/browse.ts`
@@ -230,6 +230,7 @@ Phase 3 (optional):
   - 2025-10-18: Added idempotent taxonomy seed endpoint at `api/taxonomy-seed.ts`.
   - 2025-10-18: Added heuristic mapping in `shared/taxonomy.ts` and applied taxonomy on ingest in `api/ingest.ts`.
   - 2025-10-18: Added taxonomy-aware filters in `api/browse.ts` (subgenre, tag) with EXISTS-based guards.
+  - 2025-10-18: Added Book modal taxonomy chips and chip→Browse filter handoff; added `/api/book-taxonomy`.
 
 ## How to Resume in a New Codex Session
 
