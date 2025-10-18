@@ -1333,6 +1333,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.status(200).json(books);
   } catch (error: any) {
     console.error("Failed to load browse recommendations", error);
-    res.status(500).json({ error: "Failed to load browse recommendations" });
+    res.status(500).json({
+      error: "Failed to load browse recommendations",
+      debug: String(error?.message || error),
+      hasDbUrl: Boolean(process.env.DATABASE_URL || ""),
+    });
   }
 }
