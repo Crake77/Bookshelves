@@ -9,8 +9,13 @@ interface Props {
   onOpenChange: (open: boolean) => void;
 }
 
-class ErrorBoundary extends (window as any).React?.Component<any, any> || (class extends (class {}) {}) {
-  state = { hasError: false };
+import React from "react";
+
+class ErrorBoundary extends React.Component<{ fallback?: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: { fallback?: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
   static getDerivedStateFromError() { return { hasError: true }; }
   componentDidCatch(_err: any) { /* no-op */ }
   render() { return this.state.hasError ? (this.props.fallback ?? null) : this.props.children; }
@@ -62,4 +67,3 @@ export default function SafeBookDialog({ book, open, onOpenChange }: Props) {
     </ErrorBoundary>
   );
 }
-
