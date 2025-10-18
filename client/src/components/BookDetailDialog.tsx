@@ -33,7 +33,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useShelfPreferences } from "@/hooks/usePreferences";
-import BookTaxonomyChips from "@/components/BookTaxonomyChips";
+import React, { Suspense as _Suspense } from "react";
+const LazyTaxonomyChips = React.lazy(() => import("@/components/BookTaxonomyChips"));
 
 type HydratedUserBook = UserBook & { book?: BookSearchResult };
 
@@ -552,8 +553,12 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
           </div>
         </div>
 
-        {/* Taxonomy chips (above Summary) */}
-        {book && <BookTaxonomyChips book={book} />}
+        {/* Taxonomy chips (above Summary) — lazy so dialog core mounts first */}
+        {book && (
+          <_Suspense fallback={null}>
+            <LazyTaxonomyChips book={book} />
+          </_Suspense>
+        )}
 
         {/* Summary Section */}
         {book.description && (
