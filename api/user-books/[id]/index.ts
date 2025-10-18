@@ -5,6 +5,7 @@ import {
   updateUserBookStatus,
   removeUserBook,
 } from "../db.js";
+} from "../../../server/lib/user-books-db.js";
 
 function sendError(res: VercelResponse, status: number, message: string) {
   return res.status(status).json({ error: message });

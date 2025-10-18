@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { z } from "zod";
-import { addUserBook } from "./db.js";
+import { addUserBook } from "../../server/lib/user-books-db.js";
 
 const bodySchema = z.object({
   userId: z.string().nonempty(),

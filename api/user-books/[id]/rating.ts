@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { updateUserBookRating } from "../db.js";
+import { updateUserBookRating } from "../../../server/lib/user-books-db.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "PATCH") {
