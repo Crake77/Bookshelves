@@ -223,14 +223,14 @@ Phase 3 (optional):
   - [x] API: extend `api/browse.ts` to accept `genre|subgenre|tag` and use taxonomy, else fallback
   - [x] UI: Book modal chips beneath Summary (Genres/Subgenres/Tags + Show All)
   - [x] Browse: restore infinite scroll + page top-up
-  - [ ] Heuristics: reduce false positives (e.g., `artificial-intelligence`) via stricter patterns + thresholds
+  - [x] Heuristics: reduce false positives (e.g., `artificial-intelligence`) via stricter patterns + thresholds
   - [x] Heuristics: prefer subject → subgenre mapping before free-text keywords
   - [ ] Covers: add normalization pipeline so cover image matches title/author (see ops note)
   - [ ] Extend top-up to `rating`/`recent` for consistency (optional)
   - [ ] Add Playwright smoke for opening dialog + seeing controls
 
 - In Progress
-  - Heuristics tuning: tighten `TAG_KEYWORDS` and add confidence gating in `shared/taxonomy.ts`
+  - Heuristics tuning: continue tightening `TAG_KEYWORDS` and confidence gating in `shared/taxonomy.ts`
 
 - Handoff Snapshot
   - Next files: `shared/taxonomy.ts`, `api/ingest.ts`, `client/src/components/BookTaxonomyChips.tsx`
@@ -263,6 +263,9 @@ Audit status snapshot:
   - 2025-10-18: Added performance indexes to taxonomy tables and link tables; implemented subject→subgenre mapping-first logic via `shared/mappings/category-to-subgenre.ts`.
   - 2025-10-19: Fixed Browse page subgenre editor to use real category slug (handles hyphenated slugs like `sci-fi`) and preserved tag selections. File: `client/src/pages/BrowsePage.tsx`.
   - 2025-10-19: Increased `/api/taxonomy-list` max `limit` to 500 so dialogs surface complete subgenre/tag options; Browse subgenre dropdown now includes Sci‑Fi and Mystery families. File: `api/taxonomy-list.ts`.
+  - 2025-10-19: Book Dialog layout pass (mobile + desktop). Mobile/tablet uses dvw/dvh with equal 6vw edges; desktop uses fixed widths and clamps height to viewport to prevent bottom overflow. Header made opaque with a measured mask; scroll area begins at the divider line. Files: `client/src/components/BookDetailDialog.tsx`, `client/src/components/ui/dialog.tsx`.
+  - 2025-10-19: Playwright mobile smoke added to exercise dialog open + rating sheet; adjusted to reset scroll on reopen to avoid stale scroll positions. Files: `e2e/mobile-book-dialog.spec.ts`.
+  - 2025-10-19: Heuristics pass: made `artificial-intelligence` match explicit phrase only, added negative phrases for `ai` (avoid Ai Weiwei/Adobe Illustrator), and added confidence gating; audit improved gaps to 9/500. File: `shared/taxonomy.ts`, script: `scripts/taxonomy-audit.ts`.
 
 ## How to Resume in a New Codex Session
 

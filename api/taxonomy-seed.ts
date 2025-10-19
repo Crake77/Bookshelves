@@ -393,6 +393,7 @@ const CROSS_TAGS: Array<{ group: string; slug: string; name: string; enabled?: b
   // mathematics topics
   { group: "topic", slug: "mathematics", name: "Mathematics" },
   { group: "topic", slug: "statistics", name: "Statistics" },
+  { group: "topic", slug: "probability", name: "Probability" },
   { group: "topic", slug: "number-theory", name: "Number Theory" },
   { group: "topic", slug: "number-theory", name: "Number Theory" },
   { group: "topic", slug: "algebra", name: "Algebra" },
@@ -413,6 +414,11 @@ const CROSS_TAGS: Array<{ group: string; slug: string; name: string; enabled?: b
   { group: "topic", slug: "sociology", name: "Sociology" },
   { group: "topic", slug: "political-science", name: "Political Science" },
   { group: "topic", slug: "law", name: "Law" },
+  { group: "topic", slug: "economics", name: "Economics" },
+  { group: "topic", slug: "public-policy", name: "Public Policy" },
+  { group: "topic", slug: "government", name: "Government" },
+  { group: "topic", slug: "criminal-law", name: "Criminal Law" },
+  { group: "topic", slug: "constitutional-law", name: "Constitutional Law" },
   // safety
   { group: "topic", slug: "nonfiction", name: "Nonfiction" },
 ];
@@ -449,7 +455,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       let updated = 0;
       for (const b of books) {
-        const { detectTaxonomy } = await import("../shared/taxonomy.js");
+        const { detectTaxonomy, detectAgeMarketSlug } = await import("../shared/taxonomy.js");
         const { primarySubgenre, crossTags } = detectTaxonomy(b.title ?? undefined, b.description ?? undefined, b.categories ?? undefined);
         if (primarySubgenre) {
           const sub = (await sql/* sql */`SELECT id FROM subgenres WHERE slug = ${primarySubgenre} LIMIT 1`) as Array<{ id: string }>;
@@ -475,6 +481,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             VALUES (${b.id}, ${tagId}, ${0.7})
             ON CONFLICT (book_id, cross_tag_id) DO NOTHING
           `;
+        }
+        // Refresh age market link to keep one clear signal per book
+        await sql/* sql */`DELETE FROM book_age_markets WHERE book_id = ${b.id}`;
+        const ageSlug = detectAgeMarketSlug(b.title ?? undefined, b.description ?? undefined, b.categories ?? undefined);
+        if (ageSlug) {
+          const age = (await sql/* sql */`SELECT id FROM age_markets WHERE slug = ${ageSlug} LIMIT 1`) as Array<{ id: string }>;
+          const ageId = age[0]?.id;
+          if (ageId) {
+            await sql/* sql */`
+              INSERT INTO book_age_markets (book_id, age_market_id)
+              VALUES (${b.id}, ${ageId})
+              ON CONFLICT (book_id, age_market_id) DO NOTHING
+            `;
+          }
         }
         updated += 1;
       }

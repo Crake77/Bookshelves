@@ -27,11 +27,7 @@ import {
 } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Minus, Plus } from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+//
 import { useShelfPreferences } from "@/hooks/usePreferences";
 import React, { Suspense as _Suspense } from "react";
 const LazyTaxonomyChips = React.lazy(() => import("@/components/BookTaxonomyChips"));
@@ -57,7 +53,13 @@ function formatRanking(ranking: number | null): string {
 export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHint }: BookDetailDialogProps) {
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [ratingInput, setRatingInput] = useState<string>("");
-  const [isRatingPopoverOpen, setIsRatingPopoverOpen] = useState(false);
+  const [isRatingOpen, setIsRatingOpen] = useState(false);
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const dividerRef = useRef<HTMLDivElement | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [contentPadTop, setContentPadTop] = useState<number>(0);
+  const [maskHeight, setMaskHeight] = useState<number>(0);
+  const [isSmall, setIsSmall] = useState<boolean>(false);
   const [ingestedBookId, setIngestedBookId] = useState<string | null>(null);
   const { toast } = useToast();
   const lastStatusRef = useRef<string | null>(null);
@@ -100,6 +102,21 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
   };
 
   // Taxonomy moved to a lazily-loaded chunk via BookTaxonomyChips
+  //
+  // Layout overview (do not change dims without discussing):
+  // - Mobile/tablet portrait: dialog fills the viewport with equal edges (6vw) using dvw/dvh;
+  //   centered horizontally. This keeps all four margins visually equal and in-frame.
+  // - Desktop: dialog uses fixed widths (sm/md/lg) and clamps height to the viewport (90dvh)
+  //   with a small top offset. This prevents the bottom from overflowing while preserving
+  //   the rectangular look.
+  // - Header: a fixed, opaque "card" area that contains cover, title/author, stats and widgets.
+  //   We render a mask overlay (maskHeight) from the header top down to a little below the
+  //   divider line (beneath pages). This ensures anything that scrolls below is fully hidden
+  //   behind the header, matching the behavior of the Tag/Genre popups.
+  // - Scroll area: begins exactly at the divider line. We compute paddingTop based on the
+  //   divider's bottom relative to the scroll container top (double requestAnimationFrame and
+  //   resize observer to avoid layout drift). We also reset scrollTop on every open/book change
+  //   to avoid stale scroll positions.
 
   // Fetch book stats (only if book is in library)
   const { data: bookStats } = useQuery({
@@ -107,6 +124,44 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
     queryFn: () => getBookStats(existingUserBook!.bookId),
     enabled: open && !!existingUserBook?.bookId,
   });
+
+  useEffect(() => {
+    // determine mobile/tablet portrait for edge-filling sizing
+    const mql = window.matchMedia('(max-width: 768px)');
+    const handler = () => setIsSmall(mql.matches);
+    handler();
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    function recompute() {
+      const header = headerRef.current;
+      const divider = dividerRef.current;
+      const scroller = scrollRef.current;
+      if (!header || !divider || !scroller) return;
+      const hr = header.getBoundingClientRect();
+      const dr = divider.getBoundingClientRect();
+      const sr = scroller.getBoundingClientRect();
+      // Mask covers header-top .. a little below divider-bottom to ensure no bleed under header controls
+      setMaskHeight(Math.max(0, Math.round((dr.bottom - hr.top) + 12)));
+      // Scroll begins exactly at divider-bottom (scroller coordinates)
+      setContentPadTop(Math.max(0, Math.round(dr.bottom - sr.top)));
+    }
+    // Reset scroll position each time dialog opens or book changes
+    if (scrollRef.current) scrollRef.current.scrollTop = 0;
+    // Double RAF to ensure layout (fonts, images) settle before measuring
+    requestAnimationFrame(() => requestAnimationFrame(recompute));
+    const ro = new ResizeObserver(() => recompute());
+    if (headerRef.current) ro.observe(headerRef.current);
+    if (dividerRef.current) ro.observe(dividerRef.current);
+    window.addEventListener('resize', recompute);
+    return () => {
+      window.removeEventListener('resize', recompute);
+      ro.disconnect();
+    };
+  }, [open, existingUserBook, bookStats, book?.googleBooksId]);
 
   // Reset state when dialog opens
   useEffect(() => {
@@ -283,7 +338,7 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
       userBookId: existingUserBook.id,
       rating,
     });
-    setIsRatingPopoverOpen(false);
+    setIsRatingOpen(false);
   };
 
   const adjustRating = (delta: number) => {
@@ -319,84 +374,99 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
+      {/*
+        Sizing rules (documented):
+        - Dialog is centered by base variant; we set top/width/height using dvw/dvh minus equal margins (6vw) so all edges are equal on mobile.
+        - Header (cover/title/author + stats + widgets) is fixed and opaque; divider line marks submerge boundary.
+        - Scroll area is padded to divider.bottom (measured) so content begins AT the line and scrolls under it.
+      */}
       <DialogContent
         data-variant="book-detail"
         className={cn(
           "flex !translate-y-0 flex-col overflow-hidden p-0",
-          "!top-[3vh] h-[calc(100dvh-3rem)] max-h-[calc(100dvh-3rem)] w-[92vw] max-w-[92vw]",
-          "sm:!top-[4vh] sm:h-[90vh] sm:max-h-[90vh] sm:w-[26rem] sm:max-w-[26rem] sm:rounded-[32px] sm:border sm:border-border/40",
+          // Let the dialog's variant styles control top/size; only refine at larger breakpoints
+          "sm:rounded-[32px] sm:border sm:border-border/40 sm:w-[26rem] sm:max-w-[26rem]",
           "md:w-[27rem] md:max-w-[27rem] lg:w-[28rem] lg:max-w-[28rem]"
         )}
+        style={
+          isSmall
+            ? {
+                top: `max(6vw, env(safe-area-inset-top))`,
+                left: '50%',
+                transform: 'translate(-50%, 0)',
+                width: 'calc(100dvw - 12vw)',
+                height: 'calc(100dvh - 12vw)',
+                maxWidth: 'calc(100dvw - 12vw)',
+                maxHeight: 'calc(100dvh - 12vw)',
+              }
+            : {
+                top: '5vh',
+                left: '50%',
+                transform: 'translate(-50%, 0)',
+                height: '90dvh',
+                maxHeight: '90dvh',
+              }
+        }
         data-testid="dialog-book-detail"
       >
-        <div className="flex-1 overflow-y-auto">
-        {/* Cover and Title Section */}
-        <div className="relative overflow-hidden px-6 pt-10 pb-6 text-center">
-          {book.coverUrl ? (
-            <>
-              <img
-                src={book.coverUrl}
-                alt={book.title}
-                className="absolute inset-0 h-full w-full object-cover opacity-40 blur-xl -z-20"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent -z-10" />
-            </>
-          ) : (
-            <div className="absolute inset-0 bg-muted/40 -z-10" />
-          )}
+        <div className="relative h-full">
+          {/* Fixed card area (cover/title/author + stats + widgets) */}
+          <div ref={headerRef} className="absolute inset-x-0 top-0 z-10" style={{ height: 'min(58vh, 420px)' }}>
+            {/* Opaque mask covers only down to the divider line */}
+            <div className="absolute left-0 right-0 top-0 z-0" style={{ height: maskHeight, background: 'var(--background)' }} />
+            {/* Cover and Title Section */}
+            <div className="relative z-10 overflow-hidden px-6 pt-8 pb-4 text-center">
+              {book.coverUrl ? (
+                <>
+                  <img
+                    src={book.coverUrl}
+                    alt={book.title}
+                    className="absolute inset-0 h-full w-full object-cover opacity-40 blur-xl -z-20"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent -z-10" />
+                </>
+              ) : (
+                <div className="absolute inset-0 bg-muted/40 -z-10" />
+              )}
 
-          <div className="mx-auto flex max-w-md flex-col items-center gap-3">
-            {book.coverUrl && (
-              <img
-                src={book.coverUrl}
-                alt={book.title}
-                className="w-32 h-48 rounded-lg object-cover shadow-2xl"
-                data-testid="img-book-cover"
-              />
+              <div className="mx-auto flex max-w-md flex-col items-center gap-3">
+                {book.coverUrl && (
+                  <img
+                    src={book.coverUrl}
+                    alt={book.title}
+                    className="w-32 h-48 rounded-lg object-cover shadow-2xl"
+                    data-testid="img-book-cover"
+                  />
+                )}
+
+                <h2 className="font-display text-xl font-bold" data-testid="text-book-title">{book.title}</h2>
+                <p className="text-sm text-muted-foreground" data-testid="text-book-author">{book.authors.join(", ")}</p>
+              </div>
+            </div>
+
+            {/* Stats Section */}
+            {existingUserBook && bookStats && (
+              <div className="relative z-10 px-6 py-2">
+                <div className="flex items-center justify-center gap-6 text-sm">
+                  {bookStats.averageRating !== null && (
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">{bookStats.averageRating}%</div>
+                      <div className="text-xs text-muted-foreground">AVG SCORE</div>
+                    </div>
+                  )}
+                  {bookStats.ranking !== null && (
+                    <div className="text-center">
+                      <div className="text-lg font-semibold">{formatRanking(bookStats.ranking)}</div>
+                      <div className="text-xs text-muted-foreground">HIGHEST RATED</div>
+                    </div>
+                  )}
+                </div>
+              </div>
             )}
 
-            <h2
-              className="font-display text-xl font-bold"
-              data-testid="text-book-title"
-            >
-              {book.title}
-            </h2>
-            <p
-              className="text-sm text-muted-foreground"
-              data-testid="text-book-author"
-            >
-              {book.authors.join(", ")}
-            </p>
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        {existingUserBook && bookStats && (
-          <div className="px-6 py-3 border-b border-border/50">
-            <div className="flex items-center justify-center gap-6 text-sm">
-              {bookStats.averageRating !== null && (
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">
-                    {bookStats.averageRating}%
-                  </div>
-                  <div className="text-xs text-muted-foreground">AVG SCORE</div>
-                </div>
-              )}
-              {bookStats.ranking !== null && (
-                <div className="text-center">
-                  <div className="text-lg font-semibold">
-                    {formatRanking(bookStats.ranking)}
-                  </div>
-                  <div className="text-xs text-muted-foreground">HIGHEST RATED</div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Widgets Section */}
-        <div className="px-6 py-4 border-b border-border/50">
-          <div className="grid grid-cols-3 gap-3">
+            {/* Widgets Section with divider line */}
+            <div ref={dividerRef} className="relative z-10 px-6 pb-3 border-b border-border/50">
+              <div className="grid grid-cols-3 gap-3">
             {/* Left Widget - Shelf Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -444,137 +514,138 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
             </div>
 
             {/* Right Widget - Score Input */}
-            <Popover open={isRatingPopoverOpen} onOpenChange={setIsRatingPopoverOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full justify-center text-xs h-auto py-2 px-3"
-                  disabled={!existingUserBook}
-                  data-testid="button-rating-trigger"
-                >
-                  {ratingInput ? (
-                    <span className="font-semibold">{ratingInput}%</span>
-                  ) : (
-                    <span className="text-muted-foreground">Score</span>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent 
-                className="w-full max-w-md p-0 border-0" 
-                align="center"
-                side="bottom"
-                sideOffset={-200}
-              >
-                <div className="bg-background rounded-t-3xl shadow-2xl" style={{ height: '33vh', minHeight: '300px' }}>
-                  {/* Display and Controls */}
-                  <div className="p-6 pb-4 border-b border-border/50">
-                    <div className="text-center mb-4">
-                      <div className="text-sm text-muted-foreground mb-2">Score</div>
-                      <div className="text-6xl font-bold tracking-tight">
-                        {ratingInput || "0"}
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center justify-center gap-4 mb-4">
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => adjustRating(-1)}
-                        className="h-12 w-12 rounded-full"
-                        data-testid="button-rating-decrease"
-                      >
-                        <Minus className="h-5 w-5" />
-                      </Button>
-                      
-                      <Button
-                        onClick={handleUpdateRating}
-                        className="px-8"
-                        disabled={isRatingPending}
-                        data-testid="button-save-rating"
-                      >
-                        {isRatingPending ? "Saving..." : "Save"}
-                      </Button>
-                      
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => adjustRating(1)}
-                        className="h-12 w-12 rounded-full"
-                        data-testid="button-rating-increase"
-                      >
-                        <Plus className="h-5 w-5" />
-                      </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full justify-center text-xs h-auto py-2 px-3"
+              disabled={!existingUserBook}
+              data-testid="button-rating-trigger"
+              onClick={() => setIsRatingOpen(true)}
+            >
+              {ratingInput ? (
+                <span className="font-semibold">{ratingInput}%</span>
+              ) : (
+                <span className="text-muted-foreground">Score</span>
+              )}
+            </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Scrollable content under the fixed card header; pad to divider bottom so submerge starts AT the line */}
+          <div ref={scrollRef} className="h-full overflow-y-auto" style={{ paddingTop: contentPadTop }}>
+            {/* Taxonomy chips (above Summary) — lazy so dialog core mounts first */}
+            {book && (
+              <_Suspense fallback={null}>
+                {/* Key ensures fresh mount per book so ingest logic runs per selection */}
+                <LazyTaxonomyChips key={book.googleBooksId} book={book} hint={taxonomyHint} />
+              </_Suspense>
+            )}
+
+            {/* Summary Section */}
+            {book.description && (
+              <div className="px-6 py-4">
+                <h3 className="text-xs font-semibold text-muted-foreground uppercase mb-2">Summary</h3>
+                <p className="text-sm text-foreground/90 leading-relaxed" data-testid="text-book-description">{book.description}</p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Inline bottom sheet aligned to dialog width */}
+        {isRatingOpen && (
+          <>
+            <div
+              className="absolute inset-0 bg-background/50"
+              onClick={() => setIsRatingOpen(false)}
+            />
+            <div className="absolute inset-x-0 bottom-0 z-10">
+              <div className="bg-background rounded-t-3xl border-t border-border shadow-2xl overflow-hidden"
+                   style={{ height: '45vh', minHeight: '380px' }}>
+                <div className="flex justify-center py-2">
+                  <div className="h-1.5 w-10 rounded-full bg-muted" />
+                </div>
+                <div className="px-6 pb-4 border-b border-border/50">
+                  <div className="text-center mb-4">
+                    <div className="text-sm text-muted-foreground mb-2">Score</div>
+                    <div className="text-6xl font-bold tracking-tight">
+                      {ratingInput || '0'}
                     </div>
                   </div>
-
-                  {/* Number Pad */}
-                  <div className="p-4">
-                    <div className="grid grid-cols-3 gap-2">
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-                        <Button
-                          key={num}
-                          variant="ghost"
-                          onClick={() => handleNumberPad(num.toString())}
-                          className="h-12 text-lg font-medium hover-elevate"
-                          data-testid={`button-numpad-${num}`}
-                        >
-                          {num}
-                        </Button>
-                      ))}
-                      <Button
-                        variant="ghost"
-                        onClick={handleBackspace}
-                        className="h-12 text-lg font-medium hover-elevate"
-                        data-testid="button-numpad-backspace"
-                      >
-                        ←
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        onClick={() => handleNumberPad("0")}
-                        className="h-12 text-lg font-medium hover-elevate"
-                        data-testid="button-numpad-0"
-                      >
-                        0
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        onClick={() => setRatingInput("0")}
-                        className="h-12 text-lg font-medium hover-elevate"
-                        data-testid="button-numpad-clear"
-                      >
-                        C
-                      </Button>
-                    </div>
+                  <div className="flex items-center justify-center gap-4 mb-2">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => adjustRating(-1)}
+                      className="h-12 w-12 rounded-full"
+                      data-testid="button-rating-decrease"
+                    >
+                      <Minus className="h-5 w-5" />
+                    </Button>
+                    <Button
+                      onClick={handleUpdateRating}
+                      className="px-8"
+                      disabled={isRatingPending}
+                      data-testid="button-save-rating"
+                    >
+                      {isRatingPending ? 'Saving...' : 'Save'}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => adjustRating(1)}
+                      className="h-12 w-12 rounded-full"
+                      data-testid="button-rating-increase"
+                    >
+                      <Plus className="h-5 w-5" />
+                    </Button>
                   </div>
                 </div>
-              </PopoverContent>
-            </Popover>
-          </div>
-        </div>
-
-        {/* Taxonomy chips (above Summary) — lazy so dialog core mounts first */}
-        {book && (
-          <_Suspense fallback={null}>
-            {/* Key ensures fresh mount per book so ingest logic runs per selection */}
-            <LazyTaxonomyChips key={book.googleBooksId} book={book} hint={taxonomyHint} />
-          </_Suspense>
+                <div className="p-4 pb-8">
+                  <div className="grid grid-cols-3 gap-2">
+                    {[1,2,3,4,5,6,7,8,9].map((num) => (
+                      <Button
+                        key={num}
+                        variant="ghost"
+                        onClick={() => handleNumberPad(num.toString())}
+                        className="h-12 text-lg font-medium hover-elevate"
+                        data-testid={`button-numpad-${num}`}
+                      >
+                        {num}
+                      </Button>
+                    ))}
+                    <Button
+                      variant="ghost"
+                      onClick={handleBackspace}
+                      className="h-12 text-lg font-medium hover-elevate"
+                      data-testid="button-numpad-backspace"
+                    >
+                      ←
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleNumberPad('0')}
+                      className="h-12 text-lg font-medium hover-elevate"
+                      data-testid="button-numpad-0"
+                    >
+                      0
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => setRatingInput('0')}
+                      className="h-12 text-lg font-medium hover-elevate"
+                      data-testid="button-numpad-clear"
+                    >
+                      C
+                    </Button>
+                  </div>
+                  <div className="pointer-events-none" style={{ height: 'env(safe-area-inset-bottom, 0px)' }} />
+                  <div className="pointer-events-none" style={{ height: 'constant(safe-area-inset-bottom, 0px)' }} />
+                </div>
+              </div>
+            </div>
+          </>
         )}
-
-        {/* Summary Section */}
-        {book.description && (
-          <div className="px-6 py-4">
-            <h3 className="text-xs font-semibold text-muted-foreground uppercase mb-2">
-              Summary
-            </h3>
-            <p className="text-sm text-foreground/90 leading-relaxed line-clamp-6" data-testid="text-book-description">
-              {book.description}
-            </p>
-          </div>
-        )}
-
-        </div>
       </DialogContent>
     </Dialog>
   );

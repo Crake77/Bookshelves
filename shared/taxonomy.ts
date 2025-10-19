@@ -80,8 +80,8 @@ const TAG_KEYWORDS: Array<{ slug: string; group: string; rx: RegExp }>
     { slug: "missing-persons", group: "tropes_themes", rx: /\bmissing (?:girl|boy|child|children|person|persons|people)\b|\b(?:disappeared|vanished)\b/i },
     { slug: "cold-case", group: "tropes_themes", rx: /\bcold\s+case\b/i },
     { slug: "police-procedural", group: "tropes_themes", rx: /\bpolice\s+procedural|homicide\s+detective\b/i },
-    // Stricter AI detection: boundary-anchored and/or explicit phrase to avoid "said", "brain", etc.
-    { slug: "artificial-intelligence", group: "tropes_themes", rx: /\b(?:artificial intelligence|A\.?I\.?)\b/i },
+    // Stricter AI detection: require the explicit phrase to reduce incidental matches
+    { slug: "artificial-intelligence", group: "tropes_themes", rx: /\bartificial intelligence\b/i },
     { slug: "time-loop", group: "tropes_themes", rx: /\btime loop\b/i },
     // Narrow LitRPG signal to avoid generic "system" matches
     { slug: "game-like-systems-litrpg", group: "tropes_themes", rx: /\b(?:litrpg|game[-\s]?like systems?|status window|level(?:ing)? system)\b/i },
@@ -144,7 +144,8 @@ const TAG_KEYWORDS: Array<{ slug: string; group: string; rx: RegExp }>
     { slug: "creativity", group: "topic", rx: /\bcreativit[y|e]\b/i },
     { slug: "design", group: "topic", rx: /\bdesign|ux|user experience|ui\b/i },
     { slug: "data-science", group: "topic", rx: /\bdata science|machine learning|ml\b/i },
-    { slug: "ai", group: "topic", rx: /\bartificial intelligence|\bAI\b/i },
+    // AI topic: allow explicit phrase or standalone "AI" token; we apply extra gating below
+    { slug: "ai", group: "topic", rx: /\bartificial intelligence\b|\bAI\b/ },
     { slug: "python", group: "topic", rx: /\bpython\b/i },
     { slug: "javascript", group: "topic", rx: /\bjavascript|node\.js|react\b/i },
     { slug: "cloud", group: "topic", rx: /\bcloud (?:computing|architecture)|aws|azure|gcp\b/i },
@@ -188,6 +189,7 @@ const TAG_KEYWORDS: Array<{ slug: string; group: string; rx: RegExp }>
     // mathematics topics
     { slug: "mathematics", group: "topic", rx: /\bmathematics|math\b/i },
     { slug: "statistics", group: "topic", rx: /\bstatistics|statistical\b/i },
+    { slug: "probability", group: "topic", rx: /\bprobabilit[y|ies]|stochastic\b/i },
     { slug: "number-theory", group: "topic", rx: /\bnumber\s+theory\b/i },
     { slug: "algebra", group: "topic", rx: /\balgebra(ic)?\b/i },
     { slug: "calculus", group: "topic", rx: /\bcalculus\b/i },
@@ -209,6 +211,11 @@ const TAG_KEYWORDS: Array<{ slug: string; group: string; rx: RegExp }>
     { slug: "sociology", group: "topic", rx: /\bsociology|sociological\b/i },
     { slug: "political-science", group: "topic", rx: /\bpolitical\s+science\b/i },
     { slug: "law", group: "topic", rx: /\blaw|legal\b/i },
+    { slug: "economics", group: "topic", rx: /\beconom(?:ics|y|ist)s?\b|\bmacro(?:economics)?\b|\bmicro(?:economics)?\b/i },
+    { slug: "public-policy", group: "topic", rx: /\bpublic\s+policy|policy[-\s]?making|policymaking\b/i },
+    { slug: "government", group: "topic", rx: /\bgovernment|governance|public\s+administration\b/i },
+    { slug: "criminal-law", group: "topic", rx: /\bcriminal\s+law\b|\bcriminal\s+justice\b/i },
+    { slug: "constitutional-law", group: "topic", rx: /\bconstitutional\s+law\b/i },
 
     // generic nonfiction safety tag
     { slug: "nonfiction", group: "topic", rx: /\bnon[-\s]?fiction\b/i },
@@ -262,12 +269,22 @@ export function detectCrossTagSlugs(
     'nonfiction': 3,
   };
 
+  // Negative phrases per slug to cut common false positives
+  const NEGATIVE: Partial<Record<string, RegExp[]>> = {
+    // Avoid tagging AI for unrelated proper nouns or design tools
+    ai: [/\bAi\s+Weiwei\b/i, /\bAdobe\s+Illustrator\b/i],
+  };
+
   for (const tag of TAG_KEYWORDS) {
     // Count occurrences using a global, case-insensitive regex built from the pattern
     const rx = new RegExp(tag.rx.source, tag.rx.flags.includes('g') ? tag.rx.flags : tag.rx.flags + 'g');
     const count = (hay.match(rx) || []).length;
     const min = MIN_COUNTS[tag.slug] ?? 1;
     if (count >= min) {
+      const neg = NEGATIVE[tag.slug];
+      if (neg && neg.some((re) => re.test(hay))) {
+        continue;
+      }
       seen.add(tag.slug);
       if (seen.size >= 20) break;
     }
