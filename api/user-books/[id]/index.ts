@@ -4,7 +4,6 @@ import {
   listUserBooks,
   updateUserBookStatus,
   removeUserBook,
-} from "../db.js";
 } from "../../../server/lib/user-books-db.js";
 
 function sendError(res: VercelResponse, status: number, message: string) {

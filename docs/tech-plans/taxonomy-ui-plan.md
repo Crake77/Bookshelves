@@ -2,7 +2,7 @@
 
 Status: draft
 Owner: you + Codex
-Last updated: YYYY-MM-DD
+Last updated: 2025-10-19 (later)
 
 ## Overview & Goals
 
@@ -40,6 +40,12 @@ Constraints:
 5) Extend UI:
    - Settings: allow adding either Genres or Subgenres to Browse categories (typeahead optional initially).
    - Book modal: render Genres/Subgenres/Cross Tags chips beneath Summary with “Show All”. Chips navigate to Browse with filters.
+
+Implementation notes (current):
+- Modal chips are lazy‑loaded; on first open we seed taxonomy idempotently, ingest the book, attach any hint (from nested popups), and refetch.
+- Best‑effort inference attaches up to 12–20 tags immediately so chips aren’t empty while DB catches up.
+- `/api/book-taxonomy` supports GET for chips and POST for attaching a tag/subgenre hint.
+- `/api/browse` augments thin tag/genre/subgenre results with Google Books volumes to maintain infinite scroll; deduped and offset‑aware.
 
 ## Data Model (Drizzle)
 
@@ -169,6 +175,8 @@ Add endpoints only if needed for admin/seed:
 
 Existing `/api/browse` gains taxonomy-aware filtering via query params: `genre`, `subgenre`, `tag`.
 
+Augmentation (implemented): when DB matches are thin for `tag`, `genreSlug`, or `subgenre`, the Browse API augments with Google Books volumes (by subject/label) to sustain infinite scroll. Results are deduped and respect pagination offsets.
+
 ## Rollout Plan
 
 Phase 1 (ship):
@@ -204,7 +212,7 @@ Phase 3 (optional):
 
 ## Day-to-Day Tracker (live status)
 
-- Current Focus: Phase 1 — Schema + Seeds
+- Current Focus: Heuristics tuning + cover/edition normalization
 
 - Next Steps
   - [x] Schema: add taxonomy tables in `shared/schema.ts` (genre, subgenre, crosstag, age_market)
@@ -214,15 +222,34 @@ Phase 3 (optional):
   - [x] Ingest: apply mapping + heuristics to populate links
   - [x] API: extend `api/browse.ts` to accept `genre|subgenre|tag` and use taxonomy, else fallback
   - [x] UI: Book modal chips beneath Summary (Genres/Subgenres/Tags + Show All)
-  - [ ] Validation: run Playwright e2e shelf-status on preview
+  - [x] Browse: restore infinite scroll + page top-up
+  - [ ] Heuristics: reduce false positives (e.g., `artificial-intelligence`) via stricter patterns + thresholds
+  - [x] Heuristics: prefer subject → subgenre mapping before free-text keywords
+  - [ ] Covers: add normalization pipeline so cover image matches title/author (see ops note)
+  - [ ] Extend top-up to `rating`/`recent` for consistency (optional)
+  - [ ] Add Playwright smoke for opening dialog + seeing controls
 
 - In Progress
-  - Validation: seed taxonomy on preview, sanity-check browse filters, run Playwright e2e
+  - Heuristics tuning: tighten `TAG_KEYWORDS` and add confidence gating in `shared/taxonomy.ts`
 
 - Handoff Snapshot
-  - Next file: `api/browse.ts`
-  - Next action: accept `subgenre` & `tag` query params; filter via taxonomy link tables if present, else fallback to `books.categories`
-  - Resume prompt: “Open docs/tech-plans/taxonomy-ui-plan.md and implement taxonomy-aware filters in /api/browse.”
+  - Next files: `shared/taxonomy.ts`, `api/ingest.ts`, `client/src/components/BookTaxonomyChips.tsx`
+  - Next action: update regexes + thresholds; only attach a tag if strong enough; prefer subjects → subgenre mapping; redeploy and sanity-check chips
+  - Resume prompt: “Open docs/tech-plans/taxonomy-ui-plan.md and continue with Heuristics tuning under Day-to-Day Tracker.”
+
+Return‑to plan (pause point):
+- Where: Continue under “Day‑to‑Day Tracker → Heuristics tuning”.
+- What to do next:
+  - Add location tags (e.g., `new-york`, `brooklyn`) and age‑market signals; consider a generic `nonfiction` safety tag for unavoidable gaps.
+  - Expand mathematics (probability/number theory), social sciences (anthropology/sociology), and law/government based on audit findings.
+  - Add negative patterns to reduce false positives (e.g., avoid incidental “AI” mentions for artificial‑intelligence).
+  - Introduce light confidence gating (count of matched phrases/tag) before auto‑attach on first open (keep max 12–20).
+  - Optional: backfill in batches via `POST /api/taxonomy-seed?refresh=1&limit=200&offset=…`.
+  - Add a Playwright smoke asserting minimum visible tags per dialog (e.g., ≥ 12) for a handful of representative titles.
+
+Audit status snapshot:
+- Latest 500‑book audit gaps: 11/500 with no subgenre and no tags (mostly generic “Nonfiction” or localized categories).
+- Report file: `scripts/taxonomy-audit.report.json` (rerun with `npx tsx scripts/taxonomy-audit.ts`).
 
 - Session Log
   - 2025-10-18: Created tech plan; added day-to-day tracker and handoff snapshot.
@@ -231,6 +258,11 @@ Phase 3 (optional):
   - 2025-10-18: Added heuristic mapping in `shared/taxonomy.ts` and applied taxonomy on ingest in `api/ingest.ts`.
   - 2025-10-18: Added taxonomy-aware filters in `api/browse.ts` (subgenre, tag) with EXISTS-based guards.
   - 2025-10-18: Added Book modal taxonomy chips and chip→Browse filter handoff; added `/api/book-taxonomy`.
+  - 2025-10-18: Restored infinite scroll and filled pages; created link tables in seed to avoid browse 500s.
+  - 2025-10-18: Stabilized dialog by lazy-loading taxonomy chips; enabled sourcemaps for debugging.
+  - 2025-10-18: Added performance indexes to taxonomy tables and link tables; implemented subject→subgenre mapping-first logic via `shared/mappings/category-to-subgenre.ts`.
+  - 2025-10-19: Fixed Browse page subgenre editor to use real category slug (handles hyphenated slugs like `sci-fi`) and preserved tag selections. File: `client/src/pages/BrowsePage.tsx`.
+  - 2025-10-19: Increased `/api/taxonomy-list` max `limit` to 500 so dialogs surface complete subgenre/tag options; Browse subgenre dropdown now includes Sci‑Fi and Mystery families. File: `api/taxonomy-list.ts`.
 
 ## How to Resume in a New Codex Session
 

@@ -1,0 +1,30 @@
+Vercel CLI 48.2.9
+Fetching deployment "bookshelves-1923gf3ae-john-dunhams-projects-39f6d8ce.vercel.app" in john-dunhams-projects-39f6d8ce
+> Fetched deployment "bookshelves-1923gf3ae-john-dunhams-projects-39f6d8ce.vercel.app" in john-dunhams-projects-39f6d8ce [348ms]
+
+  General
+
+    id		dpl_Cm31YoxiJGxEMe5jhmJx4ooYzKBu
+    name	bookshelves
+    target	preview
+    status	● Ready
+    url		https://bookshelves-1923gf3ae-john-dunhams-projects-39f6d8ce.vercel.app
+    created	Sat Oct 18 2025 18:05:57 GMT-0400 (Eastern Daylight Time) [25s ago]
+
+
+  Aliases
+
+    ╶ https://bookshelves-crake77-john-dunhams-projects-39f6d8ce.vercel.app
+    
+
+  Builds
+
+    ┌ .        [0ms]
+    ├── λ api/taxonomy-refresh (107.71KB) [iad1]
+    ├── λ api/health (3.3KB) [iad1]
+    ├── λ api/browse (114.95KB) [iad1]
+    ├── λ api/user-books/[id]/index (109.41KB) [iad1]
+    ├── λ api/user-books/[id]/index (109.41KB) [iad1]
+    └── 9 output items hidden
+    
+

@@ -17,6 +17,17 @@ Report:
 - Inspect URL
 If any command fails, stop, show the exact stderr, and suggest the single next command to run.
 
+### Preview Validation Workflow
+Before sharing the preview link or doing any manual testing:
+1. (One-time per machine) ensure browsers are installed with `npx playwright install chromium`.
+2. After `vercel deploy --prebuilt`, run the headless user flow against the fresh preview:
+   ```
+   PREVIEW_URL=<preview-url> npx playwright test e2e/shelf-status.spec.ts
+   ```
+3. Only share the preview link if the Playwright run passes. If it fails, fix the issue first, rerun the test, then report success.
+4. Mention in the update that the automated shelf-status test passed.
+5. Remind the user to hard reload once so the updated service worker takes effect.
+
 ## Production Deploy (on request)
 When I say “promote” or “deploy to prod”, run:
 - `vercel --prod`

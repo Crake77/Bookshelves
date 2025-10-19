@@ -7,9 +7,12 @@ import { sql } from "drizzle-orm";
 import { db } from "../db/index";
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const openaiApiKey = process.env.OPENAI_API_KEY;
+const openai = openaiApiKey
+  ? new OpenAI({
+      apiKey: openaiApiKey,
+    })
+  : null;
 
 // Find alternative cover for a book
 async function findAlternativeCover(title: string, author?: string): Promise<string | null> {
@@ -137,6 +140,9 @@ async function searchOpenLibrary(query: string, startIndex: number = 0) {
 
 // Generate embeddings using OpenAI
 async function generateEmbedding(text: string): Promise<number[]> {
+  if (!openai) {
+    throw new Error("OpenAI API key is not configured");
+  }
   const response = await openai.embeddings.create({
     model: "text-embedding-3-small",
     input: text,
@@ -146,6 +152,9 @@ async function generateEmbedding(text: string): Promise<number[]> {
 
 // Generate recommendation rationale
 async function generateRationale(userBooks: string[], recommendedBook: string): Promise<string> {
+  if (!openai) {
+    return "Discover a new read based on similar favorites from your shelves.";
+  }
   const response = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
@@ -202,7 +211,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         book = await storage.createBook(bookData);
         
         // Try to generate and store embedding if description exists (optional, graceful degradation)
-        if (book.description && process.env.OPENAI_API_KEY) {
+        if (book.description && openai) {
           try {
             const embeddingText = `${book.title} by ${book.authors.join(", ")}. ${book.description}`;
             const embedding = await generateEmbedding(embeddingText);
@@ -268,21 +277,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Generate rationales for recommendations (with graceful fallback)
       const userBookTitles = userBooks.slice(0, 3).map(ub => ub.book.title);
-      const recsWithRationale = await Promise.all(
-        recommendations.map(async (book) => {
-          try {
-            const rationale = await generateRationale(userBookTitles, book.title);
-            return { ...book, rationale };
-          } catch (rationaleError: any) {
-            // Fallback rationale if OpenAI fails
-            console.warn("Failed to generate rationale (using fallback):", rationaleError.message);
-            return { 
-              ...book, 
-              rationale: "A great match for your reading preferences based on similar themes and style."
-            };
-          }
-        })
-      );
+      const recsWithRationale = openai
+        ? await Promise.all(
+            recommendations.map(async (book) => {
+              try {
+                const rationale = await generateRationale(userBookTitles, book.title);
+                return { ...book, rationale };
+              } catch (rationaleError: any) {
+                // Fallback rationale if OpenAI fails
+                console.warn("Failed to generate rationale (using fallback):", rationaleError.message);
+                return {
+                  ...book,
+                  rationale: "A great match for your reading preferences based on similar themes and style.",
+                };
+              }
+            })
+          )
+        : recommendations.map((book) => ({
+            ...book,
+            rationale: "A great match for your reading preferences based on similar themes and style.",
+          }));
 
       res.json(recsWithRationale);
     } catch (error) {
@@ -498,6 +512,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Batch job to generate embeddings for books without them
   app.post("/api/batch/generate-embeddings", async (req, res) => {
     try {
+      if (!openai) {
+        return res.status(503).json({
+          error: "OpenAI API key is not configured",
+          quotaExceeded: false,
+        });
+      }
+
       const { delayMs = 5000, limit = 10 } = req.body; // Default: 5 seconds between each, max 10 books
       
       // Get books without embeddings

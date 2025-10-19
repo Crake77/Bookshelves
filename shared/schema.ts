@@ -141,14 +141,21 @@ export type BookStats = typeof bookStats.$inferSelect;
 // -----------------------
 
 // Genre table
-export const genres = pgTable("genres", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  slug: text("slug").notNull().unique(),
-  name: text("name").notNull(),
-  enabled: boolean("enabled").notNull().default(true),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
-});
+export const genres = pgTable(
+  "genres",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    slug: text("slug").notNull().unique(),
+    name: text("name").notNull(),
+    enabled: boolean("enabled").notNull().default(true),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => ({
+    // Optional partial index for common filter
+    idxGenresEnabledTrue: index("idx_genres_enabled_true").on(table.enabled).where(sql`enabled = true`),
+  })
+);
 
 export const insertGenreSchema = createInsertSchema(genres).omit({
   id: true,
@@ -159,15 +166,22 @@ export type InsertGenre = z.infer<typeof insertGenreSchema>;
 export type Genre = typeof genres.$inferSelect;
 
 // Subgenre table (child of Genre)
-export const subgenres = pgTable("subgenres", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  genreId: uuid("genre_id").notNull().references(() => genres.id, { onDelete: "cascade" }),
-  slug: text("slug").notNull().unique(),
-  name: text("name").notNull(),
-  enabled: boolean("enabled").notNull().default(true),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
-});
+export const subgenres = pgTable(
+  "subgenres",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    genreId: uuid("genre_id").notNull().references(() => genres.id, { onDelete: "cascade" }),
+    slug: text("slug").notNull().unique(),
+    name: text("name").notNull(),
+    enabled: boolean("enabled").notNull().default(true),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => ({
+    idxSubgenresGenre: index("idx_subgenres_genre").on(table.genreId),
+    idxSubgenresEnabledTrue: index("idx_subgenres_enabled_true").on(table.enabled).where(sql`enabled = true`),
+  })
+);
 
 export const insertSubgenreSchema = createInsertSchema(subgenres).omit({
   id: true,
@@ -178,15 +192,22 @@ export type InsertSubgenre = z.infer<typeof insertSubgenreSchema>;
 export type Subgenre = typeof subgenres.$inferSelect;
 
 // CrossTag table (orthogonal facets)
-export const crossTags = pgTable("cross_tags", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  group: text("group").notNull(), // e.g., tone_mood, setting, structure, tropes_themes, format, content_flags
-  slug: text("slug").notNull().unique(),
-  name: text("name").notNull(),
-  enabled: boolean("enabled").notNull().default(true),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
-});
+export const crossTags = pgTable(
+  "cross_tags",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    group: text("group").notNull(), // e.g., tone_mood, setting, structure, tropes_themes, format, content_flags
+    slug: text("slug").notNull().unique(),
+    name: text("name").notNull(),
+    enabled: boolean("enabled").notNull().default(true),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => ({
+    idxCrossTagsGroup: index("idx_cross_tags_group").on(table.group),
+    idxCrossTagsEnabledTrue: index("idx_cross_tags_enabled_true").on(table.enabled).where(sql`enabled = true`),
+  })
+);
 
 export const insertCrossTagSchema = createInsertSchema(crossTags).omit({
   id: true,
@@ -197,14 +218,20 @@ export type InsertCrossTag = z.infer<typeof insertCrossTagSchema>;
 export type CrossTag = typeof crossTags.$inferSelect;
 
 // Age Market table
-export const ageMarkets = pgTable("age_markets", {
-  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-  slug: text("slug").notNull().unique(),
-  name: text("name").notNull(),
-  enabled: boolean("enabled").notNull().default(true),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
-});
+export const ageMarkets = pgTable(
+  "age_markets",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    slug: text("slug").notNull().unique(),
+    name: text("name").notNull(),
+    enabled: boolean("enabled").notNull().default(true),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => ({
+    idxAgeMarketsEnabledTrue: index("idx_age_markets_enabled_true").on(table.enabled).where(sql`enabled = true`),
+  })
+);
 
 export const insertAgeMarketSchema = createInsertSchema(ageMarkets).omit({
   id: true,
@@ -231,6 +258,8 @@ export const bookPrimarySubgenres = pgTable(
   },
   (table) => ({
     uqBook: uniqueIndex("uq_book_primary_subgenre_book").on(table.bookId),
+    idxBpsBook: index("idx_bps_book").on(table.bookId),
+    idxBpsSubgenre: index("idx_bps_subgenre").on(table.subgenreId),
   })
 );
 
@@ -255,6 +284,8 @@ export const bookSubgenreCandidates = pgTable(
   },
   (table) => ({
     uqBookSubgenre: uniqueIndex("uq_book_subgenre_candidate").on(table.bookId, table.subgenreId),
+    idxBscBook: index("idx_bsc_book").on(table.bookId),
+    idxBscSubgenre: index("idx_bsc_subgenre").on(table.subgenreId),
   })
 );
 
@@ -279,6 +310,8 @@ export const bookCrossTags = pgTable(
   },
   (table) => ({
     uqBookCrossTag: uniqueIndex("uq_book_cross_tag").on(table.bookId, table.crossTagId),
+    idxBctBook: index("idx_bct_book").on(table.bookId),
+    idxBctCrossTag: index("idx_bct_crosstag").on(table.crossTagId),
   })
 );
 
@@ -302,6 +335,8 @@ export const bookAgeMarkets = pgTable(
   },
   (table) => ({
     uqBookAgeMarket: uniqueIndex("uq_book_age_market").on(table.bookId, table.ageMarketId),
+    idxBamBook: index("idx_bam_book").on(table.bookId),
+    idxBamAgeMarket: index("idx_bam_age_market").on(table.ageMarketId),
   })
 );
 

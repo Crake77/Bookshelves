@@ -13,8 +13,10 @@ interface BrowseParams {
   algo: BrowseAlgo;
   userId?: string;
   genre?: string | null;
+  genreSlug?: string | null; // taxonomy: genre slug
   subgenreSlug?: string | null; // taxonomy: subgenre slug
   tagSlug?: string | null;      // taxonomy: cross tag slug
+  tagAny?: string[] | null;     // preference boost: any of these tag slugs
   limit: number;
   offset: number;
 }
@@ -451,6 +453,12 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
+          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
+          ))
           AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_cross_tags bct
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
@@ -507,6 +515,12 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
+          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
+          ))
           AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_cross_tags bct
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
@@ -539,12 +553,12 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
   let books = rows.map(toBookPayload);
 
   // If no results for a specific genre, fallback to global popular
-  if (books.length === 0 && genre) {
+  if (books.length === 0 && genre && !params.subgenreSlug && !params.tagSlug && !params.genreSlug) {
     return fetchPopular(sql, { ...params, genre: null });
   }
 
   // Top up to requested limit using remote volumes if needed
-  if (books.length < params.limit) {
+  if (books.length < params.limit && !params.subgenreSlug && !params.tagSlug && !params.genreSlug) {
     const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
     const remoteQuery = genre && genre.length > 0 ? `subject:${genre}` : "best selling books";
     let remoteCursor = params.offset;
@@ -556,6 +570,92 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
       attempts++;
       if (remoteVolumes.length === 0) break;
 
+      for (const volume of remoteVolumes) {
+        const payload = seedVolumeToBookPayload(volume);
+        if (!payload) continue;
+        const key = (payload.googleBooksId || "").toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        books.push(payload);
+        if (books.length >= params.limit) break;
+      }
+    }
+  }
+
+  // Tag-specific top up: if the database has too few items for a tag, augment with remote volumes
+  if (books.length < params.limit && params.tagSlug) {
+    const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
+    // Try to fetch the human-friendly tag name; fallback to slug with spaces
+    let tagName = params.tagSlug.replace(/-/g, " ");
+    try {
+      const rows = (await sql/* sql */`SELECT name FROM cross_tags WHERE slug = ${params.tagSlug} LIMIT 1`) as Array<{ name: string }>;
+      if (rows[0]?.name) tagName = rows[0].name;
+    } catch {}
+    const remoteQuery = `"${tagName}"`;
+    let remoteCursor = params.offset;
+    let attempts = 0;
+    while (books.length < params.limit && attempts < 5) {
+      const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
+      remoteCursor += remoteVolumes.length;
+      attempts++;
+      if (remoteVolumes.length === 0) break;
+
+      for (const volume of remoteVolumes) {
+        const payload = seedVolumeToBookPayload(volume);
+        if (!payload) continue;
+        const key = (payload.googleBooksId || "").toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        books.push(payload);
+        if (books.length >= params.limit) break;
+      }
+    }
+  }
+
+  // Genre-specific top up: if too few for a taxonomy genre, augment with remote volumes
+  if (books.length < params.limit && params.genreSlug) {
+    const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
+    let genreName = params.genreSlug.replace(/-/g, " ");
+    try {
+      const rows = (await sql/* sql */`SELECT name FROM genres WHERE slug = ${params.genreSlug} LIMIT 1`) as Array<{ name: string }>;
+      if (rows[0]?.name) genreName = rows[0].name;
+    } catch {}
+    const remoteQuery = `subject:${genreName}`;
+    let remoteCursor = params.offset;
+    let attempts = 0;
+    while (books.length < params.limit && attempts < 5) {
+      const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
+      remoteCursor += remoteVolumes.length;
+      attempts++;
+      if (remoteVolumes.length === 0) break;
+      for (const volume of remoteVolumes) {
+        const payload = seedVolumeToBookPayload(volume);
+        if (!payload) continue;
+        const key = (payload.googleBooksId || "").toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        books.push(payload);
+        if (books.length >= params.limit) break;
+      }
+    }
+  }
+
+  // Subgenre-specific top up: if too few for a taxonomy subgenre, augment with remote volumes
+  if (books.length < params.limit && params.subgenreSlug) {
+    const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
+    let subgenreName = params.subgenreSlug.replace(/-/g, " ");
+    try {
+      const rows = (await sql/* sql */`SELECT name FROM subgenres WHERE slug = ${params.subgenreSlug} LIMIT 1`) as Array<{ name: string }>;
+      if (rows[0]?.name) subgenreName = rows[0].name;
+    } catch {}
+    const remoteQuery = `${subgenreName}`;
+    let remoteCursor = params.offset;
+    let attempts = 0;
+    while (books.length < params.limit && attempts < 5) {
+      const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
+      remoteCursor += remoteVolumes.length;
+      attempts++;
+      if (remoteVolumes.length === 0) break;
       for (const volume of remoteVolumes) {
         const payload = seedVolumeToBookPayload(volume);
         if (!payload) continue;
@@ -610,6 +710,12 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
+          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
+          ))
           AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_cross_tags bct
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
@@ -667,6 +773,7 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             b.isbn,
             COALESCE(bs.average_rating, 0)::float AS avg_rating,
             COALESCE(bs.total_ratings, 0)::float AS rating_count,
+            COALESCE(tm.tag_matches, 0)::int AS tag_matches,
             CASE
               WHEN b.published_date ~ '^\\d{4}-\\d{2}-\\d{2}$' THEN to_date(b.published_date, 'YYYY-MM-DD')
               WHEN b.published_date ~ '^\\d{4}-\\d{2}$' THEN to_date(b.published_date || '-01', 'YYYY-MM-DD')
@@ -675,10 +782,23 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             END AS published_at
           FROM books b
           LEFT JOIN book_stats bs ON bs.book_id = b.id
+          LEFT JOIN LATERAL (
+            SELECT COUNT(*)::int AS tag_matches
+            FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id
+              AND (${params.tagAny ?? null}::text[] IS NOT NULL AND ct.slug = ANY(${params.tagAny ?? null}::text[]))
+          ) tm ON TRUE
           WHERE (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
+          ))
+          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
           ))
           AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_cross_tags bct
@@ -715,6 +835,7 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
         FROM catalog
         CROSS JOIN global
         ORDER BY
+          catalog.tag_matches DESC,
           weighted_score DESC,
           catalog.rating_count DESC,
           COALESCE(catalog.published_at, CURRENT_DATE - make_interval(years => ${RECENT_YEARS})) DESC,
@@ -727,7 +848,49 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
   if (rows.length === 0 && genre) {
     return fetchHighestRated(sql, { ...params, genre: null });
   }
-  return rows.map(toBookPayload);
+  let books = rows.map(toBookPayload);
+
+  // Augment when thin and taxonomy filters present
+  if (books.length < params.limit && (params.tagSlug || params.subgenreSlug || params.genreSlug)) {
+    const seen = new Set(books.map((b) => (b.googleBooksId || "").toLowerCase()));
+    let remoteQuery: string | null = null;
+    if (params.tagSlug) {
+      try {
+        const rows = (await sql/* sql */`SELECT name FROM cross_tags WHERE slug = ${params.tagSlug} LIMIT 1`) as Array<{ name: string }>;
+        remoteQuery = rows[0]?.name ?? params.tagSlug.replace(/-/g, " ");
+      } catch {}
+    } else if (params.subgenreSlug) {
+      try {
+        const rows = (await sql/* sql */`SELECT name FROM subgenres WHERE slug = ${params.subgenreSlug} LIMIT 1`) as Array<{ name: string }>;
+        remoteQuery = rows[0]?.name ?? params.subgenreSlug.replace(/-/g, " ");
+      } catch {}
+    } else if (params.genreSlug) {
+      try {
+        const rows = (await sql/* sql */`SELECT name FROM genres WHERE slug = ${params.genreSlug} LIMIT 1`) as Array<{ name: string }>;
+        remoteQuery = rows[0]?.name ? `subject:${rows[0].name}` : `subject:${params.genreSlug.replace(/-/g, " ")}`;
+      } catch {}
+    }
+    if (remoteQuery) {
+      let cursor = params.offset;
+      let attempts = 0;
+      while (books.length < params.limit && attempts < 5) {
+        const vols = await fetchCatalogVolumes(remoteQuery, "relevance", cursor);
+        cursor += vols.length;
+        attempts++;
+        if (vols.length === 0) break;
+        for (const v of vols) {
+          const payload = seedVolumeToBookPayload(v);
+          if (!payload) continue;
+          const key = (payload.googleBooksId || "").toLowerCase();
+          if (seen.has(key)) continue;
+          seen.add(key);
+          books.push(payload);
+          if (books.length >= params.limit) break;
+        }
+      }
+    }
+  }
+  return books.slice(0, params.limit);
 }
 
 async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise<BookPayload[]> {
@@ -767,6 +930,12 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
+          ))
+          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
           ))
           AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_cross_tags bct
@@ -811,6 +980,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             b.isbn,
             COALESCE(bs.total_ratings, 0) AS total_ratings,
             COALESCE(bs.updated_at, now()) AS stats_updated,
+            COALESCE(tm.tag_matches, 0)::int AS tag_matches,
             CASE
               WHEN b.published_date ~ '^\\d{4}-\\d{2}-\\d{2}$' THEN to_date(b.published_date, 'YYYY-MM-DD')
               WHEN b.published_date ~ '^\\d{4}-\\d{2}$' THEN to_date(b.published_date || '-01', 'YYYY-MM-DD')
@@ -819,10 +989,23 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             END AS published_at
           FROM books b
           LEFT JOIN book_stats bs ON bs.book_id = b.id
+          LEFT JOIN LATERAL (
+            SELECT COUNT(*)::int AS tag_matches
+            FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id
+              AND (${params.tagAny ?? null}::text[] IS NOT NULL AND ct.slug = ANY(${params.tagAny ?? null}::text[]))
+          ) tm ON TRUE
           WHERE (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
+          ))
+          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
           ))
           AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_cross_tags bct
@@ -845,6 +1028,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
         WHERE catalog.published_at IS NOT NULL
           AND catalog.published_at >= CURRENT_DATE - make_interval(years => ${RECENT_RELEASE_YEARS})
         ORDER BY
+          catalog.tag_matches DESC,
           CASE WHEN catalog.total_ratings > 0 THEN 0 ELSE 1 END,
           catalog.published_at DESC,
           catalog.stats_updated DESC,
@@ -870,7 +1054,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
   primaryRows.forEach(pushPayload);
   let dbConsumed = primaryRows.length;
 
-  while (books.length < params.limit) {
+  while (books.length < params.limit && !params.subgenreSlug && !params.tagSlug && !params.genreSlug) {
     const remaining = params.limit - books.length;
     const fallbackQuery = genre
       ? await sql`
@@ -951,7 +1135,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
     }
   }
 
-  if (books.length < params.limit) {
+  if (books.length < params.limit && !params.subgenreSlug && !params.tagSlug && !params.genreSlug) {
     const remoteQuery =
       genre && genre.length > 0 ? `subject:${genre}` : "recent fiction releases";
     let remoteCursor = params.offset;
@@ -1072,6 +1256,12 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
+          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
+          ))
           AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_cross_tags bct
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
@@ -1179,6 +1369,12 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
+          ))
+          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
           ))
           AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM book_cross_tags bct
@@ -1309,8 +1505,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const offset = Math.max(0, offsetRaw && !Number.isNaN(offsetRaw) ? offsetRaw : 0);
     const genre = typeof req.query.genre === "string" ? req.query.genre : null;
     const subgenreSlug = typeof req.query.subgenre === "string" ? req.query.subgenre : null;
+    const genreSlug = typeof req.query.genreSlug === "string" ? req.query.genreSlug : null;
     const tagSlug = typeof req.query.tag === "string" ? req.query.tag : null;
     const userId = typeof req.query.userId === "string" ? req.query.userId : undefined;
+    const tagAnyRaw = typeof req.query.tagAny === "string" ? req.query.tagAny : null;
+    const tagAny = tagAnyRaw ? tagAnyRaw.split(",").map((s) => s.trim()).filter((s) => s.length > 0) : null;
 
     if (algo === "for-you" && !userId) {
       return res.status(400).json({ error: "userId is required for for-you recommendations" });
@@ -1324,10 +1523,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       algo,
       userId,
       genre,
+      genreSlug,
       subgenreSlug,
       tagSlug,
       limit,
       offset,
+      tagAny,
     });
 
     res.status(200).json(books);

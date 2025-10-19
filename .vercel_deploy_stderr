@@ -1,0 +1,11 @@
+Vercel CLI 48.2.9
+Retrieving project…
+Error: An unexpected error occurred!
+Error: getaddrinfo EAI_AGAIN sentry.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason:
+Error: getaddrinfo EAI_AGAIN sentry.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)
+Error: An unexpected error occurred!
+Error: getaddrinfo EAI_AGAIN sentry.io
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)

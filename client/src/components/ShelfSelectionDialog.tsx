@@ -1,17 +1,12 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { getCustomShelves, updateBookStatus, DEMO_USER_ID, type UserBook } from "@/lib/api";
+import { updateBookStatus, DEMO_USER_ID, type UserBook } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
 import { Trash2, Check } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useToast } from "@/hooks/use-toast";
-
-interface ShelfOption {
-  slug: string;
-  name: string;
-  isDefault: boolean;
-}
+import { useShelfPreferences } from "@/hooks/usePreferences";
 
 interface ShelfSelectionDialogProps {
   open: boolean;
@@ -19,14 +14,6 @@ interface ShelfSelectionDialogProps {
   userBook: UserBook | null;
   bookTitle: string;
 }
-
-const DEFAULT_SHELVES: ShelfOption[] = [
-  { slug: "reading", name: "Reading", isDefault: true },
-  { slug: "completed", name: "Completed", isDefault: true },
-  { slug: "plan-to-read", name: "Plan to Read", isDefault: true },
-  { slug: "on-hold", name: "On Hold", isDefault: true },
-  { slug: "dropped", name: "Dropped", isDefault: true },
-];
 
 export default function ShelfSelectionDialog({
   open,
@@ -46,24 +33,23 @@ export default function ShelfSelectionDialog({
     }
   }, [open, userBook?.status]);
 
-  // Fetch custom shelves
-  const { data: customShelves = [] } = useQuery({
-    queryKey: ["/api/custom-shelves", DEMO_USER_ID],
-    queryFn: () => getCustomShelves(DEMO_USER_ID),
-    enabled: open,
-  });
+  const shelfPreferences = useShelfPreferences();
+  const enabledShelves = useMemo(
+    () => shelfPreferences.filter((shelf) => shelf.isEnabled),
+    [shelfPreferences]
+  );
 
-  // Combine default and custom shelves, filter for enabled ones
-  const allShelves: ShelfOption[] = [
-    ...DEFAULT_SHELVES,
-    ...customShelves
-      .filter(shelf => shelf.isEnabled === 1)
-      .map(shelf => ({
-        slug: shelf.slug,
-        name: shelf.name,
-        isDefault: false,
-      }))
-  ];
+  const allShelves = useMemo(() => {
+    const base = enabledShelves.map((shelf) => ({ slug: shelf.slug, name: shelf.name }));
+    if (selectedShelf && !base.some((shelf) => shelf.slug === selectedShelf)) {
+      const existing = shelfPreferences.find((shelf) => shelf.slug === selectedShelf);
+      if (existing) {
+        return [...base, { slug: existing.slug, name: existing.name }];
+      }
+      return [...base, { slug: selectedShelf, name: selectedShelf.replace(/-/g, " ") }];
+    }
+    return base;
+  }, [enabledShelves, selectedShelf, shelfPreferences]);
 
   const getShelfName = (slug: string | null): string => {
     if (!slug) return "Select Shelf";
@@ -77,15 +63,24 @@ export default function ShelfSelectionDialog({
   const hasExistingStatus = Boolean(currentStatus);
   const hasChanges = selectedShelf !== currentStatus;
 
-  // Update status mutation
+  // Update status mutation with optimistic UI
   const updateMutation = useMutation({
     mutationFn: async (newStatus: string | null) => {
       if (!userBook) throw new Error("No user book selected");
       return updateBookStatus(userBook.id, newStatus);
     },
     onSuccess: (updated) => {
+      const queryKey = ["/api/user-books", DEMO_USER_ID] as const;
+      queryClient.setQueryData(
+        queryKey,
+        (current: (UserBook & { book: any })[] | undefined) =>
+          current
+            ? current.map((ub) =>
+                ub.id === (userBook?.id ?? updated.id) ? { ...ub, status: updated.status ?? null } : ub
+              )
+            : current
+      );
       setSelectedShelf(updated.status ?? null);
-      queryClient.invalidateQueries({ queryKey: ["/api/user-books", DEMO_USER_ID] });
       const shelfName = getShelfName(updated.status ?? null);
       toast({
         title: updated.status ? "Shelf updated" : "Removed from shelves",
@@ -96,7 +91,26 @@ export default function ShelfSelectionDialog({
       });
       onOpenChange(false);
     },
-    onError: () => {
+    onMutate: async (newStatus) => {
+      const queryKey = ["/api/user-books", DEMO_USER_ID] as const;
+      await queryClient.cancelQueries({ queryKey });
+
+      const previous = queryClient.getQueryData(queryKey) as (UserBook & { book: any })[] | undefined;
+
+      if (previous && userBook) {
+        queryClient.setQueryData(
+          queryKey,
+          previous.map((ub) => (ub.id === userBook.id ? { ...ub, status: newStatus } : ub))
+        );
+      }
+
+      return { previous };
+    },
+    onError: (_error, _newStatus, context) => {
+      const queryKey = ["/api/user-books", DEMO_USER_ID] as const;
+      if (context?.previous) {
+        queryClient.setQueryData(queryKey, context.previous);
+      }
       toast({
         title: "Error",
         description: "Failed to update shelf",

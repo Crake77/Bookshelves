@@ -1,0 +1,32 @@
+{
+  "sampled": 500,
+  "gaps": 9,
+  "topCategories": [
+    [
+      "nonfiction",
+      1
+    ],
+    [
+      "communication",
+      1
+    ],
+    [
+      "fiction",
+      1
+    ]
+  ],
+  "topTokens": [
+    [
+      "nonfiction",
+      1
+    ],
+    [
+      "communication",
+      1
+    ],
+    [
+      "fiction",
+      1
+    ]
+  ]
+}

@@ -45,8 +45,10 @@ export interface BrowseRequestOptions {
   algo: BrowseAlgo;
   userId?: string;
   genre?: string;
+  genreSlug?: string;
   subgenre?: string;
   tag?: string;
+  tagAny?: string[];
   limit?: number;
   offset?: number;
   signal?: AbortSignal;
@@ -57,10 +59,14 @@ export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<B
   params.set("algo", options.algo);
   if (options.userId) params.set("userId", options.userId);
   if (options.genre) params.set("genre", options.genre);
+  if (options.genreSlug) params.set("genreSlug", options.genreSlug);
   if (options.subgenre) params.set("subgenre", options.subgenre);
   if (options.tag) params.set("tag", options.tag);
   if (typeof options.limit === "number") params.set("limit", String(options.limit));
   if (typeof options.offset === "number") params.set("offset", String(options.offset));
+  if (Array.isArray(options.tagAny) && options.tagAny.length > 0) {
+    params.set("tagAny", options.tagAny.join(","));
+  }
 
   try {
     const response = await fetch(`/api/browse?${params.toString()}`, {

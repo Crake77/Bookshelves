@@ -9,6 +9,9 @@ import HorizontalBookRow from "@/components/HorizontalBookRow";
 import { lazy, Suspense } from "react";
 const BookDetailDialog = lazy(() => import("@/components/BookDetailDialog"));
 import SearchBar from "@/components/SearchBar";
+import BookCard from "@/components/BookCard";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   searchBooks,
   fetchBrowseBooks,
@@ -26,6 +29,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useCategoryPreferences } from "@/hooks/usePreferences";
+import { loadCategoryPreferences, saveCategoryPreferences } from "@/lib/preferences";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const CAROUSEL_PAGE_SIZE = 12;
 const RANKING_STORAGE_KEY = "bookshelves:browse-ranking";
@@ -36,9 +41,10 @@ interface UseBrowseCarouselArgs {
   genre?: string | null;
   subgenre?: string | null;
   tag?: string | null;
+  tagAny?: string[] | null;
 }
 
-function useBrowseCarousel({ algo, userId, genre, subgenre, tag }: UseBrowseCarouselArgs) {
+function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny }: UseBrowseCarouselArgs) {
   const fallbackBooks = useMemo(
     () => getFallbackBrowse(algo, genre ?? undefined),
     [algo, genre]
@@ -60,7 +66,7 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag }: UseBrowseCaro
     status,
     error,
   } = useInfiniteQuery({
-    queryKey: ["browse", algo, genre ?? "all", subgenre ?? "", tag ?? "", userId ?? "anon"],
+    queryKey: ["browse", algo, genre ?? "all", subgenre ?? "", tag ?? "", (tagAny ?? []).join("|"), userId ?? "anon"],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0, signal }) =>
       fetchBrowseBooks({
@@ -69,6 +75,7 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag }: UseBrowseCaro
         genre: genre ?? undefined,
         subgenre: subgenre ?? undefined,
         tag: tag ?? undefined,
+        tagAny: tagAny ?? undefined,
         limit: CAROUSEL_PAGE_SIZE,
         offset: pageParam,
         signal,
@@ -133,21 +140,29 @@ const CATEGORY_GENRE_MAP: Record<string, string> = {
 interface CategoryConfig {
   key: string;
   title: string;
+  baseSlug: string;
   algo: BrowseAlgo;
   genre?: string | null;
+  subgenre?: string | null; // display name
+  subgenreSlug?: string | null; // filter slug
+  tagSlugs?: string[];
+  tags?: string[];
   emptyMessage?: string;
 }
 
 interface CategoryCarouselProps {
   config: CategoryConfig;
   onBookClick: (book: BookSearchResult) => void;
+  onEditCategory: (config: CategoryConfig) => void;
 }
 
-function CategoryCarousel({ config, onBookClick }: CategoryCarouselProps) {
+function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarouselProps) {
   const carousel = useBrowseCarousel({
     algo: config.algo,
     userId: DEMO_USER_ID,
     genre: config.genre ?? undefined,
+    subgenre: config.subgenreSlug ?? undefined,
+    tagAny: config.tagSlugs ?? undefined,
   });
 
   const initialLoading = carousel.books.length === 0 && carousel.isLoading;
@@ -156,6 +171,9 @@ function CategoryCarousel({ config, onBookClick }: CategoryCarouselProps) {
   return (
     <HorizontalBookRow
       title={config.title}
+      titleSuffix={config.subgenre ?? undefined}
+      secondaryChips={config.tags}
+      onEdit={() => onEditCategory(config)}
       books={carousel.books}
       onBookClick={onBookClick}
       onEndReached={
@@ -190,6 +208,10 @@ export default function BrowsePage() {
     return enabledCategories.map((category, index) => {
       let algo: BrowseAlgo = "popular";
       let genre: string | null | undefined = null;
+      let subgenre: string | null | undefined = null;
+      let subgenreSlug: string | null | undefined = null;
+      let tagSlugs: string[] | undefined = undefined;
+      let tags: string[] | undefined = undefined;
       let emptyMessage: string | undefined;
 
       if (category.categoryType === "system") {
@@ -205,13 +227,28 @@ export default function BrowsePage() {
       } else {
         const mappedGenre = CATEGORY_GENRE_MAP[category.slug] ?? category.name;
         genre = mappedGenre;
+        if (category.subgenreSlug) {
+          subgenreSlug = category.subgenreSlug;
+          subgenre = category.subgenreName ?? undefined;
+        }
+        if (category.tagNames && category.tagNames.length > 0) {
+          tags = category.tagNames;
+        }
+        if (category.tagSlugs && category.tagSlugs.length > 0) {
+          tagSlugs = category.tagSlugs;
+        }
       }
 
       return {
         key: `${category.slug}-${index}`,
         title: category.name,
+        baseSlug: category.slug,
         algo,
         genre,
+        subgenre,
+        subgenreSlug,
+        tagSlugs,
+        tags,
         emptyMessage,
       } satisfies CategoryConfig;
     });
@@ -251,6 +288,75 @@ export default function BrowsePage() {
   const featuredInitialLoading = featuredCarousel.books.length === 0 && featuredCarousel.isLoading;
   const featuredLoadingMore = featuredCarousel.isLoading && featuredCarousel.books.length > 0;
 
+  const [editOpen, setEditOpen] = useState(false);
+  const [editSlug, setEditSlug] = useState<string | null>(null);
+  const [editGenreName, setEditGenreName] = useState<string | null>(null);
+  // Stores the selected subgenre slug in the edit dialog
+  const [editSubgenreSlug, setEditSubgenreSlug] = useState<string | null>(null);
+  // Stores the base genre slug (e.g., "sci-fi") for filtering subgenre options.
+  // Note: Hyphenated slugs must be preserved; avoid deriving from display keys.
+  const [editGenreSlug, setEditGenreSlug] = useState<string | null>(null);
+  const [editSubgenreName, setEditSubgenreName] = useState<string | null>(null);
+  const [editTagSlugs, setEditTagSlugs] = useState<string[]>([]);
+  const [editTagNames, setEditTagNames] = useState<string[]>([]);
+  const [allSubgenres, setAllSubgenres] = useState<Array<{ slug: string; name: string; genre_slug?: string }>>([]);
+  const [allTags, setAllTags] = useState<Array<{ slug: string; name: string; group: string }>>([]);
+  const [tagSearch, setTagSearch] = useState("");
+
+  const openEdit = async (config: CategoryConfig) => {
+    // Use the actual category slug, not a key-derived value (fixes hyphenated slugs like "sci-fi")
+    setEditSlug(config.baseSlug);
+    setEditGenreName(config.title);
+    setEditGenreSlug(config.baseSlug);
+    setEditSubgenreSlug(config.subgenreSlug ?? null);
+    setEditSubgenreName(config.subgenre ?? null);
+    // Preserve any existing tag selections for this category
+    setEditTagSlugs(config.tagSlugs ?? []);
+    setEditTagNames(config.tags ?? []);
+    if (allSubgenres.length === 0 || allTags.length === 0) {
+      try {
+        const res = await fetch(`/api/taxonomy-list?limit=500`);
+        if (res.ok) {
+          const data = await res.json();
+          setAllSubgenres((data.subgenres ?? []).map((sg: any) => ({ slug: sg.slug, name: sg.name, genre_slug: sg.genre_slug })));
+          setAllTags((data.tags ?? []).map((t: any) => ({ slug: t.slug, name: t.name, group: t.group })));
+        }
+      } catch {}
+    }
+    setEditOpen(true);
+  };
+
+  const toggleEditTag = (t: { slug: string; name: string }) => {
+    setEditTagSlugs((prev) => {
+      const idx = prev.indexOf(t.slug);
+      if (idx >= 0) {
+        setEditTagNames((names) => names.filter((n) => n !== t.name));
+        return prev.filter((s) => s !== t.slug);
+      }
+      setEditTagNames((names) => [...names, t.name]);
+      return [...prev, t.slug];
+    });
+  };
+
+  const saveEdit = () => {
+    if (!editSlug) return;
+    // update preferences
+    const list = loadCategoryPreferences();
+    const updated = list.map((c) => (
+      c.slug === editSlug
+        ? {
+            ...c,
+            subgenreSlug: editSubgenreSlug ?? undefined,
+            subgenreName: editSubgenreName ?? undefined,
+            tagSlugs: editTagSlugs,
+            tagNames: editTagNames,
+          }
+        : c
+    ));
+    saveCategoryPreferences(updated);
+    setEditOpen(false);
+  };
+
   return (
     <div className="pb-20">
       <AppHeader title="Discover" />
@@ -288,21 +394,15 @@ export default function BrowsePage() {
           {isSearching ? (
             <div className="text-center text-muted-foreground py-8">Searching...</div>
           ) : searchResults.length > 0 ? (
-            <div className="grid grid-cols-2 gap-3">
-              {searchResults.slice(0, 10).map((book) => (
-                <div
-                  key={book.googleBooksId}
-                  className="cursor-pointer"
-                  onClick={() => handleBookClick(book)}
-                  data-testid={`search-result-${book.googleBooksId}`}
-                >
-                  <img
-                    src={book.coverUrl || "/placeholder-book.png"}
-                    alt={book.title}
-                    className="w-full h-48 object-cover rounded-lg mb-2"
+            <div className="grid grid-cols-3 gap-3">
+              {searchResults.slice(0, 15).map((book) => (
+                <div key={book.googleBooksId} className="mx-auto w-32" data-testid={`search-result-${book.googleBooksId}`}>
+                  <BookCard
+                    title={book.title}
+                    author={book.authors[0]}
+                    coverUrl={book.coverUrl}
+                    onClick={() => handleBookClick(book)}
                   />
-                  <h3 className="font-medium text-sm line-clamp-2">{book.title}</h3>
-                  <p className="text-xs text-muted-foreground">{book.authors[0]}</p>
                 </div>
               ))}
             </div>
@@ -344,7 +444,7 @@ export default function BrowsePage() {
           />
 
           {categoryConfigs.map((config) => (
-            <CategoryCarousel key={config.key} config={config} onBookClick={handleBookClick} />
+            <CategoryCarousel key={config.key} config={config} onBookClick={handleBookClick} onEditCategory={openEdit} />
           ))}
         </div>
       )}
@@ -354,6 +454,83 @@ export default function BrowsePage() {
           <BookDetailDialog book={selectedBook} open={dialogOpen} onOpenChange={setDialogOpen} />
         </Suspense>
       )}
+      {/* Edit dialog for on-the-fly subgenre/tags */}
+      <Dialog open={editOpen} onOpenChange={setEditOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Configure {editGenreName} Subgenre & Tags</DialogTitle>
+            <DialogDescription>Choose a subgenre and add tags. Save to refresh the carousel.</DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <div className="text-sm font-medium mb-2">Subgenre</div>
+              <Select value={editSubgenreSlug ?? ""} onValueChange={(val) => {
+                const sg = allSubgenres.find((x) => x.slug === val);
+                setEditSubgenreSlug(val || null);
+                setEditSubgenreName(((sg?.name?.includes('—') ? sg?.name?.split('—').pop() : sg?.name) ?? '').trim() || null);
+              }}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder={editSubgenreName || "Select a subgenre"} />
+                </SelectTrigger>
+                <SelectContent className="max-h-64 overflow-y-auto">
+                  {(() => {
+                    const base = (editGenreSlug || '').toLowerCase();
+                    const tokenMap: Record<string, string[]> = {
+                      'fantasy': ['fantasy', 'grimdark'],
+                      'sci-fi': ['science-fiction', 'cyberpunk', 'dystopian', 'post-apocalyptic', 'time-travel', 'alternate-history', 'steampunk'],
+                      'science-fiction': ['science-fiction', 'cyberpunk', 'dystopian', 'post-apocalyptic', 'time-travel', 'alternate-history', 'steampunk'],
+                      'mystery': ['mystery', 'crime-detective', 'thriller', 'legal-thriller', 'spy-espionage'],
+                      'romance': ['romance'],
+                    };
+                    // Prefer curated token lists per genre; fallback to base slug
+                    const tokens = tokenMap[base] || [base];
+                    let list = allSubgenres.filter((sg) => tokens.some((t) => (sg.slug || '').startsWith(t)));
+                    if (list.length === 0) {
+                      // fallback to genre slug strict match
+                      list = allSubgenres.filter((sg) => (sg.genre_slug || '').toLowerCase() === base);
+                    }
+                    const finalList = list.length > 0 ? list : allSubgenres;
+                    return finalList.slice(0, 200).map((sg) => (
+                      <SelectItem key={sg.slug} value={sg.slug}>{(sg.name.includes('—') ? sg.name.split('—').pop() : sg.name).trim()}</SelectItem>
+                    ));
+                  })()}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <div className="text-sm font-medium mb-2">Add Tags</div>
+              <Input placeholder="Search tags…" value={tagSearch} onChange={(e) => setTagSearch(e.target.value)} />
+              <div className="mt-2 flex flex-wrap gap-2 max-h-48 overflow-y-auto">
+                {allTags
+                  .filter((t) => {
+                    const q = tagSearch.toLowerCase();
+                    const okGroup = ["tropes_themes", "setting", "tone_mood", "format"].includes(t.group);
+                    const okSearch = !q || t.name.toLowerCase().includes(q) || t.group.toLowerCase().includes(q);
+                    return okGroup && okSearch;
+                  })
+                  .slice(0, 40)
+                  .map((t) => {
+                    const selected = editTagNames.includes(t.name);
+                    return (
+                      <button
+                        type="button"
+                        key={t.slug}
+                        onClick={() => toggleEditTag(t)}
+                        className={`text-xs px-2 py-1 rounded-full border ${selected ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground/80 hover:bg-muted/80'}`}
+                        aria-pressed={selected}
+                      >
+                        {t.name}
+                      </button>
+                    );
+                  })}
+              </div>
+            </div>
+            <div className="pt-2">
+              <Button className="w-full" onClick={saveEdit}>Save changes</Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

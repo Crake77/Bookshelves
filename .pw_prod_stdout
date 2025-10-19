@@ -1,0 +1,12 @@
+
+Running 1 test using 1 worker
+
+  ✘  1 e2e/shelf-status.spec.ts:5:1 › changing shelf status updates immediately (0ms)
+
+
+  1) e2e/shelf-status.spec.ts:5:1 › changing shelf status updates immediately ──────────────────────
+
+    Error: worker process exited unexpectedly (code=0, signal=null)
+
+  1 failed
+    e2e/shelf-status.spec.ts:5:1 › changing shelf status updates immediately ───────────────────────

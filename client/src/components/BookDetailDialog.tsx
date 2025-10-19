@@ -42,6 +42,7 @@ interface BookDetailDialogProps {
   book: BookSearchResult | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  taxonomyHint?: { kind: "tag" | "subgenre"; slug: string; label: string };
 }
 
 // Helper to format ranking with K
@@ -53,7 +54,7 @@ function formatRanking(ranking: number | null): string {
   return `#${ranking}`;
 }
 
-export default function BookDetailDialog({ book, open, onOpenChange }: BookDetailDialogProps) {
+export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHint }: BookDetailDialogProps) {
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [ratingInput, setRatingInput] = useState<string>("");
   const [isRatingPopoverOpen, setIsRatingPopoverOpen] = useState(false);
@@ -556,7 +557,8 @@ export default function BookDetailDialog({ book, open, onOpenChange }: BookDetai
         {/* Taxonomy chips (above Summary) — lazy so dialog core mounts first */}
         {book && (
           <_Suspense fallback={null}>
-            <LazyTaxonomyChips book={book} />
+            {/* Key ensures fresh mount per book so ingest logic runs per selection */}
+            <LazyTaxonomyChips key={book.googleBooksId} book={book} hint={taxonomyHint} />
           </_Suspense>
         )}
 

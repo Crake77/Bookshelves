@@ -55,3 +55,7 @@ export const queryClient = new QueryClient({
     },
   },
 });
+
+if (typeof window !== "undefined") {
+  (window as any).__BOOKSHELVES_QUERY_CLIENT__ = queryClient;
+}

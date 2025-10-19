@@ -1,6 +1,6 @@
 // public/sw.js
 // BUMP THIS when you change the SW so it updates for users.
-const CACHE_NAME = 'bookshelf-ai-v2';
+const CACHE_NAME = 'bookshelf-ai-v3';
 
 const PRECACHE_URLS = [
   '/',               // SPA shell
@@ -38,9 +38,18 @@ self.addEventListener('activate', (event) => {
 // - For other GETs: stale-while-revalidate (serve cache, then update in background)
 self.addEventListener('fetch', (event) => {
   const req = event.request;
+  const url = new URL(req.url);
 
   // Only handle GET
   if (req.method !== 'GET') return;
+
+  // Always go to the network for API calls so we don't serve stale data
+  if (url.pathname.startsWith('/api/')) {
+    event.respondWith(
+      fetch(req).catch(() => caches.match(req))
+    );
+    return;
+  }
 
   // Navigation requests (SPA routes)
   if (req.mode === 'navigate') {

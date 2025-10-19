@@ -1,0 +1,6 @@
+
+Running 1 test using 1 worker
+
+  ✓  1 e2e/shelf-status.spec.ts:5:1 › changing shelf status updates immediately (5.3s)
+
+  1 passed (6.4s)
