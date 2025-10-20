@@ -485,13 +485,33 @@ export default function BrowsePage() {
                   {(() => {
                     const base = (editGenreSlug || '').toLowerCase();
                     const tokenMap: Record<string, string[]> = {
-                      'fantasy': ['fantasy', 'grimdark'],
+                      fantasy: ['fantasy', 'grimdark'],
                       'sci-fi': ['science-fiction', 'cyberpunk', 'dystopian', 'post-apocalyptic', 'time-travel', 'alternate-history', 'steampunk'],
                       'science-fiction': ['science-fiction', 'cyberpunk', 'dystopian', 'post-apocalyptic', 'time-travel', 'alternate-history', 'steampunk'],
-                      'mystery': ['mystery', 'crime-detective', 'thriller', 'legal-thriller', 'spy-espionage'],
-                      // Romance subgenres are suffixed with "-romance" and live under the Romance genre.
-                      // We fall back to genre_slug match to surface the complete Romance tree.
-                      'romance': ['romance'],
+                      mystery: ['mystery', 'crime-detective', 'thriller', 'legal-thriller', 'spy-espionage'],
+                      romance: [
+                        'contemporary-romance',
+                        'historical-romance',
+                        'regency-romance',
+                        'romantic-suspense',
+                        'paranormal-romance',
+                        'fantasy-romance',
+                        'science-fiction-romance',
+                        'romantic-comedy',
+                        'dark-romance',
+                        'sports-romance',
+                        'medical-romance',
+                        'military-romance',
+                        'inspirational-romance',
+                        'billionaire-romance',
+                        'royal-romance',
+                        'holiday-romance',
+                        'western-cowboy-romance',
+                        'mafia-romance',
+                        'motorcycle-club-romance',
+                        'urban-romance',
+                        'romance',
+                      ],
                     };
                     // Prefer curated token lists per genre; fallback to base slug
                     const tokens = tokenMap[base] || [base];
