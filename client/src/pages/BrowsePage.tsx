@@ -313,16 +313,15 @@ export default function BrowsePage() {
     // Preserve any existing tag selections for this category
     setEditTagSlugs(config.tagSlugs ?? []);
     setEditTagNames(config.tags ?? []);
-    if (allSubgenres.length === 0 || allTags.length === 0) {
-      try {
-        const res = await fetch(`/api/taxonomy-list?limit=500`);
-        if (res.ok) {
-          const data = await res.json();
-          setAllSubgenres((data.subgenres ?? []).map((sg: any) => ({ slug: sg.slug, name: sg.name, genre_slug: sg.genre_slug })));
-          setAllTags((data.tags ?? []).map((t: any) => ({ slug: t.slug, name: t.name, group: t.group })));
-        }
-      } catch {}
-    }
+    // Always refresh taxonomy options when opening the editor so new seeds (e.g., Romance) appear.
+    try {
+      const res = await fetch(`/api/taxonomy-list?limit=500`);
+      if (res.ok) {
+        const data = await res.json();
+        setAllSubgenres((data.subgenres ?? []).map((sg: any) => ({ slug: sg.slug, name: sg.name, genre_slug: sg.genre_slug })));
+        setAllTags((data.tags ?? []).map((t: any) => ({ slug: t.slug, name: t.name, group: t.group })));
+      }
+    } catch {}
     setEditOpen(true);
   };
 
@@ -490,6 +489,8 @@ export default function BrowsePage() {
                       'sci-fi': ['science-fiction', 'cyberpunk', 'dystopian', 'post-apocalyptic', 'time-travel', 'alternate-history', 'steampunk'],
                       'science-fiction': ['science-fiction', 'cyberpunk', 'dystopian', 'post-apocalyptic', 'time-travel', 'alternate-history', 'steampunk'],
                       'mystery': ['mystery', 'crime-detective', 'thriller', 'legal-thriller', 'spy-espionage'],
+                      // Romance subgenres are suffixed with "-romance" and live under the Romance genre.
+                      // We fall back to genre_slug match to surface the complete Romance tree.
                       'romance': ['romance'],
                     };
                     // Prefer curated token lists per genre; fallback to base slug
@@ -511,15 +512,43 @@ export default function BrowsePage() {
               <div className="text-sm font-medium mb-2">Add Tags</div>
               <Input placeholder="Search tags…" value={tagSearch} onChange={(e) => setTagSearch(e.target.value)} />
               <div className="mt-2 flex flex-wrap gap-2 max-h-48 overflow-y-auto">
-                {allTags
-                  .filter((t) => {
-                    const q = tagSearch.toLowerCase();
+                {(() => {
+                  const base = (editGenreSlug || '').toLowerCase();
+                  const PRIORITY: Record<string, string[]> = {
+                    romance: [
+                      'enemies-to-lovers','friends-to-lovers','rivals-to-lovers','second-chance','slow-burn','insta-love','fake-dating','marriage-of-convenience','forced-proximity','love-triangle','arranged-marriage','grumpy-sunshine','secret-relationship','forbidden-love','age-gap','best-friends-sibling','sibling-best-friend','only-one-bed','mistaken-identity','pen-pals','soulmates','amnesia','secret-baby','accidental-pregnancy','sports-romance','college-romance','rockstar-romance'
+                    ],
+                    fantasy: ['quest','court-intrigue','political-maneuvering','found-family','magic-system','secondary-world','epic-length-600p'],
+                    'science-fiction': ['first-contact','artificial-intelligence','colonization','space','near-future','time-loop'],
+                    'sci-fi': ['first-contact','artificial-intelligence','colonization','space','near-future','time-loop'],
+                    mystery: ['locked-room','missing-persons','police-procedural','noir','suspenseful','cold-case'],
+                    horror: ['dark','bleak','survival','isolation','haunted-house','supernatural-paranormal']
+                  } as const;
+
+                  const priorityList = new Map<string, number>();
+                  (PRIORITY[base] ?? []).forEach((slug, idx) => priorityList.set(slug, PRIORITY[base]!.length - idx));
+
+                  const q = tagSearch.toLowerCase();
+                  const candidates = allTags.filter((t) => {
                     const okGroup = ["tropes_themes", "setting", "tone_mood", "format"].includes(t.group);
                     const okSearch = !q || t.name.toLowerCase().includes(q) || t.group.toLowerCase().includes(q);
                     return okGroup && okSearch;
-                  })
-                  .slice(0, 40)
-                  .map((t) => {
+                  });
+
+                  candidates.sort((a, b) => {
+                    const selA = editTagNames.includes(a.name) ? 1 : 0;
+                    const selB = editTagNames.includes(b.name) ? 1 : 0;
+                    if (selA !== selB) return selB - selA; // selected first
+                    const pa = priorityList.get(a.slug) ?? 0;
+                    const pb = priorityList.get(b.slug) ?? 0;
+                    if (pa !== pb) return pb - pa; // higher priority first
+                    const ga = a.group === 'tropes_themes' ? 2 : a.group === 'setting' ? 1 : 0;
+                    const gb = b.group === 'tropes_themes' ? 2 : b.group === 'setting' ? 1 : 0;
+                    if (ga !== gb) return gb - ga; // trope > setting > others
+                    return a.name.localeCompare(b.name);
+                  });
+
+                  return candidates.slice(0, 40).map((t) => {
                     const selected = editTagNames.includes(t.name);
                     return (
                       <button
@@ -532,7 +561,8 @@ export default function BrowsePage() {
                         {t.name}
                       </button>
                     );
-                  })}
+                  });
+                })()}
               </div>
             </div>
             <div className="pt-2">
