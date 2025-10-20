@@ -535,16 +535,23 @@ export default function BrowsePage() {
                     return okGroup && okSearch;
                   });
 
+                  // Romance-only tropes to de-prioritize when the base genre is not Romance
+                  const ROMANCE_ONLY = new Set([
+                    'enemies-to-lovers','friends-to-lovers','rivals-to-lovers','second-chance','insta-love','fake-dating','marriage-of-convenience','forced-proximity','love-triangle','arranged-marriage','grumpy-sunshine','secret-relationship','forbidden-love','age-gap','best-friends-sibling','sibling-best-friend','only-one-bed','secret-baby','accidental-pregnancy','pen-pals','soulmates','amnesia'
+                  ]);
+
+                  function scoreTag(t: { slug: string; name: string; group: string }): number {
+                    const selectedBoost = editTagNames.includes(t.name) ? 1000 : 0;
+                    const priorityBoost = priorityList.get(t.slug) ?? 0;
+                    const groupBoost = t.group === 'tropes_themes' ? 2 : t.group === 'setting' ? 1 : 0;
+                    const romancePenalty = base !== 'romance' && ROMANCE_ONLY.has(t.slug) ? -50 : 0;
+                    return selectedBoost + priorityBoost + groupBoost + romancePenalty;
+                  }
+
                   candidates.sort((a, b) => {
-                    const selA = editTagNames.includes(a.name) ? 1 : 0;
-                    const selB = editTagNames.includes(b.name) ? 1 : 0;
-                    if (selA !== selB) return selB - selA; // selected first
-                    const pa = priorityList.get(a.slug) ?? 0;
-                    const pb = priorityList.get(b.slug) ?? 0;
-                    if (pa !== pb) return pb - pa; // higher priority first
-                    const ga = a.group === 'tropes_themes' ? 2 : a.group === 'setting' ? 1 : 0;
-                    const gb = b.group === 'tropes_themes' ? 2 : b.group === 'setting' ? 1 : 0;
-                    if (ga !== gb) return gb - ga; // trope > setting > others
+                    const sa = scoreTag(a);
+                    const sb = scoreTag(b);
+                    if (sa !== sb) return sb - sa;
                     return a.name.localeCompare(b.name);
                   });
 
