@@ -225,6 +225,7 @@ Phase 3 (optional):
   - [x] Browse: restore infinite scroll + page top-up
   - [x] Heuristics: reduce false positives (e.g., `artificial-intelligence`) via stricter patterns + thresholds
   - [x] Heuristics: prefer subject → subgenre mapping before free-text keywords
+  - [x] Ratings: auto-ingest browse selections before scoring and tighten keypad layout so the modal matches taxonomy popups (BookDetailDialog + BrowsePage)
   - [ ] Covers: add normalization pipeline so cover image matches title/author (see ops note)
   - [ ] Extend top-up to `rating`/`recent` for consistency (optional)
   - [ ] Add Playwright smoke for opening dialog + seeing controls
@@ -266,6 +267,7 @@ Audit status snapshot:
   - 2025-10-19: Book Dialog layout pass (mobile + desktop). Mobile/tablet uses dvw/dvh with equal 6vw edges; desktop uses fixed widths and clamps height to viewport to prevent bottom overflow. Header made opaque with a measured mask; scroll area begins at the divider line. Files: `client/src/components/BookDetailDialog.tsx`, `client/src/components/ui/dialog.tsx`.
   - 2025-10-19: Playwright mobile smoke added to exercise dialog open + rating sheet; adjusted to reset scroll on reopen to avoid stale scroll positions. Files: `e2e/mobile-book-dialog.spec.ts`.
   - 2025-10-19: Heuristics pass: made `artificial-intelligence` match explicit phrase only, added negative phrases for `ai` (avoid Ai Weiwei/Adobe Illustrator), and added confidence gating; audit improved gaps to 9/500. File: `shared/taxonomy.ts`, script: `scripts/taxonomy-audit.ts`.
+  - 2025-10-20: Rating UX pass: browse dialog now auto-ingests before saving a score, keypad spacing mirrors taxonomy dialogs, and dialog close releases carousel scroll focus. Files: `client/src/components/BookDetailDialog.tsx`, `client/src/pages/BrowsePage.tsx`.
 
 ## How to Resume in a New Codex Session
 

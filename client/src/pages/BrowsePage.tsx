@@ -451,7 +451,17 @@ export default function BrowsePage() {
 
       {dialogOpen && (
         <Suspense fallback={null}>
-          <BookDetailDialog book={selectedBook} open={dialogOpen} onOpenChange={setDialogOpen} />
+          <BookDetailDialog
+            book={selectedBook}
+            open={dialogOpen}
+            onOpenChange={(open) => {
+              setDialogOpen(open);
+              if (!open) {
+                // Reset selection so the horizontally scrolling carousels regain pointer/touch focus.
+                setSelectedBook(null);
+              }
+            }}
+          />
         </Suspense>
       )}
       {/* Edit dialog for on-the-fly subgenre/tags */}

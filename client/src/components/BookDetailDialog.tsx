@@ -54,6 +54,7 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [ratingInput, setRatingInput] = useState<string>("");
   const [isRatingOpen, setIsRatingOpen] = useState(false);
+  const [hasTypedRating, setHasTypedRating] = useState(false);
   const headerRef = useRef<HTMLDivElement | null>(null);
   const dividerRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -168,11 +169,13 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
     if (open && existingUserBook) {
       setSelectedStatus(existingUserBook.status ?? null);
       setRatingInput(existingUserBook.rating?.toString() || "");
+      setHasTypedRating(false);
       setIngestedBookId(existingUserBook.bookId);
       lastStatusRef.current = existingUserBook.status ?? null;
     } else if (open) {
       setSelectedStatus(null);
       setRatingInput("");
+      setHasTypedRating(false);
       setIngestedBookId(null);
       lastStatusRef.current = null;
     }
@@ -272,6 +275,7 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
     },
   });
 
+  // Make sure the book exists in the backend (ingest + return id) before we try to save shelf/rating state.
   const ensureBookIngested = async (): Promise<string> => {
     if (existingUserBook?.bookId) {
       return existingUserBook.bookId;
@@ -324,9 +328,8 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
   };
 
   const handleUpdateRating = async () => {
-    if (!existingUserBook) return;
-    const rating = parseInt(ratingInput);
-    if (isNaN(rating) || rating < 0 || rating > 100) {
+    const rating = parseInt(ratingInput, 10);
+    if (Number.isNaN(rating) || rating < 0 || rating > 100) {
       toast({
         title: "Invalid rating",
         description: "Please enter a number between 0 and 100",
@@ -334,31 +337,99 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
       });
       return;
     }
-    await updateRatingMutation.mutateAsync({
-      userBookId: existingUserBook.id,
-      rating,
-    });
-    setIsRatingOpen(false);
+
+    try {
+      let targetUserBook: HydratedUserBook | undefined = existingUserBook;
+
+      if (!targetUserBook) {
+        // When launched from Browse, the user may not have the title in their library yet.
+        // We ingest + add it to the shelf on the fly so rating always has a backing user_book row.
+        if (!book) throw new Error("Book unavailable");
+        const bookId = await ensureBookIngested();
+        const created = await addBookToShelf(DEMO_USER_ID, bookId, selectedStatus ?? null);
+        const normalized: HydratedUserBook = created.book
+          ? created
+          : { ...created, book };
+
+        queryClient.setQueryData(
+          userBooksQueryKey,
+          (current: HydratedUserBook[] | undefined) => {
+            if (!current) return [normalized];
+            const exists = current.some((ub) => ub.id === normalized.id);
+            return exists
+              ? current.map((ub) => (ub.id === normalized.id ? normalized : ub))
+              : [...current, normalized];
+          },
+        );
+
+        targetUserBook = normalized;
+        setSelectedStatus(created.status ?? null);
+        lastStatusRef.current = created.status ?? null;
+        setIngestedBookId(created.bookId);
+      }
+
+      if (!targetUserBook) throw new Error("Unable to resolve library entry");
+
+      await updateRatingMutation.mutateAsync({
+        userBookId: targetUserBook.id,
+        rating,
+      });
+      setIsRatingOpen(false);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to save rating",
+        variant: "destructive",
+      });
+    }
   };
 
   const adjustRating = (delta: number) => {
     const current = parseInt(ratingInput) || 0;
     const newValue = Math.max(0, Math.min(100, current + delta));
     setRatingInput(newValue.toString());
+    setHasTypedRating(true);
   };
 
   const handleNumberPad = (num: string) => {
-    const current = ratingInput || "0";
-    const newValue = current === "0" ? num : current + num;
-    const parsed = parseInt(newValue);
-    if (parsed <= 100) {
-      setRatingInput(newValue);
-    }
+    setRatingInput((prev) => {
+      const base = !hasTypedRating || prev === "0" ? "" : prev;
+      const candidate = base + num;
+      const parsed = parseInt(candidate, 10);
+      if (Number.isNaN(parsed) || parsed > 100) {
+        return prev;
+      }
+      if (!hasTypedRating) {
+        setHasTypedRating(true);
+      }
+      return candidate;
+    });
   };
 
   const handleBackspace = () => {
-    setRatingInput(prev => prev.slice(0, -1) || "0");
+    setRatingInput((prev) => {
+      if (!hasTypedRating) {
+        setHasTypedRating(false);
+        return "0";
+      }
+      const next = prev.slice(0, -1) || "0";
+      if (next === "0") {
+        setHasTypedRating(false);
+      }
+      return next;
+    });
   };
+
+  const handleClearRating = () => {
+    setRatingInput("0");
+    setHasTypedRating(false);
+  };
+
+  useEffect(() => {
+    if (isRatingOpen) {
+      setHasTypedRating(false);
+    }
+  }, [isRatingOpen, book?.googleBooksId]);
 
   if (!book) return null;
 
@@ -413,7 +484,10 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
           {/* Fixed card area (cover/title/author + stats + widgets) */}
           <div ref={headerRef} className="absolute inset-x-0 top-0 z-10" style={{ height: 'min(58vh, 420px)' }}>
             {/* Opaque mask covers only down to the divider line */}
-            <div className="absolute left-0 right-0 top-0 z-0" style={{ height: maskHeight, background: 'var(--background)' }} />
+            <div
+              className="absolute left-0 right-0 top-0 z-0 bg-background"
+              style={{ height: maskHeight }}
+            />
             {/* Cover and Title Section */}
             <div className="relative z-10 overflow-hidden px-6 pt-8 pb-4 text-center">
               {book.coverUrl ? (
@@ -518,7 +592,7 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
               variant="outline"
               size="sm"
               className="w-full justify-center text-xs h-auto py-2 px-3"
-              disabled={!existingUserBook}
+              disabled={isShelfUpdating}
               data-testid="button-rating-trigger"
               onClick={() => setIsRatingOpen(true)}
             >
@@ -560,87 +634,92 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
               onClick={() => setIsRatingOpen(false)}
             />
             <div className="absolute inset-x-0 bottom-0 z-10">
-              <div className="bg-background rounded-t-3xl border-t border-border shadow-2xl overflow-hidden"
-                   style={{ height: '45vh', minHeight: '380px' }}>
+              <div
+                className="bg-background rounded-t-3xl border-t border-border shadow-2xl overflow-hidden flex h-full flex-col"
+                style={{ height: 'min(60vh, 500px)', minHeight: '380px' }}
+              >
                 <div className="flex justify-center py-2">
                   <div className="h-1.5 w-10 rounded-full bg-muted" />
                 </div>
-                <div className="px-6 pb-4 border-b border-border/50">
-                  <div className="text-center mb-4">
-                    <div className="text-sm text-muted-foreground mb-2">Score</div>
-                    <div className="text-6xl font-bold tracking-tight">
-                      {ratingInput || '0'}
+                <div className="flex flex-1 flex-col">
+                  <div className="px-6 pb-0 border-b border-border/50">
+                    <div className="text-center mb-1">
+                      <div className="text-sm text-muted-foreground mb-1">Score</div>
+                      <div className="text-6xl font-bold tracking-tight">
+                        {ratingInput || '0'}
+                      </div>
+                    </div>
+                    {/* Keep the controls tight so the keypad rows mirror the spacing beneath them. */}
+                    <div className="flex items-center justify-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => adjustRating(-1)}
+                        className="h-12 w-12 rounded-full"
+                        data-testid="button-rating-decrease"
+                      >
+                        <Minus className="h-5 w-5" />
+                      </Button>
+                      <Button
+                        onClick={handleUpdateRating}
+                        className="px-8"
+                        disabled={isRatingPending}
+                        data-testid="button-save-rating"
+                      >
+                        {isRatingPending ? 'Saving...' : 'Save'}
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => adjustRating(1)}
+                        className="h-12 w-12 rounded-full"
+                        data-testid="button-rating-increase"
+                      >
+                        <Plus className="h-5 w-5" />
+                      </Button>
                     </div>
                   </div>
-                  <div className="flex items-center justify-center gap-4 mb-2">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => adjustRating(-1)}
-                      className="h-12 w-12 rounded-full"
-                      data-testid="button-rating-decrease"
-                    >
-                      <Minus className="h-5 w-5" />
-                    </Button>
-                    <Button
-                      onClick={handleUpdateRating}
-                      className="px-8"
-                      disabled={isRatingPending}
-                      data-testid="button-save-rating"
-                    >
-                      {isRatingPending ? 'Saving...' : 'Save'}
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => adjustRating(1)}
-                      className="h-12 w-12 rounded-full"
-                      data-testid="button-rating-increase"
-                    >
-                      <Plus className="h-5 w-5" />
-                    </Button>
-                  </div>
-                </div>
-                <div className="p-4 pb-8">
-                  <div className="grid grid-cols-3 gap-2">
-                    {[1,2,3,4,5,6,7,8,9].map((num) => (
+                  <div className="flex-1 px-4 pt-0 pb-3 flex flex-col justify-end">
+                    <div className="grid grid-cols-3 gap-x-2 gap-y-2">
+                      {[1,2,3,4,5,6,7,8,9].map((num) => (
+                        <Button
+                          key={num}
+                          variant="ghost"
+                          onClick={() => handleNumberPad(num.toString())}
+                          className="h-12 text-lg font-medium hover-elevate"
+                          data-testid={`button-numpad-${num}`}
+                        >
+                          {num}
+                        </Button>
+                      ))}
                       <Button
-                        key={num}
                         variant="ghost"
-                        onClick={() => handleNumberPad(num.toString())}
+                        onClick={handleBackspace}
                         className="h-12 text-lg font-medium hover-elevate"
-                        data-testid={`button-numpad-${num}`}
+                        data-testid="button-numpad-backspace"
                       >
-                        {num}
+                        ←
                       </Button>
-                    ))}
-                    <Button
-                      variant="ghost"
-                      onClick={handleBackspace}
-                      className="h-12 text-lg font-medium hover-elevate"
-                      data-testid="button-numpad-backspace"
-                    >
-                      ←
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      onClick={() => handleNumberPad('0')}
-                      className="h-12 text-lg font-medium hover-elevate"
-                      data-testid="button-numpad-0"
-                    >
-                      0
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      onClick={() => setRatingInput('0')}
-                      className="h-12 text-lg font-medium hover-elevate"
-                      data-testid="button-numpad-clear"
-                    >
-                      C
-                    </Button>
+                      <Button
+                        variant="ghost"
+                        onClick={() => handleNumberPad('0')}
+                        className="h-12 text-lg font-medium hover-elevate"
+                        data-testid="button-numpad-0"
+                      >
+                        0
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        onClick={handleClearRating}
+                        className="h-12 text-lg font-medium hover-elevate"
+                        data-testid="button-numpad-clear"
+                      >
+                        C
+                      </Button>
+                    </div>
+                    <div className="pointer-events-none" style={{ height: 'env(safe-area-inset-bottom, 0px)' }} />
+                    <div className="pointer-events-none" style={{ height: 'constant(safe-area-inset-bottom, 0px)' }} />
                   </div>
-                  <div className="pointer-events-none" style={{ height: 'env(safe-area-inset-bottom, 0px)' }} />
-                  <div className="pointer-events-none" style={{ height: 'constant(safe-area-inset-bottom, 0px)' }} />
                 </div>
               </div>
             </div>
