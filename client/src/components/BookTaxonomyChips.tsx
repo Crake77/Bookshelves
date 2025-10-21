@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getBookTaxonomy, ingestBook, type BookSearchResult } from "@/lib/api";
 import { detectTaxonomy, detectAgeMarketSlug } from "../../../shared/taxonomy";
-import { detectTaxonomy } from "../../../shared/taxonomy";
 import TaxonomyListDialog from "@/components/TaxonomyListDialog";
 
 interface Props {

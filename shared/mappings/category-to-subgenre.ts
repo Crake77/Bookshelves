@@ -100,4 +100,36 @@ export const CATEGORY_TO_SUBGENRE: CategoryToSubgenre[] = [
   { match: /\bspaghetti westerns\b/i, slug: "film-media-studies" },
   { match: /\bdrama\b/i, slug: "film-media-studies" },
   { match: /\bapperception|ethnopsychology|gerontology|emotions|body image|femininity\b/i, slug: "psychology" },
+  
+  // Crime & Mystery
+  { match: /\bcozy\s+mystery\b/i, slug: "cozy-mystery" },
+  { match: /\bpolice\s+procedural\b/i, slug: "police-procedural" },
+  { match: /\blegal\s+thriller\b/i, slug: "legal-thriller" },
+  { match: /\bforensic\b/i, slug: "forensic-crime" },
+  { match: /\bhard[-\s]?boiled\b/i, slug: "hard-boiled" },
+  { match: /\bpsychological\s+thriller\b/i, slug: "psychological-thriller" },
+  
+  // Western
+  { match: /\bwestern\b/i, slug: "western" },
+  
+  // War & Military
+  { match: /\bWorld\s+War\s+I\b|\bWWI\b/i, slug: "world-war-i" },
+  { match: /\bWorld\s+War\s+II\b|\bWWII\b/i, slug: "world-war-ii" },
+  { match: /\bVietnam\s+War\b/i, slug: "vietnam-war" },
+  { match: /\bmilitary\s+fiction\b/i, slug: "military-fiction" },
+  
+  // New Adult
+  { match: /\bnew\s+adult\b/i, slug: "new-adult-fiction" },
+  
+  // Realistic Fiction
+  { match: /\bfamily\s+saga\b/i, slug: "family-saga" },
+  { match: /\bdomestic\s+fiction\b/i, slug: "domestic-drama" },
+  { match: /\bmedical\s+fiction\b/i, slug: "medical-drama" },
+  
+  // Sports Fiction
+  { match: /\bsports\s+fiction\b/i, slug: "sports-fiction" },
+  
+  // Nautical
+  { match: /\bpirate\b/i, slug: "pirate-adventure" },
+  { match: /\bnaval\s+fiction\b/i, slug: "naval-fiction" },
 ];
