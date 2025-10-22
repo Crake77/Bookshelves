@@ -794,6 +794,40 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
             WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
           ))
+          -- Block filter: exclude books with blocked tags
+          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+            SELECT 1 FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+          ))
+          -- Domain filter
+          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN domains d ON d.id = g.domain_id
+            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+          ))
+          -- Supergenre filter
+          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN supergenres sp ON sp.id = g.supergenre_id
+            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+          ))
+          -- Format filter  
+          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_formats bf
+            JOIN formats f ON f.id = bf.format_id
+            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+          ))
+          -- Audience filter
+          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_age_markets bam
+            JOIN age_markets am ON am.id = bam.age_market_id
+            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
         ),
         global AS (
           SELECT
@@ -877,6 +911,40 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             SELECT 1 FROM book_cross_tags bct
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
             WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
+          ))
+          -- Block filter: exclude books with blocked tags
+          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+            SELECT 1 FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+          ))
+          -- Domain filter
+          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN domains d ON d.id = g.domain_id
+            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+          ))
+          -- Supergenre filter
+          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN supergenres sp ON sp.id = g.supergenre_id
+            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+          ))
+          -- Format filter  
+          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_formats bf
+            JOIN formats f ON f.id = bf.format_id
+            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+          ))
+          -- Audience filter
+          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_age_markets bam
+            JOIN age_markets am ON am.id = bam.age_market_id
+            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
           ))
         ),
         global AS (
@@ -1015,6 +1083,40 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
             WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
           ))
+          -- Block filter: exclude books with blocked tags
+          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+            SELECT 1 FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+          ))
+          -- Domain filter
+          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN domains d ON d.id = g.domain_id
+            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+          ))
+          -- Supergenre filter
+          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN supergenres sp ON sp.id = g.supergenre_id
+            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+          ))
+          -- Format filter  
+          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_formats bf
+            JOIN formats f ON f.id = bf.format_id
+            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+          ))
+          -- Audience filter
+          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_age_markets bam
+            JOIN age_markets am ON am.id = bam.age_market_id
+            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
         )
         SELECT
           catalog.id,
@@ -1084,6 +1186,40 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM book_cross_tags bct
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
             WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
+          ))
+          -- Block filter: exclude books with blocked tags
+          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+            SELECT 1 FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+          ))
+          -- Domain filter
+          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN domains d ON d.id = g.domain_id
+            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+          ))
+          -- Supergenre filter
+          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN supergenres sp ON sp.id = g.supergenre_id
+            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+          ))
+          -- Format filter  
+          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_formats bf
+            JOIN formats f ON f.id = bf.format_id
+            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+          ))
+          -- Audience filter
+          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_age_markets bam
+            JOIN age_markets am ON am.id = bam.age_market_id
+            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
           ))
         )
         SELECT
@@ -1340,6 +1476,40 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
             WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
           ))
+          -- Block filter: exclude books with blocked tags
+          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+            SELECT 1 FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+          ))
+          -- Domain filter
+          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN domains d ON d.id = g.domain_id
+            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+          ))
+          -- Supergenre filter
+          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN supergenres sp ON sp.id = g.supergenre_id
+            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+          ))
+          -- Format filter  
+          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_formats bf
+            JOIN formats f ON f.id = bf.format_id
+            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+          ))
+          -- Audience filter
+          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_age_markets bam
+            JOIN age_markets am ON am.id = bam.age_market_id
+            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
         ),
         preference_scores AS (
           SELECT
@@ -1453,6 +1623,40 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM book_cross_tags bct
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
             WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
+          ))
+          -- Block filter: exclude books with blocked tags
+          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+            SELECT 1 FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+          ))
+          -- Domain filter
+          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN domains d ON d.id = g.domain_id
+            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+          ))
+          -- Supergenre filter
+          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN supergenres sp ON sp.id = g.supergenre_id
+            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+          ))
+          -- Format filter  
+          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_formats bf
+            JOIN formats f ON f.id = bf.format_id
+            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+          ))
+          -- Audience filter
+          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_age_markets bam
+            JOIN age_markets am ON am.id = bam.age_market_id
+            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
           ))
         ),
         preference_scores AS (

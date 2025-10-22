@@ -45,9 +45,14 @@ interface UseBrowseCarouselArgs {
   subgenre?: string | null;
   tag?: string | null;
   tagAny?: string[] | null;
+  blockedTags?: string[] | null;
+  format?: string | null;
+  audience?: string | null;
+  domain?: string | null;
+  supergenre?: string | null;
 }
 
-function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny }: UseBrowseCarouselArgs) {
+function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blockedTags, format, audience, domain, supergenre }: UseBrowseCarouselArgs) {
   const fallbackBooks = useMemo(
     () => getFallbackBrowse(algo, genre ?? undefined),
     [algo, genre]
@@ -69,7 +74,7 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny }: UseBr
     status,
     error,
   } = useInfiniteQuery({
-    queryKey: ["browse", algo, genre ?? "all", subgenre ?? "", tag ?? "", (tagAny ?? []).join("|"), userId ?? "anon"],
+    queryKey: ["browse", algo, genre ?? "all", subgenre ?? "", tag ?? "", (tagAny ?? []).join("|"), (blockedTags ?? []).join("|"), format ?? "", audience ?? "", domain ?? "", supergenre ?? "", userId ?? "anon"],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0, signal }) =>
       fetchBrowseBooks({
@@ -79,6 +84,11 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny }: UseBr
         subgenre: subgenre ?? undefined,
         tag: tag ?? undefined,
         tagAny: tagAny ?? undefined,
+        blockedTags: blockedTags ?? undefined,
+        format: format ?? undefined,
+        audience: audience ?? undefined,
+        domain: domain ?? undefined,
+        supergenre: supergenre ?? undefined,
         limit: CAROUSEL_PAGE_SIZE,
         offset: pageParam,
         signal,
@@ -164,6 +174,12 @@ interface CategoryConfig {
   subgenreSlug?: string | null; // filter slug
   tagSlugs?: string[];
   tags?: string[];
+  blockedTagSlugs?: string[];
+  blockedTagNames?: string[];
+  formatSlug?: string | null;
+  audienceSlug?: string | null;
+  domainSlug?: string | null;
+  supergenreSlug?: string | null;
   emptyMessage?: string;
 }
 
@@ -180,6 +196,11 @@ function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarou
     genre: config.genre ?? undefined,
     subgenre: config.subgenreSlug ?? undefined,
     tagAny: config.tagSlugs ?? undefined,
+    blockedTags: config.blockedTagSlugs ?? undefined,
+    format: config.formatSlug ?? undefined,
+    audience: config.audienceSlug ?? undefined,
+    domain: config.domainSlug ?? undefined,
+    supergenre: config.supergenreSlug ?? undefined,
   });
 
   const initialLoading = carousel.books.length === 0 && carousel.isLoading;
@@ -267,7 +288,12 @@ export default function BrowsePage() {
         subgenreSlug,
         tagSlugs,
         tags,
+        blockedTagSlugs: category.blockedTagSlugs,
         blockedTagNames: category.blockedTagNames,
+        formatSlug: category.formatSlug ?? undefined,
+        audienceSlug: category.audienceSlug ?? undefined,
+        domainSlug: category.domainSlug ?? undefined,
+        supergenreSlug: category.supergenreSlug ?? undefined,
         emptyMessage,
       } satisfies CategoryConfig;
     });
