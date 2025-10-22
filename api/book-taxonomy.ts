@@ -68,10 +68,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const sg = (await sql/* sql */`SELECT id FROM subgenres WHERE slug = ${subgenreSlug} LIMIT 1`) as Array<{ id: string }>;
         if (sg[0]?.id) {
           await sql/* sql */`
-            INSERT INTO book_primary_subgenres (book_id, subgenre_id, confidence)
+            INSERT INTO book_subgenres (book_id, subgenre_id, confidence)
             VALUES (${resolved}, ${sg[0].id}, ${0.85})
-            ON CONFLICT (book_id)
-            DO UPDATE SET subgenre_id = EXCLUDED.subgenre_id, confidence = EXCLUDED.confidence, updated_at = now()
+            ON CONFLICT (book_id, subgenre_id) DO UPDATE SET confidence = EXCLUDED.confidence
           `;
           attachedSub = true;
         }
@@ -125,15 +124,31 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(200).json({ ok: true, data: { tags: [], allTagCount: 0 } });
     }
 
-    // Primary subgenre + parent genre
-    const g = await sql/* sql */`
-      SELECT g.slug AS genre_slug, g.name AS genre_name, sg.slug AS subgenre_slug, sg.name AS subgenre_name
-      FROM book_primary_subgenres bps
-      JOIN subgenres sg ON sg.id = bps.subgenre_id
+    // Get assigned genres and subgenres 
+    const genres = await sql/* sql */`
+      SELECT g.slug, g.name
+      FROM book_genres bg
+      JOIN genres g ON g.id = bg.genre_id
+      WHERE bg.book_id = ${resolvedId}
+      ORDER BY g.name
+    ` as Array<{ slug: string; name: string }>;
+
+    const subgenres = await sql/* sql */`
+      SELECT sg.slug, sg.name, g.slug AS genre_slug, g.name AS genre_name
+      FROM book_subgenres bsg
+      JOIN subgenres sg ON sg.id = bsg.subgenre_id
       JOIN genres g ON g.id = sg.genre_id
-      WHERE bps.book_id = ${resolvedId}
-      LIMIT 1
-    ` as Array<{ genre_slug: string; genre_name: string; subgenre_slug: string; subgenre_name: string }>;
+      WHERE bsg.book_id = ${resolvedId}
+      ORDER BY sg.name
+    ` as Array<{ slug: string; name: string; genre_slug: string; genre_name: string }>;
+    
+    // Get age market
+    const ageMarkets = await sql/* sql */`
+      SELECT am.slug, am.name
+      FROM book_age_markets bam
+      JOIN age_markets am ON am.id = bam.age_market_id
+      WHERE bam.book_id = ${resolvedId}
+    ` as Array<{ slug: string; name: string }>;
 
     // Cross tags
     const tags = await sql/* sql */`
@@ -145,10 +160,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     ` as Array<{ slug: string; name: string; group: string }>;
 
     const data = {
-      genre: g[0] ? { slug: g[0].genre_slug, name: g[0].genre_name } : undefined,
-      subgenre: g[0] ? { slug: g[0].subgenre_slug, name: g[0].subgenre_name } : undefined,
+      genres: genres,
+      subgenres: subgenres,
+      ageMarket: ageMarkets[0] || undefined,
       tags,
       allTagCount: tags.length,
+      // Legacy compatibility - use first genre/subgenre if present
+      genre: genres[0] || undefined,
+      subgenre: subgenres[0] || undefined,
     };
 
     return res.status(200).json({ ok: true, data });

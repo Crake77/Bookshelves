@@ -137,35 +137,60 @@ export type InsertBookStats = z.infer<typeof insertBookStatsSchema>;
 export type BookStats = typeof bookStats.$inferSelect;
 
 // -----------------------
-// Taxonomy (Genres/Tags)
+// Hierarchical Taxonomy System
 // -----------------------
 
-// Genre table
+// Domain: top-level binary classification (fiction/nonfiction)
+export const domains = pgTable("domains", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  slug: text("slug").notNull().unique(),
+  name: text("name").notNull(),
+  enabled: boolean("enabled").notNull().default(true),
+});
+
+export const insertDomainSchema = createInsertSchema(domains).omit({
+  id: true,
+});
+export type InsertDomain = z.infer<typeof insertDomainSchema>;
+export type Domain = typeof domains.$inferSelect;
+
+// Supergenre: umbrella categories grouping related genres
+export const supergenres = pgTable("supergenres", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  slug: text("slug").notNull().unique(),
+  name: text("name").notNull(),
+  description: text("description"),
+  enabled: boolean("enabled").notNull().default(true),
+});
+
+export const insertSupergenreSchema = createInsertSchema(supergenres).omit({
+  id: true,
+});
+export type InsertSupergenre = z.infer<typeof insertSupergenreSchema>;
+export type Supergenre = typeof supergenres.$inferSelect;
+
+// Genre: primary classification exposed to users
 export const genres = pgTable(
   "genres",
   {
     id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
     slug: text("slug").notNull().unique(),
     name: text("name").notNull(),
+    description: text("description"),
     enabled: boolean("enabled").notNull().default(true),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
   },
   (table) => ({
-    // Optional partial index for common filter
     idxGenresEnabledTrue: index("idx_genres_enabled_true").on(table.enabled).where(sql`enabled = true`),
   })
 );
 
 export const insertGenreSchema = createInsertSchema(genres).omit({
   id: true,
-  createdAt: true,
-  updatedAt: true,
 });
 export type InsertGenre = z.infer<typeof insertGenreSchema>;
 export type Genre = typeof genres.$inferSelect;
 
-// Subgenre table (child of Genre)
+// Subgenre: most specific classification
 export const subgenres = pgTable(
   "subgenres",
   {
@@ -173,9 +198,8 @@ export const subgenres = pgTable(
     genreId: uuid("genre_id").notNull().references(() => genres.id, { onDelete: "cascade" }),
     slug: text("slug").notNull().unique(),
     name: text("name").notNull(),
+    description: text("description"),
     enabled: boolean("enabled").notNull().default(true),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
   },
   (table) => ({
     idxSubgenresGenre: index("idx_subgenres_genre").on(table.genreId),
@@ -185,23 +209,57 @@ export const subgenres = pgTable(
 
 export const insertSubgenreSchema = createInsertSchema(subgenres).omit({
   id: true,
-  createdAt: true,
-  updatedAt: true,
 });
 export type InsertSubgenre = z.infer<typeof insertSubgenreSchema>;
 export type Subgenre = typeof subgenres.$inferSelect;
 
-// CrossTag table (orthogonal facets)
+// Format: structural/physical form of the work
+export const formats = pgTable("formats", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  slug: text("slug").notNull().unique(),
+  name: text("name").notNull(),
+  description: text("description"),
+  enabled: boolean("enabled").notNull().default(true),
+});
+
+export const insertFormatSchema = createInsertSchema(formats).omit({
+  id: true,
+});
+export type InsertFormat = z.infer<typeof insertFormatSchema>;
+export type Format = typeof formats.$inferSelect;
+
+// Age Markets: target readership age ranges
+export const ageMarkets = pgTable(
+  "age_markets",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    slug: text("slug").notNull().unique(),
+    name: text("name").notNull(),
+    minAge: integer("min_age"),
+    maxAge: integer("max_age"),
+    enabled: boolean("enabled").notNull().default(true),
+  },
+  (table) => ({
+    idxAgeMarketsEnabledTrue: index("idx_age_markets_enabled_true").on(table.enabled).where(sql`enabled = true`),
+  })
+);
+
+export const insertAgeMarketSchema = createInsertSchema(ageMarkets).omit({
+  id: true,
+});
+export type InsertAgeMarket = z.infer<typeof insertAgeMarketSchema>;
+export type AgeMarket = typeof ageMarkets.$inferSelect;
+
+// Cross-tags: orthogonal attributes (tropes, themes, settings, mood, structure, content flags)
 export const crossTags = pgTable(
   "cross_tags",
   {
     id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-    group: text("group").notNull(), // e.g., tone_mood, setting, structure, tropes_themes, format, content_flags
+    group: text("group").notNull().$type<'tropes_themes' | 'setting' | 'tone_mood' | 'structure' | 'content_flags'>(),
     slug: text("slug").notNull().unique(),
     name: text("name").notNull(),
+    description: text("description"),
     enabled: boolean("enabled").notNull().default(true),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
   },
   (table) => ({
     idxCrossTagsGroup: index("idx_cross_tags_group").on(table.group),
@@ -211,139 +269,225 @@ export const crossTags = pgTable(
 
 export const insertCrossTagSchema = createInsertSchema(crossTags).omit({
   id: true,
-  createdAt: true,
-  updatedAt: true,
 });
 export type InsertCrossTag = z.infer<typeof insertCrossTagSchema>;
 export type CrossTag = typeof crossTags.$inferSelect;
 
-// Age Market table
-export const ageMarkets = pgTable(
-  "age_markets",
+// Aliases: alternative terms mapped to canonical slugs
+export const aliases = pgTable(
+  "aliases",
   {
     id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-    slug: text("slug").notNull().unique(),
-    name: text("name").notNull(),
-    enabled: boolean("enabled").notNull().default(true),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+    kind: text("kind").notNull().$type<'genre' | 'subgenre' | 'tag' | 'format' | 'supergenre'>(),
+    alias: text("alias").notNull(),
+    canonicalSlug: text("canonical_slug").notNull(),
   },
   (table) => ({
-    idxAgeMarketsEnabledTrue: index("idx_age_markets_enabled_true").on(table.enabled).where(sql`enabled = true`),
+    uqKindAlias: uniqueIndex("uq_kind_alias").on(table.kind, table.alias),
   })
 );
 
-export const insertAgeMarketSchema = createInsertSchema(ageMarkets).omit({
+export const insertAliasSchema = createInsertSchema(aliases).omit({
   id: true,
-  createdAt: true,
-  updatedAt: true,
 });
-export type InsertAgeMarket = z.infer<typeof insertAgeMarketSchema>;
-export type AgeMarket = typeof ageMarkets.$inferSelect;
+export type InsertAlias = z.infer<typeof insertAliasSchema>;
+export type Alias = typeof aliases.$inferSelect;
 
 // -----------------------
-// Book ↔ Taxonomy links
+// Taxonomy Relationships
 // -----------------------
 
-// Each book can have a single primary subgenre (optional) with confidence
-export const bookPrimarySubgenres = pgTable(
-  "book_primary_subgenres",
+// Supergenre ↔ Domain relationships (many-to-many)
+export const supergenreDomains = pgTable(
+  "supergenre_domains",
+  {
+    supergenreId: uuid("supergenre_id").notNull().references(() => supergenres.id, { onDelete: "cascade" }),
+    domainId: uuid("domain_id").notNull().references(() => domains.id, { onDelete: "cascade" }),
+  },
+  (table) => ({
+    pk: uniqueIndex("pk_supergenre_domains").on(table.supergenreId, table.domainId),
+  })
+);
+
+// Genre ↔ Domain relationships (many-to-many)
+export const genreDomains = pgTable(
+  "genre_domains",
+  {
+    genreId: uuid("genre_id").notNull().references(() => genres.id, { onDelete: "cascade" }),
+    domainId: uuid("domain_id").notNull().references(() => domains.id, { onDelete: "cascade" }),
+  },
+  (table) => ({
+    pk: uniqueIndex("pk_genre_domains").on(table.genreId, table.domainId),
+  })
+);
+
+// Genre ↔ Supergenre relationships (many-to-many)
+export const genreSupergenres = pgTable(
+  "genre_supergenres",
+  {
+    genreId: uuid("genre_id").notNull().references(() => genres.id, { onDelete: "cascade" }),
+    supergenreId: uuid("supergenre_id").notNull().references(() => supergenres.id, { onDelete: "cascade" }),
+  },
+  (table) => ({
+    pk: uniqueIndex("pk_genre_supergenres").on(table.genreId, table.supergenreId),
+  })
+);
+
+// Subgenre cross-attachments to additional genres (many-to-many)
+export const subgenreGenres = pgTable(
+  "subgenre_genres",
+  {
+    subgenreId: uuid("subgenre_id").notNull().references(() => subgenres.id, { onDelete: "cascade" }),
+    genreId: uuid("genre_id").notNull().references(() => genres.id, { onDelete: "cascade" }),
+  },
+  (table) => ({
+    pk: uniqueIndex("pk_subgenre_genres").on(table.subgenreId, table.genreId),
+  })
+);
+
+
+// -----------------------
+// Book ↔ Taxonomy Classification Tables
+// -----------------------
+
+// Book domain assignment (single domain per book)
+export const bookDomains = pgTable(
+  "book_domains",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
+    domainId: uuid("domain_id").notNull().references(() => domains.id, { onDelete: "cascade" }),
+  },
+  (table) => ({
+    uqBook: uniqueIndex("uq_book_domain").on(table.bookId), // One domain per book
+    idxBookDomainsBook: index("idx_book_domains_book").on(table.bookId),
+  })
+);
+
+export const insertBookDomainSchema = createInsertSchema(bookDomains).omit({
+  id: true,
+});
+export type InsertBookDomain = z.infer<typeof insertBookDomainSchema>;
+export type BookDomain = typeof bookDomains.$inferSelect;
+
+// Book supergenre assignments (multiple allowed)
+export const bookSupergenres = pgTable(
+  "book_supergenres",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
+    supergenreId: uuid("supergenre_id").notNull().references(() => supergenres.id, { onDelete: "cascade" }),
+  },
+  (table) => ({
+    uqBookSupergenre: uniqueIndex("uq_book_supergenre").on(table.bookId, table.supergenreId),
+    idxBookSupergenresBook: index("idx_book_supergenres_book").on(table.bookId),
+  })
+);
+
+export const insertBookSupergenreSchema = createInsertSchema(bookSupergenres).omit({
+  id: true,
+});
+export type InsertBookSupergenre = z.infer<typeof insertBookSupergenreSchema>;
+export type BookSupergenre = typeof bookSupergenres.$inferSelect;
+
+// Book genre assignments (multiple allowed)
+export const bookGenres = pgTable(
+  "book_genres",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
+    genreId: uuid("genre_id").notNull().references(() => genres.id, { onDelete: "cascade" }),
+  },
+  (table) => ({
+    uqBookGenre: uniqueIndex("uq_book_genre").on(table.bookId, table.genreId),
+    idxBookGenresBook: index("idx_book_genres_book").on(table.bookId),
+  })
+);
+
+export const insertBookGenreSchema = createInsertSchema(bookGenres).omit({
+  id: true,
+});
+export type InsertBookGenre = z.infer<typeof insertBookGenreSchema>;
+export type BookGenre = typeof bookGenres.$inferSelect;
+
+// Book subgenre assignments with confidence (multiple allowed)
+export const bookSubgenres = pgTable(
+  "book_subgenres",
   {
     id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
     bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
     subgenreId: uuid("subgenre_id").notNull().references(() => subgenres.id, { onDelete: "cascade" }),
-    confidence: real("confidence"), // 0.0 - 1.0 (optional)
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+    confidence: real("confidence"), // AI confidence score (optional)
   },
   (table) => ({
-    uqBook: uniqueIndex("uq_book_primary_subgenre_book").on(table.bookId),
-    idxBpsBook: index("idx_bps_book").on(table.bookId),
-    idxBpsSubgenre: index("idx_bps_subgenre").on(table.subgenreId),
+    uqBookSubgenre: uniqueIndex("uq_book_subgenre").on(table.bookId, table.subgenreId),
+    idxBookSubgenresBook: index("idx_book_subgenres_book").on(table.bookId),
   })
 );
 
-export const insertBookPrimarySubgenreSchema = createInsertSchema(bookPrimarySubgenres).omit({
+export const insertBookSubgenreSchema = createInsertSchema(bookSubgenres).omit({
   id: true,
-  createdAt: true,
-  updatedAt: true,
 });
-export type InsertBookPrimarySubgenre = z.infer<typeof insertBookPrimarySubgenreSchema>;
-export type BookPrimarySubgenre = typeof bookPrimarySubgenres.$inferSelect;
+export type InsertBookSubgenre = z.infer<typeof insertBookSubgenreSchema>;
+export type BookSubgenre = typeof bookSubgenres.$inferSelect;
 
-// Candidate subgenres with confidence scores
-export const bookSubgenreCandidates = pgTable(
-  "book_subgenre_candidates",
+// Book format assignments (multiple allowed)
+export const bookFormats = pgTable(
+  "book_formats",
   {
     id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
     bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
-    subgenreId: uuid("subgenre_id").notNull().references(() => subgenres.id, { onDelete: "cascade" }),
-    confidence: real("confidence").notNull(),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+    formatId: uuid("format_id").notNull().references(() => formats.id, { onDelete: "cascade" }),
   },
   (table) => ({
-    uqBookSubgenre: uniqueIndex("uq_book_subgenre_candidate").on(table.bookId, table.subgenreId),
-    idxBscBook: index("idx_bsc_book").on(table.bookId),
-    idxBscSubgenre: index("idx_bsc_subgenre").on(table.subgenreId),
+    uqBookFormat: uniqueIndex("uq_book_format").on(table.bookId, table.formatId),
+    idxBookFormatsBook: index("idx_book_formats_book").on(table.bookId),
   })
 );
 
-export const insertBookSubgenreCandidateSchema = createInsertSchema(bookSubgenreCandidates).omit({
+export const insertBookFormatSchema = createInsertSchema(bookFormats).omit({
   id: true,
-  createdAt: true,
-  updatedAt: true,
 });
-export type InsertBookSubgenreCandidate = z.infer<typeof insertBookSubgenreCandidateSchema>;
-export type BookSubgenreCandidate = typeof bookSubgenreCandidates.$inferSelect;
+export type InsertBookFormat = z.infer<typeof insertBookFormatSchema>;
+export type BookFormat = typeof bookFormats.$inferSelect;
 
-// Cross tag assignments (many-to-many)
-export const bookCrossTags = pgTable(
-  "book_cross_tags",
-  {
-    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
-    bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
-    crossTagId: uuid("cross_tag_id").notNull().references(() => crossTags.id, { onDelete: "cascade" }),
-    confidence: real("confidence"),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
-  },
-  (table) => ({
-    uqBookCrossTag: uniqueIndex("uq_book_cross_tag").on(table.bookId, table.crossTagId),
-    idxBctBook: index("idx_bct_book").on(table.bookId),
-    idxBctCrossTag: index("idx_bct_crosstag").on(table.crossTagId),
-  })
-);
-
-export const insertBookCrossTagSchema = createInsertSchema(bookCrossTags).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true,
-});
-export type InsertBookCrossTag = z.infer<typeof insertBookCrossTagSchema>;
-export type BookCrossTag = typeof bookCrossTags.$inferSelect;
-
-// Age market assignments (many-to-many)
+// Book age market assignment (single age market per book)
 export const bookAgeMarkets = pgTable(
   "book_age_markets",
   {
     id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
     bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
     ageMarketId: uuid("age_market_id").notNull().references(() => ageMarkets.id, { onDelete: "cascade" }),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().notNull(),
   },
   (table) => ({
-    uqBookAgeMarket: uniqueIndex("uq_book_age_market").on(table.bookId, table.ageMarketId),
-    idxBamBook: index("idx_bam_book").on(table.bookId),
-    idxBamAgeMarket: index("idx_bam_age_market").on(table.ageMarketId),
+    uqBook: uniqueIndex("uq_book_age_market").on(table.bookId), // One age market per book
+    idxBookAgeMarketsBook: index("idx_book_age_markets_book").on(table.bookId),
   })
 );
 
 export const insertBookAgeMarketSchema = createInsertSchema(bookAgeMarkets).omit({
   id: true,
-  createdAt: true,
-  updatedAt: true,
 });
 export type InsertBookAgeMarket = z.infer<typeof insertBookAgeMarketSchema>;
 export type BookAgeMarket = typeof bookAgeMarkets.$inferSelect;
+
+// Book cross-tag assignments with confidence (multiple allowed)
+export const bookCrossTags = pgTable(
+  "book_cross_tags",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
+    crossTagId: uuid("cross_tag_id").notNull().references(() => crossTags.id, { onDelete: "cascade" }),
+    confidence: real("confidence"), // AI confidence score (optional)
+  },
+  (table) => ({
+    uqBookCrossTag: uniqueIndex("uq_book_cross_tag").on(table.bookId, table.crossTagId),
+    idxBookCrossTagsBook: index("idx_book_cross_tags_book").on(table.bookId),
+  })
+);
+
+export const insertBookCrossTagSchema = createInsertSchema(bookCrossTags).omit({
+  id: true,
+});
+export type InsertBookCrossTag = z.infer<typeof insertBookCrossTagSchema>;
+export type BookCrossTag = typeof bookCrossTags.$inferSelect;

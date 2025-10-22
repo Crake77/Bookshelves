@@ -133,7 +133,7 @@ DELETE /api/user-books/:id
      appName: 'BookShelf.ai',
      webDir: 'dist',
      server: {
-       url: 'https://your-replit-url.replit.app',
+       url: 'https://your-vercel-app.vercel.app',
        cleartext: true
      }
    };
@@ -191,7 +191,7 @@ DELETE /api/user-books/:id
    export default function App() {
      return (
        <WebView 
-         source={{ uri: 'https://your-replit-url.replit.app' }}
+         source={{ uri: 'https://your-vercel-app.vercel.app' }}
          style={{ flex: 1 }}
        />
      );
@@ -224,12 +224,13 @@ The app will now function like a native iOS app with:
 
 ## Production Deployment
 
-### Replit Deployment
-1. Click "Deploy" in Replit
-2. Your app will be available at `https://your-repl.replit.app`
+### Vercel Deployment
+1. Connect your GitHub repository to Vercel
+2. Your app will be automatically deployed on pushes to main
+3. Available at `https://your-vercel-app.vercel.app`
 
 ### Custom Domain
-1. Configure custom domain in Replit
+1. Configure custom domain in Vercel dashboard
 2. Update `capacitor.config.ts` server URL
 3. Rebuild and redeploy iOS app
 

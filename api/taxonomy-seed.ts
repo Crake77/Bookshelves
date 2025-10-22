@@ -636,6 +636,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).end("Method Not Allowed");
   }
 
+  // DEPRECATED: This endpoint uses the old flat taxonomy structure.
+  // The new hierarchical taxonomy is seeded via scripts/seed-taxonomy.js
+  return res.status(410).json({
+    ok: false, 
+    error: "This endpoint is deprecated. Use the new hierarchical taxonomy seeding script.",
+    replacements: {
+      seeding: "Run: npx tsx scripts/seed-taxonomy.js",
+      structure: "See: TAXONOMY.md for the new hierarchical structure"
+    }
+  });
+
   try {
     const sql = getSql();
     // If refresh query param set, run taxonomy refresh batch in the seed endpoint to avoid extra functions
