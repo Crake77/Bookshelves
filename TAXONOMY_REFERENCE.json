@@ -1,0 +1,2960 @@
+{
+  "genres": [
+    {
+      "slug": "action-adventure",
+      "name": "Action & Adventure"
+    },
+    {
+      "slug": "anthropology",
+      "name": "Anthropology"
+    },
+    {
+      "slug": "arts-entertainment",
+      "name": "Arts & Entertainment"
+    },
+    {
+      "slug": "autobiography",
+      "name": "Autobiography"
+    },
+    {
+      "slug": "biographical-fiction",
+      "name": "Biographical Fiction"
+    },
+    {
+      "slug": "biography",
+      "name": "Biography"
+    },
+    {
+      "slug": "buddhism",
+      "name": "Buddhism"
+    },
+    {
+      "slug": "business",
+      "name": "Business"
+    },
+    {
+      "slug": "christianity",
+      "name": "Christianity"
+    },
+    {
+      "slug": "climate-change",
+      "name": "Climate Change"
+    },
+    {
+      "slug": "computers-technology",
+      "name": "Computers & Technology"
+    },
+    {
+      "slug": "contemporary-fiction",
+      "name": "Contemporary Fiction"
+    },
+    {
+      "slug": "crafts",
+      "name": "Crafts & DIY"
+    },
+    {
+      "slug": "crime-fiction",
+      "name": "Crime Fiction"
+    },
+    {
+      "slug": "cultural-studies",
+      "name": "Cultural Studies"
+    },
+    {
+      "slug": "data-science",
+      "name": "Data Science"
+    },
+    {
+      "slug": "detective-fiction",
+      "name": "Detective Fiction"
+    },
+    {
+      "slug": "dystopian-fiction",
+      "name": "Dystopian Fiction"
+    },
+    {
+      "slug": "economics",
+      "name": "Economics"
+    },
+    {
+      "slug": "education",
+      "name": "Education & Teaching"
+    },
+    {
+      "slug": "engineering",
+      "name": "Engineering"
+    },
+    {
+      "slug": "environment",
+      "name": "Environment"
+    },
+    {
+      "slug": "environmental-science",
+      "name": "Environmental Science"
+    },
+    {
+      "slug": "ethics",
+      "name": "Ethics"
+    },
+    {
+      "slug": "fairy-tale",
+      "name": "Fairy Tale & Folklore"
+    },
+    {
+      "slug": "family-drama",
+      "name": "Family Drama"
+    },
+    {
+      "slug": "fantasy",
+      "name": "Fantasy"
+    },
+    {
+      "slug": "film",
+      "name": "Film"
+    },
+    {
+      "slug": "finance",
+      "name": "Finance"
+    },
+    {
+      "slug": "fitness",
+      "name": "Fitness"
+    },
+    {
+      "slug": "food-drink",
+      "name": "Food & Drink"
+    },
+    {
+      "slug": "gender-studies",
+      "name": "Gender Studies"
+    },
+    {
+      "slug": "gothic-fiction",
+      "name": "Gothic Fiction"
+    },
+    {
+      "slug": "health",
+      "name": "Health"
+    },
+    {
+      "slug": "hinduism",
+      "name": "Hinduism"
+    },
+    {
+      "slug": "historical-fiction",
+      "name": "Historical Fiction"
+    },
+    {
+      "slug": "history",
+      "name": "History"
+    },
+    {
+      "slug": "home-garden",
+      "name": "Home & Garden"
+    },
+    {
+      "slug": "horror",
+      "name": "Horror"
+    },
+    {
+      "slug": "humor-fiction",
+      "name": "Humor & Satire"
+    },
+    {
+      "slug": "international-relations",
+      "name": "International Relations"
+    },
+    {
+      "slug": "islam",
+      "name": "Islam"
+    },
+    {
+      "slug": "judaism",
+      "name": "Judaism"
+    },
+    {
+      "slug": "language",
+      "name": "Language & Linguistics"
+    },
+    {
+      "slug": "law",
+      "name": "Law & Legal Studies"
+    },
+    {
+      "slug": "legal-fiction",
+      "name": "Legal Fiction"
+    },
+    {
+      "slug": "literary-fiction",
+      "name": "Literary Fiction"
+    },
+    {
+      "slug": "logic",
+      "name": "Logic"
+    },
+    {
+      "slug": "magical-realism",
+      "name": "Magical Realism"
+    },
+    {
+      "slug": "mathematics",
+      "name": "Mathematics"
+    },
+    {
+      "slug": "medicine",
+      "name": "Medicine"
+    },
+    {
+      "slug": "memoir",
+      "name": "Memoir"
+    },
+    {
+      "slug": "metaphysics",
+      "name": "Metaphysics"
+    },
+    {
+      "slug": "military-fiction",
+      "name": "Military Fiction"
+    },
+    {
+      "slug": "music",
+      "name": "Music"
+    },
+    {
+      "slug": "mystery",
+      "name": "Mystery"
+    },
+    {
+      "slug": "mythic-fiction",
+      "name": "Mythic Fiction"
+    },
+    {
+      "slug": "nature-writing",
+      "name": "Nature Writing"
+    },
+    {
+      "slug": "nautical-fiction",
+      "name": "Nautical Fiction"
+    },
+    {
+      "slug": "noir",
+      "name": "Noir"
+    },
+    {
+      "slug": "paranormal-fiction",
+      "name": "Paranormal Fiction"
+    },
+    {
+      "slug": "performing-arts",
+      "name": "Performing Arts"
+    },
+    {
+      "slug": "pets",
+      "name": "Pets"
+    },
+    {
+      "slug": "philosophy",
+      "name": "Philosophy"
+    },
+    {
+      "slug": "philosophy-of-science",
+      "name": "Philosophy of Science"
+    },
+    {
+      "slug": "photography",
+      "name": "Photography"
+    },
+    {
+      "slug": "political-fiction",
+      "name": "Political Fiction"
+    },
+    {
+      "slug": "politics",
+      "name": "Politics & Current Affairs"
+    },
+    {
+      "slug": "post-apocalyptic-fiction",
+      "name": "Post-Apocalyptic Fiction"
+    },
+    {
+      "slug": "programming",
+      "name": "Programming"
+    },
+    {
+      "slug": "psychological-fiction",
+      "name": "Psychological Fiction"
+    },
+    {
+      "slug": "psychology-self-help",
+      "name": "Psychology & Self-Help"
+    },
+    {
+      "slug": "reference",
+      "name": "Reference (General)"
+    },
+    {
+      "slug": "religion",
+      "name": "Religion & Spirituality"
+    },
+    {
+      "slug": "religious-fiction",
+      "name": "Religious Fiction"
+    },
+    {
+      "slug": "robotics",
+      "name": "Robotics"
+    },
+    {
+      "slug": "romance",
+      "name": "Romance"
+    },
+    {
+      "slug": "science-fiction",
+      "name": "Science Fiction"
+    },
+    {
+      "slug": "self-help",
+      "name": "Self-Help & Personal Growth"
+    },
+    {
+      "slug": "social-justice",
+      "name": "Social Justice & Activism"
+    },
+    {
+      "slug": "social-science",
+      "name": "Social Science"
+    },
+    {
+      "slug": "sociology",
+      "name": "Sociology"
+    },
+    {
+      "slug": "sports",
+      "name": "Sports & Recreation"
+    },
+    {
+      "slug": "sports-fiction",
+      "name": "Sports Fiction"
+    },
+    {
+      "slug": "spy-fiction",
+      "name": "Spy Fiction"
+    },
+    {
+      "slug": "theater",
+      "name": "Theater"
+    },
+    {
+      "slug": "thriller",
+      "name": "Thriller"
+    },
+    {
+      "slug": "travel-writing",
+      "name": "Travel Writing"
+    },
+    {
+      "slug": "true-crime",
+      "name": "True Crime"
+    },
+    {
+      "slug": "war-fiction",
+      "name": "War Fiction"
+    },
+    {
+      "slug": "wellness",
+      "name": "Wellness"
+    },
+    {
+      "slug": "western",
+      "name": "Western"
+    },
+    {
+      "slug": "wildlife",
+      "name": "Wildlife"
+    }
+  ],
+  "subgenres": [
+    {
+      "slug": "arctic-adventure",
+      "name": "Arctic Adventure",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "desert-adventure",
+      "name": "Desert Adventure",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "island-adventure",
+      "name": "Island Adventure",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "jungle-adventure",
+      "name": "Jungle Adventure",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "military-adventure",
+      "name": "Military Adventure",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "mountain-adventure",
+      "name": "Mountain Adventure",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "nautical-adventure",
+      "name": "Nautical Adventure",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "survival-adventure",
+      "name": "Survival Adventure",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "treasure-hunt",
+      "name": "Treasure Hunt",
+      "genre_slug": "action-adventure"
+    },
+    {
+      "slug": "archaeology",
+      "name": "Archaeology",
+      "genre_slug": "anthropology"
+    },
+    {
+      "slug": "cultural-anthropology",
+      "name": "Cultural Anthropology",
+      "genre_slug": "anthropology"
+    },
+    {
+      "slug": "linguistic-anthropology",
+      "name": "Linguistic Anthropology",
+      "genre_slug": "anthropology"
+    },
+    {
+      "slug": "physical-anthropology",
+      "name": "Physical Anthropology",
+      "genre_slug": "anthropology"
+    },
+    {
+      "slug": "art-history",
+      "name": "Art History",
+      "genre_slug": "arts-entertainment"
+    },
+    {
+      "slug": "film-studies",
+      "name": "Film Studies",
+      "genre_slug": "arts-entertainment"
+    },
+    {
+      "slug": "theatre-history",
+      "name": "Theatre History",
+      "genre_slug": "arts-entertainment"
+    },
+    {
+      "slug": "artistic-autobiography",
+      "name": "Artistic Autobiography",
+      "genre_slug": "autobiography"
+    },
+    {
+      "slug": "political-autobiography",
+      "name": "Political Autobiography",
+      "genre_slug": "autobiography"
+    },
+    {
+      "slug": "scientific-autobiography",
+      "name": "Scientific Autobiography",
+      "genre_slug": "autobiography"
+    },
+    {
+      "slug": "alternate-biography",
+      "name": "Alternate Biography",
+      "genre_slug": "biographical-fiction"
+    },
+    {
+      "slug": "fictional-biography",
+      "name": "Fictional Biography",
+      "genre_slug": "biographical-fiction"
+    },
+    {
+      "slug": "historical-figure-fiction",
+      "name": "Historical Figure Fiction",
+      "genre_slug": "biographical-fiction"
+    },
+    {
+      "slug": "celebrity-biography",
+      "name": "Celebrity Biography",
+      "genre_slug": "biography"
+    },
+    {
+      "slug": "historical-biography",
+      "name": "Historical Biography",
+      "genre_slug": "biography"
+    },
+    {
+      "slug": "political-biography",
+      "name": "Political Biography",
+      "genre_slug": "biography"
+    },
+    {
+      "slug": "scientific-biography",
+      "name": "Scientific Biography",
+      "genre_slug": "biography"
+    },
+    {
+      "slug": "sports-biography",
+      "name": "Sports Biography",
+      "genre_slug": "biography"
+    },
+    {
+      "slug": "buddhist-history",
+      "name": "Buddhist History",
+      "genre_slug": "buddhism"
+    },
+    {
+      "slug": "buddhist-philosophy",
+      "name": "Buddhist Philosophy",
+      "genre_slug": "buddhism"
+    },
+    {
+      "slug": "zen",
+      "name": "Zen",
+      "genre_slug": "buddhism"
+    },
+    {
+      "slug": "entrepreneurship",
+      "name": "Entrepreneurship",
+      "genre_slug": "business"
+    },
+    {
+      "slug": "leadership",
+      "name": "Leadership",
+      "genre_slug": "business"
+    },
+    {
+      "slug": "management",
+      "name": "Management",
+      "genre_slug": "business"
+    },
+    {
+      "slug": "marketing",
+      "name": "Marketing",
+      "genre_slug": "business"
+    },
+    {
+      "slug": "bible-studies",
+      "name": "Bible Studies",
+      "genre_slug": "christianity"
+    },
+    {
+      "slug": "christian-living",
+      "name": "Christian Living",
+      "genre_slug": "christianity"
+    },
+    {
+      "slug": "church-history",
+      "name": "Church History",
+      "genre_slug": "christianity"
+    },
+    {
+      "slug": "theology",
+      "name": "Theology",
+      "genre_slug": "christianity"
+    },
+    {
+      "slug": "climate-activism",
+      "name": "Climate Activism",
+      "genre_slug": "climate-change"
+    },
+    {
+      "slug": "climate-policy",
+      "name": "Climate Policy",
+      "genre_slug": "climate-change"
+    },
+    {
+      "slug": "climate-science",
+      "name": "Climate Science",
+      "genre_slug": "climate-change"
+    },
+    {
+      "slug": "climate-solutions",
+      "name": "Climate Solutions",
+      "genre_slug": "climate-change"
+    },
+    {
+      "slug": "ai-and-machine-learning",
+      "name": "Ai & Machine Learning",
+      "genre_slug": "computers-technology"
+    },
+    {
+      "slug": "computer-history",
+      "name": "Computer History",
+      "genre_slug": "computers-technology"
+    },
+    {
+      "slug": "cybersecurity",
+      "name": "Cybersecurity",
+      "genre_slug": "computers-technology"
+    },
+    {
+      "slug": "technology-trends",
+      "name": "Technology Trends",
+      "genre_slug": "computers-technology"
+    },
+    {
+      "slug": "campus-novel",
+      "name": "Campus Novel",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "coming-of-age-fiction",
+      "name": "Coming-Of-Age Fiction",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "domestic-fiction",
+      "name": "Domestic Fiction",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "realist-romance",
+      "name": "Realist Romance",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "small-town-fiction",
+      "name": "Small-Town Fiction",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "social-drama",
+      "name": "Social Drama",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "suburban-fiction",
+      "name": "Suburban Fiction",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "urban-fiction",
+      "name": "Urban Fiction",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "workplace-drama",
+      "name": "Workplace Drama",
+      "genre_slug": "contemporary-fiction"
+    },
+    {
+      "slug": "knitting",
+      "name": "Knitting",
+      "genre_slug": "crafts"
+    },
+    {
+      "slug": "paper-crafts",
+      "name": "Paper Crafts",
+      "genre_slug": "crafts"
+    },
+    {
+      "slug": "scrapbooking",
+      "name": "Scrapbooking",
+      "genre_slug": "crafts"
+    },
+    {
+      "slug": "woodworking",
+      "name": "Woodworking",
+      "genre_slug": "crafts"
+    },
+    {
+      "slug": "courtroom-drama",
+      "name": "Courtroom Drama",
+      "genre_slug": "crime-fiction"
+    },
+    {
+      "slug": "forensic-crime",
+      "name": "Forensic Crime",
+      "genre_slug": "crime-fiction"
+    },
+    {
+      "slug": "gangster-fiction",
+      "name": "Gangster Fiction",
+      "genre_slug": "crime-fiction"
+    },
+    {
+      "slug": "heist-fiction",
+      "name": "Heist Fiction",
+      "genre_slug": "crime-fiction"
+    },
+    {
+      "slug": "legal-crime",
+      "name": "Legal Crime",
+      "genre_slug": "crime-fiction"
+    },
+    {
+      "slug": "organized-crime",
+      "name": "Organized Crime",
+      "genre_slug": "crime-fiction"
+    },
+    {
+      "slug": "psychological-crime",
+      "name": "Psychological Crime",
+      "genre_slug": "crime-fiction"
+    },
+    {
+      "slug": "serial-killer-fiction",
+      "name": "Serial Killer Fiction",
+      "genre_slug": "crime-fiction"
+    },
+    {
+      "slug": "critical-theory",
+      "name": "Critical Theory",
+      "genre_slug": "cultural-studies"
+    },
+    {
+      "slug": "media-studies",
+      "name": "Media Studies",
+      "genre_slug": "cultural-studies"
+    },
+    {
+      "slug": "popular-culture",
+      "name": "Popular Culture",
+      "genre_slug": "cultural-studies"
+    },
+    {
+      "slug": "postcolonial-studies",
+      "name": "Postcolonial Studies",
+      "genre_slug": "cultural-studies"
+    },
+    {
+      "slug": "data-analysis",
+      "name": "Data Analysis",
+      "genre_slug": "data-science"
+    },
+    {
+      "slug": "data-visualization",
+      "name": "Data Visualization",
+      "genre_slug": "data-science"
+    },
+    {
+      "slug": "machine-learning",
+      "name": "Machine Learning",
+      "genre_slug": "data-science"
+    },
+    {
+      "slug": "statistics-for-data",
+      "name": "Statistics For Data",
+      "genre_slug": "data-science"
+    },
+    {
+      "slug": "amateur-detective",
+      "name": "Amateur Detective",
+      "genre_slug": "detective-fiction"
+    },
+    {
+      "slug": "classic-detective",
+      "name": "Classic Detective",
+      "genre_slug": "detective-fiction"
+    },
+    {
+      "slug": "cozy-detective",
+      "name": "Cozy Detective",
+      "genre_slug": "detective-fiction"
+    },
+    {
+      "slug": "noir-detective",
+      "name": "Noir Detective",
+      "genre_slug": "detective-fiction"
+    },
+    {
+      "slug": "private-investigator",
+      "name": "Private Investigator",
+      "genre_slug": "detective-fiction"
+    },
+    {
+      "slug": "biotech-dystopia",
+      "name": "Biotech Dystopia",
+      "genre_slug": "dystopian-fiction"
+    },
+    {
+      "slug": "eco-dystopia",
+      "name": "Eco Dystopia",
+      "genre_slug": "dystopian-fiction"
+    },
+    {
+      "slug": "social-dystopia",
+      "name": "Social Dystopia",
+      "genre_slug": "dystopian-fiction"
+    },
+    {
+      "slug": "totalitarian-dystopia",
+      "name": "Totalitarian Dystopia",
+      "genre_slug": "dystopian-fiction"
+    },
+    {
+      "slug": "young-adult-dystopia",
+      "name": "Young Adult Dystopia",
+      "genre_slug": "dystopian-fiction"
+    },
+    {
+      "slug": "behavioral-economics",
+      "name": "Behavioral Economics",
+      "genre_slug": "economics"
+    },
+    {
+      "slug": "development-economics",
+      "name": "Development Economics",
+      "genre_slug": "economics"
+    },
+    {
+      "slug": "macroeconomics",
+      "name": "Macroeconomics",
+      "genre_slug": "economics"
+    },
+    {
+      "slug": "microeconomics",
+      "name": "Microeconomics",
+      "genre_slug": "economics"
+    },
+    {
+      "slug": "classroom-management",
+      "name": "Classroom Management",
+      "genre_slug": "education"
+    },
+    {
+      "slug": "curriculum-design",
+      "name": "Curriculum Design",
+      "genre_slug": "education"
+    },
+    {
+      "slug": "education-policy",
+      "name": "Education Policy",
+      "genre_slug": "education"
+    },
+    {
+      "slug": "teaching-methods",
+      "name": "Teaching Methods",
+      "genre_slug": "education"
+    },
+    {
+      "slug": "aerospace-engineering",
+      "name": "Aerospace Engineering",
+      "genre_slug": "engineering"
+    },
+    {
+      "slug": "civil-engineering",
+      "name": "Civil Engineering",
+      "genre_slug": "engineering"
+    },
+    {
+      "slug": "electrical-engineering",
+      "name": "Electrical Engineering",
+      "genre_slug": "engineering"
+    },
+    {
+      "slug": "mechanical-engineering",
+      "name": "Mechanical Engineering",
+      "genre_slug": "engineering"
+    },
+    {
+      "slug": "conservation",
+      "name": "Conservation",
+      "genre_slug": "environment"
+    },
+    {
+      "slug": "environmental-policy",
+      "name": "Environmental Policy",
+      "genre_slug": "environment"
+    },
+    {
+      "slug": "sustainability",
+      "name": "Sustainability",
+      "genre_slug": "environment"
+    },
+    {
+      "slug": "atmospheric-science",
+      "name": "Atmospheric Science",
+      "genre_slug": "environmental-science"
+    },
+    {
+      "slug": "climatology",
+      "name": "Climatology",
+      "genre_slug": "environmental-science"
+    },
+    {
+      "slug": "ecology",
+      "name": "Ecology",
+      "genre_slug": "environmental-science"
+    },
+    {
+      "slug": "marine-biology",
+      "name": "Marine Biology",
+      "genre_slug": "environmental-science"
+    },
+    {
+      "slug": "bioethics",
+      "name": "Bioethics",
+      "genre_slug": "ethics"
+    },
+    {
+      "slug": "business-ethics",
+      "name": "Business Ethics",
+      "genre_slug": "ethics"
+    },
+    {
+      "slug": "moral-philosophy",
+      "name": "Moral Philosophy",
+      "genre_slug": "ethics"
+    },
+    {
+      "slug": "political-ethics",
+      "name": "Political Ethics",
+      "genre_slug": "ethics"
+    },
+    {
+      "slug": "classic-fairy-tale",
+      "name": "Classic Fairy Tale",
+      "genre_slug": "fairy-tale"
+    },
+    {
+      "slug": "dark-fairy-tale",
+      "name": "Dark Fairy Tale",
+      "genre_slug": "fairy-tale"
+    },
+    {
+      "slug": "fractured-fairy-tale",
+      "name": "Fractured Fairy Tale",
+      "genre_slug": "fairy-tale"
+    },
+    {
+      "slug": "domestic-drama",
+      "name": "Domestic Drama",
+      "genre_slug": "family-drama"
+    },
+    {
+      "slug": "family-saga",
+      "name": "Family Saga",
+      "genre_slug": "family-drama"
+    },
+    {
+      "slug": "generational-conflict",
+      "name": "Generational Conflict",
+      "genre_slug": "family-drama"
+    },
+    {
+      "slug": "inheritance-drama",
+      "name": "Inheritance Drama",
+      "genre_slug": "family-drama"
+    },
+    {
+      "slug": "marital-drama",
+      "name": "Marital Drama",
+      "genre_slug": "family-drama"
+    },
+    {
+      "slug": "cozy-fantasy",
+      "name": "Cozy Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "cultivation-xianxia",
+      "name": "Cultivation Xianxia",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "dark-fantasy",
+      "name": "Dark Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "epic-fantasy",
+      "name": "Epic Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "fairy-tale-retelling",
+      "name": "Fairy Tale Retelling",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "grimdark",
+      "name": "Grimdark",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "historical-fantasy",
+      "name": "Historical Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "mythic-fantasy",
+      "name": "Mythic Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "paranormal-fantasy",
+      "name": "Paranormal Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "portal-fantasy",
+      "name": "Portal Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "progression-fantasy",
+      "name": "Progression Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "romantasy",
+      "name": "Romantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "science-fantasy",
+      "name": "Science Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "sword-and-sorcery",
+      "name": "Sword And Sorcery",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "urban-fantasy",
+      "name": "Urban Fantasy",
+      "genre_slug": "fantasy"
+    },
+    {
+      "slug": "director-biography",
+      "name": "Director Biography",
+      "genre_slug": "film"
+    },
+    {
+      "slug": "film-history",
+      "name": "Film History",
+      "genre_slug": "film"
+    },
+    {
+      "slug": "film-theory",
+      "name": "Film Theory",
+      "genre_slug": "film"
+    },
+    {
+      "slug": "screenwriting",
+      "name": "Screenwriting",
+      "genre_slug": "film"
+    },
+    {
+      "slug": "corporate-finance",
+      "name": "Corporate Finance",
+      "genre_slug": "finance"
+    },
+    {
+      "slug": "fintech",
+      "name": "Fintech",
+      "genre_slug": "finance"
+    },
+    {
+      "slug": "investing",
+      "name": "Investing",
+      "genre_slug": "finance"
+    },
+    {
+      "slug": "personal-finance",
+      "name": "Personal Finance",
+      "genre_slug": "finance"
+    },
+    {
+      "slug": "cardio-training",
+      "name": "Cardio Training",
+      "genre_slug": "fitness"
+    },
+    {
+      "slug": "pilates",
+      "name": "Pilates",
+      "genre_slug": "fitness"
+    },
+    {
+      "slug": "strength-training",
+      "name": "Strength Training",
+      "genre_slug": "fitness"
+    },
+    {
+      "slug": "yoga",
+      "name": "Yoga",
+      "genre_slug": "fitness"
+    },
+    {
+      "slug": "baking",
+      "name": "Baking",
+      "genre_slug": "food-drink"
+    },
+    {
+      "slug": "cookbooks",
+      "name": "Cookbooks",
+      "genre_slug": "food-drink"
+    },
+    {
+      "slug": "culinary-history",
+      "name": "Culinary History",
+      "genre_slug": "food-drink"
+    },
+    {
+      "slug": "wine",
+      "name": "Wine",
+      "genre_slug": "food-drink"
+    },
+    {
+      "slug": "feminist-theory",
+      "name": "Feminist Theory",
+      "genre_slug": "gender-studies"
+    },
+    {
+      "slug": "intersectionality",
+      "name": "Intersectionality",
+      "genre_slug": "gender-studies"
+    },
+    {
+      "slug": "masculinity-studies",
+      "name": "Masculinity Studies",
+      "genre_slug": "gender-studies"
+    },
+    {
+      "slug": "queer-theory",
+      "name": "Queer Theory",
+      "genre_slug": "gender-studies"
+    },
+    {
+      "slug": "gothic-romance",
+      "name": "Gothic Romance",
+      "genre_slug": "gothic-fiction"
+    },
+    {
+      "slug": "modern-gothic",
+      "name": "Modern Gothic",
+      "genre_slug": "gothic-fiction"
+    },
+    {
+      "slug": "southern-gothic",
+      "name": "Southern Gothic",
+      "genre_slug": "gothic-fiction"
+    },
+    {
+      "slug": "victorian-gothic",
+      "name": "Victorian Gothic",
+      "genre_slug": "gothic-fiction"
+    },
+    {
+      "slug": "disease-prevention",
+      "name": "Disease Prevention",
+      "genre_slug": "health"
+    },
+    {
+      "slug": "exercise-science",
+      "name": "Exercise Science",
+      "genre_slug": "health"
+    },
+    {
+      "slug": "nutrition",
+      "name": "Nutrition",
+      "genre_slug": "health"
+    },
+    {
+      "slug": "public-health",
+      "name": "Public Health",
+      "genre_slug": "health"
+    },
+    {
+      "slug": "bhakti-traditions",
+      "name": "Bhakti Traditions",
+      "genre_slug": "hinduism"
+    },
+    {
+      "slug": "vedic-texts",
+      "name": "Vedic Texts",
+      "genre_slug": "hinduism"
+    },
+    {
+      "slug": "yoga-philosophy",
+      "name": "Yoga Philosophy",
+      "genre_slug": "hinduism"
+    },
+    {
+      "slug": "ancient-historical",
+      "name": "Ancient Historical",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "civil-war-fiction",
+      "name": "Civil War Fiction",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "cold-war-fiction",
+      "name": "Cold War Fiction",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "historical-adventure",
+      "name": "Historical Adventure",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "historical-drama",
+      "name": "Historical Drama",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "medieval-historical",
+      "name": "Medieval Historical",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "napoleonic-fiction",
+      "name": "Napoleonic Fiction",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "pioneer-frontier",
+      "name": "Pioneer Frontier",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "regency-historical",
+      "name": "Regency Historical",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "renaissance-historical",
+      "name": "Renaissance Historical",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "victorian-historical",
+      "name": "Victorian Historical",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "wwi-fiction",
+      "name": "Wwi Fiction",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "wwii-fiction",
+      "name": "Wwii Fiction",
+      "genre_slug": "historical-fiction"
+    },
+    {
+      "slug": "ancient-history",
+      "name": "Ancient History",
+      "genre_slug": "history"
+    },
+    {
+      "slug": "cultural-history",
+      "name": "Cultural History",
+      "genre_slug": "history"
+    },
+    {
+      "slug": "economic-history",
+      "name": "Economic History",
+      "genre_slug": "history"
+    },
+    {
+      "slug": "medieval-history",
+      "name": "Medieval History",
+      "genre_slug": "history"
+    },
+    {
+      "slug": "military-history",
+      "name": "Military History",
+      "genre_slug": "history"
+    },
+    {
+      "slug": "modern-history",
+      "name": "Modern History",
+      "genre_slug": "history"
+    },
+    {
+      "slug": "political-history",
+      "name": "Political History",
+      "genre_slug": "history"
+    },
+    {
+      "slug": "gardening",
+      "name": "Gardening",
+      "genre_slug": "home-garden"
+    },
+    {
+      "slug": "home-improvement",
+      "name": "Home Improvement",
+      "genre_slug": "home-garden"
+    },
+    {
+      "slug": "interior-design",
+      "name": "Interior Design",
+      "genre_slug": "home-garden"
+    },
+    {
+      "slug": "landscaping",
+      "name": "Landscaping",
+      "genre_slug": "home-garden"
+    },
+    {
+      "slug": "body-horror",
+      "name": "Body Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "cosmic-horror",
+      "name": "Cosmic Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "folk-horror",
+      "name": "Folk Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "ghost-stories",
+      "name": "Ghost Stories",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "gothic-horror",
+      "name": "Gothic Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "monster-horror",
+      "name": "Monster Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "occult-horror",
+      "name": "Occult Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "paranormal-horror",
+      "name": "Paranormal Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "psychological-horror",
+      "name": "Psychological Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "slasher",
+      "name": "Slasher",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "supernatural-horror",
+      "name": "Supernatural Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "vampire-horror",
+      "name": "Vampire Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "zombie-horror",
+      "name": "Zombie Horror",
+      "genre_slug": "horror"
+    },
+    {
+      "slug": "absurdist-fiction",
+      "name": "Absurdist Fiction",
+      "genre_slug": "humor-fiction"
+    },
+    {
+      "slug": "comic-fantasy",
+      "name": "Comic Fantasy",
+      "genre_slug": "humor-fiction"
+    },
+    {
+      "slug": "dark-comedy",
+      "name": "Dark Comedy",
+      "genre_slug": "humor-fiction"
+    },
+    {
+      "slug": "parody-fiction",
+      "name": "Parody Fiction",
+      "genre_slug": "humor-fiction"
+    },
+    {
+      "slug": "satire",
+      "name": "Satire",
+      "genre_slug": "humor-fiction"
+    },
+    {
+      "slug": "social-satire",
+      "name": "Social Satire",
+      "genre_slug": "humor-fiction"
+    },
+    {
+      "slug": "diplomacy",
+      "name": "Diplomacy",
+      "genre_slug": "international-relations"
+    },
+    {
+      "slug": "geopolitics",
+      "name": "Geopolitics",
+      "genre_slug": "international-relations"
+    },
+    {
+      "slug": "international-organizations",
+      "name": "International Organizations",
+      "genre_slug": "international-relations"
+    },
+    {
+      "slug": "security-studies",
+      "name": "Security Studies",
+      "genre_slug": "international-relations"
+    },
+    {
+      "slug": "islamic-history",
+      "name": "Islamic History",
+      "genre_slug": "islam"
+    },
+    {
+      "slug": "quran-studies",
+      "name": "Quran Studies",
+      "genre_slug": "islam"
+    },
+    {
+      "slug": "sufism",
+      "name": "Sufism",
+      "genre_slug": "islam"
+    },
+    {
+      "slug": "jewish-history",
+      "name": "Jewish History",
+      "genre_slug": "judaism"
+    },
+    {
+      "slug": "kabbalah",
+      "name": "Kabbalah",
+      "genre_slug": "judaism"
+    },
+    {
+      "slug": "torah-studies",
+      "name": "Torah Studies",
+      "genre_slug": "judaism"
+    },
+    {
+      "slug": "etymology",
+      "name": "Etymology",
+      "genre_slug": "language"
+    },
+    {
+      "slug": "foreign-language-learning",
+      "name": "Foreign Language Learning",
+      "genre_slug": "language"
+    },
+    {
+      "slug": "grammar-guides",
+      "name": "Grammar Guides",
+      "genre_slug": "language"
+    },
+    {
+      "slug": "linguistics",
+      "name": "Linguistics",
+      "genre_slug": "language"
+    },
+    {
+      "slug": "civil-law",
+      "name": "Civil Law",
+      "genre_slug": "law"
+    },
+    {
+      "slug": "constitutional-law",
+      "name": "Constitutional Law",
+      "genre_slug": "law"
+    },
+    {
+      "slug": "criminal-law",
+      "name": "Criminal Law",
+      "genre_slug": "law"
+    },
+    {
+      "slug": "international-law",
+      "name": "International Law",
+      "genre_slug": "law"
+    },
+    {
+      "slug": "judicial-fiction",
+      "name": "Judicial Fiction",
+      "genre_slug": "legal-fiction"
+    },
+    {
+      "slug": "law-school-fiction",
+      "name": "Law School Fiction",
+      "genre_slug": "legal-fiction"
+    },
+    {
+      "slug": "experimental-fiction",
+      "name": "Experimental Fiction",
+      "genre_slug": "literary-fiction"
+    },
+    {
+      "slug": "metafiction",
+      "name": "Metafiction",
+      "genre_slug": "literary-fiction"
+    },
+    {
+      "slug": "philosophical-fiction",
+      "name": "Philosophical Fiction",
+      "genre_slug": "literary-fiction"
+    },
+    {
+      "slug": "postmodern-fiction",
+      "name": "Postmodern Fiction",
+      "genre_slug": "literary-fiction"
+    },
+    {
+      "slug": "psychological-literary",
+      "name": "Psychological Literary",
+      "genre_slug": "literary-fiction"
+    },
+    {
+      "slug": "satirical-literary",
+      "name": "Satirical Literary",
+      "genre_slug": "literary-fiction"
+    },
+    {
+      "slug": "stream-of-consciousness",
+      "name": "Stream-Of-Consciousness",
+      "genre_slug": "literary-fiction"
+    },
+    {
+      "slug": "informal-logic",
+      "name": "Informal Logic",
+      "genre_slug": "logic"
+    },
+    {
+      "slug": "mathematical-logic",
+      "name": "Mathematical Logic",
+      "genre_slug": "logic"
+    },
+    {
+      "slug": "symbolic-logic",
+      "name": "Symbolic Logic",
+      "genre_slug": "logic"
+    },
+    {
+      "slug": "african-magical-realism",
+      "name": "African Magical Realism",
+      "genre_slug": "magical-realism"
+    },
+    {
+      "slug": "asian-magical-realism",
+      "name": "Asian Magical Realism",
+      "genre_slug": "magical-realism"
+    },
+    {
+      "slug": "eastern-magical-realism",
+      "name": "Eastern Magical Realism",
+      "genre_slug": "magical-realism"
+    },
+    {
+      "slug": "historical-magical-realism",
+      "name": "Historical Magical Realism",
+      "genre_slug": "magical-realism"
+    },
+    {
+      "slug": "latinx-magical-realism",
+      "name": "Latinx Magical Realism",
+      "genre_slug": "magical-realism"
+    },
+    {
+      "slug": "algebra",
+      "name": "Algebra",
+      "genre_slug": "mathematics"
+    },
+    {
+      "slug": "calculus",
+      "name": "Calculus",
+      "genre_slug": "mathematics"
+    },
+    {
+      "slug": "geometry",
+      "name": "Geometry",
+      "genre_slug": "mathematics"
+    },
+    {
+      "slug": "statistics",
+      "name": "Statistics",
+      "genre_slug": "mathematics"
+    },
+    {
+      "slug": "medical-breakthroughs",
+      "name": "Medical Breakthroughs",
+      "genre_slug": "medicine"
+    },
+    {
+      "slug": "medical-ethics",
+      "name": "Medical Ethics",
+      "genre_slug": "medicine"
+    },
+    {
+      "slug": "medical-history",
+      "name": "Medical History",
+      "genre_slug": "medicine"
+    },
+    {
+      "slug": "celebrity-memoir",
+      "name": "Celebrity Memoir",
+      "genre_slug": "memoir"
+    },
+    {
+      "slug": "mental-health-memoir",
+      "name": "Mental Health Memoir",
+      "genre_slug": "memoir"
+    },
+    {
+      "slug": "political-memoir",
+      "name": "Political Memoir",
+      "genre_slug": "memoir"
+    },
+    {
+      "slug": "recovery-memoir",
+      "name": "Recovery Memoir",
+      "genre_slug": "memoir"
+    },
+    {
+      "slug": "sports-memoir",
+      "name": "Sports Memoir",
+      "genre_slug": "memoir"
+    },
+    {
+      "slug": "survival-memoir",
+      "name": "Survival Memoir",
+      "genre_slug": "memoir"
+    },
+    {
+      "slug": "travel-memoir",
+      "name": "Travel Memoir",
+      "genre_slug": "memoir"
+    },
+    {
+      "slug": "cosmology",
+      "name": "Cosmology",
+      "genre_slug": "metaphysics"
+    },
+    {
+      "slug": "epistemology",
+      "name": "Epistemology",
+      "genre_slug": "metaphysics"
+    },
+    {
+      "slug": "ontology",
+      "name": "Ontology",
+      "genre_slug": "metaphysics"
+    },
+    {
+      "slug": "air-combat-fiction",
+      "name": "Air Combat Fiction",
+      "genre_slug": "military-fiction"
+    },
+    {
+      "slug": "homefront-fiction",
+      "name": "Homefront Fiction",
+      "genre_slug": "military-fiction"
+    },
+    {
+      "slug": "naval-warfare-fiction",
+      "name": "Naval Warfare Fiction",
+      "genre_slug": "military-fiction"
+    },
+    {
+      "slug": "soldier-fiction",
+      "name": "Soldier Fiction",
+      "genre_slug": "military-fiction"
+    },
+    {
+      "slug": "special-forces-fiction",
+      "name": "Special Forces Fiction",
+      "genre_slug": "military-fiction"
+    },
+    {
+      "slug": "instrument-technique",
+      "name": "Instrument Technique",
+      "genre_slug": "music"
+    },
+    {
+      "slug": "music-biography",
+      "name": "Music Biography",
+      "genre_slug": "music"
+    },
+    {
+      "slug": "music-history",
+      "name": "Music History",
+      "genre_slug": "music"
+    },
+    {
+      "slug": "music-theory",
+      "name": "Music Theory",
+      "genre_slug": "music"
+    },
+    {
+      "slug": "amateur-sleuth",
+      "name": "Amateur Sleuth",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "cozy-mystery",
+      "name": "Cozy Mystery",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "forensic-mystery",
+      "name": "Forensic Mystery",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "hard-boiled-detective",
+      "name": "Hard-Boiled Detective",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "historical-mystery",
+      "name": "Historical Mystery",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "legal-mystery",
+      "name": "Legal Mystery",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "locked-room-mystery",
+      "name": "Locked Room Mystery",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "medical-mystery",
+      "name": "Medical Mystery",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "noir-mystery",
+      "name": "Noir Mystery",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "police-procedural",
+      "name": "Police Procedural",
+      "genre_slug": "mystery"
+    },
+    {
+      "slug": "celtic-myth-retelling",
+      "name": "Celtic Myth Retelling",
+      "genre_slug": "mythic-fiction"
+    },
+    {
+      "slug": "egyptian-myth-retelling",
+      "name": "Egyptian Myth Retelling",
+      "genre_slug": "mythic-fiction"
+    },
+    {
+      "slug": "greek-myth-retelling",
+      "name": "Greek Myth Retelling",
+      "genre_slug": "mythic-fiction"
+    },
+    {
+      "slug": "norse-myth-retelling",
+      "name": "Norse Myth Retelling",
+      "genre_slug": "mythic-fiction"
+    },
+    {
+      "slug": "natural-history",
+      "name": "Natural History",
+      "genre_slug": "nature-writing"
+    },
+    {
+      "slug": "nature-essays",
+      "name": "Nature Essays",
+      "genre_slug": "nature-writing"
+    },
+    {
+      "slug": "nature-memoir",
+      "name": "Nature Memoir",
+      "genre_slug": "nature-writing"
+    },
+    {
+      "slug": "wildlife-travel",
+      "name": "Wildlife Travel",
+      "genre_slug": "nature-writing"
+    },
+    {
+      "slug": "fishing-drama",
+      "name": "Fishing Drama",
+      "genre_slug": "nautical-fiction"
+    },
+    {
+      "slug": "naval-fiction",
+      "name": "Naval Fiction",
+      "genre_slug": "nautical-fiction"
+    },
+    {
+      "slug": "pirate-fiction",
+      "name": "Pirate Fiction",
+      "genre_slug": "nautical-fiction"
+    },
+    {
+      "slug": "sea-survival",
+      "name": "Sea Survival",
+      "genre_slug": "nautical-fiction"
+    },
+    {
+      "slug": "submarine-fiction",
+      "name": "Submarine Fiction",
+      "genre_slug": "nautical-fiction"
+    },
+    {
+      "slug": "whaling-fiction",
+      "name": "Whaling Fiction",
+      "genre_slug": "nautical-fiction"
+    },
+    {
+      "slug": "classic-noir",
+      "name": "Classic Noir",
+      "genre_slug": "noir"
+    },
+    {
+      "slug": "femme-fatale-noir",
+      "name": "Femme Fatale Noir",
+      "genre_slug": "noir"
+    },
+    {
+      "slug": "neo-noir",
+      "name": "Neo-Noir",
+      "genre_slug": "noir"
+    },
+    {
+      "slug": "noir-thriller",
+      "name": "Noir Thriller",
+      "genre_slug": "noir"
+    },
+    {
+      "slug": "angel-fiction",
+      "name": "Angel Fiction",
+      "genre_slug": "paranormal-fiction"
+    },
+    {
+      "slug": "demon-fiction",
+      "name": "Demon Fiction",
+      "genre_slug": "paranormal-fiction"
+    },
+    {
+      "slug": "ghost-fiction",
+      "name": "Ghost Fiction",
+      "genre_slug": "paranormal-fiction"
+    },
+    {
+      "slug": "psychic-fiction",
+      "name": "Psychic Fiction",
+      "genre_slug": "paranormal-fiction"
+    },
+    {
+      "slug": "vampire-fiction",
+      "name": "Vampire Fiction",
+      "genre_slug": "paranormal-fiction"
+    },
+    {
+      "slug": "werewolf-fiction",
+      "name": "Werewolf Fiction",
+      "genre_slug": "paranormal-fiction"
+    },
+    {
+      "slug": "choreography",
+      "name": "Choreography",
+      "genre_slug": "performing-arts"
+    },
+    {
+      "slug": "dance-history",
+      "name": "Dance History",
+      "genre_slug": "performing-arts"
+    },
+    {
+      "slug": "opera",
+      "name": "Opera",
+      "genre_slug": "performing-arts"
+    },
+    {
+      "slug": "stage-design",
+      "name": "Stage Design",
+      "genre_slug": "performing-arts"
+    },
+    {
+      "slug": "bird-care",
+      "name": "Bird Care",
+      "genre_slug": "pets"
+    },
+    {
+      "slug": "cat-care",
+      "name": "Cat Care",
+      "genre_slug": "pets"
+    },
+    {
+      "slug": "dog-training",
+      "name": "Dog Training",
+      "genre_slug": "pets"
+    },
+    {
+      "slug": "horse-riding",
+      "name": "Horse Riding",
+      "genre_slug": "pets"
+    },
+    {
+      "slug": "ancient-philosophy",
+      "name": "Ancient Philosophy",
+      "genre_slug": "philosophy"
+    },
+    {
+      "slug": "eastern-philosophy",
+      "name": "Eastern Philosophy",
+      "genre_slug": "philosophy"
+    },
+    {
+      "slug": "modern-philosophy",
+      "name": "Modern Philosophy",
+      "genre_slug": "philosophy"
+    },
+    {
+      "slug": "western-philosophy",
+      "name": "Western Philosophy",
+      "genre_slug": "philosophy"
+    },
+    {
+      "slug": "history-of-science",
+      "name": "History Of Science",
+      "genre_slug": "philosophy-of-science"
+    },
+    {
+      "slug": "philosophy-of-biology",
+      "name": "Philosophy Of Biology",
+      "genre_slug": "philosophy-of-science"
+    },
+    {
+      "slug": "philosophy-of-physics",
+      "name": "Philosophy Of Physics",
+      "genre_slug": "philosophy-of-science"
+    },
+    {
+      "slug": "scientific-method",
+      "name": "Scientific Method",
+      "genre_slug": "philosophy-of-science"
+    },
+    {
+      "slug": "digital-photography",
+      "name": "Digital Photography",
+      "genre_slug": "photography"
+    },
+    {
+      "slug": "photo-history",
+      "name": "Photo History",
+      "genre_slug": "photography"
+    },
+    {
+      "slug": "photo-technique",
+      "name": "Photo Technique",
+      "genre_slug": "photography"
+    },
+    {
+      "slug": "photojournalism",
+      "name": "Photojournalism",
+      "genre_slug": "photography"
+    },
+    {
+      "slug": "campaign-fiction",
+      "name": "Campaign Fiction",
+      "genre_slug": "political-fiction"
+    },
+    {
+      "slug": "dystopian-political-fiction",
+      "name": "Dystopian Political Fiction",
+      "genre_slug": "political-fiction"
+    },
+    {
+      "slug": "political-satire",
+      "name": "Political Satire",
+      "genre_slug": "political-fiction"
+    },
+    {
+      "slug": "utopian-fiction",
+      "name": "Utopian Fiction",
+      "genre_slug": "political-fiction"
+    },
+    {
+      "slug": "comparative-politics",
+      "name": "Comparative Politics",
+      "genre_slug": "politics"
+    },
+    {
+      "slug": "elections",
+      "name": "Elections",
+      "genre_slug": "politics"
+    },
+    {
+      "slug": "political-theory",
+      "name": "Political Theory",
+      "genre_slug": "politics"
+    },
+    {
+      "slug": "public-policy",
+      "name": "Public Policy",
+      "genre_slug": "politics"
+    },
+    {
+      "slug": "climate-apocalypse",
+      "name": "Climate Apocalypse",
+      "genre_slug": "post-apocalyptic-fiction"
+    },
+    {
+      "slug": "nuclear-apocalypse",
+      "name": "Nuclear Apocalypse",
+      "genre_slug": "post-apocalyptic-fiction"
+    },
+    {
+      "slug": "plague-apocalypse",
+      "name": "Plague Apocalypse",
+      "genre_slug": "post-apocalyptic-fiction"
+    },
+    {
+      "slug": "robot-apocalypse",
+      "name": "Robot Apocalypse",
+      "genre_slug": "post-apocalyptic-fiction"
+    },
+    {
+      "slug": "zombie-apocalypse",
+      "name": "Zombie Apocalypse",
+      "genre_slug": "post-apocalyptic-fiction"
+    },
+    {
+      "slug": "algorithms",
+      "name": "Algorithms",
+      "genre_slug": "programming"
+    },
+    {
+      "slug": "coding-tutorials",
+      "name": "Coding Tutorials",
+      "genre_slug": "programming"
+    },
+    {
+      "slug": "programming-languages",
+      "name": "Programming Languages",
+      "genre_slug": "programming"
+    },
+    {
+      "slug": "software-development",
+      "name": "Software Development",
+      "genre_slug": "programming"
+    },
+    {
+      "slug": "psychoanalytic-fiction",
+      "name": "Psychoanalytic Fiction",
+      "genre_slug": "psychological-fiction"
+    },
+    {
+      "slug": "psychological-drama",
+      "name": "Psychological Drama",
+      "genre_slug": "psychological-fiction"
+    },
+    {
+      "slug": "anxiety-management",
+      "name": "Anxiety Management",
+      "genre_slug": "psychology-self-help"
+    },
+    {
+      "slug": "cognitive-behavioral-therapy",
+      "name": "Cognitive Behavioral Therapy",
+      "genre_slug": "psychology-self-help"
+    },
+    {
+      "slug": "relationships",
+      "name": "Relationships",
+      "genre_slug": "psychology-self-help"
+    },
+    {
+      "slug": "self-esteem",
+      "name": "Self-Esteem",
+      "genre_slug": "psychology-self-help"
+    },
+    {
+      "slug": "almanacs",
+      "name": "Almanacs",
+      "genre_slug": "reference"
+    },
+    {
+      "slug": "dictionaries",
+      "name": "Dictionaries",
+      "genre_slug": "reference"
+    },
+    {
+      "slug": "encyclopedias",
+      "name": "Encyclopedias",
+      "genre_slug": "reference"
+    },
+    {
+      "slug": "style-guides",
+      "name": "Style Guides",
+      "genre_slug": "reference"
+    },
+    {
+      "slug": "comparative-religion",
+      "name": "Comparative Religion",
+      "genre_slug": "religion"
+    },
+    {
+      "slug": "mythology",
+      "name": "Mythology",
+      "genre_slug": "religion"
+    },
+    {
+      "slug": "religious-history",
+      "name": "Religious History",
+      "genre_slug": "religion"
+    },
+    {
+      "slug": "spirituality",
+      "name": "Spirituality",
+      "genre_slug": "religion"
+    },
+    {
+      "slug": "biblical-retelling",
+      "name": "Biblical Retelling",
+      "genre_slug": "religious-fiction"
+    },
+    {
+      "slug": "christian-fiction",
+      "name": "Christian Fiction",
+      "genre_slug": "religious-fiction"
+    },
+    {
+      "slug": "inspirational-fiction",
+      "name": "Inspirational Fiction",
+      "genre_slug": "religious-fiction"
+    },
+    {
+      "slug": "spiritual-allegory",
+      "name": "Spiritual Allegory",
+      "genre_slug": "religious-fiction"
+    },
+    {
+      "slug": "automation",
+      "name": "Automation",
+      "genre_slug": "robotics"
+    },
+    {
+      "slug": "robot-design",
+      "name": "Robot Design",
+      "genre_slug": "robotics"
+    },
+    {
+      "slug": "robot-ethics",
+      "name": "Robot Ethics",
+      "genre_slug": "robotics"
+    },
+    {
+      "slug": "robotics-programming",
+      "name": "Robotics Programming",
+      "genre_slug": "robotics"
+    },
+    {
+      "slug": "billionaire-romance",
+      "name": "Billionaire Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "contemporary-romance",
+      "name": "Contemporary Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "dark-romance",
+      "name": "Dark Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "historical-romance",
+      "name": "Historical Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "military-romance",
+      "name": "Military Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "paranormal-romance",
+      "name": "Paranormal Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "rockstar-romance",
+      "name": "Rockstar Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "romantic-comedy",
+      "name": "Romantic Comedy",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "romantic-suspense",
+      "name": "Romantic Suspense",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "sports-romance",
+      "name": "Sports Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "western-romance",
+      "name": "Western Romance",
+      "genre_slug": "romance"
+    },
+    {
+      "slug": "biopunk",
+      "name": "Biopunk",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "cli-fi",
+      "name": "Cli-Fi",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "cyberpunk",
+      "name": "Cyberpunk",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "dystopian-sf",
+      "name": "Dystopian Sf",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "first-contact",
+      "name": "First Contact",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "generation-ship",
+      "name": "Generation Ship",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "hard-science-fiction",
+      "name": "Hard Science Fiction",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "military-science-fiction",
+      "name": "Military Science Fiction",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "post-apocalyptic-sf",
+      "name": "Post-Apocalyptic Sf",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "space-opera",
+      "name": "Space Opera",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "steampunk",
+      "name": "Steampunk",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "time-travel-sf",
+      "name": "Time Travel Sf",
+      "genre_slug": "science-fiction"
+    },
+    {
+      "slug": "habits",
+      "name": "Habits",
+      "genre_slug": "self-help"
+    },
+    {
+      "slug": "mindfulness",
+      "name": "Mindfulness",
+      "genre_slug": "self-help"
+    },
+    {
+      "slug": "motivation",
+      "name": "Motivation",
+      "genre_slug": "self-help"
+    },
+    {
+      "slug": "productivity",
+      "name": "Productivity",
+      "genre_slug": "self-help"
+    },
+    {
+      "slug": "time-management",
+      "name": "Time Management",
+      "genre_slug": "self-help"
+    },
+    {
+      "slug": "civil-rights",
+      "name": "Civil Rights",
+      "genre_slug": "social-justice"
+    },
+    {
+      "slug": "feminism",
+      "name": "Feminism",
+      "genre_slug": "social-justice"
+    },
+    {
+      "slug": "lgbtq+-rights",
+      "name": "Lgbtq+ Rights",
+      "genre_slug": "social-justice"
+    },
+    {
+      "slug": "racial-justice",
+      "name": "Racial Justice",
+      "genre_slug": "social-justice"
+    },
+    {
+      "slug": "anthropology-introduction",
+      "name": "Anthropology Introduction",
+      "genre_slug": "social-science"
+    },
+    {
+      "slug": "cultural-studies-basics",
+      "name": "Cultural Studies Basics",
+      "genre_slug": "social-science"
+    },
+    {
+      "slug": "demography",
+      "name": "Demography",
+      "genre_slug": "social-science"
+    },
+    {
+      "slug": "sociology-introduction",
+      "name": "Sociology Introduction",
+      "genre_slug": "social-science"
+    },
+    {
+      "slug": "criminology",
+      "name": "Criminology",
+      "genre_slug": "sociology"
+    },
+    {
+      "slug": "family-sociology",
+      "name": "Family Sociology",
+      "genre_slug": "sociology"
+    },
+    {
+      "slug": "gender-sociology",
+      "name": "Gender Sociology",
+      "genre_slug": "sociology"
+    },
+    {
+      "slug": "urban-sociology",
+      "name": "Urban Sociology",
+      "genre_slug": "sociology"
+    },
+    {
+      "slug": "sports-coaching",
+      "name": "Sports Coaching",
+      "genre_slug": "sports"
+    },
+    {
+      "slug": "sports-history",
+      "name": "Sports History",
+      "genre_slug": "sports"
+    },
+    {
+      "slug": "sports-psychology",
+      "name": "Sports Psychology",
+      "genre_slug": "sports"
+    },
+    {
+      "slug": "baseball-fiction",
+      "name": "Baseball Fiction",
+      "genre_slug": "sports-fiction"
+    },
+    {
+      "slug": "basketball-fiction",
+      "name": "Basketball Fiction",
+      "genre_slug": "sports-fiction"
+    },
+    {
+      "slug": "boxing-fiction",
+      "name": "Boxing Fiction",
+      "genre_slug": "sports-fiction"
+    },
+    {
+      "slug": "extreme-sports-fiction",
+      "name": "Extreme Sports Fiction",
+      "genre_slug": "sports-fiction"
+    },
+    {
+      "slug": "football-fiction",
+      "name": "Football Fiction",
+      "genre_slug": "sports-fiction"
+    },
+    {
+      "slug": "olympic-fiction",
+      "name": "Olympic Fiction",
+      "genre_slug": "sports-fiction"
+    },
+    {
+      "slug": "racing-fiction",
+      "name": "Racing Fiction",
+      "genre_slug": "sports-fiction"
+    },
+    {
+      "slug": "soccer-fiction",
+      "name": "Soccer Fiction",
+      "genre_slug": "sports-fiction"
+    },
+    {
+      "slug": "cold-war-spy",
+      "name": "Cold War Spy",
+      "genre_slug": "spy-fiction"
+    },
+    {
+      "slug": "contemporary-spy",
+      "name": "Contemporary Spy",
+      "genre_slug": "spy-fiction"
+    },
+    {
+      "slug": "cyber-espionage",
+      "name": "Cyber Espionage",
+      "genre_slug": "spy-fiction"
+    },
+    {
+      "slug": "espionage-thriller",
+      "name": "Espionage Thriller",
+      "genre_slug": "spy-fiction"
+    },
+    {
+      "slug": "historical-spy-fiction",
+      "name": "Historical Spy Fiction",
+      "genre_slug": "spy-fiction"
+    },
+    {
+      "slug": "acting",
+      "name": "Acting",
+      "genre_slug": "theater"
+    },
+    {
+      "slug": "drama-history",
+      "name": "Drama History",
+      "genre_slug": "theater"
+    },
+    {
+      "slug": "playwriting",
+      "name": "Playwriting",
+      "genre_slug": "theater"
+    },
+    {
+      "slug": "stagecraft",
+      "name": "Stagecraft",
+      "genre_slug": "theater"
+    },
+    {
+      "slug": "conspiracy-thriller",
+      "name": "Conspiracy Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "crime-thriller",
+      "name": "Crime Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "eco-thriller",
+      "name": "Eco Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "legal-thriller",
+      "name": "Legal Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "medical-thriller",
+      "name": "Medical Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "political-thriller",
+      "name": "Political Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "psychological-thriller",
+      "name": "Psychological Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "spy-thriller",
+      "name": "Spy Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "supernatural-thriller",
+      "name": "Supernatural Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "techno-thriller",
+      "name": "Techno Thriller",
+      "genre_slug": "thriller"
+    },
+    {
+      "slug": "adventure-travel",
+      "name": "Adventure Travel",
+      "genre_slug": "travel-writing"
+    },
+    {
+      "slug": "cultural-travel",
+      "name": "Cultural Travel",
+      "genre_slug": "travel-writing"
+    },
+    {
+      "slug": "guidebook",
+      "name": "Guidebook",
+      "genre_slug": "travel-writing"
+    },
+    {
+      "slug": "serial-killers",
+      "name": "Serial Killers",
+      "genre_slug": "true-crime"
+    },
+    {
+      "slug": "unsolved-mysteries",
+      "name": "Unsolved Mysteries",
+      "genre_slug": "true-crime"
+    },
+    {
+      "slug": "white-collar-crime",
+      "name": "White-Collar Crime",
+      "genre_slug": "true-crime"
+    },
+    {
+      "slug": "anti-war-fiction",
+      "name": "Anti-War Fiction",
+      "genre_slug": "war-fiction"
+    },
+    {
+      "slug": "military-sf",
+      "name": "Military Sf",
+      "genre_slug": "war-fiction"
+    },
+    {
+      "slug": "modern-warfare-fiction",
+      "name": "Modern Warfare Fiction",
+      "genre_slug": "war-fiction"
+    },
+    {
+      "slug": "napoleonic-war-fiction",
+      "name": "Napoleonic War Fiction",
+      "genre_slug": "war-fiction"
+    },
+    {
+      "slug": "vietnam-war-fiction",
+      "name": "Vietnam War Fiction",
+      "genre_slug": "war-fiction"
+    },
+    {
+      "slug": "holistic-health",
+      "name": "Holistic Health",
+      "genre_slug": "wellness"
+    },
+    {
+      "slug": "sleep-science",
+      "name": "Sleep Science",
+      "genre_slug": "wellness"
+    },
+    {
+      "slug": "stress-management",
+      "name": "Stress Management",
+      "genre_slug": "wellness"
+    },
+    {
+      "slug": "cattle-drive-western",
+      "name": "Cattle Drive Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "cavalry-western",
+      "name": "Cavalry Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "classic-western",
+      "name": "Classic Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "frontier-western",
+      "name": "Frontier Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "gold-rush-western",
+      "name": "Gold Rush Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "outlaw-western",
+      "name": "Outlaw Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "ranch-western",
+      "name": "Ranch Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "revenge-western",
+      "name": "Revenge Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "weird-western",
+      "name": "Weird Western",
+      "genre_slug": "western"
+    },
+    {
+      "slug": "animal-behavior",
+      "name": "Animal Behavior",
+      "genre_slug": "wildlife"
+    },
+    {
+      "slug": "endangered-species",
+      "name": "Endangered Species",
+      "genre_slug": "wildlife"
+    },
+    {
+      "slug": "safari-travel",
+      "name": "Safari Travel",
+      "genre_slug": "wildlife"
+    },
+    {
+      "slug": "wildlife-conservation",
+      "name": "Wildlife Conservation",
+      "genre_slug": "wildlife"
+    }
+  ],
+  "domains": [
+    {
+      "slug": "fiction",
+      "name": "Fiction"
+    },
+    {
+      "slug": "nonfiction",
+      "name": "Nonfiction"
+    }
+  ],
+  "supergenres": [
+    {
+      "slug": "adventure-action",
+      "name": "Adventure & Action"
+    },
+    {
+      "slug": "arts-entertainment",
+      "name": "Arts & Entertainment"
+    },
+    {
+      "slug": "biography-memoir",
+      "name": "Biography & Memoir"
+    },
+    {
+      "slug": "business-economics",
+      "name": "Business & Economics"
+    },
+    {
+      "slug": "contemporary-realism",
+      "name": "Contemporary & Realism"
+    },
+    {
+      "slug": "crime-mystery",
+      "name": "Crime & Mystery"
+    },
+    {
+      "slug": "environment-nature",
+      "name": "Environment & Nature"
+    },
+    {
+      "slug": "essays-criticism",
+      "name": "Essays & Criticism"
+    },
+    {
+      "slug": "family-domestic",
+      "name": "Family & Domestic"
+    },
+    {
+      "slug": "food-drink",
+      "name": "Food & Drink"
+    },
+    {
+      "slug": "health-psychology",
+      "name": "Health & Psychology"
+    },
+    {
+      "slug": "historical-fiction",
+      "name": "Historical Fiction"
+    },
+    {
+      "slug": "history",
+      "name": "History"
+    },
+    {
+      "slug": "home-hobbies",
+      "name": "Home & Hobbies"
+    },
+    {
+      "slug": "humor-satire",
+      "name": "Humor & Satire"
+    },
+    {
+      "slug": "inspirational-religious-fiction",
+      "name": "Inspirational & Religious Fiction"
+    },
+    {
+      "slug": "literary-experimental",
+      "name": "Literary & Experimental"
+    },
+    {
+      "slug": "pets-animals",
+      "name": "Pets & Animals"
+    },
+    {
+      "slug": "philosophy",
+      "name": "Philosophy"
+    },
+    {
+      "slug": "politics-current-affairs",
+      "name": "Politics & Current Affairs"
+    },
+    {
+      "slug": "reference-education",
+      "name": "Reference & Education"
+    },
+    {
+      "slug": "religion-spirituality",
+      "name": "Religion & Spirituality"
+    },
+    {
+      "slug": "romance",
+      "name": "Romance"
+    },
+    {
+      "slug": "science-nature",
+      "name": "Science & Nature"
+    },
+    {
+      "slug": "self-help-personal-growth",
+      "name": "Self‑Help & Personal Growth"
+    },
+    {
+      "slug": "social-science",
+      "name": "Social Science"
+    },
+    {
+      "slug": "speculative-fiction",
+      "name": "Speculative Fiction"
+    },
+    {
+      "slug": "sports-recreation",
+      "name": "Sports & Recreation"
+    },
+    {
+      "slug": "technology-engineering",
+      "name": "Technology & Engineering"
+    },
+    {
+      "slug": "thriller-suspense",
+      "name": "Thriller & Suspense"
+    },
+    {
+      "slug": "travel-adventure",
+      "name": "Travel & Adventure"
+    },
+    {
+      "slug": "true-crime",
+      "name": "True Crime"
+    },
+    {
+      "slug": "war-military-fiction",
+      "name": "War & Military Fiction"
+    },
+    {
+      "slug": "western-frontier",
+      "name": "Western & Frontier"
+    }
+  ],
+  "formats": [
+    {
+      "slug": "anthology",
+      "name": "Anthology"
+    },
+    {
+      "slug": "art-book",
+      "name": "Art Book"
+    },
+    {
+      "slug": "audio-play",
+      "name": "Audio Play"
+    },
+    {
+      "slug": "audiobook-original",
+      "name": "Audiobook Original"
+    },
+    {
+      "slug": "board-book",
+      "name": "Board Book"
+    },
+    {
+      "slug": "chapbook",
+      "name": "Chapbook"
+    },
+    {
+      "slug": "choose-your-own-adventure",
+      "name": "Choose Your Own Adventure"
+    },
+    {
+      "slug": "comic-book",
+      "name": "Comic Book"
+    },
+    {
+      "slug": "compendium",
+      "name": "Compendium"
+    },
+    {
+      "slug": "digital-exclusive",
+      "name": "Digital Exclusive"
+    },
+    {
+      "slug": "drama-play",
+      "name": "Drama / Play"
+    },
+    {
+      "slug": "encyclopedic-novel",
+      "name": "Encyclopedic Novel"
+    },
+    {
+      "slug": "flip-book",
+      "name": "Flip Book"
+    },
+    {
+      "slug": "graphic-novel",
+      "name": "Graphic Novel"
+    },
+    {
+      "slug": "hypertext-novel",
+      "name": "Hypertext Novel"
+    },
+    {
+      "slug": "illustrated-novel",
+      "name": "Illustrated Novel"
+    },
+    {
+      "slug": "interactive-fiction",
+      "name": "Interactive Fiction"
+    },
+    {
+      "slug": "light-novel",
+      "name": "Light Novel"
+    },
+    {
+      "slug": "manga",
+      "name": "Manga"
+    },
+    {
+      "slug": "manhua",
+      "name": "Manhua"
+    },
+    {
+      "slug": "manhwa",
+      "name": "Manhwa"
+    },
+    {
+      "slug": "novel",
+      "name": "Novel"
+    },
+    {
+      "slug": "novelette",
+      "name": "Novelette"
+    },
+    {
+      "slug": "novella",
+      "name": "Novella"
+    },
+    {
+      "slug": "omnibus",
+      "name": "Omnibus"
+    },
+    {
+      "slug": "picture-book",
+      "name": "Picture Book"
+    },
+    {
+      "slug": "picture-novella",
+      "name": "Picture Novella"
+    },
+    {
+      "slug": "podcast-serial",
+      "name": "Podcast Serial"
+    },
+    {
+      "slug": "poetry-collection",
+      "name": "Poetry Collection"
+    },
+    {
+      "slug": "screenplay",
+      "name": "Screenplay"
+    },
+    {
+      "slug": "serial-novel",
+      "name": "Serial Novel"
+    },
+    {
+      "slug": "serial-web-novel",
+      "name": "Serial Web Novel"
+    },
+    {
+      "slug": "short-story",
+      "name": "Short Story"
+    },
+    {
+      "slug": "short-story-collection",
+      "name": "Short Story Collection"
+    },
+    {
+      "slug": "single-poem",
+      "name": "Single Poem"
+    },
+    {
+      "slug": "web-serial",
+      "name": "Web Serial"
+    },
+    {
+      "slug": "webtoon",
+      "name": "Webtoon"
+    },
+    {
+      "slug": "zine",
+      "name": "Zine"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "totalBooks": "479",
+  "sampleBooks": [
+    {
+      "id": "1e747244-e9dc-4322-b77e-c3529f9073eb",
+      "title": "Fourth Wing",
+      "authors": [
+        "Rebecca Yarros"
+      ],
+      "description": "A deadly dragon rider war college tests Violet Sorrengail, who must rely on her wits and lightning bond to survive.",
+      "published_date": "2023-05-02",
+      "categories": [
+        "Fantasy",
+        "Romance"
+      ]
+    },
+    {
+      "id": "04537132-0262-4928-90cc-3b1abdbf04c4",
+      "title": "The Invisible Life of Addie LaRue",
+      "authors": [
+        "V. E. Schwab"
+      ],
+      "description": "Cursed to be forgotten by everyone she meets, Addie LaRue strikes a bargain that spans centuries and challenges the meaning of a life well lived.",
+      "published_date": "2020-10-06",
+      "categories": [
+        "Fantasy",
+        "Historical Fiction"
+      ]
+    },
+    {
+      "id": "f3df65ad-8487-4291-b45e-eafcc3d2ceb1",
+      "title": "Test Ingest",
+      "authors": [
+        "Tester"
+      ],
+      "description": "Demo",
+      "published_date": null,
+      "categories": null
+    },
+    {
+      "id": "310d5578-ef46-4cfe-9a2d-0c63421c97bc",
+      "title": "Translation and Fantasy Literature in Taiwan",
+      "authors": [
+        "Y. Chung"
+      ],
+      "description": "This book examines the rise in popularity of fantasy literature in Taiwan and the crucial but often invisible role that translators have played in making this genre widely available. Topics covered include global fantasy fever, Chinese fantasy, game industry, the social status of translators, and the sociological direction of translations studies.",
+      "published_date": "2013-10-24",
+      "categories": [
+        "Language Arts & Disciplines"
+      ]
+    },
+    {
+      "id": "42e745a1-025a-4a16-8639-dfe7a0edb852",
+      "title": "Fantasy Football Tips",
+      "authors": [
+        "Sam Hendricks"
+      ],
+      "description": "From the award winning author of Fantasy Football Guidebook (and three other fantasy football books) comes the ultimate step by step guide to success; including methods of drafting, ranking players, creating cheat sheets and drafting like an expert. Finally, an easy to use and understand book, with tips on how to win your fantasy football league every year, is available at a great price. With over 200 winning ways, from how to pick a fantasy league to roster management tools, Fantasy Football Tips provides the key techniques to make you a consistent fantasy football owner. Written for all fantasy football players (whether a beginner or expert), Fantasy Football Tips is your ticket to this years League Championship.",
+      "published_date": "2009",
+      "categories": [
+        "Games & Activities"
+      ]
+    },
+    {
+      "id": "b3fb75b8-ddff-49c5-a8ce-1fbe68917924",
+      "title": "Test Sequence",
+      "authors": [
+        "Author"
+      ],
+      "description": "Sequence test",
+      "published_date": null,
+      "categories": null
+    },
+    {
+      "id": "14dc231f-6b09-4525-9285-0230f77bb1cb",
+      "title": "Refresh Check",
+      "authors": [
+        "Author"
+      ],
+      "description": null,
+      "published_date": null,
+      "categories": null
+    },
+    {
+      "id": "bfc0266a-e962-4649-be45-bec1752a714b",
+      "title": "Tomorrow, and Tomorrow, and Tomorrow",
+      "authors": [
+        "Gabrielle Zevin"
+      ],
+      "description": "Two friends build a beloved video game and navigate fame, creativity, and complicated relationships across three decades.",
+      "published_date": "2022-07-05",
+      "categories": [
+        "Fiction",
+        "Literary"
+      ]
+    },
+    {
+      "id": "cf6dabe1-e92a-415b-a908-a8710e03db7f",
+      "title": "Refresh Check 2",
+      "authors": [
+        "Author"
+      ],
+      "description": null,
+      "published_date": null,
+      "categories": null
+    },
+    {
+      "id": "6ef8b6ef-d946-4679-b3c5-fd9a4f4616b9",
+      "title": "Science Fiction Authors",
+      "authors": [
+        "Maura Heaphy"
+      ],
+      "description": "For students, scholars, readers' advisors, and curious SF readers and fans, this guide provides an easy-to-use launch pad for researching and learning more about science fiction writers and their work. Emphasizing the best popular and contemporary authors, this book covers 100 SF writers, providing for each: • a brief biographical sketch, including a quote from theauthor, awards, etc. • a list of the author's major works (including editions and other writings) • research sources-biographies, criticism, research guides, and web sites • In addition, you'll find read-alike lists for selected authors. For anyone wanting to find information on popular SF authors, this should be the first stop.",
+      "published_date": "2008-11-30",
+      "categories": [
+        "Language Arts & Disciplines"
+      ]
+    }
+  ]
+}
