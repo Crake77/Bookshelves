@@ -924,10 +924,10 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
           isHidden={!showTags}
           onToggleVisibility={() => setShowTags(!showTags)}
           onEdit={() => setTagModalOpen(true)}
-          count={tags.length}
+          count={tagsWithoutContentFlags.length}
         />
         {showTags && <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
+          {tagsWithoutContentFlags.map((tag) => (
             <FilterChip 
               key={`tag-include-${tag.slug}`}
               dimension={tag} 
