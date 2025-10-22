@@ -3,8 +3,13 @@ import { test, expect } from '@playwright/test';
 const BASE_URL = process.env.BASE_URL || 'http://localhost:5173';
 
 test('debug - check what carousels exist', async ({ page }) => {
-  await page.goto(`${BASE_URL}/browse`);
+  await page.goto(BASE_URL);
   await page.waitForLoadState('networkidle');
+  
+  // Click the Browse tab  
+  await page.click('[data-testid="tab-browse"]');
+  await page.waitForTimeout(1000);
+  
   await page.screenshot({ path: 'test-results/browse-page-debug.png', fullPage: true });
   
   const bodyText = await page.locator('body').textContent();
@@ -20,20 +25,22 @@ test('debug - check what carousels exist', async ({ page }) => {
 });
 
 test('browse page carousels should load more books on scroll', async ({ page }) => {
-  await page.goto(`${BASE_URL}/browse`);
-  
-  // Wait for the page to load
+  await page.goto(BASE_URL);
   await page.waitForLoadState('networkidle');
   
-  // Find the Fiction carousel
-  const fictionCarousel = page.locator('[data-testid="section-fiction"]');
-  await expect(fictionCarousel).toBeVisible();
+  // Click the Browse tab
+  await page.click('[data-testid="tab-browse"]');
+  await page.waitForTimeout(2000); // Wait for content to load
+  
+  // Find the Fantasy carousel (not Fiction)
+  const fantasyCarousel = page.locator('[data-testid="section-fantasy"]');
+  await expect(fantasyCarousel).toBeVisible();
   
   // Get initial book count
-  const scrollContainer = fictionCarousel.locator('.overflow-x-auto').first();
+  const scrollContainer = fantasyCarousel.locator('.overflow-x-auto').first();
   const initialBooks = await scrollContainer.locator('[data-testid^="book-card-"]').count();
   
-  console.log(`Initial books in Fiction carousel: ${initialBooks}`);
+  console.log(`Initial books in Fantasy carousel: ${initialBooks}`);
   
   // Scroll to the end of the carousel
   await scrollContainer.evaluate((el) => {
@@ -41,20 +48,23 @@ test('browse page carousels should load more books on scroll', async ({ page }) 
   });
   
   // Wait a bit for the load to trigger
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(2000);
   
   // Check if more books loaded
   const finalBooks = await scrollContainer.locator('[data-testid^="book-card-"]').count();
   
-  console.log(`Final books in Fiction carousel: ${finalBooks}`);
+  console.log(`Final books in Fantasy carousel: ${finalBooks}`);
   
   expect(finalBooks).toBeGreaterThan(initialBooks);
 });
 
 test('browse page Romance carousel should load more books on scroll', async ({ page }) => {
-  await page.goto(`${BASE_URL}/browse`);
-  
+  await page.goto(BASE_URL);
   await page.waitForLoadState('networkidle');
+  
+  // Click the Browse tab
+  await page.click('[data-testid="tab-browse"]');
+  await page.waitForTimeout(1000);
   
   const romanceCarousel = page.locator('[data-testid="section-romance"]');
   await expect(romanceCarousel).toBeVisible();
