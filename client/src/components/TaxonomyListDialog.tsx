@@ -123,7 +123,11 @@ export default function TaxonomyListDialog({ open, onOpenChange, filter, ranking
               book={selectedBook}
               open={!!selectedBook}
               onOpenChange={(v) => !v && setSelectedBook(null)}
-              taxonomyHint={filter && (filter.kind === "tag" || filter.kind === "subgenre") ? filter : undefined}
+              taxonomyHint={filter && (filter.kind === "tag" || filter.kind === "subgenre") ? {
+                kind: filter.kind,
+                slug: filter.slug,
+                label: filter.label
+              } : undefined}
             />
           </Suspense>
         )}
