@@ -730,6 +730,12 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
     return tagData && (tagData.group === 'content_warnings' || tagData.group === 'content_flags');
   });
   
+  // Tags excluding content flags
+  const tagsWithoutContentFlags = tags.filter(t => {
+    const tagData = taxonomy.tags.find(tt => tt.slug === t.slug);
+    return !tagData || (tagData.group !== 'content_warnings' && tagData.group !== 'content_flags');
+  });
+  
   const handleRemove = (type: FilterDimension['type'], slug: string) => {
     onFilterChange(removeFilter(filterState, type, slug));
   };
