@@ -480,7 +480,8 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN domains d ON d.id = g.domain_id
+            JOIN genre_domains gd ON gd.genre_id = g.id
+            JOIN domains d ON d.id = gd.domain_id
             WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
           ))
           -- Supergenre filter
@@ -488,7 +489,8 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN supergenres sp ON sp.id = g.supergenre_id
+            JOIN genre_supergenres gs ON gs.genre_id = g.id
+            JOIN supergenres sp ON sp.id = gs.supergenre_id
             WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
           ))
           -- Format filter  
@@ -576,7 +578,8 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN domains d ON d.id = g.domain_id
+            JOIN genre_domains gd ON gd.genre_id = g.id
+            JOIN domains d ON d.id = gd.domain_id
             WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
           ))
           -- Supergenre filter
@@ -584,7 +587,8 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN supergenres sp ON sp.id = g.supergenre_id
+            JOIN genre_supergenres gs ON gs.genre_id = g.id
+            JOIN supergenres sp ON sp.id = gs.supergenre_id
             WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
           ))
           -- Format filter  
@@ -805,7 +809,8 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN domains d ON d.id = g.domain_id
+            JOIN genre_domains gd ON gd.genre_id = g.id
+            JOIN domains d ON d.id = gd.domain_id
             WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
           ))
           -- Supergenre filter
@@ -813,7 +818,8 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN supergenres sp ON sp.id = g.supergenre_id
+            JOIN genre_supergenres gs ON gs.genre_id = g.id
+            JOIN supergenres sp ON sp.id = gs.supergenre_id
             WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
           ))
           -- Format filter  
@@ -923,7 +929,8 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN domains d ON d.id = g.domain_id
+            JOIN genre_domains gd ON gd.genre_id = g.id
+            JOIN domains d ON d.id = gd.domain_id
             WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
           ))
           -- Supergenre filter
@@ -931,7 +938,8 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN supergenres sp ON sp.id = g.supergenre_id
+            JOIN genre_supergenres gs ON gs.genre_id = g.id
+            JOIN supergenres sp ON sp.id = gs.supergenre_id
             WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
           ))
           -- Format filter  
@@ -1094,7 +1102,8 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN domains d ON d.id = g.domain_id
+            JOIN genre_domains gd ON gd.genre_id = g.id
+            JOIN domains d ON d.id = gd.domain_id
             WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
           ))
           -- Supergenre filter
@@ -1102,7 +1111,8 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN supergenres sp ON sp.id = g.supergenre_id
+            JOIN genre_supergenres gs ON gs.genre_id = g.id
+            JOIN supergenres sp ON sp.id = gs.supergenre_id
             WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
           ))
           -- Format filter  
@@ -1198,7 +1208,8 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN domains d ON d.id = g.domain_id
+            JOIN genre_domains gd ON gd.genre_id = g.id
+            JOIN domains d ON d.id = gd.domain_id
             WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
           ))
           -- Supergenre filter
@@ -1206,7 +1217,8 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN supergenres sp ON sp.id = g.supergenre_id
+            JOIN genre_supergenres gs ON gs.genre_id = g.id
+            JOIN supergenres sp ON sp.id = gs.supergenre_id
             WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
           ))
           -- Format filter  
@@ -1487,7 +1499,8 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN domains d ON d.id = g.domain_id
+            JOIN genre_domains gd ON gd.genre_id = g.id
+            JOIN domains d ON d.id = gd.domain_id
             WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
           ))
           -- Supergenre filter
@@ -1495,7 +1508,8 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN supergenres sp ON sp.id = g.supergenre_id
+            JOIN genre_supergenres gs ON gs.genre_id = g.id
+            JOIN supergenres sp ON sp.id = gs.supergenre_id
             WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
           ))
           -- Format filter  
@@ -1635,7 +1649,8 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN domains d ON d.id = g.domain_id
+            JOIN genre_domains gd ON gd.genre_id = g.id
+            JOIN domains d ON d.id = gd.domain_id
             WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
           ))
           -- Supergenre filter
@@ -1643,7 +1658,8 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM book_primary_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
-            JOIN supergenres sp ON sp.id = g.supergenre_id
+            JOIN genre_supergenres gs ON gs.genre_id = g.id
+            JOIN supergenres sp ON sp.id = gs.supergenre_id
             WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
           ))
           -- Format filter  
