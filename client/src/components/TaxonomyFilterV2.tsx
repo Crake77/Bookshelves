@@ -677,6 +677,8 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   
   const [showDomain, setShowDomain] = useState(false);
   const [showSupergenre, setShowSupergenre] = useState(false);
+  const [showGenre, setShowGenre] = useState(true);
+  const [showTags, setShowTags] = useState(true);
   const [showContentFlags, setShowContentFlags] = useState(false);
   const [showFormat, setShowFormat] = useState(false);
   const [showAudience, setShowAudience] = useState(false);
@@ -781,14 +783,19 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
       d.type === item.type && d.slug === item.slug
     );
     
+    console.log('handleItemToggle called:', { item, existingIndex, allDimensions: filterState.dimensions });
+    
     if (existingIndex >= 0) {
       // Item exists - remove it
       const newDimensions = [...filterState.dimensions];
       newDimensions.splice(existingIndex, 1);
+      console.log('Removing item, new dimensions:', newDimensions);
       onFilterChange({ ...filterState, dimensions: newDimensions });
     } else {
       // Item doesn't exist - add it
-      onFilterChange({ ...filterState, dimensions: [...filterState.dimensions, item] });
+      const newDimensions = [...filterState.dimensions, item];
+      console.log('Adding item, new dimensions:', newDimensions);
+      onFilterChange({ ...filterState, dimensions: newDimensions });
     }
   };
   
@@ -869,10 +876,12 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
       <div className="space-y-2">
         <SectionHeader 
           title="Genre / Subgenre" 
+          isHidden={!showGenre}
+          onToggleVisibility={() => setShowGenre(!showGenre)}
           onEdit={() => setGenreModalOpen(true)}
           count={genreSubgenrePairs.length}
         />
-        <div className="flex flex-wrap gap-2">
+        {showGenre && <div className="flex flex-wrap gap-2">
           {genreSubgenrePairs.map(({ genre, subgenre }) => (
             <div key={genre.slug} className="flex flex-col gap-1">
               <FilterChip 
@@ -892,17 +901,19 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
               )}
             </div>
           ))}
-        </div>
+        </div>}
       </div>
       
       {/* Tropes/Themes/Tags Section */}
       <div className="space-y-2">
         <SectionHeader 
           title="Tropes / Themes / Tags" 
+          isHidden={!showTags}
+          onToggleVisibility={() => setShowTags(!showTags)}
           onEdit={() => setTagModalOpen(true)}
           count={tags.length}
         />
-        <div className="flex flex-wrap gap-2">
+        {showTags && <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <FilterChip 
               key={tag.slug}
@@ -911,7 +922,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
               size="tag"
             />
           ))}
-        </div>
+        </div>}
       </div>
       
       {/* Content Flags Section (Hidden by default) */}
