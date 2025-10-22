@@ -1,26 +1,27 @@
-import express from "express";
-import { registerRoutes } from "../server/routes.js";
-import { serveStatic } from "../server/vite.js";
+import express, { type Express } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-let app: express.Application | null = null;
+let app: Express | null = null;
 
-async function getApp() {
+async function getApp(): Promise<Express> {
   if (app) return app;
   
   app = express();
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
-  // Initialize routes
+  // Import and register routes dynamically
+  const { registerRoutes } = await import("../server/routes.js");
   await registerRoutes(app);
 
-  // Serve static files in production
+  // Serve static files
+  const { serveStatic } = await import("../server/vite.js");
   serveStatic(app);
+  
   const clientDir = path.join(__dirname, "..", "dist", "public");
   app.use(express.static(clientDir));
   app.get("*", (_req, res) => {
@@ -31,6 +32,6 @@ async function getApp() {
 }
 
 export default async function handler(req: any, res: any) {
-  const app = await getApp();
-  return app(req, res);
+  const expressApp = await getApp();
+  return expressApp(req, res);
 }
