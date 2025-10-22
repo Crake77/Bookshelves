@@ -1,6 +1,6 @@
 import { useMemo, useState, useRef, useEffect, useCallback } from "react";
 import type { PointerEvent as ReactPointerEvent, CSSProperties } from "react";
-import { ArrowLeft, GripVertical, Plus, Trash2 } from "lucide-react";
+import { ArrowLeft, GripVertical, Plus, Trash2, Edit3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -672,9 +672,14 @@ const [dragState, setDragState] = useState<{
           )}
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
-          <Button size="sm" variant="secondary" onClick={() => openEditForCategory(category)} data-testid={`configure-category-${category.slug}`}>
-            + Subgenre / Tags
-          </Button>
+          <button
+            onClick={() => openEditForCategory(category)}
+            className="p-1.5 hover:bg-primary/10 rounded-full transition-colors"
+            data-testid={`configure-category-${category.slug}`}
+            aria-label="Edit filters"
+          >
+            <Edit3 className="h-3.5 w-3.5 text-primary" />
+          </button>
           <Button
             size="icon"
             variant="ghost"

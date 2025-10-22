@@ -30,6 +30,8 @@ interface FilterChipProps {
 
 function FilterChip({ dimension, onRemove, size = "normal" }: FilterChipProps) {
   const isBlocked = !dimension.include;
+  const isContentFlag = dimension.type === "tag" && dimension.include && 
+    (dimension as any).isContentFlag === true;
   
   const sizeClasses = {
     genre: "text-lg font-display font-bold",
@@ -43,6 +45,8 @@ function FilterChip({ dimension, onRemove, size = "normal" }: FilterChipProps) {
       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-colors ${
         isBlocked 
           ? "bg-destructive text-destructive-foreground border-2 border-destructive relative"
+          : isContentFlag
+          ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30"
           : "bg-primary/15 text-primary border border-primary/30"
       }`}
     >
@@ -709,7 +713,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const contentFlags = tags.filter(t => {
     const tagData = taxonomy.tags.find(tt => tt.slug === t.slug);
     return tagData && (tagData.group === 'content_warnings' || tagData.group === 'content_flags');
-  });
+  }).map(t => ({ ...t, isContentFlag: true }));
   
   // Tags excluding content flags
   const tagsWithoutContentFlags = tags.filter(t => {

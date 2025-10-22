@@ -1,6 +1,6 @@
 import type { UIEvent } from "react";
 import BookCard from "./BookCard";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Edit3 } from "lucide-react";
 import { type BookSearchResult } from "@/lib/api";
 
 interface HorizontalBookRowProps {
@@ -71,10 +71,11 @@ export default function HorizontalBookRow({
           {onEdit && (
             <button
               onClick={onEdit}
-              className="text-xs px-2 py-0.5 rounded-full bg-muted text-foreground/80 hover:bg-muted/80"
+              className="p-1.5 hover:bg-primary/10 rounded-full transition-colors"
               data-testid={`button-edit-${title.toLowerCase().replace(/\s+/g, '-')}`}
+              aria-label="Edit filters"
             >
-              + Subgenre / Tags
+              <Edit3 className="h-3.5 w-3.5 text-primary" />
             </button>
           )}
         </div>
