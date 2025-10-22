@@ -15,8 +15,10 @@ export type CategoryPreference = {
   subgenreName?: string;
   tagSlugs?: string[];
   tagNames?: string[];
+  tagGroups?: string[];
   blockedTagSlugs?: string[];
   blockedTagNames?: string[];
+  blockedTagGroups?: string[];
   domainSlugs?: string[];
   domainNames?: string[];
   supergenreSlugs?: string[];

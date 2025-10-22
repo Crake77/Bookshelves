@@ -190,6 +190,26 @@ interface CategoryCarouselProps {
 }
 
 function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarouselProps) {
+  const [tagMetadata, setTagMetadata] = useState<Map<string, string>>(new Map());
+  
+  // Fetch tag metadata to get groups for content flag detection
+  useEffect(() => {
+    const fetchTagGroups = async () => {
+      try {
+        const res = await fetch(`/api/taxonomy-list?limit=500`);
+        if (res.ok) {
+          const data = await res.json();
+          const tagMap = new Map<string, string>();
+          (data.tags ?? []).forEach((t: any) => {
+            tagMap.set(t.slug, t.group);
+          });
+          setTagMetadata(tagMap);
+        }
+      } catch {}
+    };
+    fetchTagGroups();
+  }, []);
+  
   const carousel = useBrowseCarousel({
     algo: config.algo,
     userId: DEMO_USER_ID,
@@ -207,11 +227,12 @@ function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarou
   const loadingMore = carousel.isLoading && carousel.books.length > 0;
   
   // Format chips: include regular tags and blocked tags with proper types
-  // Content flags are detected by name patterns (common content warning keywords)
-  const contentFlagKeywords = ['sexual', 'violence', 'graphic', 'explicit', 'abuse', 'trigger', 'dark', 'mature'];
+  // Content flags are detected by tag group field (content_warnings, content_flags)
   const chips = [
-    ...(config.tags ?? []).map(label => {
-      const isContentFlag = contentFlagKeywords.some(keyword => label.toLowerCase().includes(keyword));
+    ...(config.tagSlugs ?? []).map((slug, index) => {
+      const label = config.tags?.[index] ?? slug;
+      const group = tagMetadata.get(slug) || '';
+      const isContentFlag = group === 'content_warnings' || group === 'content_flags';
       return { label, type: isContentFlag ? 'content-flag' : 'tag' };
     }),
     ...(config.blockedTagNames ?? []).map(label => ({ label, type: 'blocked' }))
