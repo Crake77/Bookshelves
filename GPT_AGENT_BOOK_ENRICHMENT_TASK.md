@@ -64,17 +64,17 @@ Each new session:
 
 **Books can have MULTIPLE of each category:**
 
-#### Genres (book_genre_links table)
+#### Genres (book_genres table)
 - Primary genre (required)
 - Secondary genres (if applicable)
 - Valid values from `genres` table
 
-#### Subgenres (book_subgenre_links table)
+#### Subgenres (book_subgenres table)
 - At least 1 subgenre if applicable
 - Valid values from `subgenres` table
 - Must belong to one of the book's assigned genres
 
-#### Tags (book_tag_links table)
+#### Tags (book_cross_tags table)
 - **Minimum 10 tags per book**
 - **Recommended 15-20 tags** for rich discovery
 - Mix of:
@@ -83,27 +83,27 @@ Each new session:
   - Plot tags (e.g., "mystery", "slow-burn-romance")
   - Character tags (e.g., "female-protagonist", "found-family")
   - Tone tags (e.g., "dark", "humorous", "inspirational")
-- Valid values from `tags` table
+- Valid values from `cross_tags` table
 
-#### Domains (book_domain_links table)
+#### Domains (book_domains table)
 - Can have multiple (e.g., fiction + humor)
 - Valid values from `domains` table
 
-#### Supergenres (book_supergenre_links table)
+#### Supergenres (book_supergenres table)
 - Broad category grouping
 - Can have multiple
 - Valid values from `supergenres` table
 
-#### Format (book_format_links table)
+#### Format (book_formats table)
 - hardcover, paperback, ebook, audiobook
 - Multiple if different editions exist
 - Valid values from `formats` table
 
-#### Audience (book_audience_links table)
+#### Audience (book_age_markets table)
 - adult, young-adult, middle-grade, children
-- Valid values from `audiences` table
+- Valid values from `age_markets` table
 
-### 3. Content Flags (book_tag_links with tags.group = 'content_warnings')
+### 3. Content Flags (book_cross_tags with cross_tags.group = 'content_warnings')
 Apply where relevant:
 - Violence, sexual content, substance abuse, mental health, etc.
 - Use existing tags with `group = 'content_warnings'` or `group = 'content_flags'`
@@ -151,20 +151,20 @@ books: { id, google_books_id, title, authors[], description, cover_url, publishe
 // Taxonomy tables
 genres: { id, slug, name }
 subgenres: { id, slug, name, genre_slug }
-tags: { id, slug, name, group }
+cross_tags: { id, slug, name, group }  // aka "tags"
 domains: { id, slug, name }
 supergenres: { id, slug, name }
-audiences: { id, slug, name }
+age_markets: { id, slug, name }  // aka "audiences"
 formats: { id, slug, name }
 
 // Link tables (many-to-many)
-book_genre_links: { book_id, genre_slug }
-book_subgenre_links: { book_id, subgenre_slug }
-book_tag_links: { book_id, tag_slug }
-book_domain_links: { book_id, domain_slug }
-book_supergenre_links: { book_id, supergenre_slug }
-book_audience_links: { book_id, audience_slug }
-book_format_links: { book_id, format_slug }
+book_genres: { book_id, genre_slug }
+book_subgenres: { book_id, subgenre_slug }
+book_cross_tags: { book_id, cross_tag_slug }  // aka "book_tag_links"
+book_domains: { book_id, domain_slug }
+book_supergenres: { book_id, supergenre_slug }
+book_age_markets: { book_id, age_market_slug }  // aka "book_audience_links"
+book_formats: { book_id, format_slug }
 
 // Works/Editions (publication dating)
 works: { id, title, authors[], description, series, original_publication_date, display_edition_id }
@@ -221,11 +221,11 @@ Include mix of:
 UPDATE books SET description = '...' WHERE id = '...';
 
 -- Insert taxonomy links
-INSERT INTO book_genre_links (book_id, genre_slug) VALUES 
+INSERT INTO book_genres (book_id, genre_slug) VALUES 
   ('book-id-1', 'fantasy'),
   ('book-id-1', 'adventure');
 
-INSERT INTO book_tag_links (book_id, tag_slug) VALUES
+INSERT INTO book_cross_tags (book_id, cross_tag_slug) VALUES
   ('book-id-1', 'epic-fantasy'),
   ('book-id-1', 'magic-system'),
   -- ... 10+ tags per book
@@ -355,8 +355,8 @@ Before outputting SQL:
 BEGIN;
 
 -- Clean existing links for this batch (for re-runs)
-DELETE FROM book_genre_links WHERE book_id IN (SELECT id FROM books LIMIT 500);
-DELETE FROM book_tag_links WHERE book_id IN (SELECT id FROM books LIMIT 500);
+DELETE FROM book_genres WHERE book_id IN (SELECT id FROM books LIMIT 500);
+DELETE FROM book_cross_tags WHERE book_id IN (SELECT id FROM books LIMIT 500);
 -- ... other link tables
 
 -- Book 1: The Name of the Wind
@@ -367,11 +367,11 @@ SET
   page_count = 662
 WHERE id = 'book-id-1';
 
-INSERT INTO book_genre_links (book_id, genre_slug) VALUES
+INSERT INTO book_genres (book_id, genre_slug) VALUES
   ('book-id-1', 'fantasy'),
   ('book-id-1', 'adventure');
 
-INSERT INTO book_tag_links (book_id, tag_slug) VALUES
+INSERT INTO book_cross_tags (book_id, cross_tag_slug) VALUES
   ('book-id-1', 'epic-fantasy'),
   ('book-id-1', 'magic-school'),
   ('book-id-1', 'coming-of-age'),
@@ -386,10 +386,10 @@ INSERT INTO book_tag_links (book_id, tag_slug) VALUES
   ('book-id-1', 'frame-narrative'),
   ('book-id-1', 'tavern-setting');
 
-INSERT INTO book_audience_links (book_id, audience_slug) VALUES
+INSERT INTO book_age_markets (book_id, age_market_slug) VALUES
   ('book-id-1', 'adult');
 
-INSERT INTO book_format_links (book_id, format_slug) VALUES
+INSERT INTO book_formats (book_id, format_slug) VALUES
   ('book-id-1', 'hardcover');
 
 -- Works/Editions
@@ -466,9 +466,9 @@ DATABASE_URL=postgresql://...
 Query these to get valid values:
 ```sql
 SELECT slug, name FROM genres ORDER BY name;
-SELECT slug, name, group FROM tags ORDER BY group, name;
+SELECT slug, name, "group" FROM cross_tags ORDER BY "group", name;
 SELECT slug, name FROM domains ORDER BY name;
-SELECT slug, name FROM audiences ORDER BY name;
+SELECT slug, name FROM age_markets ORDER BY name;
 SELECT slug, name FROM formats ORDER BY name;
 ```
 
