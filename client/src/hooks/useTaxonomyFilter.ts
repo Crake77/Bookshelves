@@ -109,6 +109,36 @@ export function useTaxonomyFilter(options: UseTaxonomyFilterOptions = {}): UseTa
 export function categoryPreferenceToFilterDimensions(category: CategoryPreference): FilterDimension[] {
   const dimensions: FilterDimension[] = [];
   
+  // Add domain filters if specified
+  if (category.domainSlugs && category.domainNames) {
+    category.domainSlugs.forEach((slug, index) => {
+      const name = category.domainNames?.[index];
+      if (name) {
+        dimensions.push({
+          type: 'domain',
+          slug,
+          name,
+          include: true,
+        });
+      }
+    });
+  }
+  
+  // Add supergenre filters if specified
+  if (category.supergenreSlugs && category.supergenreNames) {
+    category.supergenreSlugs.forEach((slug, index) => {
+      const name = category.supergenreNames?.[index];
+      if (name) {
+        dimensions.push({
+          type: 'supergenre',
+          slug,
+          name,
+          include: true,
+        });
+      }
+    });
+  }
+  
   // Add genre filter if it's a genre-based category
   if (category.categoryType === 'genre' && category.name) {
     dimensions.push({
@@ -160,6 +190,36 @@ export function categoryPreferenceToFilterDimensions(category: CategoryPreferenc
     });
   }
   
+  // Add format filters if specified
+  if (category.formatSlugs && category.formatNames) {
+    category.formatSlugs.forEach((slug, index) => {
+      const name = category.formatNames?.[index];
+      if (name) {
+        dimensions.push({
+          type: 'format',
+          slug,
+          name,
+          include: true,
+        });
+      }
+    });
+  }
+  
+  // Add audience filters if specified
+  if (category.audienceSlugs && category.audienceNames) {
+    category.audienceSlugs.forEach((slug, index) => {
+      const name = category.audienceNames?.[index];
+      if (name) {
+        dimensions.push({
+          type: 'age_market',
+          slug,
+          name,
+          include: true,
+        });
+      }
+    });
+  }
+  
   return dimensions;
 }
 
@@ -167,10 +227,14 @@ export function filterDimensionsToCategoryPreference(
   dimensions: FilterDimension[],
   baseCategory: Partial<CategoryPreference>
 ): CategoryPreference {
+  const domainFilters = dimensions.filter(d => d.type === 'domain' && d.include);
+  const supergenreFilters = dimensions.filter(d => d.type === 'supergenre' && d.include);
   const genreFilter = dimensions.find(d => d.type === 'genre');
   const subgenreFilter = dimensions.find(d => d.type === 'subgenre');
   const tagFilters = dimensions.filter(d => d.type === 'tag' && d.include);
   const blockedTagFilters = dimensions.filter(d => d.type === 'tag' && !d.include);
+  const formatFilters = dimensions.filter(d => d.type === 'format' && d.include);
+  const audienceFilters = dimensions.filter(d => d.type === 'age_market' && d.include);
   
   return {
     slug: genreFilter?.slug || baseCategory.slug || 'custom',
@@ -184,6 +248,14 @@ export function filterDimensionsToCategoryPreference(
     tagNames: tagFilters.map(t => t.name),
     blockedTagSlugs: blockedTagFilters.map(t => t.slug),
     blockedTagNames: blockedTagFilters.map(t => t.name),
+    domainSlugs: domainFilters.map(d => d.slug),
+    domainNames: domainFilters.map(d => d.name),
+    supergenreSlugs: supergenreFilters.map(s => s.slug),
+    supergenreNames: supergenreFilters.map(s => s.name),
+    formatSlugs: formatFilters.map(f => f.slug),
+    formatNames: formatFilters.map(f => f.name),
+    audienceSlugs: audienceFilters.map(a => a.slug),
+    audienceNames: audienceFilters.map(a => a.name),
   };
 }
 

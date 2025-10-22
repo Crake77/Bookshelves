@@ -536,23 +536,12 @@ export default function BrowsePage() {
                   const list = loadCategoryPreferences();
                   const updated = list.map((c) => {
                     if (c.slug === editSlug) {
-                      // Extract filter data from taxonomy filter
-                      const genreFilter = editTaxonomyFilter.selectedGenres[0];
-                      const subgenreFilter = editTaxonomyFilter.selectedSubgenres[0];
-                      // Only save include=true tags
-                      const tagFilters = editTaxonomyFilter.selectedTags.filter(t => t.include);
-                      // Save blocked items separately
-                      const blockedFilters = editTaxonomyFilter.excludeFilters.filter(t => t.type === 'tag');
-                      
-                      return {
-                        ...c,
-                        subgenreSlug: subgenreFilter?.slug ?? undefined,
-                        subgenreName: subgenreFilter?.name ?? undefined,
-                        tagSlugs: tagFilters.map(t => t.slug),
-                        tagNames: tagFilters.map(t => t.name),
-                        blockedTagSlugs: blockedFilters.map(t => t.slug),
-                        blockedTagNames: blockedFilters.map(t => t.name),
-                      };
+                      // Convert filter dimensions back to category preference
+                      const updatedCategory = filterDimensionsToCategoryPreference(
+                        editTaxonomyFilter.filterState.dimensions,
+                        c
+                      );
+                      return updatedCategory;
                     }
                     return c;
                   });

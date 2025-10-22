@@ -17,6 +17,14 @@ export type CategoryPreference = {
   tagNames?: string[];
   blockedTagSlugs?: string[];
   blockedTagNames?: string[];
+  domainSlugs?: string[];
+  domainNames?: string[];
+  supergenreSlugs?: string[];
+  supergenreNames?: string[];
+  formatSlugs?: string[];
+  formatNames?: string[];
+  audienceSlugs?: string[];
+  audienceNames?: string[];
 };
 
 const SHELVES_STORAGE_KEY = "bookshelves:shelves-preferences";
