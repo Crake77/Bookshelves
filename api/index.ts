@@ -1,3 +1,4 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import express, { type Express } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -31,7 +32,23 @@ async function getApp(): Promise<Express> {
   return app;
 }
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   const expressApp = await getApp();
-  return expressApp(req, res);
+  
+  // Convert Vercel request to Express-compatible request
+  const mockReq = {
+    method: req.method,
+    url: req.url,
+    headers: req.headers,
+    body: req.body,
+    query: req.query,
+  } as any;
+  
+  // Call Express app with converted request
+  return new Promise<void>((resolve, reject) => {
+    expressApp(mockReq, res as any, (err?: any) => {
+      if (err) reject(err);
+      else resolve();
+    });
+  });
 }
