@@ -1,0 +1,173 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - banner [ref=e5]:
+        - heading "Discover" [level=1] [ref=e7]
+      - generic [ref=e8]:
+        - combobox "Browse ranking toggle" [ref=e10] [cursor=pointer]:
+          - generic: Most Popular
+          - img [ref=e11]
+        - generic [ref=e14]:
+          - img [ref=e15]
+          - searchbox "Search for books..." [ref=e18]
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - heading "Most Popular" [level=2] [ref=e23]
+          - generic [ref=e24]:
+            - generic [ref=e27] [cursor=pointer]:
+              - img "The Name of the Wind" [ref=e28]
+              - generic [ref=e29]:
+                - heading "The Name of the Wind" [level=3] [ref=e30]
+                - paragraph [ref=e31]: Patrick Rothfuss
+            - generic [ref=e34] [cursor=pointer]:
+              - img "Project Hail Mary" [ref=e35]
+              - generic [ref=e36]:
+                - heading "Project Hail Mary" [level=3] [ref=e37]
+                - paragraph [ref=e38]: Andy Weir
+            - generic [ref=e41] [cursor=pointer]:
+              - img "And Then There Were None" [ref=e42]
+              - generic [ref=e43]:
+                - heading "And Then There Were None" [level=3] [ref=e44]
+                - paragraph [ref=e45]: Agatha Christie
+            - generic [ref=e48] [cursor=pointer]:
+              - img "Red Rising" [ref=e49]
+              - generic [ref=e50]:
+                - heading "Red Rising" [level=3] [ref=e51]
+                - paragraph [ref=e52]: Pierce Brown
+            - generic [ref=e55] [cursor=pointer]:
+              - img "Fourth Wing" [ref=e56]
+              - generic [ref=e57]:
+                - heading "Fourth Wing" [level=3] [ref=e58]
+                - paragraph [ref=e59]: Rebecca Yarros
+            - generic [ref=e62] [cursor=pointer]:
+              - img "Legends & Lattes" [ref=e63]
+              - generic [ref=e64]:
+                - heading "Legends & Lattes" [level=3] [ref=e65]
+                - paragraph [ref=e66]: Travis Baldree
+            - generic [ref=e69] [cursor=pointer]:
+              - img "The Silent Patient" [ref=e70]
+              - generic [ref=e71]:
+                - heading "The Silent Patient" [level=3] [ref=e72]
+                - paragraph [ref=e73]: Alex Michaelides
+            - generic [ref=e76] [cursor=pointer]:
+              - img "The Seven Husbands of Evelyn Hugo" [ref=e77]
+              - generic [ref=e78]:
+                - heading "The Seven Husbands of Evelyn Hugo" [level=3] [ref=e79]
+                - paragraph [ref=e80]: Taylor Jenkins Reid
+            - generic [ref=e83] [cursor=pointer]:
+              - img "Dune" [ref=e84]
+              - generic [ref=e85]:
+                - heading "Dune" [level=3] [ref=e86]
+                - paragraph [ref=e87]: Frank Herbert
+            - generic [ref=e90] [cursor=pointer]:
+              - img "Lessons in Chemistry" [ref=e91]
+              - generic [ref=e92]:
+                - heading "Lessons in Chemistry" [level=3] [ref=e93]
+                - paragraph [ref=e94]: Bonnie Garmus
+            - generic [ref=e97] [cursor=pointer]:
+              - img "The House in the Cerulean Sea" [ref=e98]
+              - generic [ref=e99]:
+                - heading "The House in the Cerulean Sea" [level=3] [ref=e100]
+                - paragraph [ref=e101]: TJ Klune
+            - generic [ref=e104] [cursor=pointer]:
+              - img "Beach Read" [ref=e105]
+              - generic [ref=e106]:
+                - heading "Beach Read" [level=3] [ref=e107]
+                - paragraph [ref=e108]: Emily Henry
+        - generic [ref=e109]:
+          - generic [ref=e111]:
+            - heading "Fantasy" [level=2] [ref=e112]
+            - button "+ Subgenre / Tags" [ref=e113] [cursor=pointer]
+          - generic [ref=e114]:
+            - generic [ref=e117] [cursor=pointer]:
+              - img "The Name of the Wind" [ref=e118]
+              - generic [ref=e119]:
+                - heading "The Name of the Wind" [level=3] [ref=e120]
+                - paragraph [ref=e121]: Patrick Rothfuss
+            - generic [ref=e124] [cursor=pointer]:
+              - img "Fourth Wing" [ref=e125]
+              - generic [ref=e126]:
+                - heading "Fourth Wing" [level=3] [ref=e127]
+                - paragraph [ref=e128]: Rebecca Yarros
+            - generic [ref=e131] [cursor=pointer]:
+              - img "Legends & Lattes" [ref=e132]
+              - generic [ref=e133]:
+                - heading "Legends & Lattes" [level=3] [ref=e134]
+                - paragraph [ref=e135]: Travis Baldree
+            - generic [ref=e138] [cursor=pointer]:
+              - img "The House in the Cerulean Sea" [ref=e139]
+              - generic [ref=e140]:
+                - heading "The House in the Cerulean Sea" [level=3] [ref=e141]
+                - paragraph [ref=e142]: TJ Klune
+        - generic [ref=e143]:
+          - generic [ref=e145]:
+            - heading "Sci-Fi" [level=2] [ref=e146]
+            - button "+ Subgenre / Tags" [ref=e147] [cursor=pointer]
+          - generic [ref=e148]:
+            - generic [ref=e151] [cursor=pointer]:
+              - img "Project Hail Mary" [ref=e152]
+              - generic [ref=e153]:
+                - heading "Project Hail Mary" [level=3] [ref=e154]
+                - paragraph [ref=e155]: Andy Weir
+            - generic [ref=e158] [cursor=pointer]:
+              - img "Red Rising" [ref=e159]
+              - generic [ref=e160]:
+                - heading "Red Rising" [level=3] [ref=e161]
+                - paragraph [ref=e162]: Pierce Brown
+            - generic [ref=e165] [cursor=pointer]:
+              - img "Dune" [ref=e166]
+              - generic [ref=e167]:
+                - heading "Dune" [level=3] [ref=e168]
+                - paragraph [ref=e169]: Frank Herbert
+        - generic [ref=e170]:
+          - generic [ref=e172]:
+            - heading "Mystery" [level=2] [ref=e173]
+            - button "+ Subgenre / Tags" [ref=e174] [cursor=pointer]
+          - generic [ref=e175]:
+            - generic [ref=e178] [cursor=pointer]:
+              - img "And Then There Were None" [ref=e179]
+              - generic [ref=e180]:
+                - heading "And Then There Were None" [level=3] [ref=e181]
+                - paragraph [ref=e182]: Agatha Christie
+            - generic [ref=e185] [cursor=pointer]:
+              - img "The Silent Patient" [ref=e186]
+              - generic [ref=e187]:
+                - heading "The Silent Patient" [level=3] [ref=e188]
+                - paragraph [ref=e189]: Alex Michaelides
+        - generic [ref=e190]:
+          - generic [ref=e192]:
+            - heading "Romance" [level=2] [ref=e193]
+            - button "+ Subgenre / Tags" [ref=e194] [cursor=pointer]
+          - generic [ref=e195]:
+            - generic [ref=e198] [cursor=pointer]:
+              - img "Fourth Wing" [ref=e199]
+              - generic [ref=e200]:
+                - heading "Fourth Wing" [level=3] [ref=e201]
+                - paragraph [ref=e202]: Rebecca Yarros
+            - generic [ref=e205] [cursor=pointer]:
+              - img "The Seven Husbands of Evelyn Hugo" [ref=e206]
+              - generic [ref=e207]:
+                - heading "The Seven Husbands of Evelyn Hugo" [level=3] [ref=e208]
+                - paragraph [ref=e209]: Taylor Jenkins Reid
+            - generic [ref=e212] [cursor=pointer]:
+              - img "Beach Read" [ref=e213]
+              - generic [ref=e214]:
+                - heading "Beach Read" [level=3] [ref=e215]
+                - paragraph [ref=e216]: Emily Henry
+    - navigation [ref=e217]:
+      - generic [ref=e218]:
+        - button "Shelves" [ref=e219] [cursor=pointer]:
+          - img [ref=e220]
+          - generic [ref=e223]: Shelves
+        - button "Browse" [active] [ref=e224] [cursor=pointer]:
+          - img [ref=e225]
+          - generic [ref=e228]: Browse
+        - button "Username" [ref=e229] [cursor=pointer]:
+          - img [ref=e230]
+          - generic [ref=e233]: Username
+  - region "Notifications (F8)":
+    - list
+```

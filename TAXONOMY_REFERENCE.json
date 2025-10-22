@@ -2655,6 +2655,1703 @@
       "genre_slug": "wildlife"
     }
   ],
+  "cross_tags": [
+    {
+      "slug": "ableism",
+      "name": "Ableism",
+      "group": "content_flags"
+    },
+    {
+      "slug": "abortion",
+      "name": "Abortion",
+      "group": "content_flags"
+    },
+    {
+      "slug": "addiction",
+      "name": "Addiction",
+      "group": "content_flags"
+    },
+    {
+      "slug": "alcohol-use",
+      "name": "Alcohol Use",
+      "group": "content_flags"
+    },
+    {
+      "slug": "animal-cruelty",
+      "name": "Animal Cruelty",
+      "group": "content_flags"
+    },
+    {
+      "slug": "animal-death",
+      "name": "Animal Death",
+      "group": "content_flags"
+    },
+    {
+      "slug": "anxiety",
+      "name": "Anxiety",
+      "group": "content_flags"
+    },
+    {
+      "slug": "body-dysmorphia",
+      "name": "Body Dysmorphia",
+      "group": "content_flags"
+    },
+    {
+      "slug": "body-horror-flag",
+      "name": "Body Horror",
+      "group": "content_flags"
+    },
+    {
+      "slug": "bullying",
+      "name": "Bullying",
+      "group": "content_flags"
+    },
+    {
+      "slug": "cannibalism",
+      "name": "Cannibalism",
+      "group": "content_flags"
+    },
+    {
+      "slug": "cheating-flag",
+      "name": "Cheating",
+      "group": "content_flags"
+    },
+    {
+      "slug": "child-abuse",
+      "name": "Child Abuse",
+      "group": "content_flags"
+    },
+    {
+      "slug": "child-death",
+      "name": "Child Death",
+      "group": "content_flags"
+    },
+    {
+      "slug": "cults",
+      "name": "Cults",
+      "group": "content_flags"
+    },
+    {
+      "slug": "deadly-disease",
+      "name": "Deadly Disease",
+      "group": "content_flags"
+    },
+    {
+      "slug": "demonology",
+      "name": "Demonology",
+      "group": "content_flags"
+    },
+    {
+      "slug": "depression",
+      "name": "Depression",
+      "group": "content_flags"
+    },
+    {
+      "slug": "discrimination",
+      "name": "Discrimination",
+      "group": "content_flags"
+    },
+    {
+      "slug": "divorce",
+      "name": "Divorce",
+      "group": "content_flags"
+    },
+    {
+      "slug": "domestic-abuse",
+      "name": "Domestic Abuse",
+      "group": "content_flags"
+    },
+    {
+      "slug": "drug-use",
+      "name": "Drug Use",
+      "group": "content_flags"
+    },
+    {
+      "slug": "eating-disorder",
+      "name": "Eating Disorder",
+      "group": "content_flags"
+    },
+    {
+      "slug": "exorcism-flag",
+      "name": "Exorcism",
+      "group": "content_flags"
+    },
+    {
+      "slug": "sexual-content-explicit",
+      "name": "Explicit Sexual Content",
+      "group": "content_flags"
+    },
+    {
+      "slug": "sexual-content-fade-to-black",
+      "name": "Fade to Black Sex",
+      "group": "content_flags"
+    },
+    {
+      "slug": "genocide",
+      "name": "Genocide",
+      "group": "content_flags"
+    },
+    {
+      "slug": "ghost",
+      "name": "Ghost",
+      "group": "content_flags"
+    },
+    {
+      "slug": "gore",
+      "name": "Gore",
+      "group": "content_flags"
+    },
+    {
+      "slug": "violence-graphic",
+      "name": "Graphic Violence",
+      "group": "content_flags"
+    },
+    {
+      "slug": "hazing",
+      "name": "Hazing",
+      "group": "content_flags"
+    },
+    {
+      "slug": "profanity-heavy",
+      "name": "Heavy Profanity",
+      "group": "content_flags"
+    },
+    {
+      "slug": "homophobia",
+      "name": "Homophobia",
+      "group": "content_flags"
+    },
+    {
+      "slug": "human-sacrifice",
+      "name": "Human Sacrifice",
+      "group": "content_flags"
+    },
+    {
+      "slug": "incest",
+      "name": "Incest",
+      "group": "content_flags"
+    },
+    {
+      "slug": "infidelity",
+      "name": "Infidelity",
+      "group": "content_flags"
+    },
+    {
+      "slug": "kidnapping-flag",
+      "name": "Kidnapping",
+      "group": "content_flags"
+    },
+    {
+      "slug": "medical-malpractice",
+      "name": "Medical Malpractice",
+      "group": "content_flags"
+    },
+    {
+      "slug": "mental-illness",
+      "name": "Mental Illness",
+      "group": "content_flags"
+    },
+    {
+      "slug": "profanity-minimal",
+      "name": "Minimal Profanity",
+      "group": "content_flags"
+    },
+    {
+      "slug": "violence-minimal",
+      "name": "Minimal Violence",
+      "group": "content_flags"
+    },
+    {
+      "slug": "miscarriage",
+      "name": "Miscarriage",
+      "group": "content_flags"
+    },
+    {
+      "slug": "profanity-moderate",
+      "name": "Moderate Profanity",
+      "group": "content_flags"
+    },
+    {
+      "slug": "violence-moderate",
+      "name": "Moderate Violence",
+      "group": "content_flags"
+    },
+    {
+      "slug": "sexual-content-none",
+      "name": "No Sexual Content",
+      "group": "content_flags"
+    },
+    {
+      "slug": "non-consensual",
+      "name": "Non‑Consensual",
+      "group": "content_flags"
+    },
+    {
+      "slug": "ptsd",
+      "name": "PTSD",
+      "group": "content_flags"
+    },
+    {
+      "slug": "pandemic",
+      "name": "Pandemic",
+      "group": "content_flags"
+    },
+    {
+      "slug": "plague",
+      "name": "Plague",
+      "group": "content_flags"
+    },
+    {
+      "slug": "pornographic",
+      "name": "Pornographic",
+      "group": "content_flags"
+    },
+    {
+      "slug": "possession",
+      "name": "Possession",
+      "group": "content_flags"
+    },
+    {
+      "slug": "pregnancy-complications",
+      "name": "Pregnancy Complications",
+      "group": "content_flags"
+    },
+    {
+      "slug": "psychological-abuse",
+      "name": "Psychological Abuse",
+      "group": "content_flags"
+    },
+    {
+      "slug": "racism",
+      "name": "Racism",
+      "group": "content_flags"
+    },
+    {
+      "slug": "rape",
+      "name": "Rape",
+      "group": "content_flags"
+    },
+    {
+      "slug": "recovery",
+      "name": "Recovery",
+      "group": "content_flags"
+    },
+    {
+      "slug": "rituals",
+      "name": "Rituals",
+      "group": "content_flags"
+    },
+    {
+      "slug": "self-harm",
+      "name": "Self Harm",
+      "group": "content_flags"
+    },
+    {
+      "slug": "sexism",
+      "name": "Sexism",
+      "group": "content_flags"
+    },
+    {
+      "slug": "sexual-assault",
+      "name": "Sexual Assault",
+      "group": "content_flags"
+    },
+    {
+      "slug": "slavery",
+      "name": "Slavery",
+      "group": "content_flags"
+    },
+    {
+      "slug": "stalking",
+      "name": "Stalking",
+      "group": "content_flags"
+    },
+    {
+      "slug": "suicide",
+      "name": "Suicide",
+      "group": "content_flags"
+    },
+    {
+      "slug": "taboo-romance",
+      "name": "Taboo Romance",
+      "group": "content_flags"
+    },
+    {
+      "slug": "terminal-illness",
+      "name": "Terminal Illness",
+      "group": "content_flags"
+    },
+    {
+      "slug": "terrorism",
+      "name": "Terrorism",
+      "group": "content_flags"
+    },
+    {
+      "slug": "threatening-situations",
+      "name": "Threatening Situations",
+      "group": "content_flags"
+    },
+    {
+      "slug": "torture",
+      "name": "Torture",
+      "group": "content_flags"
+    },
+    {
+      "slug": "transphobia",
+      "name": "Transphobia",
+      "group": "content_flags"
+    },
+    {
+      "slug": "traumatic-injury",
+      "name": "Traumatic Injury",
+      "group": "content_flags"
+    },
+    {
+      "slug": "war-violence",
+      "name": "War Violence",
+      "group": "content_flags"
+    },
+    {
+      "slug": "xenophobia",
+      "name": "Xenophobia",
+      "group": "content_flags"
+    },
+    {
+      "slug": "academy-school",
+      "name": "Academy/School",
+      "group": "setting"
+    },
+    {
+      "slug": "alien-planet",
+      "name": "Alien Planet",
+      "group": "setting"
+    },
+    {
+      "slug": "arctic",
+      "name": "Arctic",
+      "group": "setting"
+    },
+    {
+      "slug": "bazaar",
+      "name": "Bazaar",
+      "group": "setting"
+    },
+    {
+      "slug": "big-city",
+      "name": "Big City",
+      "group": "setting"
+    },
+    {
+      "slug": "boarding-school",
+      "name": "Boarding School",
+      "group": "setting"
+    },
+    {
+      "slug": "castle",
+      "name": "Castle",
+      "group": "setting"
+    },
+    {
+      "slug": "closed-circle",
+      "name": "Closed Circle",
+      "group": "setting"
+    },
+    {
+      "slug": "coastal-city",
+      "name": "Coastal City",
+      "group": "setting"
+    },
+    {
+      "slug": "coffee-shop",
+      "name": "Coffee Shop",
+      "group": "setting"
+    },
+    {
+      "slug": "college-campus",
+      "name": "College Campus",
+      "group": "setting"
+    },
+    {
+      "slug": "courtroom",
+      "name": "Courtroom",
+      "group": "setting"
+    },
+    {
+      "slug": "cyberpunk-city",
+      "name": "Cyberpunk City",
+      "group": "setting"
+    },
+    {
+      "slug": "desert",
+      "name": "Desert",
+      "group": "setting"
+    },
+    {
+      "slug": "desert-planet",
+      "name": "Desert Planet",
+      "group": "setting"
+    },
+    {
+      "slug": "dystopian-city",
+      "name": "Dystopian City",
+      "group": "setting"
+    },
+    {
+      "slug": "dystopian-megastructure",
+      "name": "Dystopian Megastructure",
+      "group": "setting"
+    },
+    {
+      "slug": "far-future-earth",
+      "name": "Far Future Earth",
+      "group": "setting"
+    },
+    {
+      "slug": "farm",
+      "name": "Farm",
+      "group": "setting"
+    },
+    {
+      "slug": "forest",
+      "name": "Forest",
+      "group": "setting"
+    },
+    {
+      "slug": "fortress",
+      "name": "Fortress",
+      "group": "setting"
+    },
+    {
+      "slug": "futuristic-metropolis",
+      "name": "Futuristic Metropolis",
+      "group": "setting"
+    },
+    {
+      "slug": "generation-ship-setting",
+      "name": "Generation Ship",
+      "group": "setting"
+    },
+    {
+      "slug": "haunted-hotel",
+      "name": "Haunted Hotel",
+      "group": "setting"
+    },
+    {
+      "slug": "haunted-mansion",
+      "name": "Haunted Mansion",
+      "group": "setting"
+    },
+    {
+      "slug": "high-school",
+      "name": "High School",
+      "group": "setting"
+    },
+    {
+      "slug": "medical-hospital",
+      "name": "Hospital",
+      "group": "setting"
+    },
+    {
+      "slug": "island",
+      "name": "Island",
+      "group": "setting"
+    },
+    {
+      "slug": "jungle",
+      "name": "Jungle",
+      "group": "setting"
+    },
+    {
+      "slug": "lighthouse",
+      "name": "Lighthouse",
+      "group": "setting"
+    },
+    {
+      "slug": "medieval-inspired",
+      "name": "Medieval Inspired",
+      "group": "setting"
+    },
+    {
+      "slug": "mountain",
+      "name": "Mountain",
+      "group": "setting"
+    },
+    {
+      "slug": "office",
+      "name": "Office",
+      "group": "setting"
+    },
+    {
+      "slug": "orchard",
+      "name": "Orchard",
+      "group": "setting"
+    },
+    {
+      "slug": "palace",
+      "name": "Palace",
+      "group": "setting"
+    },
+    {
+      "slug": "post-collapse",
+      "name": "Post Collapse",
+      "group": "setting"
+    },
+    {
+      "slug": "post-apocalyptic",
+      "name": "Post‑Apocalyptic",
+      "group": "setting"
+    },
+    {
+      "slug": "ranch",
+      "name": "Ranch",
+      "group": "setting"
+    },
+    {
+      "slug": "regency-era",
+      "name": "Regency Era",
+      "group": "setting"
+    },
+    {
+      "slug": "seaside-town",
+      "name": "Seaside Town",
+      "group": "setting"
+    },
+    {
+      "slug": "secondary-world",
+      "name": "Secondary World",
+      "group": "setting"
+    },
+    {
+      "slug": "simulation",
+      "name": "Simulation",
+      "group": "setting"
+    },
+    {
+      "slug": "small-town",
+      "name": "Small Town",
+      "group": "setting"
+    },
+    {
+      "slug": "southern-town",
+      "name": "Southern Town",
+      "group": "setting"
+    },
+    {
+      "slug": "space",
+      "name": "Space",
+      "group": "setting"
+    },
+    {
+      "slug": "space-station",
+      "name": "Space Station",
+      "group": "setting"
+    },
+    {
+      "slug": "spaceship",
+      "name": "Spaceship",
+      "group": "setting"
+    },
+    {
+      "slug": "spaceship-cargo-bay",
+      "name": "Spaceship Cargo Bay",
+      "group": "setting"
+    },
+    {
+      "slug": "submarine",
+      "name": "Submarine",
+      "group": "setting"
+    },
+    {
+      "slug": "subterranean-base",
+      "name": "Subterranean Base",
+      "group": "setting"
+    },
+    {
+      "slug": "summer-camp",
+      "name": "Summer Camp",
+      "group": "setting"
+    },
+    {
+      "slug": "swamp",
+      "name": "Swamp",
+      "group": "setting"
+    },
+    {
+      "slug": "tavern",
+      "name": "Tavern",
+      "group": "setting"
+    },
+    {
+      "slug": "tundra",
+      "name": "Tundra",
+      "group": "setting"
+    },
+    {
+      "slug": "underground-bunker",
+      "name": "Underground Bunker",
+      "group": "setting"
+    },
+    {
+      "slug": "underwater-city",
+      "name": "Underwater City",
+      "group": "setting"
+    },
+    {
+      "slug": "underworld-realm",
+      "name": "Underworld Realm",
+      "group": "setting"
+    },
+    {
+      "slug": "utopian-city",
+      "name": "Utopian City",
+      "group": "setting"
+    },
+    {
+      "slug": "victorian-era",
+      "name": "Victorian Era",
+      "group": "setting"
+    },
+    {
+      "slug": "village",
+      "name": "Village",
+      "group": "setting"
+    },
+    {
+      "slug": "vineyard",
+      "name": "Vineyard",
+      "group": "setting"
+    },
+    {
+      "slug": "virtual-world",
+      "name": "Virtual World",
+      "group": "setting"
+    },
+    {
+      "slug": "western-frontier",
+      "name": "Western Frontier",
+      "group": "setting"
+    },
+    {
+      "slug": "winter-lodge",
+      "name": "Winter Lodge",
+      "group": "setting"
+    },
+    {
+      "slug": "workplace",
+      "name": "Workplace",
+      "group": "setting"
+    },
+    {
+      "slug": "alternating-chapters",
+      "name": "Alternating Chapters",
+      "group": "structure"
+    },
+    {
+      "slug": "anthology-format",
+      "name": "Anthology Format",
+      "group": "structure"
+    },
+    {
+      "slug": "choose-your-own",
+      "name": "Choose Your Own",
+      "group": "structure"
+    },
+    {
+      "slug": "collaborative",
+      "name": "Collaborative",
+      "group": "structure"
+    },
+    {
+      "slug": "diary-format",
+      "name": "Diary Format",
+      "group": "structure"
+    },
+    {
+      "slug": "dual-protagonist",
+      "name": "Dual Protagonist",
+      "group": "structure"
+    },
+    {
+      "slug": "dual-timeline",
+      "name": "Dual Timeline",
+      "group": "structure"
+    },
+    {
+      "slug": "epistolary",
+      "name": "Epistolary",
+      "group": "structure"
+    },
+    {
+      "slug": "experimental-structure",
+      "name": "Experimental Structure",
+      "group": "structure"
+    },
+    {
+      "slug": "first-person",
+      "name": "First Person",
+      "group": "structure"
+    },
+    {
+      "slug": "flash-fiction",
+      "name": "Flash Fiction",
+      "group": "structure"
+    },
+    {
+      "slug": "found-footage-structure",
+      "name": "Found Footage Structure",
+      "group": "structure"
+    },
+    {
+      "slug": "frame-narrative",
+      "name": "Frame Narrative",
+      "group": "structure"
+    },
+    {
+      "slug": "free-verse",
+      "name": "Free Verse",
+      "group": "structure"
+    },
+    {
+      "slug": "graphic",
+      "name": "Graphic",
+      "group": "structure"
+    },
+    {
+      "slug": "hybrid-poetry",
+      "name": "Hybrid Poetry",
+      "group": "structure"
+    },
+    {
+      "slug": "hypertext",
+      "name": "Hypertext",
+      "group": "structure"
+    },
+    {
+      "slug": "interactive",
+      "name": "Interactive",
+      "group": "structure"
+    },
+    {
+      "slug": "letters",
+      "name": "Letters",
+      "group": "structure"
+    },
+    {
+      "slug": "limited-third-person",
+      "name": "Limited Third Person",
+      "group": "structure"
+    },
+    {
+      "slug": "meta-narrative",
+      "name": "Meta Narrative",
+      "group": "structure"
+    },
+    {
+      "slug": "micro-fiction",
+      "name": "Micro Fiction",
+      "group": "structure"
+    },
+    {
+      "slug": "multiple-pov",
+      "name": "Multiple POV",
+      "group": "structure"
+    },
+    {
+      "slug": "multiple-timelines",
+      "name": "Multiple Timelines",
+      "group": "structure"
+    },
+    {
+      "slug": "nonlinear",
+      "name": "Nonlinear",
+      "group": "structure"
+    },
+    {
+      "slug": "omniscient",
+      "name": "Omniscient",
+      "group": "structure"
+    },
+    {
+      "slug": "parallel-narratives",
+      "name": "Parallel Narratives",
+      "group": "structure"
+    },
+    {
+      "slug": "perspective-shifts",
+      "name": "Perspective Shifts",
+      "group": "structure"
+    },
+    {
+      "slug": "polyphonic",
+      "name": "Polyphonic",
+      "group": "structure"
+    },
+    {
+      "slug": "second-person",
+      "name": "Second Person",
+      "group": "structure"
+    },
+    {
+      "slug": "serial-episodic",
+      "name": "Serial/Episodic",
+      "group": "structure"
+    },
+    {
+      "slug": "serialised",
+      "name": "Serialised",
+      "group": "structure"
+    },
+    {
+      "slug": "single-pov",
+      "name": "Single POV",
+      "group": "structure"
+    },
+    {
+      "slug": "split-perspective",
+      "name": "Split Perspective",
+      "group": "structure"
+    },
+    {
+      "slug": "story-within-story",
+      "name": "Story Within Story",
+      "group": "structure"
+    },
+    {
+      "slug": "stream-of-consciousness-structure",
+      "name": "Stream of Consciousness",
+      "group": "structure"
+    },
+    {
+      "slug": "third-person",
+      "name": "Third Person",
+      "group": "structure"
+    },
+    {
+      "slug": "time-skips",
+      "name": "Time Skips",
+      "group": "structure"
+    },
+    {
+      "slug": "unreliable-narrator",
+      "name": "Unreliable Narrator",
+      "group": "structure"
+    },
+    {
+      "slug": "verse-novel",
+      "name": "Verse Novel",
+      "group": "structure"
+    },
+    {
+      "slug": "vignette",
+      "name": "Vignette",
+      "group": "structure"
+    },
+    {
+      "slug": "allegorical",
+      "name": "Allegorical",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "analytical",
+      "name": "Analytical",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "angsty",
+      "name": "Angsty",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "bittersweet",
+      "name": "Bittersweet",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "bleak",
+      "name": "Bleak",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "cautionary",
+      "name": "Cautionary",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "charming",
+      "name": "Charming",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "chilling",
+      "name": "Chilling",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "claustrophobic",
+      "name": "Claustrophobic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "comedic",
+      "name": "Comedic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "contemplative",
+      "name": "Contemplative",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "cozy",
+      "name": "Cozy",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "dark",
+      "name": "Dark",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "dramatic",
+      "name": "Dramatic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "dreamlike",
+      "name": "Dreamlike",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "dry-wit",
+      "name": "Dry Wit",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "educational-tone",
+      "name": "Educational",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "emotional",
+      "name": "Emotional",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "epic-tone",
+      "name": "Epic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "fairy-tale",
+      "name": "Fairy Tale",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "fast-paced",
+      "name": "Fast Paced",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "grim",
+      "name": "Grim",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "grimdark-tone",
+      "name": "Grimdark",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "gritty",
+      "name": "Gritty",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "heartwarming",
+      "name": "Heartwarming",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "high-stakes",
+      "name": "High Stakes",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "hopepunk",
+      "name": "Hopepunk",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "humorous",
+      "name": "Humorous",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "inspirational",
+      "name": "Inspirational",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "introspective",
+      "name": "Introspective",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "investigative",
+      "name": "Investigative",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "irreverent",
+      "name": "Irreverent",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "light-hearted",
+      "name": "Light‑Hearted",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "melancholic",
+      "name": "Melancholic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "motivational-tone",
+      "name": "Motivational",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "mythic",
+      "name": "Mythic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "noir-atmosphere",
+      "name": "Noir Atmosphere",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "philosophical",
+      "name": "Philosophical",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "poignant",
+      "name": "Poignant",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "pulse-pounding",
+      "name": "Pulse Pounding",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "reflective",
+      "name": "Reflective",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "romantic-tone",
+      "name": "Romantic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "sarcastic",
+      "name": "Sarcastic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "sardonic",
+      "name": "Sardonic",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "satirical",
+      "name": "Satirical",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "slapstick",
+      "name": "Slapstick",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "steamy",
+      "name": "Steamy",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "surreal",
+      "name": "Surreal",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "tense",
+      "name": "Tense",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "uplifting",
+      "name": "Uplifting",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "urgent",
+      "name": "Urgent",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "whimsical",
+      "name": "Whimsical",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "witty",
+      "name": "Witty",
+      "group": "tone_mood"
+    },
+    {
+      "slug": "amnesia",
+      "name": "Amnesia",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "antihero",
+      "name": "Antihero",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "aromantic",
+      "name": "Aromantic",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "arranged-marriage",
+      "name": "Arranged Marriage",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "asexual",
+      "name": "Asexual",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "bisexual",
+      "name": "Bisexual",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "brothers-best-friend",
+      "name": "Brother’s Best Friend",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "cat-and-mouse",
+      "name": "Cat and Mouse",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "chase",
+      "name": "Chase",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "chosen-one",
+      "name": "Chosen One",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "cold-case",
+      "name": "Cold Case",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "conspiracy",
+      "name": "Conspiracy",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "cosmic-dread",
+      "name": "Cosmic Dread",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "countdown",
+      "name": "Countdown",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "coup",
+      "name": "Coup",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "cult",
+      "name": "Cult",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "cultivation",
+      "name": "Cultivation",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "cursed-bloodline",
+      "name": "Cursed Bloodline",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "cursed-object",
+      "name": "Cursed Object",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "cursed-town",
+      "name": "Cursed Town",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "dark-past",
+      "name": "Dark Past",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "dark-past-redemption",
+      "name": "Dark Past Redemption",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "demisexual",
+      "name": "Demisexual",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "demonic-possession",
+      "name": "Demonic Possession",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "double-agent",
+      "name": "Double Agent",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "endurance",
+      "name": "Endurance",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "enemies-alliance",
+      "name": "Enemies Alliance",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "enemies-to-lovers",
+      "name": "Enemies to Lovers",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "espionage",
+      "name": "Espionage",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "exorcism",
+      "name": "Exorcism",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "fae-politics",
+      "name": "Fae Politics",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "fake-relationship",
+      "name": "Fake Relationship",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "family-feud",
+      "name": "Family Feud",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "fated-mates",
+      "name": "Fated Mates",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "female-protagonist",
+      "name": "Female Protagonist",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "fish-out-of-water",
+      "name": "Fish Out of Water",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "forbidden-love",
+      "name": "Forbidden Love",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "forbidden-magic",
+      "name": "Forbidden Magic",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "forced-proximity",
+      "name": "Forced Proximity",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "found-family",
+      "name": "Found Family",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "found-footage",
+      "name": "Found Footage",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "gay",
+      "name": "Gay",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "grumpy-sunshine",
+      "name": "Grumpy/Sunshine",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "haunted-house",
+      "name": "Haunted House",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "heist",
+      "name": "Heist",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "heroes-journey",
+      "name": "Hero’s Journey",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "heterosexual",
+      "name": "Heterosexual",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "hidden-royalty",
+      "name": "Hidden Royalty",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "hostage",
+      "name": "Hostage Situation",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "identity-crisis",
+      "name": "Identity Crisis",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "infiltration",
+      "name": "Infiltration",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "isekai",
+      "name": "Isekai",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "journey",
+      "name": "Journey",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "journey-of-discovery",
+      "name": "Journey of Discovery",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "lgbtq",
+      "name": "LGBTQ+",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "litrpg-system",
+      "name": "LitRPG System",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "lost-heir",
+      "name": "Lost Heir",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "love-triangle",
+      "name": "Love Triangle",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "makeover",
+      "name": "Makeover",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "male-protagonist",
+      "name": "Male Protagonist",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "manhunt",
+      "name": "Manhunt",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "marriage-of-convenience",
+      "name": "Marriage of Convenience",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "mentor-protege",
+      "name": "Mentor/Protege",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "missing-persons",
+      "name": "Missing Persons",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "mistaken-identity",
+      "name": "Mistaken Identity",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "mob-boss-romance",
+      "name": "Mob Boss Romance",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "murder-mystery",
+      "name": "Murder Mystery",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "nonbinary",
+      "name": "Non-Binary",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "nonbinary-protagonist",
+      "name": "Non‑Binary Protagonist",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "one-bed",
+      "name": "One Bed",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "pansexual",
+      "name": "Pansexual",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "polyamorous",
+      "name": "Polyamorous",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "portal",
+      "name": "Portal",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "portal-gun",
+      "name": "Portal Gun",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "prison-break",
+      "name": "Prison Break",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "progression",
+      "name": "Progression",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "prophecy",
+      "name": "Prophecy",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "queer",
+      "name": "Queer",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "rags-to-riches",
+      "name": "Rags to Riches",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "rebellion",
+      "name": "Rebellion",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "redemption-arc",
+      "name": "Redemption Arc",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "reincarnation",
+      "name": "Reincarnation",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "revenge",
+      "name": "Revenge",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "sabotage",
+      "name": "Sabotage",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "second-chance",
+      "name": "Second Chance",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "secret-baby",
+      "name": "Secret Baby",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "secret-identity",
+      "name": "Secret Identity",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "secret-society",
+      "name": "Secret Society",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "shapeshifter-mate",
+      "name": "Shapeshifter Mate",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "small-town-charm",
+      "name": "Small Town Charm",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "soulmates",
+      "name": "Soulmates",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "star-crossed-lovers",
+      "name": "Star‑Crossed Lovers",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "survival",
+      "name": "Survival",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "time-loop",
+      "name": "Time Loop",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "time-travel",
+      "name": "Time Travel",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "transgender",
+      "name": "Transgender",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "treachery",
+      "name": "Treachery",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "underdog",
+      "name": "Underdog",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "unrequited-love",
+      "name": "Unrequited Love",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "uprising",
+      "name": "Uprising",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "villain-protagonist",
+      "name": "Villain Protagonist",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "villains-journey",
+      "name": "Villain’s Journey",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "world-ending-threat",
+      "name": "World‑Ending Threat",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "yaoi",
+      "name": "Yaoi",
+      "group": "tropes_themes"
+    },
+    {
+      "slug": "yuri",
+      "name": "Yuri",
+      "group": "tropes_themes"
+    }
+  ],
   "domains": [
     {
       "slug": "fiction",
@@ -2801,6 +4498,36 @@
     {
       "slug": "western-frontier",
       "name": "Western & Frontier"
+    }
+  ],
+  "age_markets": [
+    {
+      "slug": "adult",
+      "name": "Adult"
+    },
+    {
+      "slug": "early-readers",
+      "name": "Early Readers"
+    },
+    {
+      "slug": "general",
+      "name": "General Audience"
+    },
+    {
+      "slug": "infant-toddler",
+      "name": "Infant & Toddler"
+    },
+    {
+      "slug": "middle-grade",
+      "name": "Middle Grade"
+    },
+    {
+      "slug": "new-adult",
+      "name": "New Adult"
+    },
+    {
+      "slug": "young-adult",
+      "name": "Young Adult"
     }
   ],
   "formats": [

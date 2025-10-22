@@ -8,13 +8,13 @@ async function exportTaxonomy() {
   
   const taxonomy = {};
   
-  // Try to export each table, skip if doesn't exist
+  // Export taxonomy tables (using actual table names)
   try { taxonomy.genres = await sql`SELECT slug, name FROM genres ORDER BY name`; } catch(e) { console.log('- genres table not found'); }
   try { taxonomy.subgenres = await sql`SELECT s.slug, s.name, g.slug as genre_slug FROM subgenres s JOIN genres g ON s.genre_id = g.id ORDER BY g.slug, s.name`; } catch(e) { console.log('- subgenres table not found'); }
-  try { taxonomy.tags = await sql`SELECT slug, name, "group" FROM tags ORDER BY "group", name`; } catch(e) { console.log('- tags table not found'); }
+  try { taxonomy.cross_tags = await sql`SELECT slug, name, "group" FROM cross_tags ORDER BY "group", name`; } catch(e) { console.log('- cross_tags table not found'); }
   try { taxonomy.domains = await sql`SELECT slug, name FROM domains ORDER BY name`; } catch(e) { console.log('- domains table not found'); }
   try { taxonomy.supergenres = await sql`SELECT slug, name FROM supergenres ORDER BY name`; } catch(e) { console.log('- supergenres table not found'); }
-  try { taxonomy.audiences = await sql`SELECT slug, name FROM audiences ORDER BY name`; } catch(e) { console.log('- audiences table not found'); }
+  try { taxonomy.age_markets = await sql`SELECT slug, name FROM age_markets ORDER BY name`; } catch(e) { console.log('- age_markets table not found'); }
   try { taxonomy.formats = await sql`SELECT slug, name FROM formats ORDER BY name`; } catch(e) { console.log('- formats table not found'); }
   
   writeFileSync('TAXONOMY_REFERENCE.json', JSON.stringify(taxonomy, null, 2));

@@ -67,7 +67,7 @@ app.use((req, res, next) => {
   const port = 8001;  // temporary: avoid the busy 5000 port
 
   server.listen(
-    { port, host: "0.0.0.0", reusePort: true },
+    { port, host: "0.0.0.0" },
     () => log(`serving on port ${port}`)
   );
 })();
