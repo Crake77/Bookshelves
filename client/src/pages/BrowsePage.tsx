@@ -15,8 +15,10 @@ import { Input } from "@/components/ui/input";
 import {
   searchBooks,
   fetchBrowseBooks,
+  browseWorks,
   DEMO_USER_ID,
   type BookSearchResult,
+  type Work,
   type BrowseAlgo,
 } from "@/lib/api";
 import { consumePendingBrowseFilter, type BrowseFilter } from "@/lib/browseFilter";
@@ -64,6 +66,16 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blocked
     };
   }, [fallbackBooks]);
 
+  // Use works endpoint ONLY for the top-level browse (no filters at all)
+  // Genre, subgenre, tags etc all use the old endpoint for now
+  const hasAnyFilters = Boolean(
+    genre || subgenre || tag || (tagAny && tagAny.length > 0) || 
+    (blockedTags && blockedTags.length > 0) || format || 
+    audience || domain || supergenre
+  );
+  
+  const useWorksEndpoint = !hasAnyFilters;
+
   const {
     data,
     fetchNextPage,
@@ -74,30 +86,51 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blocked
     status,
     error,
   } = useInfiniteQuery({
-    queryKey: ["browse", algo, genre ?? "all", subgenre ?? "", tag ?? "", (tagAny ?? []).join("|"), (blockedTags ?? []).join("|"), format ?? "", audience ?? "", domain ?? "", supergenre ?? "", userId ?? "anon"],
+    queryKey: useWorksEndpoint 
+      ? ["browse-works", algo, genre ?? "all", userId ?? "anon"]
+      : ["browse", algo, genre ?? "all", subgenre ?? "", tag ?? "", (tagAny ?? []).join("|"), (blockedTags ?? []).join("|"), format ?? "", audience ?? "", domain ?? "", supergenre ?? "", userId ?? "anon"],
     initialPageParam: 0,
-    queryFn: async ({ pageParam = 0, signal }) =>
-      fetchBrowseBooks({
-        algo,
-        userId,
-        genre: genre ?? undefined,
-        subgenre: subgenre ?? undefined,
-        tag: tag ?? undefined,
-        tagAny: tagAny ?? undefined,
-        blockedTags: blockedTags ?? undefined,
-        format: format ?? undefined,
-        audience: audience ?? undefined,
-        domain: domain ?? undefined,
-        supergenre: supergenre ?? undefined,
-        limit: CAROUSEL_PAGE_SIZE,
-        offset: pageParam,
-        signal,
-      }),
+    queryFn: async ({ pageParam = 0, signal }) => {
+      if (useWorksEndpoint) {
+        // Use works endpoint for simple browsing
+        const sortMap: Record<BrowseAlgo, 'latestMajor' | 'original'> = {
+          popular: 'latestMajor',
+          rating: 'latestMajor',
+          recent: 'latestMajor',
+          'for-you': 'latestMajor',
+        };
+        return browseWorks({
+          sort: sortMap[algo],
+          limit: CAROUSEL_PAGE_SIZE,
+          offset: pageParam,
+          userId,
+          signal,
+        });
+      } else {
+        // Use old endpoint for filtered browsing
+        return fetchBrowseBooks({
+          algo,
+          userId,
+          genre: genre ?? undefined,
+          subgenre: subgenre ?? undefined,
+          tag: tag ?? undefined,
+          tagAny: tagAny ?? undefined,
+          blockedTags: blockedTags ?? undefined,
+          format: format ?? undefined,
+          audience: audience ?? undefined,
+          domain: domain ?? undefined,
+          supergenre: supergenre ?? undefined,
+          limit: CAROUSEL_PAGE_SIZE,
+          offset: pageParam,
+          signal,
+        });
+      }
+    },
     // Offset-based pagination: advance by the fixed page size when a full page is returned.
     // If the API returns fewer than the page size, treat as the end.
     getNextPageParam: (
-      lastPage: BookSearchResult[],
-      _pages: BookSearchResult[][],
+      lastPage: (BookSearchResult | Work)[],
+      _pages: (BookSearchResult | Work)[][],
       lastPageParam: number
     ) => (Array.isArray(lastPage) && lastPage.length === CAROUSEL_PAGE_SIZE
       ? lastPageParam + CAROUSEL_PAGE_SIZE
@@ -107,7 +140,29 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blocked
     placeholderData: (previousData) => previousData ?? fallbackInfiniteData,
   });
 
-  const rawBooks = useMemo(() => (data?.pages ?? []).flat(), [data]);
+  const rawBooks = useMemo(() => {
+    const flat = (data?.pages ?? []).flat();
+    // Normalize Work objects to BookSearchResult for component compatibility
+    return flat.map(item => {
+      if ('displayEditionId' in item) {
+        // It's a Work - convert to BookSearchResult format
+        const work = item as Work;
+        return {
+          googleBooksId: work.googleBooksId || work.displayEditionId,
+          title: work.title,
+          authors: work.authors,
+          description: work.description || undefined,
+          coverUrl: work.coverUrl,
+          publishedDate: work.originalPublicationDate || undefined,
+          pageCount: work.pageCount,
+          categories: work.categories,
+          isbn: work.isbn,
+        } as BookSearchResult;
+      }
+      // Already a BookSearchResult
+      return item as BookSearchResult;
+    });
+  }, [data]);
   const hasRealData = status === "success" && rawBooks.length > 0;
   const displayBooks = hasRealData ? rawBooks : fallbackBooks;
   const errorMessage =

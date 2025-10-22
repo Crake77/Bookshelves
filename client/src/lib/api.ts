@@ -39,6 +39,29 @@ export interface BookStats {
   updatedAt: string;
 }
 
+// Work interface from publication dating system
+export interface Work {
+  id: string;
+  title: string;
+  authors: string[];
+  description: string | null;
+  series: string | null;
+  seriesOrder: number | null;
+  originalPublicationDate: string | null;
+  latestMajorReleaseDate: string | null;
+  latestAnyReleaseDate: string | null;
+  nextMajorReleaseDate: string | null;
+  displayEditionId: string;
+  coverUrl: string; // From display edition
+  matchConfidence: number;
+  // Add fields for compatibility with BookSearchResult
+  googleBooksId?: string; // From display edition
+  publishedDate?: string; // Mapped from originalPublicationDate for compatibility
+  pageCount?: number;
+  categories?: string[];
+  isbn?: string;
+}
+
 export type BrowseAlgo = "popular" | "rating" | "recent" | "for-you";
 
 export interface BrowseRequestOptions {
@@ -102,6 +125,48 @@ export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<B
   }
 
   return getFallbackBrowse(options.algo, options.genre);
+}
+
+// Browse works (edition-aware, deduplicated)
+export interface BrowseWorksOptions {
+  sort?: 'original' | 'latestMajor' | 'latestAny' | 'title';
+  recentDays?: number;
+  limit?: number;
+  offset?: number;
+  userId?: string;
+  signal?: AbortSignal;
+}
+
+export async function browseWorks(options: BrowseWorksOptions): Promise<Work[]> {
+  const params = new URLSearchParams();
+  params.set('sort', options.sort || 'latestMajor');
+  params.set('recentDays', String(options.recentDays || 90));
+  params.set('limit', String(options.limit || 12));
+  params.set('offset', String(options.offset || 0));
+  if (options.userId) params.set('userId', options.userId);
+
+  try {
+    const response = await fetch(`/api/works/browse?${params.toString()}`, {
+      signal: options.signal,
+    });
+    if (!response.ok) {
+      console.warn(`[browseWorks] request failed (${response.status})`);
+      throw new Error(`Failed to load works: ${response.status}`);
+    }
+    const payload = await response.json();
+    if (Array.isArray(payload) && payload.length > 0) {
+      return payload;
+    }
+    console.warn('[browseWorks] API returned empty payload');
+    return [];
+  } catch (error) {
+    console.warn('[browseWorks] error:', error);
+    // Don't fallback on offset pages
+    if (options.offset && options.offset > 0) {
+      return [];
+    }
+    throw error;
+  }
 }
 
 // Taxonomy for a book (from DB, best-effort)
