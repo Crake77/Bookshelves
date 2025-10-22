@@ -364,13 +364,13 @@ function ContentFlagSelector({ open, onClose, taxonomy, selectedFlags, onToggle 
   
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[80vh]">
+      <DialogContent className="max-w-2xl max-h-[80vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Select Content Flags</DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4">
-          <div className="relative">
+        <div className="flex flex-col flex-1 space-y-4">
+          <div className="relative flex-shrink-0">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search content flags..."
@@ -380,7 +380,7 @@ function ContentFlagSelector({ open, onClose, taxonomy, selectedFlags, onToggle 
             />
           </div>
           
-          <div className="flex flex-wrap gap-2 max-h-96 overflow-y-auto p-4 border rounded-lg bg-muted/20">
+          <div className="flex flex-wrap gap-2 flex-1 overflow-y-auto p-4 border rounded-lg bg-muted/20">
             {filteredFlags.map((flag) => {
               const isSelected = selectedFlags.some(f => f.slug === flag.slug);
               return (
@@ -427,8 +427,8 @@ function FormatSelector({ open, onClose, taxonomy, selectedFormats, onToggle }: 
           <DialogTitle>Select Format</DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4">
-          <div className="relative">
+        <div className="flex flex-col flex-1 space-y-4">
+          <div className="relative flex-shrink-0">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search formats..."
@@ -438,7 +438,7 @@ function FormatSelector({ open, onClose, taxonomy, selectedFormats, onToggle }: 
             />
           </div>
           
-          <div className="grid grid-cols-2 gap-2 max-h-96 overflow-y-auto">
+          <div className="grid grid-cols-2 gap-2 flex-1 overflow-y-auto">
             {filteredFormats.map((format) => {
               const isSelected = selectedFormats.some(f => f.slug === format.slug);
               return (
@@ -491,13 +491,13 @@ function SimpleSelector({ open, onClose, items, onToggle, selectedSlugs, title, 
   
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md max-h-[80vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4">
-          <div className="relative">
+        <div className="flex flex-col flex-1 space-y-4">
+          <div className="relative flex-shrink-0">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder={`Search ${title.toLowerCase()}...`}
@@ -507,7 +507,7 @@ function SimpleSelector({ open, onClose, items, onToggle, selectedSlugs, title, 
             />
           </div>
           
-          <div className="grid grid-cols-1 gap-2 max-h-96 overflow-y-auto">
+          <div className="grid grid-cols-1 gap-2 flex-1 overflow-y-auto">
             {filteredItems.map((item) => {
               const isSelected = selectedSlugs.includes(item.slug);
               return (
@@ -542,12 +542,12 @@ function AudienceSelector({ open, onClose, taxonomy, selectedAudiences, onToggle
   
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md max-h-[80vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Select Audience (Age Market)</DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-2 max-h-96 overflow-y-auto">
+        <div className="flex-1 space-y-2 overflow-y-auto">
           {reversedAgeMarkets.map((market) => {
             const isSelected = selectedAudiences.some(a => a.slug === market.slug);
             return (
@@ -566,9 +566,13 @@ function AudienceSelector({ open, onClose, taxonomy, selectedAudiences, onToggle
                 }`}
               >
                 <div className="font-medium">{market.name}</div>
-                {(market.min_age || market.max_age) && (
+                {(market.min_age !== null || market.max_age !== null) && (
                   <div className="text-xs opacity-80 mt-1">
-                    Ages {market.min_age || '?'}–{market.max_age || '?'}
+                    Ages {market.min_age !== null && market.max_age !== null 
+                      ? `${market.min_age}–${market.max_age}` 
+                      : market.min_age !== null 
+                        ? `${market.min_age}+` 
+                        : `0–${market.max_age}`}
                   </div>
                 )}
               </button>
@@ -600,13 +604,13 @@ function BlockSelector({ open, onClose, taxonomy, blockedItems, onToggle }: Bloc
   
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[80vh]">
+      <DialogContent className="max-w-2xl max-h-[80vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Block Tags & Content Flags</DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4">
-          <div>
+        <div className="flex flex-col flex-1 space-y-4">
+          <div className="flex-shrink-0">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -621,7 +625,7 @@ function BlockSelector({ open, onClose, taxonomy, blockedItems, onToggle }: Bloc
             </p>
           </div>
           
-          <div className="flex flex-wrap gap-2 max-h-96 overflow-y-auto p-4 border rounded-lg bg-destructive/5">
+          <div className="flex flex-wrap gap-2 flex-1 overflow-y-auto p-4 border rounded-lg bg-destructive/5">
             {filteredItems.map((item) => {
               const isBlocked = blockedItems.some(b => b.slug === item.slug && !b.include);
               return (
@@ -691,12 +695,13 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   // Extract filters by type
   const genres = filterState.dimensions.filter(d => d.type === "genre" && d.include);
   const subgenres = filterState.dimensions.filter(d => d.type === "subgenre" && d.include);
-  const tags = filterState.dimensions.filter(d => d.type === "tag" && d.include);
+  const allTags = filterState.dimensions.filter(d => d.type === "tag");
+  const tags = allTags.filter(d => d.include);
   const domains = filterState.dimensions.filter(d => d.type === "domain" && d.include);
   const supergenres = filterState.dimensions.filter(d => d.type === "supergenre" && d.include);
   const formats = filterState.dimensions.filter(d => d.type === "format" && d.include);
   const audiences = filterState.dimensions.filter(d => d.type === "age_market" && d.include);
-  const blockedItems = filterState.dimensions.filter(d => !d.include);
+  const blockedItems = allTags.filter(d => !d.include);
   
   // Auto-show Domain and Supergenre when they have values (after arrays are defined)
   useEffect(() => {
