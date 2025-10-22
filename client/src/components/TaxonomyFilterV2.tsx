@@ -929,7 +929,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
         {showTags && <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <FilterChip 
-              key={tag.slug}
+              key={`tag-include-${tag.slug}`}
               dimension={tag} 
               onRemove={() => handleRemove("tag", tag.slug)}
               size="tag"

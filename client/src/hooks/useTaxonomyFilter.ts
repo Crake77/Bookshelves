@@ -145,6 +145,21 @@ export function categoryPreferenceToFilterDimensions(category: CategoryPreferenc
     });
   }
   
+  // Add blocked tag filters if specified
+  if (category.blockedTagSlugs && category.blockedTagNames) {
+    category.blockedTagSlugs.forEach((slug, index) => {
+      const name = category.blockedTagNames?.[index];
+      if (name) {
+        dimensions.push({
+          type: 'tag',
+          slug,
+          name,
+          include: false,
+        });
+      }
+    });
+  }
+  
   return dimensions;
 }
 
@@ -155,6 +170,7 @@ export function filterDimensionsToCategoryPreference(
   const genreFilter = dimensions.find(d => d.type === 'genre');
   const subgenreFilter = dimensions.find(d => d.type === 'subgenre');
   const tagFilters = dimensions.filter(d => d.type === 'tag' && d.include);
+  const blockedTagFilters = dimensions.filter(d => d.type === 'tag' && !d.include);
   
   return {
     slug: genreFilter?.slug || baseCategory.slug || 'custom',
@@ -166,6 +182,8 @@ export function filterDimensionsToCategoryPreference(
     subgenreName: subgenreFilter?.name,
     tagSlugs: tagFilters.map(t => t.slug),
     tagNames: tagFilters.map(t => t.name),
+    blockedTagSlugs: blockedTagFilters.map(t => t.slug),
+    blockedTagNames: blockedTagFilters.map(t => t.name),
   };
 }
 
