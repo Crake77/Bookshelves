@@ -909,25 +909,34 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
           count={genreSubgenrePairs.length}
         />
         {showGenre && <div className="flex flex-wrap gap-2">
-          {genreSubgenrePairs.map(({ genre, subgenre }) => (
-            <div key={genre.slug} className="flex flex-col gap-1">
-              <FilterChip 
-                dimension={genre} 
-                onRemove={() => {
-                  handleRemove("genre", genre.slug);
-                  if (subgenre) handleRemove("subgenre", subgenre.slug);
-                }}
-                size="genre"
-              />
-              {subgenre && (
+          {genreSubgenrePairs.length === 0 ? (
+            <button
+              onClick={() => setGenreModalOpen(true)}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-colors bg-muted/50 text-muted-foreground hover:bg-muted border border-dashed border-muted-foreground/30 cursor-pointer"
+            >
+              <span className="text-lg font-display font-light">Add Your Genre Here</span>
+            </button>
+          ) : (
+            genreSubgenrePairs.map(({ genre, subgenre }) => (
+              <div key={genre.slug} className="flex flex-col gap-1">
                 <FilterChip 
-                  dimension={subgenre} 
-                  onRemove={() => handleRemove("subgenre", subgenre.slug)}
-                  size="subgenre"
+                  dimension={genre} 
+                  onRemove={() => {
+                    handleRemove("genre", genre.slug);
+                    if (subgenre) handleRemove("subgenre", subgenre.slug);
+                  }}
+                  size="genre"
                 />
-              )}
-            </div>
-          ))}
+                {subgenre && (
+                  <FilterChip 
+                    dimension={subgenre} 
+                    onRemove={() => handleRemove("subgenre", subgenre.slug)}
+                    size="subgenre"
+                  />
+                )}
+              </div>
+            ))
+          )}
         </div>}
       </div>
       

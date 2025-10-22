@@ -67,6 +67,7 @@ export default function SettingsPage({ onBack }: SettingsPageProps) {
   const [pendingCategoryDelete, setPendingCategoryDelete] = useState<CategoryItem | null>(null);
   const [editOpen, setEditOpen] = useState(false);
   const [editCategory, setEditCategory] = useState<CategoryItem | null>(null);
+  const [isNewCategory, setIsNewCategory] = useState(false);
   const [editSubgenreSlug, setEditSubgenreSlug] = useState<string | null>(null);
   const [editSubgenreName, setEditSubgenreName] = useState<string | null>(null);
   const [editTagSlugs, setEditTagSlugs] = useState<string[]>([]);
@@ -379,6 +380,7 @@ const [dragState, setDragState] = useState<{
 
   const openEditForCategory = async (category: CategoryItem) => {
     setEditCategory(category);
+    setIsNewCategory(false);
     setEditSubgenreSlug(category.subgenreSlug ?? null);
     setEditSubgenreName(category.subgenreName ?? null);
     setEditTagSlugs([...(category.tagSlugs ?? [])]);
@@ -399,6 +401,31 @@ const [dragState, setDragState] = useState<{
     
     const filterDimensions = categoryPreferenceToFilterDimensions(categoryPreference);
     categoryTaxonomyFilter.setFilterState(createFilterState(filterDimensions));
+    
+    // Load legacy taxonomy lists for backward compatibility
+    if (allSubgenres.length === 0 || allTags.length === 0) {
+      try {
+        const res = await fetch(`/api/taxonomy-list?limit=500`);
+        if (res.ok) {
+          const data = await res.json();
+          setAllSubgenres((data.subgenres ?? []).map((sg: any) => ({ slug: sg.slug, name: sg.name, genre_slug: sg.genre_slug })));
+          setAllTags((data.tags ?? []).map((t: any) => ({ slug: t.slug, name: t.name, group: t.group })));
+        }
+      } catch {}
+    }
+    setEditOpen(true);
+  };
+  
+  const openNewCategoryDialog = async () => {
+    setEditCategory(null);
+    setIsNewCategory(true);
+    setEditSubgenreSlug(null);
+    setEditSubgenreName(null);
+    setEditTagSlugs([]);
+    setEditTagNames([]);
+    
+    // Initialize with empty filter state
+    categoryTaxonomyFilter.setFilterState(createFilterState([]));
     
     // Load legacy taxonomy lists for backward compatibility
     if (allSubgenres.length === 0 || allTags.length === 0) {
@@ -767,30 +794,13 @@ const [dragState, setDragState] = useState<{
             {categories.map((category, index) => renderCategoryRow(category, index))}
           </div>
 
-          <div className="flex gap-2">
-            <Select value={newCategorySlug} onValueChange={(value) => {
-              setNewCategorySlug(value);
-              setErrorMessage(null);
-              setSuccessMessage(null);
-            }}>
-              <SelectTrigger className="flex-1" data-testid="select-new-category">
-                <SelectValue placeholder="Select a genre to add..." />
-              </SelectTrigger>
-              <SelectContent>
-                {availableGenres
-                  .filter((g) => !categories.some((c) => c.slug === g.slug))
-                  .map((genre) => (
-                    <SelectItem key={genre.slug} value={genre.slug}>
-                      {genre.name}
-                    </SelectItem>
-                  ))}
-              </SelectContent>
-            </Select>
-            <Button onClick={addCustomCategory} disabled={!newCategorySlug} data-testid="button-add-category">
-              <Plus className="w-4 h-4 mr-2" />
-              Add
-            </Button>
-          </div>
+          <Card
+            className="min-h-[56px] p-3 flex items-center justify-center cursor-pointer hover:shadow-md hover:bg-muted/50 transition-all"
+            onClick={openNewCategoryDialog}
+            data-testid="button-add-new-category"
+          >
+            <span className="text-sm text-muted-foreground font-light">Add New Category</span>
+          </Card>
 
           
         </section>
@@ -859,7 +869,9 @@ const [dragState, setDragState] = useState<{
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
         <DialogContent className="max-w-[95vw] md:max-w-3xl max-h-[90vh] flex flex-col">
           <DialogHeader>
-            <DialogTitle>Configure Category: {editCategory?.name}</DialogTitle>
+            <DialogTitle>
+              {isNewCategory ? "Add New Category" : `Configure Category: ${editCategory?.name}`}
+            </DialogTitle>
           </DialogHeader>
           
           <div className="flex-1 overflow-y-auto">
@@ -879,18 +891,47 @@ const [dragState, setDragState] = useState<{
             </Button>
             <Button 
               onClick={() => {
-                if (!editCategory) return;
-                
-                // Convert taxonomy filter to category preference
-                const updatedCategory = filterDimensionsToCategoryPreference(
-                  categoryTaxonomyFilter.filterState.dimensions,
-                  editCategory
-                );
-                
-                // Update categories state
-                setCategories((prev) => prev.map((cat) => 
-                  cat.id === editCategory.id ? { ...cat, ...updatedCategory } : cat
-                ));
+                if (isNewCategory) {
+                  // Creating new category - require at least one genre
+                  const genres = categoryTaxonomyFilter.filterState.dimensions.filter(d => d.type === 'genre');
+                  if (genres.length === 0) {
+                    setErrorMessage('Please select at least one genre');
+                    return;
+                  }
+                  
+                  // Create new category from first genre
+                  const firstGenre = genres[0];
+                  const newCategory: CategoryItem = {
+                    id: firstGenre.slug,
+                    slug: firstGenre.slug,
+                    name: firstGenre.name,
+                    categoryType: 'genre',
+                    isEnabled: true,
+                    isDefault: false,
+                  };
+                  
+                  // Convert taxonomy filter to category preference
+                  const updatedCategory = filterDimensionsToCategoryPreference(
+                    categoryTaxonomyFilter.filterState.dimensions,
+                    newCategory
+                  );
+                  
+                  // Add new category
+                  setCategories((prev) => [...prev, { ...newCategory, ...updatedCategory }]);
+                } else {
+                  if (!editCategory) return;
+                  
+                  // Convert taxonomy filter to category preference
+                  const updatedCategory = filterDimensionsToCategoryPreference(
+                    categoryTaxonomyFilter.filterState.dimensions,
+                    editCategory
+                  );
+                  
+                  // Update categories state
+                  setCategories((prev) => prev.map((cat) => 
+                    cat.id === editCategory.id ? { ...cat, ...updatedCategory } : cat
+                  ));
+                }
                 
                 setEditOpen(false);
                 markDirty();
