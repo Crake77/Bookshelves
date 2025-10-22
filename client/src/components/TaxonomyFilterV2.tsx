@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Edit3, X, Search, ChevronDown, ChevronUp } from "lucide-react";
+import { Edit3, X, Search, ChevronDown, ChevronUp, Settings2 } from "lucide-react";
 import {
   type TaxonomyData,
   type FilterState,
@@ -41,11 +41,11 @@ function FilterChip({ dimension, onRemove, size = "normal" }: FilterChipProps) {
     <div
       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-colors ${
         isBlocked 
-          ? "bg-destructive/15 text-destructive border-2 border-destructive/30"
+          ? "bg-destructive text-destructive-foreground border-2 border-destructive relative"
           : "bg-primary/15 text-primary border border-primary/30"
       }`}
     >
-      <span className={sizeClasses[size]}>{dimension.name}</span>
+      <span className={`${sizeClasses[size]} ${isBlocked ? 'line-through' : ''}`}>{dimension.name}</span>
       <button
         onClick={onRemove}
         className="hover:bg-black/10 rounded-full p-0.5 transition-colors"
@@ -536,6 +536,9 @@ function SimpleSelector({ open, onClose, items, onToggle, selectedSlugs, title, 
 }
 
 function AudienceSelector({ open, onClose, taxonomy, selectedAudiences, onToggle }: AudienceSelectorProps) {
+  // Reverse order so General Audience is at top, Toddlers at bottom
+  const reversedAgeMarkets = useMemo(() => [...taxonomy.ageMarkets].reverse(), [taxonomy.ageMarkets]);
+  
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-md">
@@ -544,7 +547,7 @@ function AudienceSelector({ open, onClose, taxonomy, selectedAudiences, onToggle
         </DialogHeader>
         
         <div className="space-y-2 max-h-96 overflow-y-auto">
-          {taxonomy.ageMarkets.map((market) => {
+          {reversedAgeMarkets.map((market) => {
             const isSelected = selectedAudiences.some(a => a.slug === market.slug);
             return (
               <button
@@ -673,6 +676,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const [showFormat, setShowFormat] = useState(false);
   const [showAudience, setShowAudience] = useState(false);
   const [showBlock, setShowBlock] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(false);
   
   useEffect(() => {
     loadTaxonomyData().then((data) => {
@@ -785,6 +789,67 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   
   return (
     <div className={`space-y-6 ${className}`}>
+      {/* Advanced Toggle Button */}
+      <div className="flex justify-end">
+        <Button
+          variant={showAdvanced ? "default" : "outline"}
+          size="sm"
+          onClick={() => setShowAdvanced(!showAdvanced)}
+          className="gap-2"
+        >
+          <Settings2 className="h-4 w-4" />
+          {showAdvanced ? "Hide" : "Show"} Advanced
+        </Button>
+      </div>
+      
+      {/* Domain Section (Hidden by default, auto-populated) */}
+      {showAdvanced && (
+        <div className="space-y-2">
+          <SectionHeader 
+            title="Domain" 
+            isHidden={!showDomain}
+            onToggleVisibility={() => setShowDomain(!showDomain)}
+            onEdit={() => setDomainModalOpen(true)}
+            count={domains.length}
+          />
+          {showDomain && (
+            <div className="flex flex-wrap gap-2">
+              {domains.map((domain) => (
+                <FilterChip 
+                  key={domain.slug}
+                  dimension={domain} 
+                  onRemove={() => handleRemove("domain", domain.slug)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+      
+      {/* Supergenre Section (Hidden by default, auto-populated) */}
+      {showAdvanced && (
+        <div className="space-y-2">
+          <SectionHeader 
+            title="Supergenre" 
+            isHidden={!showSupergenre}
+            onToggleVisibility={() => setShowSupergenre(!showSupergenre)}
+            onEdit={() => setSupergenreModalOpen(true)}
+            count={supergenres.length}
+          />
+          {showSupergenre && (
+            <div className="flex flex-wrap gap-2">
+              {supergenres.map((supergenre) => (
+                <FilterChip 
+                  key={supergenre.slug}
+                  dimension={supergenre} 
+                  onRemove={() => handleRemove("supergenre", supergenre.slug)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+      
       {/* Genre / Subgenre Section */}
       <div className="space-y-2">
         <SectionHeader 
@@ -834,50 +899,6 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
         </div>
       </div>
       
-      {/* Domain Section (Hidden by default, auto-populated) */}
-      <div className="space-y-2">
-        <SectionHeader 
-          title="Domain" 
-          isHidden={!showDomain}
-          onToggleVisibility={() => setShowDomain(!showDomain)}
-          onEdit={showDomain ? () => setDomainModalOpen(true) : undefined}
-          count={domains.length}
-        />
-        {showDomain && (
-          <div className="flex flex-wrap gap-2">
-            {domains.map((domain) => (
-              <FilterChip 
-                key={domain.slug}
-                dimension={domain} 
-                onRemove={() => handleRemove("domain", domain.slug)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-      
-      {/* Supergenre Section (Hidden by default, auto-populated) */}
-      <div className="space-y-2">
-        <SectionHeader 
-          title="Supergenre" 
-          isHidden={!showSupergenre}
-          onToggleVisibility={() => setShowSupergenre(!showSupergenre)}
-          onEdit={showSupergenre ? () => setSupergenreModalOpen(true) : undefined}
-          count={supergenres.length}
-        />
-        {showSupergenre && (
-          <div className="flex flex-wrap gap-2">
-            {supergenres.map((supergenre) => (
-              <FilterChip 
-                key={supergenre.slug}
-                dimension={supergenre} 
-                onRemove={() => handleRemove("supergenre", supergenre.slug)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-      
       {/* Content Flags Section (Hidden by default) */}
       <div className="space-y-2">
         <SectionHeader 
@@ -902,48 +923,52 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
       </div>
       
       {/* Format Section (Hidden by default) */}
-      <div className="space-y-2">
-        <SectionHeader 
-          title="Format" 
-          isHidden={!showFormat}
-          onToggleVisibility={() => setShowFormat(!showFormat)}
-          onEdit={showFormat ? () => setFormatModalOpen(true) : undefined}
-          count={formats.length}
-        />
-        {showFormat && (
-          <div className="flex flex-wrap gap-2">
-            {formats.map((format) => (
-              <FilterChip 
-                key={format.slug}
-                dimension={format} 
-                onRemove={() => handleRemove("format", format.slug)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      {showAdvanced && (
+        <div className="space-y-2">
+          <SectionHeader 
+            title="Format" 
+            isHidden={!showFormat}
+            onToggleVisibility={() => setShowFormat(!showFormat)}
+            onEdit={() => setFormatModalOpen(true)}
+            count={formats.length}
+          />
+          {showFormat && (
+            <div className="flex flex-wrap gap-2">
+              {formats.map((format) => (
+                <FilterChip 
+                  key={format.slug}
+                  dimension={format} 
+                  onRemove={() => handleRemove("format", format.slug)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
       
       {/* Audience Section (Hidden by default) */}
-      <div className="space-y-2">
-        <SectionHeader 
-          title="Audience" 
-          isHidden={!showAudience}
-          onToggleVisibility={() => setShowAudience(!showAudience)}
-          onEdit={showAudience ? () => setAudienceModalOpen(true) : undefined}
-          count={audiences.length}
-        />
-        {showAudience && (
-          <div className="flex flex-wrap gap-2">
-            {audiences.map((audience) => (
-              <FilterChip 
-                key={audience.slug}
-                dimension={audience} 
-                onRemove={() => handleRemove("age_market", audience.slug)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      {showAdvanced && (
+        <div className="space-y-2">
+          <SectionHeader 
+            title="Audience" 
+            isHidden={!showAudience}
+            onToggleVisibility={() => setShowAudience(!showAudience)}
+            onEdit={() => setAudienceModalOpen(true)}
+            count={audiences.length}
+          />
+          {showAudience && (
+            <div className="flex flex-wrap gap-2">
+              {audiences.map((audience) => (
+                <FilterChip 
+                  key={audience.slug}
+                  dimension={audience} 
+                  onRemove={() => handleRemove("age_market", audience.slug)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
       
       {/* Block Section (Hidden by default) */}
       <div className="space-y-2">
