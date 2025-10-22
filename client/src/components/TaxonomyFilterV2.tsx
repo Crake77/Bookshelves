@@ -705,11 +705,24 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const audiences = filterState.dimensions.filter(d => d.type === "age_market" && d.include);
   const blockedItems = allTags.filter(d => !d.include);
   
-  // Auto-show Domain and Supergenre when they have values (after arrays are defined)
+  // Auto-show Domain, Supergenre, and Block when they have values (after arrays are defined)
   useEffect(() => {
     if (domains.length > 0) setShowDomain(true);
     if (supergenres.length > 0) setShowSupergenre(true);
-  }, [domains.length, supergenres.length]);
+    if (blockedItems.length > 0) setShowBlock(true);
+  }, [domains.length, supergenres.length, blockedItems.length]);
+  
+  // Debug logging
+  useEffect(() => {
+    const debugData = {
+      allDimensions: filterState.dimensions,
+      allTags: allTags,
+      tags: tags,
+      blockedItems: blockedItems,
+    };
+    console.log('Filter state update:', debugData);
+    (window as any).lastFilterState = debugData;
+  }, [filterState.dimensions]);
   
   // Filter content flags (subset of tags)
   const contentFlags = tags.filter(t => {
