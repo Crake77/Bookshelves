@@ -32,7 +32,7 @@ import { useCategoryPreferences } from "@/hooks/usePreferences";
 import { loadCategoryPreferences, saveCategoryPreferences } from "@/lib/preferences";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import TaxonomyFilterV2 from "@/components/TaxonomyFilterV2";
-import { useTaxonomyFilter, categoryPreferenceToFilterDimensions } from "@/hooks/useTaxonomyFilter";
+import { useTaxonomyFilter, categoryPreferenceToFilterDimensions, filterDimensionsToCategoryPreference } from "@/hooks/useTaxonomyFilter";
 import { createFilterState } from "@/lib/taxonomyFilter";
 
 const CAROUSEL_PAGE_SIZE = 12;
