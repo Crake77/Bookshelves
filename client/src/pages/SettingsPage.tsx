@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
-import TaxonomyFilter from "@/components/TaxonomyFilter";
+import TaxonomyFilterV2 from "@/components/TaxonomyFilterV2";
 import { useTaxonomyFilter, categoryPreferenceToFilterDimensions, filterDimensionsToCategoryPreference } from "@/hooks/useTaxonomyFilter";
 import { createFilterState, loadTaxonomyData } from "@/lib/taxonomyFilter";
 
@@ -869,20 +869,9 @@ const [dragState, setDragState] = useState<{
                   Recommended
                 </div>
               </div>
-              <TaxonomyFilter
+              <TaxonomyFilterV2
                 filterState={categoryTaxonomyFilter.filterState}
                 onFilterChange={categoryTaxonomyFilter.setFilterState}
-                config={{
-                  showGenres: true,
-                  showSubgenres: true,
-                  showTags: true,
-                  // Enable advanced features for Settings
-                  showDomains: false,
-                  showFormats: false,
-                  showAgeMarkets: false,
-                  showBlockSearch: false,
-                }}
-                className=""
               />
             </div>
             
