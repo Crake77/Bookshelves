@@ -336,6 +336,10 @@ export default function BrowsePage() {
     setEditTagNames(config.tags ?? []);
     
     // Initialize taxonomy filter with current category settings
+    // Load the full stored category to get blocked tags
+    const storedCategories = loadCategoryPreferences();
+    const storedCategory = storedCategories.find(c => c.slug === config.baseSlug);
+    
     const categoryPreference = {
       slug: config.baseSlug,
       name: config.title,
@@ -346,6 +350,8 @@ export default function BrowsePage() {
       subgenreName: config.subgenre ?? undefined,
       tagSlugs: config.tagSlugs ?? [],
       tagNames: config.tags ?? [],
+      blockedTagSlugs: storedCategory?.blockedTagSlugs ?? [],
+      blockedTagNames: storedCategory?.blockedTagNames ?? [],
     };
     
     const filterDimensions = categoryPreferenceToFilterDimensions(categoryPreference);
