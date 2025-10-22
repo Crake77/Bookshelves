@@ -228,13 +228,24 @@ function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarou
   
   // Format chips: include regular tags and blocked tags with proper types
   // Content flags are detected by tag group field (content_warnings, content_flags)
+  // Order: blue (regular tags), orange (content flags), red (blocked)
+  const regularTags: Array<{label: string, type: string}> = [];
+  const contentFlagTags: Array<{label: string, type: string}> = [];
+  
+  (config.tagSlugs ?? []).forEach((slug, index) => {
+    const label = config.tags?.[index] ?? slug;
+    const group = tagMetadata.get(slug) || '';
+    const isContentFlag = group === 'content_warnings' || group === 'content_flags';
+    if (isContentFlag) {
+      contentFlagTags.push({ label, type: 'content-flag' });
+    } else {
+      regularTags.push({ label, type: 'tag' });
+    }
+  });
+  
   const chips = [
-    ...(config.tagSlugs ?? []).map((slug, index) => {
-      const label = config.tags?.[index] ?? slug;
-      const group = tagMetadata.get(slug) || '';
-      const isContentFlag = group === 'content_warnings' || group === 'content_flags';
-      return { label, type: isContentFlag ? 'content-flag' : 'tag' };
-    }),
+    ...regularTags,
+    ...contentFlagTags,
     ...(config.blockedTagNames ?? []).map(label => ({ label, type: 'blocked' }))
   ];
 

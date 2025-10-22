@@ -678,7 +678,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const [showDomain, setShowDomain] = useState(false);
   const [showSupergenre, setShowSupergenre] = useState(false);
   const [showGenre, setShowGenre] = useState(true);
-  const [showTags, setShowTags] = useState(true);
+  const [showTags, setShowTags] = useState(false); // Start collapsed
   const [showContentFlags, setShowContentFlags] = useState(false);
   const [showFormat, setShowFormat] = useState(false);
   const [showAudience, setShowAudience] = useState(false);
@@ -705,12 +705,28 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const audiences = filterState.dimensions.filter(d => d.type === "age_market" && d.include);
   const blockedItems = allTags.filter(d => !d.include);
   
-  // Auto-show Domain, Supergenre, and Block when they have values (after arrays are defined)
+  // Filter content flags (subset of tags)
+  const contentFlags = tags.filter(t => {
+    const tagData = taxonomy.tags.find(tt => tt.slug === t.slug);
+    return tagData && (tagData.group === 'content_warnings' || tagData.group === 'content_flags');
+  });
+  
+  // Tags excluding content flags
+  const tagsWithoutContentFlags = tags.filter(t => {
+    const tagData = taxonomy.tags.find(tt => tt.slug === t.slug);
+    return !tagData || (tagData.group !== 'content_warnings' && tagData.group !== 'content_flags');
+  });
+  
+  // Auto-show sections when they have values
   useEffect(() => {
     if (domains.length > 0) setShowDomain(true);
     if (supergenres.length > 0) setShowSupergenre(true);
     if (blockedItems.length > 0) setShowBlock(true);
-  }, [domains.length, supergenres.length, blockedItems.length]);
+    if (tagsWithoutContentFlags.length > 0) setShowTags(true);
+    if (contentFlags.length > 0) setShowContentFlags(true);
+    if (formats.length > 0) setShowFormat(true);
+    if (audiences.length > 0) setShowAudience(true);
+  }, [domains.length, supergenres.length, blockedItems.length, tagsWithoutContentFlags.length, contentFlags.length, formats.length, audiences.length]);
   
   // Debug logging
   useEffect(() => {
@@ -723,18 +739,6 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
     console.log('Filter state update:', debugData);
     (window as any).lastFilterState = debugData;
   }, [filterState.dimensions]);
-  
-  // Filter content flags (subset of tags)
-  const contentFlags = tags.filter(t => {
-    const tagData = taxonomy.tags.find(tt => tt.slug === t.slug);
-    return tagData && (tagData.group === 'content_warnings' || tagData.group === 'content_flags');
-  });
-  
-  // Tags excluding content flags
-  const tagsWithoutContentFlags = tags.filter(t => {
-    const tagData = taxonomy.tags.find(tt => tt.slug === t.slug);
-    return !tagData || (tagData.group !== 'content_warnings' && tagData.group !== 'content_flags');
-  });
   
   const handleRemove = (type: FilterDimension['type'], slug: string) => {
     onFilterChange(removeFilter(filterState, type, slug));
