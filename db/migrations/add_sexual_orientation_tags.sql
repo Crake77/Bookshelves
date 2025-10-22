@@ -1,5 +1,5 @@
 -- Add sexual orientation and identity tags for better representation
-INSERT INTO tags (slug, name, tag_group) VALUES 
+INSERT INTO cross_tags (slug, name, "group") VALUES 
   ('heterosexual', 'Heterosexual', 'tropes_themes'),
   ('gay', 'Gay', 'tropes_themes'),
   ('lesbian', 'Lesbian', 'tropes_themes'),
