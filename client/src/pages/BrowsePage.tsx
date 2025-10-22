@@ -31,7 +31,7 @@ import {
 import { useCategoryPreferences } from "@/hooks/usePreferences";
 import { loadCategoryPreferences, saveCategoryPreferences } from "@/lib/preferences";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import TaxonomyFilter from "@/components/TaxonomyFilter";
+import TaxonomyFilterV2 from "@/components/TaxonomyFilterV2";
 import { useTaxonomyFilter, categoryPreferenceToFilterDimensions } from "@/hooks/useTaxonomyFilter";
 import { createFilterState } from "@/lib/taxonomyFilter";
 
@@ -515,11 +515,9 @@ export default function BrowsePage() {
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
                 <h3 className="font-medium text-sm text-primary">New Taxonomy System</h3>
               </div>
-              <TaxonomyFilter
+              <TaxonomyFilterV2
                 filterState={editTaxonomyFilter.filterState}
                 onFilterChange={editTaxonomyFilter.setFilterState}
-                config={{ showGenres: true, showSubgenres: true, showTags: true }}
-                className=""
               />
             </div>
             
