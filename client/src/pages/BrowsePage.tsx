@@ -207,8 +207,13 @@ function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarou
   const loadingMore = carousel.isLoading && carousel.books.length > 0;
   
   // Format chips: include regular tags and blocked tags with proper types
+  // Content flags are detected by name patterns (common content warning keywords)
+  const contentFlagKeywords = ['sexual', 'violence', 'graphic', 'explicit', 'abuse', 'trigger', 'dark', 'mature'];
   const chips = [
-    ...(config.tags ?? []).map(label => ({ label, type: 'tag' })),
+    ...(config.tags ?? []).map(label => {
+      const isContentFlag = contentFlagKeywords.some(keyword => label.toLowerCase().includes(keyword));
+      return { label, type: isContentFlag ? 'content-flag' : 'tag' };
+    }),
     ...(config.blockedTagNames ?? []).map(label => ({ label, type: 'blocked' }))
   ];
 
@@ -385,6 +390,22 @@ export default function BrowsePage() {
       tagNames: config.tags ?? [],
       blockedTagSlugs: storedCategory?.blockedTagSlugs ?? [],
       blockedTagNames: storedCategory?.blockedTagNames ?? [],
+      formatSlug: storedCategory?.formatSlug,
+      formatName: storedCategory?.formatName,
+      formatSlugs: storedCategory?.formatSlug ? [storedCategory.formatSlug] : [],
+      formatNames: storedCategory?.formatName ? [storedCategory.formatName] : [],
+      audienceSlug: storedCategory?.audienceSlug,
+      audienceName: storedCategory?.audienceName,
+      audienceSlugs: storedCategory?.audienceSlug ? [storedCategory.audienceSlug] : [],
+      audienceNames: storedCategory?.audienceName ? [storedCategory.audienceName] : [],
+      domainSlug: storedCategory?.domainSlug,
+      domainName: storedCategory?.domainName,
+      domainSlugs: storedCategory?.domainSlug ? [storedCategory.domainSlug] : [],
+      domainNames: storedCategory?.domainName ? [storedCategory.domainName] : [],
+      supergenreSlug: storedCategory?.supergenreSlug,
+      supergenreName: storedCategory?.supergenreName,
+      supergenreSlugs: storedCategory?.supergenreSlug ? [storedCategory.supergenreSlug] : [],
+      supergenreNames: storedCategory?.supergenreName ? [storedCategory.supergenreName] : [],
     };
     
     const filterDimensions = categoryPreferenceToFilterDimensions(categoryPreference);
