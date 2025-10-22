@@ -31,6 +31,9 @@ import {
 import { useCategoryPreferences } from "@/hooks/usePreferences";
 import { loadCategoryPreferences, saveCategoryPreferences } from "@/lib/preferences";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import TaxonomyFilter from "@/components/TaxonomyFilter";
+import { useTaxonomyFilter, categoryPreferenceToFilterDimensions } from "@/hooks/useTaxonomyFilter";
+import { createFilterState } from "@/lib/taxonomyFilter";
 
 const CAROUSEL_PAGE_SIZE = 12;
 const RANKING_STORAGE_KEY = "bookshelves:browse-ranking";
@@ -129,13 +132,27 @@ function isBrowseAlgo(value: string | null): value is BrowseAlgo {
   return value === "popular" || value === "rating" || value === "recent" || value === "for-you";
 }
 
-const CATEGORY_GENRE_MAP: Record<string, string> = {
-  fantasy: "Fantasy",
-  "sci-fi": "Science Fiction",
-  "science-fiction": "Science Fiction",
-  mystery: "Mystery",
+// DEPRECATED: Legacy hardcoded genre mapping - being replaced by dynamic taxonomy system
+// This mapping is kept for backward compatibility during transition
+const LEGACY_CATEGORY_GENRE_MAP: Record<string, string> = {
+  fiction: "Fiction",
   romance: "Romance",
+  nonfiction: "Nonfiction",
+  poetry: "Poetry",
+  drama: "Drama",
+  "comics-graphic": "Comics & Graphic",
+  anthologies: "Anthologies",
 };
+
+// Helper to get genre name from category - now uses dynamic taxonomy when possible
+function getCategoryGenreName(category: any): string {
+  // For new taxonomy-based categories, use the actual name
+  if (category.categoryType === 'genre') {
+    return category.name;
+  }
+  // Fallback to legacy mapping for old categories
+  return LEGACY_CATEGORY_GENRE_MAP[category.slug] ?? category.name;
+}
 
 interface CategoryConfig {
   key: string;
@@ -225,7 +242,8 @@ export default function BrowsePage() {
           algo = "popular";
         }
       } else {
-        const mappedGenre = CATEGORY_GENRE_MAP[category.slug] ?? category.name;
+        // Use new helper that supports both legacy and taxonomy-based categories
+        const mappedGenre = getCategoryGenreName(category);
         genre = mappedGenre;
         if (category.subgenreSlug) {
           subgenreSlug = category.subgenreSlug;
@@ -302,6 +320,9 @@ export default function BrowsePage() {
   const [allSubgenres, setAllSubgenres] = useState<Array<{ slug: string; name: string; genre_slug?: string }>>([]);
   const [allTags, setAllTags] = useState<Array<{ slug: string; name: string; group: string }>>([]);
   const [tagSearch, setTagSearch] = useState("");
+  
+  // New taxonomy filter for edit dialog - replaces hardcoded lists
+  const editTaxonomyFilter = useTaxonomyFilter();
 
   const openEdit = async (config: CategoryConfig) => {
     // Use the actual category slug, not a key-derived value (fixes hyphenated slugs like "sci-fi")
@@ -313,7 +334,24 @@ export default function BrowsePage() {
     // Preserve any existing tag selections for this category
     setEditTagSlugs(config.tagSlugs ?? []);
     setEditTagNames(config.tags ?? []);
-    // Always refresh taxonomy options when opening the editor so new seeds (e.g., Romance) appear.
+    
+    // Initialize taxonomy filter with current category settings
+    const categoryPreference = {
+      slug: config.baseSlug,
+      name: config.title,
+      categoryType: 'genre' as const,
+      isEnabled: true,
+      isDefault: false,
+      subgenreSlug: config.subgenreSlug ?? undefined,
+      subgenreName: config.subgenre ?? undefined,
+      tagSlugs: config.tagSlugs ?? [],
+      tagNames: config.tags ?? [],
+    };
+    
+    const filterDimensions = categoryPreferenceToFilterDimensions(categoryPreference);
+    editTaxonomyFilter.setFilterState(createFilterState(filterDimensions));
+    
+    // Keep legacy API loading for backward compatibility
     try {
       const res = await fetch(`/api/taxonomy-list?limit=500`);
       if (res.ok) {
@@ -465,12 +503,32 @@ export default function BrowsePage() {
       )}
       {/* Edit dialog for on-the-fly subgenre/tags */}
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
-        <DialogContent>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Configure {editGenreName} Subgenre & Tags</DialogTitle>
-            <DialogDescription>Choose a subgenre and add tags. Save to refresh the carousel.</DialogDescription>
+            <DialogTitle>Configure {editGenreName} Filters</DialogTitle>
+            <DialogDescription>Choose subgenres and tags using the modern taxonomy system, or use the legacy interface below.</DialogDescription>
           </DialogHeader>
-          <div className="space-y-4">
+          <div className="space-y-6">
+            {/* Modern Taxonomy Filter Interface */}
+            <div className="border-2 border-primary/20 rounded-lg p-4 bg-primary/5">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <h3 className="font-medium text-sm text-primary">New Taxonomy System</h3>
+              </div>
+              <TaxonomyFilter
+                filterState={editTaxonomyFilter.filterState}
+                onFilterChange={editTaxonomyFilter.setFilterState}
+                config={{ showGenres: true, showSubgenres: true, showTags: true }}
+                className=""
+              />
+            </div>
+            
+            {/* Legacy Interface - kept for backward compatibility */}
+            <div className="border border-muted rounded-lg p-4 bg-muted/5">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
+                <h3 className="font-medium text-sm text-muted-foreground">Legacy Interface</h3>
+              </div>
             <div>
               <div className="text-sm font-medium mb-2">Subgenre</div>
               <Select value={editSubgenreSlug ?? ""} onValueChange={(val) => {
@@ -483,46 +541,14 @@ export default function BrowsePage() {
                 </SelectTrigger>
                 <SelectContent className="max-h-64 overflow-y-auto">
                   {(() => {
-                    const base = (editGenreSlug || '').toLowerCase();
-                    const tokenMap: Record<string, string[]> = {
-                      fantasy: ['fantasy', 'grimdark'],
-                      'sci-fi': ['science-fiction', 'cyberpunk', 'dystopian', 'post-apocalyptic', 'time-travel', 'alternate-history', 'steampunk'],
-                      'science-fiction': ['science-fiction', 'cyberpunk', 'dystopian', 'post-apocalyptic', 'time-travel', 'alternate-history', 'steampunk'],
-                      mystery: ['mystery', 'crime-detective', 'thriller', 'legal-thriller', 'spy-espionage'],
-                      romance: [
-                        'contemporary-romance',
-                        'historical-romance',
-                        'regency-romance',
-                        'romantic-suspense',
-                        'paranormal-romance',
-                        'fantasy-romance',
-                        'science-fiction-romance',
-                        'romantic-comedy',
-                        'dark-romance',
-                        'sports-romance',
-                        'medical-romance',
-                        'military-romance',
-                        'inspirational-romance',
-                        'billionaire-romance',
-                        'royal-romance',
-                        'holiday-romance',
-                        'western-cowboy-romance',
-                        'mafia-romance',
-                        'motorcycle-club-romance',
-                        'urban-romance',
-                        'romance',
-                      ],
-                    };
-                    // Prefer curated token lists per genre; fallback to base slug
-                    const tokens = tokenMap[base] || [base];
-                    let list = allSubgenres.filter((sg) => tokens.some((t) => (sg.slug || '').startsWith(t)));
-                    if (list.length === 0) {
-                      // fallback to genre slug strict match
-                      list = allSubgenres.filter((sg) => (sg.genre_slug || '').toLowerCase() === base);
-                    }
-                    const finalList = list.length > 0 ? list : allSubgenres;
-                    return finalList.slice(0, 200).map((sg) => (
-                      <SelectItem key={sg.slug} value={sg.slug}>{(sg.name.includes('—') ? sg.name.split('—').pop() : sg.name).trim()}</SelectItem>
+                    if (!editGenreSlug) return allSubgenres.slice(0, 200).map((sg) => (
+                      <SelectItem key={sg.slug} value={sg.slug}>{sg.name}</SelectItem>
+                    ));
+                    // Filter by genre_slug field from the database - this is the official parent relationship
+                    const genreSlug = editGenreSlug.toLowerCase();
+                    const filtered = allSubgenres.filter((sg) => (sg.genre_slug || '').toLowerCase() === genreSlug);
+                    return filtered.slice(0, 200).map((sg) => (
+                      <SelectItem key={sg.slug} value={sg.slug}>{sg.name}</SelectItem>
                     ));
                   })()}
                 </SelectContent>
@@ -593,7 +619,49 @@ export default function BrowsePage() {
               </div>
             </div>
             <div className="pt-2">
-              <Button className="w-full" onClick={saveEdit}>Save changes</Button>
+              <Button variant="outline" className="w-full" onClick={saveEdit}>Save Legacy Changes</Button>
+            </div>
+            </div>
+            
+            {/* Action Buttons */}
+            <div className="flex gap-2 pt-4 border-t">
+              <Button 
+                variant="outline" 
+                onClick={() => setEditOpen(false)}
+                className="flex-1"
+              >
+                Cancel
+              </Button>
+              <Button 
+                onClick={() => {
+                  // Save taxonomy filter changes
+                  if (editSlug) {
+                    const list = loadCategoryPreferences();
+                    const updated = list.map((c) => {
+                      if (c.slug === editSlug) {
+                        // Extract filter data from taxonomy filter
+                        const genreFilter = editTaxonomyFilter.selectedGenres[0];
+                        const subgenreFilter = editTaxonomyFilter.selectedSubgenres[0];
+                        const tagFilters = editTaxonomyFilter.selectedTags;
+                        
+                        return {
+                          ...c,
+                          subgenreSlug: subgenreFilter?.slug ?? undefined,
+                          subgenreName: subgenreFilter?.name ?? undefined,
+                          tagSlugs: tagFilters.map(t => t.slug),
+                          tagNames: tagFilters.map(t => t.name),
+                        };
+                      }
+                      return c;
+                    });
+                    saveCategoryPreferences(updated);
+                  }
+                  setEditOpen(false);
+                }}
+                className="flex-1 bg-primary"
+              >
+                Save Taxonomy Changes
+              </Button>
             </div>
           </div>
         </DialogContent>

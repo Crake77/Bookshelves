@@ -32,22 +32,8 @@ export const DEFAULT_SHELVES: ShelfPreference[] = [
 
 export const DEFAULT_CATEGORIES: CategoryPreference[] = [
   {
-    name: "Fantasy",
-    slug: "fantasy",
-    categoryType: "genre",
-    isEnabled: true,
-    isDefault: true,
-  },
-  {
-    name: "Sci-Fi",
-    slug: "sci-fi",
-    categoryType: "genre",
-    isEnabled: true,
-    isDefault: true,
-  },
-  {
-    name: "Mystery",
-    slug: "mystery",
+    name: "Fiction",
+    slug: "fiction",
     categoryType: "genre",
     isEnabled: true,
     isDefault: true,
@@ -55,6 +41,13 @@ export const DEFAULT_CATEGORIES: CategoryPreference[] = [
   {
     name: "Romance",
     slug: "romance",
+    categoryType: "genre",
+    isEnabled: true,
+    isDefault: true,
+  },
+  {
+    name: "Nonfiction",
+    slug: "nonfiction",
     categoryType: "genre",
     isEnabled: true,
     isDefault: true,
@@ -154,6 +147,40 @@ export function loadCategoryPreferences(): CategoryPreference[] {
     stored = stored.filter(
       (item) => item.slug !== "your-next-reads" && item.slug !== "new-for-you",
     );
+    
+    // Migration: map old slugs to new official taxonomy genres
+    // Old slugs like 'fantasy', 'sci-fi', 'mystery' that were standalone need to map to parent genres
+    const SLUG_MIGRATION: Record<string, { slug: string; name: string; subgenreSlug?: string; subgenreName?: string }> = {
+      'fantasy': { slug: 'fiction', name: 'Fiction' },
+      'sci-fi': { slug: 'fiction', name: 'Fiction' },
+      'science-fiction': { slug: 'fiction', name: 'Fiction' },
+      'mystery': { slug: 'fiction', name: 'Fiction' },
+      'thriller': { slug: 'fiction', name: 'Fiction' },
+      'horror': { slug: 'fiction', name: 'Fiction' },
+    };
+    
+    stored = stored.map((item) => {
+      const migration = SLUG_MIGRATION[item.slug];
+      if (migration) {
+        // Migrate to the official parent genre
+        return {
+          ...item,
+          slug: migration.slug,
+          name: migration.name,
+          subgenreSlug: migration.subgenreSlug ?? item.subgenreSlug,
+          subgenreName: migration.subgenreName ?? item.subgenreName,
+        };
+      }
+      return item;
+    });
+    
+    // Deduplicate: if we now have multiple 'fiction' entries from migration, keep only the first
+    const seen = new Set<string>();
+    stored = stored.filter((item) => {
+      if (seen.has(item.slug)) return false;
+      seen.add(item.slug);
+      return true;
+    });
   } else {
     stored = DEFAULT_CATEGORIES.map((category) => ({ ...category }));
   }

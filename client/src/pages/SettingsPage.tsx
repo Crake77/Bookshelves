@@ -28,6 +28,9 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import TaxonomyFilter from "@/components/TaxonomyFilter";
+import { useTaxonomyFilter, categoryPreferenceToFilterDimensions, filterDimensionsToCategoryPreference } from "@/hooks/useTaxonomyFilter";
+import { createFilterState, loadTaxonomyData } from "@/lib/taxonomyFilter";
 
 interface SettingsPageProps {
   onBack: () => void;
@@ -54,8 +57,9 @@ export default function SettingsPage({ onBack }: SettingsPageProps) {
   );
 
   const [newShelfName, setNewShelfName] = useState("");
-  const [newCategoryName, setNewCategoryName] = useState("");
+  const [newCategorySlug, setNewCategorySlug] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [availableGenres, setAvailableGenres] = useState<Array<{ slug: string; name: string }>>([]);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [isDirty, setIsDirty] = useState(false);
@@ -70,6 +74,9 @@ export default function SettingsPage({ onBack }: SettingsPageProps) {
   const [allSubgenres, setAllSubgenres] = useState<Array<{ slug: string; name: string; genre_slug?: string }>>([]);
   const [allTags, setAllTags] = useState<Array<{ slug: string; name: string; group: string }>>([]);
   const [tagSearch, setTagSearch] = useState("");
+  
+  // Modern taxonomy filter for category configuration
+  const categoryTaxonomyFilter = useTaxonomyFilter();
 const [dragState, setDragState] = useState<{
   type: "shelf" | "category";
   id: string;
@@ -95,6 +102,30 @@ const [dragState, setDragState] = useState<{
     setErrorMessage(null);
     setSuccessMessage(null);
   };
+
+  // Load available genres for the genre dropdown using new taxonomy system
+  useEffect(() => {
+    const loadGenres = async () => {
+      try {
+        // Use the new taxonomy loader with caching
+        const taxonomyData = await loadTaxonomyData(100);
+        setAvailableGenres(taxonomyData.genres.map((g) => ({ slug: g.slug, name: g.name })));
+      } catch (error) {
+        console.warn('Failed to load available genres', error);
+        // Fallback to old API if new system fails
+        try {
+          const res = await fetch('/api/taxonomy-list?limit=50');
+          if (res.ok) {
+            const data = await res.json();
+            setAvailableGenres((data.genres ?? []).map((g: any) => ({ slug: g.slug, name: g.name })));
+          }
+        } catch (fallbackError) {
+          console.warn('Fallback genre loading also failed', fallbackError);
+        }
+      }
+    };
+    void loadGenres();
+  }, []);
 
   const moveItem = useCallback(<T extends { id: string }>(items: T[], sourceId: string, targetIndex: number | null): T[] => {
     if (!sourceId) return items;
@@ -307,23 +338,30 @@ const [dragState, setDragState] = useState<{
   };
 
   const addCustomCategory = () => {
-    const trimmed = newCategoryName.trim();
-    if (!trimmed) return;
+    if (!newCategorySlug) return;
+    
+    // Find the genre name from the available genres
+    const genre = availableGenres.find((g) => g.slug === newCategorySlug);
+    if (!genre) return;
 
+    // Check if this genre is already in the list
     const existingSlugs = new Set(categories.map((category) => category.slug));
-    const slug = generateUniqueSlug(trimmed, existingSlugs);
+    if (existingSlugs.has(newCategorySlug)) {
+      setErrorMessage(`${genre.name} is already in your browse categories.`);
+      return;
+    }
 
     const newCategory: CategoryItem = {
-      id: slug,
-      slug,
-      name: trimmed,
-      categoryType: "custom",
+      id: newCategorySlug,
+      slug: newCategorySlug,
+      name: genre.name,
+      categoryType: "genre",
       isEnabled: true,
       isDefault: false,
     };
 
     setCategories((prev) => [...prev, newCategory]);
-    setNewCategoryName("");
+    setNewCategorySlug("");
     markDirty();
   };
 
@@ -345,7 +383,24 @@ const [dragState, setDragState] = useState<{
     setEditSubgenreName(category.subgenreName ?? null);
     setEditTagSlugs([...(category.tagSlugs ?? [])]);
     setEditTagNames([...(category.tagNames ?? [])]);
-    // Load taxonomy lists if empty
+    
+    // Initialize taxonomy filter with current category settings
+    const categoryPreference = {
+      slug: category.slug,
+      name: category.name,
+      categoryType: category.categoryType,
+      isEnabled: category.isEnabled,
+      isDefault: category.isDefault,
+      subgenreSlug: category.subgenreSlug,
+      subgenreName: category.subgenreName,
+      tagSlugs: category.tagSlugs ?? [],
+      tagNames: category.tagNames ?? [],
+    };
+    
+    const filterDimensions = categoryPreferenceToFilterDimensions(categoryPreference);
+    categoryTaxonomyFilter.setFilterState(createFilterState(filterDimensions));
+    
+    // Load legacy taxonomy lists for backward compatibility
     if (allSubgenres.length === 0 || allTags.length === 0) {
       try {
         const res = await fetch(`/api/taxonomy-list?limit=500`);
@@ -578,18 +633,18 @@ const [dragState, setDragState] = useState<{
         data-testid={`category-${category.slug}`}
         style={style}
       >
-        <div className="flex items-center gap-3 flex-1">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
           <button
             type="button"
             onPointerDown={(event) => beginDrag("category", category.id, event)}
-            className={`inline-flex h-8 w-8 items-center justify-center rounded-md border border-transparent bg-transparent text-muted-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 touch-none ${
+            className={`inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md border border-transparent bg-transparent text-muted-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 touch-none ${
               isDragging ? "cursor-grabbing" : "cursor-grab hover:bg-muted hover:text-foreground"
             }`}
             aria-label={`Reorder ${category.name}`}
           >
             <GripVertical className="w-4 h-4" />
           </button>
-          <div className="flex flex-col">
+          <div className="flex flex-col flex-1 min-w-0">
             <div className="text-sm">
               <span className="font-semibold">{category.name}</span>
               {category.subgenreName && (
@@ -611,12 +666,12 @@ const [dragState, setDragState] = useState<{
             )}
           </div>
           {!category.isDefault && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary flex-shrink-0">
               Custom
             </span>
           )}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <Button size="sm" variant="secondary" onClick={() => openEditForCategory(category)} data-testid={`configure-category-${category.slug}`}>
             + Subgenre / Tags
           </Button>
@@ -708,23 +763,25 @@ const [dragState, setDragState] = useState<{
           </div>
 
           <div className="flex gap-2">
-            <Input
-              placeholder="New category name (e.g., Thriller)..."
-              value={newCategoryName}
-              onChange={(event) => {
-                setNewCategoryName(event.target.value);
-                setErrorMessage(null);
-                setSuccessMessage(null);
-              }}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  event.preventDefault();
-                  addCustomCategory();
-                }
-              }}
-              data-testid="input-new-category"
-            />
-            <Button onClick={addCustomCategory} data-testid="button-add-category">
+            <Select value={newCategorySlug} onValueChange={(value) => {
+              setNewCategorySlug(value);
+              setErrorMessage(null);
+              setSuccessMessage(null);
+            }}>
+              <SelectTrigger className="flex-1" data-testid="select-new-category">
+                <SelectValue placeholder="Select a genre to add..." />
+              </SelectTrigger>
+              <SelectContent>
+                {availableGenres
+                  .filter((g) => !categories.some((c) => c.slug === g.slug))
+                  .map((genre) => (
+                    <SelectItem key={genre.slug} value={genre.slug}>
+                      {genre.name}
+                    </SelectItem>
+                  ))}
+              </SelectContent>
+            </Select>
+            <Button onClick={addCustomCategory} disabled={!newCategorySlug} data-testid="button-add-category">
               <Plus className="w-4 h-4 mr-2" />
               Add
             </Button>
@@ -795,14 +852,49 @@ const [dragState, setDragState] = useState<{
 
       {/* Configure Category Dialog */}
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
-        <DialogContent>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Configure Subgenre and Tags</DialogTitle>
+            <DialogTitle>Configure Category: {editCategory?.name}</DialogTitle>
             <DialogDescription>
-              Choose a subgenre and add relevant tags for this browse category.
+              Use the modern taxonomy system to configure filters, or the legacy interface for backward compatibility.
             </DialogDescription>
           </DialogHeader>
-          <div className="space-y-4">
+          <div className="space-y-6">
+            {/* Modern Taxonomy Interface */}
+            <div className="border-2 border-primary/20 rounded-lg p-4 bg-primary/5">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <h3 className="font-semibold text-primary">Modern Taxonomy System</h3>
+                <div className="ml-auto px-2 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
+                  Recommended
+                </div>
+              </div>
+              <TaxonomyFilter
+                filterState={categoryTaxonomyFilter.filterState}
+                onFilterChange={categoryTaxonomyFilter.setFilterState}
+                config={{
+                  showGenres: true,
+                  showSubgenres: true,
+                  showTags: true,
+                  // Enable advanced features for Settings
+                  showDomains: false,
+                  showFormats: false,
+                  showAgeMarkets: false,
+                  showBlockSearch: false,
+                }}
+                className=""
+              />
+            </div>
+            
+            {/* Legacy Interface */}
+            <div className="border border-muted rounded-lg p-4 bg-muted/5">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
+                <h3 className="font-medium text-muted-foreground">Legacy Interface</h3>
+                <div className="ml-auto px-2 py-1 bg-muted/20 text-muted-foreground text-xs rounded-full">
+                  Backward Compatibility
+                </div>
+              </div>
             <div>
               <div className="text-sm font-medium mb-2">Subgenre</div>
               <Select value={editSubgenreSlug ?? ""} onValueChange={(val) => {
@@ -815,18 +907,14 @@ const [dragState, setDragState] = useState<{
                 </SelectTrigger>
                 <SelectContent className="max-h-64 overflow-y-auto">
                   {(() => {
-                    const list = (() => {
-                      if (!editCategory) return allSubgenres;
-                      const target = editCategory.slug.toLowerCase();
-                      const byGenre = allSubgenres.filter((sg) => (sg.genre_slug || '').toLowerCase() === target);
-                      if (byGenre.length > 0) return byGenre;
-                      // Fallback to loose match
-                      const base = editCategory.name.toLowerCase();
-                      const loose = allSubgenres.filter((sg) => (sg.name || '').toLowerCase().includes(base) || (sg.slug || '').startsWith(base.replace(/\s+/g, '-')));
-                      return loose.length > 0 ? loose : allSubgenres;
-                    })();
-                    return list.slice(0, 200).map((sg) => (
-                      <SelectItem key={sg.slug} value={sg.slug}>{(sg.name.includes('—') ? sg.name.split('—').pop() : sg.name).trim()}</SelectItem>
+                    if (!editCategory) return allSubgenres.slice(0, 200).map((sg) => (
+                      <SelectItem key={sg.slug} value={sg.slug}>{sg.name}</SelectItem>
+                    ));
+                    // Filter subgenres by genre_slug - this is the official parent link in the database
+                    const categorySlug = editCategory.slug.toLowerCase();
+                    const filtered = allSubgenres.filter((sg) => (sg.genre_slug || '').toLowerCase() === categorySlug);
+                    return filtered.slice(0, 200).map((sg) => (
+                      <SelectItem key={sg.slug} value={sg.slug}>{sg.name}</SelectItem>
                     ));
                   })()}
                 </SelectContent>
@@ -863,7 +951,41 @@ const [dragState, setDragState] = useState<{
               </div>
             </div>
             <div className="pt-2">
-              <Button className="w-full" onClick={saveEdit}>Save changes</Button>
+              <Button variant="outline" className="w-full" onClick={saveEdit}>Save Legacy Changes</Button>
+            </div>
+            </div>
+            
+            {/* Action Buttons */}
+            <div className="flex gap-3 pt-6 border-t">
+              <Button 
+                variant="outline" 
+                onClick={() => setEditOpen(false)}
+                className="flex-1"
+              >
+                Cancel
+              </Button>
+              <Button 
+                onClick={() => {
+                  if (!editCategory) return;
+                  
+                  // Convert taxonomy filter to category preference
+                  const updatedCategory = filterDimensionsToCategoryPreference(
+                    categoryTaxonomyFilter.filterState.dimensions,
+                    editCategory
+                  );
+                  
+                  // Update categories state
+                  setCategories((prev) => prev.map((cat) => 
+                    cat.id === editCategory.id ? { ...cat, ...updatedCategory } : cat
+                  ));
+                  
+                  setEditOpen(false);
+                  markDirty();
+                }}
+                className="flex-1 bg-primary hover:bg-primary/90"
+              >
+                Save Taxonomy Changes
+              </Button>
             </div>
           </div>
         </DialogContent>
