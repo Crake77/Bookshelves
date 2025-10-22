@@ -689,14 +689,9 @@ const [dragState, setDragState] = useState<{
                 {category.tagNames.length > 8 && (
                   <span className="text-xs text-muted-foreground">+{category.tagNames.length - 8} more</span>
                 )}
-              </div>
-            )}
+            </div>
           </div>
-          {!category.isDefault && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary flex-shrink-0">
-              Custom
-            </span>
-          )}
+        </div>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           <button
