@@ -205,12 +205,18 @@ function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarou
 
   const initialLoading = carousel.books.length === 0 && carousel.isLoading;
   const loadingMore = carousel.isLoading && carousel.books.length > 0;
+  
+  // Format chips: include regular tags and blocked tags with proper types
+  const chips = [
+    ...(config.tags ?? []).map(label => ({ label, type: 'tag' })),
+    ...(config.blockedTagNames ?? []).map(label => ({ label, type: 'blocked' }))
+  ];
 
   return (
     <HorizontalBookRow
       title={config.title}
       titleSuffix={config.subgenre ?? undefined}
-      secondaryChips={config.tags}
+      secondaryChips={chips}
       onEdit={() => onEditCategory(config)}
       books={carousel.books}
       onBookClick={onBookClick}
@@ -410,16 +416,32 @@ export default function BrowsePage() {
 
   const saveEdit = () => {
     if (!editSlug) return;
-    // update preferences
+    // Extract all filter data from taxonomy filter
+    const categoryUpdates = filterDimensionsToCategoryPreference(
+      editTaxonomyFilter.filterState.dimensions,
+      { slug: editSlug }
+    );
+    
+    // Update preferences
     const list = loadCategoryPreferences();
     const updated = list.map((c) => (
       c.slug === editSlug
         ? {
             ...c,
-            subgenreSlug: editSubgenreSlug ?? undefined,
-            subgenreName: editSubgenreName ?? undefined,
-            tagSlugs: editTagSlugs,
-            tagNames: editTagNames,
+            subgenreSlug: categoryUpdates.subgenreSlug,
+            subgenreName: categoryUpdates.subgenreName,
+            tagSlugs: categoryUpdates.tagSlugs ?? [],
+            tagNames: categoryUpdates.tagNames ?? [],
+            blockedTagSlugs: categoryUpdates.blockedTagSlugs ?? [],
+            blockedTagNames: categoryUpdates.blockedTagNames ?? [],
+            formatSlug: categoryUpdates.formatSlugs?.[0],
+            formatName: categoryUpdates.formatNames?.[0],
+            audienceSlug: categoryUpdates.audienceSlugs?.[0],
+            audienceName: categoryUpdates.audienceNames?.[0],
+            domainSlug: categoryUpdates.domainSlugs?.[0],
+            domainName: categoryUpdates.domainNames?.[0],
+            supergenreSlug: categoryUpdates.supergenreSlugs?.[0],
+            supergenreName: categoryUpdates.supergenreNames?.[0],
           }
         : c
     ));
