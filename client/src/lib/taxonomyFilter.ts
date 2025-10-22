@@ -9,6 +9,8 @@ export interface TaxonomyData {
   formats: Array<{ slug: string; name: string; description: string | null }>;
   ageMarkets: Array<{ slug: string; name: string; min_age: number | null; max_age: number | null }>;
   tags: Array<{ slug: string; name: string; group: string }>;
+  genreDomainLinks?: Array<{ genre_slug: string; domain_slug: string }>;
+  genreSupergenreLinks?: Array<{ genre_slug: string; supergenre_slug: string }>;
 }
 
 export interface FilterDimension {
@@ -79,6 +81,8 @@ export async function loadTaxonomyData(limit = 500): Promise<TaxonomyData> {
       formats: data.formats || [],
       ageMarkets: data.ageMarkets || [],
       tags: data.tags || [],
+      genreDomainLinks: data.genreDomainLinks || [],
+      genreSupergenreLinks: data.genreSupergenreLinks || [],
     };
     
     // Update cache
@@ -95,8 +99,65 @@ export async function loadTaxonomyData(limit = 500): Promise<TaxonomyData> {
       formats: [],
       ageMarkets: [],
       tags: [],
+      genreDomainLinks: [],
+      genreSupergenreLinks: [],
     };
   }
+}
+
+// Get domains for a given genre (auto-population)
+export function getDomainsForGenre(taxonomy: TaxonomyData, genreSlug: string): Array<{ slug: string; name: string }> {
+  const links = taxonomy.genreDomainLinks || [];
+  const domainSlugs = links.filter(l => l.genre_slug === genreSlug).map(l => l.domain_slug);
+  return taxonomy.domains.filter(d => domainSlugs.includes(d.slug));
+}
+
+// Get supergenres for a given genre (auto-population)
+export function getSupergenresForGenre(taxonomy: TaxonomyData, genreSlug: string): Array<{ slug: string; name: string; description: string | null }> {
+  const links = taxonomy.genreSupergenreLinks || [];
+  const supergenreSlugs = links.filter(l => l.genre_slug === genreSlug).map(l => l.supergenre_slug);
+  return taxonomy.supergenres.filter(s => supergenreSlugs.includes(s.slug));
+}
+
+// Get genres for selected domains (hierarchical filtering)
+export function getGenresForDomains(taxonomy: TaxonomyData, domainSlugs: string[]): Array<{ slug: string; name: string }> {
+  if (domainSlugs.length === 0) return taxonomy.genres;
+  
+  const links = taxonomy.genreDomainLinks || [];
+  const genreSlugs = links
+    .filter(l => domainSlugs.includes(l.domain_slug))
+    .map(l => l.genre_slug);
+  
+  return taxonomy.genres.filter(g => genreSlugs.includes(g.slug));
+}
+
+// Get genres for selected supergenres (hierarchical filtering)
+export function getGenresForSupergenres(taxonomy: TaxonomyData, supergenreSlugs: string[]): Array<{ slug: string; name: string }> {
+  if (supergenreSlugs.length === 0) return taxonomy.genres;
+  
+  const links = taxonomy.genreSupergenreLinks || [];
+  const genreSlugs = links
+    .filter(l => supergenreSlugs.includes(l.supergenre_slug))
+    .map(l => l.genre_slug);
+  
+  return taxonomy.genres.filter(g => genreSlugs.includes(g.slug));
+}
+
+// Combine domain and supergenre filters (intersection)
+export function getFilteredGenres(taxonomy: TaxonomyData, domainSlugs: string[], supergenreSlugs: string[]): Array<{ slug: string; name: string }> {
+  let genres = taxonomy.genres;
+  
+  if (domainSlugs.length > 0) {
+    const domainGenres = getGenresForDomains(taxonomy, domainSlugs);
+    genres = genres.filter(g => domainGenres.some(dg => dg.slug === g.slug));
+  }
+  
+  if (supergenreSlugs.length > 0) {
+    const supergenreGenres = getGenresForSupergenres(taxonomy, supergenreSlugs);
+    genres = genres.filter(g => supergenreGenres.some(sg => sg.slug === g.slug));
+  }
+  
+  return genres;
 }
 
 export function getGenreHierarchy(taxonomy: TaxonomyData, genreSlug: string): {

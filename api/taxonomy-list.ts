@@ -87,6 +87,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       LIMIT ${limit}
     `) as Array<{ slug: string; name: string; min_age: number | null; max_age: number | null }>;
 
+    // Fetch genre→domain relationships for auto-population and filtering
+    const genreDomainLinks = (await sql/* sql */`
+      SELECT g.slug as genre_slug, d.slug as domain_slug
+      FROM genre_domains gd
+      JOIN genres g ON g.id = gd.genre_id
+      JOIN domains d ON d.id = gd.domain_id
+      WHERE g.enabled = true AND d.enabled = true
+    `) as Array<{ genre_slug: string; domain_slug: string }>;
+
+    // Fetch genre→supergenre relationships for auto-population and filtering
+    const genreSupergenreLinks = (await sql/* sql */`
+      SELECT g.slug as genre_slug, s.slug as supergenre_slug
+      FROM genre_supergenres gs
+      JOIN genres g ON g.id = gs.genre_id
+      JOIN supergenres s ON s.id = gs.supergenre_id
+      WHERE g.enabled = true AND s.enabled = true
+    `) as Array<{ genre_slug: string; supergenre_slug: string }>;
+
     return res.status(200).json({ 
       ok: true, 
       domains,
@@ -95,7 +113,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       subgenres, 
       formats,
       ageMarkets,
-      tags 
+      tags,
+      genreDomainLinks,
+      genreSupergenreLinks,
     });
   } catch (error: any) {
     console.error("taxonomy-list error", error);

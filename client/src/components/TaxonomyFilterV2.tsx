@@ -10,6 +10,9 @@ import {
   loadTaxonomyData,
   getRelevantTags,
   removeFilter,
+  getDomainsForGenre,
+  getSupergenresForGenre,
+  getFilteredGenres,
 } from "@/lib/taxonomyFilter";
 
 interface TaxonomyFilterV2Props {
@@ -96,26 +99,29 @@ interface GenreSubgenreSelectorProps {
   onClose: () => void;
   taxonomy: TaxonomyData;
   onSave: (genre: FilterDimension, subgenre: FilterDimension | null) => void;
-  availableGenres?: string[]; // Filtered by domain/supergenre if selected
+  selectedDomains?: FilterDimension[];
+  selectedSupergenres?: FilterDimension[];
 }
 
-function GenreSubgenreSelector({ open, onClose, taxonomy, onSave, availableGenres }: GenreSubgenreSelectorProps) {
+function GenreSubgenreSelector({ open, onClose, taxonomy, onSave, selectedDomains = [], selectedSupergenres = [] }: GenreSubgenreSelectorProps) {
   const [stage, setStage] = useState<"genre" | "subgenre">("genre");
   const [selectedGenre, setSelectedGenre] = useState<FilterDimension | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   
+  // Apply hierarchical filtering based on selected domains/supergenres
   const filteredGenres = useMemo(() => {
-    let genres = taxonomy.genres;
-    if (availableGenres) {
-      genres = genres.filter(g => availableGenres.includes(g.slug));
-    }
+    const domainSlugs = selectedDomains.map(d => d.slug);
+    const supergenreSlugs = selectedSupergenres.map(s => s.slug);
+    
+    let genres = getFilteredGenres(taxonomy, domainSlugs, supergenreSlugs);
+    
     if (!searchQuery.trim()) return genres;
     const query = searchQuery.toLowerCase();
     return genres.filter(g => 
       g.name.toLowerCase().includes(query) ||
       g.slug.toLowerCase().includes(query)
     );
-  }, [taxonomy.genres, searchQuery, availableGenres]);
+  }, [taxonomy, searchQuery, selectedDomains, selectedSupergenres]);
   
   const availableSubgenres = useMemo(() => {
     if (!selectedGenre) return [];
@@ -460,6 +466,75 @@ function FormatSelector({ open, onClose, taxonomy, selectedFormats, onToggle }: 
   );
 }
 
+interface SimpleSelectorProps {
+  open: boolean;
+  onClose: () => void;
+  taxonomy: TaxonomyData;
+  items: { slug: string; name: string }[];
+  onToggle: (item: FilterDimension) => void;
+  selectedSlugs: string[];
+  title: string;
+  type: FilterDimension['type'];
+}
+
+function SimpleSelector({ open, onClose, items, onToggle, selectedSlugs, title, type }: SimpleSelectorProps) {
+  const [searchQuery, setSearchQuery] = useState("");
+  
+  const filteredItems = useMemo(() => {
+    if (!searchQuery.trim()) return items;
+    const query = searchQuery.toLowerCase();
+    return items.filter(item =>
+      item.name.toLowerCase().includes(query)
+    );
+  }, [items, searchQuery]);
+  
+  return (
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle>{title}</DialogTitle>
+        </DialogHeader>
+        
+        <div className="space-y-4">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder={`Search ${title.toLowerCase()}...`}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9"
+            />
+          </div>
+          
+          <div className="grid grid-cols-1 gap-2 max-h-96 overflow-y-auto">
+            {filteredItems.map((item) => {
+              const isSelected = selectedSlugs.includes(item.slug);
+              return (
+                <button
+                  key={item.slug}
+                  onClick={() => onToggle({
+                    type,
+                    slug: item.slug,
+                    name: item.name,
+                    include: true,
+                  })}
+                  className={`px-4 py-3 rounded-lg border text-left transition-colors ${
+                    isSelected
+                      ? 'bg-primary text-primary-foreground border-primary font-medium'
+                      : 'bg-background text-foreground border-border hover:bg-muted'
+                  }`}
+                >
+                  {item.name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function AudienceSelector({ open, onClose, taxonomy, selectedAudiences, onToggle }: AudienceSelectorProps) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
@@ -585,6 +660,8 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   
   const [genreModalOpen, setGenreModalOpen] = useState(false);
   const [tagModalOpen, setTagModalOpen] = useState(false);
+  const [domainModalOpen, setDomainModalOpen] = useState(false);
+  const [supergenreModalOpen, setSupergenreModalOpen] = useState(false);
   const [contentFlagModalOpen, setContentFlagModalOpen] = useState(false);
   const [formatModalOpen, setFormatModalOpen] = useState(false);
   const [audienceModalOpen, setAudienceModalOpen] = useState(false);
@@ -596,6 +673,12 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const [showFormat, setShowFormat] = useState(false);
   const [showAudience, setShowAudience] = useState(false);
   const [showBlock, setShowBlock] = useState(false);
+  
+  // Auto-show Domain and Supergenre when they have values
+  useEffect(() => {
+    if (domains.length > 0) setShowDomain(true);
+    if (supergenres.length > 0) setShowSupergenre(true);
+  }, [domains.length, supergenres.length]);
   
   useEffect(() => {
     loadTaxonomyData().then((data) => {
@@ -638,6 +721,34 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
     if (subgenre) {
       filteredDimensions.push(subgenre);
     }
+    
+    // Auto-populate domains for this genre
+    const autoDomains = getDomainsForGenre(taxonomy, genre.slug);
+    autoDomains.forEach(domain => {
+      const alreadyExists = filteredDimensions.some(d => d.type === "domain" && d.slug === domain.slug);
+      if (!alreadyExists) {
+        filteredDimensions.push({
+          type: "domain",
+          slug: domain.slug,
+          name: domain.name,
+          include: true,
+        });
+      }
+    });
+    
+    // Auto-populate supergenres for this genre
+    const autoSupergenres = getSupergenresForGenre(taxonomy, genre.slug);
+    autoSupergenres.forEach(supergenre => {
+      const alreadyExists = filteredDimensions.some(d => d.type === "supergenre" && d.slug === supergenre.slug);
+      if (!alreadyExists) {
+        filteredDimensions.push({
+          type: "supergenre",
+          slug: supergenre.slug,
+          name: supergenre.name,
+          include: true,
+        });
+      }
+    });
     
     onFilterChange({ ...filterState, dimensions: filteredDimensions });
   };
@@ -729,6 +840,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
           title="Domain" 
           isHidden={!showDomain}
           onToggleVisibility={() => setShowDomain(!showDomain)}
+          onEdit={showDomain ? () => setDomainModalOpen(true) : undefined}
           count={domains.length}
         />
         {showDomain && (
@@ -750,6 +862,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
           title="Supergenre" 
           isHidden={!showSupergenre}
           onToggleVisibility={() => setShowSupergenre(!showSupergenre)}
+          onEdit={showSupergenre ? () => setSupergenreModalOpen(true) : undefined}
           count={supergenres.length}
         />
         {showSupergenre && (
@@ -861,6 +974,8 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
         onClose={() => setGenreModalOpen(false)}
         taxonomy={taxonomy}
         onSave={handleGenreSubgenreSave}
+        selectedDomains={domains}
+        selectedSupergenres={supergenres}
       />
       
       <TagSelector
@@ -870,6 +985,28 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
         selectedGenres={genres}
         selectedTags={tags}
         onToggle={handleTagToggle}
+      />
+      
+      <SimpleSelector
+        open={domainModalOpen}
+        onClose={() => setDomainModalOpen(false)}
+        taxonomy={taxonomy}
+        items={taxonomy.domains}
+        onToggle={handleItemToggle}
+        selectedSlugs={domains.map(d => d.slug)}
+        title="Select Domain"
+        type="domain"
+      />
+      
+      <SimpleSelector
+        open={supergenreModalOpen}
+        onClose={() => setSupergenreModalOpen(false)}
+        taxonomy={taxonomy}
+        items={taxonomy.supergenres}
+        onToggle={handleItemToggle}
+        selectedSlugs={supergenres.map(s => s.slug)}
+        title="Select Supergenre"
+        type="supergenre"
       />
       
       <ContentFlagSelector
