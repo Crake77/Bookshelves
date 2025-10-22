@@ -1,7 +1,26 @@
 import { test, expect } from '@playwright/test';
 
+const BASE_URL = process.env.BASE_URL || 'http://localhost:5173';
+
+test('debug - check what carousels exist', async ({ page }) => {
+  await page.goto(`${BASE_URL}/browse`);
+  await page.waitForLoadState('networkidle');
+  await page.screenshot({ path: 'test-results/browse-page-debug.png', fullPage: true });
+  
+  const bodyText = await page.locator('body').textContent();
+  console.log('Page text:', bodyText?.substring(0, 500));
+  
+  const allSections = await page.locator('section[data-testid^="section-"]').all();
+  console.log(`Found ${allSections.length} sections`);
+  
+  for (const section of allSections) {
+    const testId = await section.getAttribute('data-testid');
+    console.log(`  - ${testId}`);
+  }
+});
+
 test('browse page carousels should load more books on scroll', async ({ page }) => {
-  await page.goto('http://localhost:5173/browse');
+  await page.goto(`${BASE_URL}/browse`);
   
   // Wait for the page to load
   await page.waitForLoadState('networkidle');
@@ -33,7 +52,7 @@ test('browse page carousels should load more books on scroll', async ({ page }) 
 });
 
 test('browse page Romance carousel should load more books on scroll', async ({ page }) => {
-  await page.goto('http://localhost:5173/browse');
+  await page.goto(`${BASE_URL}/browse`);
   
   await page.waitForLoadState('networkidle');
   
