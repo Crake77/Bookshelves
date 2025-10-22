@@ -13,6 +13,7 @@ import {
   getDomainsForGenre,
   getSupergenresForGenre,
   getFilteredGenres,
+  clearTaxonomyCache,
 } from "@/lib/taxonomyFilter";
 
 interface TaxonomyFilterV2Props {
@@ -174,8 +175,8 @@ function GenreSubgenreSelector({ open, onClose, taxonomy, onSave, selectedDomain
           </DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4">
-          <div className="relative">
+        <div className="flex flex-col flex-1 space-y-4">
+          <div className="relative flex-shrink-0">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder={stage === "genre" ? "Search genres..." : "Search subgenres..."}
@@ -185,7 +186,7 @@ function GenreSubgenreSelector({ open, onClose, taxonomy, onSave, selectedDomain
             />
           </div>
           
-          <div className="max-h-96 overflow-y-auto border rounded-lg">
+          <div className="flex-1 overflow-y-auto border rounded-lg">
             {stage === "genre" ? (
               <div className="divide-y">
                 {filteredGenres.map((genre) => (
@@ -298,13 +299,13 @@ function TagSelector({ open, onClose, taxonomy, selectedGenres, selectedTags, on
   
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[80vh]">
+      <DialogContent className="max-w-2xl max-h-[80vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Select Tropes, Themes & Tags</DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4">
-          <div className="relative">
+        <div className="flex flex-col flex-1 space-y-4">
+          <div className="relative flex-shrink-0">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search tags..."
@@ -314,7 +315,7 @@ function TagSelector({ open, onClose, taxonomy, selectedGenres, selectedTags, on
             />
           </div>
           
-          <div className="flex flex-wrap gap-2 max-h-96 overflow-y-auto p-4 border rounded-lg bg-muted/20">
+          <div className="flex flex-wrap gap-2 flex-1 overflow-y-auto p-4 border rounded-lg bg-muted/20">
             {filteredTags.map((tag) => {
               const isSelected = selectedTags.some(t => t.slug === tag.slug && t.include);
               return (
@@ -421,7 +422,7 @@ function FormatSelector({ open, onClose, taxonomy, selectedFormats, onToggle }: 
   
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md max-h-[80vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Select Format</DialogTitle>
         </DialogHeader>
@@ -679,7 +680,9 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const [showAdvanced, setShowAdvanced] = useState(false);
   
   useEffect(() => {
-    loadTaxonomyData().then((data) => {
+    // Clear cache and force fresh load to pick up new tags
+    clearTaxonomyCache();
+    loadTaxonomyData(1000).then((data) => {
       setTaxonomy(data);
       setLoading(false);
     });
@@ -905,7 +908,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
           title="Content Flags" 
           isHidden={!showContentFlags}
           onToggleVisibility={() => setShowContentFlags(!showContentFlags)}
-          onEdit={showContentFlags ? () => setContentFlagModalOpen(true) : undefined}
+          onEdit={() => setContentFlagModalOpen(true)}
           count={contentFlags.length}
         />
         {showContentFlags && (
@@ -976,7 +979,7 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
           title="Block" 
           isHidden={!showBlock}
           onToggleVisibility={() => setShowBlock(!showBlock)}
-          onEdit={showBlock ? () => setBlockModalOpen(true) : undefined}
+          onEdit={() => setBlockModalOpen(true)}
           count={blockedItems.length}
         />
         {showBlock && (

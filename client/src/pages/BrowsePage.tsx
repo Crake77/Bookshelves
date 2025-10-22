@@ -503,164 +503,56 @@ export default function BrowsePage() {
       )}
       {/* Edit dialog for on-the-fly subgenre/tags */}
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] md:max-w-3xl max-h-[90vh] flex flex-col">
           <DialogHeader>
             <DialogTitle>Configure {editGenreName} Filters</DialogTitle>
-            <DialogDescription>Choose subgenres and tags using the modern taxonomy system, or use the legacy interface below.</DialogDescription>
           </DialogHeader>
-          <div className="space-y-6">
-            {/* Modern Taxonomy Filter Interface */}
-            <div className="border-2 border-primary/20 rounded-lg p-4 bg-primary/5">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <h3 className="font-medium text-sm text-primary">New Taxonomy System</h3>
-              </div>
-              <TaxonomyFilterV2
-                filterState={editTaxonomyFilter.filterState}
-                onFilterChange={editTaxonomyFilter.setFilterState}
-              />
-            </div>
-            
-            {/* Legacy Interface - kept for backward compatibility */}
-            <div className="border border-muted rounded-lg p-4 bg-muted/5">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
-                <h3 className="font-medium text-sm text-muted-foreground">Legacy Interface</h3>
-              </div>
-            <div>
-              <div className="text-sm font-medium mb-2">Subgenre</div>
-              <Select value={editSubgenreSlug ?? ""} onValueChange={(val) => {
-                const sg = allSubgenres.find((x) => x.slug === val);
-                setEditSubgenreSlug(val || null);
-                setEditSubgenreName(((sg?.name?.includes('—') ? sg?.name?.split('—').pop() : sg?.name) ?? '').trim() || null);
-              }}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder={editSubgenreName || "Select a subgenre"} />
-                </SelectTrigger>
-                <SelectContent className="max-h-64 overflow-y-auto">
-                  {(() => {
-                    if (!editGenreSlug) return allSubgenres.slice(0, 200).map((sg) => (
-                      <SelectItem key={sg.slug} value={sg.slug}>{sg.name}</SelectItem>
-                    ));
-                    // Filter by genre_slug field from the database - this is the official parent relationship
-                    const genreSlug = editGenreSlug.toLowerCase();
-                    const filtered = allSubgenres.filter((sg) => (sg.genre_slug || '').toLowerCase() === genreSlug);
-                    return filtered.slice(0, 200).map((sg) => (
-                      <SelectItem key={sg.slug} value={sg.slug}>{sg.name}</SelectItem>
-                    ));
-                  })()}
-                </SelectContent>
-              </Select>
-            </div>
-            <div>
-              <div className="text-sm font-medium mb-2">Add Tags</div>
-              <Input placeholder="Search tags…" value={tagSearch} onChange={(e) => setTagSearch(e.target.value)} />
-              <div className="mt-2 flex flex-wrap gap-2 max-h-48 overflow-y-auto">
-                {(() => {
-                  const base = (editGenreSlug || '').toLowerCase();
-                  const PRIORITY: Record<string, string[]> = {
-                    romance: [
-                      'enemies-to-lovers','friends-to-lovers','rivals-to-lovers','second-chance','slow-burn','insta-love','fake-dating','marriage-of-convenience','forced-proximity','love-triangle','arranged-marriage','grumpy-sunshine','secret-relationship','forbidden-love','age-gap','best-friends-sibling','sibling-best-friend','only-one-bed','mistaken-identity','pen-pals','soulmates','amnesia','secret-baby','accidental-pregnancy','sports-romance','college-romance','rockstar-romance'
-                    ],
-                    fantasy: ['quest','court-intrigue','political-maneuvering','found-family','magic-system','secondary-world','epic-length-600p'],
-                    'science-fiction': ['first-contact','artificial-intelligence','colonization','space','near-future','time-loop'],
-                    'sci-fi': ['first-contact','artificial-intelligence','colonization','space','near-future','time-loop'],
-                    mystery: ['locked-room','missing-persons','police-procedural','noir','suspenseful','cold-case'],
-                    horror: ['dark','bleak','survival','isolation','haunted-house','supernatural-paranormal']
-                  } as const;
-
-                  const priorityList = new Map<string, number>();
-                  (PRIORITY[base] ?? []).forEach((slug, idx) => priorityList.set(slug, PRIORITY[base]!.length - idx));
-
-                  const q = tagSearch.toLowerCase();
-                  const candidates = allTags.filter((t) => {
-                    const okGroup = ["tropes_themes", "setting", "tone_mood", "format"].includes(t.group);
-                    const okSearch = !q || t.name.toLowerCase().includes(q) || t.group.toLowerCase().includes(q);
-                    return okGroup && okSearch;
+          
+          <div className="flex-1 overflow-y-auto">
+            <TaxonomyFilterV2
+              filterState={editTaxonomyFilter.filterState}
+              onFilterChange={editTaxonomyFilter.setFilterState}
+            />
+          </div>
+          
+          <div className="flex gap-2 pt-4 border-t mt-4">
+            <Button 
+              variant="outline" 
+              onClick={() => setEditOpen(false)}
+              className="flex-1"
+            >
+              Cancel
+            </Button>
+            <Button 
+              onClick={() => {
+                // Save taxonomy filter changes
+                if (editSlug) {
+                  const list = loadCategoryPreferences();
+                  const updated = list.map((c) => {
+                    if (c.slug === editSlug) {
+                      // Extract filter data from taxonomy filter
+                      const genreFilter = editTaxonomyFilter.selectedGenres[0];
+                      const subgenreFilter = editTaxonomyFilter.selectedSubgenres[0];
+                      const tagFilters = editTaxonomyFilter.selectedTags;
+                      
+                      return {
+                        ...c,
+                        subgenreSlug: subgenreFilter?.slug ?? undefined,
+                        subgenreName: subgenreFilter?.name ?? undefined,
+                        tagSlugs: tagFilters.map(t => t.slug),
+                        tagNames: tagFilters.map(t => t.name),
+                      };
+                    }
+                    return c;
                   });
-
-                  // Romance-only tropes to de-prioritize when the base genre is not Romance
-                  const ROMANCE_ONLY = new Set([
-                    'enemies-to-lovers','friends-to-lovers','rivals-to-lovers','second-chance','insta-love','fake-dating','marriage-of-convenience','forced-proximity','love-triangle','arranged-marriage','grumpy-sunshine','secret-relationship','forbidden-love','age-gap','best-friends-sibling','sibling-best-friend','only-one-bed','secret-baby','accidental-pregnancy','pen-pals','soulmates','amnesia'
-                  ]);
-
-                  function scoreTag(t: { slug: string; name: string; group: string }): number {
-                    const selectedBoost = editTagNames.includes(t.name) ? 1000 : 0;
-                    const priorityBoost = priorityList.get(t.slug) ?? 0;
-                    const groupBoost = t.group === 'tropes_themes' ? 2 : t.group === 'setting' ? 1 : 0;
-                    const romancePenalty = base !== 'romance' && ROMANCE_ONLY.has(t.slug) ? -50 : 0;
-                    return selectedBoost + priorityBoost + groupBoost + romancePenalty;
-                  }
-
-                  candidates.sort((a, b) => {
-                    const sa = scoreTag(a);
-                    const sb = scoreTag(b);
-                    if (sa !== sb) return sb - sa;
-                    return a.name.localeCompare(b.name);
-                  });
-
-                  return candidates.slice(0, 40).map((t) => {
-                    const selected = editTagNames.includes(t.name);
-                    return (
-                      <button
-                        type="button"
-                        key={t.slug}
-                        onClick={() => toggleEditTag(t)}
-                        className={`text-xs px-2 py-1 rounded-full border ${selected ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground/80 hover:bg-muted/80'}`}
-                        aria-pressed={selected}
-                      >
-                        {t.name}
-                      </button>
-                    );
-                  });
-                })()}
-              </div>
-            </div>
-            <div className="pt-2">
-              <Button variant="outline" className="w-full" onClick={saveEdit}>Save Legacy Changes</Button>
-            </div>
-            </div>
-            
-            {/* Action Buttons */}
-            <div className="flex gap-2 pt-4 border-t">
-              <Button 
-                variant="outline" 
-                onClick={() => setEditOpen(false)}
-                className="flex-1"
-              >
-                Cancel
-              </Button>
-              <Button 
-                onClick={() => {
-                  // Save taxonomy filter changes
-                  if (editSlug) {
-                    const list = loadCategoryPreferences();
-                    const updated = list.map((c) => {
-                      if (c.slug === editSlug) {
-                        // Extract filter data from taxonomy filter
-                        const genreFilter = editTaxonomyFilter.selectedGenres[0];
-                        const subgenreFilter = editTaxonomyFilter.selectedSubgenres[0];
-                        const tagFilters = editTaxonomyFilter.selectedTags;
-                        
-                        return {
-                          ...c,
-                          subgenreSlug: subgenreFilter?.slug ?? undefined,
-                          subgenreName: subgenreFilter?.name ?? undefined,
-                          tagSlugs: tagFilters.map(t => t.slug),
-                          tagNames: tagFilters.map(t => t.name),
-                        };
-                      }
-                      return c;
-                    });
-                    saveCategoryPreferences(updated);
-                  }
-                  setEditOpen(false);
-                }}
-                className="flex-1 bg-primary"
-              >
-                Save Taxonomy Changes
-              </Button>
-            </div>
+                  saveCategoryPreferences(updated);
+                }
+                setEditOpen(false);
+              }}
+              className="flex-1 bg-primary"
+            >
+              Save
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

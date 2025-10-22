@@ -60,6 +60,11 @@ export const DEFAULT_FILTER_CONFIG: FilterDisplayConfig = {
 let taxonomyCache: { data: TaxonomyData; timestamp: number } | null = null;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
+// Clear the cache to force fresh data load
+export function clearTaxonomyCache() {
+  taxonomyCache = null;
+}
+
 export async function loadTaxonomyData(limit = 500): Promise<TaxonomyData> {
   // Return cached data if still fresh
   if (taxonomyCache && Date.now() - taxonomyCache.timestamp < CACHE_DURATION) {
