@@ -674,12 +674,6 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const [showAudience, setShowAudience] = useState(false);
   const [showBlock, setShowBlock] = useState(false);
   
-  // Auto-show Domain and Supergenre when they have values
-  useEffect(() => {
-    if (domains.length > 0) setShowDomain(true);
-    if (supergenres.length > 0) setShowSupergenre(true);
-  }, [domains.length, supergenres.length]);
-  
   useEffect(() => {
     loadTaxonomyData().then((data) => {
       setTaxonomy(data);
@@ -696,6 +690,12 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   const formats = filterState.dimensions.filter(d => d.type === "format" && d.include);
   const audiences = filterState.dimensions.filter(d => d.type === "age_market" && d.include);
   const blockedItems = filterState.dimensions.filter(d => !d.include);
+  
+  // Auto-show Domain and Supergenre when they have values (after arrays are defined)
+  useEffect(() => {
+    if (domains.length > 0) setShowDomain(true);
+    if (supergenres.length > 0) setShowSupergenre(true);
+  }, [domains.length, supergenres.length]);
   
   // Filter content flags (subset of tags)
   const contentFlags = tags.filter(t => {
