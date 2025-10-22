@@ -491,3 +491,147 @@ export const insertBookCrossTagSchema = createInsertSchema(bookCrossTags).omit({
 });
 export type InsertBookCrossTag = z.infer<typeof insertBookCrossTagSchema>;
 export type BookCrossTag = typeof bookCrossTags.$inferSelect;
+
+// -----------------------
+// Publication Dating System (FRBR-lite)
+// -----------------------
+
+// Works: Intellectual work grouping (e.g., "Dune by Frank Herbert")
+export const works = pgTable(
+  "works",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    title: text("title").notNull(),
+    authors: text("authors").array().notNull(),
+    description: text("description"),
+    series: text("series"), // Series name if part of a series
+    seriesOrder: integer("series_order"), // Position in series (1, 2, 3...)
+    
+    // Computed date fields for fast querying
+    originalPublicationDate: timestamp("original_publication_date", { mode: "date" }),
+    latestMajorReleaseDate: timestamp("latest_major_release_date", { mode: "date" }),
+    latestAnyReleaseDate: timestamp("latest_any_release_date", { mode: "date" }),
+    nextMajorReleaseDate: timestamp("next_major_release_date", { mode: "date" }),
+    
+    // Display edition used for cover and primary metadata
+    displayEditionId: uuid("display_edition_id"),
+    
+    // Deduplication metadata
+    matchConfidence: integer("match_confidence").default(100), // 0-100
+    isManuallyConfirmed: boolean("is_manually_confirmed").default(false),
+    
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => ({
+    idxWorksTitle: index("idx_works_title").on(table.title),
+    idxWorksOriginalDate: index("idx_works_original_date").on(table.originalPublicationDate),
+    idxWorksLatestMajor: index("idx_works_latest_major").on(table.latestMajorReleaseDate),
+    idxWorksLatestAny: index("idx_works_latest_any").on(table.latestAnyReleaseDate),
+    idxWorksSeries: index("idx_works_series").on(table.series),
+  })
+);
+
+export const insertWorkSchema = createInsertSchema(works).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+export type InsertWork = z.infer<typeof insertWorkSchema>;
+export type Work = typeof works.$inferSelect;
+
+// Editions: Specific publication (format/language/market) of a work
+export const editions = pgTable(
+  "editions",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    workId: uuid("work_id").notNull().references(() => works.id, { onDelete: "cascade" }),
+    
+    // Link to original books table for migration tracking
+    legacyBookId: uuid("legacy_book_id").references(() => books.id, { onDelete: "set null" }),
+    
+    // Edition metadata
+    format: text("format").notNull(), // hardcover, paperback, ebook, audiobook, etc.
+    publicationDate: timestamp("publication_date", { mode: "date" }),
+    language: text("language"), // ISO language code (en, fr, es, etc.)
+    market: text("market"), // Geographic market (US, UK, etc.)
+    
+    // Identifiers
+    isbn10: text("isbn10"),
+    isbn13: text("isbn13"),
+    googleBooksId: text("google_books_id"),
+    openLibraryId: text("open_library_id"),
+    
+    // Edition-specific details
+    editionStatement: text("edition_statement"), // "10th Anniversary", "Movie Tie-In", etc.
+    pageCount: integer("page_count"),
+    categories: text("categories").array(),
+    coverUrl: text("cover_url"),
+    
+    // Curation flag
+    isManual: boolean("is_manual").default(false),
+    
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (table) => ({
+    idxEditionsWork: index("idx_editions_work").on(table.workId),
+    idxEditionsDate: index("idx_editions_date").on(table.publicationDate),
+    idxEditionsIsbn13: index("idx_editions_isbn13").on(table.isbn13),
+    idxEditionsGoogleBooks: index("idx_editions_google_books").on(table.googleBooksId),
+    idxEditionsLegacyBook: index("idx_editions_legacy_book").on(table.legacyBookId),
+  })
+);
+
+export const insertEditionSchema = createInsertSchema(editions).omit({
+  id: true,
+  createdAt: true,
+});
+export type InsertEdition = z.infer<typeof insertEditionSchema>;
+export type Edition = typeof editions.$inferSelect;
+
+// Release Events: Date-specific publication or promotional moments
+export const releaseEventTypes = [
+  "ORIGINAL_RELEASE",
+  "FORMAT_FIRST_RELEASE",
+  "MAJOR_REISSUE_PROMO",
+  "NEW_TRANSLATION",
+  "MINOR_REPRINT",
+  "SPECIAL_EDITION",
+  "REVISED_EXPANDED",
+] as const;
+
+export const releaseEvents = pgTable(
+  "release_events",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    editionId: uuid("edition_id").notNull().references(() => editions.id, { onDelete: "cascade" }),
+    
+    eventDate: timestamp("event_date", { mode: "date" }).notNull(),
+    eventType: text("event_type").notNull().$type<typeof releaseEventTypes[number]>(),
+    
+    // Classification flags
+    isMajor: boolean("is_major").default(false).notNull(),
+    promoStrength: integer("promo_strength").default(0).notNull(), // 0-100
+    
+    // Regional specificity
+    market: text("market"),
+    
+    // Manual notes and sources
+    notes: text("notes"),
+    
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (table) => ({
+    idxReleaseEventsEdition: index("idx_release_events_edition").on(table.editionId),
+    idxReleaseEventsDate: index("idx_release_events_date").on(table.eventDate),
+    idxReleaseEventsMajor: index("idx_release_events_major").on(table.isMajor),
+    idxReleaseEventsType: index("idx_release_events_type").on(table.eventType),
+  })
+);
+
+export const insertReleaseEventSchema = createInsertSchema(releaseEvents).omit({
+  id: true,
+  createdAt: true,
+});
+export type InsertReleaseEvent = z.infer<typeof insertReleaseEventSchema>;
+export type ReleaseEvent = typeof releaseEvents.$inferSelect;

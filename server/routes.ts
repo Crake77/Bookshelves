@@ -665,6 +665,72 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // -----------------------
+  // Works & Editions Routes (Publication Dating System)
+  // -----------------------
+  
+  const { browseWorks, getWorkDetails, getWorkEditions } = await import("./lib/editions-api.js");
+  
+  // Browse works (new endpoint for edition-aware browsing)
+  app.get("/api/works/browse", async (req, res) => {
+    try {
+      const sort = req.query.sort as "original" | "latestMajor" | "latestAny" | "title" | undefined;
+      const recentDays = req.query.recentDays ? parseInt(req.query.recentDays as string) : 90;
+      const userId = req.query.userId as string | undefined;
+      const limit = req.query.limit ? parseInt(req.query.limit as string) : 50;
+      const offset = req.query.offset ? parseInt(req.query.offset as string) : 0;
+      
+      // Get user's book IDs to exclude
+      let excludeUserBookIds: string[] = [];
+      if (userId) {
+        const userBooks = await storage.getUserBooks(userId);
+        excludeUserBookIds = userBooks.map(ub => ub.bookId);
+      }
+      
+      const worksList = await browseWorks({
+        sort,
+        recentDays,
+        excludeUserBookIds,
+        limit,
+        offset,
+      });
+      
+      res.json(worksList);
+    } catch (error) {
+      console.error("Browse works error:", error);
+      res.status(500).json({ error: "Failed to browse works" });
+    }
+  });
+  
+  // Get work details with all editions
+  app.get("/api/works/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const work = await getWorkDetails(id);
+      
+      if (!work) {
+        return res.status(404).json({ error: "Work not found" });
+      }
+      
+      res.json(work);
+    } catch (error) {
+      console.error("Get work error:", error);
+      res.status(500).json({ error: "Failed to get work" });
+    }
+  });
+  
+  // Get all editions for a work
+  app.get("/api/works/:id/editions", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const editionsList = await getWorkEditions(id);
+      res.json(editionsList);
+    } catch (error) {
+      console.error("Get editions error:", error);
+      res.status(500).json({ error: "Failed to get editions" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

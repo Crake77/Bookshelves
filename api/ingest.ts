@@ -41,6 +41,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const ingested = await upsertBook(parsed);
 
+    // Dual-write: create work and edition (best-effort; skip on failure)
+    try {
+      const { createWorkFromBook } = await import("../server/lib/editions-api.js");
+      await createWorkFromBook({
+        id: ingested.id,
+        title: ingested.title,
+        authors: ingested.authors,
+        description: ingested.description,
+        publishedDate: ingested.publishedDate,
+        isbn: ingested.isbn,
+        coverUrl: ingested.coverUrl,
+        googleBooksId: ingested.googleBooksId,
+        pageCount: ingested.pageCount,
+        categories: ingested.categories,
+      });
+    } catch (e) {
+      // Swallow edition creation errors to keep ingest fast and resilient
+      console.warn("[ingest] work/edition creation skipped:", (e as any)?.message ?? e);
+    }
+
     // Attempt to apply taxonomy (best-effort; skip on failure)
     try {
       const sql = neon(process.env.DATABASE_URL!);
