@@ -93,9 +93,23 @@ export default function HorizontalBookRow({
       </div>
       {Array.isArray(secondaryChips) && secondaryChips.length > 0 && (
         <div className="px-4 mb-2 flex flex-wrap gap-2">
-          {secondaryChips.map((chip, idx) => (
-            <span key={`${chip}-${idx}`} className="text-xs px-2 py-0.5 rounded-full bg-muted text-foreground/80">{chip}</span>
-          ))}
+          {secondaryChips.map((chip, idx) => {
+            const isObject = typeof chip === 'object';
+            const label = isObject ? chip.label : chip;
+            const type = isObject ? chip.type : 'tag';
+            
+            const chipClasses = type === 'blocked'
+              ? 'text-xs px-2 py-0.5 rounded-full bg-destructive text-destructive-foreground line-through'
+              : type === 'content-flag'
+              ? 'text-xs px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-700 dark:text-orange-300'
+              : 'text-xs px-2 py-0.5 rounded-full bg-muted text-foreground/80';
+            
+            return (
+              <span key={`${label}-${idx}`} className={chipClasses}>
+                {label}
+              </span>
+            );
+          })}
         </div>
       )}
       {errorMessage && (

@@ -267,6 +267,7 @@ export default function BrowsePage() {
         subgenreSlug,
         tagSlugs,
         tags,
+        blockedTagNames: category.blockedTagNames,
         emptyMessage,
       } satisfies CategoryConfig;
     });
