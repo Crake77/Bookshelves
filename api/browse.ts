@@ -17,6 +17,11 @@ interface BrowseParams {
   subgenreSlug?: string | null; // taxonomy: subgenre slug
   tagSlug?: string | null;      // taxonomy: cross tag slug
   tagAny?: string[] | null;     // preference boost: any of these tag slugs
+  blockedTags?: string[] | null; // taxonomy: exclude books with these tag slugs
+  formatSlug?: string | null;    // taxonomy: format slug
+  audienceSlug?: string | null;  // taxonomy: age market slug
+  domainSlug?: string | null;    // taxonomy: domain slug
+  supergenreSlug?: string | null; // taxonomy: supergenre slug
   limit: number;
   offset: number;
 }
@@ -464,6 +469,40 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
             WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
           ))
+          -- Block filter: exclude books with blocked tags
+          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+            SELECT 1 FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+          ))
+          -- Domain filter
+          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN domains d ON d.id = g.domain_id
+            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+          ))
+          -- Supergenre filter
+          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN supergenres sp ON sp.id = g.supergenre_id
+            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+          ))
+          -- Format filter  
+          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_formats bf
+            JOIN formats f ON f.id = bf.format_id
+            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+          ))
+          -- Audience filter
+          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_age_markets bam
+            JOIN age_markets am ON am.id = bam.age_market_id
+            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
         )
         SELECT
           catalog.id,
@@ -525,6 +564,40 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             SELECT 1 FROM book_cross_tags bct
             JOIN cross_tags ct ON ct.id = bct.cross_tag_id
             WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
+          ))
+          -- Block filter: exclude books with blocked tags
+          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+            SELECT 1 FROM book_cross_tags bct
+            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+          ))
+          -- Domain filter
+          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN domains d ON d.id = g.domain_id
+            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+          ))
+          -- Supergenre filter
+          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_primary_subgenres bps
+            JOIN subgenres sg ON sg.id = bps.subgenre_id
+            JOIN genres g ON g.id = sg.genre_id
+            JOIN supergenres sp ON sp.id = g.supergenre_id
+            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+          ))
+          -- Format filter  
+          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_formats bf
+            JOIN formats f ON f.id = bf.format_id
+            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+          ))
+          -- Audience filter
+          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM book_age_markets bam
+            JOIN age_markets am ON am.id = bam.age_market_id
+            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
           ))
         )
         SELECT
@@ -1510,6 +1583,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const userId = typeof req.query.userId === "string" ? req.query.userId : undefined;
     const tagAnyRaw = typeof req.query.tagAny === "string" ? req.query.tagAny : null;
     const tagAny = tagAnyRaw ? tagAnyRaw.split(",").map((s) => s.trim()).filter((s) => s.length > 0) : null;
+    const blockedTagsRaw = typeof req.query.blockedTags === "string" ? req.query.blockedTags : null;
+    const blockedTags = blockedTagsRaw ? blockedTagsRaw.split(",").map((s) => s.trim()).filter((s) => s.length > 0) : null;
+    const formatSlug = typeof req.query.format === "string" ? req.query.format : null;
+    const audienceSlug = typeof req.query.audience === "string" ? req.query.audience : null;
+    const domainSlug = typeof req.query.domain === "string" ? req.query.domain : null;
+    const supergenreSlug = typeof req.query.supergenre === "string" ? req.query.supergenre : null;
 
     if (algo === "for-you" && !userId) {
       return res.status(400).json({ error: "userId is required for for-you recommendations" });
@@ -1529,6 +1608,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       limit,
       offset,
       tagAny,
+      blockedTags,
+      formatSlug,
+      audienceSlug,
+      domainSlug,
+      supergenreSlug,
     });
 
     res.status(200).json(books);
