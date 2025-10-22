@@ -531,23 +531,30 @@ export default function BrowsePage() {
             </Button>
             <Button 
               onClick={() => {
-                // Save taxonomy filter changes
-                if (editSlug) {
-                  const list = loadCategoryPreferences();
-                  const updated = list.map((c) => {
-                    if (c.slug === editSlug) {
-                      // Convert filter dimensions back to category preference
-                      const updatedCategory = filterDimensionsToCategoryPreference(
-                        editTaxonomyFilter.filterState.dimensions,
-                        c
-                      );
-                      return updatedCategory;
-                    }
-                    return c;
-                  });
-                  saveCategoryPreferences(updated);
+                try {
+                  // Save taxonomy filter changes
+                  if (editSlug) {
+                    const list = loadCategoryPreferences();
+                    const updated = list.map((c) => {
+                      if (c.slug === editSlug) {
+                        // Convert filter dimensions back to category preference
+                        const updatedCategory = filterDimensionsToCategoryPreference(
+                          editTaxonomyFilter.filterState.dimensions,
+                          c
+                        );
+                        console.log('Updated category:', updatedCategory);
+                        return updatedCategory;
+                      }
+                      return c;
+                    });
+                    saveCategoryPreferences(updated);
+                  }
+                  setEditOpen(false);
+                } catch (error) {
+                  console.error('Error saving category preferences:', error);
+                  // Close anyway so user isn't stuck
+                  setEditOpen(false);
                 }
-                setEditOpen(false);
               }}
               className="flex-1 bg-primary"
             >
