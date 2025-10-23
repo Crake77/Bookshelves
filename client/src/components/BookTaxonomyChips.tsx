@@ -146,7 +146,7 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
           )}
         </div>
         
-        {/* Right side: Genres and Subgenres */}
+        {/* Right side: Genres, Subgenres, Format, Audience, Published Date */}
         <div className="w-40 flex-shrink-0 space-y-4">
           {/* Genre */}
           {taxonomy.genre && (
@@ -178,6 +178,48 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
                 >
                   {taxonomy.subgenre.name}
                 </Badge>
+              </div>
+            </div>
+          )}
+          
+          {/* Format */}
+          {taxonomy.format && (
+            <div>
+              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Format</div>
+              <div className="flex flex-wrap gap-2">
+                <Badge
+                  variant="outline"
+                  className=""
+                  data-testid="chip-format"
+                >
+                  {taxonomy.format.name}
+                </Badge>
+              </div>
+            </div>
+          )}
+          
+          {/* Audience (Age Market) */}
+          {taxonomy.audience && (
+            <div>
+              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Audience</div>
+              <div className="flex flex-wrap gap-2">
+                <Badge
+                  variant="outline"
+                  className=""
+                  data-testid="chip-audience"
+                >
+                  {taxonomy.audience.name}
+                </Badge>
+              </div>
+            </div>
+          )}
+          
+          {/* Published Date */}
+          {book.published_date && (
+            <div>
+              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Published</div>
+              <div className="text-sm text-foreground">
+                {new Date(book.published_date).getFullYear()}
               </div>
             </div>
           )}

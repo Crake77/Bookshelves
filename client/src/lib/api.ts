@@ -175,6 +175,8 @@ export interface BookTaxonomy {
   subgenre?: { slug: string; name: string };
   tags: Array<{ slug: string; name: string; group: string }>;
   allTagCount: number;
+  format?: string;
+  audience?: string;
 }
 
 export async function getBookTaxonomy(googleBooksId: string): Promise<BookTaxonomy | null> {
