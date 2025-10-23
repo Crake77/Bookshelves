@@ -22,14 +22,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       sql`SELECT id, slug, name, description, enabled FROM supergenres WHERE enabled = true ORDER BY name`,
       sql`
         SELECT g.slug as genre_slug, d.slug as domain_slug
-        FROM genre_domain gd
+        FROM genre_domains gd
         JOIN genres g ON g.id = gd.genre_id
         JOIN domains d ON d.id = gd.domain_id
         WHERE g.enabled = true AND d.enabled = true
       `,
       sql`
         SELECT g.slug as genre_slug, s.slug as supergenre_slug
-        FROM genre_supergenre gs
+        FROM genre_supergenres gs
         JOIN genres g ON g.id = gs.genre_id
         JOIN supergenres s ON s.id = gs.supergenre_id
         WHERE g.enabled = true AND s.enabled = true
