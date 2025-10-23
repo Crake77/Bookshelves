@@ -1,6 +1,6 @@
 -- Enrichment SQL for: The Complete Nebula Award-winning Fiction
 -- Book ID: 033508ff-bb34-41d9-aef2-141f4ed8dc84
--- Generated: 2025-10-23T19:13:47.064Z
+-- Generated: 2025-10-23T19:40:48.856Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '033508ff-bb34-41d9-aef2-141f4ed8dc84';
@@ -28,13 +28,35 @@ WHERE id = '033508ff-bb34-41d9-aef2-141f4ed8dc84';
 
 -- Insert domain
 INSERT INTO book_domains (book_id, domain_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM domains WHERE slug = 'non-fiction';
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM domains WHERE slug = 'fiction';
 
 -- Insert supergenres
 INSERT INTO book_supergenres (book_id, supergenre_id)
 SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM supergenres WHERE slug = 'speculative-fiction';
 INSERT INTO book_supergenres (book_id, supergenre_id)
 SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM supergenres WHERE slug = 'science-technology';
+
+-- Insert genres
+INSERT INTO book_genres (book_id, genre_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM genres WHERE slug = 'science-fiction';
+
+-- Insert cross-tags (8 tags)
+INSERT INTO book_cross_tags (book_id, cross_tag_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'novella';
+INSERT INTO book_cross_tags (book_id, cross_tag_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'space';
+INSERT INTO book_cross_tags (book_id, cross_tag_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'complex';
+INSERT INTO book_cross_tags (book_id, cross_tag_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'experimental';
+INSERT INTO book_cross_tags (book_id, cross_tag_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'literary';
+INSERT INTO book_cross_tags (book_id, cross_tag_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'sophisticated';
+INSERT INTO book_cross_tags (book_id, cross_tag_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'philosophical';
+INSERT INTO book_cross_tags (book_id, cross_tag_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'space-opera';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)

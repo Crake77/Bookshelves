@@ -28,6 +28,7 @@ The AI agent MUST read these files first:
 3. **WARP-WORKFLOW.md** — Development workflow standards
 4. **GPT_METADATA_ENRICHMENT_GUIDE.md** — Enrichment quality standards
 5. **bookshelves_complete_taxonomy.json** — Official taxonomy reference
+6. **DATABASE_SCHEMA_REFERENCE.md** — Database tables, column names, data types
 
 ### Environment Setup (Already Configured)
 - ✅ Windows 10/11 with PowerShell 5.1
