@@ -634,116 +634,119 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
     return fetchPopular(sql, { ...params, genre: null });
   }
 
-  // Top up to requested limit using remote volumes if needed
-  if (books.length < params.limit && !params.subgenreSlug && !params.tagSlug && !params.genreSlug) {
-    const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
-    const remoteQuery = genre && genre.length > 0 ? `subject:${genre}` : "best selling books";
-    let remoteCursor = params.offset;
-    let attempts = 0;
+  // TEMPORARILY DISABLED: Top up to requested limit using remote volumes if needed
+  // TODO: Re-enable after validating batch 1-3 data
+  // if (books.length < params.limit && !params.subgenreSlug && !params.tagSlug && !params.genreSlug) {
+  //   const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
+  //   const remoteQuery = genre && genre.length > 0 ? `subject:${genre}` : "best selling books";
+  //   let remoteCursor = params.offset;
+  //   let attempts = 0;
 
-    while (books.length < params.limit && attempts < 5) {
-      const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
-      remoteCursor += remoteVolumes.length;
-      attempts++;
-      if (remoteVolumes.length === 0) break;
+  //   while (books.length < params.limit && attempts < 5) {
+  //     const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
+  //     remoteCursor += remoteVolumes.length;
+  //     attempts++;
+  //     if (remoteVolumes.length === 0) break;
 
-      for (const volume of remoteVolumes) {
-        const payload = seedVolumeToBookPayload(volume);
-        if (!payload) continue;
-        const key = (payload.googleBooksId || "").toLowerCase();
-        if (seen.has(key)) continue;
-        seen.add(key);
-        books.push(payload);
-        if (books.length >= params.limit) break;
-      }
-    }
-  }
+  //     for (const volume of remoteVolumes) {
+  //       const payload = seedVolumeToBookPayload(volume);
+  //       if (!payload) continue;
+  //       const key = (payload.googleBooksId || "").toLowerCase();
+  //       if (seen.has(key)) continue;
+  //       seen.add(key);
+  //       books.push(payload);
+  //       if (books.length >= params.limit) break;
+  //     }
+  //   }
+  // }
 
-  // Tag-specific top up: if the database has too few items for a tag, augment with remote volumes
-  if (books.length < params.limit && params.tagSlug) {
-    const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
-    // Try to fetch the human-friendly tag name; fallback to slug with spaces
-    let tagName = params.tagSlug.replace(/-/g, " ");
-    try {
-      const rows = (await sql/* sql */`SELECT name FROM cross_tags WHERE slug = ${params.tagSlug} LIMIT 1`) as Array<{ name: string }>;
-      if (rows[0]?.name) tagName = rows[0].name;
-    } catch {}
-    const remoteQuery = `"${tagName}"`;
-    let remoteCursor = params.offset;
-    let attempts = 0;
-    while (books.length < params.limit && attempts < 5) {
-      const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
-      remoteCursor += remoteVolumes.length;
-      attempts++;
-      if (remoteVolumes.length === 0) break;
+  // TEMPORARILY DISABLED: Tag-specific top up
+  // TODO: Re-enable after validating batch 1-3 data
+  // if (books.length < params.limit && params.tagSlug) {
+  //   const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
+  //   let tagName = params.tagSlug.replace(/-/g, " ");
+  //   try {
+  //     const rows = (await sql/* sql */`SELECT name FROM cross_tags WHERE slug = ${params.tagSlug} LIMIT 1`) as Array<{ name: string }>;
+  //     if (rows[0]?.name) tagName = rows[0].name;
+  //   } catch {}
+  //   const remoteQuery = `"${tagName}"`;
+  //   let remoteCursor = params.offset;
+  //   let attempts = 0;
+  //   while (books.length < params.limit && attempts < 5) {
+  //     const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
+  //     remoteCursor += remoteVolumes.length;
+  //     attempts++;
+  //     if (remoteVolumes.length === 0) break;
 
-      for (const volume of remoteVolumes) {
-        const payload = seedVolumeToBookPayload(volume);
-        if (!payload) continue;
-        const key = (payload.googleBooksId || "").toLowerCase();
-        if (seen.has(key)) continue;
-        seen.add(key);
-        books.push(payload);
-        if (books.length >= params.limit) break;
-      }
-    }
-  }
+  //     for (const volume of remoteVolumes) {
+  //       const payload = seedVolumeToBookPayload(volume);
+  //       if (!payload) continue;
+  //       const key = (payload.googleBooksId || "").toLowerCase();
+  //       if (seen.has(key)) continue;
+  //       seen.add(key);
+  //       books.push(payload);
+  //       if (books.length >= params.limit) break;
+  //     }
+  //   }
+  // }
 
-  // Genre-specific top up: if too few for a taxonomy genre, augment with remote volumes
-  if (books.length < params.limit && params.genreSlug) {
-    const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
-    let genreName = params.genreSlug.replace(/-/g, " ");
-    try {
-      const rows = (await sql/* sql */`SELECT name FROM genres WHERE slug = ${params.genreSlug} LIMIT 1`) as Array<{ name: string }>;
-      if (rows[0]?.name) genreName = rows[0].name;
-    } catch {}
-    const remoteQuery = `subject:${genreName}`;
-    let remoteCursor = params.offset;
-    let attempts = 0;
-    while (books.length < params.limit && attempts < 5) {
-      const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
-      remoteCursor += remoteVolumes.length;
-      attempts++;
-      if (remoteVolumes.length === 0) break;
-      for (const volume of remoteVolumes) {
-        const payload = seedVolumeToBookPayload(volume);
-        if (!payload) continue;
-        const key = (payload.googleBooksId || "").toLowerCase();
-        if (seen.has(key)) continue;
-        seen.add(key);
-        books.push(payload);
-        if (books.length >= params.limit) break;
-      }
-    }
-  }
+  // TEMPORARILY DISABLED: Genre-specific top up
+  // TODO: Re-enable after validating batch 1-3 data
+  // if (books.length < params.limit && params.genreSlug) {
+  //   const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
+  //   let genreName = params.genreSlug.replace(/-/g, " ");
+  //   try {
+  //     const rows = (await sql/* sql */`SELECT name FROM genres WHERE slug = ${params.genreSlug} LIMIT 1`) as Array<{ name: string }>;
+  //     if (rows[0]?.name) genreName = rows[0].name;
+  //   } catch {}
+  //   const remoteQuery = `subject:${genreName}`;
+  //   let remoteCursor = params.offset;
+  //   let attempts = 0;
+  //   while (books.length < params.limit && attempts < 5) {
+  //     const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
+  //     remoteCursor += remoteVolumes.length;
+  //     attempts++;
+  //     if (remoteVolumes.length === 0) break;
+  //     for (const volume of remoteVolumes) {
+  //       const payload = seedVolumeToBookPayload(volume);
+  //       if (!payload) continue;
+  //       const key = (payload.googleBooksId || "").toLowerCase();
+  //       if (seen.has(key)) continue;
+  //       seen.add(key);
+  //       books.push(payload);
+  //       if (books.length >= params.limit) break;
+  //     }
+  //   }
+  // }
 
-  // Subgenre-specific top up: if too few for a taxonomy subgenre, augment with remote volumes
-  if (books.length < params.limit && params.subgenreSlug) {
-    const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
-    let subgenreName = params.subgenreSlug.replace(/-/g, " ");
-    try {
-      const rows = (await sql/* sql */`SELECT name FROM subgenres WHERE slug = ${params.subgenreSlug} LIMIT 1`) as Array<{ name: string }>;
-      if (rows[0]?.name) subgenreName = rows[0].name;
-    } catch {}
-    const remoteQuery = `${subgenreName}`;
-    let remoteCursor = params.offset;
-    let attempts = 0;
-    while (books.length < params.limit && attempts < 5) {
-      const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
-      remoteCursor += remoteVolumes.length;
-      attempts++;
-      if (remoteVolumes.length === 0) break;
-      for (const volume of remoteVolumes) {
-        const payload = seedVolumeToBookPayload(volume);
-        if (!payload) continue;
-        const key = (payload.googleBooksId || "").toLowerCase();
-        if (seen.has(key)) continue;
-        seen.add(key);
-        books.push(payload);
-        if (books.length >= params.limit) break;
-      }
-    }
-  }
+  // TEMPORARILY DISABLED: Subgenre-specific top up
+  // TODO: Re-enable after validating batch 1-3 data
+  // if (books.length < params.limit && params.subgenreSlug) {
+  //   const seen = new Set(books.map((b) => b.googleBooksId.toLowerCase()));
+  //   let subgenreName = params.subgenreSlug.replace(/-/g, " ");
+  //   try {
+  //     const rows = (await sql/* sql */`SELECT name FROM subgenres WHERE slug = ${params.subgenreSlug} LIMIT 1`) as Array<{ name: string }>;
+  //     if (rows[0]?.name) subgenreName = rows[0].name;
+  //   } catch {}
+  //   const remoteQuery = `${subgenreName}`;
+  //   let remoteCursor = params.offset;
+  //   let attempts = 0;
+  //   while (books.length < params.limit && attempts < 5) {
+  //     const remoteVolumes = await fetchCatalogVolumes(remoteQuery, "relevance", remoteCursor);
+  //     remoteCursor += remoteVolumes.length;
+  //     attempts++;
+  //     if (remoteVolumes.length === 0) break;
+  //     for (const volume of remoteVolumes) {
+  //       const payload = seedVolumeToBookPayload(volume);
+  //       if (!payload) continue;
+  //       const key = (payload.googleBooksId || "").toLowerCase();
+  //       if (seen.has(key)) continue;
+  //       seen.add(key);
+  //       books.push(payload);
+  //       if (books.length >= params.limit) break;
+  //     }
+  //   }
+  // }
 
   return books.slice(0, params.limit);
 }
@@ -1816,7 +1819,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const sql = getSql();
     await ensureSchema(sql);
-    await ensureCatalogSeed(sql);
+    // TEMPORARILY DISABLED: Auto-seed 400+ books from Google Books
+    // TODO: Re-enable after validating batch 1-3 data
+    // await ensureCatalogSeed(sql);
 
     const books = await handleBrowse(sql, {
       algo,
