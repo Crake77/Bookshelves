@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=3msrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:59:09.830Z",
+  "last_updated": "2025-10-23T19:12:24.886Z",
   "authors": {
     "original": [
       "Sarah Schulman"
@@ -33,9 +33,9 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "fiction",
-      "confidence": "low",
-      "reason": "Default - needs manual review"
+      "slug": "non-fiction",
+      "confidence": "high",
+      "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
@@ -50,189 +50,7 @@
       }
     ],
     "status": "suggested",
-    "notes": [],
-    "genres": [
-      {
-        "slug": "fantasy",
-        "name": "Fantasy",
-        "confidence": "suggested"
-      }
-    ],
-    "subgenres": [
-      {
-        "slug": "cozy-fantasy",
-        "name": "Cozy Fantasy",
-        "genre_slug": "fantasy",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "dark-fantasy",
-        "name": "Dark Fantasy",
-        "genre_slug": "fantasy",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "epic-fantasy",
-        "name": "Epic Fantasy",
-        "genre_slug": "fantasy",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "historical-fantasy",
-        "name": "Historical Fantasy",
-        "genre_slug": "fantasy",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "mythic-fantasy",
-        "name": "Mythic Fantasy",
-        "genre_slug": "fantasy",
-        "confidence": "suggested"
-      }
-    ],
-    "cross_tags": [
-      {
-        "slug": "not-what-they-seem",
-        "name": "Not What They Seem",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 6
-      },
-      {
-        "slug": "queer-fantasy",
-        "name": "Queer Fantasy",
-        "group": "representation",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "world-war-fantasy",
-        "name": "World War Fantasy",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "national-book-award",
-        "name": "National Book Award",
-        "group": "market",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "everything-comes-together",
-        "name": "Everything Comes Together",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "parallel-structure",
-        "name": "Parallel Structure",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "race-against-time",
-        "name": "Race Against Time",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "civil-rights-activist-mc",
-        "name": "Civil Rights Activist Mc",
-        "group": "representation",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "social-media-format",
-        "name": "Social Media Format",
-        "group": "style",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "artistic-struggle",
-        "name": "Artistic Struggle",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "book-ends-on-cliffhanger",
-        "name": "Book Ends on Cliffhanger",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "deal-with-devil",
-        "name": "Deal with Devil",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "dies-for-others",
-        "name": "Dies for Others",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "ends-justify-means",
-        "name": "Ends Justify Means",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "forced-to-work-with-team",
-        "name": "Forced to Work with Team",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "friends-with-benefits",
-        "name": "Friends with Benefits",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "growing-power",
-        "name": "Growing Power",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "high-elves",
-        "name": "High Elves",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "more-than-meets-eye",
-        "name": "More than Meets Eye",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "one-night-stand-to-more",
-        "name": "One Night Stand to More",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      }
-    ],
-    "cross_tags_count": 20
+    "notes": []
   },
   "format": {
     "slug": null,

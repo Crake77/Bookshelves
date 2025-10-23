@@ -6,7 +6,7 @@
     "recommended": "https://covers.openlibrary.org/b/isbn/9780765387561-L.jpg",
     "source": "openlibrary"
   },
-  "last_updated": "2025-10-23T14:59:09.753Z",
+  "last_updated": "2025-10-23T19:12:24.760Z",
   "authors": {
     "original": [
       "V. E. Schwab"
@@ -34,8 +34,8 @@
   "taxonomy": {
     "domain": {
       "slug": "fiction",
-      "confidence": "medium",
-      "reason": "Fiction indicators in categories (score: 2)"
+      "confidence": "high",
+      "reason": "Fiction genre category: fantasy, historical fiction"
     },
     "supergenres": [
       {
@@ -45,158 +45,7 @@
       }
     ],
     "status": "suggested",
-    "notes": [],
-    "genres": [
-      {
-        "slug": "fantasy",
-        "name": "Fantasy",
-        "confidence": "suggested"
-      }
-    ],
-    "subgenres": [],
-    "cross_tags": [
-      {
-        "slug": "meaning-of-life",
-        "name": "Meaning of Life",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "life-magic",
-        "name": "Life Magic",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "life-reassessment",
-        "name": "Life Reassessment",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "non-carbon-life",
-        "name": "Non Carbon Life",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "second-chance-at-life",
-        "name": "Second Chance at Life",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "silicon-based-life",
-        "name": "Silicon Based Life",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "slice-of-life",
-        "name": "Slice of Life",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "curse",
-        "name": "Curse",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "cursed-artifact",
-        "name": "Cursed Artifact",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "cursed-house",
-        "name": "Cursed House",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "cursed-object-horror",
-        "name": "Cursed Object Horror",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "cursed-place",
-        "name": "Cursed Place",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "cursed-weapon",
-        "name": "Cursed Weapon",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "everyone-dies",
-        "name": "Everyone Dies",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "everyone-is-grey",
-        "name": "Everyone Is Grey",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "fae-bargain",
-        "name": "Fae Bargain",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "fae-bargain-romance",
-        "name": "Fae Bargain Romance",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "family-curse",
-        "name": "Family Curse",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "faustian-bargain",
-        "name": "Faustian Bargain",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "generational-curse",
-        "name": "Generational Curse",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      }
-    ],
-    "cross_tags_count": 20
+    "notes": []
   },
   "format": {
     "slug": null,

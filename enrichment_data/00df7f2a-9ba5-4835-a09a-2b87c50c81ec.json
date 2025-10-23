@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:59:09.373Z",
+  "last_updated": "2025-10-23T19:12:24.115Z",
   "authors": {
     "original": [
       "Dominika Oramus"
@@ -35,7 +35,7 @@
     "domain": {
       "slug": "non-fiction",
       "confidence": "high",
-      "reason": "Literary criticism is non-fiction"
+      "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
@@ -50,194 +50,7 @@
       }
     ],
     "status": "suggested",
-    "notes": [],
-    "genres": [
-      {
-        "slug": "literary-fiction",
-        "name": "Literary Fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "science-fiction",
-        "name": "Science Fiction",
-        "confidence": "suggested"
-      }
-    ],
-    "subgenres": [
-      {
-        "slug": "experimental-fiction",
-        "name": "Experimental Fiction",
-        "genre_slug": "literary-fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "philosophical-fiction",
-        "name": "Philosophical Fiction",
-        "genre_slug": "literary-fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "postmodern-fiction",
-        "name": "Postmodern Fiction",
-        "genre_slug": "literary-fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "hard-science-fiction",
-        "name": "Hard Science Fiction",
-        "genre_slug": "science-fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "military-science-fiction",
-        "name": "Military Science Fiction",
-        "genre_slug": "science-fiction",
-        "confidence": "suggested"
-      }
-    ],
-    "cross_tags": [
-      {
-        "slug": "climate-disaster",
-        "name": "Climate Disaster",
-        "group": "content_warning",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "clear-good-vs-evil",
-        "name": "Clear Good Vs Evil",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "hard-science-fiction",
-        "name": "Hard Science Fiction",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "post-colonial-fiction",
-        "name": "Post Colonial Fiction",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "down-syndrome-mc",
-        "name": "Down Syndrome Mc",
-        "group": "representation",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "far-future-earth",
-        "name": "Far Future Earth",
-        "group": "setting",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "arch-demon",
-        "name": "Arch Demon",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "not-what-they-seem",
-        "name": "Not What They Seem",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "rocks-fall-everyone-dies",
-        "name": "Rocks Fall Everyone Dies",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "anxiety",
-        "name": "Anxiety",
-        "group": "content_flags",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "holocaust",
-        "name": "Holocaust",
-        "group": "content_warning",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "anxiety-rep",
-        "name": "Anxiety Rep",
-        "group": "representation",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "flash-fiction",
-        "name": "Flash Fiction",
-        "group": "structure",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "micro-fiction",
-        "name": "Micro Fiction",
-        "group": "structure",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "hypertext-fiction",
-        "name": "Hypertext Fiction",
-        "group": "style",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "alien-mate",
-        "name": "Alien Mate",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "climate-apocalypse",
-        "name": "Climate Apocalypse",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "eco-fiction",
-        "name": "Eco Fiction",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "mate-bond",
-        "name": "Mate Bond",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "no-clear-villain",
-        "name": "No Clear Villain",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      }
-    ],
-    "cross_tags_count": 20
+    "notes": []
   },
   "format": {
     "slug": null,

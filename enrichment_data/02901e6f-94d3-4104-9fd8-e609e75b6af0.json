@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:59:09.455Z",
+  "last_updated": "2025-10-23T19:12:24.251Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -33,161 +33,16 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "fiction",
-      "confidence": "medium",
-      "reason": "Fiction indicators in categories (score: 1)"
+      "slug": "non-fiction",
+      "confidence": "high",
+      "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [],
     "status": "needs_manual_review",
     "notes": [
       "WARNING: No supergenres could be automatically suggested",
       "MANUAL STEP: Assign 1-2 supergenres from taxonomy"
-    ],
-    "genres": [],
-    "subgenres": [],
-    "cross_tags": [
-      {
-        "slug": "short-story-collection",
-        "name": "Short Story Collection",
-        "group": "market",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "anthology-connected-stories",
-        "name": "Anthology Connected Stories",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "long-lost-sibling",
-        "name": "Long Lost Sibling",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "one-night-stand-to-more",
-        "name": "One Night Stand to More",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "portal-to-another-world",
-        "name": "Portal to Another World",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "summer-camp-horror",
-        "name": "Summer Camp Horror",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "summer-camp",
-        "name": "Summer Camp",
-        "group": "setting",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "deep-sea-horror",
-        "name": "Deep Sea Horror",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "first-love",
-        "name": "First Love",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "hate-to-love",
-        "name": "Hate to Love",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "insta-love",
-        "name": "Insta Love",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "learns-to-love-again",
-        "name": "Learns to Love Again",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "love-square",
-        "name": "Love Square",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "love-at-first-sight",
-        "name": "Love at First Sight",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "marriage-of-convenience-to-love",
-        "name": "Marriage of Convenience to Love",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "one-sided-love",
-        "name": "One Sided Love",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "summer-romance",
-        "name": "Summer Romance",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "forbidden-love",
-        "name": "Forbidden Love",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "love-triangle",
-        "name": "Love Triangle",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "unrequited-love",
-        "name": "Unrequited Love",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 3
-      }
-    ],
-    "cross_tags_count": 20
+    ]
   },
   "format": {
     "slug": null,

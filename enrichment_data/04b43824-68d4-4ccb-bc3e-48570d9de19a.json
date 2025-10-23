@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=dba8BwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:59:09.910Z",
+  "last_updated": "2025-10-23T19:12:25.014Z",
   "authors": {
     "original": [
       "Abbi Glines"
@@ -35,7 +35,7 @@
     "domain": {
       "slug": "fiction",
       "confidence": "medium",
-      "reason": "Fiction indicators in categories (score: 2)"
+      "reason": "Generic fiction category"
     },
     "supergenres": [
       {
@@ -45,158 +45,7 @@
       }
     ],
     "status": "suggested",
-    "notes": [],
-    "genres": [
-      {
-        "slug": "romance",
-        "name": "Romance",
-        "confidence": "suggested"
-      }
-    ],
-    "subgenres": [],
-    "cross_tags": [
-      {
-        "slug": "house-vs-house",
-        "name": "House vs House",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "state-violence",
-        "name": "State Violence",
-        "group": "content_warning",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "beach-read",
-        "name": "Beach Read",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "debut-novel",
-        "name": "Debut Novel",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "graphic-novel-adaptation",
-        "name": "Graphic Novel Adaptation",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "hail-mary",
-        "name": "Hail Mary",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "town-secret",
-        "name": "Town Secret",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "ranch",
-        "name": "Ranch",
-        "group": "setting",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "seaside-town",
-        "name": "Seaside Town",
-        "group": "setting",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "small-town",
-        "name": "Small Town",
-        "group": "setting",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "southern-town",
-        "name": "Southern Town",
-        "group": "setting",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "flash-fiction",
-        "name": "Flash Fiction",
-        "group": "structure",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "micro-fiction",
-        "name": "Micro Fiction",
-        "group": "structure",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "verse-novel",
-        "name": "Verse Novel",
-        "group": "structure",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "hypertext-fiction",
-        "name": "Hypertext Fiction",
-        "group": "style",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "cursed-house",
-        "name": "Cursed House",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "deal-with-devil",
-        "name": "Deal with Devil",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "defeat-with-dignity",
-        "name": "Defeat with Dignity",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "eco-fiction",
-        "name": "Eco Fiction",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "evil-house",
-        "name": "Evil House",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 2
-      }
-    ],
-    "cross_tags_count": 20
+    "notes": []
   },
   "format": {
     "slug": null,

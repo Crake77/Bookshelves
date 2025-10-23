@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=TX5KCAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:59:09.604Z",
+  "last_updated": "2025-10-23T19:12:24.506Z",
   "authors": {
     "original": [
       "Marek C. Oziewicz"
@@ -35,7 +35,7 @@
     "domain": {
       "slug": "non-fiction",
       "confidence": "high",
-      "reason": "Literary criticism is non-fiction"
+      "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
@@ -50,194 +50,7 @@
       }
     ],
     "status": "suggested",
-    "notes": [],
-    "genres": [
-      {
-        "slug": "literary-fiction",
-        "name": "Literary Fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "science-fiction",
-        "name": "Science Fiction",
-        "confidence": "suggested"
-      }
-    ],
-    "subgenres": [
-      {
-        "slug": "experimental-fiction",
-        "name": "Experimental Fiction",
-        "genre_slug": "literary-fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "philosophical-fiction",
-        "name": "Philosophical Fiction",
-        "genre_slug": "literary-fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "postmodern-fiction",
-        "name": "Postmodern Fiction",
-        "genre_slug": "literary-fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "stream-of-consciousness",
-        "name": "Stream-Of-Consciousness",
-        "genre_slug": "literary-fiction",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "first-contact",
-        "name": "First Contact",
-        "genre_slug": "science-fiction",
-        "confidence": "suggested"
-      }
-    ],
-    "cross_tags": [
-      {
-        "slug": "hard-science-fiction",
-        "name": "Hard Science Fiction",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "speculative-science",
-        "name": "Speculative Science",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "civil-rights-activist-mc",
-        "name": "Civil Rights Activist Mc",
-        "group": "representation",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "fairy-tale",
-        "name": "Fairy Tale",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "arch-demon",
-        "name": "Arch Demon",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "dark-fairy-tale",
-        "name": "Dark Fairy Tale",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "fairy-tale-ending",
-        "name": "Fairy Tale Ending",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "fairy-tale-retelling",
-        "name": "Fairy Tale Retelling",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "human-evolution",
-        "name": "Human Evolution",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "twisted-fairy-tale",
-        "name": "Twisted Fairy Tale",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "world-war-fantasy",
-        "name": "World War Fantasy",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "flash-fiction",
-        "name": "Flash Fiction",
-        "group": "structure",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "micro-fiction",
-        "name": "Micro Fiction",
-        "group": "structure",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "hypertext-fiction",
-        "name": "Hypertext Fiction",
-        "group": "style",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "eco-fiction",
-        "name": "Eco Fiction",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "philosophical-fiction",
-        "name": "Philosophical Fiction",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "post-colonial-fiction",
-        "name": "Post Colonial Fiction",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "child-abuse",
-        "name": "Child Abuse",
-        "group": "content_flags",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "child-death",
-        "name": "Child Death",
-        "group": "content_flags",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "eating-disorder",
-        "name": "Eating Disorder",
-        "group": "content_flags",
-        "confidence": "medium",
-        "match_score": 2
-      }
-    ],
-    "cross_tags_count": 20
+    "notes": []
   },
   "format": {
     "slug": null,

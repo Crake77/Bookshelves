@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=NJFzGwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:59:09.992Z",
+  "last_updated": "2025-10-23T19:12:25.141Z",
   "authors": {
     "original": [
       "Science Fiction Writers of America"
@@ -33,9 +33,9 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "fiction",
-      "confidence": "low",
-      "reason": "Default - needs manual review"
+      "slug": "non-fiction",
+      "confidence": "high",
+      "reason": "Explicit non-fiction category: science fiction, science fiction"
     },
     "supergenres": [
       {
@@ -50,67 +50,7 @@
       }
     ],
     "status": "suggested",
-    "notes": [],
-    "genres": [
-      {
-        "slug": "science-fiction",
-        "name": "Science Fiction",
-        "confidence": "suggested"
-      }
-    ],
-    "subgenres": [],
-    "cross_tags": [
-      {
-        "slug": "award-winner",
-        "name": "Award Winner",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 1
-      },
-      {
-        "slug": "big-five-publisher",
-        "name": "Big Five Publisher",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 1
-      },
-      {
-        "slug": "national-book-award",
-        "name": "National Book Award",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 1
-      },
-      {
-        "slug": "nebula-winner",
-        "name": "Nebula Winner",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 1
-      },
-      {
-        "slug": "five-act-structure",
-        "name": "Five Act Structure",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 1
-      },
-      {
-        "slug": "anthology-connected-stories",
-        "name": "Anthology Connected Stories",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1
-      },
-      {
-        "slug": "interconnected-stories",
-        "name": "Interconnected Stories",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1
-      }
-    ],
-    "cross_tags_count": 7
+    "notes": []
   },
   "format": {
     "slug": null,

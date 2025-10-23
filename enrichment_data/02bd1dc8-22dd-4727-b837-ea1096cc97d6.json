@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=jHVsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:59:09.528Z",
+  "last_updated": "2025-10-23T19:12:24.377Z",
   "authors": {
     "original": [
       "Philip Hayward"
@@ -33,9 +33,9 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "fiction",
-      "confidence": "low",
-      "reason": "Default - needs manual review"
+      "slug": "non-fiction",
+      "confidence": "high",
+      "reason": "Explicit non-fiction category: business & economics, fantasy"
     },
     "supergenres": [
       {
@@ -50,181 +50,7 @@
       }
     ],
     "status": "suggested",
-    "notes": [],
-    "genres": [
-      {
-        "slug": "business",
-        "name": "Business",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "economics",
-        "name": "Economics",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "fantasy",
-        "name": "Fantasy",
-        "confidence": "suggested"
-      }
-    ],
-    "subgenres": [
-      {
-        "slug": "development-economics",
-        "name": "Development Economics",
-        "genre_slug": "economics",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "urban-fantasy",
-        "name": "Urban Fantasy",
-        "genre_slug": "fantasy",
-        "confidence": "suggested"
-      }
-    ],
-    "cross_tags": [
-      {
-        "slug": "green-future",
-        "name": "Green Future",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 5
-      },
-      {
-        "slug": "plan-within-plan",
-        "name": "Plan Within Plan",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "point-of-no-return",
-        "name": "Point of No Return",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "trans-side-character",
-        "name": "Trans Side Character",
-        "group": "representation",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "decades-old-case",
-        "name": "Decades Old Case",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "return-of-the-king",
-        "name": "Return of the King",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "fish-out-of-water",
-        "name": "Fish Out of Water",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 4
-      },
-      {
-        "slug": "blue-collar-mc",
-        "name": "Blue Collar Mc",
-        "group": "representation",
-        "confidence": "high",
-        "match_score": 3
-      },
-      {
-        "slug": "anti-asian-racism",
-        "name": "Anti Asian Racism",
-        "group": "content_warning",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "anti-black-racism",
-        "name": "Anti Black Racism",
-        "group": "content_warning",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "medication-side-effects",
-        "name": "Medication Side Effects",
-        "group": "content_warning",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "neglect",
-        "name": "Neglect",
-        "group": "content_warning",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "anthology",
-        "name": "Anthology",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "national-book-award",
-        "name": "National Book Award",
-        "group": "market",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "action-climax",
-        "name": "Action Climax",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "action-not-talk",
-        "name": "Action Not Talk",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "action-packed",
-        "name": "Action Packed",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "all-according-to-plan",
-        "name": "All According to Plan",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "anthology-structure",
-        "name": "Anthology Structure",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 2
-      },
-      {
-        "slug": "case-of-the-week",
-        "name": "Case of the Week",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 2
-      }
-    ],
-    "cross_tags_count": 20
+    "notes": []
   },
   "format": {
     "slug": null,

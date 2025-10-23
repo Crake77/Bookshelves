@@ -119,10 +119,10 @@ async function assignCrossTags(bookId) {
   console.log(`  Title: ${book.title}`);
   
   // Load domain from previous task
-  const outputPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
+  const domainPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
   let domain = 'fiction'; // default
-  if (fs.existsSync(outputPath)) {
-    const enrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+  if (fs.existsSync(domainPath)) {
+    const enrichmentData = JSON.parse(fs.readFileSync(domainPath, 'utf8'));
     domain = enrichmentData.taxonomy?.domain?.slug || 'fiction';
   }
   console.log(`  Domain: ${domain}`);
