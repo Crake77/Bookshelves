@@ -423,205 +423,54 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
   const genre = normalizeGenre(params.genre);
   const genrePattern = buildGenrePattern(genre);
 
+  // SIMPLIFIED QUERY: Only uses books and book_stats (no taxonomy tables)
   const queryResult = genre
     ? await sql`
-        WITH catalog AS (
-          SELECT
-            b.id,
-            b.google_books_id,
-            b.title,
-            b.authors,
-            b.description,
-            b.cover_url,
-            b.published_date,
-            b.page_count,
-            b.categories,
-            b.isbn,
-            COALESCE(bs.total_ratings, 0) AS total_ratings,
-            COALESCE(bs.average_rating, 0) AS average_rating,
-            CASE
-              WHEN b.published_date ~ '^\\d{4}-\\d{2}-\\d{2}$' THEN to_date(b.published_date, 'YYYY-MM-DD')
-              WHEN b.published_date ~ '^\\d{4}-\\d{2}$' THEN to_date(b.published_date || '-01', 'YYYY-MM-DD')
-              WHEN b.published_date ~ '^\\d{4}$' THEN to_date(b.published_date || '-01-01', 'YYYY-MM-DD')
-              ELSE NULL
-            END AS published_at
-          FROM books b
-          LEFT JOIN book_stats bs ON bs.book_id = b.id
-          WHERE EXISTS (
-            SELECT 1
-            FROM unnest(COALESCE(b.categories, ARRAY[]::text[])) AS cat(category)
-            WHERE LOWER(cat.category) LIKE ${genrePattern}
-          )
-          -- Taxonomy filters (no-op if params are NULL)
-          AND (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
-            JOIN subgenres sg ON sg.id = bps.subgenre_id
-            WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
-          ))
-          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
-            JOIN subgenres sg ON sg.id = bps.subgenre_id
-            JOIN genres g ON g.id = sg.genre_id
-            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
-          ))
-          AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_cross_tags bct
-            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
-            WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
-          ))
-          -- Block filter: exclude books with blocked tags
-          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
-            SELECT 1 FROM book_cross_tags bct
-            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
-            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
-          ))
-          -- Domain filter
-          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
-            JOIN subgenres sg ON sg.id = bps.subgenre_id
-            JOIN genres g ON g.id = sg.genre_id
-            JOIN genre_domains gd ON gd.genre_id = g.id
-            JOIN domains d ON d.id = gd.domain_id
-            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
-          ))
-          -- Supergenre filter
-          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
-            JOIN subgenres sg ON sg.id = bps.subgenre_id
-            JOIN genres g ON g.id = sg.genre_id
-            JOIN genre_supergenres gs ON gs.genre_id = g.id
-            JOIN supergenres sp ON sp.id = gs.supergenre_id
-            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
-          ))
-          -- Format filter  
-          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_formats bf
-            JOIN formats f ON f.id = bf.format_id
-            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
-          ))
-          -- Audience filter
-          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_age_markets bam
-            JOIN age_markets am ON am.id = bam.age_market_id
-            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
-          ))
-        )
         SELECT
-          catalog.id,
-          catalog.google_books_id,
-          catalog.title,
-          catalog.authors,
-          catalog.description,
-          catalog.cover_url,
-          catalog.published_date,
-          catalog.page_count,
-          catalog.categories,
-          catalog.isbn
-        FROM catalog
+          b.id,
+          b.google_books_id,
+          b.title,
+          b.authors,
+          b.description,
+          b.cover_url,
+          b.published_date,
+          b.page_count,
+          b.categories,
+          b.isbn,
+          COALESCE(bs.total_ratings, 0) AS total_ratings,
+          COALESCE(bs.average_rating, 0) AS average_rating
+        FROM books b
+        LEFT JOIN book_stats bs ON bs.book_id = b.id
+        WHERE EXISTS (
+          SELECT 1
+          FROM unnest(COALESCE(b.categories, ARRAY[]::text[])) AS cat(category)
+          WHERE LOWER(cat.category) LIKE ${genrePattern}
+        )
         ORDER BY
-          CASE WHEN catalog.total_ratings > 0 THEN 0 ELSE 1 END,
-          COALESCE(catalog.published_at, CURRENT_DATE - make_interval(years => ${RECENT_YEARS})) DESC,
-          catalog.total_ratings DESC,
-          catalog.average_rating DESC,
-          catalog.title ASC
+          COALESCE(bs.total_ratings, 0) DESC,
+          COALESCE(bs.average_rating, 0) DESC,
+          b.title ASC
         LIMIT ${params.limit}
         OFFSET ${params.offset}
       `
     : await sql`
-        WITH catalog AS (
-          SELECT
-            b.id,
-            b.google_books_id,
-            b.title,
-            b.authors,
-            b.description,
-            b.cover_url,
-            b.published_date,
-            b.page_count,
-            b.categories,
-            b.isbn,
-            COALESCE(bs.total_ratings, 0) AS total_ratings,
-            COALESCE(bs.average_rating, 0) AS average_rating,
-            CASE
-              WHEN b.published_date ~ '^\\d{4}-\\d{2}-\\d{2}$' THEN to_date(b.published_date, 'YYYY-MM-DD')
-              WHEN b.published_date ~ '^\\d{4}-\\d{2}$' THEN to_date(b.published_date || '-01', 'YYYY-MM-DD')
-              WHEN b.published_date ~ '^\\d{4}$' THEN to_date(b.published_date || '-01-01', 'YYYY-MM-DD')
-              ELSE NULL
-            END AS published_at
-          FROM books b
-          LEFT JOIN book_stats bs ON bs.book_id = b.id
-          -- Taxonomy filters (no-op if params are NULL)
-          WHERE (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
-            JOIN subgenres sg ON sg.id = bps.subgenre_id
-            WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
-          ))
-          AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
-            JOIN subgenres sg ON sg.id = bps.subgenre_id
-            JOIN genres g ON g.id = sg.genre_id
-            WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
-          ))
-          AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_cross_tags bct
-            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
-            WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
-          ))
-          -- Block filter: exclude books with blocked tags
-          AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
-            SELECT 1 FROM book_cross_tags bct
-            JOIN cross_tags ct ON ct.id = bct.cross_tag_id
-            WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
-          ))
-          -- Domain filter
-          AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
-            JOIN subgenres sg ON sg.id = bps.subgenre_id
-            JOIN genres g ON g.id = sg.genre_id
-            JOIN genre_domains gd ON gd.genre_id = g.id
-            JOIN domains d ON d.id = gd.domain_id
-            WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
-          ))
-          -- Supergenre filter
-          AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
-            JOIN subgenres sg ON sg.id = bps.subgenre_id
-            JOIN genres g ON g.id = sg.genre_id
-            JOIN genre_supergenres gs ON gs.genre_id = g.id
-            JOIN supergenres sp ON sp.id = gs.supergenre_id
-            WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
-          ))
-          -- Format filter  
-          AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_formats bf
-            JOIN formats f ON f.id = bf.format_id
-            WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
-          ))
-          -- Audience filter
-          AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_age_markets bam
-            JOIN age_markets am ON am.id = bam.age_market_id
-            WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
-          ))
-        )
         SELECT
-          catalog.id,
-          catalog.google_books_id,
-          catalog.title,
-          catalog.authors,
-          catalog.description,
-          catalog.cover_url,
-          catalog.published_date,
-          catalog.page_count,
-          catalog.categories,
-          catalog.isbn
-        FROM catalog
+          b.id,
+          b.google_books_id,
+          b.title,
+          b.authors,
+          b.description,
+          b.cover_url,
+          b.published_date,
+          b.page_count,
+          b.categories,
+          b.isbn
+        FROM books b
+        LEFT JOIN book_stats bs ON bs.book_id = b.id
         ORDER BY
-          CASE WHEN catalog.total_ratings > 0 THEN 0 ELSE 1 END,
-          COALESCE(catalog.published_at, CURRENT_DATE - make_interval(years => ${RECENT_YEARS})) DESC,
-          catalog.total_ratings DESC,
-          catalog.average_rating DESC,
-          catalog.title ASC
+          COALESCE(bs.total_ratings, 0) DESC,
+          COALESCE(bs.average_rating, 0) DESC,
+          b.title ASC
         LIMIT ${params.limit}
         OFFSET ${params.offset}
       `;
