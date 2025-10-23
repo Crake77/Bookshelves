@@ -50,6 +50,7 @@ Before starting each batch, verify you have access to:
                   ↓
 ┌─────────────────────────────────────────┐
 │ 3. For Each Book: Process Metadata     │
+│    ├── Authors (REQUIRED)              │
 │    ├── Summary (MUST rewrite)          │
 │    ├── Published Date                  │
 │    ├── Page Count                      │
