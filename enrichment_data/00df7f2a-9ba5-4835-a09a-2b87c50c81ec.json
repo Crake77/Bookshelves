@@ -1,0 +1,54 @@
+{
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/isbn/9781000910254-L.jpg",
+    "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-10-23T14:20:29.846Z",
+  "authors": {
+    "original": [
+      "Dominika Oramus"
+    ],
+    "validated": [
+      "Dominika Oramus"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction: Doomsday Clock Narratives demonstrates that disaster fiction— nuclear holocaust and climate change alike— allows us to unearth and anatomise contemporary psychodynamics and enables us to identify pretraumatic stress as the common denominator of seemingly unrelated types of texts. These Doomsday Clock Narratives argue that earth’s demise is soon and certain. They are set after some catastrophe and depict people waiting for an even worse catastrophe to come. References to geology are particularly important— in descriptions of the landscape, the emphasis falls on waste and industrial bric- a- brac, which is seen through the eyes of a future, posthuman archaeologist. Their protagonists have the uncanny feeling that the countdown has already started, and they are coping with both traumatic memories and pretraumatic stress. Readings of novels by Walter M. Miller, Nevil Shute, John Christopher, J. G. Ballard, George Turner, Maggie Gee, Paolo Bacigalupi, Ruth Ozeki, and Yoko Tawada demonstrate that the authors are both indebted to a century- old tradition and inventively looking for new ways of expressing the pretraumatic stress syndrome common in contemporary society. This book is written for an academic audience (postgraduates, researchers, and academics) specialising in British Literature, American Literature, and Science Fiction Studies.",
+    "original_length": 1418,
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
+    ]
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "non-fiction",
+      "confidence": "high",
+      "reason": "Literary criticism is non-fiction"
+    },
+    "supergenres": [
+      {
+        "slug": "literature-writing",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      },
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": []
+  }
+}
