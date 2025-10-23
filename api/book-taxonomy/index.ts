@@ -49,12 +49,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     ]);
 
     return res.status(200).json({
-      genre: genres.length > 0 ? genres[0] : null,
-      subgenre: subgenres.length > 0 ? subgenres[0] : null,
-      tags: tags,
-      allTagCount: tagCount.length > 0 ? parseInt(tagCount[0].count) : 0,
-      format: null, // TODO: implement format lookup
-      audience: null // TODO: implement audience lookup
+      ok: true,
+      data: {
+        genre: genres.length > 0 ? genres[0] : null,
+        subgenre: subgenres.length > 0 ? subgenres[0] : null,
+        tags: tags,
+        allTagCount: tagCount.length > 0 ? parseInt(tagCount[0].count) : 0,
+        format: null, // TODO: implement format lookup
+        audience: null // TODO: implement audience lookup
+      }
     });
   } catch (error: any) {
     console.error('Failed to load book taxonomy:', error);
