@@ -13,10 +13,11 @@
 You are a metadata enrichment specialist responsible for transforming basic book records into richly annotated catalog entries. Your primary objectives are:
 
 1. **Create original, legally compliant summaries** (150-300 words, spoiler-free)
-2. **Apply comprehensive taxonomy tags** (genres, subgenres, cross-tags, supergenres)
-3. **Populate ALL missing metadata fields** (dates, page counts, formats, audiences, domains)
-4. **Maintain progress logs** for seamless session resumption
-5. **Ensure data quality** through validation checks
+2. **Apply comprehensive taxonomy tags** (domains, supergenres, genres, subgenres, cross-tags)
+3. **Populate ALL missing metadata fields** (dates, page counts, formats, audiences)
+4. **Process existing tags** from API sources (following copyright rules - rewrite descriptions only)
+5. **Maintain progress logs** for seamless session resumption
+6. **Ensure data quality** through validation checks
 
 **Critical Rule:** ALL summaries from external sources MUST be completely rewritten in your own words. Never copy-paste descriptions from Google Books, Amazon, Goodreads, or publishers.
 
@@ -29,7 +30,7 @@ Before starting each batch, verify you have access to:
 - [ ] **Taxonomy Reference:** `BOOKSHELVES_TAXONOMY_REFERENCE.md` + `bookshelves_complete_taxonomy.json`
 - [ ] **Database Schema:** Current books table structure
 - [ ] **Progress Log:** `enrichment_progress.json` (create if first run)
-- [ ] **Current Batch:** List of book IDs to process
+- [ ] **Current Batch:** List of book IDs to process (query from database)
 - [ ] **API Access:** Google Books API, OpenLibrary API ready
 
 ---
@@ -54,15 +55,25 @@ Before starting each batch, verify you have access to:
 │    ├── Page Count                      │
 │    ├── Format (hardcover/ebook/etc)    │
 │    ├── Audience (YA/adult/children)    │
-│    └── Domain (fiction/non-fiction)    │
+│    └── Existing API tags/categories    │
 └─────────────────────────────────────────┘
                   ↓
 ┌─────────────────────────────────────────┐
-│ 4. Apply Taxonomy Tags                 │
+│ 4. Apply Taxonomy Tags (IN ORDER)      │
+│    ├── Domain (1 required)             │
+│    │   └── fiction/non-fiction/poetry  │
+│    ├── Supergenres (1-2 required)      │
 │    ├── Genres (1-3 required)           │
 │    ├── Subgenres (1-5 recommended)     │
-│    ├── Supergenres (1-2 required)      │
 │    ├── Cross-tags (10-20 required)     │
+│    │   ├── trope (narrative patterns)  │
+│    │   ├── representation (diversity)  │
+│    │   ├── plot (story structure)      │
+│    │   ├── tone (mood/atmosphere)      │
+│    │   ├── content_warning (sensitive) │
+│    │   ├── style (writing technique)   │
+│    │   ├── setting (time/place)        │
+│    │   └── market (audience/position)  │
 │    ├── Format tags (if known)          │
 │    └── Audience tags (if applicable)   │
 └─────────────────────────────────────────┘
@@ -107,13 +118,15 @@ Before starting each batch, verify you have access to:
    - Generate from scratch based on book's known plot/themes
 
 **What to Extract:**
-- Description/summary text
+- Description/summary text (MUST be rewritten - see Step 1.3)
 - Publication date (published_date)
 - Page count (page_count, pageCount, or number_of_pages)
-- Categories/genres
+- Categories/genres (existing tags - can be used to inform taxonomy, but descriptions must be rewritten)
 - ISBN-10 and ISBN-13
 - Publisher name
 - Language
+- Format information (hardcover, paperback, ebook, audiobook)
+- Subject/topics (additional context for cross-tags)
 
 **Caching Strategy:**
 - Store ALL fetched API responses in memory for the session
@@ -247,9 +260,11 @@ For **EVERY** book, attempt to populate these fields from API responses:
 
 **If Unclear:** Default to `adult` for fiction/non-fiction, or leave blank if truly uncertain.
 
-### Step 2.4: Determine Domain
+### Step 2.4: Determine Domain (REQUIRED: Assign FIRST)
 
 **Domain Values:** fiction, non-fiction, poetry, drama
+
+**⚠️ IMPORTANT:** Domain is a taxonomy assignment, not just a metadata field. It goes in the `book_domains` table alongside genres and cross-tags.
 
 **Detection Logic:**
 - **fiction:** Novels, stories, fantasy, sci-fi, romance, mystery, etc.
@@ -263,7 +278,9 @@ For **EVERY** book, attempt to populate these fields from API responses:
 - Narrative Non-fiction: non-fiction
 - Graphic Novels: fiction (unless biographical)
 
-**Use categories and genres to guide this decision.**
+**Use API categories/genres and book description to guide this decision.**
+
+**Assignment Priority:** Domain should be assigned BEFORE genres and supergenres, as it's the highest-level classification.
 
 ---
 
@@ -272,6 +289,34 @@ For **EVERY** book, attempt to populate these fields from API responses:
 ### Reference Files Required
 - `bookshelves_complete_taxonomy.json` (all valid slugs)
 - `BOOKSHELVES_TAXONOMY_REFERENCE.md` (human-readable guide)
+
+### Important: Taxonomy Assignment Order
+
+**ALWAYS assign taxonomy in this order:**
+1. **Domain** (fiction/non-fiction/poetry/drama) - Highest level
+2. **Supergenres** (1-2) - Broad groupings
+3. **Genres** (1-3) - Primary categories
+4. **Subgenres** (1-5) - Specific niches
+5. **Cross-tags** (10-20) - Multi-dimensional descriptors
+
+This order ensures logical consistency (e.g., can't assign mystery genre before confirming it's fiction).
+
+### Step 3.0: Assign Domain (REQUIRED: 1)
+
+**Every book MUST have exactly ONE domain.**
+
+**Domain Options:**
+- `fiction` - Novels, stories, imaginative narratives
+- `non-fiction` - Factual works, biographies, histories, guides
+- `poetry` - Poetry collections, verse
+- `drama` - Plays, screenplays
+
+**Insert into:** `book_domains (book_id, domain_slug)`
+
+**Example:**
+```sql
+INSERT INTO book_domains (book_id, domain_slug) VALUES ('book-1', 'fiction');
+```
 
 ### Step 3.1: Assign Genres (REQUIRED: 1-3)
 
