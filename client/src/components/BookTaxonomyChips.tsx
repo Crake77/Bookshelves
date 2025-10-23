@@ -47,78 +47,21 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
     attachAttemptedRef.current = false;
   }, [book.googleBooksId]);
 
-  useEffect(() => {
-    if (ingestAttemptedRef.current) return;
-    const tax = taxonomyQuery.data;
-    const needsIngest = !tax || ((!tax.genre && !tax.subgenre) && ((tax.tags?.length ?? 0) === 0));
-    if (!needsIngest) return;
-    // Best-effort: attempt ingest, then refetch taxonomy
-    (async () => {
-      try {
-        // Ensure taxonomy master data exists in DB (idempotent)
-        await seedTaxonomyIfNeeded();
-        ingestAttemptedRef.current = true;
-        await ingestMutation.mutateAsync(book);
-        // Attach inferred age market if available
-        try {
-          const age = detectAgeMarketSlug(book.title, book.description, book.categories);
-          if (age) {
-            await fetch("/api/book-taxonomy", {
-              method: "POST",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify({ googleBooksId: book.googleBooksId, ageMarketSlug: age }),
-            });
-          }
-        } catch {}
-        setTimeout(() => {
-          queryClient.invalidateQueries({ queryKey: ["/api/book-taxonomy", book.googleBooksId] });
-        }, 100);
-      } catch {
-        // ignore
-      }
-    })();
-  }, [book, taxonomyQuery.data, ingestMutation, queryClient]);
+  // DISABLED: Auto-ingestion disabled while validating batch 001-003 data
+  // Taxonomy is already seeded and books already have taxonomy links
+  // useEffect(() => {
+  //   if (ingestAttemptedRef.current) return;
+  //   const tax = taxonomyQuery.data;
+  //   const needsIngest = !tax || ((!tax.genre && !tax.subgenre) && ((tax.tags?.length ?? 0) === 0));
+  //   if (!needsIngest) return;
+  //   ...
+  // }, [book, taxonomyQuery.data, ingestMutation, queryClient]);
 
-  // Second pass: if taxonomy still empty after ingest, infer and attach best-effort
-  useEffect(() => {
-    const tax = taxonomyQuery.data;
-    if (!tax || attachAttemptedRef.current) return;
-    const isEmpty = (!tax.genre && !tax.subgenre) && ((tax.tags?.length ?? 0) === 0);
-    if (!isEmpty) return;
-    // Best-effort client inference and server attach
-    (async () => {
-      try {
-        attachAttemptedRef.current = true;
-        await seedTaxonomyIfNeeded();
-        // Ensure book exists in DB
-        await ingestMutation.mutateAsync(book);
-        const inferred = detectTaxonomy(book.title, book.description, book.categories);
-        const attachCalls: Promise<any>[] = [];
-        if (inferred.primarySubgenre) {
-          attachCalls.push(fetch("/api/book-taxonomy", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({ googleBooksId: book.googleBooksId, subgenreSlug: inferred.primarySubgenre }),
-          }));
-        }
-        for (const slug of (inferred.crossTags ?? []).slice(0, 12)) {
-          attachCalls.push(fetch("/api/book-taxonomy", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({ googleBooksId: book.googleBooksId, tagSlug: slug }),
-          }));
-        }
-        if (attachCalls.length > 0) {
-          await Promise.allSettled(attachCalls);
-          setTimeout(() => {
-            queryClient.invalidateQueries({ queryKey: ["/api/book-taxonomy", book.googleBooksId] });
-          }, 150);
-        }
-      } catch {
-        // ignore
-      }
-    })();
-  }, [book, taxonomyQuery.data, ingestMutation, queryClient]);
+  // DISABLED: Auto-attach disabled while validating batch 001-003 data
+  // Second pass taxonomy inference disabled
+  // useEffect(() => {
+  //   ...
+  // }, [book, taxonomyQuery.data, ingestMutation, queryClient]);
 
   const taxonomy = taxonomyQuery.data;
   
@@ -127,40 +70,12 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
     return null;
   }
   
-  // If we have data but it's empty, still show the section (ingestion might be in progress)
+  // If we have data but it's empty, just show "No taxonomy" message
+  // Auto-ingestion disabled during batch validation
   if (!taxonomy || (!taxonomy.genre && !taxonomy.subgenre && (!taxonomy.tags || taxonomy.tags.length === 0))) {
-    // If we have a hint, try to attach it
-    if (hint && !ingestAttemptedRef.current) {
-      ingestAttemptedRef.current = true;
-      (async () => {
-        try {
-          await seedTaxonomyIfNeeded();
-          await ingestMutation.mutateAsync(book);
-          try {
-            const age = detectAgeMarketSlug(book.title, book.description, book.categories);
-            if (age) {
-              await fetch("/api/book-taxonomy", {
-                method: "POST",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify({ googleBooksId: book.googleBooksId, ageMarketSlug: age }),
-              });
-            }
-          } catch {}
-          await fetch("/api/book-taxonomy", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({ googleBooksId: book.googleBooksId, tagSlug: hint.kind === "tag" ? hint.slug : undefined, subgenreSlug: hint.kind === "subgenre" ? hint.slug : undefined }),
-          });
-          setTimeout(() => {
-            queryClient.invalidateQueries({ queryKey: ["/api/book-taxonomy", book.googleBooksId] });
-          }, 120);
-        } catch {}
-      })();
-    }
-    // Show empty state instead of returning null
     return (
       <div className="px-6 py-4 border-b border-border/50">
-        <div className="text-xs text-muted-foreground">Loading taxonomy...</div>
+        <div className="text-xs text-muted-foreground">No taxonomy data available for this book.</div>
       </div>
     );
   }
