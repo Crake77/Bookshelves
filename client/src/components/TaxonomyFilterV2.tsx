@@ -114,12 +114,10 @@ function GenreSubgenreSelector({ open, onClose, taxonomy, onSave, selectedDomain
   const [selectedGenre, setSelectedGenre] = useState<FilterDimension | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   
-  // Apply hierarchical filtering based on selected domains/supergenres
+  // Show ALL genres (no filtering by domain/supergenre)
+  // When user selects a genre, we'll auto-populate the correct domain/supergenre
   const filteredGenres = useMemo(() => {
-    const domainSlugs = selectedDomains.map(d => d.slug);
-    const supergenreSlugs = selectedSupergenres.map(s => s.slug);
-    
-    let genres = getFilteredGenres(taxonomy, domainSlugs, supergenreSlugs);
+    let genres = taxonomy.genres;
     
     if (!searchQuery.trim()) return genres;
     const query = searchQuery.toLowerCase();
@@ -127,7 +125,7 @@ function GenreSubgenreSelector({ open, onClose, taxonomy, onSave, selectedDomain
       g.name.toLowerCase().includes(query) ||
       g.slug.toLowerCase().includes(query)
     );
-  }, [taxonomy, searchQuery, selectedDomains, selectedSupergenres]);
+  }, [taxonomy.genres, searchQuery]);
   
   const availableSubgenres = useMemo(() => {
     if (!selectedGenre) return [];
