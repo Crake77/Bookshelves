@@ -149,6 +149,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       JOIN age_markets am ON am.id = bam.age_market_id
       WHERE bam.book_id = ${resolvedId}
     ` as Array<{ slug: string; name: string }>;
+    
+    // Get formats
+    const bookFormats = await sql/* sql */`
+      SELECT f.slug, f.name
+      FROM book_formats bf
+      JOIN formats f ON f.id = bf.format_id
+      WHERE bf.book_id = ${resolvedId}
+    ` as Array<{ slug: string; name: string }>;
 
     // Cross tags
     const tags = await sql/* sql */`
@@ -163,6 +171,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       genres: genres,
       subgenres: subgenres,
       ageMarket: ageMarkets[0] || undefined,
+      format: bookFormats[0]?.name || undefined,
+      audience: ageMarkets[0]?.name || undefined,
       tags,
       allTagCount: tags.length,
       // Legacy compatibility - use first genre/subgenre if present
