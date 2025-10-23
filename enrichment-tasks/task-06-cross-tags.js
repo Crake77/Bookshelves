@@ -18,8 +18,14 @@ function getCrossTagsByGroup() {
 }
 
 // Suggest cross-tags with MUCH stricter matching to prevent false positives
-function suggestCrossTags(book, domain) {
-  const description = (book.description || '').toLowerCase();
+function suggestCrossTags(book, domain, enrichmentData = null) {
+  // Use enriched summary if original description is null/empty
+  let description = (book.description || '').toLowerCase();
+  if (!description && enrichmentData?.summary?.new_summary) {
+    description = enrichmentData.summary.new_summary.toLowerCase();
+    console.log(`    ℹ️  Using enriched summary for cross-tag detection (no original description)`);
+  }
+  
   const title = book.title.toLowerCase();
   const categories = (book.categories || []).map(c => c.toLowerCase());
   const tags = [];
@@ -118,16 +124,17 @@ async function assignCrossTags(bookId) {
   
   console.log(`  Title: ${book.title}`);
   
-  // Load domain from previous task
+  // Load domain and enrichment data from previous tasks
   const domainPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
   let domain = 'fiction'; // default
+  let enrichmentData = null;
   if (fs.existsSync(domainPath)) {
-    const enrichmentData = JSON.parse(fs.readFileSync(domainPath, 'utf8'));
+    enrichmentData = JSON.parse(fs.readFileSync(domainPath, 'utf8'));
     domain = enrichmentData.taxonomy?.domain?.slug || 'fiction';
   }
   console.log(`  Domain: ${domain}`);
   
-  const suggestedTags = suggestCrossTags(book, domain);
+  const suggestedTags = suggestCrossTags(book, domain, enrichmentData);
   
   const result = {
     cross_tags: suggestedTags,
@@ -159,16 +166,16 @@ async function assignCrossTags(bookId) {
   
   // Save result
   const outputPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
-  let enrichmentData = {};
+  let updatedEnrichmentData = {};
   if (fs.existsSync(outputPath)) {
-    enrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+    updatedEnrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
   }
-  if (!enrichmentData.taxonomy) enrichmentData.taxonomy = {};
-  enrichmentData.taxonomy.cross_tags = result.cross_tags;
-  enrichmentData.taxonomy.cross_tags_count = result.count;
-  enrichmentData.last_updated = new Date().toISOString();
+  if (!updatedEnrichmentData.taxonomy) updatedEnrichmentData.taxonomy = {};
+  updatedEnrichmentData.taxonomy.cross_tags = result.cross_tags;
+  updatedEnrichmentData.taxonomy.cross_tags_count = result.count;
+  updatedEnrichmentData.last_updated = new Date().toISOString();
   
-  fs.writeFileSync(outputPath, JSON.stringify(enrichmentData, null, 2));
+  fs.writeFileSync(outputPath, JSON.stringify(updatedEnrichmentData, null, 2));
   
   console.log(`  💾 Saved to ${outputPath}`);
   

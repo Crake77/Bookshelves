@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Summer of Lovecraft: Cosmic Horror in the 1960s
 -- Book ID: 02901e6f-94d3-4104-9fd8-e609e75b6af0
--- Generated: 2025-10-23T14:59:09.516Z
+-- Generated: 2025-10-23T19:13:45.736Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '02901e6f-94d3-4104-9fd8-e609e75b6af0';
@@ -26,51 +26,21 @@ WHERE id = '02901e6f-94d3-4104-9fd8-e609e75b6af0';
 
 -- Insert domain
 INSERT INTO book_domains (book_id, domain_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM domains WHERE slug = 'fiction';
+SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM domains WHERE slug = 'non-fiction';
 
--- Insert cross-tags (20 tags)
+-- Insert cross-tags (3 tags)
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'short-story-collection';
+SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'lovecraftian';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'anthology-connected-stories';
+SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'war';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'long-lost-sibling';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'one-night-stand-to-more';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'portal-to-another-world';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'summer-camp-horror';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'summer-camp';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'deep-sea-horror';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'first-love';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'hate-to-love';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'insta-love';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'learns-to-love-again';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'love-square';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'love-at-first-sight';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'marriage-of-convenience-to-love';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'one-sided-love';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'summer-romance';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'forbidden-love';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'love-triangle';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'unrequited-love';
+SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM cross_tags WHERE slug = 'cosmic-horror';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)
 SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM age_markets WHERE slug = 'adult';
+
+-- Insert format
+INSERT INTO book_formats (book_id, format_id)
+SELECT '02901e6f-94d3-4104-9fd8-e609e75b6af0', id FROM formats WHERE slug = 'anthology';
 

@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Justice in Young Adult Speculative Fiction
 -- Book ID: 03082e3d-3058-471b-a901-2956c1856f1e
--- Generated: 2025-10-23T14:59:09.665Z
+-- Generated: 2025-10-23T19:13:46.617Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '03082e3d-3058-471b-a901-2956c1856f1e';
@@ -36,65 +36,17 @@ SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM supergenres WHERE slug = 
 INSERT INTO book_supergenres (book_id, supergenre_id)
 SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM supergenres WHERE slug = 'speculative-fiction';
 
--- Insert genres
-INSERT INTO book_genres (book_id, genre_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM genres WHERE slug = 'literary-fiction';
-INSERT INTO book_genres (book_id, genre_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM genres WHERE slug = 'science-fiction';
-
--- Insert subgenres
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM subgenres WHERE slug = 'experimental-fiction';
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM subgenres WHERE slug = 'philosophical-fiction';
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM subgenres WHERE slug = 'postmodern-fiction';
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM subgenres WHERE slug = 'stream-of-consciousness';
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM subgenres WHERE slug = 'first-contact';
-
--- Insert cross-tags (20 tags)
+-- Insert cross-tags (5 tags)
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'hard-science-fiction';
+SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'complex';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'speculative-science';
+SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'poetic';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'civil-rights-activist-mc';
+SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'fairy';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'fairy-tale';
+SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'revolution';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'arch-demon';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'dark-fairy-tale';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'fairy-tale-ending';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'fairy-tale-retelling';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'human-evolution';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'twisted-fairy-tale';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'world-war-fantasy';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'flash-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'micro-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'hypertext-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'eco-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'philosophical-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'post-colonial-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'child-abuse';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'child-death';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'eating-disorder';
+SELECT '03082e3d-3058-471b-a901-2956c1856f1e', id FROM cross_tags WHERE slug = 'educational-tone';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)

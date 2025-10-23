@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=tMidtQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T19:12:24.634Z",
+  "last_updated": "2025-10-23T19:35:44.539Z",
   "authors": {
     "original": [
       "Samuel R. Delany"
@@ -33,9 +33,9 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "fiction",
       "confidence": "high",
-      "reason": "Explicit non-fiction category: science fiction"
+      "reason": "Fiction genre overrides keyword match: science fiction"
     },
     "supergenres": [
       {
@@ -50,7 +50,74 @@
       }
     ],
     "status": "suggested",
-    "notes": []
+    "notes": [],
+    "genres": [
+      {
+        "slug": "science-fiction",
+        "name": "Science Fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [],
+    "cross_tags": [
+      {
+        "slug": "novella",
+        "name": "Novella",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "complex",
+        "name": "Complex",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "experimental",
+        "name": "Experimental",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "sophisticated",
+        "name": "Sophisticated",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "philosophical",
+        "name": "Philosophical",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9
+      }
+    ],
+    "cross_tags_count": 8
   },
   "format": {
     "slug": null,
@@ -59,7 +126,7 @@
   },
   "audience": {
     "slug": "adult",
-    "confidence": "low",
-    "reason": "Default - no specific age market indicators found"
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
   }
 }

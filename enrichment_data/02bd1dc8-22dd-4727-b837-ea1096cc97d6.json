@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=jHVsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T19:12:24.377Z",
+  "last_updated": "2025-10-23T19:13:46.042Z",
   "authors": {
     "original": [
       "Philip Hayward"
@@ -50,16 +50,46 @@
       }
     ],
     "status": "suggested",
-    "notes": []
+    "notes": [],
+    "genres": [
+      {
+        "slug": "business",
+        "name": "Business",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "economics",
+        "name": "Economics",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [],
+    "cross_tags": [
+      {
+        "slug": "neglect",
+        "name": "Neglect",
+        "group": "content_warning",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "conclusion",
+        "name": "Conclusion",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9
+      }
+    ],
+    "cross_tags_count": 2
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "anthology",
+    "confidence": "high",
+    "reason": "Title or description indicates anthology/collection format"
   },
   "audience": {
     "slug": "adult",
-    "confidence": "low",
-    "reason": "Default - no specific age market indicators found"
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
   }
 }

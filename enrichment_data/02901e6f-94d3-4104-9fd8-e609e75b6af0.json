@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T19:12:24.251Z",
+  "last_updated": "2025-10-23T19:13:45.608Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -42,16 +42,42 @@
     "notes": [
       "WARNING: No supergenres could be automatically suggested",
       "MANUAL STEP: Assign 1-2 supergenres from taxonomy"
-    ]
+    ],
+    "genres": [],
+    "subgenres": [],
+    "cross_tags": [
+      {
+        "slug": "lovecraftian",
+        "name": "Lovecraftian",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "war",
+        "name": "War",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9
+      },
+      {
+        "slug": "cosmic-horror",
+        "name": "Cosmic Horror",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 5
+      }
+    ],
+    "cross_tags_count": 3
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "anthology",
+    "confidence": "high",
+    "reason": "Title or description indicates anthology/collection format"
   },
   "audience": {
     "slug": "adult",
-    "confidence": "low",
-    "reason": "Default - no specific age market indicators found"
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
   }
 }

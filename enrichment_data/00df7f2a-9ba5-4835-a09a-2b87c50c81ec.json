@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T19:12:24.115Z",
+  "last_updated": "2025-10-23T19:13:45.126Z",
   "authors": {
     "original": [
       "Dominika Oramus"
@@ -50,7 +50,33 @@
       }
     ],
     "status": "suggested",
-    "notes": []
+    "notes": [],
+    "genres": [],
+    "subgenres": [],
+    "cross_tags": [
+      {
+        "slug": "anxiety",
+        "name": "Anxiety",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 14
+      },
+      {
+        "slug": "holocaust",
+        "name": "Holocaust",
+        "group": "content_warning",
+        "confidence": "high",
+        "match_score": 14
+      },
+      {
+        "slug": "countdown",
+        "name": "Countdown",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 9
+      }
+    ],
+    "cross_tags_count": 3
   },
   "format": {
     "slug": null,

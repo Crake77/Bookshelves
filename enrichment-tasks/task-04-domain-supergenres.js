@@ -46,6 +46,12 @@ function determineDomain(book) {
   }
   
   // PRIORITY 3: Detect "Social Science", "Political Science" etc.
+  // BUT: Exclude fiction genres that might contain these words (e.g., "Science Fiction")
+  const fictionGenreKeywords = ['fiction', 'fantasy', 'romance', 'mystery', 'thriller', 'horror'];
+  const hasFictionGenre = categories.some(cat => 
+    fictionGenreKeywords.some(fg => cat.includes(fg))
+  );
+  
   const explicitNonfictionCategories = [
     'social science', 'political science', 'psychology', 'sociology',
     'history', 'biography', 'memoir', 'philosophy', 'religion',
@@ -55,6 +61,16 @@ function determineDomain(book) {
   const hasNonfictionCategory = categories.some(cat =>
     explicitNonfictionCategories.some(nf => cat.includes(nf))
   );
+  
+  // If book has both fiction genre AND non-fiction category keyword, trust fiction genre
+  if (hasNonfictionCategory && hasFictionGenre) {
+    console.log(`    ℹ️  Categories contain both fiction genre and non-fiction keywords - trusting fiction genre`);
+    return { 
+      slug: 'fiction', 
+      confidence: 'high', 
+      reason: `Fiction genre overrides keyword match: ${categories.join(', ')}` 
+    };
+  }
   
   if (hasNonfictionCategory) {
     return { 
