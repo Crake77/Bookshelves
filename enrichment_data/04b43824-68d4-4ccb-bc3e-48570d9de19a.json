@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=dba8BwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:33:35.209Z",
+  "last_updated": "2025-10-23T14:48:11.714Z",
   "authors": {
     "original": [
       "Abbi Glines"
@@ -20,15 +20,14 @@
   "summary": {
     "original_description": "\"A ... novel set in the fictional town of Rosemary Beach about a Texas rancher who falls in love with a housemaid at his rock star father's estate\"--",
     "original_length": 149,
-    "new_summary": "Set in the fictional Gulf Coast town of Rosemary Beach, this contemporary romance follows Reese Ellis, a Texas rancher who arrives at his famous rock star father's estate and finds himself drawn to Mase, a young woman working as a housemaid there.\n\nReese has maintained distance from his father's glamorous, chaotic world, preferring the straightforward life of ranch work in Texas. His visit to his father's coastal mansion forces him into proximity with the entertainment industry lifestyle he has long avoided. There he encounters Mase, whose circumstances have brought her to domestic work in a place far removed from her own background and dreams.\n\nThe romance develops against the backdrop of class differences and the complex dynamics of the rock star's household. Both characters carry their own histories and hesitations into their growing connection. Their relationship must navigate not only personal barriers but also the social and economic distances between Reese's ranching life and Mase's current situation.\n\nThe Rosemary Beach setting provides the story's atmosphere—a wealthy coastal community where different worlds collide. The novel explores themes common to contemporary romance: overcoming personal past, bridging social divides, and finding connection despite circumstances that might keep two people apart.\n\nAbbi Glines writes accessible contemporary romance focused on character relationships and emotional development. This installment in the Rosemary Beach series offers readers a romance narrative built around attraction across different life circumstances, with the added complication of family dynamics and the entertainment world's influence on personal relationships. The story follows the genre's conventions while incorporating the specific dynamics of its small-town-meets-celebrity setting.",
-    "new_length": 1828,
-    "word_count": 259,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-10-23T14:33:35.209Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "taxonomy": {

@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Science Fiction
 -- Book ID: 068a9286-750d-489b-8d68-b56825151747
--- Generated: 2025-10-23T14:33:35.418Z
+-- Generated: 2025-10-23T14:48:12.938Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '068a9286-750d-489b-8d68-b56825151747';
@@ -13,18 +13,7 @@ DELETE FROM book_formats WHERE book_id = '068a9286-750d-489b-8d68-b56825151747';
 
 -- Update book metadata
 UPDATE books SET
-  authors = '["Isaac Asimov","Greg Walz-Chojnacki","Francis Reddy"]',
-  description = 'This juvenile nonfiction book examines the relationship between science fiction literature and actual scientific principles, aimed at young readers interested in how speculative fiction relates to real-world science. Isaac Asimov, one of science fiction''s most prolific authors and a trained biochemist, brings both literary and scientific expertise to the discussion.
-
-The book likely explores common science fiction concepts—space travel, artificial intelligence, time manipulation, alien life—and compares them with contemporary scientific understanding and possibility. Asimov was known for his ability to explain complex scientific ideas accessibly, making real science engaging for general audiences including young readers.
-
-As both a practicing scientist and science fiction writer, Asimov occupied a unique position to address where science fiction takes creative liberties and where it extrapolates from genuine scientific principles. The comparison format helps young readers develop critical thinking about speculative fiction while learning actual science concepts.
-
-The book serves educational purposes, using science fiction''s imaginative appeal to generate interest in real scientific fields. It may examine which technologies predicted in earlier science fiction have been realized, which remain impossible, and which might become feasible. Such comparisons teach both scientific literacy and appreciation for how fiction can explore scientific ideas'' implications.
-
-For young readers in the mid-1990s, this book would have addressed contemporary concerns about technology''s trajectory while using the enduring appeal of science fiction as an entry point. The format encourages readers to think critically about both science and fiction, understanding each on its own terms while appreciating their productive intersection.
-
-The collaboration with Greg Walz-Chojnacki and Francis Reddy suggests multimedia or illustrated elements enhancing the educational content.',
+  authors = ARRAY['Isaac Asimov' , 'Greg Walz-Chojnacki' , 'Francis Reddy' ],
   cover_url = 'https://books.google.com/books/content?id=O72EoPJN4mUC&printsec=frontcover&img=1&zoom=1&source=gbs_api'
 WHERE id = '068a9286-750d-489b-8d68-b56825151747';
 

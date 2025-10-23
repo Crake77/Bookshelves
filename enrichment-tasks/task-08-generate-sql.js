@@ -69,9 +69,10 @@ async function generateSQL(bookId) {
   
   const updates = [];
   
-  // Authors (REQUIRED)
+  // Authors (REQUIRED) - PostgreSQL TEXT[] array
   if (enrichment.authors && enrichment.authors.validated.length > 0) {
-    updates.push(`  authors = ${sqlJsonArray(enrichment.authors.validated)}`);
+    const authorsArray = enrichment.authors.validated.map(a => `'${a.replace(/'/g, "''")}' `).join(', ');
+    updates.push(`  authors = ARRAY[${authorsArray}]`);
   }
   
   // Description/Summary (if manually written)

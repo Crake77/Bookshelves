@@ -67,6 +67,23 @@ When I say “commit” or “push”, stage changes, commit with a concise mess
    - Always connected to production Neon DB (no local DB)
    - Schema changes go directly to shared database
    - Be cautious with destructive migrations
+   
+   **Executing SQL Scripts**:
+   - `psql` is NOT installed on Windows
+   - Use Node.js with `pg` library to execute SQL against Neon:
+   ```javascript
+   import pg from 'pg';
+   const client = new pg.Client({
+     connectionString: process.env.DATABASE_URL,
+     ssl: { rejectUnauthorized: false }
+   });
+   await client.connect();
+   await client.query(sqlString);
+   await client.end();
+   ```
+   - DATABASE_URL is available in `.env.local`
+   - Always wrap multiple statements in BEGIN/COMMIT for transactions
+   - Remember: `authors` column is PostgreSQL `TEXT[]` array (use `ARRAY['author1', 'author2']`), not JSON
 
 3. **Deployment**:
    ```powershell
