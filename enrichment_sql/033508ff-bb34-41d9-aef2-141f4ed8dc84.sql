@@ -1,6 +1,6 @@
 -- Enrichment SQL for: The Complete Nebula Award-winning Fiction
 -- Book ID: 033508ff-bb34-41d9-aef2-141f4ed8dc84
--- Generated: 2025-10-23T20:26:05.095Z
+-- Generated: 2025-10-23T21:52:41.770Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '033508ff-bb34-41d9-aef2-141f4ed8dc84';
@@ -23,7 +23,7 @@ These stories showcase Delany''s distinctive approach to science fiction, which 
 The Nebula Awards represent recognition from Delany''s peers in the science fiction writing community, marking these stories as particularly significant within the genre. This complete collection offers readers the opportunity to experience the shorter fiction that established Delany''s reputation during science fiction''s transformative 1960s and 1970s era.
 
 For readers interested in science fiction''s evolution beyond pulp traditions toward more literary and experimental territory, this volume provides essential examples of work that expanded the genre''s possibilities. The collection demonstrates how Delany helped reshape science fiction into a form capable of addressing complex social issues alongside technological speculation.',
-  cover_url = 'https://books.google.com/books/content?id=tMidtQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+  cover_url = 'https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg'
 WHERE id = '033508ff-bb34-41d9-aef2-141f4ed8dc84';
 
 -- Insert domain
@@ -39,28 +39,6 @@ SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM supergenres WHERE slug = 
 -- Insert genres
 INSERT INTO book_genres (book_id, genre_id)
 SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM genres WHERE slug = 'science-fiction';
-
--- Insert subgenres
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM subgenres WHERE slug = 'space-opera';
-
--- Insert cross-tags (8 tags)
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'novella';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'space';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'complex';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'experimental';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'literary';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'sophisticated';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'philosophical';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'space-opera';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)

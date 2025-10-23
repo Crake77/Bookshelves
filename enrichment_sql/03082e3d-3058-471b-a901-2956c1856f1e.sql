@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Justice in Young Adult Speculative Fiction
 -- Book ID: 03082e3d-3058-471b-a901-2956c1856f1e
--- Generated: 2025-10-23T19:13:46.617Z
+-- Generated: 2025-10-23T21:52:41.683Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '03082e3d-3058-471b-a901-2956c1856f1e';
@@ -23,7 +23,7 @@ The study categorizes and analyzes multiple justice frameworks: poetic justice, 
 Oziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.
 
 The work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers'' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fiction in preparing young people for an interconnected, environmentally threatened world requiring new approaches to fairness and equity.',
-  cover_url = 'https://books.google.com/books/content?id=TX5KCAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+  cover_url = 'https://covers.openlibrary.org/b/olid/OL39527188M-L.jpg'
 WHERE id = '03082e3d-3058-471b-a901-2956c1856f1e';
 
 -- Insert domain

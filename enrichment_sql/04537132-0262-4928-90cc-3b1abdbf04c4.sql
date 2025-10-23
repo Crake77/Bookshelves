@@ -1,6 +1,6 @@
 -- Enrichment SQL for: The Invisible Life of Addie LaRue
 -- Book ID: 04537132-0262-4928-90cc-3b1abdbf04c4
--- Generated: 2025-10-23T14:59:09.816Z
+-- Generated: 2025-10-23T21:52:41.847Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '04537132-0262-4928-90cc-3b1abdbf04c4';
@@ -23,7 +23,7 @@ The story follows Addie across centuries as she encounters the dark figure who c
 In present-day New York, everything changes when Addie meets Henry, a young man who somehow remembers her. For the first time in three centuries, she can be known by another person, opening possibilities she thought forever closed. But Henry has his own secrets, and their connection will force Addie to confront what she truly wants from her immortal existence.
 
 The novel explores themes of legacy, memory, and what makes a life meaningful when you cannot be remembered. It questions whether existence without connection has value and examines the human need to be seen and known by others.',
-  cover_url = 'https://covers.openlibrary.org/b/isbn/9780765387561-L.jpg'
+  cover_url = 'https://covers.openlibrary.org/b/olid/OL28151758M-L.jpg'
 WHERE id = '04537132-0262-4928-90cc-3b1abdbf04c4';
 
 -- Insert domain
@@ -37,48 +37,6 @@ SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM supergenres WHERE slug = 
 -- Insert genres
 INSERT INTO book_genres (book_id, genre_id)
 SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM genres WHERE slug = 'fantasy';
-
--- Insert cross-tags (20 tags)
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'meaning-of-life';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'life-magic';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'life-reassessment';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'non-carbon-life';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'second-chance-at-life';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'silicon-based-life';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'slice-of-life';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'curse';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'cursed-artifact';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'cursed-house';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'cursed-object-horror';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'cursed-place';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'cursed-weapon';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'everyone-dies';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'everyone-is-grey';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'fae-bargain';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'fae-bargain-romance';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'family-curse';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'faustian-bargain';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04537132-0262-4928-90cc-3b1abdbf04c4', id FROM cross_tags WHERE slug = 'generational-curse';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)

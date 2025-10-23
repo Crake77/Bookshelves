@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL28151758M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:28:40.499Z",
+  "last_updated": "2025-10-23T21:52:41.782Z",
   "authors": {
     "original": [
       "V. E. Schwab"
@@ -30,7 +30,7 @@
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
       "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-10-23T14:59:09.753Z"
+      "Summary imported on 2025-10-23T21:52:41.782Z"
     ]
   },
   "taxonomy": {
@@ -47,7 +47,17 @@
       }
     ],
     "status": "suggested",
-    "notes": []
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [],
+    "cross_tags": [],
+    "cross_tags_count": 0
   },
   "format": {
     "slug": null,
@@ -56,7 +66,7 @@
   },
   "audience": {
     "slug": "adult",
-    "confidence": "low",
-    "reason": "Default - no specific age market indicators found"
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
   }
 }

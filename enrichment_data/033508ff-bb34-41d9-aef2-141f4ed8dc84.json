@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:28:30.176Z",
+  "last_updated": "2025-10-23T21:52:41.697Z",
   "authors": {
     "original": [
       "Samuel R. Delany"
@@ -30,7 +30,7 @@
       "No existing description - must generate from scratch",
       "MANUAL STEP: AI must write original 150-300 word summary",
       "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-10-23T14:59:09.677Z"
+      "Summary imported on 2025-10-23T21:52:41.697Z"
     ]
   },
   "taxonomy": {
@@ -60,73 +60,9 @@
         "confidence": "suggested"
       }
     ],
-    "subgenres": [
-      {
-        "slug": "space-opera",
-        "name": "Space Opera",
-        "genre_slug": "science-fiction",
-        "confidence": "suggested"
-      }
-    ],
-    "cross_tags": [
-      {
-        "slug": "novella",
-        "name": "Novella",
-        "group": "market",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "space",
-        "name": "Space",
-        "group": "setting",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "complex",
-        "name": "Complex",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "experimental",
-        "name": "Experimental",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "literary",
-        "name": "Literary",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "sophisticated",
-        "name": "Sophisticated",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "philosophical",
-        "name": "Philosophical",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "space-opera",
-        "name": "Space Opera",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 9
-      }
-    ],
-    "cross_tags_count": 8
+    "subgenres": [],
+    "cross_tags": [],
+    "cross_tags_count": 0
   },
   "format": {
     "slug": "anthology",

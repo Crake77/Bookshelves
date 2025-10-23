@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Summer of Lovecraft: Cosmic Horror in the 1960s
 -- Book ID: 02901e6f-94d3-4104-9fd8-e609e75b6af0
--- Generated: 2025-10-23T19:13:45.736Z
+-- Generated: 2025-10-23T21:52:41.487Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '02901e6f-94d3-4104-9fd8-e609e75b6af0';
@@ -21,7 +21,7 @@ The collection features stories by Lois H. Gresh, Edward M. Erdelac, Pete Rawlik
 Stories range from drug-fueled encounters with otherworldly entities to investigations of strange occurrences in Arkham and beyond. The anthology explores themes of forbidden knowledge, reality-bending substances, and the thin veil between our world and darker dimensions. Some tales incorporate period-specific elements like the music scene, anti-war movements, and social transformation, while others use the decade as atmospheric background for traditional cosmic horror.
 
 The anthology offers variety in tone and approach, from visceral horror to psychological dread, unified by the Lovecraftian tradition of humanity''s insignificance against incomprehensible cosmic forces. Fans of both Lovecraft''s work and 1960s period pieces will find familiar territory reimagined through an unsettling lens where peace, love, and ancient evil collide.',
-  cover_url = 'https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+  cover_url = 'https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg'
 WHERE id = '02901e6f-94d3-4104-9fd8-e609e75b6af0';
 
 -- Insert domain

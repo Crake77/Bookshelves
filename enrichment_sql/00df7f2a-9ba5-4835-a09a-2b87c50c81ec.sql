@@ -1,6 +1,6 @@
 -- Enrichment SQL for: (Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction
 -- Book ID: 00df7f2a-9ba5-4835-a09a-2b87c50c81ec
--- Generated: 2025-10-23T19:13:45.259Z
+-- Generated: 2025-10-23T21:52:41.391Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '00df7f2a-9ba5-4835-a09a-2b87c50c81ec';

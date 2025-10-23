@@ -1,6 +1,6 @@
 -- Enrichment SQL for: When I'm Gone
 -- Book ID: 04b43824-68d4-4ccb-bc3e-48570d9de19a
--- Generated: 2025-10-23T14:59:09.978Z
+-- Generated: 2025-10-23T21:52:42.008Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '04b43824-68d4-4ccb-bc3e-48570d9de19a';
@@ -23,7 +23,7 @@ The romance develops against the backdrop of class differences and the complex d
 The Rosemary Beach setting provides the story''s atmosphere—a wealthy coastal community where different worlds collide. The novel explores themes common to contemporary romance: overcoming personal past, bridging social divides, and finding connection despite circumstances that might keep two people apart.
 
 Abbi Glines writes accessible contemporary romance focused on character relationships and emotional development. This installment in the Rosemary Beach series offers readers a romance narrative built around attraction across different life circumstances, with the added complication of family dynamics and the entertainment world''s influence on personal relationships. The story follows the genre''s conventions while incorporating the specific dynamics of its small-town-meets-celebrity setting.',
-  cover_url = 'https://books.google.com/books/content?id=dba8BwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+  cover_url = 'https://covers.openlibrary.org/b/olid/OL27208943M-L.jpg'
 WHERE id = '04b43824-68d4-4ccb-bc3e-48570d9de19a';
 
 -- Insert domain
@@ -37,48 +37,6 @@ SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM supergenres WHERE slug = 
 -- Insert genres
 INSERT INTO book_genres (book_id, genre_id)
 SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM genres WHERE slug = 'romance';
-
--- Insert cross-tags (20 tags)
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'house-vs-house';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'state-violence';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'beach-read';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'debut-novel';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'graphic-novel-adaptation';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'hail-mary';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'town-secret';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'ranch';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'seaside-town';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'small-town';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'southern-town';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'flash-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'micro-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'verse-novel';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'hypertext-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'cursed-house';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'deal-with-devil';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'defeat-with-dignity';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'eco-fiction';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '04b43824-68d4-4ccb-bc3e-48570d9de19a', id FROM cross_tags WHERE slug = 'evil-house';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)

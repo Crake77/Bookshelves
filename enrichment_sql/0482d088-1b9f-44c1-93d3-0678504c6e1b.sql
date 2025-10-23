@@ -1,6 +1,6 @@
 -- Enrichment SQL for: The Fantasy and Necessity of Solidarity
 -- Book ID: 0482d088-1b9f-44c1-93d3-0678504c6e1b
--- Generated: 2025-10-23T14:59:09.896Z
+-- Generated: 2025-10-23T21:52:41.928Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '0482d088-1b9f-44c1-93d3-0678504c6e1b';
@@ -23,12 +23,12 @@ The book examines multiple case studies spanning decades and movements: abortion
 Schulman argues that effective solidarity requires acknowledging its limitations and costs. In globalized power structures, solidarity demands that bystanders and even conflicted perpetrators collaborate with the excluded and oppressed, accepting that such action may be difficult, expensive, and unappreciated.
 
 The book offers both critique and possibility, recognizing solidarity''s inherent challenges while asserting its necessity for progressive change. Schulman''s analysis is particularly timely given current debates around ally-ship, identity politics, and movement building. Her work provides practical and philosophical frameworks for those engaged in or studying social justice organizing.',
-  cover_url = 'https://books.google.com/books/content?id=3msrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+  cover_url = 'https://covers.openlibrary.org/b/olid/OL56957378M-L.jpg'
 WHERE id = '0482d088-1b9f-44c1-93d3-0678504c6e1b';
 
 -- Insert domain
 INSERT INTO book_domains (book_id, domain_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM domains WHERE slug = 'fiction';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM domains WHERE slug = 'non-fiction';
 
 -- Insert supergenres
 INSERT INTO book_supergenres (book_id, supergenre_id)
@@ -38,61 +38,23 @@ SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM supergenres WHERE slug = 
 
 -- Insert genres
 INSERT INTO book_genres (book_id, genre_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM genres WHERE slug = 'fantasy';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM genres WHERE slug = 'sociology';
 
--- Insert subgenres
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM subgenres WHERE slug = 'cozy-fantasy';
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM subgenres WHERE slug = 'dark-fantasy';
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM subgenres WHERE slug = 'epic-fantasy';
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM subgenres WHERE slug = 'historical-fantasy';
-INSERT INTO book_subgenres (book_id, subgenre_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM subgenres WHERE slug = 'mythic-fantasy';
-
--- Insert cross-tags (20 tags)
+-- Insert cross-tags (7 tags)
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'not-what-they-seem';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'abortion';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'queer-fantasy';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'liberation';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'world-war-fantasy';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'artistic';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'national-book-award';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'poetic';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'everything-comes-together';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'uplifting';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'parallel-structure';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'war';
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'race-against-time';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'civil-rights-activist-mc';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'social-media-format';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'artistic-struggle';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'book-ends-on-cliffhanger';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'deal-with-devil';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'dies-for-others';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'ends-justify-means';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'forced-to-work-with-team';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'friends-with-benefits';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'growing-power';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'high-elves';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'more-than-meets-eye';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'one-night-stand-to-more';
+SELECT '0482d088-1b9f-44c1-93d3-0678504c6e1b', id FROM cross_tags WHERE slug = 'queer';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)

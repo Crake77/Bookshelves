@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Blue-Green Rehabilitation
 -- Book ID: 02bd1dc8-22dd-4727-b837-ea1096cc97d6
--- Generated: 2025-10-23T19:13:46.165Z
+-- Generated: 2025-10-23T21:52:41.586Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '02bd1dc8-22dd-4727-b837-ea1096cc97d6';
@@ -23,12 +23,12 @@ However, the book also examines significant challenges. Gentrification often fol
 Each case study investigates the political, economic, and social dynamics of waterway transformation, exploring how cities negotiate between conservation, development, and community needs. The anthology examines destination branding strategies and how local projects fit within regional and national frameworks.
 
 The conclusion synthesizes lessons from these diverse examples to propose principles for more equitable and sustainable blue-green development. This work serves as a practical reference for urban planners, policymakers, and researchers working on waterfront rehabilitation projects, offering insights into avoiding common pitfalls while maximizing environmental and social benefits.',
-  cover_url = 'https://books.google.com/books/content?id=jHVsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+  cover_url = 'https://covers.openlibrary.org/b/olid/OL57546024M-L.jpg'
 WHERE id = '02bd1dc8-22dd-4727-b837-ea1096cc97d6';
 
 -- Insert domain
 INSERT INTO book_domains (book_id, domain_id)
-SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM domains WHERE slug = 'non-fiction';
+SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM domains WHERE slug = 'fiction';
 
 -- Insert supergenres
 INSERT INTO book_supergenres (book_id, supergenre_id)
@@ -38,9 +38,7 @@ SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM supergenres WHERE slug = 
 
 -- Insert genres
 INSERT INTO book_genres (book_id, genre_id)
-SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM genres WHERE slug = 'business';
-INSERT INTO book_genres (book_id, genre_id)
-SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM genres WHERE slug = 'economics';
+SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM genres WHERE slug = 'fantasy';
 
 -- Insert cross-tags (2 tags)
 INSERT INTO book_cross_tags (book_id, cross_tag_id)

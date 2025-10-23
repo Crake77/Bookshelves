@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Nebula Award Stories Five
 -- Book ID: 05eaef7d-9e38-4e02-8fec-358dd2b16ed8
--- Generated: 2025-10-23T14:59:10.063Z
+-- Generated: 2025-10-23T21:52:42.087Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '05eaef7d-9e38-4e02-8fec-358dd2b16ed8';
@@ -41,22 +41,6 @@ SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM supergenres WHERE slug = 
 -- Insert genres
 INSERT INTO book_genres (book_id, genre_id)
 SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM genres WHERE slug = 'science-fiction';
-
--- Insert cross-tags (7 tags)
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM cross_tags WHERE slug = 'award-winner';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM cross_tags WHERE slug = 'big-five-publisher';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM cross_tags WHERE slug = 'national-book-award';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM cross_tags WHERE slug = 'nebula-winner';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM cross_tags WHERE slug = 'five-act-structure';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM cross_tags WHERE slug = 'anthology-connected-stories';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM cross_tags WHERE slug = 'interconnected-stories';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)

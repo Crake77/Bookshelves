@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL57546024M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:28:10.506Z",
+  "last_updated": "2025-10-23T21:52:41.505Z",
   "authors": {
     "original": [
       "Philip Hayward"
@@ -30,14 +30,14 @@
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
       "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-10-23T14:59:09.528Z"
+      "Summary imported on 2025-10-23T21:52:41.505Z"
     ]
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "fiction",
       "confidence": "high",
-      "reason": "Explicit non-fiction category: business & economics, fantasy"
+      "reason": "Fiction genre overrides keyword match: business & economics, fantasy"
     },
     "supergenres": [
       {
@@ -55,13 +55,8 @@
     "notes": [],
     "genres": [
       {
-        "slug": "business",
-        "name": "Business",
-        "confidence": "suggested"
-      },
-      {
-        "slug": "economics",
-        "name": "Economics",
+        "slug": "fantasy",
+        "name": "Fantasy",
         "confidence": "suggested"
       }
     ],
