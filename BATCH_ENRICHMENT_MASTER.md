@@ -39,7 +39,7 @@ The AI agent MUST read these files first:
 
 ---
 
-## Complete Workflow (10 Steps)
+## Complete Workflow (11 Steps)
 
 ### Step 1: Export Books from Database
 
@@ -174,7 +174,38 @@ node import-summaries.js
 
 ---
 
-### Step 6: Manual Taxonomy Review (if needed)
+### Step 6: Quality Validation (REQUIRED)
+
+**Script:** `validate-quality.js`
+
+Run quality checks on ALL books before SQL generation:
+
+```powershell
+# Validate each book
+node enrichment-tasks/validate-quality.js "<book_id>"
+```
+
+**What it checks:**
+- Domain/genre consistency (no fiction genres on non-fiction books)
+- Excessive structure tags (flash-fiction, micro-fiction on academic books)
+- Fiction tropes on non-fiction books (high-elves, dragons, etc.)
+- Missing required fields (domain, genres, summary)
+- Summary word count (150-300 words)
+
+**If validation fails:**
+1. Review the specific issues flagged
+2. Manually edit `enrichment_data/<book_id>.json` to fix errors
+3. Re-run validation until it passes
+4. Regenerate SQL: `node enrichment-tasks/task-08-generate-sql.js "<book_id>"`
+
+**Common fixes:**
+- Remove fiction genres from non-fiction books
+- Remove structure tags (flash-fiction, micro-fiction) from academic books
+- Remove fiction tropes from non-fiction books
+
+---
+
+### Step 7: Manual Taxonomy Review (if needed)
 
 **Check:** Review `enrichment_data/*.json` for any warnings:
 - `"status": "needs_manual_review"` in taxonomy section
@@ -183,14 +214,15 @@ node import-summaries.js
 
 **If issues found:**
 1. Manually edit the JSON file with correct taxonomy slugs
-2. Re-run task 8 for that specific book:
+2. Re-validate: `node enrichment-tasks/validate-quality.js "<book_id>"`
+3. Re-run task 8 for that specific book:
    ```powershell
    node enrichment-tasks/task-08-generate-sql.js "<book_id>"
    ```
 
 ---
 
-### Step 7: Execute SQL Against Neon Database
+### Step 8: Execute SQL Against Neon Database
 
 **Script:** `execute-batch-sql.js`
 
@@ -227,7 +259,7 @@ node -e "import pg from 'pg'; const c = new pg.Client({connectionString: process
 
 ---
 
-### Step 8: Create Batch Report
+### Step 9: Create Batch Report
 
 **Script:** Create `batch_reports/batch_NNN_final_report.md`
 
@@ -242,7 +274,7 @@ Include:
 
 ---
 
-### Step 9: Update Master Documentation
+### Step 10: Update Master Documentation
 
 **File:** `BATCH_001_COMPLETE.md` (or create `BATCH_NNN_COMPLETE.md`)
 
@@ -255,7 +287,7 @@ Document:
 
 ---
 
-### Step 10: Commit to Git
+### Step 11: Commit to Git
 
 **Commands:**
 ```powershell
@@ -274,6 +306,42 @@ git commit -m "BATCH NNN COMPLETE: 10 books enriched and imported to database
 
 📁 Files: enrichment_data/, enrichment_sql/, batch_reports/"
 ```
+
+---
+
+## False Positive Prevention (CRITICAL)
+
+### The Problem: Keyword Matching Gone Wrong
+
+Naive keyword matching causes catastrophic false positives:
+- Academic books about genres get tagged AS those genres
+- "flash-fiction" splits to ["flash", "fiction"] and matches any book mentioning "fiction"
+- Books with genre names in titles ("Fantasy and Solidarity") get tagged as that genre
+
+### The Solution: Strict Matching Rules
+
+**Task 4 (Domain):**
+- Detect academic books via phrases: "analysis of", "examination of", "study of"
+- Check title patterns: "[Genre] in/of/and" = book ABOUT genre, not IN genre
+- Literary Criticism category = always non-fiction
+
+**Task 5 (Genres):**
+- Validate genres against domain (no fiction genres on non-fiction books)
+- Don't map "Literary Criticism" to "literary-fiction" (different things!)
+- Check for explicit non-fiction categories (Social Science, Political Science)
+
+**Task 6 (Cross-Tags):**
+- Require FULL slug/phrase match (not individual words)
+- Minimum match score of 3 (not just > 0)
+- Exclude structure tags from academic books
+- Exclude fiction tropes from non-fiction books
+- Exclude fairy-tale tags unless "fairy tale" appears as complete phrase
+
+**Task 7 (Validation):**
+- Run `validate-quality.js` before SQL generation
+- Flag domain/genre mismatches
+- Flag excessive structure/fairy-tale tags
+- Require manual fix before proceeding
 
 ---
 

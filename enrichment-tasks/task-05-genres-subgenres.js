@@ -18,10 +18,26 @@ function findSubgenres(genreSlug) {
   return taxonomy.subgenres.filter(sg => sg.genre_slug === genreSlug);
 }
 
-// Suggest genres based on categories
-function suggestGenres(book) {
+// Suggest genres based on categories with domain validation
+function suggestGenres(book, domain) {
   const categories = (book.categories || []).map(c => c.toLowerCase());
+  const title = book.title.toLowerCase();
   const genreSlugs = [];
+  
+  // CRITICAL: Literary Criticism is a NON-FICTION field, not a fiction genre
+  // Don't map it to 'literary-fiction' which is a fiction genre
+  if (categories.some(cat => cat.includes('literary criticism') || cat.includes('criticism'))) {
+    // This is academic analysis - check domain
+    if (domain === 'non-fiction') {
+      // Could be literary-criticism, cultural-studies, etc.
+      // For now, leave empty and require manual assignment
+      return [];
+    }
+  }
+  
+  // Filter out fiction genres if domain is non-fiction
+  const fictionGenres = ['fantasy', 'science-fiction', 'mystery', 'thriller', 'romance', 'horror', 'literary-fiction'];
+  const nonfictionGenres = ['history', 'biography', 'memoir', 'autobiography', 'business', 'economics', 'psychology', 'philosophy'];
   
   // Direct mappings from API categories to taxonomy genres
   const genreMap = {
@@ -31,19 +47,37 @@ function suggestGenres(book) {
     'thriller': 'thriller',
     'romance': 'romance',
     'horror': 'horror',
-    'literary criticism': 'literary-fiction',
     'history': 'history',
     'biography': 'biography',
     'autobiography': 'autobiography',
     'business': 'business',
     'economics': 'economics',
-    'juvenile nonfiction': 'reference'
+    'juvenile nonfiction': 'reference',
+    'social science': 'sociology',
+    'political science': 'political-science'
   };
   
   categories.forEach(cat => {
     Object.keys(genreMap).forEach(key => {
       if (cat.includes(key)) {
         const slug = genreMap[key];
+        
+        // VALIDATION: Check if genre matches domain
+        const isFictionGenre = fictionGenres.includes(slug);
+        const isNonfictionGenre = nonfictionGenres.includes(slug);
+        
+        if (domain === 'fiction' && isNonfictionGenre) {
+          // Skip non-fiction genres for fiction books
+          console.log(`    ⚠️  Skipping non-fiction genre '${slug}' for fiction book`);
+          return;
+        }
+        
+        if (domain === 'non-fiction' && isFictionGenre) {
+          // Skip fiction genres for non-fiction books
+          console.log(`    ⚠️  Skipping fiction genre '${slug}' for non-fiction book (likely from title keyword)`);
+          return;
+        }
+        
         if (!genreSlugs.includes(slug) && findGenre(slug)) {
           genreSlugs.push(slug);
         }
@@ -94,7 +128,16 @@ async function assignGenresSubgenres(bookId) {
   console.log(`  Title: ${book.title}`);
   console.log(`  Categories: ${JSON.stringify(book.categories)}`);
   
-  const genreSlugs = suggestGenres(book);
+  // Load domain from previous task
+  const outputPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
+  let domain = 'fiction'; // default
+  if (fs.existsSync(outputPath)) {
+    const enrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+    domain = enrichmentData.taxonomy?.domain?.slug || 'fiction';
+  }
+  console.log(`  Domain: ${domain}`);
+  
+  const genreSlugs = suggestGenres(book, domain);
   const subgenres = suggestSubgenres(book, genreSlugs);
   
   const result = {

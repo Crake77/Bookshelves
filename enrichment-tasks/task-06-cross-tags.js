@@ -17,12 +17,20 @@ function getCrossTagsByGroup() {
   return byGroup;
 }
 
-// Suggest cross-tags based on description, categories, and metadata
-function suggestCrossTags(book) {
+// Suggest cross-tags with MUCH stricter matching to prevent false positives
+function suggestCrossTags(book, domain) {
   const description = (book.description || '').toLowerCase();
   const title = book.title.toLowerCase();
   const categories = (book.categories || []).map(c => c.toLowerCase());
   const tags = [];
+  
+  // CRITICAL: Detect if this is academic/analytical book
+  const isAcademicBook = categories.some(cat => 
+    cat.includes('literary criticism') || 
+    cat.includes('criticism') ||
+    cat.includes('social science') ||
+    cat.includes('political science')
+  ) || description.includes('analysis of') || description.includes('examination of');
   
   const allCrossTags = getCrossTagsByGroup();
   
@@ -32,20 +40,54 @@ function suggestCrossTags(book) {
       const tagName = tag.name.toLowerCase();
       const tagSlug = tag.slug;
       
-      // Keyword matching in description and title
-      const keywords = tagName.split(/[\s-]+/).filter(k => k.length > 3);
-      const matchScore = keywords.reduce((score, keyword) => {
-        if (description.includes(keyword)) score += 2;
-        if (title.includes(keyword)) score += 1;
-        return score;
-      }, 0);
+      // RULE 1: Require FULL slug or very specific phrase matching
+      // Don't split tag names into individual words
+      let matchScore = 0;
       
-      if (matchScore > 0) {
+      // Check for exact slug match (with word boundaries)
+      const slugPattern = new RegExp(`\\b${tagSlug.replace(/-/g, '[\\s-]')}\\b`, 'i');
+      if (slugPattern.test(description)) matchScore += 5;
+      if (slugPattern.test(title)) matchScore += 3;
+      
+      // Check for exact tag name match
+      const namePattern = new RegExp(`\\b${tagName.replace(/[\s-]+/g, '[\\s-]')}\\b`, 'i');
+      if (namePattern.test(description)) matchScore += 4;
+      if (namePattern.test(title)) matchScore += 2;
+      
+      // RULE 2: Exclude structure tags (flash-fiction, micro-fiction) from academic books
+      const structureTags = ['flash-fiction', 'micro-fiction', 'hypertext-fiction', 'epistolary', 'anthology'];
+      if (isAcademicBook && structureTags.includes(tagSlug)) {
+        // Skip these - academic books mention "fiction" constantly
+        matchScore = 0;
+      }
+      
+      // RULE 3: Exclude fairy-tale tags unless it's actually a fairy tale book
+      const fairyTaleTags = ['fairy-tale', 'dark-fairy-tale', 'fairy-tale-retelling', 'fairy-tale-ending', 'twisted-fairy-tale'];
+      if (fairyTaleTags.includes(tagSlug)) {
+        // Only match if "fairy tale" appears as a complete phrase AND book is fiction
+        if (!(/\bfairy[\s-]tales?\b/i.test(title) || /\bfairy[\s-]tales?\b/i.test(description)) || domain === 'non-fiction') {
+          matchScore = 0;
+        }
+      }
+      
+      // RULE 4: Exclude fiction tropes from non-fiction books
+      const fictionTropes = [
+        'chosen-one', 'enemies-to-lovers', 'friends-to-lovers', 'love-triangle',
+        'mentor-figure', 'quest', 'revenge', 'sacrifice', 'betrayal',
+        'high-elves', 'dragons', 'magic-system', 'prophecy', 'portal',
+        'time-travel', 'parallel-worlds', 'first-contact', 'space-opera'
+      ];
+      if (domain === 'non-fiction' && fictionTropes.includes(tagSlug)) {
+        matchScore = 0;
+      }
+      
+      // RULE 5: Require minimum match score of 3 (not just > 0)
+      if (matchScore >= 3) {
         tags.push({
           slug: tagSlug,
           name: tag.name,
           group: tag.group,
-          confidence: matchScore > 2 ? 'high' : 'medium',
+          confidence: matchScore >= 5 ? 'high' : 'medium',
           match_score: matchScore
         });
       }
@@ -69,7 +111,16 @@ async function assignCrossTags(bookId) {
   
   console.log(`  Title: ${book.title}`);
   
-  const suggestedTags = suggestCrossTags(book);
+  // Load domain from previous task
+  const outputPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
+  let domain = 'fiction'; // default
+  if (fs.existsSync(outputPath)) {
+    const enrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+    domain = enrichmentData.taxonomy?.domain?.slug || 'fiction';
+  }
+  console.log(`  Domain: ${domain}`);
+  
+  const suggestedTags = suggestCrossTags(book, domain);
   
   const result = {
     cross_tags: suggestedTags,

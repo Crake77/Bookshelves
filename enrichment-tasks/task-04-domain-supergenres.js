@@ -16,31 +16,70 @@ function determineDomain(book) {
   const title = book.title.toLowerCase();
   const description = (book.description || '').toLowerCase();
   
-  // Fiction indicators
-  const fictionKeywords = ['fiction', 'novel', 'fantasy', 'science fiction', 'mystery', 'thriller', 'romance', 'horror'];
-  // Non-fiction indicators  
-  const nonfictionKeywords = ['history', 'biography', 'science', 'philosophy', 'business', 'self-help', 'criticism', 'guide'];
+  // PRIORITY 1: Detect academic/analytical books (books ABOUT other genres)
+  const academicPhrases = [
+    'analysis of', 'examination of', 'study of', 'reading of',
+    'approaches to', 'perspectives on', 'introduction to',
+    'history of', 'theory of', 'criticism of'
+  ];
   
-  let fictionScore = 0;
-  let nonfictionScore = 0;
+  const hasAcademicPhrase = academicPhrases.some(phrase => 
+    description.includes(phrase) || title.includes(phrase)
+  );
   
-  categories.forEach(cat => {
-    if (fictionKeywords.some(kw => cat.includes(kw))) fictionScore++;
-    if (nonfictionKeywords.some(kw => cat.includes(kw))) nonfictionScore++;
-  });
+  // Check if title contains genre name + 'in/of/and' pattern
+  // e.g., "Fantasy in Young Adult", "Justice in Speculative Fiction"
+  const genreAnalysisPattern = /(fiction|fantasy|science fiction|mystery|romance|horror|thriller) (in|of|and|for)/i;
+  const isGenreAnalysis = genreAnalysisPattern.test(title);
   
-  // Literary criticism about fiction is non-fiction
-  if (categories.includes('literary criticism')) {
+  if (hasAcademicPhrase || isGenreAnalysis) {
+    return { 
+      slug: 'non-fiction', 
+      confidence: 'high', 
+      reason: 'Academic/analytical work (about genres, not in a genre)' 
+    };
+  }
+  
+  // PRIORITY 2: Literary criticism is always non-fiction
+  if (categories.some(cat => cat.includes('literary criticism') || cat.includes('criticism'))) {
     return { slug: 'non-fiction', confidence: 'high', reason: 'Literary criticism is non-fiction' };
   }
   
-  if (fictionScore > nonfictionScore) {
-    return { slug: 'fiction', confidence: 'medium', reason: `Fiction indicators in categories (score: ${fictionScore})` };
-  } else if (nonfictionScore > fictionScore) {
-    return { slug: 'non-fiction', confidence: 'medium', reason: `Non-fiction indicators in categories (score: ${nonfictionScore})` };
+  // PRIORITY 3: Detect "Social Science", "Political Science" etc.
+  const explicitNonfictionCategories = [
+    'social science', 'political science', 'psychology', 'sociology',
+    'history', 'biography', 'memoir', 'philosophy', 'religion',
+    'business', 'self-help', 'science', 'technology', 'reference'
+  ];
+  
+  const hasNonfictionCategory = categories.some(cat =>
+    explicitNonfictionCategories.some(nf => cat.includes(nf))
+  );
+  
+  if (hasNonfictionCategory) {
+    return { 
+      slug: 'non-fiction', 
+      confidence: 'high', 
+      reason: `Explicit non-fiction category: ${categories.join(', ')}` 
+    };
   }
   
-  // Default to fiction for novels/stories
+  // PRIORITY 4: Fiction indicators
+  const fictionKeywords = ['novel', 'fiction', 'fantasy', 'science fiction', 'mystery', 'thriller', 'romance', 'horror'];
+  const hasFictionCategory = categories.some(cat =>
+    fictionKeywords.some(fk => cat === fk || cat === fk + 's')
+  );
+  
+  if (hasFictionCategory && !categories.includes('fiction')) {
+    // Has specific fiction genre but not generic "Fiction" - likely a novel
+    return { slug: 'fiction', confidence: 'high', reason: `Fiction genre category: ${categories.join(', ')}` };
+  }
+  
+  if (categories.includes('fiction')) {
+    return { slug: 'fiction', confidence: 'medium', reason: 'Generic fiction category' };
+  }
+  
+  // Default: needs manual review
   return { slug: 'fiction', confidence: 'low', reason: 'Default - needs manual review' };
 }
 
