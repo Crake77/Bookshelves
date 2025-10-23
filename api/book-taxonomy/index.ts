@@ -69,8 +69,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         subgenre: subgenres.length > 0 ? subgenres[0] : null,
         tags: tags,
         allTagCount: tagCount.length > 0 ? parseInt(tagCount[0].count) : 0,
-        format: formats.length > 0 ? formats[0] : null,
-        audience: audiences.length > 0 ? audiences[0] : null
+        format: formats.length > 0 ? formats[0].name : null,
+        audience: audiences.length > 0 ? audiences[0].name : null
       }
     });
   } catch (error: any) {
