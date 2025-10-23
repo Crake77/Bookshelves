@@ -13,6 +13,16 @@ function detectFormat(book) {
   const description = (book.description || '').toLowerCase();
   const title = book.title.toLowerCase();
   
+  // Check for anthology indicators (collection of works by multiple authors)
+  if (title.includes('anthology') || description.includes('anthology') ||
+      description.includes('collection of') || description.includes('stories by')) {
+    return {
+      slug: 'anthology',
+      confidence: 'high',
+      reason: 'Title or description indicates anthology/collection format'
+    };
+  }
+  
   // Check for audiobook indicators
   if (categories.some(c => c.includes('audio') || c.includes('audiobook')) ||
       title.includes('audiobook') || title.includes('[audio')) {

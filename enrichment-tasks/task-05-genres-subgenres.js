@@ -35,6 +35,20 @@ function suggestGenres(book, domain) {
     }
   }
   
+  // CRITICAL: Google Books often adds spurious "Fantasy" category based on title words
+  // Only trust "Fantasy" if there's supporting evidence
+  if (categories.includes('fantasy') && domain === 'non-fiction') {
+    // Remove fantasy from categories - it's likely a false positive
+    console.log(`    ⚠️  Ignoring spurious 'Fantasy' category for non-fiction book (likely from title)`);
+    const filteredCategories = categories.filter(c => c !== 'fantasy');
+    if (filteredCategories.length === 0) {
+      return [];
+    }
+    // Continue with filtered categories
+    categories.length = 0;
+    categories.push(...filteredCategories);
+  }
+  
   // Filter out fiction genres if domain is non-fiction
   const fictionGenres = ['fantasy', 'science-fiction', 'mystery', 'thriller', 'romance', 'horror', 'literary-fiction'];
   const nonfictionGenres = ['history', 'biography', 'memoir', 'autobiography', 'business', 'economics', 'psychology', 'philosophy'];
@@ -88,26 +102,38 @@ function suggestGenres(book, domain) {
   return genreSlugs.slice(0, 3); // Max 3 genres
 }
 
-// Suggest subgenres based on description and genres
+// Suggest subgenres based on title, description and genres
 function suggestSubgenres(book, genreSlugs) {
   const description = (book.description || '').toLowerCase();
+  const title = book.title.toLowerCase();
   const subgenres = [];
   
   // For each assigned genre, look for relevant subgenres
   genreSlugs.forEach(genreSlug => {
     const availableSubgenres = findSubgenres(genreSlug);
     
-    // Simple keyword matching (would be more sophisticated in production)
+    // Check for FULL subgenre name in title or description (not individual words)
     availableSubgenres.forEach(sg => {
-      const keywords = sg.name.toLowerCase().split(/[\s-]+/);
-      if (keywords.some(kw => description.includes(kw) && kw.length > 4)) {
-        if (!subgenres.find(s => s.slug === sg.slug)) {
-          subgenres.push({
-            slug: sg.slug,
-            name: sg.name,
-            genre_slug: sg.genre_slug
-          });
-        }
+      const subgenreName = sg.name.toLowerCase();
+      const subgenreSlug = sg.slug.toLowerCase();
+      
+      // Create regex pattern for full name match (with word boundaries)
+      const namePattern = new RegExp(`\\b${subgenreName.replace(/[\s-]+/g, '[\\s-]')}\\b`, 'i');
+      const slugPattern = new RegExp(`\\b${subgenreSlug.replace(/-/g, '[\\s-]')}\\b`, 'i');
+      
+      let matched = false;
+      if (namePattern.test(title) || slugPattern.test(title)) {
+        matched = true;
+      } else if (namePattern.test(description) || slugPattern.test(description)) {
+        matched = true;
+      }
+      
+      if (matched && !subgenres.find(s => s.slug === sg.slug)) {
+        subgenres.push({
+          slug: sg.slug,
+          name: sg.name,
+          genre_slug: sg.genre_slug
+        });
       }
     });
   });

@@ -54,8 +54,15 @@ function suggestCrossTags(book, domain) {
       if (namePattern.test(description)) matchScore += 4;
       if (namePattern.test(title)) matchScore += 2;
       
-      // RULE 2: Exclude structure tags (flash-fiction, micro-fiction) from academic books
-      const structureTags = ['flash-fiction', 'micro-fiction', 'hypertext-fiction', 'epistolary', 'anthology'];
+      // RULE 2: Exclude structure/format tags from cross-tags
+      // anthology is now detected as a format, not a tag
+      const formatTags = ['anthology'];
+      if (formatTags.includes(tagSlug)) {
+        matchScore = 0; // Skip - this is a format, not a cross-tag
+      }
+      
+      // Exclude other structure tags from academic books
+      const structureTags = ['flash-fiction', 'micro-fiction', 'hypertext-fiction', 'epistolary'];
       if (isAcademicBook && structureTags.includes(tagSlug)) {
         // Skip these - academic books mention "fiction" constantly
         matchScore = 0;
