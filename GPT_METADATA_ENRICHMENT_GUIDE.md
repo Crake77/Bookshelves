@@ -721,6 +721,7 @@ DELETE FROM book_domains WHERE book_id IN ('book-1', 'book-2', ..., 'book-100');
 -- Update book-1: "Example Title" by Author Name
 UPDATE books
 SET 
+  authors = '["Author Name"]',
   description = 'Your rewritten summary text here...',
   published_date = '2011-05-15',
   page_count = 342,
@@ -731,8 +732,9 @@ WHERE id = 'book-1';
 
 **Notes:**
 - Only UPDATE fields you have valid data for
-- Leave description as last enriched value if you don't improve it
+- ALWAYS update authors (REQUIRED - JSON array format)
 - ALWAYS update description with rewritten summary
+- Leave other fields unchanged if no new data available
 
 ### Step 5.3: INSERT Taxonomy Links
 
