@@ -345,6 +345,26 @@ Column is named `group` (reserved keyword, must be quoted).
 
 ---
 
+### 6. Frontend/Backend Field Mapping
+**Database → API → Frontend**
+
+The backend API automatically converts snake_case database column names to camelCase for the frontend:
+
+| Database Column | API Field (JSON) | Frontend TypeScript | Mapping Location |
+|----------------|------------------|---------------------|------------------|
+| `cover_url` | `coverUrl` | `BookSearchResult.coverUrl` | `server/api-handlers/browse.ts:414` |
+| `google_books_id` | `googleBooksId` | `BookSearchResult.googleBooksId` | `server/api-handlers/browse.ts:410` |
+| `published_date` | `publishedDate` | `BookSearchResult.publishedDate` | `server/api-handlers/browse.ts:415` |
+| `page_count` | `pageCount` | `BookSearchResult.pageCount` | `server/api-handlers/browse.ts:416` |
+
+**Function:** `toBookPayload()` in `server/api-handlers/browse.ts` (lines 397-420)
+
+**Taxonomy API:** `api/book-taxonomy/index.ts` returns format and audience via junction table lookups:
+- Format: `book_formats` → `formats` table
+- Audience: `book_age_markets` → `age_markets` table
+
+---
+
 ## 🔧 Tools & Scripts
 
 ### `sync-taxonomy.js`
