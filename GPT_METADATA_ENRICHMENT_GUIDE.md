@@ -91,7 +91,8 @@ Before starting each batch, verify you have access to:
                   ↓
 ┌─────────────────────────────────────────┐
 │ 6. Generate SQL Migration              │
-│    - UPDATE books (authors, summary)   │
+│    - UPDATE books (authors, covers,    │
+│      summary, metadata)                │
 │    - INSERT taxonomy links             │
 │    - Idempotent (DELETE first)         │
 └─────────────────────────────────────────┘
