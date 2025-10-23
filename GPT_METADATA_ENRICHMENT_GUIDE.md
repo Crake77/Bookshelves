@@ -376,7 +376,7 @@ For **EVERY** book, attempt to populate these fields from API responses:
 #### Books Table Fields
 
 | Field | Source Priority | Notes |
-|-------|----------------|-------|
+|-------||| Field | Source Priority | Notes |`r`n||-------|----------------|-------|`r`n|| **authors** | 1) Google volumeInfo.authors[]<br>2) OpenLibrary author_name[] | JSON array of strings (REQUIRED) |`r`n|| **description** | REWRITTEN SUMMARY | Your original text only ||-------|
 | **description** | REWRITTEN SUMMARY | Your original text only |
 | **published_date** | 1) Google publishedDate<br>2) OpenLibrary publish_date<br>3) Leave null if unknown | Format: YYYY-MM-DD or YYYY |
 | **page_count** | 1) Google pageCount<br>2) OpenLibrary number_of_pages<br>3) Estimate from similar books | Integer only |
@@ -1039,3 +1039,4 @@ Use insights to improve subsequent batches.
 - v1.0 (2025-10-22): Initial metadata enrichment plan
 
 **Agent Contact:** This guide is for GPT-4 autonomous execution. For human review, see Warp Agent (infrastructure).
+
