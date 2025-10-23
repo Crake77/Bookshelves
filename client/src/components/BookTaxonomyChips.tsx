@@ -85,57 +85,104 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
     setDialogOpen(true);
   };
 
+  // Separate regular tags from content warnings
+  const contentWarnings = taxonomy.tags.filter(t => 
+    t.group === 'content_warnings' || t.group === 'content_flags'
+  );
+  const regularTags = taxonomy.tags.filter(t => 
+    t.group !== 'content_warnings' && t.group !== 'content_flags'
+  );
+
   return (
     <div className="px-6 py-4 border-b border-border/50" data-testid="taxonomy-chips">
       <div className="flex items-start gap-4">
-        <div className="flex-1">
-          <div className="text-xs font-semibold text-muted-foreground uppercase mb-2" data-testid="taxonomy-tags">Tags</div>
-          <div className="flex flex-wrap gap-2">
-            {(showAllTags ? taxonomy.tags : taxonomy.tags.slice(0, 12)).map((t) => (
-              <Badge
-                key={t.slug}
-                variant="secondary"
-                className="cursor-pointer"
-                onClick={() => openDialog("tag", t.slug, t.name)}
-                data-testid={`chip-tag-${t.slug}`}
-              >
-                #{t.name}
-              </Badge>
-            ))}
-          </div>
-          {taxonomy.tags.length > 12 && (
-            <div className="mt-2">
-              <Button variant="ghost" size="sm" onClick={() => setShowAllTags((v) => !v)}>
-                {showAllTags ? "Show Less" : `Show All ${taxonomy.allTagCount || taxonomy.tags.length} Tags`}
-              </Button>
+        {/* Left side: Tags and Content Warnings */}
+        <div className="flex-1 space-y-4">
+          {/* Regular Tags */}
+          {regularTags.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2" data-testid="taxonomy-tags">Tags</div>
+              <div className="flex flex-wrap gap-2">
+                {(showAllTags ? regularTags : regularTags.slice(0, 12)).map((t) => (
+                  <Badge
+                    key={t.slug}
+                    variant="secondary"
+                    className="cursor-pointer"
+                    onClick={() => openDialog("tag", t.slug, t.name)}
+                    data-testid={`chip-tag-${t.slug}`}
+                  >
+                    #{t.name}
+                  </Badge>
+                ))}
+              </div>
+              {regularTags.length > 12 && (
+                <div className="mt-2">
+                  <Button variant="ghost" size="sm" onClick={() => setShowAllTags((v) => !v)}>
+                    {showAllTags ? "Show Less" : `Show All ${regularTags.length} Tags`}
+                  </Button>
+                </div>
+              )}
+            </div>
+          )}
+          
+          {/* Content Warnings */}
+          {contentWarnings.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Content Warnings</div>
+              <div className="flex flex-wrap gap-2">
+                {contentWarnings.map((t) => (
+                  <Badge
+                    key={t.slug}
+                    variant="secondary"
+                    className="cursor-pointer bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/30 hover:bg-orange-500/30"
+                    onClick={() => openDialog("tag", t.slug, t.name)}
+                    data-testid={`chip-warning-${t.slug}`}
+                  >
+                    #{t.name}
+                  </Badge>
+                ))}
+              </div>
             </div>
           )}
         </div>
-        <div className="w-40 flex-shrink-0">
-          <div className="text-xs font-semibold text-muted-foreground uppercase mb-2" data-testid="taxonomy-genres">Genres</div>
-          <div className="flex flex-wrap gap-2">
-            {(() => { const g = taxonomy.genre; return g ? (
-              <Badge
-                variant="outline"
-                className="cursor-pointer"
-                onClick={() => openDialog("genre", g.slug, g.name)}
-                data-testid={`chip-genre-${g.slug}`}
-              >
-                {g.name}
-              </Badge>
-            ) : null })()}
-            {(() => { const sg = taxonomy.subgenre; return sg ? (
-              <Badge
-                variant="outline"
-                className="cursor-pointer"
-                onClick={() => openDialog("subgenre", sg.slug, sg.name)}
-                data-testid={`chip-subgenre-${sg.slug}`}
-              >
-                {sg.name}
-              </Badge>
-            ) : null })()}
-          </div>
+        
+        {/* Right side: Genres and Subgenres */}
+        <div className="w-40 flex-shrink-0 space-y-4">
+          {/* Genre */}
+          {taxonomy.genre && (
+            <div>
+              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2" data-testid="taxonomy-genres">Genre</div>
+              <div className="flex flex-wrap gap-2">
+                <Badge
+                  variant="outline"
+                  className="cursor-pointer"
+                  onClick={() => openDialog("genre", taxonomy.genre!.slug, taxonomy.genre!.name)}
+                  data-testid={`chip-genre-${taxonomy.genre.slug}`}
+                >
+                  {taxonomy.genre.name}
+                </Badge>
+              </div>
+            </div>
+          )}
+          
+          {/* Subgenre */}
+          {taxonomy.subgenre && (
+            <div>
+              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Subgenre</div>
+              <div className="flex flex-wrap gap-2">
+                <Badge
+                  variant="outline"
+                  className="cursor-pointer"
+                  onClick={() => openDialog("subgenre", taxonomy.subgenre!.slug, taxonomy.subgenre!.name)}
+                  data-testid={`chip-subgenre-${taxonomy.subgenre.slug}`}
+                >
+                  {taxonomy.subgenre.name}
+                </Badge>
+              </div>
+            </div>
+          )}
         </div>
+        
         {/* Inline dialog for taxonomy browsing */}
         <TaxonomyListDialog open={dialogOpen} onOpenChange={setDialogOpen} filter={dialogFilter} />
       </div>
