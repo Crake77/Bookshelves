@@ -1,7 +1,7 @@
 # GPT Agent: Book Metadata Enrichment Guide
 
-**Version:** 2.0  
-**Agent Role:** Metadata Enrichment Specialist  
+**Version:** 2.1  
+**Agent Role:** Metadata Enrichment Specialist
 **Task:** Enrich book records with summaries, taxonomy tags, and complete metadata while respecting copyright  
 **Batch Size:** 100-500 books per session (30-40 minute window)  
 **Database:** Neon PostgreSQL (production)
@@ -376,7 +376,8 @@ For **EVERY** book, attempt to populate these fields from API responses:
 #### Books Table Fields
 
 | Field | Source Priority | Notes |
-|-------||| Field | Source Priority | Notes |`r`n||-------|----------------|-------|`r`n|| **authors** | 1) Google volumeInfo.authors[]<br>2) OpenLibrary author_name[] | JSON array of strings (REQUIRED) |`r`n|| **description** | REWRITTEN SUMMARY | Your original text only ||-------|
+|-------|----------------|-------|
+| **authors** | 1) Google volumeInfo.authors[]<br>2) OpenLibrary author_name[] | JSON array of strings (REQUIRED) |
 | **description** | REWRITTEN SUMMARY | Your original text only |
 | **published_date** | 1) Google publishedDate<br>2) OpenLibrary publish_date<br>3) Leave null if unknown | Format: YYYY-MM-DD or YYYY |
 | **page_count** | 1) Google pageCount<br>2) OpenLibrary number_of_pages<br>3) Estimate from similar books | Integer only |
@@ -406,11 +407,13 @@ For **EVERY** book, attempt to populate these fields from API responses:
 
 **Important:** Each book record may represent ONE format. If you encounter metadata for multiple formats (hardcover AND ebook), prioritize the physical format (hardcover > paperback) since it's typically the "original" edition.
 
-### Step 2.3: Determine Audience/Age Market
+### Step 2.3: Extract Preliminary Audience/Age Market
+
+**⚠️ NOTE:** This is preliminary extraction from API data. Final taxonomy assignment happens in Step 3.6.
 
 **Audience Values:** adult, young-adult, middle-grade, children
 
-**Detection Rules:**
+**Detection Rules (from API categories/metadata):**
 1. **children:** Ages 0-8, picture books, early readers
    - Keywords: "picture book", "ages 3-7", "board book"
    
@@ -426,13 +429,15 @@ For **EVERY** book, attempt to populate these fields from API responses:
 
 **If Unclear:** Default to `adult` for fiction/non-fiction, or leave blank if truly uncertain.
 
-### Step 2.4: Determine Domain (REQUIRED: Assign FIRST)
+**This preliminary detection will be finalized in Step 3.6 during taxonomy assignment.**
+
+### Step 2.4: Extract Preliminary Domain Classification
+
+**⚠️ NOTE:** This is preliminary extraction from API data. Final taxonomy assignment happens in Step 3.0.
 
 **Domain Values:** fiction, non-fiction, poetry, drama
 
-**⚠️ IMPORTANT:** Domain is a taxonomy assignment, not just a metadata field. It goes in the `book_domains` table alongside genres and cross-tags.
-
-**Detection Logic:**
+**Detection Logic (from API categories):**
 - **fiction:** Novels, stories, fantasy, sci-fi, romance, mystery, etc.
 - **non-fiction:** Biography, history, science, self-help, how-to, memoir, essays
 - **poetry:** Poetry collections, verse
@@ -444,9 +449,9 @@ For **EVERY** book, attempt to populate these fields from API responses:
 - Narrative Non-fiction: non-fiction
 - Graphic Novels: fiction (unless biographical)
 
-**Use API categories/genres and book description to guide this decision.**
+**Use API categories/genres and book description to guide this preliminary classification.**
 
-**Assignment Priority:** Domain should be assigned BEFORE genres and supergenres, as it's the highest-level classification.
+**Final Assignment:** Domain will be formally assigned in Step 3.0 as the first taxonomy tag.
 
 ---
 
@@ -484,7 +489,40 @@ This order ensures logical consistency (e.g., can't assign mystery genre before 
 INSERT INTO book_domains (book_id, domain_slug) VALUES ('book-1', 'fiction');
 ```
 
-### Step 3.1: Assign Genres (REQUIRED: 1-3)
+### Step 3.1: Assign Supergenres (REQUIRED: 1-2)
+
+**Supergenres group related genres into broad categories.**
+
+**Every book MUST have at least ONE supergenre. Assign this BEFORE genres.**
+
+**Process:**
+1. Based on preliminary domain classification (Step 2.4)
+2. Based on API categories and your understanding of the book
+3. Assign 1-2 supergenres that will guide genre selection
+
+**Common Supergenres:**
+- `speculative-fiction` - Fantasy, sci-fi, supernatural
+- `mystery-thriller` - Mystery, thriller, suspense, crime
+- `romance` - Romance, contemporary romance, romantic suspense
+- `history-social-sciences` - History, biography, memoir, sociology
+- `religion-spirituality` - Religious texts, spirituality, theology
+- `business-economics` - Business, finance, economics
+- `arts-entertainment` - Art, music, film, photography
+- `science-technology` - Science, technology, computers
+- `health-wellness` - Health, fitness, self-help
+
+**Validation:** Every supergenre slug MUST exist in the taxonomy JSON.
+
+**Insert into:** `book_supergenres (book_id, supergenre_slug)`
+
+**Example:**
+```sql
+INSERT INTO book_supergenres (book_id, supergenre_slug) VALUES 
+  ('book-1', 'mystery-thriller'),
+  ('book-1', 'history-social-sciences');
+```
+
+### Step 3.2: Assign Genres (REQUIRED: 1-3)
 
 **Every book MUST have at least ONE genre.**
 
@@ -501,7 +539,7 @@ INSERT INTO book_domains (book_id, domain_slug) VALUES ('book-1', 'fiction');
 
 **Validation:** Every genre slug MUST exist in the taxonomy JSON.
 
-### Step 3.2: Assign Subgenres (RECOMMENDED: 1-5)
+### Step 3.3: Assign Subgenres (RECOMMENDED: 1-5)
 
 **Each subgenre belongs to a parent genre.** Only assign subgenres that match one of the book's genres.
 
@@ -516,21 +554,6 @@ INSERT INTO book_domains (book_id, domain_slug) VALUES ('book-1', 'fiction');
 - Genre: `christianity` → Subgenres: `christian-devotional`, `bible-studies`
 
 **If Unsure:** Be conservative. Better to assign fewer accurate subgenres than guess incorrectly.
-
-### Step 3.3: Assign Supergenres (REQUIRED: 1-2)
-
-**Supergenres group related genres into broad categories.**
-
-**Process:**
-1. Check the genre-to-supergenre mappings in taxonomy reference
-2. Assign 1-2 supergenres that cover the book's genre(s)
-
-**Common Mappings:**
-- fantasy, science-fiction → `speculative-fiction`
-- mystery, thriller → `mystery-thriller`
-- romance, contemporary-romance → `romance`
-- biography, memoir, history → `non-fiction` or `history-social-sciences`
-- christianity, islam, judaism → `religion-spirituality`
 
 ### Step 3.4: Assign Cross-Tags (REQUIRED: 10-20)
 
@@ -589,26 +612,40 @@ If the book contains sensitive material (violence, sexual content, abuse, trauma
 
 **Validation:** Every tag slug MUST exist in the cross_tags taxonomy.
 
-### Step 3.5: Split Format and Audience into Separate Assignments
+### Step 3.5: Assign Format (IF KNOWN)
 
-**IMPORTANT:** Format and Audience are NOT the same concept. Handle them separately:
+**Format indicates the physical or digital format of the book edition.**
 
-**Format Assignment (book_formats table):**
-- Use slug: hardcover, paperback, ebook, audiobook, mass-market-paperback
-- Based on physical/digital format detection
-- Insert into: `book_formats (book_id, format_slug)`
+**Format Values:** hardcover, paperback, ebook, audiobook, mass-market-paperback
 
-**Audience Assignment (book_age_markets table):**
-- Use slug: adult, young-adult, middle-grade, children
-- Based on target age range
-- Insert into: `book_age_markets (book_id, age_market_slug)`
+**Assignment Logic:**
+1. Use preliminary format detection from Step 2.2
+2. Only assign if confident (don't guess)
+3. Skip if format is unclear from API data
 
-**Example SQL Inserts:**
+**Insert into:** `book_formats (book_id, format_slug)`
+
+**Example:**
 ```sql
--- Format
 INSERT INTO book_formats (book_id, format_slug) VALUES ('book-123', 'hardcover');
+```
 
--- Audience
+### Step 3.6: Assign Audience/Age Market (IF KNOWN)
+
+**Audience indicates the target age range for the book.**
+
+**Audience Values:** adult, young-adult, middle-grade, children
+
+**Assignment Logic:**
+1. Use preliminary audience detection from Step 2.3
+2. Refine based on summary content and genre
+3. Default to `adult` if unclear for general fiction/non-fiction
+4. Skip if truly uncertain (children's books)
+
+**Insert into:** `book_age_markets (book_id, age_market_slug)`
+
+**Example:**
+```sql
 INSERT INTO book_age_markets (book_id, age_market_slug) VALUES ('book-123', 'young-adult');
 ```
 
@@ -620,19 +657,22 @@ Before finalizing each book, run these checks:
 
 ### Validation Checklist
 
+- [ ] **Authors Present:** At least one author assigned (REQUIRED)
 - [ ] **Summary Present:** `description` field is not empty
 - [ ] **Summary Length:** 150-300 words (~200 target)
 - [ ] **Summary Originality:** No copied phrases >3-4 words from sources
 - [ ] **No Spoilers:** Summary only covers setup/first act, no endings
 - [ ] **No Marketing Language:** Removed all "#1 bestseller", "Don't miss", promotional quotes
-- [ ] **Genre Count:** At least 1 genre assigned, max 3
+- [ ] **Domain Count:** Exactly 1 domain assigned (fiction/non-fiction/poetry/drama)
 - [ ] **Supergenre Count:** At least 1 supergenre assigned
+- [ ] **Genre Count:** At least 1 genre assigned, max 3
 - [ ] **Cross-Tag Count:** At least 10 cross-tags assigned (target 10-20)
 - [ ] **Tag Validity:** ALL tags exist in taxonomy reference
 - [ ] **Subgenre-Genre Match:** All subgenres' parent genres are in book's genres
+- [ ] **Taxonomy Order:** Domain assigned before supergenres, supergenres before genres
 - [ ] **Published Date Format:** Valid YYYY or YYYY-MM-DD format (if present)
 - [ ] **Page Count Format:** Integer value (if present)
-- [ ] **Format/Audience Split:** Correctly assigned to separate tables
+- [ ] **Format/Audience Assignment:** Correctly assigned to separate tables (if known)
 
 **If ANY check fails:**
 1. Log the issue in batch report
@@ -700,20 +740,24 @@ WHERE id = 'book-1';
 ```sql
 -- Taxonomy for book-1 ("Example Title")
 
--- Genres
+-- Domain (FIRST)
+INSERT INTO book_domains (book_id, domain_slug) VALUES
+  ('book-1', 'fiction');
+
+-- Supergenres (SECOND)
+INSERT INTO book_supergenres (book_id, supergenre_slug) VALUES
+  ('book-1', 'mystery-thriller'),
+  ('book-1', 'history-social-sciences');
+
+-- Genres (THIRD)
 INSERT INTO book_genres (book_id, genre_slug) VALUES
   ('book-1', 'mystery'),
   ('book-1', 'historical-fiction');
 
--- Subgenres
+-- Subgenres (FOURTH)
 INSERT INTO book_subgenres (book_id, subgenre_slug) VALUES
   ('book-1', 'victorian-mystery'),
   ('book-1', 'detective');
-
--- Supergenres
-INSERT INTO book_supergenres (book_id, supergenre_slug) VALUES
-  ('book-1', 'mystery-thriller'),
-  ('book-1', 'historical');
 
 -- Cross-tags (showing 15+ tags)
 INSERT INTO book_cross_tags (book_id, cross_tag_slug) VALUES
@@ -740,10 +784,6 @@ INSERT INTO book_age_markets (book_id, age_market_slug) VALUES
 -- Format
 INSERT INTO book_formats (book_id, format_slug) VALUES
   ('book-1', 'hardcover');
-
--- Domain
-INSERT INTO book_domains (book_id, domain_slug) VALUES
-  ('book-1', 'fiction');
 ```
 
 **Repeat for each book in batch.**
@@ -947,11 +987,12 @@ Continue with Batch 4 (books 301-400)
 ### Data Quality Standards
 
 **Every Book Must Have:**
+- At least 1 author (REQUIRED)
 - Original summary (150-300 words)
-- At least 1 genre
+- Exactly 1 domain (fiction/non-fiction/poetry/drama)
 - At least 1 supergenre
+- At least 1 genre
 - At least 10 cross-tags (target 15-20)
-- Domain assignment (fiction/non-fiction)
 
 **Best Effort Fields** (populate if available):
 - published_date
@@ -1035,6 +1076,7 @@ Use insights to improve subsequent batches.
 ---
 
 **Version History:**
+- v2.1 (2025-10-23): Added batch prioritization, fixed taxonomy order (Domain→Supergenres→Genres→Subgenres), added author validation, split Format/Audience sections
 - v2.0 (2025-10-23): Comprehensive restructure with progress tracking, complete field coverage, and copyright compliance
 - v1.0 (2025-10-22): Initial metadata enrichment plan
 
