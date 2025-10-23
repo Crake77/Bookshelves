@@ -12,6 +12,7 @@ import {
   removeFilter,
   getDomainsForGenre,
   getSupergenresForGenre,
+  getDomainsForSupergenre,
   getFilteredGenres,
   clearTaxonomyCache,
 } from "@/lib/taxonomyFilter";
@@ -840,6 +841,40 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
     } else {
       // Item doesn't exist - add it
       let newDimensions = [...filterState.dimensions, item];
+      
+      // If adding a supergenre, auto-populate/update domains
+      if (item.type === 'supergenre') {
+        const allSupergenres = newDimensions.filter(d => d.type === 'supergenre').map(d => d.slug);
+        
+        // Get all valid domains for all selected supergenres
+        const validDomainSlugs = new Set<string>();
+        allSupergenres.forEach(sgSlug => {
+          const domains = getDomainsForSupergenre(taxonomy, sgSlug);
+          domains.forEach(d => validDomainSlugs.add(d.slug));
+        });
+        
+        // Remove domains that don't match any supergenre
+        newDimensions = newDimensions.filter(d => {
+          if (d.type === 'domain') return validDomainSlugs.has(d.slug);
+          return true;
+        });
+        
+        // Add missing domains
+        const existingDomainSlugs = new Set(newDimensions.filter(d => d.type === 'domain').map(d => d.slug));
+        validDomainSlugs.forEach(slug => {
+          if (!existingDomainSlugs.has(slug)) {
+            const domain = taxonomy.domains.find(d => d.slug === slug);
+            if (domain) {
+              newDimensions.push({
+                type: 'domain',
+                slug: domain.slug,
+                name: domain.name,
+                include: true,
+              });
+            }
+          }
+        });
+      }
       
       // If adding a domain or supergenre, remove incompatible genres/subgenres
       if (item.type === 'domain' || item.type === 'supergenre') {

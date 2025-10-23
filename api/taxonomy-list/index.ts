@@ -6,7 +6,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const sql = neon(process.env.DATABASE_URL!);
     
     // Fetch all taxonomy data
-    const [genres, subgenres, tags, formats, audiences, domains, supergenres, genreDomainLinks, genreSupergenreLinks] = await Promise.all([
+    const [genres, subgenres, tags, formats, audiences, domains, supergenres, genreDomainLinks, genreSupergenreLinks, supergenreDomainLinks] = await Promise.all([
       sql`SELECT id, slug, name, description, enabled FROM genres WHERE enabled = true ORDER BY name`,
       sql`
         SELECT s.id, s.genre_id, s.slug, s.name, s.description, s.enabled, g.slug as genre_slug, g.name as genre_name
@@ -33,6 +33,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         JOIN genres g ON g.id = gs.genre_id
         JOIN supergenres s ON s.id = gs.supergenre_id
         WHERE g.enabled = true AND s.enabled = true
+      `,
+      sql`
+        SELECT s.slug as supergenre_slug, d.slug as domain_slug
+        FROM supergenre_domains sd
+        JOIN supergenres s ON s.id = sd.supergenre_id
+        JOIN domains d ON d.id = sd.domain_id
+        WHERE s.enabled = true AND d.enabled = true
       `
     ]);
 
@@ -45,7 +52,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       domains,
       supergenres,
       genreDomainLinks,
-      genreSupergenreLinks
+      genreSupergenreLinks,
+      supergenreDomainLinks
     });
   } catch (error: any) {
     console.error('Failed to load taxonomy:', error);
