@@ -769,6 +769,8 @@ Before finalizing each book, run these checks:
 - [ ] **Summary Originality:** No copied phrases >3-4 words from sources
 - [ ] **No Spoilers:** Summary only covers setup/first act, no endings
 - [ ] **No Marketing Language:** Removed all "#1 bestseller", "Don't miss", promotional quotes
+- [ ] **Cover Image URL Format:** Valid HTTPS URL (if present), no downloaded/re-hosted images
+- [ ] **Cover Image URL Source:** Only URLs from Google Books, OpenLibrary, or approved APIs
 - [ ] **Domain Count:** Exactly 1 domain assigned (fiction/non-fiction/poetry/drama)
 - [ ] **Supergenre Count:** At least 1 supergenre assigned
 - [ ] **Genre Count:** At least 1 genre assigned, max 3
@@ -1007,6 +1009,7 @@ COMMIT;
 
 ## Issues Encountered
 
+- 6 books missing cover_image_url (no covers found in Google Books or OpenLibrary)
 - 13 books missing published_date (APIs returned null)
 - 8 books missing page_count
 - 22 books: format could not be determined
@@ -1014,7 +1017,13 @@ COMMIT;
 
 ## Books Needing Manual Review
 
-None
+_See detailed list in `ENRICHMENT_ISSUES_LOG.md`_
+
+**Books logged to issues file:**
+- 6 books missing cover_image_url
+- 13 books missing published_date  
+- 8 books missing page_count
+- 22 books missing format
 
 ## Next Steps
 
@@ -1062,7 +1071,14 @@ Continue with Batch 4 (books 301-400)
 5. **Extract Metadata** (all fields)
 6. **Apply Taxonomy** (all categories in correct order)
 7. **Validate** (run checklist)
-8. **Generate SQL Statements** (accumulate in memory)
+8. **Log Missing Optional Fields** (track for issues log)
+   - If cover_image_url is NULL: add to issues list
+   - If published_date is NULL: add to issues list
+   - If page_count is NULL: add to issues list
+   - If publisher is NULL: add to issues list
+   - If format unknown: add to issues list
+   - If audience uncertain: add to issues list
+9. **Generate SQL Statements** (accumulate in memory)
 
 **Time Management:**
 - Check elapsed time every 10 books
@@ -1074,13 +1090,131 @@ Continue with Batch 4 (books 301-400)
 1. **Write SQL Migration File** (`migration_batch_<N>.sql`)
 2. **Write Batch Report** (`batch_<N>_report.md`)
 3. **Update Progress Log** (`enrichment_progress.json`)
-4. **Output Summary to Console:**
+4. **Update Issues Log** (`ENRICHMENT_ISSUES_LOG.md`)
+   - Add any books with missing optional fields to appropriate sections
+   - Include: book_id, title, authors (JSON array string), isbn_13, batch number, and brief note
+   - Update summary statistics at top of issues log
+   - Add batch summary to "Batch-by-Batch Issue Summary" section
+5. **Output Summary to Console:**
    ```
    ✅ Batch 3 Complete
    📊 100 books enriched
    💾 Files: migration_batch_003.sql, batch_003_report.md
+   📋 Issues log updated: 27 books flagged for manual review
    ⏭️  Next: Start at offset 300 (Batch 4)
    ```
+
+---
+
+## 📋 PART 8: ISSUES LOG MAINTENANCE
+
+### Purpose
+
+The `ENRICHMENT_ISSUES_LOG.md` file serves as a **master list** of all books with missing optional metadata fields across all batches. This allows the user to:
+- Review incomplete records at any time
+- Prioritize manual data entry
+- Track which fields are commonly missing
+- Measure improvement over time
+
+### When to Update
+
+Update the issues log **after each batch** during the "Ending a Session" phase.
+
+### What to Log
+
+**Log books missing ANY of these optional fields:**
+- `cover_image_url` (cover image URL)
+- `published_date` (publication date)
+- `page_count` (number of pages)
+- `publisher` (publisher name)
+- `format` (hardcover/paperback/ebook/audiobook)
+- `audience` (adult/young-adult/middle-grade/children)
+
+**Do NOT log books missing REQUIRED fields** - those should block SQL generation entirely.
+
+### How to Update the Issues Log
+
+**Step 1: Add Individual Book Entries**
+
+For each book with missing fields, add a row to the appropriate table in the issues log:
+
+**Example - Missing Cover URL:**
+```markdown
+### Missing Cover Image URLs
+
+**Book ID** | **Title** | **Author(s)** | **ISBN** | **Batch** | **Note**
+----------- | --------- | ------------- | -------- | --------- | --------
+book-42 | The Great Novel | ["John Smith"] | 9780143039983 | 3 | Google Books and OpenLibrary returned 404
+book-78 | Mystery Story | ["Jane Doe"] | 9781234567890 | 3 | No ISBN available, APIs could not locate
+```
+
+**Important Formatting:**
+- Use actual book_id from database
+- Include full title (truncate if >50 chars)
+- Authors as JSON array string: `["Author Name"]` or `["Author 1", "Author 2"]`
+- ISBN-13 if available, otherwise "N/A"
+- Batch number for traceability
+- Brief note explaining why field is missing
+
+**Step 2: Update Summary Statistics**
+
+Update the table at the top of the issues log:
+
+```markdown
+## 📊 Summary Statistics (All Batches)
+
+**Field** | **Total Missing** | **% of Books Processed**
+--------- | ----------------- | ------------------------
+cover_image_url | 23 | 7.7%
+published_date | 45 | 15.0%
+page_count | 78 | 26.0%
+publisher | 12 | 4.0%
+format | 89 | 29.7%
+audience | 34 | 11.3%
+
+**Last Batch Processed:** Batch 3  
+**Total Books Processed:** 300  
+**Books with At Least One Missing Field:** 156
+```
+
+Calculate percentages: `(Total Missing / Total Books Processed) * 100`
+
+**Step 3: Add Batch Summary**
+
+Add a new entry to the "Batch-by-Batch Issue Summary":
+
+```markdown
+### Batch 3 (Books 201-300)
+- **Date:** 2025-10-23
+- **Total Issues:** 27 books flagged
+- **Resolved:** 0
+- **Pending:** 27
+- **Breakdown:**
+  - Missing cover_image_url: 6 books
+  - Missing published_date: 13 books
+  - Missing page_count: 8 books
+  - Missing publisher: 5 books
+  - Missing format: 22 books
+  - Missing audience: 0 books
+```
+
+### Example Complete Update
+
+Here's what a full issues log update looks like after Batch 3:
+
+1. Read current `ENRICHMENT_ISSUES_LOG.md`
+2. Add 27 new book entries to appropriate sections (cover URLs, dates, page counts, etc.)
+3. Update summary statistics (increment totals, recalculate percentages)
+4. Add Batch 3 summary to batch-by-batch section
+5. Save file
+
+### Validation
+
+Before finishing the batch:
+- Count of books in issues log matches batch report "Issues Encountered" section
+- Summary statistics add up correctly
+- All book IDs are valid and match SQL migration file
+- Batch number is consistent across all files
 
 ---
 
@@ -1158,6 +1292,7 @@ Continue with Batch 4 (books 301-400)
    - `enrichment_progress.json` (session state)
    - `batch_<N>_report.md` (per-batch reports)
    - `migration_batch_<N>.sql` (SQL output)
+   - `ENRICHMENT_ISSUES_LOG.md` (master issues log for manual review)
 
 ### API Documentation
 
@@ -1183,7 +1318,8 @@ Continue with Batch 4 (books 301-400)
 4. ✅ All SQL statements are valid and idempotent
 5. ✅ Progress log is updated correctly
 6. ✅ Batch report is generated
-7. ✅ No copyright violations (verified through originality checks)
+7. ✅ Issues log is updated with books missing optional fields
+8. ✅ No copyright violations (verified through originality checks)
 
 **Quality Benchmarks:**
 - 100% books have at least 1 author (REQUIRED)
@@ -1212,6 +1348,7 @@ Use insights to improve subsequent batches.
 ---
 
 **Version History:**
+- v2.2 (2025-10-23): Added cover image URL extraction (Step 2.5), issues log maintenance (Part 8), cover URL validation in quality checklist, comprehensive tracking of books with missing optional fields
 - v2.1 (2025-10-23): Added batch prioritization, fixed taxonomy order (Domain→Supergenres→Genres→Subgenres), added author validation, split Format/Audience sections
 - v2.0 (2025-10-23): Comprehensive restructure with progress tracking, complete field coverage, and copyright compliance
 - v1.0 (2025-10-22): Initial metadata enrichment plan
