@@ -804,8 +804,6 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   };
   
   const handleItemToggle = (item: FilterDimension) => {
-    // For blocked items (include: false), check if item exists regardless of include value
-    // Then remove any existing version and add the new one
     const existingIndex = filterState.dimensions.findIndex(d => 
       d.type === item.type && d.slug === item.slug
     );
@@ -814,13 +812,55 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
     
     if (existingIndex >= 0) {
       // Item exists - remove it
-      const newDimensions = [...filterState.dimensions];
+      let newDimensions = [...filterState.dimensions];
       newDimensions.splice(existingIndex, 1);
+      
+      // If removing a domain or supergenre, also remove incompatible genres/subgenres
+      if (item.type === 'domain' || item.type === 'supergenre') {
+        const remainingDomains = newDimensions.filter(d => d.type === 'domain').map(d => d.slug);
+        const remainingSupergenres = newDimensions.filter(d => d.type === 'supergenre').map(d => d.slug);
+        
+        // Get valid genres for remaining domains/supergenres
+        const validGenres = getFilteredGenres(taxonomy, remainingDomains, remainingSupergenres);
+        const validGenreSlugs = new Set(validGenres.map(g => g.slug));
+        
+        // Remove genres that don't match
+        newDimensions = newDimensions.filter(d => {
+          if (d.type === 'genre') return validGenreSlugs.has(d.slug);
+          if (d.type === 'subgenre') {
+            // Check if parent genre is still valid
+            return d.parent && validGenreSlugs.has(d.parent);
+          }
+          return true;
+        });
+      }
+      
       console.log('Removing item, new dimensions:', newDimensions);
       onFilterChange({ ...filterState, dimensions: newDimensions });
     } else {
       // Item doesn't exist - add it
-      const newDimensions = [...filterState.dimensions, item];
+      let newDimensions = [...filterState.dimensions, item];
+      
+      // If adding a domain or supergenre, remove incompatible genres/subgenres
+      if (item.type === 'domain' || item.type === 'supergenre') {
+        const allDomains = newDimensions.filter(d => d.type === 'domain').map(d => d.slug);
+        const allSupergenres = newDimensions.filter(d => d.type === 'supergenre').map(d => d.slug);
+        
+        // Get valid genres for the new domain/supergenre selection
+        const validGenres = getFilteredGenres(taxonomy, allDomains, allSupergenres);
+        const validGenreSlugs = new Set(validGenres.map(g => g.slug));
+        
+        // Remove genres that don't match
+        newDimensions = newDimensions.filter(d => {
+          if (d.type === 'genre') return validGenreSlugs.has(d.slug);
+          if (d.type === 'subgenre') {
+            // Check if parent genre is still valid
+            return d.parent && validGenreSlugs.has(d.parent);
+          }
+          return true;
+        });
+      }
+      
       console.log('Adding item, new dimensions:', newDimensions);
       onFilterChange({ ...filterState, dimensions: newDimensions });
     }
