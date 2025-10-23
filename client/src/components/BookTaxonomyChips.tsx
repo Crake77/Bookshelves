@@ -149,9 +149,9 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
         {/* Right side: Genres, Subgenres, Format, Audience, Published Date */}
         <div className="w-40 flex-shrink-0 space-y-4">
           {/* Genre */}
-          {taxonomy.genre && (
-            <div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2" data-testid="taxonomy-genres">Genre</div>
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground uppercase mb-2" data-testid="taxonomy-genres">Genre</div>
+            {taxonomy.genre ? (
               <div className="flex flex-wrap gap-2">
                 <Badge
                   variant="outline"
@@ -162,13 +162,15 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
                   {taxonomy.genre.name}
                 </Badge>
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="text-xs text-muted-foreground">—</div>
+            )}
+          </div>
           
           {/* Subgenre */}
-          {taxonomy.subgenre && (
-            <div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Subgenre</div>
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Subgenre</div>
+            {taxonomy.subgenre ? (
               <div className="flex flex-wrap gap-2">
                 <Badge
                   variant="outline"
@@ -179,13 +181,15 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
                   {taxonomy.subgenre.name}
                 </Badge>
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="text-xs text-muted-foreground">—</div>
+            )}
+          </div>
           
           {/* Format */}
-          {taxonomy.format && (
-            <div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Format</div>
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Format</div>
+            {taxonomy.format ? (
               <div className="flex flex-wrap gap-2">
                 <Badge
                   variant="outline"
@@ -195,13 +199,15 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
                   {taxonomy.format}
                 </Badge>
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="text-xs text-muted-foreground">—</div>
+            )}
+          </div>
           
           {/* Audience (Age Market) */}
-          {taxonomy.audience && (
-            <div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Audience</div>
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Audience</div>
+            {taxonomy.audience ? (
               <div className="flex flex-wrap gap-2">
                 <Badge
                   variant="outline"
@@ -211,18 +217,22 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
                   {taxonomy.audience}
                 </Badge>
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="text-xs text-muted-foreground">—</div>
+            )}
+          </div>
           
           {/* Published Date */}
-          {book.publishedDate && (
-            <div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Published</div>
+          <div>
+            <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Published</div>
+            {book.publishedDate ? (
               <div className="text-sm text-foreground">
                 {new Date(book.publishedDate).getFullYear()}
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="text-xs text-muted-foreground">—</div>
+            )}
+          </div>
         </div>
         
         {/* Inline dialog for taxonomy browsing */}
