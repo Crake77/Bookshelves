@@ -748,46 +748,43 @@ export default function TaxonomyFilterV2({ filterState, onFilterChange, classNam
   };
   
   const handleGenreSubgenreSave = (genre: FilterDimension, subgenre: FilterDimension | null) => {
-    const newDimensions = [...filterState.dimensions];
-    
-    // Remove existing genre/subgenre combo if same genre
-    const filteredDimensions = newDimensions.filter(d => 
-      !(d.type === "genre" && d.slug === genre.slug) &&
-      !(d.type === "subgenre" && d.parent === genre.slug)
+    // Remove ALL existing genres, subgenres, domains, and supergenres
+    // Only keep tags, formats, audiences, and blocks
+    const filteredDimensions = filterState.dimensions.filter(d => 
+      d.type !== "genre" && 
+      d.type !== "subgenre" && 
+      d.type !== "domain" && 
+      d.type !== "supergenre"
     );
     
-    // Add new selections
+    // Add new genre
     filteredDimensions.push(genre);
+    
+    // Add new subgenre if selected
     if (subgenre) {
       filteredDimensions.push(subgenre);
     }
     
-    // Auto-populate domains for this genre
+    // Add the correct domains for this genre
     const autoDomains = getDomainsForGenre(taxonomy, genre.slug);
     autoDomains.forEach(domain => {
-      const alreadyExists = filteredDimensions.some(d => d.type === "domain" && d.slug === domain.slug);
-      if (!alreadyExists) {
-        filteredDimensions.push({
-          type: "domain",
-          slug: domain.slug,
-          name: domain.name,
-          include: true,
-        });
-      }
+      filteredDimensions.push({
+        type: "domain",
+        slug: domain.slug,
+        name: domain.name,
+        include: true,
+      });
     });
     
-    // Auto-populate supergenres for this genre
+    // Add the correct supergenres for this genre
     const autoSupergenres = getSupergenresForGenre(taxonomy, genre.slug);
     autoSupergenres.forEach(supergenre => {
-      const alreadyExists = filteredDimensions.some(d => d.type === "supergenre" && d.slug === supergenre.slug);
-      if (!alreadyExists) {
-        filteredDimensions.push({
-          type: "supergenre",
-          slug: supergenre.slug,
-          name: supergenre.name,
-          include: true,
-        });
-      }
+      filteredDimensions.push({
+        type: "supergenre",
+        slug: supergenre.slug,
+        name: supergenre.name,
+        include: true,
+      });
     });
     
     onFilterChange({ ...filterState, dimensions: filteredDimensions });
