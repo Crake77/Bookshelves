@@ -121,42 +121,48 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
   }, [book, taxonomyQuery.data, ingestMutation, queryClient]);
 
   const taxonomy = taxonomyQuery.data;
-  if (!taxonomy || (!taxonomy.genre && !taxonomy.subgenre && taxonomy.tags.length === 0)) {
-    // If we have a hint (e.g., from a tag or subgenre popup), attach it server-side once
+  
+  // If loading, show nothing (Suspense fallback handles this)
+  if (taxonomyQuery.isLoading) {
+    return null;
+  }
+  
+  // If we have data but it's empty, still show the section (ingestion might be in progress)
+  if (!taxonomy || (!taxonomy.genre && !taxonomy.subgenre && (!taxonomy.tags || taxonomy.tags.length === 0))) {
+    // If we have a hint, try to attach it
     if (hint && !ingestAttemptedRef.current) {
       ingestAttemptedRef.current = true;
       (async () => {
         try {
-        // Ensure the taxonomy schema/data exists and the book exists in DB first
-        await seedTaxonomyIfNeeded();
-        // Ensure the book exists in DB first
-        await ingestMutation.mutateAsync(book);
-        // Attach age market if detectable
-        try {
-          const age = detectAgeMarketSlug(book.title, book.description, book.categories);
-          if (age) {
-            await fetch("/api/book-taxonomy", {
-              method: "POST",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify({ googleBooksId: book.googleBooksId, ageMarketSlug: age }),
-            });
-          }
-        } catch {}
-        // Attach taxonomy hint
-        await fetch("/api/book-taxonomy", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ googleBooksId: book.googleBooksId, tagSlug: hint.kind === "tag" ? hint.slug : undefined, subgenreSlug: hint.kind === "subgenre" ? hint.slug : undefined }),
-        });
+          await seedTaxonomyIfNeeded();
+          await ingestMutation.mutateAsync(book);
+          try {
+            const age = detectAgeMarketSlug(book.title, book.description, book.categories);
+            if (age) {
+              await fetch("/api/book-taxonomy", {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify({ googleBooksId: book.googleBooksId, ageMarketSlug: age }),
+              });
+            }
+          } catch {}
+          await fetch("/api/book-taxonomy", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ googleBooksId: book.googleBooksId, tagSlug: hint.kind === "tag" ? hint.slug : undefined, subgenreSlug: hint.kind === "subgenre" ? hint.slug : undefined }),
+          });
           setTimeout(() => {
             queryClient.invalidateQueries({ queryKey: ["/api/book-taxonomy", book.googleBooksId] });
           }, 120);
-        } catch {
-          // ignore
-        }
+        } catch {}
       })();
     }
-    return null;
+    // Show empty state instead of returning null
+    return (
+      <div className="px-6 py-4 border-b border-border/50">
+        <div className="text-xs text-muted-foreground">Loading taxonomy...</div>
+      </div>
+    );
   }
 
   const openDialog = (kind: "genre" | "subgenre" | "tag", slug: string, label: string) => {
