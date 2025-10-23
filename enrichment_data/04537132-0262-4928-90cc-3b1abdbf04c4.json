@@ -2,11 +2,13 @@
   "cover_urls": {
     "existing": "https://covers.openlibrary.org/b/id/10514838-L.jpg",
     "google_books": null,
-    "openlibrary": "https://covers.openlibrary.org/b/isbn/9780765387561-L.jpg",
-    "recommended": "https://covers.openlibrary.org/b/isbn/9780765387561-L.jpg",
-    "source": "openlibrary"
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL28151758M-L.jpg",
+    "openlibrary_olid": "OL28151758M",
+    "cover_id": "10092261",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL28151758M-L.jpg",
+    "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T19:13:47.130Z",
+  "last_updated": "2025-10-23T21:28:40.499Z",
   "authors": {
     "original": [
       "V. E. Schwab"

@@ -3,10 +3,12 @@
     "existing": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     "google_books": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "openlibrary": "https://covers.openlibrary.org/b/isbn/9781000910254-L.jpg",
+    "openlibrary_olid": null,
+    "cover_id": null,
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T19:13:45.126Z",
+  "last_updated": "2025-10-23T21:27:40.775Z",
   "authors": {
     "original": [
       "Dominika Oramus"

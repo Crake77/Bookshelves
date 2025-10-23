@@ -1,0 +1,118 @@
+{
+  "batches": [
+    {
+      "batch_id": "batch-001",
+      "status": "completed",
+      "date_started": "2025-10-23",
+      "date_completed": "2025-10-23",
+      "book_count": 10,
+      "books": [
+        {
+          "id": "00df7f2a-9ba5-4835-a09a-2b87c50c81ec",
+          "title": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction",
+          "authors": ["Dominika Oramus"],
+          "has_olid": false,
+          "olid": null,
+          "cover_source": "google_books"
+        },
+        {
+          "id": "02901e6f-94d3-4104-9fd8-e609e75b6af0",
+          "title": "Summer of Lovecraft: Cosmic Horror in the 1960s",
+          "authors": ["Lois H. Gresh"],
+          "has_olid": true,
+          "olid": "OL32968519M",
+          "cover_source": "openlibrary_olid"
+        },
+        {
+          "id": "02bd1dc8-22dd-4727-b837-ea1096cc97d6",
+          "title": "Blue-Green Rehabilitation",
+          "authors": ["Philip Hayward"],
+          "has_olid": true,
+          "olid": "OL57546024M",
+          "cover_source": "openlibrary_olid"
+        },
+        {
+          "id": "03082e3d-3058-471b-a901-2956c1856f1e",
+          "title": "Justice in Young Adult Speculative Fiction",
+          "authors": ["Marek C. Oziewicz"],
+          "has_olid": true,
+          "olid": "OL39527188M",
+          "cover_source": "openlibrary_olid"
+        },
+        {
+          "id": "033508ff-bb34-41d9-aef2-141f4ed8dc84",
+          "title": "The Complete Nebula Award-winning Fiction",
+          "authors": ["Samuel R. Delany"],
+          "has_olid": true,
+          "olid": "OL24514166M",
+          "cover_source": "openlibrary_olid"
+        },
+        {
+          "id": "04537132-0262-4928-90cc-3b1abdbf04c4",
+          "title": "The Invisible Life of Addie LaRue",
+          "authors": ["V. E. Schwab"],
+          "has_olid": true,
+          "olid": "OL28151758M",
+          "cover_source": "openlibrary_olid"
+        },
+        {
+          "id": "0482d088-1b9f-44c1-93d3-0678504c6e1b",
+          "title": "The Fantasy and Necessity of Solidarity",
+          "authors": ["Sarah Schulman"],
+          "has_olid": true,
+          "olid": "OL56957378M",
+          "cover_source": "openlibrary_olid"
+        },
+        {
+          "id": "04b43824-68d4-4ccb-bc3e-48570d9de19a",
+          "title": "When I'm Gone",
+          "authors": ["Abbi Glines"],
+          "has_olid": true,
+          "olid": "OL27208943M",
+          "cover_source": "openlibrary_olid"
+        },
+        {
+          "id": "05eaef7d-9e38-4e02-8fec-358dd2b16ed8",
+          "title": "Nebula Award Stories Five",
+          "authors": ["Science Fiction Writers of America"],
+          "has_olid": false,
+          "olid": null,
+          "cover_source": "google_books"
+        },
+        {
+          "id": "068a9286-750d-489b-8d68-b56825151747",
+          "title": "Science Fiction",
+          "authors": ["Isaac Asimov", "Greg Walz-Chojnacki", "Francis Reddy"],
+          "has_olid": true,
+          "olid": "OL1275650M",
+          "cover_source": "openlibrary_olid"
+        }
+      ],
+      "files": {
+        "input": "books_batch_001.json",
+        "enrichment_data": "enrichment_data/*.json",
+        "sql": "enrichment_sql/*.sql",
+        "report": "batch_reports/batch_001_final_report.md",
+        "completion_doc": "BATCH_001_COMPLETE.md"
+      },
+      "statistics": {
+        "olid_capture_rate": "80%",
+        "books_with_olid": 8,
+        "books_without_olid": 2,
+        "average_summary_length": 234,
+        "taxonomy_coverage": "100%"
+      },
+      "notes": [
+        "Initial batch with PostgreSQL array syntax fix",
+        "Re-enriched with OLID capture on 2025-10-23",
+        "8/10 books successfully captured OLID for rate-limit-free covers"
+      ]
+    }
+  ],
+  "metadata": {
+    "last_updated": "2025-10-23T21:30:00Z",
+    "total_batches": 1,
+    "total_books_enriched": 10,
+    "next_batch_id": "batch-002"
+  }
+}

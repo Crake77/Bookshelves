@@ -2,11 +2,13 @@
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=O72EoPJN4mUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "google_books": "https://books.google.com/books/content?id=O72EoPJN4mUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    "openlibrary": "https://covers.openlibrary.org/b/isbn/0836812247-L.jpg",
-    "recommended": "https://books.google.com/books/content?id=O72EoPJN4mUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    "source": "google_books"
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL1275650M-L.jpg",
+    "openlibrary_olid": "OL1275650M",
+    "cover_id": "9304042",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL1275650M-L.jpg",
+    "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T19:12:25.268Z",
+  "last_updated": "2025-10-23T21:29:23.749Z",
   "authors": {
     "original": [
       "Isaac Asimov",

@@ -2,11 +2,13 @@
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=3msrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     "google_books": "https://books.google.com/books/content?id=3msrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    "openlibrary": "https://covers.openlibrary.org/b/isbn/9780593854259-L.jpg",
-    "recommended": "https://books.google.com/books/content?id=3msrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    "source": "google_books"
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL56957378M-L.jpg",
+    "openlibrary_olid": "OL56957378M",
+    "cover_id": "14824025",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL56957378M-L.jpg",
+    "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T19:12:24.886Z",
+  "last_updated": "2025-10-23T21:28:49.915Z",
   "authors": {
     "original": [
       "Sarah Schulman"

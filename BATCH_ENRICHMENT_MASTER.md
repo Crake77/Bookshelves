@@ -26,10 +26,11 @@ The AI agent MUST read these files first:
 1. **WARP.md** — General Warp agent guidelines
 2. **AGENTS.md** — Project-specific environment and workflow
 3. **WARP-WORKFLOW.md** — Development workflow standards
-4. **GPT_METADATA_ENRICHMENT_GUIDE.md** — Enrichment quality standards
-5. **bookshelves_complete_taxonomy.json** — Official taxonomy reference
-6. **DATABASE_SCHEMA_REFERENCE.md** — Database tables, column names, data types
-7. **LEGAL_DATA_STRATEGY.md** — Legal data sourcing and cover strategy (CC0/Open Library focus)
+4. **BATCH_MANIFEST.json** — Batch tracking (which books in which batch, OLID status)
+5. **GPT_METADATA_ENRICHMENT_GUIDE.md** — Enrichment quality standards
+6. **bookshelves_complete_taxonomy.json** — Official taxonomy reference
+7. **DATABASE_SCHEMA_REFERENCE.md** — Database tables, column names, data types
+8. **LEGAL_DATA_STRATEGY.md** — Legal data sourcing and cover strategy (CC0/Open Library focus)
 
 ### Environment Setup (Already Configured)
 - ✅ Windows 10/11 with PowerShell 5.1

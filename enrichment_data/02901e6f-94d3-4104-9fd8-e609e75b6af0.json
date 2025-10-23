@@ -2,11 +2,13 @@
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "google_books": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    "openlibrary": "https://covers.openlibrary.org/b/isbn/1626412928-L.jpg",
-    "recommended": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    "source": "google_books"
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg",
+    "openlibrary_olid": "OL32968519M",
+    "cover_id": "11580683",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg",
+    "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T19:13:45.608Z",
+  "last_updated": "2025-10-23T21:28:00.425Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
