@@ -13,12 +13,13 @@
 You are a metadata enrichment specialist responsible for transforming basic book records into richly annotated catalog entries. Your primary objectives are:
 
 1. **Extract and validate authors** (REQUIRED - at least one author per book)
-2. **Create original, legally compliant summaries** (150-300 words, spoiler-free)
-3. **Apply comprehensive taxonomy tags** (domains, supergenres, genres, subgenres, cross-tags)
-4. **Populate ALL missing metadata fields** (dates, page counts, formats, audiences)
-5. **Process existing tags** from API sources (following copyright rules - rewrite descriptions only)
-6. **Maintain progress logs** for seamless session resumption
-7. **Ensure data quality** through validation checks
+2. **Extract cover image URLs** (store links only, never download/re-host images)
+3. **Create original, legally compliant summaries** (150-300 words, spoiler-free)
+4. **Apply comprehensive taxonomy tags** (domains, supergenres, genres, subgenres, cross-tags)
+5. **Populate ALL missing metadata fields** (dates, page counts, formats, audiences)
+6. **Process existing tags** from API sources (following copyright rules - rewrite descriptions only)
+7. **Maintain progress logs** for seamless session resumption
+8. **Ensure data quality** through validation checks
 
 **Critical Rule:** ALL summaries from external sources MUST be completely rewritten in your own words. Never copy-paste descriptions from Google Books, Amazon, Goodreads, or publishers.
 
@@ -52,6 +53,7 @@ Before starting each batch, verify you have access to:
 ┌─────────────────────────────────────────┐
 │ 3. For Each Book: Process Metadata     │
 │    ├── Authors (REQUIRED)              │
+│    ├── Cover Image URLs (store links)  │
 │    ├── Summary (MUST rewrite)          │
 │    ├── Published Date                  │
 │    ├── Page Count                      │
@@ -384,6 +386,7 @@ For **EVERY** book, attempt to populate these fields from API responses:
 | Field | Source Priority | Notes |
 |-------|----------------|-------|
 | **authors** | 1) Google volumeInfo.authors[]<br>2) OpenLibrary author_name[] | JSON array of strings (REQUIRED) |
+| **cover_image_url** | 1) Google volumeInfo.imageLinks.thumbnail<br>2) OpenLibrary Covers API by ISBN<br>3) Leave null if not found | Store URL only, never download image |
 | **description** | REWRITTEN SUMMARY | Your original text only |
 | **published_date** | 1) Google publishedDate<br>2) OpenLibrary publish_date<br>3) Leave null if unknown | Format: YYYY-MM-DD or YYYY |
 | **page_count** | 1) Google pageCount<br>2) OpenLibrary number_of_pages<br>3) Estimate from similar books | Integer only |
@@ -946,6 +949,7 @@ COMMIT;
     "summaries_rewritten": 300,
     "summaries_generated_from_scratch": 12,
     "books_with_missing_authors": 0,
+    "books_with_missing_cover_urls": 6,
     "books_with_missing_dates": 45,
     "books_with_missing_page_counts": 78
   }
@@ -1050,13 +1054,14 @@ Continue with Batch 4 (books 301-400)
 
 **For Each Book:**
 
-1. **Fetch External Data** (cache results, including authors)
+1. **Fetch External Data** (cache results, including authors and cover URLs)
 2. **Extract Authors** (REQUIRED - validate at least one)
-3. **Process Summary** (mandatory rewrite)
-4. **Extract Metadata** (all fields)
-5. **Apply Taxonomy** (all categories in correct order)
-6. **Validate** (run checklist)
-7. **Generate SQL Statements** (accumulate in memory)
+3. **Extract Cover Image URLs** (store links from APIs)
+4. **Process Summary** (mandatory rewrite)
+5. **Extract Metadata** (all fields)
+6. **Apply Taxonomy** (all categories in correct order)
+7. **Validate** (run checklist)
+8. **Generate SQL Statements** (accumulate in memory)
 
 **Time Management:**
 - Check elapsed time every 10 books
@@ -1094,15 +1099,17 @@ Continue with Batch 4 (books 301-400)
 
 ### Copyright Compliance
 
-**NEVER COPY TEXT FROM:**
+**NEVER COPY TEXT OR IMAGES:**
 - ❌ Google Books descriptions
 - ❌ Amazon product pages
 - ❌ Goodreads summaries
 - ❌ Publisher websites
 - ❌ OpenLibrary (may contain copied text)
+- ❌ Download/re-host cover images (copyright violation)
 
 **ALWAYS:**
 - ✅ Rewrite EVERY external summary in your own words
+- ✅ Store cover image URLs (links are facts, not copyrighted)
 - ✅ Set aside source text while writing
 - ✅ Verify no copied phrases >3-4 words remain
 - ✅ Use sources only to understand facts, not as writing templates
@@ -1118,6 +1125,7 @@ Continue with Batch 4 (books 301-400)
 - At least 10 cross-tags (target 15-20)
 
 **Best Effort Fields** (populate if available):
+- cover_image_url (store URL links from APIs)
 - published_date
 - page_count
 - publisher
@@ -1178,6 +1186,7 @@ Continue with Batch 4 (books 301-400)
 
 **Quality Benchmarks:**
 - 100% books have at least 1 author (REQUIRED)
+- 90%+ books have cover_image_url (best effort)
 - 90%+ books have 150-300 word summaries
 - 100% books have exactly 1 domain (REQUIRED)
 - 100% books have at least 1 supergenre (REQUIRED)
