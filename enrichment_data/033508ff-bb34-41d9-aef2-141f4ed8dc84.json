@@ -2,11 +2,13 @@
   "cover_urls": {
     "existing": null,
     "google_books": "https://books.google.com/books/content?id=tMidtQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    "openlibrary": "https://covers.openlibrary.org/b/isbn/OCLC:1028567324-L.jpg",
-    "recommended": "https://books.google.com/books/content?id=tMidtQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    "source": "google_books"
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg",
+    "openlibrary_olid": "OL24514166M",
+    "cover_id": 7313366,
+    "recommended": "https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg",
+    "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T20:25:55.697Z",
+  "last_updated": "2025-10-23T21:18:48.268Z",
   "authors": {
     "original": [
       "Samuel R. Delany"

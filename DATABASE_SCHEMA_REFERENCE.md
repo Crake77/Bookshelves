@@ -22,12 +22,16 @@ Primary book table with core metadata.
 | `description` | TEXT | Book summary/description | Enriched summaries go here |
 | `cover_url` | TEXT | Cover image URL | From Google Books or OpenLibrary |
 | `google_books_id` | TEXT | Google Books ID | For API lookups |
+| `openlibrary_edition_olid` | TEXT | Open Library Edition ID | For API lookups and cover access (e.g., "OL24514166M") |
+| `cover_olid` | TEXT | Open Library ID for covers | **Use this for unlimited cover URLs** (no rate limits) |
 | `categories` | TEXT[] | Original API categories | **PostgreSQL array** |
 
 **Critical Notes:**
 - `authors` is `TEXT[]` (PostgreSQL array type), NOT `JSON` or `JSONB`
 - Correct SQL: `UPDATE books SET authors = ARRAY['Name 1', 'Name 2']`
 - Wrong SQL: `UPDATE books SET authors = '["Name 1", "Name 2"]'`
+- `cover_olid` should be used for cover URLs (compute on frontend: `https://covers.openlibrary.org/b/olid/{cover_olid}-L.jpg`)
+- **Cover URL Best Practice**: Store OLID, not full URL (no rate limits on OLID-based URLs)
 
 ---
 

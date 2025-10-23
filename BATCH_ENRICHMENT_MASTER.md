@@ -29,6 +29,7 @@ The AI agent MUST read these files first:
 4. **GPT_METADATA_ENRICHMENT_GUIDE.md** — Enrichment quality standards
 5. **bookshelves_complete_taxonomy.json** — Official taxonomy reference
 6. **DATABASE_SCHEMA_REFERENCE.md** — Database tables, column names, data types
+7. **LEGAL_DATA_STRATEGY.md** — Legal data sourcing and cover strategy (CC0/Open Library focus)
 
 ### Environment Setup (Already Configured)
 - ✅ Windows 10/11 with PowerShell 5.1
@@ -40,7 +41,39 @@ The AI agent MUST read these files first:
 
 ---
 
-## Complete Workflow (11 Steps)
+## Complete Workflow (12 Steps)
+
+### Step 0: Taxonomy Sync & Pre-Flight Check
+
+**CRITICAL:** Run before each batch to ensure all taxonomy items exist in database.
+
+**Script:** `sync-taxonomy.js`
+
+**Command:**
+```powershell
+node sync-taxonomy.js
+```
+
+**What it does:**
+- Syncs supergenres, genres, subgenres, cross-tags from `bookshelves_complete_taxonomy.json` to database
+- Idempotent (safe to run multiple times)
+- Ensures all slugs referenced by enrichment tasks exist
+
+**Output:**
+```
+✅ Synced 34 supergenres
+✅ Synced 101 genres  
+✅ Synced 500 subgenres
+✅ Synced 2,733 cross-tags
+⚠️  Note: domains, age_markets, formats NOT in JSON (manage manually)
+```
+
+**Also verify:**
+- [ ] `DATABASE_URL` in `.env.local` is correct
+- [ ] All required context files are present
+- [ ] Previous batch committed to Git
+
+---
 
 ### Step 1: Export Books from Database
 
@@ -67,10 +100,12 @@ node export-books.js
 
 This orchestration script runs 8 micro-tasks sequentially on all books:
 
-**Task 1: Cover URLs** (`task-01-cover-urls.js`)
-- Fetches cover images from Google Books API
-- Falls back to OpenLibrary if Google fails
-- Saves recommended URL
+**Task 1: Cover URLs & OLID** (`task-01-cover-urls.js`)
+- Fetches Open Library Edition ID (OLID) for unlimited cover access
+- Fetches cover CoverID from Open Library API
+- Falls back to Google Books API if Open Library unavailable
+- **Priority**: Store OLID/CoverID (no rate limits) over full URLs
+- See `LEGAL_DATA_STRATEGY.md` for cover sourcing best practices
 
 **Task 2: Authors** (`task-02-authors.js`)
 - Validates author names
