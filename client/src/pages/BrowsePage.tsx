@@ -66,15 +66,15 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blocked
     };
   }, [fallbackBooks]);
 
-  // Use works endpoint ONLY for the top-level browse (no filters at all)
-  // Genre, subgenre, tags etc all use the old endpoint for now
+  // TEMPORARILY DISABLED: Works endpoint for batch 1-3 validation
+  // Use browse endpoint for all queries until works are properly seeded
   const hasAnyFilters = Boolean(
     genre || subgenre || tag || (tagAny && tagAny.length > 0) || 
     (blockedTags && blockedTags.length > 0) || format || 
     audience || domain || supergenre
   );
   
-  const useWorksEndpoint = !hasAnyFilters;
+  const useWorksEndpoint = false; // Temporarily disabled
 
   const {
     data,
