@@ -284,6 +284,10 @@ If popularity data is unavailable, use manually curated lists:
   - OpenLibrary: `author_name[]`
   - Validate: must have at least one author
 - Description/summary text (MUST be rewritten - see Step 1.3)
+- **Cover image URLs** (see Step 2.5 for copyright compliance)
+  - Google: `volumeInfo.imageLinks.thumbnail`, `.medium`, `.large`
+  - OpenLibrary: Construct from ISBN via Covers API
+  - Store URLs only, never download/re-host images
 - Publication date (published_date)
 - Page count (page_count, pageCount, or number_of_pages)
 - Categories/genres (existing tags - can be used to inform taxonomy, but descriptions must be rewritten)
@@ -454,6 +458,102 @@ For **EVERY** book, attempt to populate these fields from API responses:
 **Use API categories/genres and book description to guide this preliminary classification.**
 
 **Final Assignment:** Domain will be formally assigned in Step 3.0 as the first taxonomy tag.
+
+### Step 2.5: Extract Book Cover Image URLs
+
+**⚠️ COPYRIGHT COMPLIANCE:** Cover images are copyrighted, but **URLS/links to images are NOT protected by copyright** and can be stored/used freely.
+
+**What You CAN Do:**
+- ✅ Store image URLs from Google Books, OpenLibrary, or other APIs
+- ✅ Use these URLs to display covers via hotlinking (if API terms allow)
+- ✅ Store thumbnail URLs and full-size cover URLs
+- ✅ Update URLs if they change or break
+
+**What You CANNOT Do:**
+- ❌ Download and re-host cover images on your own server (without permission)
+- ❌ Modify or create derivative works of cover images
+- ❌ Claim ownership of cover artwork
+- ❌ Strip watermarks or attribution from cover images
+
+**Image URL Sources (Priority Order):**
+
+1. **Google Books API** (Preferred - reliable, high quality)
+   - `volumeInfo.imageLinks.thumbnail` - Small thumbnail (usually 128x192)
+   - `volumeInfo.imageLinks.smallThumbnail` - Smaller version
+   - `volumeInfo.imageLinks.small` - Medium size
+   - `volumeInfo.imageLinks.medium` - Larger size
+   - `volumeInfo.imageLinks.large` - Full size (if available)
+   - **Zoom parameter trick:** Add `&zoom=1` or `&zoom=2` to thumbnail URL for larger versions
+   - Example: `http://books.google.com/books/content?id=VOLUME_ID&printsec=frontcover&img=1&zoom=1`
+
+2. **OpenLibrary Covers API** (Good fallback, open data)
+   - By ISBN: `https://covers.openlibrary.org/b/isbn/{ISBN}-L.jpg` (Large)
+   - By ISBN: `https://covers.openlibrary.org/b/isbn/{ISBN}-M.jpg` (Medium)
+   - By ISBN: `https://covers.openlibrary.org/b/isbn/{ISBN}-S.jpg` (Small)
+   - By OpenLibrary ID: `https://covers.openlibrary.org/b/olid/{OLID}-L.jpg`
+   - **Returns 404 if cover not available** - handle gracefully
+
+3. **Internal Fallback** (if APIs return nothing)
+   - Check if book already has a cover_image_url in database
+   - Leave null if no cover found (don't use placeholder images)
+
+**Extraction Logic:**
+
+```
+IF Google Books API returns imageLinks:
+  - Store thumbnail URL as cover_image_url
+  - Optionally store larger sizes in separate fields (cover_image_large)
+  
+ELSE IF ISBN available:
+  - Construct OpenLibrary cover URL: https://covers.openlibrary.org/b/isbn/{ISBN}-L.jpg
+  - Verify URL returns 200 (not 404) before storing
+  - If 404, try other ISBN (ISBN-10 vs ISBN-13)
+  
+ELSE IF OpenLibrary ID available:
+  - Construct OpenLibrary cover URL by OLID
+  
+ELSE:
+  - Leave cover_image_url as NULL
+  - Log for manual review if book is popular/important
+```
+
+**URL Validation:**
+- Store only HTTPS URLs (convert HTTP to HTTPS)
+- Verify URL format is valid before storing
+- Do NOT store broken links or placeholder/default images
+- If URL returns 404 or error, leave field NULL
+
+**Database Storage:**
+- `cover_image_url` - Primary thumbnail/display image (VARCHAR)
+- `cover_image_url_large` - Optional larger version (VARCHAR, nullable)
+- Store raw URLs exactly as provided by API
+- Update timestamp when cover URL changes
+
+**Legal Rationale:**
+- **URLs are facts, not copyrightable** - storing a link to an image is legally safe
+- **APIs explicitly provide image URLs** for this purpose (within their terms of service)
+- **Hotlinking is allowed** by Google Books and OpenLibrary terms (check each API's TOS)
+- **You're not copying the image itself** - just linking to it
+
+**Terms of Service Compliance:**
+- **Google Books:** Allows linking to cover images via their URLs
+- **OpenLibrary:** Explicitly provides cover API for public use
+- **Respect rate limits** when checking URL validity
+- **Don't scrape images** from retailer sites (Amazon, B&N) - use official APIs only
+
+**Example SQL Update:**
+```sql
+UPDATE books
+SET 
+  cover_image_url = 'https://books.google.com/books/content?id=xyz&printsec=frontcover&img=1&zoom=1',
+  cover_image_url_large = 'https://covers.openlibrary.org/b/isbn/9780143039983-L.jpg'
+WHERE id = 'book-123';
+```
+
+**Error Handling:**
+- If no cover found, leave NULL (don't use placeholders)
+- If URL breaks later, system should re-fetch from APIs periodically
+- Log books without covers for potential manual addition
 
 ---
 
@@ -724,6 +824,7 @@ UPDATE books
 SET 
   authors = '["Author Name"]',
   description = 'Your rewritten summary text here...',
+  cover_image_url = 'https://books.google.com/books/content?id=xyz&printsec=frontcover&img=1&zoom=1',
   published_date = '2011-05-15',
   page_count = 342,
   publisher = 'Publisher Name',
@@ -735,6 +836,7 @@ WHERE id = 'book-1';
 - Only UPDATE fields you have valid data for
 - ALWAYS update authors (REQUIRED - JSON array format)
 - ALWAYS update description with rewritten summary
+- Update cover_image_url if found (URLs only, never download images)
 - Leave other fields unchanged if no new data available
 
 ### Step 5.3: INSERT Taxonomy Links
@@ -883,6 +985,7 @@ COMMIT;
 |-------|-----------|---------|
 | authors | 100 | 0 |
 | description | 100 | 0 |
+| cover_image_url | 94 | 6 |
 | published_date | 87 | 13 |
 | page_count | 92 | 8 |
 | publisher | 95 | 5 |
