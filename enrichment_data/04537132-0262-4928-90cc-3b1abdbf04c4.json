@@ -6,7 +6,7 @@
     "recommended": "https://covers.openlibrary.org/b/isbn/9780765387561-L.jpg",
     "source": "openlibrary"
   },
-  "last_updated": "2025-10-23T14:48:10.553Z",
+  "last_updated": "2025-10-23T14:59:09.753Z",
   "authors": {
     "original": [
       "V. E. Schwab"
@@ -20,14 +20,15 @@
   "summary": {
     "original_description": "Cursed to be forgotten by everyone she meets, Addie LaRue strikes a bargain that spans centuries and challenges the meaning of a life well lived.",
     "original_length": 145,
-    "new_summary": null,
-    "new_length": 0,
-    "word_count": 0,
-    "status": "needs_rewrite",
+    "new_summary": "In 1714 France, a young woman named Addie LaRue makes a desperate bargain to escape an unwanted marriage. She prays to the gods for freedom, and when darkness answers, she receives immortality—but at a terrible cost. Everyone who meets her immediately forgets her the moment she leaves their sight.\n\nFor three hundred years, Addie lives as a ghost in plain sight, unable to leave a mark on the world or form lasting connections. She cannot be remembered, cannot be photographed, and leaves no trace of her existence. Each encounter must be carefully managed, each relationship abandoned before dawn. She learns to steal what she needs and finds brief moments of art and beauty while navigating a life of perpetual anonymity.\n\nThe story follows Addie across centuries as she encounters the dark figure who cursed her, a being she both resents and finds herself drawn to through their intermittent meetings. Their complex relationship evolves over the decades as she struggles against the terms of their bargain.\n\nIn present-day New York, everything changes when Addie meets Henry, a young man who somehow remembers her. For the first time in three centuries, she can be known by another person, opening possibilities she thought forever closed. But Henry has his own secrets, and their connection will force Addie to confront what she truly wants from her immortal existence.\n\nThe novel explores themes of legacy, memory, and what makes a life meaningful when you cannot be remembered. It questions whether existence without connection has value and examines the human need to be seen and known by others.",
+    "new_length": 1604,
+    "word_count": 262,
+    "status": "completed",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:59:09.753Z"
     ]
   },
   "taxonomy": {

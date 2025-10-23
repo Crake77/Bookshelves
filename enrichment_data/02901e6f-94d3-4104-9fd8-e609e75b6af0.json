@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:48:08.172Z",
+  "last_updated": "2025-10-23T14:59:09.455Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -20,14 +20,15 @@
   "summary": {
     "original_description": "A new Lovecraftian anthology based in the 1960s from the editors behind World War Cthulhu: A Collection of Lovecraftian War Stories! Now available for preorder in ebook and to be delivered by September 2019.TABLE OF CONTENTSNight Trippers by Lois H. GreshBeing for the Benefit of Mr. Sullivan by Lee Clark ZumpeDreamland by David DunwoodyLost In the Poppy-Fields of Flesh by Konstantine ParadiasFive To One by Edward M. ErdelacKeeping the Faith by Sam StoneMud Men by Sean HoadeMisconception by Jamie D. JenkinsNo Colors Anymore by Joe L. MurrOperation Alice by Pete RawlikShimmer and Sway by Jayaprakash SatyamurthyShort Wave by Stephen Mark RaineyThe Song that Crystal Sang by Tom LynchThrough a Looking Glass Darkly by Glynn Owen Barrass and Brian M. SammonsThe Color from the Deep by William MeikleThe Long Fine Flash by Edward MorrisThe Summer of Love by C.J. HendersonJust Another Afternoon in Arkham, Brought to You in Living Color by Mark McLaughlin and Michael Sheehan, Jr.Crystal Blue Persuasion by Jeffrey Thomas",
     "original_length": 1023,
-    "new_summary": null,
-    "new_length": 0,
-    "word_count": 0,
-    "status": "needs_rewrite",
+    "new_summary": "This anthology brings together eighteen original Lovecraftian horror stories set during the 1960s, blending cosmic dread with the era's counterculture. From the editors behind World War Cthulhu, these tales reimagine H.P. Lovecraft's mythos against the backdrop of the Summer of Love, Vietnam, and social upheaval.\n\nThe collection features stories by Lois H. Gresh, Edward M. Erdelac, Pete Rawlik, William Meikle, and others, each exploring how ancient cosmic horrors might manifest during an age of psychedelic experimentation and cultural revolution. The juxtaposition of 1960s optimism with Lovecraftian nihilism creates a unique tension throughout the anthology.\n\nStories range from drug-fueled encounters with otherworldly entities to investigations of strange occurrences in Arkham and beyond. The anthology explores themes of forbidden knowledge, reality-bending substances, and the thin veil between our world and darker dimensions. Some tales incorporate period-specific elements like the music scene, anti-war movements, and social transformation, while others use the decade as atmospheric background for traditional cosmic horror.\n\nThe anthology offers variety in tone and approach, from visceral horror to psychological dread, unified by the Lovecraftian tradition of humanity's insignificance against incomprehensible cosmic forces. Fans of both Lovecraft's work and 1960s period pieces will find familiar territory reimagined through an unsettling lens where peace, love, and ancient evil collide.",
+    "new_length": 1512,
+    "word_count": 207,
+    "status": "completed",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:59:09.455Z"
     ]
   },
   "taxonomy": {

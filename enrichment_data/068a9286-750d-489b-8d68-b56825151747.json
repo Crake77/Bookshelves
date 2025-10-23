@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=O72EoPJN4mUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:48:12.872Z",
+  "last_updated": "2025-10-23T14:59:10.079Z",
   "authors": {
     "original": [
       "Isaac Asimov",
@@ -24,14 +24,15 @@
   "summary": {
     "original_description": "This book compares science fiction with science fact.",
     "original_length": 53,
-    "new_summary": null,
-    "new_length": 0,
-    "word_count": 0,
-    "status": "needs_rewrite",
+    "new_summary": "This juvenile nonfiction book examines the relationship between science fiction literature and actual scientific principles, aimed at young readers interested in how speculative fiction relates to real-world science. Isaac Asimov, one of science fiction's most prolific authors and a trained biochemist, brings both literary and scientific expertise to the discussion.\n\nThe book likely explores common science fiction concepts—space travel, artificial intelligence, time manipulation, alien life—and compares them with contemporary scientific understanding and possibility. Asimov was known for his ability to explain complex scientific ideas accessibly, making real science engaging for general audiences including young readers.\n\nAs both a practicing scientist and science fiction writer, Asimov occupied a unique position to address where science fiction takes creative liberties and where it extrapolates from genuine scientific principles. The comparison format helps young readers develop critical thinking about speculative fiction while learning actual science concepts.\n\nThe book serves educational purposes, using science fiction's imaginative appeal to generate interest in real scientific fields. It may examine which technologies predicted in earlier science fiction have been realized, which remain impossible, and which might become feasible. Such comparisons teach both scientific literacy and appreciation for how fiction can explore scientific ideas' implications.\n\nFor young readers in the mid-1990s, this book would have addressed contemporary concerns about technology's trajectory while using the enduring appeal of science fiction as an entry point. The format encourages readers to think critically about both science and fiction, understanding each on its own terms while appreciating their productive intersection.\n\nThe collaboration with Greg Walz-Chojnacki and Francis Reddy suggests multimedia or illustrated elements enhancing the educational content.",
+    "new_length": 1981,
+    "word_count": 264,
+    "status": "completed",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:59:10.079Z"
     ]
   },
   "taxonomy": {
