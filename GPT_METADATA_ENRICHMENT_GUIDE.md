@@ -12,12 +12,13 @@
 
 You are a metadata enrichment specialist responsible for transforming basic book records into richly annotated catalog entries. Your primary objectives are:
 
-1. **Create original, legally compliant summaries** (150-300 words, spoiler-free)
-2. **Apply comprehensive taxonomy tags** (domains, supergenres, genres, subgenres, cross-tags)
-3. **Populate ALL missing metadata fields** (dates, page counts, formats, audiences)
-4. **Process existing tags** from API sources (following copyright rules - rewrite descriptions only)
-5. **Maintain progress logs** for seamless session resumption
-6. **Ensure data quality** through validation checks
+1. **Extract and validate authors** (REQUIRED - at least one author per book)
+2. **Create original, legally compliant summaries** (150-300 words, spoiler-free)
+3. **Apply comprehensive taxonomy tags** (domains, supergenres, genres, subgenres, cross-tags)
+4. **Populate ALL missing metadata fields** (dates, page counts, formats, audiences)
+5. **Process existing tags** from API sources (following copyright rules - rewrite descriptions only)
+6. **Maintain progress logs** for seamless session resumption
+7. **Ensure data quality** through validation checks
 
 **Critical Rule:** ALL summaries from external sources MUST be completely rewritten in your own words. Never copy-paste descriptions from Google Books, Amazon, Goodreads, or publishers.
 
@@ -88,7 +89,7 @@ Before starting each batch, verify you have access to:
                   ↓
 ┌─────────────────────────────────────────┐
 │ 6. Generate SQL Migration              │
-│    - UPDATE books (summary, dates)     │
+│    - UPDATE books (authors, summary)   │
 │    - INSERT taxonomy links             │
 │    - Idempotent (DELETE first)         │
 └─────────────────────────────────────────┘
@@ -842,6 +843,7 @@ COMMIT;
     "avg_tags_per_book": 14.2,
     "summaries_rewritten": 300,
     "summaries_generated_from_scratch": 12,
+    "books_with_missing_authors": 0,
     "books_with_missing_dates": 45,
     "books_with_missing_page_counts": 78
   }
@@ -879,6 +881,7 @@ COMMIT;
 
 | Field | Populated | Missing |
 |-------|-----------|---------|
+| authors | 100 | 0 |
 | description | 100 | 0 |
 | published_date | 87 | 13 |
 | page_count | 92 | 8 |
@@ -888,9 +891,10 @@ COMMIT;
 
 ## Taxonomy Coverage
 
+- Domains: 100 books (1 per book - required)
+- Supergenres: 100 books (avg 1.3 per book)
 - Genres: 100 books (avg 1.4 per book)
 - Subgenres: 100 books (avg 2.1 per book)
-- Supergenres: 100 books (avg 1.3 per book)
 - Cross-tags: 100 books (avg 14.5 per book)
 
 ## Issues Encountered
@@ -943,12 +947,13 @@ Continue with Batch 4 (books 301-400)
 
 **For Each Book:**
 
-1. **Fetch External Data** (cache results)
-2. **Process Summary** (mandatory rewrite)
-3. **Extract Metadata** (all fields)
-4. **Apply Taxonomy** (all categories)
-5. **Validate** (run checklist)
-6. **Generate SQL Statements** (accumulate in memory)
+1. **Fetch External Data** (cache results, including authors)
+2. **Extract Authors** (REQUIRED - validate at least one)
+3. **Process Summary** (mandatory rewrite)
+4. **Extract Metadata** (all fields)
+5. **Apply Taxonomy** (all categories in correct order)
+6. **Validate** (run checklist)
+7. **Generate SQL Statements** (accumulate in memory)
 
 **Time Management:**
 - Check elapsed time every 10 books
@@ -971,6 +976,18 @@ Continue with Batch 4 (books 301-400)
 ---
 
 ## 🚨 CRITICAL REMINDERS
+
+### Required Fields
+
+**EVERY book MUST have:**
+- ✅ **Authors** - At least one author (JSON array format)
+- ✅ **Summary** - Original rewritten description (150-300 words)
+- ✅ **Domain** - Exactly one domain tag (fiction/non-fiction/poetry/drama)
+- ✅ **Supergenre** - At least one supergenre tag
+- ✅ **Genre** - At least one genre tag
+- ✅ **Cross-tags** - At least 10 cross-tags (target 15-20)
+
+**Do NOT proceed to SQL generation if any required field is missing.**
 
 ### Copyright Compliance
 
@@ -1057,9 +1074,12 @@ Continue with Batch 4 (books 301-400)
 7. ✅ No copyright violations (verified through originality checks)
 
 **Quality Benchmarks:**
+- 100% books have at least 1 author (REQUIRED)
 - 90%+ books have 150-300 word summaries
-- 100% books have at least 1 genre
-- 100% books have at least 10 cross-tags
+- 100% books have exactly 1 domain (REQUIRED)
+- 100% books have at least 1 supergenre (REQUIRED)
+- 100% books have at least 1 genre (REQUIRED)
+- 100% books have at least 10 cross-tags (REQUIRED)
 - 80%+ books have published_date
 - 75%+ books have page_count
 - 0% books have copied text from sources
