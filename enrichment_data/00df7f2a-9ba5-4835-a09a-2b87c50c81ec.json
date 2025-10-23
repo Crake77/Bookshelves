@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T14:20:29.846Z",
+  "last_updated": "2025-10-23T14:33:34.678Z",
   "authors": {
     "original": [
       "Dominika Oramus"
@@ -20,14 +20,15 @@
   "summary": {
     "original_description": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction: Doomsday Clock Narratives demonstrates that disaster fiction— nuclear holocaust and climate change alike— allows us to unearth and anatomise contemporary psychodynamics and enables us to identify pretraumatic stress as the common denominator of seemingly unrelated types of texts. These Doomsday Clock Narratives argue that earth’s demise is soon and certain. They are set after some catastrophe and depict people waiting for an even worse catastrophe to come. References to geology are particularly important— in descriptions of the landscape, the emphasis falls on waste and industrial bric- a- brac, which is seen through the eyes of a future, posthuman archaeologist. Their protagonists have the uncanny feeling that the countdown has already started, and they are coping with both traumatic memories and pretraumatic stress. Readings of novels by Walter M. Miller, Nevil Shute, John Christopher, J. G. Ballard, George Turner, Maggie Gee, Paolo Bacigalupi, Ruth Ozeki, and Yoko Tawada demonstrate that the authors are both indebted to a century- old tradition and inventively looking for new ways of expressing the pretraumatic stress syndrome common in contemporary society. This book is written for an academic audience (postgraduates, researchers, and academics) specialising in British Literature, American Literature, and Science Fiction Studies.",
     "original_length": 1418,
-    "new_summary": null,
-    "new_length": 0,
-    "word_count": 0,
-    "status": "needs_rewrite",
+    "new_summary": "This academic study examines apocalyptic fiction through the lens of psychological trauma, focusing on how nuclear holocaust narratives and climate fiction portray collective anxiety about impending disaster. Oramus analyzes what she terms \"Doomsday Clock Narratives\"—stories set in post-catastrophic worlds where characters await an even greater calamity.\n\nThe book explores how these narratives depict pretraumatic stress, a psychological condition where the certainty of future disaster creates present-day trauma. Characters in these stories inhabit landscapes marked by industrial decay and environmental collapse, viewed through the eyes of survivors who feel the countdown to extinction has already begun.\n\nDrawing on novels by Walter M. Miller, Nevil Shute, J.G. Ballard, Paolo Bacigalupi, Ruth Ozeki, and others, Oramus traces how disaster fiction has evolved over the past century while maintaining core themes of anticipatory dread. The geological and environmental details in these works serve as archaeological evidence of human civilization's self-destruction.\n\nThe study connects nuclear age anxieties with contemporary climate concerns, arguing that both genres express a shared psychological experience of waiting for catastrophe. This scholarly analysis is aimed at researchers and students of British and American literature, particularly those interested in science fiction studies and how speculative genres process cultural trauma and environmental anxiety.",
+    "new_length": 1479,
+    "word_count": 200,
+    "status": "completed",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:33:34.677Z"
     ]
   },
   "taxonomy": {
@@ -49,6 +50,203 @@
       }
     ],
     "status": "suggested",
-    "notes": []
+    "notes": [],
+    "genres": [
+      {
+        "slug": "literary-fiction",
+        "name": "Literary Fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "science-fiction",
+        "name": "Science Fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "experimental-fiction",
+        "name": "Experimental Fiction",
+        "genre_slug": "literary-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "philosophical-fiction",
+        "name": "Philosophical Fiction",
+        "genre_slug": "literary-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "postmodern-fiction",
+        "name": "Postmodern Fiction",
+        "genre_slug": "literary-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "hard-science-fiction",
+        "name": "Hard Science Fiction",
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "military-science-fiction",
+        "name": "Military Science Fiction",
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "climate-disaster",
+        "name": "Climate Disaster",
+        "group": "content_warning",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "clear-good-vs-evil",
+        "name": "Clear Good Vs Evil",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "hard-science-fiction",
+        "name": "Hard Science Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "post-colonial-fiction",
+        "name": "Post Colonial Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "down-syndrome-mc",
+        "name": "Down Syndrome Mc",
+        "group": "representation",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "far-future-earth",
+        "name": "Far Future Earth",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "arch-demon",
+        "name": "Arch Demon",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "not-what-they-seem",
+        "name": "Not What They Seem",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "rocks-fall-everyone-dies",
+        "name": "Rocks Fall Everyone Dies",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "anxiety",
+        "name": "Anxiety",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "holocaust",
+        "name": "Holocaust",
+        "group": "content_warning",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "anxiety-rep",
+        "name": "Anxiety Rep",
+        "group": "representation",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "flash-fiction",
+        "name": "Flash Fiction",
+        "group": "structure",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "micro-fiction",
+        "name": "Micro Fiction",
+        "group": "structure",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "hypertext-fiction",
+        "name": "Hypertext Fiction",
+        "group": "style",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "alien-mate",
+        "name": "Alien Mate",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "climate-apocalypse",
+        "name": "Climate Apocalypse",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "eco-fiction",
+        "name": "Eco Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "mate-bond",
+        "name": "Mate Bond",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "no-clear-villain",
+        "name": "No Clear Villain",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      }
+    ],
+    "cross_tags_count": 20
+  },
+  "format": {
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "high",
+    "reason": "Academic audience indicated"
   }
 }

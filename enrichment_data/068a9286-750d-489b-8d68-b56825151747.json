@@ -1,0 +1,238 @@
+{
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=O72EoPJN4mUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=O72EoPJN4mUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/isbn/0836812247-L.jpg",
+    "recommended": "https://books.google.com/books/content?id=O72EoPJN4mUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-10-23T14:33:35.356Z",
+  "authors": {
+    "original": [
+      "Isaac Asimov",
+      "Greg Walz-Chojnacki",
+      "Francis Reddy"
+    ],
+    "validated": [
+      "Isaac Asimov",
+      "Greg Walz-Chojnacki",
+      "Francis Reddy"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "This book compares science fiction with science fact.",
+    "original_length": 53,
+    "new_summary": "This juvenile nonfiction book examines the relationship between science fiction literature and actual scientific principles, aimed at young readers interested in how speculative fiction relates to real-world science. Isaac Asimov, one of science fiction's most prolific authors and a trained biochemist, brings both literary and scientific expertise to the discussion.\n\nThe book likely explores common science fiction concepts—space travel, artificial intelligence, time manipulation, alien life—and compares them with contemporary scientific understanding and possibility. Asimov was known for his ability to explain complex scientific ideas accessibly, making real science engaging for general audiences including young readers.\n\nAs both a practicing scientist and science fiction writer, Asimov occupied a unique position to address where science fiction takes creative liberties and where it extrapolates from genuine scientific principles. The comparison format helps young readers develop critical thinking about speculative fiction while learning actual science concepts.\n\nThe book serves educational purposes, using science fiction's imaginative appeal to generate interest in real scientific fields. It may examine which technologies predicted in earlier science fiction have been realized, which remain impossible, and which might become feasible. Such comparisons teach both scientific literacy and appreciation for how fiction can explore scientific ideas' implications.\n\nFor young readers in the mid-1990s, this book would have addressed contemporary concerns about technology's trajectory while using the enduring appeal of science fiction as an entry point. The format encourages readers to think critically about both science and fiction, understanding each on its own terms while appreciating their productive intersection.\n\nThe collaboration with Greg Walz-Chojnacki and Francis Reddy suggests multimedia or illustrated elements enhancing the educational content.",
+    "new_length": 1981,
+    "word_count": 264,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:33:35.356Z"
+    ]
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "medium",
+      "reason": "Fiction indicators in categories (score: 2)"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      },
+      {
+        "slug": "science-technology",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "reference",
+        "name": "Reference (General)",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "science-fiction",
+        "name": "Science Fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "hard-science-fiction",
+        "name": "Hard Science Fiction",
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "military-science-fiction",
+        "name": "Military Science Fiction",
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "hard-science-fiction",
+        "name": "Hard Science Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 6
+      },
+      {
+        "slug": "flash-fiction",
+        "name": "Flash Fiction",
+        "group": "structure",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "micro-fiction",
+        "name": "Micro Fiction",
+        "group": "structure",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "hypertext-fiction",
+        "name": "Hypertext Fiction",
+        "group": "style",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "eco-fiction",
+        "name": "Eco Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "philosophical-fiction",
+        "name": "Philosophical Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "post-colonial-fiction",
+        "name": "Post Colonial Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "realistic-science",
+        "name": "Realistic Science",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "speculative-science",
+        "name": "Speculative Science",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "book-club-pick",
+        "name": "Book Club Pick",
+        "group": "market",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "national-book-award",
+        "name": "National Book Award",
+        "group": "market",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "oprah-book-club",
+        "name": "Oprah Book Club",
+        "group": "market",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "reese-book-club",
+        "name": "Reese Book Club",
+        "group": "market",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "bridge-book",
+        "name": "Bridge Book",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "middle-book",
+        "name": "Middle Book",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "payoff-book",
+        "name": "Payoff Book",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "setup-book",
+        "name": "Setup Book",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "book-ends-on-cliffhanger",
+        "name": "Book Ends on Cliffhanger",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "deal-with-devil",
+        "name": "Deal with Devil",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "defeat-with-dignity",
+        "name": "Defeat with Dignity",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 2
+      }
+    ],
+    "cross_tags_count": 20
+  },
+  "format": {
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
+  },
+  "audience": {
+    "slug": "children",
+    "confidence": "medium",
+    "reason": "Category indicates Juvenile/Children"
+  }
+}

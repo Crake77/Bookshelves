@@ -1,0 +1,220 @@
+{
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/isbn/1626412928-L.jpg",
+    "recommended": "https://books.google.com/books/content?id=7KpdzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-10-23T14:33:34.765Z",
+  "authors": {
+    "original": [
+      "Lois H. Gresh"
+    ],
+    "validated": [
+      "Lois H. Gresh"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "A new Lovecraftian anthology based in the 1960s from the editors behind World War Cthulhu: A Collection of Lovecraftian War Stories! Now available for preorder in ebook and to be delivered by September 2019.TABLE OF CONTENTSNight Trippers by Lois H. GreshBeing for the Benefit of Mr. Sullivan by Lee Clark ZumpeDreamland by David DunwoodyLost In the Poppy-Fields of Flesh by Konstantine ParadiasFive To One by Edward M. ErdelacKeeping the Faith by Sam StoneMud Men by Sean HoadeMisconception by Jamie D. JenkinsNo Colors Anymore by Joe L. MurrOperation Alice by Pete RawlikShimmer and Sway by Jayaprakash SatyamurthyShort Wave by Stephen Mark RaineyThe Song that Crystal Sang by Tom LynchThrough a Looking Glass Darkly by Glynn Owen Barrass and Brian M. SammonsThe Color from the Deep by William MeikleThe Long Fine Flash by Edward MorrisThe Summer of Love by C.J. HendersonJust Another Afternoon in Arkham, Brought to You in Living Color by Mark McLaughlin and Michael Sheehan, Jr.Crystal Blue Persuasion by Jeffrey Thomas",
+    "original_length": 1023,
+    "new_summary": "This anthology brings together eighteen original Lovecraftian horror stories set during the 1960s, blending cosmic dread with the era's counterculture. From the editors behind World War Cthulhu, these tales reimagine H.P. Lovecraft's mythos against the backdrop of the Summer of Love, Vietnam, and social upheaval.\n\nThe collection features stories by Lois H. Gresh, Edward M. Erdelac, Pete Rawlik, William Meikle, and others, each exploring how ancient cosmic horrors might manifest during an age of psychedelic experimentation and cultural revolution. The juxtaposition of 1960s optimism with Lovecraftian nihilism creates a unique tension throughout the anthology.\n\nStories range from drug-fueled encounters with otherworldly entities to investigations of strange occurrences in Arkham and beyond. The anthology explores themes of forbidden knowledge, reality-bending substances, and the thin veil between our world and darker dimensions. Some tales incorporate period-specific elements like the music scene, anti-war movements, and social transformation, while others use the decade as atmospheric background for traditional cosmic horror.\n\nThe anthology offers variety in tone and approach, from visceral horror to psychological dread, unified by the Lovecraftian tradition of humanity's insignificance against incomprehensible cosmic forces. Fans of both Lovecraft's work and 1960s period pieces will find familiar territory reimagined through an unsettling lens where peace, love, and ancient evil collide.",
+    "new_length": 1512,
+    "word_count": 207,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:33:34.765Z"
+    ]
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "medium",
+      "reason": "Fiction indicators in categories (score: 1)"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "high",
+        "reason": "Lovecraftian cosmic horror anthology"
+      }
+    ],
+    "status": "completed",
+    "notes": [
+      "Manually assigned horror genre and cosmic-horror subgenre"
+    ],
+    "genres": [
+      {
+        "slug": "horror",
+        "name": "Horror",
+        "confidence": "high"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "cosmic-horror",
+        "name": "Cosmic Horror",
+        "genre_slug": "horror",
+        "confidence": "high"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "short-story-collection",
+        "name": "Short Story Collection",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "anthology-connected-stories",
+        "name": "Anthology Connected Stories",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "long-lost-sibling",
+        "name": "Long Lost Sibling",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "one-night-stand-to-more",
+        "name": "One Night Stand to More",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "portal-to-another-world",
+        "name": "Portal to Another World",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "summer-camp-horror",
+        "name": "Summer Camp Horror",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "summer-camp",
+        "name": "Summer Camp",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "deep-sea-horror",
+        "name": "Deep Sea Horror",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "first-love",
+        "name": "First Love",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "hate-to-love",
+        "name": "Hate to Love",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "insta-love",
+        "name": "Insta Love",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "learns-to-love-again",
+        "name": "Learns to Love Again",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "love-square",
+        "name": "Love Square",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "love-at-first-sight",
+        "name": "Love at First Sight",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "marriage-of-convenience-to-love",
+        "name": "Marriage of Convenience to Love",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "one-sided-love",
+        "name": "One Sided Love",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "summer-romance",
+        "name": "Summer Romance",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "forbidden-love",
+        "name": "Forbidden Love",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "love-triangle",
+        "name": "Love Triangle",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "unrequited-love",
+        "name": "Unrequited Love",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 3
+      }
+    ],
+    "cross_tags_count": 20
+  },
+  "format": {
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "low",
+    "reason": "Default - no specific age market indicators found"
+  }
+}

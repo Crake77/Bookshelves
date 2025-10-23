@@ -1,0 +1,239 @@
+{
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=jHVsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=jHVsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/isbn/9781800625273-L.jpg",
+    "recommended": "https://books.google.com/books/content?id=jHVsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-10-23T14:33:34.840Z",
+  "authors": {
+    "original": [
+      "Philip Hayward"
+    ],
+    "validated": [
+      "Philip Hayward"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "In recent decades there has been a burgeoning interest in the development of blue-green corridors: areas where waterways are complemented by adjoining green spaces and related paths and leisure facilities. Urban planners have increasingly favoured such zones as a means of refreshing inner-city spaces. In many cases, such projects have involved the rehabilitation of former industrial and/or otherwise polluted waterways and adjacent land. These newly configured blue-green spaces have benefitted residents and provided a substantial attraction to tourists through in- and on- the water options (e.g., swimming, kayaking, fishing, cruise boat transit etc.), waterside relaxation and a range of riverbank activities. The establishment of managed green spaces has also seen the return of a variety of native species to such areas and the re-presentation of former waterside industrial features as heritage artefacts has also added value and appeal to such corridors. The anthology comprises nine international case studies that illustrate examples of best practice and/or the problems that can arise from such rehabilitations, such as gentrification (forcing housing prices up and dispersing established communities) and de-industrialisation that leads to reduced livelihood opportunities. Individual studies in the volume analyse the dynamics of neglect and rehabilitation, contrasting stakeholder agendas, destination branding and regional-national orientations. Collectively, the volume comprises an important reference point for future blue-green rehabilitation projects and the conclusion offers an agenda for the development of just and sustainable blue-green initiatives.",
+    "original_length": 1677,
+    "new_summary": "This collection of nine international case studies examines urban waterway rehabilitation projects that combine water features with adjacent green spaces—so-called blue-green corridors. These initiatives have become increasingly popular in urban planning as cities seek to revitalize neglected industrial waterfronts and polluted rivers.\n\nThe anthology explores both successes and complications arising from these rehabilitation efforts. Successful projects have provided residents with recreational opportunities including swimming, kayaking, and waterside relaxation while attracting tourism. Restored green spaces have enabled native species to return, and preserved industrial heritage has added cultural value to these corridors.\n\nHowever, the book also examines significant challenges. Gentrification often follows rehabilitation, driving up housing costs and displacing established communities. De-industrialization can eliminate employment opportunities for local residents, creating economic hardship even as environmental conditions improve. The studies analyze these competing stakeholder interests and the tension between ecological restoration and social equity.\n\nEach case study investigates the political, economic, and social dynamics of waterway transformation, exploring how cities negotiate between conservation, development, and community needs. The anthology examines destination branding strategies and how local projects fit within regional and national frameworks.\n\nThe conclusion synthesizes lessons from these diverse examples to propose principles for more equitable and sustainable blue-green development. This work serves as a practical reference for urban planners, policymakers, and researchers working on waterfront rehabilitation projects, offering insights into avoiding common pitfalls while maximizing environmental and social benefits.",
+    "new_length": 1872,
+    "word_count": 229,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:33:34.840Z"
+    ]
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "low",
+      "reason": "Default - needs manual review"
+    },
+    "supergenres": [
+      {
+        "slug": "business-economics",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      },
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "business",
+        "name": "Business",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "economics",
+        "name": "Economics",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "development-economics",
+        "name": "Development Economics",
+        "genre_slug": "economics",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "urban-fantasy",
+        "name": "Urban Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "green-future",
+        "name": "Green Future",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "plan-within-plan",
+        "name": "Plan Within Plan",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "point-of-no-return",
+        "name": "Point of No Return",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "trans-side-character",
+        "name": "Trans Side Character",
+        "group": "representation",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "decades-old-case",
+        "name": "Decades Old Case",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "return-of-the-king",
+        "name": "Return of the King",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "fish-out-of-water",
+        "name": "Fish Out of Water",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "blue-collar-mc",
+        "name": "Blue Collar Mc",
+        "group": "representation",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "anti-asian-racism",
+        "name": "Anti Asian Racism",
+        "group": "content_warning",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "anti-black-racism",
+        "name": "Anti Black Racism",
+        "group": "content_warning",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "medication-side-effects",
+        "name": "Medication Side Effects",
+        "group": "content_warning",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "neglect",
+        "name": "Neglect",
+        "group": "content_warning",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "anthology",
+        "name": "Anthology",
+        "group": "market",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "national-book-award",
+        "name": "National Book Award",
+        "group": "market",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "action-climax",
+        "name": "Action Climax",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "action-not-talk",
+        "name": "Action Not Talk",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "action-packed",
+        "name": "Action Packed",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "all-according-to-plan",
+        "name": "All According to Plan",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "anthology-structure",
+        "name": "Anthology Structure",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "case-of-the-week",
+        "name": "Case of the Week",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 2
+      }
+    ],
+    "cross_tags_count": 20
+  },
+  "format": {
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "low",
+    "reason": "Default - no specific age market indicators found"
+  }
+}

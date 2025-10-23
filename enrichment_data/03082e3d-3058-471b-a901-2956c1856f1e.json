@@ -1,0 +1,252 @@
+{
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=TX5KCAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=TX5KCAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/isbn/9781317610816-L.jpg",
+    "recommended": "https://books.google.com/books/content?id=TX5KCAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-10-23T14:33:34.917Z",
+  "authors": {
+    "original": [
+      "Marek C. Oziewicz"
+    ],
+    "validated": [
+      "Marek C. Oziewicz"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "This book is the first to offer a justice-focused cognitive reading of modern YA speculative fiction in its narrative and filmic forms. It links the expansion of YA speculative fiction in the 20th century with the emergence of human and civil rights movements, with the communitarian revolution in conceptualizations of justice, and with spectacular advances in cognitive sciences as applied to the examination of narrative fiction. Oziewicz argues that complex ideas such as justice are processed by the human mind as cognitive scripts; that scripts, when narrated, take the form of multiply indexable stories; and that YA speculative fiction is currently the largest conceptual testing ground in the forging of justice consciousness for the 21st century world. Drawing on recent research in the cognitive and evolutionary sciences, Oziewicz explains how poetic, retributive, restorative, environmental, social, and global types of justice have been represented in narrative fiction, from 19th century folk and fairy tales through 21st century fantasy, dystopia, and science fiction. Suggesting that the appeal of these and other nonmimetic genres is largely predicated on the dream of justice, Oziewicz theorizes new justice scripts as conceptual tools essential to help humanity survive the qualitative leap toward an environmentally conscious, culturally diversified global world. This book is an important contribution to studies of children’s and YA speculative fiction, adding a new perspective to discussions about the educational as well as social potential of nonmimetic genres. It demonstrates that the justice imperative is very much alive in YA speculative fiction, creating new visions of justice relevant to contemporary challenges.",
+    "original_length": 1747,
+    "new_summary": "This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts—patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fiction in preparing young people for an interconnected, environmentally threatened world requiring new approaches to fairness and equity.",
+    "new_length": 1868,
+    "word_count": 247,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:33:34.917Z"
+    ]
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "non-fiction",
+      "confidence": "high",
+      "reason": "Literary criticism is non-fiction"
+    },
+    "supergenres": [
+      {
+        "slug": "literature-writing",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      },
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "literary-fiction",
+        "name": "Literary Fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "science-fiction",
+        "name": "Science Fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "experimental-fiction",
+        "name": "Experimental Fiction",
+        "genre_slug": "literary-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "philosophical-fiction",
+        "name": "Philosophical Fiction",
+        "genre_slug": "literary-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "postmodern-fiction",
+        "name": "Postmodern Fiction",
+        "genre_slug": "literary-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "stream-of-consciousness",
+        "name": "Stream-Of-Consciousness",
+        "genre_slug": "literary-fiction",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "first-contact",
+        "name": "First Contact",
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "hard-science-fiction",
+        "name": "Hard Science Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "speculative-science",
+        "name": "Speculative Science",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "civil-rights-activist-mc",
+        "name": "Civil Rights Activist Mc",
+        "group": "representation",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "fairy-tale",
+        "name": "Fairy Tale",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "arch-demon",
+        "name": "Arch Demon",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "dark-fairy-tale",
+        "name": "Dark Fairy Tale",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "fairy-tale-ending",
+        "name": "Fairy Tale Ending",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "fairy-tale-retelling",
+        "name": "Fairy Tale Retelling",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "human-evolution",
+        "name": "Human Evolution",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "twisted-fairy-tale",
+        "name": "Twisted Fairy Tale",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "world-war-fantasy",
+        "name": "World War Fantasy",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "flash-fiction",
+        "name": "Flash Fiction",
+        "group": "structure",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "micro-fiction",
+        "name": "Micro Fiction",
+        "group": "structure",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "hypertext-fiction",
+        "name": "Hypertext Fiction",
+        "group": "style",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "eco-fiction",
+        "name": "Eco Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "philosophical-fiction",
+        "name": "Philosophical Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "post-colonial-fiction",
+        "name": "Post Colonial Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3
+      },
+      {
+        "slug": "child-abuse",
+        "name": "Child Abuse",
+        "group": "content_flags",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "child-death",
+        "name": "Child Death",
+        "group": "content_flags",
+        "confidence": "medium",
+        "match_score": 2
+      },
+      {
+        "slug": "eating-disorder",
+        "name": "Eating Disorder",
+        "group": "content_flags",
+        "confidence": "medium",
+        "match_score": 2
+      }
+    ],
+    "cross_tags_count": 20
+  },
+  "format": {
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "low",
+    "reason": "Default - no specific age market indicators found"
+  }
+}

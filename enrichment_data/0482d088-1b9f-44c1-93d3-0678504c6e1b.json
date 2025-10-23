@@ -1,0 +1,247 @@
+{
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=3msrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=3msrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/isbn/9780593854259-L.jpg",
+    "recommended": "https://books.google.com/books/content?id=3msrEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-10-23T14:33:35.135Z",
+  "authors": {
+    "original": [
+      "Sarah Schulman"
+    ],
+    "validated": [
+      "Sarah Schulman"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "From award-winning writer Sarah Schulman, a longtime social activist and outspoken critic of the Israeli war on Gaza, comes a brilliant examination of the inherent psychological and social challenges to solidarity movements, and what that means for the future For those who seek to combat injustice, solidarity with the oppressed is one of the highest ideals, yet it does not come without complication. In this searing yet uplifting book, award-winning writer and cultural critic Sarah Schulman delves into the intricate and often misunderstood concept of solidarity to provide a new vision for what it means to engage in this work—and why it matters. To grapple with solidarity, Schulman writes, we must recognize its inherent fantasies. Those being oppressed dream of relief, that a bystander will intervene though it may not seem to be in their immediate interest to do so, and that the oppressor will be called out and punished. Those standing in solidarity with the oppressed are occluded by a different fantasy: that their intervention is effective, that it will not cost them, and that they will be rewarded with friendship and thanks. Neither is always the case, and yet in order to realize our full potential as human beings in relation with others, we must continue to pursue action towards these shared goals. Within this framework, Schulman examines a range of case studies, from the fight for abortion rights in post-Franco Spain, to NYC’s AIDS activism in the 1990s, to the current wave of campus protest movements against Israel’s war on Gaza, and her own experience growing up as a queer female artist in male dominated culture industries. Drawing parallels between queer, Palestinian, feminist, and artistic struggles for justice, Schulman challenges the traditional notion of solidarity as a simple union of equals, arguing that in today's world of globalized power structures, true solidarity requires the collaboration of bystanders and conflicted perpetrators with the excluded and oppressed. That action comes at a cost, and is not always effective. And yet without it we sentence ourselves to a world without progressive change towards visions of liberation. By turns challenging, inspiring, pragmatic, and poetic, The Fantasy and Necessity of Solidarity provides a much-needed path for how we can work together to create a more just, more equitable present and future.",
+    "original_length": 2392,
+    "new_summary": "Writer and activist Sarah Schulman examines the psychological and social complexities of solidarity movements, drawing from decades of experience in queer activism, AIDS advocacy, and anti-war organizing. The book challenges common assumptions about solidarity work, arguing that both those seeking support and those offering it operate within fantasies that often lead to disappointment and conflict.\n\nSchulman identifies competing fantasies at play in solidarity movements. Oppressed groups hope for intervention from bystanders, accountability for oppressors, and relief from injustice. Meanwhile, those standing in solidarity imagine their actions will be effective, cost-free, and rewarded with gratitude and friendship. These misaligned expectations create inevitable friction even within movements working toward shared goals.\n\nThe book examines multiple case studies spanning decades and movements: abortion rights activism in post-Franco Spain, AIDS organizing in 1990s New York City, campus protests against Israel's war on Gaza, and Schulman's experiences as a queer female artist navigating male-dominated cultural industries. Through these examples, she draws connections between various struggles for justice.\n\nSchulman argues that effective solidarity requires acknowledging its limitations and costs. In globalized power structures, solidarity demands that bystanders and even conflicted perpetrators collaborate with the excluded and oppressed, accepting that such action may be difficult, expensive, and unappreciated.\n\nThe book offers both critique and possibility, recognizing solidarity's inherent challenges while asserting its necessity for progressive change. Schulman's analysis is particularly timely given current debates around ally-ship, identity politics, and movement building. Her work provides practical and philosophical frameworks for those engaged in or studying social justice organizing.",
+    "new_length": 1925,
+    "word_count": 250,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-10-23T14:33:35.135Z"
+    ]
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "low",
+      "reason": "Default - needs manual review"
+    },
+    "supergenres": [
+      {
+        "slug": "science-technology",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      },
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "cozy-fantasy",
+        "name": "Cozy Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "dark-fantasy",
+        "name": "Dark Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "epic-fantasy",
+        "name": "Epic Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "historical-fantasy",
+        "name": "Historical Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "mythic-fantasy",
+        "name": "Mythic Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "not-what-they-seem",
+        "name": "Not What They Seem",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 6
+      },
+      {
+        "slug": "queer-fantasy",
+        "name": "Queer Fantasy",
+        "group": "representation",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "world-war-fantasy",
+        "name": "World War Fantasy",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 5
+      },
+      {
+        "slug": "national-book-award",
+        "name": "National Book Award",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "everything-comes-together",
+        "name": "Everything Comes Together",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "parallel-structure",
+        "name": "Parallel Structure",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "race-against-time",
+        "name": "Race Against Time",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "civil-rights-activist-mc",
+        "name": "Civil Rights Activist Mc",
+        "group": "representation",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "social-media-format",
+        "name": "Social Media Format",
+        "group": "style",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "artistic-struggle",
+        "name": "Artistic Struggle",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "book-ends-on-cliffhanger",
+        "name": "Book Ends on Cliffhanger",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "deal-with-devil",
+        "name": "Deal with Devil",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "dies-for-others",
+        "name": "Dies for Others",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "ends-justify-means",
+        "name": "Ends Justify Means",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "forced-to-work-with-team",
+        "name": "Forced to Work with Team",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "friends-with-benefits",
+        "name": "Friends with Benefits",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "growing-power",
+        "name": "Growing Power",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "high-elves",
+        "name": "High Elves",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "more-than-meets-eye",
+        "name": "More than Meets Eye",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      },
+      {
+        "slug": "one-night-stand-to-more",
+        "name": "One Night Stand to More",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 4
+      }
+    ],
+    "cross_tags_count": 20
+  },
+  "format": {
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "low",
+    "reason": "Default - no specific age market indicators found"
+  }
+}

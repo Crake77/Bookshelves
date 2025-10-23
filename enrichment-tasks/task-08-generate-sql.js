@@ -84,7 +84,7 @@ async function generateSQL(bookId) {
     updates.push(`  cover_url = ${sqlEscape(enrichment.cover_urls.recommended)}`);
   }
   
-  sql += updates.join(',\n');\
+  sql += updates.join(',\n');
 sql += `\nWHERE id = '${bookId}';\n\n`;
   
   // INSERT Domain
