@@ -192,7 +192,7 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
                   className=""
                   data-testid="chip-format"
                 >
-                  {taxonomy.format.name}
+                  {taxonomy.format}
                 </Badge>
               </div>
             </div>
@@ -208,18 +208,18 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
                   className=""
                   data-testid="chip-audience"
                 >
-                  {taxonomy.audience.name}
+                  {taxonomy.audience}
                 </Badge>
               </div>
             </div>
           )}
           
           {/* Published Date */}
-          {book.published_date && (
+          {book.publishedDate && (
             <div>
               <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Published</div>
               <div className="text-sm text-foreground">
-                {new Date(book.published_date).getFullYear()}
+                {new Date(book.publishedDate).getFullYear()}
               </div>
             </div>
           )}
