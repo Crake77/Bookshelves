@@ -18,31 +18,41 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const bookId = bookRows[0].id;
 
     // Fetch book's taxonomy
-    const [genres, subgenres, tags] = await Promise.all([
+    const [genres, subgenres, tags, tagCount] = await Promise.all([
       sql`
         SELECT g.id, g.slug, g.name 
         FROM book_genres bg
         JOIN genres g ON g.id = bg.genre_id
         WHERE bg.book_id = ${bookId}
+        LIMIT 1
       `,
       sql`
         SELECT s.id, s.slug, s.name
         FROM book_subgenres bs
         JOIN subgenres s ON s.id = bs.subgenre_id
         WHERE bs.book_id = ${bookId}
+        LIMIT 1
       `,
       sql`
         SELECT ct.id, ct.slug, ct.name, ct."group"
         FROM book_cross_tags bct
         JOIN cross_tags ct ON ct.id = bct.cross_tag_id
         WHERE bct.book_id = ${bookId}
+        ORDER BY ct.name
+        LIMIT 12
+      `,
+      sql`
+        SELECT COUNT(*) as count
+        FROM book_cross_tags bct
+        WHERE bct.book_id = ${bookId}
       `
     ]);
 
     return res.status(200).json({
-      genres,
-      subgenres,
-      tags,
+      genre: genres.length > 0 ? genres[0] : null,
+      subgenre: subgenres.length > 0 ? subgenres[0] : null,
+      tags: tags,
+      allTagCount: tagCount.length > 0 ? parseInt(tagCount[0].count) : 0,
       format: null, // TODO: implement format lookup
       audience: null // TODO: implement audience lookup
     });
