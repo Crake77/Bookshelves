@@ -21,7 +21,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       subgenres,
       tags,
       formats,
-      audiences,
+      audiences: audiences, // age_markets renamed to audiences for UI compatibility
       domains,
       supergenres
     });
