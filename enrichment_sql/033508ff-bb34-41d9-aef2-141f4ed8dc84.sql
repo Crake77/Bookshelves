@@ -1,6 +1,6 @@
 -- Enrichment SQL for: The Complete Nebula Award-winning Fiction
 -- Book ID: 033508ff-bb34-41d9-aef2-141f4ed8dc84
--- Generated: 2025-10-23T19:40:48.856Z
+-- Generated: 2025-10-23T20:26:05.095Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '033508ff-bb34-41d9-aef2-141f4ed8dc84';
@@ -40,6 +40,10 @@ SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM supergenres WHERE slug = 
 INSERT INTO book_genres (book_id, genre_id)
 SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM genres WHERE slug = 'science-fiction';
 
+-- Insert subgenres
+INSERT INTO book_subgenres (book_id, subgenre_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM subgenres WHERE slug = 'space-opera';
+
 -- Insert cross-tags (8 tags)
 INSERT INTO book_cross_tags (book_id, cross_tag_id)
 SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = 'novella';
@@ -61,4 +65,8 @@ SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM cross_tags WHERE slug = '
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)
 SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM age_markets WHERE slug = 'adult';
+
+-- Insert format
+INSERT INTO book_formats (book_id, format_id)
+SELECT '033508ff-bb34-41d9-aef2-141f4ed8dc84', id FROM formats WHERE slug = 'anthology';
 

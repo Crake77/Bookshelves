@@ -8,14 +8,30 @@ import path from 'path';
 const ENRICHMENT_DIR = 'enrichment_data';
 
 // Detect format (hardcover, paperback, ebook, audiobook)
-function detectFormat(book) {
+function detectFormat(book, enrichmentData = null) {
   const categories = (book.categories || []).map(c => c.toLowerCase());
-  const description = (book.description || '').toLowerCase();
+  let description = (book.description || '').toLowerCase();
+  
+  // Use enriched summary if original description is null/empty
+  if (!description && enrichmentData?.summary?.new_summary) {
+    description = enrichmentData.summary.new_summary.toLowerCase();
+    console.log(`    ℹ️  Using enriched summary for format detection (no original description)`);
+  }
+  
   const title = book.title.toLowerCase();
   
-  // Check for anthology indicators (collection of works by multiple authors)
-  if (title.includes('anthology') || description.includes('anthology') ||
-      description.includes('collection of') || description.includes('stories by')) {
+  // Check for anthology/collection indicators
+  const anthologyKeywords = [
+    'anthology', 'collection', 'short fiction', 'short stories', 
+    'collected works', 'complete fiction', 'award-winning fiction',
+    'stories by', 'tales from', 'collected stories'
+  ];
+  
+  const hasAnthologyIndicator = anthologyKeywords.some(keyword => 
+    title.includes(keyword) || description.includes(keyword)
+  );
+  
+  if (hasAnthologyIndicator) {
     return {
       slug: 'anthology',
       confidence: 'high',
@@ -145,7 +161,14 @@ async function detectFormatAudience(bookId) {
   
   console.log(`  Title: ${book.title}`);
   
-  const format = detectFormat(book);
+  // Load existing enrichment data (may have summary)
+  const outputPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
+  let enrichmentData = null;
+  if (fs.existsSync(outputPath)) {
+    enrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+  }
+  
+  const format = detectFormat(book, enrichmentData);
   const audience = detectAudience(book);
   
   const result = {
@@ -166,11 +189,9 @@ async function detectFormatAudience(bookId) {
     result.notes.push('Audience detection has low confidence - may need manual review');
   }
   
-  // Save result
-  const outputPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
-  let enrichmentData = {};
-  if (fs.existsSync(outputPath)) {
-    enrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+  // Save result (reuse loaded enrichmentData or create new)
+  if (!enrichmentData) {
+    enrichmentData = {};
   }
   enrichmentData.format = result.format;
   enrichmentData.audience = result.audience;

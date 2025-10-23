@@ -6,7 +6,7 @@
     "recommended": "https://books.google.com/books/content?id=tMidtQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T19:35:44.539Z",
+  "last_updated": "2025-10-23T20:25:55.697Z",
   "authors": {
     "original": [
       "Samuel R. Delany"
@@ -58,7 +58,14 @@
         "confidence": "suggested"
       }
     ],
-    "subgenres": [],
+    "subgenres": [
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
+      }
+    ],
     "cross_tags": [
       {
         "slug": "novella",
@@ -120,9 +127,9 @@
     "cross_tags_count": 8
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "anthology",
+    "confidence": "high",
+    "reason": "Title or description indicates anthology/collection format"
   },
   "audience": {
     "slug": "adult",

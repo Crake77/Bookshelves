@@ -103,8 +103,15 @@ function suggestGenres(book, domain) {
 }
 
 // Suggest subgenres based on title, description and genres
-function suggestSubgenres(book, genreSlugs) {
-  const description = (book.description || '').toLowerCase();
+function suggestSubgenres(book, genreSlugs, enrichmentData = null) {
+  let description = (book.description || '').toLowerCase();
+  
+  // Use enriched summary if original description is null/empty
+  if (!description && enrichmentData?.summary?.new_summary) {
+    description = enrichmentData.summary.new_summary.toLowerCase();
+    console.log(`    ℹ️  Using enriched summary for subgenre detection (no original description)`);
+  }
+  
   const title = book.title.toLowerCase();
   const subgenres = [];
   
@@ -154,17 +161,18 @@ async function assignGenresSubgenres(bookId) {
   console.log(`  Title: ${book.title}`);
   console.log(`  Categories: ${JSON.stringify(book.categories)}`);
   
-  // Load domain from previous task
+  // Load domain and enrichment data from previous tasks
   const domainPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
   let domain = 'fiction'; // default
+  let enrichmentData = null;
   if (fs.existsSync(domainPath)) {
-    const enrichmentData = JSON.parse(fs.readFileSync(domainPath, 'utf8'));
+    enrichmentData = JSON.parse(fs.readFileSync(domainPath, 'utf8'));
     domain = enrichmentData.taxonomy?.domain?.slug || 'fiction';
   }
   console.log(`  Domain: ${domain}`);
   
   const genreSlugs = suggestGenres(book, domain);
-  const subgenres = suggestSubgenres(book, genreSlugs);
+  const subgenres = suggestSubgenres(book, genreSlugs, enrichmentData);
   
   const result = {
     genres: genreSlugs.map(slug => ({
@@ -190,20 +198,18 @@ async function assignGenresSubgenres(bookId) {
     result.notes.push('MANUAL STEP: Assign 1-3 genres from taxonomy');
   }
   
-  // Save result
-  const outputPath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
-  let enrichmentData = {};
-  if (fs.existsSync(outputPath)) {
-    enrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+  // Save result (reuse loaded enrichmentData or create new)
+  if (!enrichmentData) {
+    enrichmentData = {};
   }
   if (!enrichmentData.taxonomy) enrichmentData.taxonomy = {};
   enrichmentData.taxonomy.genres = result.genres;
   enrichmentData.taxonomy.subgenres = result.subgenres;
   enrichmentData.last_updated = new Date().toISOString();
   
-  fs.writeFileSync(outputPath, JSON.stringify(enrichmentData, null, 2));
+  fs.writeFileSync(domainPath, JSON.stringify(enrichmentData, null, 2));
   
-  console.log(`  💾 Saved to ${outputPath}`);
+  console.log(`  💾 Saved to ${domainPath}`);
   
   return result;
 }
