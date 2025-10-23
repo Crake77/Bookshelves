@@ -11,9 +11,54 @@ const ENRICHMENT_DIR = 'enrichment_data';
 function detectFormat(book) {
   const categories = (book.categories || []).map(c => c.toLowerCase());
   const description = (book.description || '').toLowerCase();
+  const title = book.title.toLowerCase();
   
-  // For now, we can't reliably detect format from available data
-  // This would require API data about specific editions
+  // Check for audiobook indicators
+  if (categories.some(c => c.includes('audio') || c.includes('audiobook')) ||
+      title.includes('audiobook') || title.includes('[audio')) {
+    return {
+      slug: 'audiobook',
+      confidence: 'high',
+      reason: 'Category or title indicates audiobook format'
+    };
+  }
+  
+  // Check for ebook indicators
+  if (categories.some(c => c.includes('ebook') || c.includes('electronic') || c.includes('kindle')) ||
+      title.includes('kindle') || title.includes('[ebook')) {
+    return {
+      slug: 'ebook',
+      confidence: 'medium',
+      reason: 'Category or title indicates ebook format'
+    };
+  }
+  
+  // Check description for format clues
+  if (description.includes('audiobook') || description.includes('audio edition')) {
+    return {
+      slug: 'audiobook',
+      confidence: 'medium',
+      reason: 'Description mentions audiobook'
+    };
+  }
+  
+  if (description.includes('paperback') || description.includes('trade paperback')) {
+    return {
+      slug: 'paperback',
+      confidence: 'low',
+      reason: 'Description mentions paperback'
+    };
+  }
+  
+  if (description.includes('hardcover') || description.includes('hardback')) {
+    return {
+      slug: 'hardcover',
+      confidence: 'low',
+      reason: 'Description mentions hardcover'
+    };
+  }
+  
+  // Unable to determine - leave null
   return {
     slug: null,
     confidence: 'unknown',
@@ -70,11 +115,11 @@ function detectAudience(book) {
     };
   }
   
-  // Default to adult for most books
+  // Default to adult (general audience) for most books
   return {
     slug: 'adult',
-    confidence: 'low',
-    reason: 'Default - no specific age market indicators found'
+    confidence: 'medium',
+    reason: 'General adult audience (default for fiction/non-fiction without age qualifiers)'
   };
 }
 

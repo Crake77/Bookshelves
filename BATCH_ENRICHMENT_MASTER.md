@@ -97,8 +97,8 @@ This orchestration script runs 8 micro-tasks sequentially on all books:
 - All slugs validated against taxonomy
 
 **Task 7: Format + Audience** (`task-07-format-audience.js`)
-- Detects audience (adult, YA, middle-grade, children)
-- Attempts format detection (usually unknown due to limited metadata)
+- Detects format from categories, title, and description (audiobook, ebook, hardcover, paperback)
+- Detects audience (adult, YA, middle-grade, children) - defaults to 'adult' for general audience
 
 **Task 8: Generate SQL** (`task-08-generate-sql.js`)
 - Creates idempotent SQL migration script per book
@@ -393,8 +393,8 @@ node import-summaries.js
 ### Issue: Cross-tags seem irrelevant (false positives)
 **Note:** This is a known limitation of keyword matching. Review first 3-5 books of each batch and manually remove irrelevant tags if needed.
 
-### Issue: Format always "unknown"
-**Note:** This is expected. Metadata from Google Books rarely includes format info. Leave as unknown or manually add if known.
+### Issue: Format often "unknown"
+**Note:** Format detection is limited by metadata availability. The task attempts to detect audiobook/ebook formats from categories and titles. Physical formats (hardcover/paperback) are harder to detect and may remain unknown. Leave as null when undetectable.
 
 ---
 
