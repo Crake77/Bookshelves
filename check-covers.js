@@ -278,14 +278,38 @@ async function findBestCover(book) {
 
 /**
  * Update book cover in database
+ * If OLID/CoverID available, store it for rate-limit-free access
  */
-async function updateBookCover(bookId, newCoverUrl, source) {
-  await sql`
-    UPDATE books 
-    SET cover_url = ${newCoverUrl}
-    WHERE id = ${bookId}
-  `;
-  console.log(`   ✅ Updated to ${source}`);
+async function updateBookCover(bookId, coverData, source) {
+  const { url: newCoverUrl, olid, cover_id } = coverData;
+  
+  // Store OLID for unlimited cover access (best practice)
+  if (olid) {
+    await sql`
+      UPDATE books 
+      SET cover_url = ${newCoverUrl},
+          openlibrary_edition_olid = ${olid},
+          cover_olid = ${olid}
+      WHERE id = ${bookId}
+    `;
+    console.log(`   ✅ Updated to ${source} + stored OLID: ${olid}`);
+  } else if (cover_id) {
+    await sql`
+      UPDATE books 
+      SET cover_url = ${newCoverUrl},
+          cover_olid = ${'ID:' + cover_id}
+      WHERE id = ${bookId}
+    `;
+    console.log(`   ✅ Updated to ${source} + stored CoverID: ${cover_id}`);
+  } else {
+    // Fallback: just store URL (e.g., Google Books)
+    await sql`
+      UPDATE books 
+      SET cover_url = ${newCoverUrl}
+      WHERE id = ${bookId}
+    `;
+    console.log(`   ✅ Updated to ${source}`);
+  }
 }
 
 /**
@@ -348,7 +372,7 @@ async function main() {
     const betterCover = await findBestCover(book);
     
     if (betterCover && fixMode) {
-      await updateBookCover(book.id, betterCover.url, betterCover.source);
+      await updateBookCover(book.id, betterCover, betterCover.source);
       fixedCount++;
     } else if (betterCover) {
       console.log(`   💡 Run with --fix to update`);

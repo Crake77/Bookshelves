@@ -190,6 +190,33 @@ export default function ProfilePage({ onOpenSettings }: ProfilePageProps) {
           <LogOut className="w-4 h-4 mr-2" />
           Logout
         </Button>
+        
+        {/* Data Attribution */}
+        <div className="text-center text-xs text-muted-foreground space-y-1 pt-4 pb-2">
+          <p>
+            Book metadata and covers from{" "}
+            <a 
+              href="https://openlibrary.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Open Library
+            </a>
+            {" "}and{" "}
+            <a 
+              href="https://books.google.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Google Books
+            </a>
+          </p>
+          <p className="text-[10px]">
+            Cover images &copy; their respective publishers
+          </p>
+        </div>
       </div>
     </div>
   );
