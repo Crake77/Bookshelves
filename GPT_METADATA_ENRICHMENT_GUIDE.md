@@ -32,6 +32,7 @@ Before starting each batch, verify you have access to:
 - [ ] **Taxonomy Reference:** `BOOKSHELVES_TAXONOMY_REFERENCE.md` + `bookshelves_complete_taxonomy.json`
 - [ ] **Database Schema:** Current books table structure
 - [ ] **Progress Log:** `enrichment_progress.json` (create if first run)
+- [ ] **Issues Log:** `ENRICHMENT_ISSUES_LOG.md` (create if first run)
 - [ ] **Current Batch:** List of book IDs to process (query from database)
 - [ ] **API Access:** Google Books API, OpenLibrary API ready
 
