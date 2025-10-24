@@ -1,0 +1,353 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "generated_date": "2025-01-24",
+    "total_patterns": 4,
+    "coverage": "100% (4/4 domains)",
+    "description": "Comprehensive domain-level classification patterns for highest-level taxonomy assignment"
+  },
+  "patterns": {
+    "fiction": {
+      "name": "Fiction",
+      "description": "Imaginative narratives with invented characters, plots, and settings",
+      
+      "required_indicators": {
+        "narrative_structure": [
+          "story", "narrative", "tale", "plot", "storyline",
+          "character arc", "story arc", "plot twist",
+          "chapters unfold", "narrative follows"
+        ],
+        "content_markers": [
+          "protagonist", "antagonist", "main character", "hero", "heroine",
+          "conflict", "climax", "resolution", "tension",
+          "character development", "character growth"
+        ],
+        "fictional_elements": [
+          "invented", "imagined", "fictional", "created world",
+          "made-up", "fictitious", "story world",
+          "unfolds", "discovers", "embarks", "must face"
+        ]
+      },
+      
+      "strong_signals": [
+        "novel", "novella", "short story", "epic", "saga", "trilogy",
+        "fiction", "fictional", "narrative",
+        "protagonist", "character", "plot",
+        "when [name]", "follows [name]", "[name] must"
+      ],
+      
+      "structural_patterns": [
+        "tells the story of",
+        "follows (the )?(journey|life|adventures) of",
+        "when [a-zA-Z]+ (discovers|finds|learns|realizes)",
+        "(he|she|they) must",
+        "journey to",
+        "quest for",
+        "battle (against|with)",
+        "fall(s|ing) in love",
+        "struggle(s)? (to|with|against)",
+        "face(s)? (a|an|the)"
+      ],
+      
+      "format_indicators": {
+        "positive": [
+          "novel", "novella", "short story", "epic", "saga",
+          "trilogy", "series", "installment", "volume",
+          "fiction", "tale", "narrative", "story collection"
+        ],
+        "negative": [
+          "textbook", "manual", "guide", "handbook", "encyclopedia",
+          "reference", "dictionary", "atlas", "how-to",
+          "introduction to", "principles of", "fundamentals of",
+          "case study", "research", "study of", "history of",
+          "biography of", "life of", "memoir", "autobiography"
+        ]
+      },
+      
+      "exclusion_rules": {
+        "biography": ["true story", "real life", "actual events", "based on the life of", "biography", "life story"],
+        "autobiography": ["my life", "my story", "my journey", "I was", "I grew up"],
+        "memoir": ["memoir", "remembers", "looking back", "my childhood", "recollection"],
+        "history": ["historical account", "history of", "chronicles of", "documented events", "archival"],
+        "self_help": ["how to", "guide to", "self-help", "self-improvement", "strategies for"],
+        "academic": ["research", "study", "analysis", "examination", "investigation of", "theory of"]
+      },
+      
+      "confidence_weights": {
+        "narrative_structure": 0.30,
+        "content_markers": 0.25,
+        "fictional_elements": 0.20,
+        "strong_signals": 0.15,
+        "structural_patterns": 0.10
+      },
+      
+      "minimum_required": {
+        "narrative_structure": 2,
+        "content_markers": 2,
+        "strong_signals": 3
+      },
+      
+      "minimum_confidence": 0.75,
+      
+      "validation_checks": [
+        "Must NOT contain non-fiction indicators above threshold",
+        "Must have at least 2 narrative structure matches",
+        "Must have at least 2 content marker matches",
+        "Should have fictional character names or invented settings",
+        "Should NOT have heavy presence of instructional language"
+      ]
+    },
+    
+    "non-fiction": {
+      "name": "Non-Fiction",
+      "description": "Factual works based on real people, events, research, or instructional content",
+      
+      "required_indicators": {
+        "factual_markers": [
+          "true story", "based on", "real events", "actual",
+          "factual", "documentary", "historical", "real-life",
+          "authentic", "verified", "evidence"
+        ],
+        "informational_content": [
+          "explores", "examines", "investigates", "analyzes",
+          "explains", "describes", "documents", "chronicles",
+          "study of", "introduction to", "guide to"
+        ],
+        "real_subjects": [
+          "biography", "memoir", "autobiography", "life of",
+          "history of", "science of", "art of",
+          "world of", "rise of", "fall of"
+        ]
+      },
+      
+      "strong_signals": [
+        "non-fiction", "nonfiction", "true story", "based on true events",
+        "biography", "memoir", "autobiography", "historical account",
+        "research", "study", "analysis", "investigation",
+        "guide", "handbook", "manual", "reference",
+        "how to", "history of", "science of", "art of"
+      ],
+      
+      "structural_patterns": [
+        "explores (the )?world of",
+        "examines (the )?(role|impact|history|development) of",
+        "traces (the )?(history|evolution|rise) of",
+        "(comprehensive|definitive|essential) guide to",
+        "introduction to",
+        "based on (years of )?(research|interviews|experience)",
+        "drawing on",
+        "chronicles (the )?(life|career|journey) of",
+        "life of",
+        "story of (a )?real"
+      ],
+      
+      "format_indicators": {
+        "positive": [
+          "biography", "memoir", "autobiography", "essay collection",
+          "textbook", "manual", "guide", "handbook", "reference",
+          "historical account", "documentary", "exposé",
+          "case study", "research", "monograph", "treatise"
+        ],
+        "negative": [
+          "novel", "novella", "fiction", "fictional",
+          "imagined", "invented", "story", "tale",
+          "protagonist", "antagonist"
+        ]
+      },
+      
+      "subject_categories": [
+        "business", "science", "history", "biography", "memoir",
+        "self-help", "psychology", "philosophy", "religion",
+        "politics", "economics", "sociology", "anthropology",
+        "health", "fitness", "cooking", "travel", "nature"
+      ],
+      
+      "exclusion_rules": {
+        "fiction": ["novel", "fictional characters", "imagined world", "invented story"],
+        "poetry": ["collection of poems", "verse", "poetry collection"],
+        "drama": ["play", "screenplay", "script", "stage"]
+      },
+      
+      "confidence_weights": {
+        "factual_markers": 0.30,
+        "informational_content": 0.25,
+        "real_subjects": 0.20,
+        "strong_signals": 0.15,
+        "format_indicators": 0.10
+      },
+      
+      "minimum_required": {
+        "factual_markers": 1,
+        "informational_content": 2,
+        "strong_signals": 2
+      },
+      
+      "minimum_confidence": 0.75,
+      
+      "validation_checks": [
+        "Must NOT contain fiction narrative indicators above threshold",
+        "Must have at least 1 factual marker",
+        "Must have at least 2 informational content indicators",
+        "Should reference real people, places, or verifiable events"
+      ]
+    },
+    
+    "poetry": {
+      "name": "Poetry",
+      "description": "Literary works in verse form, including collections of poems and poetic narratives",
+      
+      "required_indicators": {
+        "verse_markers": [
+          "poetry", "poems", "verse", "verses",
+          "collection of poems", "poetry collection",
+          "selected poems", "complete poems"
+        ],
+        "form_indicators": [
+          "sonnet", "haiku", "elegy", "ode", "ballad", "epic poem",
+          "free verse", "rhyme", "stanza", "couplet", "quatrain",
+          "lyric poetry", "narrative poetry"
+        ],
+        "poetic_elements": [
+          "meter", "rhythm", "imagery", "metaphor",
+          "symbolism", "verse form", "poetic voice",
+          "lines", "stanzas"
+        ]
+      },
+      
+      "strong_signals": [
+        "poetry", "poems", "verse", "verses",
+        "collected poems", "selected poems", "complete poems",
+        "poetry collection", "book of poems",
+        "poet", "poetic", "verse collection"
+      ],
+      
+      "structural_patterns": [
+        "(collection|anthology) of poems",
+        "(selected|collected|complete) (poems|verse)",
+        "poetry by",
+        "poems about",
+        "verse (on|about)",
+        "poetic (exploration|meditation|reflection)",
+        "(lyric|narrative|epic) poetry"
+      ],
+      
+      "format_indicators": {
+        "positive": [
+          "poetry collection", "poem collection", "verse",
+          "anthology of poems", "selected poems",
+          "poetic works", "collected verse"
+        ],
+        "negative": [
+          "novel", "prose", "fiction", "story",
+          "biography", "memoir", "essay",
+          "textbook", "guide", "manual"
+        ]
+      },
+      
+      "exclusion_rules": {
+        "fiction": ["novel", "story", "narrative fiction", "prose narrative"],
+        "non_fiction_prose": ["essay collection", "prose essays", "critical essays"],
+        "drama": ["play", "dramatic work", "stage play", "screenplay"]
+      },
+      
+      "confidence_weights": {
+        "verse_markers": 0.40,
+        "form_indicators": 0.25,
+        "strong_signals": 0.20,
+        "poetic_elements": 0.15
+      },
+      
+      "minimum_required": {
+        "verse_markers": 1,
+        "strong_signals": 2
+      },
+      
+      "minimum_confidence": 0.80,
+      
+      "validation_checks": [
+        "Must have explicit poetry/verse/poem indicator",
+        "Must NOT be primarily prose narrative",
+        "Should reference specific poetic forms or elements"
+      ]
+    },
+    
+    "drama": {
+      "name": "Drama",
+      "description": "Works written for theatrical performance, including plays, screenplays, and scripts",
+      
+      "required_indicators": {
+        "theatrical_markers": [
+          "play", "plays", "drama", "dramatic work",
+          "stage play", "theatrical", "theatre",
+          "screenplay", "script", "dramatic adaptation"
+        ],
+        "performance_indicators": [
+          "act", "scene", "dialogue", "monologue",
+          "stage directions", "performance", "theater",
+          "staged", "performed", "production"
+        ],
+        "format_elements": [
+          "one-act", "two-act", "three-act",
+          "dramatic structure", "theatrical production",
+          "stage", "scene", "characters list"
+        ]
+      },
+      
+      "strong_signals": [
+        "play", "plays", "drama", "dramatic",
+        "screenplay", "script", "stage play",
+        "theatrical", "theatre", "theater",
+        "dramatic work", "performed", "staged"
+      ],
+      
+      "structural_patterns": [
+        "(one-act|two-act|three-act) play",
+        "play in (\\d+) acts",
+        "dramatic (adaptation|retelling|interpretation)",
+        "written for (the )?stage",
+        "theatrical (production|performance|work)",
+        "screenplay (by|for)",
+        "stage adaptation"
+      ],
+      
+      "format_indicators": {
+        "positive": [
+          "play", "drama", "screenplay", "script",
+          "stage play", "theatrical work", "dramatic work",
+          "one-act", "two-act", "three-act"
+        ],
+        "negative": [
+          "novel", "story", "narrative fiction",
+          "biography", "memoir", "history",
+          "poetry", "poems", "verse"
+        ]
+      },
+      
+      "exclusion_rules": {
+        "fiction_narrative": ["novel", "story", "narrative", "prose fiction"],
+        "poetry": ["poetry", "verse", "poems", "poetic"],
+        "non_fiction": ["biography", "history", "memoir", "documentary"]
+      },
+      
+      "confidence_weights": {
+        "theatrical_markers": 0.35,
+        "performance_indicators": 0.30,
+        "strong_signals": 0.20,
+        "format_elements": 0.15
+      },
+      
+      "minimum_required": {
+        "theatrical_markers": 1,
+        "strong_signals": 2
+      },
+      
+      "minimum_confidence": 0.80,
+      
+      "validation_checks": [
+        "Must have explicit play/drama/screenplay indicator",
+        "Must reference theatrical/stage/performance elements",
+        "Should have act/scene structure or dramatic format indicators"
+      ]
+    }
+  }
+}

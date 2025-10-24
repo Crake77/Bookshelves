@@ -1,0 +1,256 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "phase": "1 of 2",
+    "generated_date": "2025-01-24",
+    "total_patterns": 20,
+    "coverage": "59% (20/34 supergenres)",
+    "description": "Phase 1: Top 20 most common supergenre patterns for mid-level taxonomy classification"
+  },
+  "patterns": {
+    "speculative-fiction": {
+      "name": "Speculative Fiction",
+      "description": "Fantasy, science fiction, horror and other speculative genres",
+      "parent_domain": "fiction",
+      "genre_family": ["fantasy", "science-fiction", "dystopian-fiction", "paranormal", "urban-fantasy", "horror", "supernatural-fiction"],
+      "core_themes": ["alternative realities", "imagined worlds", "supernatural elements", "advanced technology", "magic systems", "future societies"],
+      "strong_indicators": ["magic", "magical", "wizard", "sorcery", "sci-fi", "science fiction", "futuristic", "paranormal", "supernatural", "fantasy", "dystopia", "post-apocalyptic", "alternate reality", "time travel"],
+      "world_building_signals": ["imagined world", "fictional universe", "alternate dimension", "magical realm", "future Earth", "distant planet", "created world"],
+      "exclusion_rules": {"contemporary_realism": ["set in current real world"], "historical_realistic": ["purely historical setting"], "pure_romance": ["romance without speculative elements"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "romance": {
+      "name": "Romance",
+      "description": "Love stories and relationship-driven narratives",
+      "parent_domain": "fiction",
+      "genre_family": ["romance", "contemporary-romance", "historical-romance", "paranormal-romance", "romantic-suspense"],
+      "core_themes": ["romantic relationship", "falling in love", "love story", "relationship development", "emotional connection"],
+      "strong_indicators": ["romance", "romantic", "love story", "falling in love", "relationship", "lovers", "couple", "passion", "desire", "attraction", "heart", "soulmate"],
+      "plot_patterns": ["enemies to lovers", "friends to lovers", "second chance romance", "forbidden love", "fake relationship", "opposites attract"],
+      "character_dynamics": ["romantic tension", "chemistry", "emotional connection", "declarations of love", "happily ever after", "happy ending"],
+      "exclusion_rules": {"pure_erotica": ["explicit erotica", "adult content only"], "romance_subplot_only": ["minor romance subplot"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "crime-mystery": {
+      "name": "Crime & Mystery",
+      "description": "Detective fiction, crime stories and puzzles",
+      "parent_domain": "fiction",
+      "genre_family": ["mystery", "crime-fiction", "detective-fiction", "true-crime", "noir", "cozy-mystery"],
+      "core_themes": ["investigation", "solving crime", "detective work", "mystery", "whodunit", "clues", "suspects"],
+      "strong_indicators": ["mystery", "detective", "investigation", "crime", "murder", "killer", "suspect", "clues", "evidence", "solve", "case", "investigator", "police"],
+      "plot_patterns": ["murder investigation", "missing person", "solving puzzle", "uncovering truth", "tracking killer", "following clues"],
+      "character_archetypes": ["detective", "investigator", "amateur sleuth", "police officer", "private eye", "forensic"],
+      "exclusion_rules": {"pure_thriller": ["action-driven without mystery"], "horror_primary": ["horror elements dominate"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "thriller-suspense": {
+      "name": "Thriller & Suspense",
+      "description": "High-stakes stories that evoke tension and excitement",
+      "parent_domain": "fiction",
+      "genre_family": ["thriller", "suspense", "psychological-thriller", "espionage", "techno-thriller"],
+      "core_themes": ["high stakes", "danger", "tension", "suspense", "race against time", "life or death", "cat and mouse"],
+      "strong_indicators": ["thriller", "suspense", "tension", "danger", "chase", "pursued", "hunted", "race against time", "deadly", "threat", "survival"],
+      "plot_patterns": ["race against time", "cat and mouse", "conspiracy", "on the run", "ticking clock", "life-threatening"],
+      "tone_markers": ["suspenseful", "tense", "gripping", "edge-of-your-seat", "pulse-pounding", "heart-racing"],
+      "exclusion_rules": {"mystery_primary": ["puzzle-solving focus"], "horror_primary": ["supernatural fear focus"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "historical-fiction": {
+      "name": "Historical Fiction",
+      "description": "Stories set in or inspired by the past",
+      "parent_domain": "fiction",
+      "genre_family": ["historical-fiction", "historical-romance", "historical-mystery"],
+      "core_themes": ["set in past", "historical period", "historical events", "period setting", "bygone era"],
+      "strong_indicators": ["historical", "period", "19th century", "18th century", "medieval", "ancient", "Victorian", "Regency", "World War", "Civil War", "past"],
+      "time_period_markers": ["1800s", "1700s", "centuries ago", "long ago", "historical era", "period piece"],
+      "setting_signals": ["historical setting", "time period", "era", "age", "days of"],
+      "exclusion_rules": {"contemporary": ["set in present day"], "futuristic": ["set in future"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "contemporary-realism": {
+      "name": "Contemporary & Realism",
+      "description": "Modern, realistic narratives",
+      "parent_domain": "fiction",
+      "genre_family": ["contemporary-fiction", "literary-fiction", "family-drama", "women's-fiction"],
+      "core_themes": ["modern life", "realistic", "everyday", "contemporary issues", "real-world problems"],
+      "strong_indicators": ["contemporary", "modern", "today", "current", "present day", "realistic", "real-world"],
+      "setting_signals": ["set in", "takes place in", "modern world", "today's", "current times"],
+      "exclusion_rules": {"speculative": ["fantasy", "sci-fi", "supernatural"], "historical": ["set in past", "period piece"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "biography-memoir": {
+      "name": "Biography & Memoir",
+      "description": "Personal life stories and biographies",
+      "parent_domain": "non-fiction",
+      "genre_family": ["biography", "memoir", "autobiography"],
+      "core_themes": ["life story", "personal journey", "true story", "real person", "life of"],
+      "strong_indicators": ["biography", "memoir", "autobiography", "life of", "story of", "true story", "personal account", "remembers", "growing up", "my life"],
+      "structural_patterns": ["chronicles the life", "tells the story of", "from childhood to", "life journey", "personal narrative"],
+      "exclusion_rules": {"fiction": ["novel", "imagined", "fictional"]},
+      "minimum_confidence": 0.75
+    },
+    
+    "history": {
+      "name": "History",
+      "description": "Historical accounts and analysis",
+      "parent_domain": "non-fiction",
+      "genre_family": ["history", "military-history", "cultural-history"],
+      "core_themes": ["historical events", "past", "documented", "archival", "historical analysis"],
+      "strong_indicators": ["history", "historical account", "chronicles", "documented", "archival", "past events", "historical analysis"],
+      "structural_patterns": ["history of", "explores the", "examines the", "traces the", "rise and fall"],
+      "exclusion_rules": {"historical_fiction": ["novel", "story", "fictional"], "biography": ["life of", "biography"]},
+      "minimum_confidence": 0.73
+    },
+    
+    "self-help-personal-growth": {
+      "name": "Self-Help & Personal Growth",
+      "description": "Guides for improvement and motivation",
+      "parent_domain": "non-fiction",
+      "genre_family": ["self-help", "personal-development", "motivational"],
+      "core_themes": ["personal growth", "self-improvement", "transformation", "change your life", "achieve goals"],
+      "strong_indicators": ["self-help", "personal growth", "self-improvement", "transform", "achieve", "success", "habits", "mindset", "strategies for"],
+      "instructional_patterns": ["how to", "guide to", "steps to", "strategies for", "learn to", "master"],
+      "exclusion_rules": {"memoir": ["my story", "my journey"], "business": ["corporate", "management"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "business-economics": {
+      "name": "Business & Economics",
+      "description": "Commerce, economics and finance",
+      "parent_domain": "non-fiction",
+      "genre_family": ["business", "economics", "finance", "entrepreneurship"],
+      "core_themes": ["business", "commerce", "economics", "market", "finance", "entrepreneurship"],
+      "strong_indicators": ["business", "economics", "finance", "market", "entrepreneur", "company", "corporate", "industry", "capitalism"],
+      "subject_markers": ["economic", "financial", "commerce", "trade", "business strategy"],
+      "exclusion_rules": {"self_help": ["personal transformation"], "biography": ["life of CEO"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "science-nature": {
+      "name": "Science & Nature",
+      "description": "Popular science and natural history",
+      "parent_domain": "non-fiction",
+      "genre_family": ["science", "biology", "physics", "natural-history"],
+      "core_themes": ["scientific", "nature", "natural world", "research", "discovery", "universe"],
+      "strong_indicators": ["science", "scientific", "nature", "natural", "biology", "physics", "chemistry", "universe", "evolution", "ecosystem"],
+      "structural_patterns": ["science of", "explores the natural", "examines how", "investigation of"],
+      "exclusion_rules": {"science_fiction": ["fictional", "imagined"], "technology": ["engineering", "computers"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "health-psychology": {
+      "name": "Health & Psychology",
+      "description": "Mental and physical health, psychology and wellness",
+      "parent_domain": "non-fiction",
+      "genre_family": ["health", "psychology", "wellness", "mental-health"],
+      "core_themes": ["health", "wellness", "psychology", "mental health", "mind", "body", "healing"],
+      "strong_indicators": ["health", "wellness", "psychology", "mental", "therapy", "healing", "mindfulness", "medical", "brain"],
+      "subject_markers": ["psychological", "psychiatric", "wellness", "medical"],
+      "exclusion_rules": {"self_help": ["motivational only"], "memoir": ["personal story"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "true-crime": {
+      "name": "True Crime",
+      "description": "Nonfiction crime narratives",
+      "parent_domain": "non-fiction",
+      "genre_family": ["true-crime", "crime", "murder"],
+      "core_themes": ["real crime", "true story", "actual events", "murder case", "investigation"],
+      "strong_indicators": ["true crime", "real murder", "actual case", "true story of", "based on true events", "notorious", "serial killer"],
+      "narrative_patterns": ["chronicles the", "investigation into", "story of the", "case of"],
+      "exclusion_rules": {"crime_fiction": ["novel", "fictional", "mystery novel"]},
+      "minimum_confidence": 0.73
+    },
+    
+    "religion-spirituality": {
+      "name": "Religion & Spirituality",
+      "description": "Religious texts and spiritual guides",
+      "parent_domain": "non-fiction",
+      "genre_family": ["religion", "spirituality", "theology", "faith"],
+      "core_themes": ["faith", "spiritual", "religious", "divine", "sacred", "worship"],
+      "strong_indicators": ["religion", "spiritual", "faith", "God", "divine", "sacred", "prayer", "worship", "theology", "biblical"],
+      "subject_markers": ["religious", "spiritual", "theological", "sacred texts"],
+      "exclusion_rules": {"religious_fiction": ["novel", "story"], "philosophy": ["secular philosophy"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "philosophy": {
+      "name": "Philosophy",
+      "description": "Works of and about philosophy",
+      "parent_domain": "non-fiction",
+      "genre_family": ["philosophy", "ethics", "logic"],
+      "core_themes": ["philosophical", "ethics", "existence", "meaning", "truth", "morality"],
+      "strong_indicators": ["philosophy", "philosophical", "ethics", "moral", "metaphysics", "epistemology", "logic", "existential"],
+      "thinker_references": ["Plato", "Aristotle", "Kant", "Nietzsche", "philosophical tradition"],
+      "exclusion_rules": {"self_help": ["practical advice"], "religion": ["faith-based"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "social-science": {
+      "name": "Social Science",
+      "description": "Sociology, anthropology, psychology and related fields",
+      "parent_domain": "non-fiction",
+      "genre_family": ["sociology", "anthropology", "cultural-studies", "social-psychology"],
+      "core_themes": ["society", "culture", "social", "human behavior", "anthropology"],
+      "strong_indicators": ["sociology", "anthropology", "social", "cultural", "society", "community", "human behavior"],
+      "research_markers": ["study of", "examination of", "research into", "explores how society"],
+      "exclusion_rules": {"history": ["historical account"], "psychology_clinical": ["therapy", "mental health"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "politics-current-affairs": {
+      "name": "Politics & Current Affairs",
+      "description": "Political studies and contemporary issues",
+      "parent_domain": "non-fiction",
+      "genre_family": ["politics", "political-science", "current-affairs"],
+      "core_themes": ["political", "government", "democracy", "policy", "election", "power"],
+      "strong_indicators": ["politics", "political", "government", "democracy", "election", "policy", "congress", "parliament", "president"],
+      "topic_markers": ["political analysis", "current affairs", "policy debate"],
+      "exclusion_rules": {"history": ["historical account only"], "memoir": ["personal political memoir"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "technology-engineering": {
+      "name": "Technology & Engineering",
+      "description": "Books about technology, engineering and innovation",
+      "parent_domain": "non-fiction",
+      "genre_family": ["technology", "engineering", "computers", "innovation"],
+      "core_themes": ["technology", "engineering", "innovation", "digital", "computers", "software"],
+      "strong_indicators": ["technology", "engineering", "computer", "software", "digital", "innovation", "tech", "programming"],
+      "subject_markers": ["technological", "engineering", "computational", "digital transformation"],
+      "exclusion_rules": {"science_fiction": ["fictional technology"], "business": ["business strategy"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "literary-experimental": {
+      "name": "Literary & Experimental",
+      "description": "Works with literary intent or experimental form",
+      "parent_domain": "fiction",
+      "genre_family": ["literary-fiction", "experimental-fiction", "avant-garde"],
+      "core_themes": ["literary", "experimental", "avant-garde", "innovative form", "artistic"],
+      "strong_indicators": ["literary fiction", "experimental", "avant-garde", "prose", "narrative innovation", "literary merit"],
+      "style_markers": ["lyrical", "introspective", "character-driven", "literary style", "artistic"],
+      "exclusion_rules": {"genre_fiction": ["genre conventions"], "commercial": ["plot-driven thriller"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "war-military-fiction": {
+      "name": "War & Military Fiction",
+      "description": "Fiction about war and military themes",
+      "parent_domain": "fiction",
+      "genre_family": ["war-fiction", "military-fiction", "combat"],
+      "core_themes": ["war", "battle", "combat", "military", "soldier", "warfare"],
+      "strong_indicators": ["war", "battle", "combat", "military", "soldier", "army", "navy", "marines", "warfare", "battlefield"],
+      "setting_markers": ["World War", "Vietnam", "battlefield", "front lines", "military base"],
+      "character_types": ["soldier", "veteran", "commander", "officer", "troops"],
+      "exclusion_rules": {"military_nonfiction": ["military history"], "action_adventure": ["action without war theme"]},
+      "minimum_confidence": 0.68
+    }
+  }
+}
