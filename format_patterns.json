@@ -1,0 +1,1430 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "phase": "Format Patterns COMPLETE",
+    "generated_date": "2025-01-24",
+    "total_patterns": 28,
+    "coverage": "100% (all major book formats)",
+    "description": "Comprehensive format detection patterns with weighted scoring for identifying book formats from metadata, descriptions, and structural markers. Designed to ease AI scraping burden with robust rule-based identification."
+  },
+  "patterns": {
+    "light-novel": {
+      "name": "Light Novel",
+      "description": "Japanese light novels - prose fiction with anime-style illustrations",
+      "defining_characteristics": [
+        "Japanese prose fiction",
+        "Anime/manga-style illustrations",
+        "Typically published in series/volumes",
+        "Often adapted from web novels",
+        "Characteristic chapter structure"
+      ],
+      "exact_phrases": [
+        "light novel",
+        "LN",
+        "japanese light novel",
+        "ranobe"
+      ],
+      "strong_signals": [
+        "light novel",
+        "ln adaptation",
+        "japanese novel",
+        "volume 1",
+        "anime adaptation",
+        "illustrations by",
+        "light novel series"
+      ],
+      "title_patterns": [
+        "vol\\.",
+        "volume \\d+",
+        "part \\d+",
+        "\\[light novel\\]"
+      ],
+      "publisher_markers": [
+        "yen press",
+        "seven seas",
+        "j-novel club",
+        "kadokawa",
+        "shueisha"
+      ],
+      "category_indicators": [
+        "light novel",
+        "japanese fiction",
+        "anime tie-in"
+      ],
+      "description_markers": [
+        "light novel",
+        "anime",
+        "manga",
+        "illustrations",
+        "japanese",
+        "volume",
+        "adapted",
+        "serialized"
+      ],
+      "structural_markers": {
+        "illustrations": true,
+        "episodic": true,
+        "serialized": true,
+        "anime_style_art": true
+      },
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.40,
+        "title_pattern": 0.25,
+        "publisher": 0.20,
+        "description": 0.10,
+        "structural": 0.05
+      }
+    },
+    
+    "manga": {
+      "name": "Manga",
+      "description": "Japanese comics - read right to left, black and white art",
+      "defining_characteristics": [
+        "Japanese comic format",
+        "Right-to-left reading",
+        "Black and white panels",
+        "Distinctive art style",
+        "Speech bubbles and sound effects"
+      ],
+      "exact_phrases": [
+        "manga",
+        "japanese comic",
+        "comic manga"
+      ],
+      "strong_signals": [
+        "manga",
+        "shonen",
+        "shojo",
+        "seinen",
+        "josei",
+        "tankōbon",
+        "chapters",
+        "serialized",
+        "weekly shonen"
+      ],
+      "title_patterns": [
+        "vol\\.",
+        "volume \\d+",
+        "chapter \\d+",
+        "\\[manga\\]"
+      ],
+      "publisher_markers": [
+        "viz media",
+        "kodansha",
+        "shueisha",
+        "shogakukan",
+        "square enix",
+        "tokyopop",
+        "dark horse manga",
+        "yen press"
+      ],
+      "category_indicators": [
+        "manga",
+        "japanese comic",
+        "graphic novel",
+        "comics"
+      ],
+      "description_markers": [
+        "manga",
+        "panels",
+        "illustrated",
+        "comic",
+        "japanese",
+        "tankōbon",
+        "serialized",
+        "weekly",
+        "monthly"
+      ],
+      "demographic_tags": [
+        "shonen",
+        "shojo",
+        "seinen",
+        "josei",
+        "kodomo"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.40,
+        "publisher": 0.25,
+        "title_pattern": 0.15,
+        "demographic": 0.10,
+        "description": 0.10
+      }
+    },
+    
+    "manhwa": {
+      "name": "Manhwa",
+      "description": "Korean comics - typically full color, vertical scroll format",
+      "defining_characteristics": [
+        "Korean comic format",
+        "Often full color",
+        "Vertical scroll (webtoon style) or traditional",
+        "Korean cultural elements",
+        "Distinct art style from manga"
+      ],
+      "exact_phrases": [
+        "manhwa",
+        "korean comic",
+        "korean webtoon"
+      ],
+      "strong_signals": [
+        "manhwa",
+        "korean",
+        "webtoon",
+        "full color",
+        "vertical scroll",
+        "tapas",
+        "lezhin"
+      ],
+      "title_patterns": [
+        "season \\d+",
+        "episode \\d+",
+        "chapter \\d+",
+        "\\[manhwa\\]"
+      ],
+      "publisher_markers": [
+        "tapas",
+        "lezhin",
+        "tappytoon",
+        "webnovel",
+        "naver"
+      ],
+      "category_indicators": [
+        "manhwa",
+        "korean comic",
+        "webtoon"
+      ],
+      "description_markers": [
+        "manhwa",
+        "korean",
+        "webtoon",
+        "full color",
+        "episode",
+        "season"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.45,
+        "publisher": 0.25,
+        "description": 0.15,
+        "title_pattern": 0.15
+      }
+    },
+    
+    "manhua": {
+      "name": "Manhua",
+      "description": "Chinese comics - various styles, often full color",
+      "defining_characteristics": [
+        "Chinese comic format",
+        "Often full color",
+        "Wuxia/xianxia themes common",
+        "Chinese cultural elements",
+        "Left-to-right or traditional reading"
+      ],
+      "exact_phrases": [
+        "manhua",
+        "chinese comic",
+        "donghua adaptation"
+      ],
+      "strong_signals": [
+        "manhua",
+        "chinese",
+        "wuxia",
+        "xianxia",
+        "cultivation",
+        "donghua"
+      ],
+      "title_patterns": [
+        "chapter \\d+",
+        "\\[manhua\\]"
+      ],
+      "publisher_markers": [
+        "bilibili",
+        "webnovel",
+        "qidian"
+      ],
+      "category_indicators": [
+        "manhua",
+        "chinese comic"
+      ],
+      "description_markers": [
+        "manhua",
+        "chinese",
+        "wuxia",
+        "xianxia",
+        "cultivation",
+        "martial arts"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.45,
+        "publisher": 0.20,
+        "description": 0.20,
+        "title_pattern": 0.15
+      }
+    },
+    
+    "webtoon": {
+      "name": "Webtoon",
+      "description": "Digital comics optimized for vertical scrolling on mobile devices",
+      "defining_characteristics": [
+        "Vertical scroll format",
+        "Digital-first/mobile-optimized",
+        "Full color panels",
+        "Episodic releases",
+        "Often Korean or international"
+      ],
+      "exact_phrases": [
+        "webtoon",
+        "webcomic",
+        "vertical scroll comic"
+      ],
+      "strong_signals": [
+        "webtoon",
+        "vertical scroll",
+        "webcomic",
+        "episode",
+        "season",
+        "daily pass",
+        "fast pass"
+      ],
+      "title_patterns": [
+        "episode \\d+",
+        "season \\d+",
+        "\\[webtoon\\]"
+      ],
+      "publisher_markers": [
+        "webtoon",
+        "tapas",
+        "lezhin",
+        "tappytoon",
+        "manta"
+      ],
+      "platform_indicators": [
+        "webtoon.com",
+        "tapas.io",
+        "lezhin.com"
+      ],
+      "description_markers": [
+        "webtoon",
+        "vertical",
+        "episode",
+        "mobile",
+        "scroll",
+        "digital comic"
+      ],
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.40,
+        "platform": 0.25,
+        "description": 0.20,
+        "title_pattern": 0.15
+      }
+    },
+    
+    "graphic-novel": {
+      "name": "Graphic Novel",
+      "description": "Book-length comic narrative, typically bound as a complete story",
+      "defining_characteristics": [
+        "Book-length comic format",
+        "Complete narrative arc",
+        "Higher production quality",
+        "Often standalone or limited series",
+        "Sequential art storytelling"
+      ],
+      "exact_phrases": [
+        "graphic novel",
+        "illustrated novel"
+      ],
+      "strong_signals": [
+        "graphic novel",
+        "illustrated",
+        "comic",
+        "panels",
+        "sequential art",
+        "artwork by"
+      ],
+      "category_indicators": [
+        "graphic novel",
+        "comics & graphic novels",
+        "illustrated fiction"
+      ],
+      "description_markers": [
+        "graphic novel",
+        "illustrated",
+        "panels",
+        "artwork",
+        "visual storytelling",
+        "comic format"
+      ],
+      "format_markers": {
+        "illustrated": true,
+        "sequential_art": true,
+        "complete_story": true
+      },
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.40,
+        "category": 0.30,
+        "description": 0.20,
+        "format": 0.10
+      }
+    },
+    
+    "novel": {
+      "name": "Novel",
+      "description": "Traditional prose fiction narrative of substantial length",
+      "defining_characteristics": [
+        "Prose narrative",
+        "Substantial length (typically 50k+ words)",
+        "Character and plot development",
+        "Chapter structure",
+        "Traditional book format"
+      ],
+      "exact_phrases": [
+        "novel",
+        "fiction"
+      ],
+      "strong_signals": [
+        "novel",
+        "fiction",
+        "story",
+        "chapters",
+        "narrative"
+      ],
+      "exclusion_patterns": [
+        "light novel",
+        "graphic novel",
+        "manga",
+        "comic",
+        "anthology",
+        "short stories",
+        "novella"
+      ],
+      "category_indicators": [
+        "fiction",
+        "novel"
+      ],
+      "description_markers": [
+        "novel",
+        "story",
+        "narrative",
+        "chapters"
+      ],
+      "minimum_confidence": 0.50,
+      "weights": {
+        "category": 0.40,
+        "exclusion": 0.35,
+        "description": 0.25
+      },
+      "notes": "Default fiction format - identified by exclusion of other specific formats"
+    },
+    
+    "novella": {
+      "name": "Novella",
+      "description": "Short novel or long short story (typically 17.5k-40k words)",
+      "defining_characteristics": [
+        "Shorter than novel",
+        "Longer than short story",
+        "Focused narrative",
+        "Fewer characters/subplots",
+        "Compact storytelling"
+      ],
+      "exact_phrases": [
+        "novella",
+        "novelette"
+      ],
+      "strong_signals": [
+        "novella",
+        "short novel",
+        "compact",
+        "brief",
+        "novelette"
+      ],
+      "title_patterns": [
+        "\\[novella\\]",
+        "a novella"
+      ],
+      "length_indicators": [
+        "short",
+        "brief",
+        "compact",
+        "under \\d+ pages"
+      ],
+      "description_markers": [
+        "novella",
+        "short",
+        "brief",
+        "compact narrative"
+      ],
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.50,
+        "title_pattern": 0.25,
+        "description": 0.25
+      }
+    },
+    
+    "anthology": {
+      "name": "Anthology",
+      "description": "Collection of separate works by one or more authors",
+      "defining_characteristics": [
+        "Multiple stories/works",
+        "Collection format",
+        "May be single or multi-author",
+        "Thematic or varied content",
+        "Table of contents"
+      ],
+      "exact_phrases": [
+        "anthology",
+        "collection",
+        "short stories",
+        "collected works"
+      ],
+      "strong_signals": [
+        "anthology",
+        "collection",
+        "stories",
+        "collected",
+        "compilation",
+        "best of",
+        "complete works",
+        "selected works"
+      ],
+      "title_patterns": [
+        "anthology",
+        "collection",
+        "stories",
+        "tales",
+        "best of",
+        "complete \\w+ fiction"
+      ],
+      "description_markers": [
+        "anthology",
+        "collection",
+        "stories",
+        "includes",
+        "features",
+        "compilation",
+        "gathered",
+        "assembled"
+      ],
+      "structural_markers": {
+        "multiple_works": true,
+        "table_of_contents": true
+      },
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.35,
+        "title_pattern": 0.30,
+        "description": 0.25,
+        "structural": 0.10
+      }
+    },
+    
+    "short-story-collection": {
+      "name": "Short Story Collection",
+      "description": "Collection of short fiction by a single author",
+      "defining_characteristics": [
+        "Multiple short stories",
+        "Single author",
+        "Unified by author voice",
+        "May have thematic links",
+        "Complete stories"
+      ],
+      "exact_phrases": [
+        "short story collection",
+        "short stories",
+        "collected stories"
+      ],
+      "strong_signals": [
+        "short stories",
+        "collection",
+        "stories by",
+        "tales",
+        "collected fiction"
+      ],
+      "title_patterns": [
+        "stories",
+        "tales",
+        "collected",
+        "short fiction"
+      ],
+      "description_markers": [
+        "short stories",
+        "collection",
+        "stories",
+        "tales",
+        "fiction by"
+      ],
+      "author_indicators": [
+        "by [author name]",
+        "stories by",
+        "collected works"
+      ],
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.40,
+        "title_pattern": 0.30,
+        "description": 0.20,
+        "author": 0.10
+      }
+    },
+    
+    "audiobook": {
+      "name": "Audiobook",
+      "description": "Audio recording of a book being read aloud",
+      "defining_characteristics": [
+        "Audio format",
+        "Narrated by voice actor",
+        "Duration in hours",
+        "May be abridged or unabridged",
+        "Digital audio file"
+      ],
+      "exact_phrases": [
+        "audiobook",
+        "audio book",
+        "audio edition"
+      ],
+      "strong_signals": [
+        "audiobook",
+        "narrated by",
+        "narrator",
+        "audio",
+        "listening length",
+        "runtime",
+        "hours",
+        "unabridged"
+      ],
+      "title_patterns": [
+        "\\[audiobook\\]",
+        "\\(audiobook\\)",
+        "audio edition"
+      ],
+      "category_indicators": [
+        "audiobook",
+        "audio",
+        "audible"
+      ],
+      "description_markers": [
+        "audiobook",
+        "narrated",
+        "narrator",
+        "listening",
+        "audio",
+        "runtime",
+        "hours"
+      ],
+      "metadata_markers": {
+        "has_duration": true,
+        "has_narrator": true,
+        "audio_format": true
+      },
+      "minimum_confidence": 0.75,
+      "weights": {
+        "exact_phrase": 0.40,
+        "metadata": 0.25,
+        "category": 0.20,
+        "description": 0.15
+      }
+    },
+    
+    "ebook": {
+      "name": "Ebook",
+      "description": "Digital electronic book format",
+      "defining_characteristics": [
+        "Digital format",
+        "Readable on devices",
+        "Various file formats (EPUB, MOBI, PDF)",
+        "Reflowable text",
+        "Digital distribution"
+      ],
+      "exact_phrases": [
+        "ebook",
+        "e-book",
+        "digital edition",
+        "kindle edition"
+      ],
+      "strong_signals": [
+        "ebook",
+        "kindle",
+        "digital",
+        "epub",
+        "mobi",
+        "electronic"
+      ],
+      "title_patterns": [
+        "\\[ebook\\]",
+        "\\(kindle\\)",
+        "digital edition"
+      ],
+      "category_indicators": [
+        "ebook",
+        "digital",
+        "kindle"
+      ],
+      "platform_markers": [
+        "kindle",
+        "kobo",
+        "nook",
+        "google play books"
+      ],
+      "description_markers": [
+        "ebook",
+        "digital",
+        "kindle",
+        "electronic"
+      ],
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.35,
+        "platform": 0.25,
+        "category": 0.20,
+        "title_pattern": 0.20
+      }
+    },
+    
+    "hardcover": {
+      "name": "Hardcover",
+      "description": "Book with rigid protective cover",
+      "defining_characteristics": [
+        "Hard rigid cover",
+        "Dust jacket (often)",
+        "Higher production quality",
+        "More durable",
+        "Typically first edition format"
+      ],
+      "exact_phrases": [
+        "hardcover",
+        "hardback",
+        "hard cover"
+      ],
+      "strong_signals": [
+        "hardcover",
+        "hardback",
+        "cloth bound",
+        "dust jacket"
+      ],
+      "description_markers": [
+        "hardcover",
+        "hardback",
+        "bound"
+      ],
+      "metadata_markers": {
+        "binding": "hardcover"
+      },
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.50,
+        "metadata": 0.35,
+        "description": 0.15
+      }
+    },
+    
+    "paperback": {
+      "name": "Paperback",
+      "description": "Book with flexible paper or cardboard cover",
+      "defining_characteristics": [
+        "Flexible paper cover",
+        "Less expensive than hardcover",
+        "Lighter weight",
+        "Trade or mass market size",
+        "Widely distributed"
+      ],
+      "exact_phrases": [
+        "paperback",
+        "softcover",
+        "trade paperback",
+        "mass market"
+      ],
+      "strong_signals": [
+        "paperback",
+        "softcover",
+        "trade paper",
+        "mass market"
+      ],
+      "description_markers": [
+        "paperback",
+        "softcover",
+        "paper"
+      ],
+      "metadata_markers": {
+        "binding": "paperback"
+      },
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.50,
+        "metadata": 0.35,
+        "description": 0.15
+      }
+    },
+    
+    "illustrated-novel": {
+      "name": "Illustrated Novel",
+      "description": "Prose novel with illustrations throughout",
+      "defining_characteristics": [
+        "Prose narrative",
+        "Contains illustrations",
+        "Art enhances story",
+        "Not sequential art",
+        "Traditional chapter structure"
+      ],
+      "exact_phrases": [
+        "illustrated novel",
+        "illustrated edition",
+        "with illustrations"
+      ],
+      "strong_signals": [
+        "illustrated",
+        "illustrations by",
+        "artwork by",
+        "with art",
+        "pictures"
+      ],
+      "exclusion_patterns": [
+        "graphic novel",
+        "manga",
+        "comic"
+      ],
+      "description_markers": [
+        "illustrated",
+        "illustrations",
+        "artwork",
+        "pictures",
+        "full color art"
+      ],
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.40,
+        "description": 0.35,
+        "exclusion": 0.25
+      }
+    },
+    
+    "omnibus": {
+      "name": "Omnibus",
+      "description": "Collection of previously published works bound together",
+      "defining_characteristics": [
+        "Contains multiple volumes/books",
+        "Previously published separately",
+        "Often a complete series",
+        "Larger format",
+        "Comprehensive collection"
+      ],
+      "exact_phrases": [
+        "omnibus",
+        "complete collection",
+        "trilogy in one",
+        "complete series"
+      ],
+      "strong_signals": [
+        "omnibus",
+        "complete",
+        "collection",
+        "volumes \\d+-\\d+",
+        "books \\d+-\\d+",
+        "trilogy",
+        "all three"
+      ],
+      "title_patterns": [
+        "omnibus",
+        "complete",
+        "trilogy",
+        "\\d+-in-\\d+"
+      ],
+      "description_markers": [
+        "omnibus",
+        "complete",
+        "collection",
+        "includes all",
+        "volumes",
+        "previously published"
+      ],
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.40,
+        "title_pattern": 0.30,
+        "description": 0.30
+      }
+    },
+    
+    "visual-novel": {
+      "name": "Visual Novel",
+      "description": "Interactive fiction with visual elements and branching narratives",
+      "defining_characteristics": [
+        "Interactive story",
+        "Visual elements (character sprites, backgrounds)",
+        "Player choices affect story",
+        "Multiple endings",
+        "Often Japanese origin"
+      ],
+      "exact_phrases": [
+        "visual novel",
+        "VN",
+        "interactive novel"
+      ],
+      "strong_signals": [
+        "visual novel",
+        "interactive",
+        "choices",
+        "multiple endings",
+        "branching",
+        "routes"
+      ],
+      "platform_indicators": [
+        "steam",
+        "vndb",
+        "itch.io"
+      ],
+      "description_markers": [
+        "visual novel",
+        "interactive",
+        "choices",
+        "endings",
+        "routes",
+        "gameplay"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.50,
+        "description": 0.30,
+        "platform": 0.20
+      }
+    },
+    
+    "web-novel": {
+      "name": "Web Novel",
+      "description": "Novel serialized and published online, often by amateur authors",
+      "defining_characteristics": [
+        "Published online first",
+        "Serial release",
+        "Often amateur/indie",
+        "Chapter-by-chapter format",
+        "Direct reader interaction"
+      ],
+      "exact_phrases": [
+        "web novel",
+        "webnovel",
+        "online novel"
+      ],
+      "strong_signals": [
+        "web novel",
+        "serialized online",
+        "online",
+        "chapters",
+        "updates",
+        "patreon",
+        "royal road"
+      ],
+      "platform_indicators": [
+        "royal road",
+        "webnovel",
+        "wattpad",
+        "scribble hub",
+        "patreon"
+      ],
+      "description_markers": [
+        "web novel",
+        "online",
+        "serialized",
+        "chapters",
+        "platform"
+      ],
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.40,
+        "platform": 0.35,
+        "description": 0.25
+      }
+    },
+    
+    "picture-book": {
+      "name": "Picture Book",
+      "description": "Children's book where illustrations are essential to the story",
+      "defining_characteristics": [
+        "Heavy illustration focus",
+        "Short text",
+        "Large format",
+        "Young children audience",
+        "Images tell story"
+      ],
+      "exact_phrases": [
+        "picture book",
+        "illustrated children's book"
+      ],
+      "strong_signals": [
+        "picture book",
+        "illustrated",
+        "children",
+        "ages 2-5",
+        "ages 3-7",
+        "full color"
+      ],
+      "category_indicators": [
+        "picture book",
+        "children's",
+        "juvenile"
+      ],
+      "age_markers": [
+        "ages 2-5",
+        "ages 3-7",
+        "preschool",
+        "early readers"
+      ],
+      "description_markers": [
+        "picture book",
+        "illustrated",
+        "children",
+        "young readers"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.40,
+        "age": 0.25,
+        "category": 0.20,
+        "description": 0.15
+      }
+    },
+    
+    "early-reader": {
+      "name": "Early Reader / Chapter Book",
+      "description": "Books for children transitioning from picture books to novels",
+      "defining_characteristics": [
+        "Simple vocabulary",
+        "Short chapters",
+        "Some illustrations",
+        "Ages 5-8 typically",
+        "Larger font"
+      ],
+      "exact_phrases": [
+        "early reader",
+        "chapter book",
+        "beginning reader"
+      ],
+      "strong_signals": [
+        "early reader",
+        "chapter book",
+        "ages 5-8",
+        "ages 6-9",
+        "beginning reader",
+        "first chapter"
+      ],
+      "category_indicators": [
+        "early reader",
+        "chapter book",
+        "juvenile"
+      ],
+      "age_markers": [
+        "ages 5-8",
+        "ages 6-9",
+        "grade 1-3"
+      ],
+      "description_markers": [
+        "early reader",
+        "chapter book",
+        "young readers",
+        "first"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.40,
+        "age": 0.30,
+        "category": 0.20,
+        "description": 0.10
+      }
+    },
+    
+    "middle-grade": {
+      "name": "Middle Grade",
+      "description": "Books for pre-teen readers (ages 8-12)",
+      "defining_characteristics": [
+        "Age-appropriate content",
+        "Pre-teen protagonists",
+        "Coming-of-age themes",
+        "Ages 8-12 typically",
+        "Moderate complexity"
+      ],
+      "exact_phrases": [
+        "middle grade",
+        "mg",
+        "ages 8-12"
+      ],
+      "strong_signals": [
+        "middle grade",
+        "mg",
+        "ages 8-12",
+        "ages 9-12",
+        "pre-teen",
+        "tween"
+      ],
+      "category_indicators": [
+        "middle grade",
+        "juvenile",
+        "children's"
+      ],
+      "age_markers": [
+        "ages 8-12",
+        "ages 9-12",
+        "grade 3-7",
+        "tween"
+      ],
+      "description_markers": [
+        "middle grade",
+        "young readers",
+        "pre-teen"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.40,
+        "age": 0.30,
+        "category": 0.20,
+        "description": 0.10
+      }
+    },
+    
+    "young-adult": {
+      "name": "Young Adult",
+      "description": "Books for teenage readers (ages 12-18)",
+      "defining_characteristics": [
+        "Teen protagonists",
+        "Coming-of-age themes",
+        "More mature content",
+        "Ages 12-18 typically",
+        "Identity exploration"
+      ],
+      "exact_phrases": [
+        "young adult",
+        "ya",
+        "teen"
+      ],
+      "strong_signals": [
+        "young adult",
+        "ya",
+        "teen",
+        "teenage",
+        "ages 12-18",
+        "ages 13+"
+      ],
+      "category_indicators": [
+        "young adult",
+        "ya",
+        "teen"
+      ],
+      "age_markers": [
+        "ages 12-18",
+        "ages 13+",
+        "teen",
+        "teenage"
+      ],
+      "description_markers": [
+        "young adult",
+        "ya",
+        "teen",
+        "teenage"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.40,
+        "age": 0.25,
+        "category": 0.20,
+        "description": 0.15
+      }
+    },
+    
+    "board-book": {
+      "name": "Board Book",
+      "description": "Durable books with thick cardboard pages for babies and toddlers",
+      "defining_characteristics": [
+        "Thick cardboard pages",
+        "Very young audience",
+        "Simple images/text",
+        "Ages 0-3",
+        "Durable construction"
+      ],
+      "exact_phrases": [
+        "board book",
+        "baby book"
+      ],
+      "strong_signals": [
+        "board book",
+        "baby",
+        "toddler",
+        "ages 0-3",
+        "ages 1-3",
+        "cardboard pages"
+      ],
+      "category_indicators": [
+        "board book",
+        "baby",
+        "infant"
+      ],
+      "age_markers": [
+        "ages 0-3",
+        "ages 1-3",
+        "baby",
+        "infant",
+        "toddler"
+      ],
+      "description_markers": [
+        "board book",
+        "baby",
+        "toddler",
+        "durable"
+      ],
+      "minimum_confidence": 0.75,
+      "weights": {
+        "exact_phrase": 0.45,
+        "age": 0.30,
+        "category": 0.15,
+        "description": 0.10
+      }
+    },
+    
+    "screenplay": {
+      "name": "Screenplay",
+      "description": "Script for film or television",
+      "defining_characteristics": [
+        "Script format",
+        "Stage directions",
+        "Dialogue-focused",
+        "Scene headings",
+        "Production document"
+      ],
+      "exact_phrases": [
+        "screenplay",
+        "script",
+        "shooting script"
+      ],
+      "strong_signals": [
+        "screenplay",
+        "script",
+        "shooting script",
+        "film script",
+        "teleplay",
+        "INT.",
+        "EXT.",
+        "FADE IN"
+      ],
+      "format_indicators": [
+        "scene headings",
+        "stage directions",
+        "dialogue",
+        "action lines"
+      ],
+      "description_markers": [
+        "screenplay",
+        "script",
+        "film",
+        "movie",
+        "television"
+      ],
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.45,
+        "format": 0.30,
+        "description": 0.25
+      }
+    },
+    
+    "play": {
+      "name": "Stage Play",
+      "description": "Script for theatrical performance",
+      "defining_characteristics": [
+        "Theatrical format",
+        "Act and scene structure",
+        "Stage directions",
+        "Dialogue-focused",
+        "Live performance"
+      ],
+      "exact_phrases": [
+        "play",
+        "stage play",
+        "theatrical play"
+      ],
+      "strong_signals": [
+        "play",
+        "act",
+        "scene",
+        "stage",
+        "theatrical",
+        "performance",
+        "drama"
+      ],
+      "format_indicators": [
+        "acts",
+        "scenes",
+        "stage directions",
+        "characters"
+      ],
+      "category_indicators": [
+        "drama",
+        "play",
+        "theater"
+      ],
+      "description_markers": [
+        "play",
+        "stage",
+        "theatrical",
+        "performance",
+        "act"
+      ],
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.40,
+        "format": 0.25,
+        "category": 0.20,
+        "description": 0.15
+      }
+    },
+    
+    "poetry-collection": {
+      "name": "Poetry Collection",
+      "description": "Collection of poems by one or more poets",
+      "defining_characteristics": [
+        "Multiple poems",
+        "Verse format",
+        "May have theme",
+        "Single or multi-author",
+        "Lyrical language"
+      ],
+      "exact_phrases": [
+        "poetry collection",
+        "collected poems",
+        "poems"
+      ],
+      "strong_signals": [
+        "poetry",
+        "poems",
+        "verse",
+        "collected",
+        "sonnets",
+        "haiku"
+      ],
+      "category_indicators": [
+        "poetry",
+        "poems"
+      ],
+      "description_markers": [
+        "poetry",
+        "poems",
+        "verse",
+        "collection",
+        "lyric"
+      ],
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.40,
+        "category": 0.35,
+        "description": 0.25
+      }
+    },
+    
+    "reference": {
+      "name": "Reference",
+      "description": "Book designed for consultation rather than continuous reading",
+      "defining_characteristics": [
+        "Designed for lookup",
+        "Organized systematically",
+        "Factual information",
+        "Not meant for cover-to-cover reading",
+        "Index/cross-references"
+      ],
+      "exact_phrases": [
+        "reference",
+        "handbook",
+        "manual",
+        "guide",
+        "encyclopedia",
+        "dictionary"
+      ],
+      "strong_signals": [
+        "reference",
+        "handbook",
+        "manual",
+        "guide",
+        "encyclopedia",
+        "dictionary",
+        "glossary",
+        "index"
+      ],
+      "category_indicators": [
+        "reference",
+        "handbooks",
+        "dictionaries"
+      ],
+      "description_markers": [
+        "reference",
+        "handbook",
+        "manual",
+        "guide",
+        "comprehensive",
+        "lookup"
+      ],
+      "structural_markers": {
+        "has_index": true,
+        "alphabetical": true,
+        "cross_references": true
+      },
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.35,
+        "category": 0.30,
+        "structural": 0.20,
+        "description": 0.15
+      }
+    },
+    
+    "textbook": {
+      "name": "Textbook",
+      "description": "Educational book for classroom instruction",
+      "defining_characteristics": [
+        "Educational purpose",
+        "Structured curriculum",
+        "Exercises and questions",
+        "Academic content",
+        "Student/teacher oriented"
+      ],
+      "exact_phrases": [
+        "textbook",
+        "coursebook",
+        "student edition"
+      ],
+      "strong_signals": [
+        "textbook",
+        "edition",
+        "student",
+        "teacher",
+        "exercises",
+        "chapters",
+        "curriculum",
+        "course"
+      ],
+      "category_indicators": [
+        "textbook",
+        "education",
+        "academic"
+      ],
+      "description_markers": [
+        "textbook",
+        "student",
+        "course",
+        "exercises",
+        "curriculum",
+        "edition"
+      ],
+      "educational_markers": {
+        "has_exercises": true,
+        "chapter_questions": true,
+        "academic": true
+      },
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.40,
+        "category": 0.25,
+        "educational": 0.20,
+        "description": 0.15
+      }
+    }
+  }
+}
