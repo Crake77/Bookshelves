@@ -119,3 +119,153 @@ When I say “commit” or “push”, stage changes, commit with a concise mess
 - Warp uses Windows PowerShell commands
 - Always pull latest changes before starting work
 - Commit and push completed features for the other agent to access
+
+---
+
+# Session End Protocol for AI Agents
+
+## Before Ending Any Session
+
+Perform these steps to maintain documentation hygiene and ensure smooth handoffs:
+
+### 1. Review Documentation Master Index
+
+**Read** `DOCUMENTATION_MASTER_INDEX.md` to:
+- Get high-level overview of all active documentation
+- Understand what docs exist and their purposes
+- Identify any docs you created/modified during this session
+
+**Note**: Do NOT read every file in the index, just review the index itself for awareness.
+
+### 2. Propose Documentation Archive
+
+If you believe any documentation should be archived:
+
+**Ask the user**:
+> "I recommend archiving the following files as they appear to be outdated/completed:
+> - [file1] - Reason
+> - [file2] - Reason
+> 
+> Would you like me to add these to `archive-old-docs.js` and run the archive?"
+
+**Criteria for archiving**:
+- ✅ Old session handoffs (superseded by newer sessions)
+- ✅ Completed batch work documentation
+- ✅ Merged/consolidated files (e.g., cross-tag batches merged into v1)
+- ✅ Completed workflow fixes
+- ✅ Duplicate/redundant documentation
+- ❌ Active pattern files
+- ❌ Current reference documentation
+- ❌ Guides still in use
+
+**If user approves archiving**:
+1. Update `archive-old-docs.js` to include the files
+2. Run `node archive-old-docs.js --dry-run` to preview
+3. Run `node archive-old-docs.js` to execute archive
+4. Update `DOCUMENTATION_MASTER_INDEX.md` to remove archived entries
+5. Commit changes with message: `chore: archive completed documentation`
+
+### 3. Review/Update Documentation Index
+
+If you created new documentation during this session:
+
+**Ask the user**:
+> "I created the following new documentation:
+> - [file1] - Purpose
+> - [file2] - Purpose
+> 
+> Should I add these to DOCUMENTATION_MASTER_INDEX.md?"
+
+**If user approves**:
+1. Add entries to appropriate section in `DOCUMENTATION_MASTER_INDEX.md`
+2. Include file size, purpose, and brief description
+3. Update "Last Updated" date at top of index
+4. Commit changes
+
+### 4. Create/Update Handoff Document
+
+**Ask the user**:
+> "Should I create/update a handoff document for the next agent session?"
+
+**If user approves**:
+- Update `NEXT_AGENT_INSTRUCTIONS.md` with:
+  - Summary of work completed this session
+  - Current priorities and next steps
+  - Any blockers or issues to be aware of
+  - Links to relevant new documentation
+  - Token budget used this session
+
+### 5. Final Commit Check
+
+Ensure all work is committed:
+```powershell
+git status                    # Check for uncommitted changes
+git add .                     # Stage all changes
+git commit -m "<summary>"     # Commit with descriptive message
+git push                      # Push to remote
+```
+
+### 6. Session Summary
+
+Provide brief summary:
+> "✅ Session Complete:
+> - Work: [brief summary]
+> - Commits: [count] commits pushed
+> - Documentation: [updated/created]
+> - Archive: [files archived if any]
+> - Token usage: [X/200k]
+> - Next: See NEXT_AGENT_INSTRUCTIONS.md for handoff"
+
+## Example Session End Flow
+
+```
+AI: "I've completed the age/audience pattern work. Before ending:
+
+1. I've reviewed DOCUMENTATION_MASTER_INDEX.md and see we have:
+   - 7 active pattern files
+   - ~40 documentation files
+   - Several old session handoffs
+
+2. I recommend archiving these old session files:
+   - SESSION_2_HANDOFF.md - Superseded by current session
+   - SESSION_3_HANDOFF.md - Superseded by current session
+   - SESSION_HANDOFF_PHASE5.md - Phase 5 is complete
+   
+   Would you like me to archive these?
+
+3. I created these new files this session:
+   - age_audience_patterns.json (26 KB)
+   - AGE_AUDIENCE_PATTERNS_SUMMARY.md (19 KB)
+   - archive-old-docs.js (archive script)
+   - DOCUMENTATION_MASTER_INDEX.md (this index)
+   
+   Should I add these to the master index?
+
+4. Should I update NEXT_AGENT_INSTRUCTIONS.md for the next session?"
+```
+
+## Archive Script Usage
+
+The archive script is located at `archive-old-docs.js`:
+
+```powershell
+# Preview what will be archived (safe)
+node archive-old-docs.js --dry-run
+
+# Execute the archive
+node archive-old-docs.js
+```
+
+Archived files are moved to:
+- `archives/sessions/` - Old session handoffs
+- `archives/batch_work/` - Completed batch work
+- `archives/cross_tag_batches/` - Merged batch files
+- `archives/completed_workflows/` - Finished workflows
+- `archives/old_handoffs/` - Superseded handoffs
+- `archives/deprecated/` - Redundant files
+
+A manifest is created at `archives/ARCHIVE_MANIFEST.json` with details of all archived files.
+
+---
+
+**Key Principle**: Keep documentation lean and organized. Archive completed work, maintain clear index, ensure smooth handoffs.
