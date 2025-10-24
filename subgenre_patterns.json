@@ -1,0 +1,683 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "phase": "1 of 3",
+    "generated_date": "2025-01-24",
+    "total_patterns": 56,
+    "coverage": "11% (56/500 estimated subgenres)",
+    "description": "Phase 1: Top 56 most common subgenre patterns for specific subgenre classification"
+  },
+  "patterns": {
+    "epic-fantasy": {
+      "name": "Epic Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["large cast of characters", "multiple storylines", "world-spanning conflict", "detailed world-building", "high stakes"],
+      "exact_phrases": ["epic fantasy", "epic tale", "world-spanning", "epic saga"],
+      "scale_indicators": ["kingdoms", "empires", "realms", "continents", "armies", "wars", "battles", "fate of the world"],
+      "strong_signals": ["epic", "saga", "grand scale", "kingdoms", "empire", "quest"],
+      "minimum_confidence": 0.60
+    },
+    
+    "urban-fantasy": {
+      "name": "Urban Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["modern city setting", "magic in contemporary world", "hidden magical society"],
+      "exact_phrases": ["urban fantasy", "city magic", "modern magic"],
+      "setting_markers": ["city", "urban", "modern world", "contemporary", "streets"],
+      "strong_signals": ["urban fantasy", "magic in the city", "hidden world", "modern magic"],
+      "minimum_confidence": 0.60
+    },
+    
+    "dark-fantasy": {
+      "name": "Dark Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["dark tone", "grim atmosphere", "morally gray characters", "horror elements"],
+      "exact_phrases": ["dark fantasy", "grim fantasy", "grimdark"],
+      "tone_markers": ["dark", "grim", "brutal", "bleak", "violent", "morally gray"],
+      "strong_signals": ["dark fantasy", "grimdark", "brutal", "dark magic"],
+      "minimum_confidence": 0.60
+    },
+    
+    "high-fantasy": {
+      "name": "High Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["completely invented world", "no connection to real world", "extensive world-building"],
+      "exact_phrases": ["high fantasy", "secondary world", "invented world"],
+      "world_markers": ["fantasy world", "magical realm", "invented world", "otherworld", "alternate realm"],
+      "strong_signals": ["high fantasy", "fantasy world", "magical realm", "invented world"],
+      "minimum_confidence": 0.58
+    },
+    
+    "sword-and-sorcery": {
+      "name": "Sword and Sorcery",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["action-focused", "personal scale adventures", "warrior protagonists", "magic and combat"],
+      "exact_phrases": ["sword and sorcery", "swords and magic"],
+      "action_markers": ["sword", "combat", "warrior", "barbarian", "fighting", "adventure"],
+      "strong_signals": ["sword and sorcery", "barbarian", "warrior", "sword fights"],
+      "minimum_confidence": 0.62
+    },
+    
+    "contemporary-romance": {
+      "name": "Contemporary Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["modern setting", "present-day romance", "realistic contemporary relationships"],
+      "exact_phrases": ["contemporary romance", "modern romance", "present-day love"],
+      "setting_markers": ["modern", "contemporary", "today", "present day", "current"],
+      "strong_signals": ["contemporary romance", "modern romance", "present day"],
+      "minimum_confidence": 0.58
+    },
+    
+    "historical-romance": {
+      "name": "Historical Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["historical period setting", "romance in past era", "period details"],
+      "exact_phrases": ["historical romance", "period romance", "Regency romance"],
+      "time_markers": ["Regency", "Victorian", "medieval", "historical", "19th century", "period"],
+      "strong_signals": ["historical romance", "Regency", "Victorian", "period romance"],
+      "minimum_confidence": 0.62
+    },
+    
+    "paranormal-romance": {
+      "name": "Paranormal Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["supernatural elements", "romance with paranormal beings", "vampire/werewolf romance"],
+      "exact_phrases": ["paranormal romance", "vampire romance", "werewolf romance"],
+      "creature_markers": ["vampire", "werewolf", "shapeshifter", "witch", "paranormal", "supernatural"],
+      "strong_signals": ["paranormal romance", "vampire", "werewolf", "supernatural romance"],
+      "minimum_confidence": 0.62
+    },
+    
+    "romantic-suspense": {
+      "name": "Romantic Suspense",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["romance combined with suspense", "danger and love story", "thriller elements with romance"],
+      "exact_phrases": ["romantic suspense", "romance and danger", "suspenseful romance"],
+      "dual_elements": ["romance", "suspense", "danger", "thriller", "mystery"],
+      "strong_signals": ["romantic suspense", "romance and danger", "suspense", "love and danger"],
+      "minimum_confidence": 0.60
+    },
+    
+    "space-opera": {
+      "name": "Space Opera",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["epic space adventures", "galactic scale", "space battles", "operatic scope"],
+      "exact_phrases": ["space opera", "galactic empire", "space saga"],
+      "scale_markers": ["galactic", "space", "empire", "fleet", "star", "planets", "universe"],
+      "strong_signals": ["space opera", "galactic", "space battles", "empire"],
+      "minimum_confidence": 0.62
+    },
+    
+    "cyberpunk": {
+      "name": "Cyberpunk",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["high tech low life", "dystopian future", "cybernetics", "hacking culture"],
+      "exact_phrases": ["cyberpunk", "cyber", "tech noir"],
+      "tech_markers": ["cybernetics", "hacking", "cyberspace", "neural", "corporate", "neon"],
+      "strong_signals": ["cyberpunk", "hacking", "cyberspace", "dystopian tech"],
+      "minimum_confidence": 0.65
+    },
+    
+    "hard-sci-fi": {
+      "name": "Hard Science Fiction",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["scientific accuracy", "rigorous science", "technical detail", "plausible technology"],
+      "exact_phrases": ["hard science fiction", "hard sci-fi", "scientific accuracy"],
+      "science_markers": ["scientific", "physics", "technical", "realistic", "plausible", "accurate"],
+      "strong_signals": ["hard sci-fi", "scientific", "technical", "accurate science"],
+      "minimum_confidence": 0.60
+    },
+    
+    "time-travel": {
+      "name": "Time Travel",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["traveling through time", "temporal mechanics", "time paradoxes"],
+      "exact_phrases": ["time travel", "time machine", "temporal", "time loop"],
+      "time_markers": ["time travel", "past", "future", "timeline", "paradox", "temporal"],
+      "strong_signals": ["time travel", "time machine", "temporal", "timeline"],
+      "minimum_confidence": 0.62
+    },
+    
+    "dystopian": {
+      "name": "Dystopian Fiction",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["oppressive society", "totalitarian government", "bleak future", "social control"],
+      "exact_phrases": ["dystopian", "dystopia", "oppressive society"],
+      "society_markers": ["dystopian", "oppressive", "totalitarian", "authoritarian", "controlled"],
+      "strong_signals": ["dystopian", "dystopia", "oppressive", "totalitarian"],
+      "minimum_confidence": 0.62
+    },
+    
+    "cozy-mystery": {
+      "name": "Cozy Mystery",
+      "parent_genre": "mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["amateur sleuth", "small-town setting", "no graphic violence", "lighthearted"],
+      "exact_phrases": ["cozy mystery", "cozy", "amateur sleuth"],
+      "setting_markers": ["small town", "village", "bookshop", "bakery", "cozy", "charming"],
+      "strong_signals": ["cozy mystery", "amateur", "small town", "charming"],
+      "minimum_confidence": 0.62
+    },
+    
+    "police-procedural": {
+      "name": "Police Procedural",
+      "parent_genre": "mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["police investigation", "procedural details", "law enforcement focus"],
+      "exact_phrases": ["police procedural", "police investigation"],
+      "police_markers": ["police", "detective", "investigation", "forensics", "precinct", "cop"],
+      "strong_signals": ["police", "procedural", "detective", "investigation"],
+      "minimum_confidence": 0.60
+    },
+    
+    "noir": {
+      "name": "Noir",
+      "parent_genre": "mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["dark atmosphere", "cynical tone", "morally ambiguous characters", "urban decay"],
+      "exact_phrases": ["noir", "hard-boiled", "dark mystery"],
+      "tone_markers": ["noir", "dark", "cynical", "bleak", "hard-boiled", "gritty"],
+      "strong_signals": ["noir", "hard-boiled", "dark", "cynical"],
+      "minimum_confidence": 0.60
+    },
+    
+    "detective-fiction": {
+      "name": "Detective Fiction",
+      "parent_genre": "mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["detective protagonist", "solving crimes", "investigation focus"],
+      "exact_phrases": ["detective", "private eye", "sleuth"],
+      "detective_markers": ["detective", "investigator", "sleuth", "private eye", "solve", "case"],
+      "strong_signals": ["detective", "investigator", "sleuth", "solve"],
+      "minimum_confidence": 0.58
+    },
+    
+    "psychological-thriller": {
+      "name": "Psychological Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["psychological focus", "mind games", "unreliable narrator", "mental tension"],
+      "exact_phrases": ["psychological thriller", "mind games", "unreliable narrator"],
+      "psych_markers": ["psychological", "mind", "unreliable", "paranoia", "manipulation", "twist"],
+      "strong_signals": ["psychological thriller", "mind games", "unreliable narrator"],
+      "minimum_confidence": 0.62
+    },
+    
+    "espionage": {
+      "name": "Espionage/Spy Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["spies and intelligence", "covert operations", "international intrigue"],
+      "exact_phrases": ["espionage", "spy thriller", "secret agent"],
+      "spy_markers": ["spy", "agent", "espionage", "covert", "intelligence", "CIA", "MI6"],
+      "strong_signals": ["espionage", "spy", "agent", "covert", "intelligence"],
+      "minimum_confidence": 0.62
+    },
+    
+    "techno-thriller": {
+      "name": "Techno-Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["technology-driven plot", "cyber threats", "technical details"],
+      "exact_phrases": ["techno-thriller", "cyber thriller", "tech thriller"],
+      "tech_markers": ["technology", "cyber", "hacking", "digital", "computer", "tech"],
+      "strong_signals": ["techno-thriller", "cyber", "hacking", "technology"],
+      "minimum_confidence": 0.60
+    },
+    
+    "legal-thriller": {
+      "name": "Legal Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["legal system focus", "courtroom drama", "lawyer protagonist"],
+      "exact_phrases": ["legal thriller", "courtroom thriller"],
+      "legal_markers": ["lawyer", "attorney", "courtroom", "trial", "legal", "law"],
+      "strong_signals": ["legal thriller", "lawyer", "courtroom", "trial"],
+      "minimum_confidence": 0.62
+    },
+    
+    "medical-thriller": {
+      "name": "Medical Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["medical setting", "disease or medical crisis", "doctor protagonist"],
+      "exact_phrases": ["medical thriller", "medical suspense"],
+      "medical_markers": ["medical", "hospital", "doctor", "epidemic", "virus", "disease"],
+      "strong_signals": ["medical thriller", "hospital", "epidemic", "virus"],
+      "minimum_confidence": 0.60
+    },
+    
+    "gothic-horror": {
+      "name": "Gothic Horror",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["gothic atmosphere", "haunted settings", "dark romance", "supernatural dread"],
+      "exact_phrases": ["gothic horror", "gothic", "haunted mansion"],
+      "gothic_markers": ["gothic", "haunted", "mansion", "decay", "atmospheric", "dark"],
+      "strong_signals": ["gothic", "haunted", "mansion", "atmospheric"],
+      "minimum_confidence": 0.60
+    },
+    
+    "supernatural-horror": {
+      "name": "Supernatural Horror",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["supernatural threats", "ghosts and spirits", "paranormal terror"],
+      "exact_phrases": ["supernatural horror", "ghost story", "paranormal horror"],
+      "supernatural_markers": ["supernatural", "ghost", "spirit", "demon", "haunted", "paranormal"],
+      "strong_signals": ["supernatural horror", "ghost", "haunted", "spirit"],
+      "minimum_confidence": 0.60
+    },
+    
+    "psychological-horror": {
+      "name": "Psychological Horror",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["mental horror", "psychological terror", "sanity questioning", "mind-based fear"],
+      "exact_phrases": ["psychological horror", "psychological terror"],
+      "psych_markers": ["psychological", "sanity", "madness", "mind", "mental", "paranoia"],
+      "strong_signals": ["psychological horror", "sanity", "madness", "mental terror"],
+      "minimum_confidence": 0.60
+    },
+    
+    "cosmic-horror": {
+      "name": "Cosmic Horror",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["cosmic entities", "existential dread", "incomprehensible horrors", "Lovecraftian"],
+      "exact_phrases": ["cosmic horror", "Lovecraftian", "eldritch"],
+      "cosmic_markers": ["cosmic", "Lovecraft", "eldritch", "ancient", "unknowable", "cosmic entities"],
+      "strong_signals": ["cosmic horror", "Lovecraftian", "eldritch", "cosmic"],
+      "minimum_confidence": 0.62
+    },
+    
+    "slasher": {
+      "name": "Slasher",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["serial killer", "violent murders", "stalking victims", "survival horror"],
+      "exact_phrases": ["slasher", "serial killer", "masked killer"],
+      "violence_markers": ["slasher", "serial killer", "stalking", "killer", "murder", "victims"],
+      "strong_signals": ["slasher", "serial killer", "masked killer", "stalking"],
+      "minimum_confidence": 0.62
+    },
+    
+    "regency-romance": {
+      "name": "Regency Romance",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Regency era England", "1811-1820 setting", "high society", "balls and courtship"],
+      "exact_phrases": ["Regency romance", "Regency era", "Regency"],
+      "period_markers": ["Regency", "1810s", "Napoleonic", "ton", "balls", "courtship"],
+      "strong_signals": ["Regency", "Regency romance", "ton", "balls"],
+      "minimum_confidence": 0.65
+    },
+    
+    "victorian": {
+      "name": "Victorian Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Victorian era", "19th century Britain", "industrial age", "Victorian society"],
+      "exact_phrases": ["Victorian", "Victorian era", "19th century"],
+      "period_markers": ["Victorian", "1800s", "19th century", "gaslight", "industrial"],
+      "strong_signals": ["Victorian", "Victorian era", "19th century"],
+      "minimum_confidence": 0.60
+    },
+    
+    "wwii-fiction": {
+      "name": "World War II Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["World War II setting", "1939-1945", "WWII events", "war-era stories"],
+      "exact_phrases": ["World War II", "WWII", "Second World War", "WW2"],
+      "war_markers": ["WWII", "World War II", "1940s", "Nazi", "Holocaust", "D-Day"],
+      "strong_signals": ["WWII", "World War II", "1940s", "war"],
+      "minimum_confidence": 0.65
+    },
+    
+    "alternate-history": {
+      "name": "Alternate History",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["changed historical events", "what-if scenarios", "divergent timeline"],
+      "exact_phrases": ["alternate history", "alternative history", "what if"],
+      "alt_markers": ["alternate", "what if", "timeline", "different history", "changed"],
+      "strong_signals": ["alternate history", "what if", "timeline", "different history"],
+      "minimum_confidence": 0.60
+    },
+    
+    "military-sci-fi": {
+      "name": "Military Science Fiction",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["military operations in space", "space warfare", "military structure"],
+      "exact_phrases": ["military sci-fi", "space marines", "military science fiction"],
+      "military_markers": ["military", "marines", "combat", "war", "soldiers", "tactical"],
+      "strong_signals": ["military sci-fi", "space marines", "combat", "military"],
+      "minimum_confidence": 0.60
+    },
+    
+    "steampunk": {
+      "name": "Steampunk",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Victorian-era technology", "steam power", "clockwork mechanisms", "brass and gears"],
+      "exact_phrases": ["steampunk", "steam-powered", "clockwork"],
+      "aesthetic_markers": ["steampunk", "airship", "clockwork", "brass", "steam", "Victorian"],
+      "strong_signals": ["steampunk", "airship", "clockwork", "steam-powered"],
+      "minimum_confidence": 0.65
+    },
+    
+    "first-contact": {
+      "name": "First Contact",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["first meeting with aliens", "communication with extraterrestrials", "humanity meets aliens"],
+      "exact_phrases": ["first contact", "alien contact", "meeting aliens"],
+      "contact_markers": ["first contact", "alien", "extraterrestrial", "communication", "meeting"],
+      "strong_signals": ["first contact", "alien", "extraterrestrial", "contact"],
+      "minimum_confidence": 0.60
+    },
+    
+    "post-apocalyptic": {
+      "name": "Post-Apocalyptic",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["after civilization collapse", "wasteland", "survival", "ruins"],
+      "exact_phrases": ["post-apocalyptic", "after the fall", "wasteland"],
+      "setting_markers": ["post-apocalyptic", "wasteland", "ruins", "survivors", "collapsed"],
+      "strong_signals": ["post-apocalyptic", "wasteland", "survivors", "ruins"],
+      "minimum_confidence": 0.62
+    },
+    
+    "fairy-tale-retelling": {
+      "name": "Fairy Tale Retelling",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["retelling of fairy tales", "reimagined classic stories", "familiar fairy tale elements"],
+      "exact_phrases": ["retelling", "fairy tale retelling", "reimagined"],
+      "tale_markers": ["retelling", "fairy tale", "Cinderella", "Red Riding Hood", "Beauty and the Beast", "reimagined"],
+      "strong_signals": ["retelling", "fairy tale", "reimagined", "classic tale"],
+      "minimum_confidence": 0.60
+    },
+    
+    "grimdark": {
+      "name": "Grimdark Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["extremely dark tone", "morally gray characters", "nihilistic", "violent and brutal"],
+      "exact_phrases": ["grimdark", "grim dark"],
+      "tone_markers": ["grimdark", "brutal", "dark", "violent", "nihilistic", "no heroes"],
+      "strong_signals": ["grimdark", "brutal", "dark", "morally gray"],
+      "minimum_confidence": 0.62
+    },
+    
+    "portal-fantasy": {
+      "name": "Portal Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["characters travel to fantasy world", "portal or doorway", "transition between worlds"],
+      "exact_phrases": ["portal fantasy", "doorway to", "travel to another world"],
+      "portal_markers": ["portal", "doorway", "another world", "travel to", "magical door"],
+      "strong_signals": ["portal", "another world", "travel to", "doorway"],
+      "minimum_confidence": 0.58
+    },
+    
+    "magical-realism": {
+      "name": "Magical Realism",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["subtle magic in realistic setting", "matter-of-fact supernatural", "blending of mundane and magical"],
+      "exact_phrases": ["magical realism", "magic realism"],
+      "style_markers": ["magical realism", "surreal", "magical moments", "unexplained", "dreamlike"],
+      "strong_signals": ["magical realism", "surreal", "magical moments"],
+      "minimum_confidence": 0.58
+    },
+    
+    "coming-of-age": {
+      "name": "Coming of Age",
+      "parent_genre": "contemporary-fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["maturation story", "growing up", "self-discovery", "transition to adulthood"],
+      "exact_phrases": ["coming of age", "growing up", "coming-of-age"],
+      "theme_markers": ["coming of age", "growing up", "maturation", "self-discovery", "finding self"],
+      "strong_signals": ["coming of age", "growing up", "maturation"],
+      "minimum_confidence": 0.58
+    },
+    
+    "road-trip": {
+      "name": "Road Trip Fiction",
+      "parent_genre": "contemporary-fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["journey by road", "travel narrative", "self-discovery through travel"],
+      "exact_phrases": ["road trip", "cross-country", "journey"],
+      "journey_markers": ["road trip", "journey", "travel", "cross-country", "road", "driving"],
+      "strong_signals": ["road trip", "journey", "cross-country", "travel"],
+      "minimum_confidence": 0.58
+    },
+    
+    "southern-gothic": {
+      "name": "Southern Gothic",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Southern US setting", "gothic elements", "decay and dysfunction", "dark family secrets"],
+      "exact_phrases": ["Southern Gothic", "Deep South"],
+      "setting_markers": ["Southern", "South", "gothic", "decay", "plantation", "Deep South"],
+      "strong_signals": ["Southern Gothic", "South", "gothic", "decay"],
+      "minimum_confidence": 0.62
+    },
+    
+    "locked-room-mystery": {
+      "name": "Locked Room Mystery",
+      "parent_genre": "mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["impossible crime", "locked room", "puzzle mystery", "how-done-it"],
+      "exact_phrases": ["locked room", "impossible crime", "locked-room mystery"],
+      "puzzle_markers": ["locked room", "impossible", "sealed", "how", "puzzle"],
+      "strong_signals": ["locked room", "impossible crime", "sealed room"],
+      "minimum_confidence": 0.62
+    },
+    
+    "whodunit": {
+      "name": "Whodunit",
+      "parent_genre": "mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["classic mystery puzzle", "solving who committed crime", "detective work", "clues and suspects"],
+      "exact_phrases": ["whodunit", "who done it", "who did it"],
+      "mystery_markers": ["whodunit", "suspects", "clues", "detective", "solve", "mystery"],
+      "strong_signals": ["whodunit", "suspects", "clues", "detective"],
+      "minimum_confidence": 0.58
+    },
+    
+    "heist": {
+      "name": "Heist Fiction",
+      "parent_genre": "crime-fiction",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["elaborate theft", "planning and execution", "crew of specialists", "caper"],
+      "exact_phrases": ["heist", "robbery", "caper", "con"],
+      "heist_markers": ["heist", "robbery", "steal", "con", "caper", "crew", "plan"],
+      "strong_signals": ["heist", "robbery", "caper", "con", "crew"],
+      "minimum_confidence": 0.62
+    },
+    
+    "revenge-thriller": {
+      "name": "Revenge Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["revenge motivation", "payback", "wronged protagonist", "vengeance plot"],
+      "exact_phrases": ["revenge", "vengeance", "payback"],
+      "revenge_markers": ["revenge", "vengeance", "payback", "retribution", "wronged"],
+      "strong_signals": ["revenge", "vengeance", "payback", "retribution"],
+      "minimum_confidence": 0.58
+    },
+    
+    "domestic-thriller": {
+      "name": "Domestic Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["household setting", "family/marriage focus", "domestic danger", "psychological suspense"],
+      "exact_phrases": ["domestic thriller", "domestic suspense"],
+      "domestic_markers": ["domestic", "marriage", "family", "home", "suburban", "household"],
+      "strong_signals": ["domestic thriller", "marriage", "family secrets", "home"],
+      "minimum_confidence": 0.60
+    },
+    
+    "survival-horror": {
+      "name": "Survival Horror",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["survival against horror", "trapped with threat", "resource scarcity", "fight to survive"],
+      "exact_phrases": ["survival horror", "fight for survival"],
+      "survival_markers": ["survival", "trapped", "survive", "fight for life", "escape"],
+      "strong_signals": ["survival horror", "trapped", "survive", "fight for survival"],
+      "minimum_confidence": 0.60
+    },
+    
+    "body-horror": {
+      "name": "Body Horror",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["body transformation", "physical horror", "mutation", "body violation"],
+      "exact_phrases": ["body horror", "transformation", "mutation"],
+      "body_markers": ["body horror", "transformation", "mutation", "flesh", "metamorphosis"],
+      "strong_signals": ["body horror", "transformation", "mutation", "flesh"],
+      "minimum_confidence": 0.60
+    },
+    
+    "ya-fantasy": {
+      "name": "YA Fantasy",
+      "parent_genre": "young-adult",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["young adult with fantasy elements", "teen protagonists in fantasy world", "coming-of-age fantasy"],
+      "exact_phrases": ["YA fantasy", "young adult fantasy", "teen fantasy"],
+      "combo_markers": ["YA", "young adult", "teen", "fantasy", "magical", "teenager"],
+      "strong_signals": ["YA fantasy", "teen", "young adult", "fantasy"],
+      "minimum_confidence": 0.58
+    },
+    
+    "ya-dystopian": {
+      "name": "YA Dystopian",
+      "parent_genre": "young-adult",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["young adult dystopian", "teen rebellion", "dystopian future with teens"],
+      "exact_phrases": ["YA dystopian", "young adult dystopian", "teen dystopian"],
+      "combo_markers": ["YA", "young adult", "teen", "dystopian", "rebellion", "oppressive"],
+      "strong_signals": ["YA dystopian", "teen", "dystopian", "rebellion"],
+      "minimum_confidence": 0.60
+    },
+    
+    "ya-contemporary": {
+      "name": "YA Contemporary",
+      "parent_genre": "young-adult",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["young adult contemporary", "realistic teen stories", "modern teen life"],
+      "exact_phrases": ["YA contemporary", "young adult contemporary", "teen contemporary"],
+      "combo_markers": ["YA", "young adult", "teen", "contemporary", "high school", "realistic"],
+      "strong_signals": ["YA contemporary", "teen", "high school", "realistic"],
+      "minimum_confidence": 0.58
+    },
+    
+    "new-adult-romance": {
+      "name": "New Adult Romance",
+      "parent_genre": "new-adult",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["college-age romance", "new adult romance", "18-25 age group"],
+      "exact_phrases": ["new adult", "NA romance", "college romance"],
+      "age_markers": ["new adult", "NA", "college", "university", "18-25", "young twenties"],
+      "strong_signals": ["new adult", "NA", "college romance", "university"],
+      "minimum_confidence": 0.60
+    },
+    
+    "epic-sci-fi": {
+      "name": "Epic Science Fiction",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["large-scale sci-fi", "galaxy-spanning", "epic scope", "vast universe"],
+      "exact_phrases": ["epic sci-fi", "epic science fiction", "saga"],
+      "scale_markers": ["epic", "galaxy", "universe", "saga", "grand scale", "vast"],
+      "strong_signals": ["epic sci-fi", "saga", "galaxy", "epic scope"],
+      "minimum_confidence": 0.58
+    },
+    
+    "cli-fi": {
+      "name": "Climate Fiction (Cli-Fi)",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["climate change focus", "environmental disaster", "climate crisis"],
+      "exact_phrases": ["cli-fi", "climate fiction", "climate change"],
+      "climate_markers": ["climate", "environmental", "global warming", "disaster", "cli-fi"],
+      "strong_signals": ["cli-fi", "climate", "environmental disaster", "global warming"],
+      "minimum_confidence": 0.62
+    }
+  }
+}

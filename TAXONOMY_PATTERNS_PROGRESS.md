@@ -13,11 +13,11 @@
 | **Domains** | 4 | 4 | 100% | CRITICAL | ✅ COMPLETE |
 | **Supergenres** | 34 | 34 | 100% | HIGH | ✅ COMPLETE |
 | **Genres** | 101 | 100 | 99% | HIGH | ✅ PHASE 3 DONE |
-| **Subgenres** | 500 | 0 | 0% | MEDIUM | ⏳ FUTURE |
+| **Subgenres** | 500 | 56 | 11% | MEDIUM | 🟡 PHASE 1 DONE |
 | **Cross-tags** | 2,733 | 640 | 23% | ONGOING | 🟢 IN PROGRESS |
 
-**Total Patterns Created**: 778  
-**Estimated Token Usage**: ~185k / 200k (93%)
+**Total Patterns Created**: 834  
+**Estimated Token Usage**: ~137k / 200k (69%)
 
 ---
 
@@ -234,33 +234,114 @@
 
 ---
 
-### 4. Subgenres (0% Complete ⏳)
+### 4. Subgenres (11% Complete 🟡)
 
-**File**: `subgenre_patterns.json` (NOT YET CREATED)  
-**Patterns**: 0/500 (0%)  
-**Target**: Focus on top 100-150 most common subgenres initially
+**File**: `subgenre_patterns.json` ✅ CREATED  
+**Patterns**: 56/500 (11%)  
+**Current Phase**: Phase 1 of 3 COMPLETE  
+**Version**: 1.0.0
 
-#### Recommended Approach:
+#### Completed Patterns (56):
 
-**Phase 1** (50 subgenres):
-- Top subgenres for fantasy (10): epic-fantasy, urban-fantasy, dark-fantasy, high-fantasy, etc.
-- Top subgenres for romance (10): contemporary-romance, historical-romance, paranormal-romance, etc.
-- Top subgenres for mystery (8): cozy-mystery, police-procedural, noir, etc.
-- Top subgenres for sci-fi (8): space-opera, cyberpunk, dystopian, etc.
-- Top subgenres for thriller (7): psychological-thriller, espionage, techno-thriller, etc.
-- Miscellaneous high-frequency (7): memoir, self-help categories, etc.
+**Fantasy (9)**:
+1. ✅ epic-fantasy
+2. ✅ urban-fantasy
+3. ✅ dark-fantasy
+4. ✅ high-fantasy
+5. ✅ sword-and-sorcery
+6. ✅ fairy-tale-retelling
+7. ✅ grimdark
+8. ✅ portal-fantasy
+9. ✅ sword-and-sorcery
+
+**Romance (4)**:
+1. ✅ contemporary-romance
+2. ✅ historical-romance
+3. ✅ paranormal-romance
+4. ✅ romantic-suspense
+
+**Science Fiction (11)**:
+1. ✅ space-opera
+2. ✅ cyberpunk
+3. ✅ hard-sci-fi
+4. ✅ time-travel
+5. ✅ dystopian
+6. ✅ alternate-history
+7. ✅ military-sci-fi
+8. ✅ steampunk
+9. ✅ first-contact
+10. ✅ post-apocalyptic
+11. ✅ cli-fi
+
+**Mystery/Crime (7)**:
+1. ✅ cozy-mystery
+2. ✅ police-procedural
+3. ✅ noir
+4. ✅ detective-fiction
+5. ✅ locked-room-mystery
+6. ✅ whodunit
+7. ✅ heist
+
+**Thriller (7)**:
+1. ✅ psychological-thriller
+2. ✅ espionage
+3. ✅ techno-thriller
+4. ✅ legal-thriller
+5. ✅ medical-thriller
+6. ✅ revenge-thriller
+7. ✅ domestic-thriller
+
+**Horror (7)**:
+1. ✅ gothic-horror
+2. ✅ supernatural-horror
+3. ✅ psychological-horror
+4. ✅ cosmic-horror
+5. ✅ slasher
+6. ✅ survival-horror
+7. ✅ body-horror
+
+**Historical (3)**:
+1. ✅ regency-romance
+2. ✅ victorian
+3. ✅ wwii-fiction
+
+**Contemporary/Literary (4)**:
+1. ✅ magical-realism
+2. ✅ coming-of-age
+3. ✅ road-trip
+4. ✅ southern-gothic
+
+**YA/NA (4)**:
+1. ✅ ya-fantasy
+2. ✅ ya-dystopian
+3. ✅ ya-contemporary
+4. ✅ new-adult-romance
+
+#### Pattern Features:
+- Parent genre/supergenre/domain validation
+- Defining characteristics (3-6 per subgenre)
+- Exact phrases (3-7 per subgenre)
+- Strong signals (4-8 per subgenre)
+- Specialized markers: scale_indicators, setting_markers, tone_markers, time_markers, tech_markers, etc.
+- Confidence thresholds: 0.58-0.65 (lower than genres as expected)
+- Simpler structure than genres - focused on direct pattern matching
+
+#### Next Steps:
 
 **Phase 2** (50 subgenres):
-- Secondary subgenres for major genres
+- Secondary fantasy subgenres (paranormal-fantasy, gaslamp-fantasy, etc.)
+- Additional romance subgenres (small-town-romance, sports-romance, etc.)
+- More sci-fi variants (biopunk, nanopunk, solarpunk, etc.)
+- Non-fiction subgenres (business-memoir, popular-science, etc.)
 
 **Phase 3** (100 subgenres):
-- Specialized/niche subgenres
+- Specialized/niche subgenres across all categories
 
-**Long-term** (300 remaining):
-- Complete remaining 300 as needed
+**Long-term** (294 remaining):
+- Complete remaining subgenres as coverage data guides priorities
 
-**Estimated Effort**: 10-15 hours for top 150 subgenres  
-**Token Budget**: ~60-80k tokens
+**Estimated Effort**: 8-12 hours for next 100 subgenres  
+**Token Budget**: ~50-70k tokens
 
 ---
 
