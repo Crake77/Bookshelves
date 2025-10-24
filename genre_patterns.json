@@ -1,0 +1,482 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "phase": "1 of 4",
+    "generated_date": "2025-01-24",
+    "total_patterns": 30,
+    "coverage": "30% (30/101 genres)",
+    "description": "Phase 1: Top 30 most common genre patterns for specific genre classification"
+  },
+  "patterns": {
+    "fantasy": {
+      "name": "Fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "magic_system": ["magic", "sorcery", "wizardry", "enchantment", "spells", "magical powers", "incantations", "mystical forces"],
+        "fantastical_creatures": ["dragons", "elves", "dwarves", "fairies", "fae", "unicorns", "griffins", "mythical beasts", "magical creatures"],
+        "settings": ["magical realm", "fantasy world", "enchanted kingdom", "mystical land", "fictional realm", "otherworld"]
+      },
+      "typical_tropes": ["chosen-one", "prophecy", "quest", "magic-school", "sword-and-sorcery", "dark-lord", "ancient-magic"],
+      "plot_patterns": ["quest for", "battle against dark", "discovers magical abilities", "journey through", "prophecy foretold"],
+      "character_archetypes": ["wizard", "sorcerer", "mage", "knight", "elven warrior", "dragon rider", "chosen one"],
+      "subgenres": ["epic-fantasy", "urban-fantasy", "dark-fantasy", "high-fantasy", "low-fantasy", "sword-and-sorcery"],
+      "strong_signals": ["fantasy", "magical", "enchanted", "mystical", "wizards", "dragons", "magic system"],
+      "avoid_confusion_with": {"science-fiction": ["technology", "futuristic", "space"], "paranormal-romance": ["romance primary"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "science-fiction": {
+      "name": "Science Fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "technology": ["advanced technology", "futuristic tech", "AI", "artificial intelligence", "robots", "androids", "cyborgs"],
+        "space_setting": ["space", "spacecraft", "starship", "alien worlds", "planets", "galaxy", "universe", "cosmos"],
+        "scientific_concepts": ["time travel", "parallel universes", "genetic engineering", "nanotechnology", "virtual reality"]
+      },
+      "typical_tropes": ["first-contact", "space-exploration", "dystopian-future", "time-paradox", "AI-rebellion"],
+      "plot_patterns": ["explores distant", "future where", "discovers alien", "time travel", "colonize planet"],
+      "subgenres": ["space-opera", "cyberpunk", "hard-sci-fi", "dystopian", "time-travel"],
+      "strong_signals": ["sci-fi", "science fiction", "futuristic", "space", "alien", "technology", "future"],
+      "avoid_confusion_with": {"fantasy": ["magic", "wizards", "dragons"], "thriller": ["near-future realistic"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "mystery": {
+      "name": "Mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "investigation": ["investigation", "solve", "clues", "evidence", "suspects", "alibis", "red herrings"],
+        "crime": ["murder", "theft", "disappearance", "crime", "criminal", "victim"],
+        "puzzle": ["whodunit", "puzzle", "mystery", "uncover truth", "piece together"]
+      },
+      "typical_tropes": ["locked-room", "amateur-sleuth", "cozy-mystery", "police-procedural"],
+      "plot_patterns": ["solve the mystery", "uncover the truth", "piece together clues", "track down", "investigation leads"],
+      "character_archetypes": ["detective", "amateur sleuth", "investigator", "police officer", "private investigator"],
+      "subgenres": ["cozy-mystery", "police-procedural", "detective-fiction", "noir"],
+      "strong_signals": ["mystery", "detective", "investigate", "solve", "clues", "whodunit"],
+      "avoid_confusion_with": {"thriller": ["action-driven"], "crime-fiction": ["crime focus vs puzzle focus"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "thriller": {
+      "name": "Thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "danger": ["danger", "threat", "deadly", "life-threatening", "peril", "jeopardy"],
+        "suspense": ["suspense", "tension", "edge of seat", "gripping", "pulse-pounding"],
+        "high_stakes": ["race against time", "ticking clock", "life or death", "must stop"]
+      },
+      "typical_tropes": ["cat-and-mouse", "conspiracy", "on-the-run", "ticking-clock"],
+      "plot_patterns": ["race against time", "hunted by", "must stop", "conspiracy", "life depends on"],
+      "tone_markers": ["suspenseful", "tense", "intense", "gripping", "heart-racing"],
+      "subgenres": ["psychological-thriller", "espionage", "techno-thriller", "legal-thriller"],
+      "strong_signals": ["thriller", "suspense", "danger", "chase", "pursued", "race against time"],
+      "avoid_confusion_with": {"mystery": ["puzzle-solving primary"], "action-adventure": ["fun vs fear"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "romance": {
+      "name": "Romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "romantic_relationship": ["falling in love", "love story", "romance", "relationship", "attraction"],
+        "emotional_journey": ["heart", "passion", "desire", "longing", "chemistry", "connection"],
+        "relationship_arc": ["meet", "fall for", "obstacles", "happily ever after", "happy ending"]
+      },
+      "typical_tropes": ["enemies-to-lovers", "friends-to-lovers", "second-chance", "forbidden-love", "fake-relationship"],
+      "plot_patterns": ["fall in love", "finds love", "romance between", "heart of", "love conquers"],
+      "character_dynamics": ["romantic tension", "chemistry", "declarations of love", "relationship development"],
+      "subgenres": ["contemporary-romance", "historical-romance", "paranormal-romance", "romantic-suspense"],
+      "strong_signals": ["romance", "romantic", "love story", "falling in love", "relationship", "heart"],
+      "avoid_confusion_with": {"women's-fiction": ["relationship not central"], "erotica": ["explicit focus"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "contemporary-fiction": {
+      "name": "Contemporary Fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "modern_setting": ["contemporary", "modern", "today", "present day", "current"],
+        "realistic": ["realistic", "real-world", "everyday life", "modern life"],
+        "relatable_themes": ["relationships", "family", "work", "identity", "belonging"]
+      },
+      "typical_themes": ["modern life challenges", "personal growth", "relationships", "identity"],
+      "setting_markers": ["set in modern", "takes place today", "contemporary world"],
+      "strong_signals": ["contemporary", "modern", "realistic", "present day", "current times"],
+      "avoid_confusion_with": {"literary-fiction": ["literary merit focus"], "women's-fiction": ["female perspective specific"]},
+      "minimum_confidence": 0.63
+    },
+    
+    "historical-fiction": {
+      "name": "Historical Fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "time_period": ["historical", "19th century", "18th century", "Victorian", "Regency", "medieval", "ancient"],
+        "past_setting": ["set in", "takes place in", "during the", "era of"],
+        "historical_events": ["World War", "Civil War", "Revolution", "historical period"]
+      },
+      "typical_elements": ["period details", "historical figures", "past events", "bygone era"],
+      "time_markers": ["1800s", "1700s", "centuries ago", "historical era", "period piece"],
+      "strong_signals": ["historical", "period", "Victorian", "Regency", "medieval", "century"],
+      "avoid_confusion_with": {"history": ["non-fiction"], "time-travel": ["sci-fi elements"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "horror": {
+      "name": "Horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "fear": ["horror", "terror", "fear", "frightening", "scary", "nightmare"],
+        "threats": ["monster", "creature", "demon", "ghost", "evil", "haunted"],
+        "atmosphere": ["dark", "sinister", "creepy", "eerie", "disturbing", "macabre"]
+      },
+      "typical_tropes": ["haunted-house", "possession", "survival-horror", "cosmic-horror"],
+      "plot_patterns": ["terrorized by", "haunted by", "must survive", "fight for survival", "evil forces"],
+      "tone_markers": ["terrifying", "chilling", "disturbing", "nightmarish"],
+      "subgenres": ["gothic-horror", "supernatural-horror", "psychological-horror", "cosmic-horror"],
+      "strong_signals": ["horror", "terror", "frightening", "scary", "haunted", "nightmare"],
+      "avoid_confusion_with": {"thriller": ["suspense vs fear"], "dark-fantasy": ["wonder vs terror"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "paranormal": {
+      "name": "Paranormal",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "supernatural": ["paranormal", "supernatural", "psychic", "telepathy", "premonitions"],
+        "creatures": ["vampires", "werewolves", "ghosts", "spirits", "shapeshifters"],
+        "abilities": ["supernatural abilities", "paranormal powers", "sixth sense", "supernatural gifts"]
+      },
+      "typical_elements": ["paranormal romance", "supernatural mystery", "ghost stories"],
+      "strong_signals": ["paranormal", "supernatural", "psychic", "vampires", "werewolves"],
+      "avoid_confusion_with": {"fantasy": ["magic vs paranormal"], "horror": ["fear vs romantic/mystery"]},
+      "minimum_confidence": 0.63
+    },
+    
+    "urban-fantasy": {
+      "name": "Urban Fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "modern_city": ["urban", "city", "modern world", "contemporary setting"],
+        "magic_in_modern": ["magic in the city", "hidden world", "secret magic", "urban magic"],
+        "supernatural_urban": ["supernatural creatures", "paranormal city", "magical underworld"]
+      },
+      "typical_elements": ["hidden magical society", "modern magic users", "urban setting with fantasy"],
+      "strong_signals": ["urban fantasy", "magic in", "city", "modern world", "hidden magical"],
+      "avoid_confusion_with": {"contemporary-fantasy": ["urban specific"], "paranormal": ["modern city focus"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "dystopian-fiction": {
+      "name": "Dystopian Fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "oppressive_society": ["dystopian", "oppressive", "totalitarian", "authoritarian", "dictatorship"],
+        "dark_future": ["bleak future", "dark future", "collapsed society", "post-apocalyptic"],
+        "rebellion": ["resist", "rebel", "uprising", "revolution", "fight against system"]
+      },
+      "typical_themes": ["loss of freedom", "surveillance state", "class divisions", "resistance"],
+      "strong_signals": ["dystopian", "dystopia", "oppressive", "totalitarian", "post-apocalyptic"],
+      "avoid_confusion_with": {"post-apocalyptic": ["survival focus"], "science-fiction": ["not all sci-fi"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "crime-fiction": {
+      "name": "Crime Fiction",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "criminal_activity": ["crime", "criminal", "heist", "theft", "fraud", "organized crime"],
+        "criminal_world": ["underworld", "mob", "gang", "cartel", "criminal organization"],
+        "crime_story": ["pulls off", "criminal mastermind", "crime spree", "illegal activities"]
+      },
+      "typical_perspectives": ["criminal protagonist", "crime from inside", "planning the crime"],
+      "strong_signals": ["crime", "criminal", "heist", "underworld", "mob", "gang"],
+      "avoid_confusion_with": {"mystery": ["investigation focus"], "thriller": ["suspense primary"]},
+      "minimum_confidence": 0.63
+    },
+    
+    "detective-fiction": {
+      "name": "Detective Fiction",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "detective_protagonist": ["detective", "investigator", "sleuth", "private eye", "gumshoe"],
+        "investigation_focus": ["investigate", "case", "solve", "track down", "follow leads"],
+        "crime_solving": ["solves crimes", "cracks the case", "uncovers truth", "brings justice"]
+      },
+      "typical_elements": ["detective series", "police detective", "private investigator"],
+      "strong_signals": ["detective", "investigator", "private eye", "sleuth", "detective story"],
+      "avoid_confusion_with": {"mystery": ["detective-led vs general mystery"], "thriller": ["methodical vs fast-paced"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "literary-fiction": {
+      "name": "Literary Fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "literary_merit": ["literary", "literary fiction", "literary style", "prose", "literary work"],
+        "character_focus": ["character-driven", "character study", "introspective", "psychological depth"],
+        "artistic_intent": ["lyrical", "poetic prose", "experimental", "literary craft"]
+      },
+      "typical_themes": ["human condition", "existential", "profound", "contemplative"],
+      "style_markers": ["beautifully written", "lyrical prose", "literary style", "richly drawn"],
+      "strong_signals": ["literary fiction", "literary", "character-driven", "introspective"],
+      "avoid_confusion_with": {"genre-fiction": ["commercial vs literary"], "contemporary-fiction": ["literary merit focus"]},
+      "minimum_confidence": 0.63
+    },
+    
+    "young-adult": {
+      "name": "Young Adult",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "teen_protagonist": ["teenager", "teen", "high school", "adolescent", "young adult", "youth"],
+        "coming_of_age": ["coming of age", "growing up", "finding self", "identity", "first love"],
+        "ya_themes": ["school", "friendship", "first experiences", "self-discovery"]
+      },
+      "typical_elements": ["teen angst", "first love", "high school drama", "finding identity"],
+      "age_markers": ["16 year old", "17 year old", "teenage", "high schooler"],
+      "strong_signals": ["young adult", "YA", "teen", "teenager", "coming of age", "high school"],
+      "avoid_confusion_with": {"middle-grade": ["younger protagonists"], "new-adult": ["college age"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "action-adventure": {
+      "name": "Action & Adventure",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "action": ["action-packed", "fast-paced", "adrenaline", "explosive", "intense action"],
+        "adventure": ["adventure", "journey", "expedition", "quest", "exploration"],
+        "excitement": ["thrilling", "exciting", "pulse-pounding", "non-stop action"]
+      },
+      "typical_elements": ["treasure hunt", "exotic locations", "daring escapes", "battles"],
+      "strong_signals": ["action", "adventure", "adrenaline", "fast-paced", "thrilling"],
+      "avoid_confusion_with": {"thriller": ["fun vs fear"], "fantasy": ["realistic action"]},
+      "minimum_confidence": 0.63
+    },
+    
+    "women's-fiction": {
+      "name": "Women's Fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "female_protagonist": ["woman", "women", "female protagonist", "her life", "she"],
+        "women_themes": ["relationships", "family", "friendship", "career", "personal growth"],
+        "emotional_journey": ["emotional journey", "life changes", "finding herself", "personal transformation"]
+      },
+      "typical_themes": ["women's issues", "female empowerment", "life transitions", "relationships"],
+      "strong_signals": ["women's fiction", "woman's journey", "female protagonist", "women's lives"],
+      "avoid_confusion_with": {"romance": ["not romance-centered"], "contemporary-fiction": ["female focus specific"]},
+      "minimum_confidence": 0.63
+    },
+    
+    "family-drama": {
+      "name": "Family Drama",
+      "parent_supergenre": "family-domestic",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "family_focus": ["family", "family drama", "familial", "family relationships"],
+        "family_conflicts": ["family secrets", "family tensions", "sibling rivalry", "generational conflict"],
+        "domestic_setting": ["home", "family saga", "multi-generational", "family history"]
+      },
+      "typical_themes": ["family dysfunction", "family bonds", "legacy", "family secrets"],
+      "strong_signals": ["family", "family drama", "family saga", "family relationships"],
+      "avoid_confusion_with": {"contemporary-fiction": ["family not central"], "domestic-thriller": ["thriller elements"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "psychological-thriller": {
+      "name": "Psychological Thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "psychological": ["psychological", "mind games", "mental", "psyche", "psychological warfare"],
+        "suspense": ["suspenseful", "tense", "twist", "unreliable narrator", "psychological tension"],
+        "mind_focus": ["paranoia", "obsession", "manipulation", "gaslighting", "mental breakdown"]
+      },
+      "typical_elements": ["unreliable narrator", "psychological manipulation", "mind-bending"],
+      "strong_signals": ["psychological thriller", "psychological", "mind games", "unreliable narrator"],
+      "avoid_confusion_with": {"thriller": ["physical vs mental"], "horror": ["psychological vs supernatural"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "romantic-suspense": {
+      "name": "Romantic Suspense",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "romance": ["romance", "love story", "falling in love", "romantic relationship"],
+        "suspense": ["danger", "suspense", "thriller elements", "mystery", "threat"],
+        "combined": ["romance and danger", "love and suspense", "romantic thriller"]
+      },
+      "typical_elements": ["protecting heroine", "danger brings them together", "romance amid danger"],
+      "strong_signals": ["romantic suspense", "romance", "danger", "suspense", "love and thriller"],
+      "avoid_confusion_with": {"romance": ["suspense required"], "thriller": ["romance required"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "biography": {
+      "name": "Biography",
+      "parent_supergenre": "biography-memoir",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "life_story": ["biography", "life of", "life story", "story of", "chronicles the life"],
+        "real_person": ["real person", "historical figure", "famous", "notable", "renowned"],
+        "biographical": ["biographical", "biographer", "life and times", "definitive biography"]
+      },
+      "typical_elements": ["from birth to death", "career", "accomplishments", "legacy"],
+      "strong_signals": ["biography", "life of", "biographical", "life story"],
+      "avoid_confusion_with": {"memoir": ["first-person", "personal recollection"], "biographical-fiction": ["fictional"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "memoir": {
+      "name": "Memoir",
+      "parent_supergenre": "biography-memoir",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "personal_recollection": ["memoir", "my life", "my story", "I remember", "looking back"],
+        "first_person": ["I was", "I grew up", "my childhood", "my experience"],
+        "memory": ["remembers", "recollection", "memories", "reflects on"]
+      },
+      "typical_elements": ["personal narrative", "life experiences", "reflections"],
+      "strong_signals": ["memoir", "my life", "my story", "remembers", "recollection"],
+      "avoid_confusion_with": {"biography": ["third-person"], "autobiography": ["full life vs specific period"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "self-help": {
+      "name": "Self-Help",
+      "parent_supergenre": "self-help-personal-growth",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "improvement": ["self-help", "self-improvement", "personal growth", "transform your life"],
+        "instructional": ["how to", "guide to", "steps to", "strategies for", "learn to"],
+        "actionable": ["practical advice", "tools", "techniques", "methods", "framework"]
+      },
+      "typical_themes": ["change your life", "achieve goals", "success", "habits", "mindset"],
+      "strong_signals": ["self-help", "personal growth", "how to", "transform", "achieve"],
+      "avoid_confusion_with": {"psychology": ["academic vs practical"], "business": ["professional vs personal"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "history": {
+      "name": "History",
+      "parent_supergenre": "history",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "historical_account": ["history", "historical", "history of", "chronicles", "documented"],
+        "past_events": ["past events", "historical events", "archival", "historical period"],
+        "analysis": ["examines", "explores", "traces", "rise and fall", "historical analysis"]
+      },
+      "typical_elements": ["historical narrative", "primary sources", "documented events"],
+      "strong_signals": ["history", "historical account", "history of", "chronicles"],
+      "avoid_confusion_with": {"historical-fiction": ["fiction"], "biography": ["person-focused"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "true-crime": {
+      "name": "True Crime",
+      "parent_supergenre": "true-crime",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "real_crime": ["true crime", "real murder", "actual case", "true story of", "based on true events"],
+        "criminal_case": ["murder case", "serial killer", "notorious", "criminal investigation"],
+        "factual": ["documentary", "investigative", "real events", "actual killer"]
+      },
+      "typical_elements": ["case details", "investigation", "trial", "criminal profile"],
+      "strong_signals": ["true crime", "real murder", "actual case", "serial killer", "notorious"],
+      "avoid_confusion_with": {"crime-fiction": ["fictional"], "mystery": ["fictional mystery"]},
+      "minimum_confidence": 0.73
+    },
+    
+    "business": {
+      "name": "Business",
+      "parent_supergenre": "business-economics",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "business_topics": ["business", "entrepreneurship", "startup", "company", "corporate"],
+        "strategy": ["business strategy", "management", "leadership", "innovation"],
+        "commercial": ["commerce", "industry", "market", "competition", "profit"]
+      },
+      "typical_themes": ["building business", "success", "growth", "strategy", "leadership"],
+      "strong_signals": ["business", "entrepreneur", "startup", "corporate", "management"],
+      "avoid_confusion_with": {"self-help": ["personal vs professional"], "economics": ["macro vs micro"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "psychology": {
+      "name": "Psychology",
+      "parent_supergenre": "health-psychology",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "psychological": ["psychology", "psychological", "mental", "cognitive", "behavioral"],
+        "human_behavior": ["human behavior", "mind", "brain", "thinking", "emotions"],
+        "research": ["study", "research", "experiments", "psychological research"]
+      },
+      "typical_topics": ["mental processes", "behavior", "cognition", "emotion", "development"],
+      "strong_signals": ["psychology", "psychological", "mental", "behavior", "cognitive"],
+      "avoid_confusion_with": {"self-help": ["research vs advice"], "neuroscience": ["brain biology"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "science": {
+      "name": "Science",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "scientific": ["science", "scientific", "research", "discovery", "experiments"],
+        "disciplines": ["biology", "physics", "chemistry", "astronomy", "geology"],
+        "exploration": ["explores", "examines", "investigates", "science of", "scientific inquiry"]
+      },
+      "typical_topics": ["natural world", "universe", "evolution", "atoms", "energy"],
+      "strong_signals": ["science", "scientific", "biology", "physics", "chemistry", "discovery"],
+      "avoid_confusion_with": {"science-fiction": ["fictional"], "technology": ["engineering"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "philosophy": {
+      "name": "Philosophy",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "philosophical": ["philosophy", "philosophical", "ethics", "morality", "existential"],
+        "concepts": ["truth", "meaning", "existence", "knowledge", "reality", "consciousness"],
+        "thinkers": ["philosopher", "philosophical tradition", "Plato", "Aristotle", "Kant"]
+      },
+      "typical_topics": ["ethics", "metaphysics", "epistemology", "logic", "aesthetics"],
+      "strong_signals": ["philosophy", "philosophical", "ethics", "existential", "metaphysics"],
+      "avoid_confusion_with": {"religion": ["faith-based"], "self-help": ["practical advice"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "religion": {
+      "name": "Religion",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "religious": ["religion", "religious", "faith", "spiritual", "sacred"],
+        "theology": ["theology", "theological", "doctrine", "scripture", "religious texts"],
+        "worship": ["worship", "prayer", "devotion", "divine", "God"]
+      },
+      "typical_topics": ["faith traditions", "religious practices", "sacred texts", "theology"],
+      "strong_signals": ["religion", "religious", "theology", "faith", "sacred", "worship"],
+      "avoid_confusion_with": {"philosophy": ["secular"], "spirituality": ["non-denominational"]},
+      "minimum_confidence": 0.70
+    }
+  }
+}
