@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "version": "1.0.0",
-    "phase": "1 of 2",
+    "version": "2.0.0",
+    "phase": "Complete",
     "generated_date": "2025-01-24",
-    "total_patterns": 20,
-    "coverage": "59% (20/34 supergenres)",
-    "description": "Phase 1: Top 20 most common supergenre patterns for mid-level taxonomy classification"
+    "total_patterns": 34,
+    "coverage": "100% (34/34 supergenres)",
+    "description": "Complete supergenre patterns for mid-level taxonomy classification"
   },
   "patterns": {
     "speculative-fiction": {
@@ -250,6 +250,175 @@
       "setting_markers": ["World War", "Vietnam", "battlefield", "front lines", "military base"],
       "character_types": ["soldier", "veteran", "commander", "officer", "troops"],
       "exclusion_rules": {"military_nonfiction": ["military history"], "action_adventure": ["action without war theme"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "adventure-action": {
+      "name": "Adventure & Action",
+      "description": "Adventure stories and action-driven narratives",
+      "parent_domain": "fiction",
+      "genre_family": ["action-adventure", "adventure"],
+      "core_themes": ["adventure", "action", "excitement", "exploration", "quest"],
+      "strong_indicators": ["adventure", "action", "quest", "expedition", "journey", "exploration", "adrenaline", "thrilling"],
+      "plot_patterns": ["treasure hunt", "daring escape", "exotic location", "dangerous journey"],
+      "exclusion_rules": {"thriller": ["fear focus"], "fantasy": ["magic required"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "family-domestic": {
+      "name": "Family & Domestic",
+      "description": "Family sagas and domestic drama",
+      "parent_domain": "fiction",
+      "genre_family": ["family-drama", "domestic-fiction", "family-saga"],
+      "core_themes": ["family", "family relationships", "domestic life", "family saga", "generations"],
+      "strong_indicators": ["family", "family drama", "domestic", "family saga", "generations", "home", "family secrets"],
+      "character_focus": ["family members", "parents", "siblings", "multi-generational"],
+      "exclusion_rules": {"romance": ["romance primary"], "thriller": ["suspense primary"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "inspirational-religious-fiction": {
+      "name": "Inspirational & Religious Fiction",
+      "description": "Faith-based and inspirational stories",
+      "parent_domain": "fiction",
+      "genre_family": ["christian-fiction", "inspirational-fiction", "religious-fiction"],
+      "core_themes": ["faith", "spiritual journey", "redemption", "Christian values", "religious themes"],
+      "strong_indicators": ["faith", "Christian", "inspirational", "spiritual", "religious", "God", "prayer", "church"],
+      "tone_markers": ["uplifting", "hopeful", "faith-based", "inspirational"],
+      "exclusion_rules": {"religion_nonfiction": ["theology", "biblical study"], "secular": ["no faith elements"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "western-frontier": {
+      "name": "Western & Frontier",
+      "description": "Stories set in the Old West or frontier",
+      "parent_domain": "fiction",
+      "genre_family": ["western", "frontier-fiction"],
+      "core_themes": ["Old West", "frontier", "cowboys", "outlaws", "Wild West"],
+      "strong_indicators": ["western", "cowboy", "frontier", "Old West", "outlaw", "sheriff", "ranch", "gunslinger"],
+      "setting_markers": ["1800s America", "Wild West", "frontier town", "prairie", "saloon"],
+      "character_types": ["cowboy", "sheriff", "outlaw", "rancher", "gunslinger"],
+      "exclusion_rules": {"contemporary_ranch": ["modern day ranch"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "humor-satire": {
+      "name": "Humor & Satire",
+      "description": "Comedies, parodies and satirical works",
+      "parent_domain": "fiction",
+      "genre_family": ["humor", "satire", "comedy", "parody"],
+      "core_themes": ["humor", "comedy", "satire", "parody", "funny", "wit"],
+      "strong_indicators": ["humorous", "comedy", "satire", "satirical", "funny", "witty", "laugh", "hilarious", "parody"],
+      "tone_markers": ["funny", "comedic", "humorous", "satirical", "witty", "lighthearted"],
+      "exclusion_rules": {"serious_drama": ["tragic", "dark"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "arts-entertainment": {
+      "name": "Arts & Entertainment",
+      "description": "Film, music, theatre and art books",
+      "parent_domain": "non-fiction",
+      "genre_family": ["film", "music", "art", "theatre", "performing-arts"],
+      "core_themes": ["art", "entertainment", "film", "music", "theatre", "performance"],
+      "strong_indicators": ["art", "film", "music", "theatre", "entertainment", "artist", "musician", "performer", "cinema"],
+      "subject_markers": ["artistic", "cinematic", "musical", "theatrical"],
+      "exclusion_rules": {"biography": ["life of artist"], "fiction": ["fictional story"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "environment-nature": {
+      "name": "Environment & Nature",
+      "description": "Conservation, ecology and environmental issues",
+      "parent_domain": "non-fiction",
+      "genre_family": ["environment", "ecology", "conservation", "climate"],
+      "core_themes": ["environment", "nature", "ecology", "conservation", "climate", "sustainability"],
+      "strong_indicators": ["environment", "environmental", "ecology", "conservation", "climate change", "nature", "ecosystem", "sustainability"],
+      "subject_markers": ["ecological", "environmental", "sustainable"],
+      "exclusion_rules": {"science_general": ["biology general"], "nature_writing": ["personal nature experience"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "essays-criticism": {
+      "name": "Essays & Criticism",
+      "description": "Essays, criticism and journalism",
+      "parent_domain": "non-fiction",
+      "genre_family": ["essays", "criticism", "journalism"],
+      "core_themes": ["essays", "criticism", "commentary", "analysis", "journalism"],
+      "strong_indicators": ["essays", "essay collection", "criticism", "critical", "commentary", "journalism", "journalist"],
+      "format_markers": ["collection of essays", "selected essays", "critical essays"],
+      "exclusion_rules": {"memoir": ["personal memoir"], "academic": ["research study"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "food-drink": {
+      "name": "Food & Drink",
+      "description": "Cooking, culinary history and beverage guides",
+      "parent_domain": "non-fiction",
+      "genre_family": ["cookbooks", "food", "culinary", "wine"],
+      "core_themes": ["cooking", "food", "recipes", "culinary", "cuisine", "dining"],
+      "strong_indicators": ["cookbook", "recipes", "cooking", "culinary", "food", "cuisine", "chef", "wine", "dining"],
+      "format_markers": ["recipe book", "cooking guide", "culinary history"],
+      "exclusion_rules": {"memoir": ["food memoir"], "travel": ["food travel"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "home-hobbies": {
+      "name": "Home & Hobbies",
+      "description": "DIY, crafts and lifestyle pursuits",
+      "parent_domain": "non-fiction",
+      "genre_family": ["crafts", "diy", "hobbies", "home-improvement"],
+      "core_themes": ["DIY", "crafts", "hobbies", "home improvement", "lifestyle"],
+      "strong_indicators": ["DIY", "crafts", "hobby", "hobbies", "home improvement", "handmade", "projects"],
+      "instructional_markers": ["how to make", "step by step", "craft projects"],
+      "exclusion_rules": {"professional": ["professional techniques"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "pets-animals": {
+      "name": "Pets & Animals",
+      "description": "Pet care and animal topics",
+      "parent_domain": "non-fiction",
+      "genre_family": ["pets", "animals", "wildlife"],
+      "core_themes": ["pets", "animals", "pet care", "animal behavior", "wildlife"],
+      "strong_indicators": ["pets", "pet care", "animals", "dog", "cat", "wildlife", "animal behavior"],
+      "subject_markers": ["pet training", "animal care", "wildlife"],
+      "exclusion_rules": {"science": ["zoology"], "fiction": ["animal characters"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "reference-education": {
+      "name": "Reference & Education",
+      "description": "Reference works and educational resources",
+      "parent_domain": "non-fiction",
+      "genre_family": ["reference", "education", "teaching"],
+      "core_themes": ["reference", "education", "teaching", "learning", "academic"],
+      "strong_indicators": ["reference", "encyclopedia", "dictionary", "education", "teaching", "textbook", "guide"],
+      "format_markers": ["reference book", "educational resource", "teaching guide"],
+      "exclusion_rules": {"self_help": ["personal improvement"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "sports-recreation": {
+      "name": "Sports & Recreation",
+      "description": "Sports writing, coaching and outdoor pursuits",
+      "parent_domain": "non-fiction",
+      "genre_family": ["sports", "athletics", "outdoor", "recreation"],
+      "core_themes": ["sports", "athletics", "recreation", "outdoor", "fitness"],
+      "strong_indicators": ["sports", "sport", "athletics", "recreation", "outdoor", "fitness", "training", "coaching"],
+      "subject_markers": ["athletic", "sporting", "recreational"],
+      "exclusion_rules": {"memoir": ["athlete memoir"], "fiction": ["sports fiction"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "travel-adventure": {
+      "name": "Travel & Adventure",
+      "description": "Travel writing and adventure nonfiction",
+      "parent_domain": "non-fiction",
+      "genre_family": ["travel", "adventure-nonfiction", "exploration"],
+      "core_themes": ["travel", "journey", "exploration", "adventure", "destinations"],
+      "strong_indicators": ["travel", "journey", "exploration", "destination", "adventure", "trip", "voyage"],
+      "narrative_markers": ["travels to", "journey through", "exploring"],
+      "exclusion_rules": {"fiction": ["adventure fiction"], "guidebook": ["travel guide only"]},
       "minimum_confidence": 0.68
     }
   }
