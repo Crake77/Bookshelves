@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "version": "5.0.0",
-    "phase": "Phase 5 Batch 1 COMPLETE",
+    "version": "6.0.0",
+    "phase": "Phase 5 Batch 2 COMPLETE",
     "generated_date": "2025-01-24",
-    "total_patterns": 305,
-    "coverage": "61% (305/500 estimated subgenres)",
-    "description": "Phase 5 Batch 1: Added 100 patterns (205→305) covering anthropology specializations, religious texts, biographical fiction, crafts, crime variants, cultural studies, data science, detective types, dystopian variants, economics, education, engineering, environmental science, ethics, fairy tale variants, family drama, fantasy specializations, and film studies"
+    "total_patterns": 405,
+    "coverage": "81% (405/500 estimated subgenres)",
+    "description": "Phase 5 Batch 2: Added 100 patterns (305→405) covering nature writing, nautical fiction, noir variants, paranormal fiction, performing arts, pet care, philosophy branches, photography, political fiction/science, apocalypse types, programming, psychology, reference books, religion, religious fiction, robotics, romance variants, sci-fi subgenres, self-help, Shinto/Sikh topics, social justice, sociology, and sports"
   },
   "patterns": {
     "epic-fantasy": {
@@ -3666,6 +3666,1206 @@
       "director_markers": ["director", "filmmaker", "cinema", "film", "movies"],
       "strong_signals": ["director biography", "filmmaker", "film director"],
       "minimum_confidence": 0.60
+    },
+    
+    "natural-history": {
+      "name": "Natural History",
+      "parent_genre": "nature-writing",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["natural world history", "species studies", "naturalist observations"],
+      "exact_phrases": ["natural history", "naturalist", "flora and fauna"],
+      "natural_markers": ["natural", "species", "wildlife", "habitat", "naturalist"],
+      "strong_signals": ["natural history", "naturalist", "wildlife"],
+      "minimum_confidence": 0.60
+    },
+    
+    "nature-essays": {
+      "name": "Nature Essays",
+      "parent_genre": "nature-writing",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["nature essays", "environmental writing", "nature observations"],
+      "exact_phrases": ["nature essays", "nature writing", "environmental essays"],
+      "essay_markers": ["essays", "observations", "reflections", "meditations", "nature"],
+      "strong_signals": ["nature essays", "nature writing", "environmental"],
+      "minimum_confidence": 0.58
+    },
+    
+    "nature-memoir": {
+      "name": "Nature Memoir",
+      "parent_genre": "nature-writing",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["nature memoir", "environmental memoir", "wilderness memoir"],
+      "exact_phrases": ["nature memoir", "wilderness memoir", "environmental memoir"],
+      "memoir_markers": ["memoir", "personal", "journey", "experience", "nature"],
+      "strong_signals": ["nature memoir", "wilderness", "personal journey"],
+      "minimum_confidence": 0.58
+    },
+    
+    "wildlife-travel": {
+      "name": "Wildlife Travel",
+      "parent_genre": "nature-writing",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["wildlife travel", "animal expeditions", "safari writing"],
+      "exact_phrases": ["wildlife travel", "safari", "animal expedition"],
+      "travel_markers": ["wildlife", "travel", "safari", "expedition", "animals"],
+      "strong_signals": ["wildlife travel", "safari", "animal expedition"],
+      "minimum_confidence": 0.60
+    },
+    
+    "fishing-drama": {
+      "name": "Fishing Drama",
+      "parent_genre": "nautical-fiction",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["fishing story", "commercial fishing", "fishing boat drama"],
+      "exact_phrases": ["fishing", "fisherman", "trawler"],
+      "fishing_markers": ["fishing", "fisherman", "catch", "trawler", "nets"],
+      "strong_signals": ["fishing", "fisherman", "commercial fishing"],
+      "minimum_confidence": 0.60
+    },
+    
+    "naval-fiction": {
+      "name": "Naval Fiction",
+      "parent_genre": "nautical-fiction",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["naval warfare", "navy story", "naval battles"],
+      "exact_phrases": ["naval fiction", "navy", "naval warfare"],
+      "naval_markers": ["naval", "navy", "fleet", "warship", "admiral"],
+      "strong_signals": ["naval fiction", "navy", "naval warfare"],
+      "minimum_confidence": 0.62
+    },
+    
+    "sea-survival": {
+      "name": "Sea Survival",
+      "parent_genre": "nautical-fiction",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["survival at sea", "shipwreck", "ocean survival"],
+      "exact_phrases": ["sea survival", "shipwreck", "lost at sea"],
+      "survival_markers": ["survival", "shipwreck", "stranded", "ocean", "sea"],
+      "strong_signals": ["sea survival", "shipwreck", "lost at sea"],
+      "minimum_confidence": 0.60
+    },
+    
+    "submarine-fiction": {
+      "name": "Submarine Fiction",
+      "parent_genre": "nautical-fiction",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["submarine story", "underwater warfare", "submarine crew"],
+      "exact_phrases": ["submarine", "underwater", "sub"],
+      "submarine_markers": ["submarine", "underwater", "sub", "depth", "torpedo"],
+      "strong_signals": ["submarine", "underwater warfare", "sub"],
+      "minimum_confidence": 0.62
+    },
+    
+    "whaling-fiction": {
+      "name": "Whaling Fiction",
+      "parent_genre": "nautical-fiction",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["whaling story", "whale hunting", "whaling ship"],
+      "exact_phrases": ["whaling", "whale hunting", "whaler"],
+      "whaling_markers": ["whaling", "whale", "harpoon", "whaler", "hunt"],
+      "strong_signals": ["whaling", "whale hunting", "whaler"],
+      "minimum_confidence": 0.62
+    },
+    
+    "classic-noir": {
+      "name": "Classic Noir",
+      "parent_genre": "noir",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["traditional noir", "1940s noir", "classic hard-boiled"],
+      "exact_phrases": ["classic noir", "traditional noir", "hard-boiled"],
+      "classic_markers": ["classic", "traditional", "1940s", "noir", "hard-boiled"],
+      "strong_signals": ["classic noir", "hard-boiled", "traditional noir"],
+      "minimum_confidence": 0.60
+    },
+    
+    "femme-fatale-noir": {
+      "name": "Femme Fatale Noir",
+      "parent_genre": "noir",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["femme fatale", "dangerous woman", "noir romance"],
+      "exact_phrases": ["femme fatale", "dangerous woman", "noir romance"],
+      "femme_markers": ["femme fatale", "dangerous", "seductive", "woman", "noir"],
+      "strong_signals": ["femme fatale", "dangerous woman", "seductive"],
+      "minimum_confidence": 0.62
+    },
+    
+    "neo-noir": {
+      "name": "Neo Noir",
+      "parent_genre": "noir",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["modern noir", "contemporary noir", "updated noir"],
+      "exact_phrases": ["neo-noir", "neo noir", "modern noir"],
+      "neo_markers": ["neo-noir", "modern", "contemporary", "updated", "noir"],
+      "strong_signals": ["neo-noir", "modern noir", "contemporary noir"],
+      "minimum_confidence": 0.62
+    },
+    
+    "noir-thriller": {
+      "name": "Noir Thriller",
+      "parent_genre": "noir",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["noir thriller", "dark suspense", "noir elements with thriller"],
+      "exact_phrases": ["noir thriller", "dark thriller", "noir suspense"],
+      "thriller_markers": ["thriller", "suspense", "noir", "dark", "tension"],
+      "strong_signals": ["noir thriller", "dark suspense", "noir"],
+      "minimum_confidence": 0.60
+    },
+    
+    "ghost-fiction": {
+      "name": "Ghost Fiction",
+      "parent_genre": "paranormal-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["ghost story", "haunting", "spirit fiction"],
+      "exact_phrases": ["ghost story", "ghost", "haunting"],
+      "ghost_markers": ["ghost", "spirit", "haunting", "apparition", "specter"],
+      "strong_signals": ["ghost story", "haunting", "ghost"],
+      "minimum_confidence": 0.62
+    },
+    
+    "psychic-fiction": {
+      "name": "Psychic Fiction",
+      "parent_genre": "paranormal-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["psychic powers", "ESP", "telepathy"],
+      "exact_phrases": ["psychic", "ESP", "telepathy"],
+      "psychic_markers": ["psychic", "ESP", "telepathy", "clairvoyant", "mind reading"],
+      "strong_signals": ["psychic", "ESP", "telepathy"],
+      "minimum_confidence": 0.62
+    },
+    
+    "choreography": {
+      "name": "Choreography",
+      "parent_genre": "performing-arts",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["dance choreography", "movement design", "dance creation"],
+      "exact_phrases": ["choreography", "dance choreography", "movement design"],
+      "choreo_markers": ["choreography", "dance", "movement", "choreographer", "routine"],
+      "strong_signals": ["choreography", "dance choreography", "movement"],
+      "minimum_confidence": 0.65
+    },
+    
+    "dance-history": {
+      "name": "Dance History",
+      "parent_genre": "performing-arts",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["dance history", "ballet history", "dance evolution"],
+      "exact_phrases": ["dance history", "history of dance", "ballet history"],
+      "history_markers": ["dance", "history", "ballet", "evolution", "tradition"],
+      "strong_signals": ["dance history", "ballet history", "dance evolution"],
+      "minimum_confidence": 0.60
+    },
+    
+    "opera": {
+      "name": "Opera",
+      "parent_genre": "performing-arts",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["opera", "operatic music", "opera history"],
+      "exact_phrases": ["opera", "operatic", "aria"],
+      "opera_markers": ["opera", "operatic", "aria", "soprano", "libretto"],
+      "strong_signals": ["opera", "operatic", "aria"],
+      "minimum_confidence": 0.65
+    },
+    
+    "stage-design": {
+      "name": "Stage Design",
+      "parent_genre": "performing-arts",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["stage design", "set design", "theatrical design"],
+      "exact_phrases": ["stage design", "set design", "scenic design"],
+      "design_markers": ["stage", "design", "set", "scenic", "theatrical"],
+      "strong_signals": ["stage design", "set design", "scenic"],
+      "minimum_confidence": 0.62
+    },
+    
+    "bird-care": {
+      "name": "Bird Care",
+      "parent_genre": "pets-animals",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["bird care", "bird keeping", "avian pets"],
+      "exact_phrases": ["bird care", "pet birds", "avian care"],
+      "bird_markers": ["bird", "birds", "avian", "parrot", "cage"],
+      "strong_signals": ["bird care", "pet birds", "avian"],
+      "minimum_confidence": 0.62
+    },
+    
+    "cat-care": {
+      "name": "Cat Care",
+      "parent_genre": "pets-animals",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["cat care", "feline health", "cat keeping"],
+      "exact_phrases": ["cat care", "cats", "feline"],
+      "cat_markers": ["cat", "cats", "feline", "kitten", "kitty"],
+      "strong_signals": ["cat care", "cats", "feline"],
+      "minimum_confidence": 0.62
+    },
+    
+    "dog-training": {
+      "name": "Dog Training",
+      "parent_genre": "pets-animals",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["dog training", "canine training", "obedience training"],
+      "exact_phrases": ["dog training", "canine training", "obedience"],
+      "training_markers": ["dog", "training", "obedience", "canine", "puppy"],
+      "strong_signals": ["dog training", "canine training", "obedience"],
+      "minimum_confidence": 0.62
+    },
+    
+    "horse-riding": {
+      "name": "Horse Riding",
+      "parent_genre": "pets-animals",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["horse riding", "equestrian", "horseback riding"],
+      "exact_phrases": ["horse riding", "equestrian", "horseback"],
+      "horse_markers": ["horse", "riding", "equestrian", "horseback", "saddle"],
+      "strong_signals": ["horse riding", "equestrian", "horseback"],
+      "minimum_confidence": 0.62
+    },
+    
+    "animal-training": {
+      "name": "Animal Training",
+      "parent_genre": "pets-animals",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["animal training", "animal behavior", "training techniques"],
+      "exact_phrases": ["animal training", "animal behavior", "training animals"],
+      "animal_markers": ["animal", "training", "behavior", "conditioning", "trainer"],
+      "strong_signals": ["animal training", "animal behavior", "trainer"],
+      "minimum_confidence": 0.60
+    },
+    
+    "pet-care": {
+      "name": "Pet Care",
+      "parent_genre": "pets-animals",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["pet care", "pet health", "pet keeping"],
+      "exact_phrases": ["pet care", "pet health", "caring for pets"],
+      "pet_markers": ["pet", "care", "health", "veterinary", "animals"],
+      "strong_signals": ["pet care", "pet health", "caring for pets"],
+      "minimum_confidence": 0.58
+    },
+    
+    "wildlife-guides": {
+      "name": "Wildlife Guides",
+      "parent_genre": "pets-animals",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["wildlife identification", "field guide", "animal identification"],
+      "exact_phrases": ["wildlife guide", "field guide", "animal identification"],
+      "guide_markers": ["wildlife", "guide", "identification", "field", "species"],
+      "strong_signals": ["wildlife guide", "field guide", "identification"],
+      "minimum_confidence": 0.62
+    },
+    
+    "ancient-philosophy": {
+      "name": "Ancient Philosophy",
+      "parent_genre": "philosophy",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["ancient philosophy", "Greek philosophy", "classical philosophy"],
+      "exact_phrases": ["ancient philosophy", "Greek philosophy", "classical philosophy"],
+      "ancient_markers": ["ancient", "Greek", "Roman", "classical", "Plato"],
+      "strong_signals": ["ancient philosophy", "Greek philosophy", "classical"],
+      "minimum_confidence": 0.62
+    },
+    
+    "eastern-philosophy": {
+      "name": "Eastern Philosophy",
+      "parent_genre": "philosophy",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Eastern philosophy", "Asian philosophy", "Oriental philosophy"],
+      "exact_phrases": ["Eastern philosophy", "Asian philosophy", "Oriental philosophy"],
+      "eastern_markers": ["Eastern", "Asian", "Zen", "Tao", "Buddhism"],
+      "strong_signals": ["Eastern philosophy", "Asian philosophy", "Zen"],
+      "minimum_confidence": 0.62
+    },
+    
+    "modern-philosophy": {
+      "name": "Modern Philosophy",
+      "parent_genre": "philosophy",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["modern philosophy", "contemporary philosophy", "20th century philosophy"],
+      "exact_phrases": ["modern philosophy", "contemporary philosophy"],
+      "modern_markers": ["modern", "contemporary", "20th century", "current", "recent"],
+      "strong_signals": ["modern philosophy", "contemporary philosophy", "20th century"],
+      "minimum_confidence": 0.60
+    },
+    
+    "western-philosophy": {
+      "name": "Western Philosophy",
+      "parent_genre": "philosophy",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Western philosophy", "European philosophy", "Western thought"],
+      "exact_phrases": ["Western philosophy", "European philosophy"],
+      "western_markers": ["Western", "European", "Kant", "Descartes", "Hegel"],
+      "strong_signals": ["Western philosophy", "European philosophy", "Western thought"],
+      "minimum_confidence": 0.60
+    },
+    
+    "history-of-science": {
+      "name": "History Of Science",
+      "parent_genre": "philosophy-of-science",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["science history", "scientific development", "history of discovery"],
+      "exact_phrases": ["history of science", "science history", "scientific revolution"],
+      "history_markers": ["history", "science", "development", "discovery", "revolution"],
+      "strong_signals": ["history of science", "scientific development", "discovery"],
+      "minimum_confidence": 0.60
+    },
+    
+    "philosophy-of-biology": {
+      "name": "Philosophy Of Biology",
+      "parent_genre": "philosophy-of-science",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["biology philosophy", "life sciences philosophy", "biological theory"],
+      "exact_phrases": ["philosophy of biology", "biological philosophy"],
+      "bio_markers": ["biology", "philosophy", "life", "evolution", "organism"],
+      "strong_signals": ["philosophy of biology", "biological philosophy", "life sciences"],
+      "minimum_confidence": 0.62
+    },
+    
+    "philosophy-of-physics": {
+      "name": "Philosophy Of Physics",
+      "parent_genre": "philosophy-of-science",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["physics philosophy", "physical theory", "quantum philosophy"],
+      "exact_phrases": ["philosophy of physics", "physics philosophy"],
+      "physics_markers": ["physics", "philosophy", "quantum", "relativity", "space-time"],
+      "strong_signals": ["philosophy of physics", "quantum philosophy", "relativity"],
+      "minimum_confidence": 0.62
+    },
+    
+    "scientific-method": {
+      "name": "Scientific Method",
+      "parent_genre": "philosophy-of-science",
+      "parent_supergenre": "philosophy",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["scientific method", "research methodology", "experimental design"],
+      "exact_phrases": ["scientific method", "research methodology", "experimental design"],
+      "method_markers": ["scientific", "method", "research", "experiment", "hypothesis"],
+      "strong_signals": ["scientific method", "research methodology", "experimental"],
+      "minimum_confidence": 0.60
+    },
+    
+    "digital-photography": {
+      "name": "Digital Photography",
+      "parent_genre": "photography",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["digital photography", "digital camera", "photo editing"],
+      "exact_phrases": ["digital photography", "digital camera", "DSLR"],
+      "digital_markers": ["digital", "camera", "DSLR", "sensor", "pixels"],
+      "strong_signals": ["digital photography", "digital camera", "DSLR"],
+      "minimum_confidence": 0.62
+    },
+    
+    "photo-history": {
+      "name": "Photo History",
+      "parent_genre": "photography",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["photography history", "photo evolution", "camera history"],
+      "exact_phrases": ["photography history", "history of photography"],
+      "history_markers": ["photography", "history", "evolution", "development", "early"],
+      "strong_signals": ["photography history", "photo evolution", "camera history"],
+      "minimum_confidence": 0.60
+    },
+    
+    "photo-technique": {
+      "name": "Photo Technique",
+      "parent_genre": "photography",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["photography techniques", "photo composition", "camera techniques"],
+      "exact_phrases": ["photography techniques", "photo composition", "camera techniques"],
+      "technique_markers": ["technique", "composition", "lighting", "exposure", "aperture"],
+      "strong_signals": ["photography techniques", "composition", "lighting"],
+      "minimum_confidence": 0.60
+    },
+    
+    "photojournalism": {
+      "name": "Photojournalism",
+      "parent_genre": "photography",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["photojournalism", "documentary photography", "news photography"],
+      "exact_phrases": ["photojournalism", "documentary photography", "news photography"],
+      "journalism_markers": ["photojournalism", "documentary", "news", "journalism", "reportage"],
+      "strong_signals": ["photojournalism", "documentary photography", "news"],
+      "minimum_confidence": 0.62
+    },
+    
+    "campaign-fiction": {
+      "name": "Campaign Fiction",
+      "parent_genre": "political-fiction",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["political campaign", "election story", "campaign drama"],
+      "exact_phrases": ["campaign", "election", "political campaign"],
+      "campaign_markers": ["campaign", "election", "candidate", "vote", "political"],
+      "strong_signals": ["campaign", "election", "political campaign"],
+      "minimum_confidence": 0.60
+    },
+    
+    "dystopian-political-fiction": {
+      "name": "Dystopian Political Fiction",
+      "parent_genre": "political-fiction",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["political dystopia", "authoritarian fiction", "political oppression"],
+      "exact_phrases": ["political dystopia", "dystopian political", "authoritarian"],
+      "dystopian_markers": ["dystopian", "political", "authoritarian", "oppression", "regime"],
+      "strong_signals": ["political dystopia", "authoritarian", "oppression"],
+      "minimum_confidence": 0.60
+    },
+    
+    "political-satire": {
+      "name": "Political Satire",
+      "parent_genre": "political-fiction",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["political satire", "political comedy", "satirical politics"],
+      "exact_phrases": ["political satire", "satirical politics", "political comedy"],
+      "satire_markers": ["satire", "satirical", "comedy", "parody", "political"],
+      "strong_signals": ["political satire", "satirical", "political comedy"],
+      "minimum_confidence": 0.62
+    },
+    
+    "comparative-politics": {
+      "name": "Comparative Politics",
+      "parent_genre": "politics",
+      "parent_supergenre": "politics-current-affairs",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["comparative politics", "political systems", "government comparison"],
+      "exact_phrases": ["comparative politics", "political systems", "government comparison"],
+      "comparative_markers": ["comparative", "politics", "systems", "governments", "comparison"],
+      "strong_signals": ["comparative politics", "political systems", "comparison"],
+      "minimum_confidence": 0.62
+    },
+    
+    "elections": {
+      "name": "Elections",
+      "parent_genre": "politics",
+      "parent_supergenre": "politics-current-affairs",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["elections", "voting", "electoral systems"],
+      "exact_phrases": ["elections", "voting", "electoral"],
+      "election_markers": ["elections", "voting", "electoral", "ballot", "campaign"],
+      "strong_signals": ["elections", "voting", "electoral"],
+      "minimum_confidence": 0.60
+    },
+    
+    "political-theory": {
+      "name": "Political Theory",
+      "parent_genre": "politics",
+      "parent_supergenre": "politics-current-affairs",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["political theory", "political philosophy", "political thought"],
+      "exact_phrases": ["political theory", "political philosophy", "political thought"],
+      "theory_markers": ["theory", "political", "philosophy", "thought", "ideology"],
+      "strong_signals": ["political theory", "political philosophy", "ideology"],
+      "minimum_confidence": 0.62
+    },
+    
+    "public-policy": {
+      "name": "Public Policy",
+      "parent_genre": "politics",
+      "parent_supergenre": "politics-current-affairs",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["public policy", "policy analysis", "government policy"],
+      "exact_phrases": ["public policy", "policy analysis", "government policy"],
+      "policy_markers": ["public", "policy", "government", "analysis", "legislation"],
+      "strong_signals": ["public policy", "policy analysis", "government"],
+      "minimum_confidence": 0.60
+    },
+    
+    "climate-apocalypse": {
+      "name": "Climate Apocalypse",
+      "parent_genre": "post-apocalyptic-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["climate apocalypse", "environmental collapse", "climate disaster"],
+      "exact_phrases": ["climate apocalypse", "climate collapse", "environmental disaster"],
+      "climate_markers": ["climate", "environmental", "collapse", "disaster", "warming"],
+      "strong_signals": ["climate apocalypse", "climate collapse", "environmental disaster"],
+      "minimum_confidence": 0.62
+    },
+    
+    "nuclear-apocalypse": {
+      "name": "Nuclear Apocalypse",
+      "parent_genre": "post-apocalyptic-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["nuclear apocalypse", "nuclear war", "atomic apocalypse"],
+      "exact_phrases": ["nuclear apocalypse", "nuclear war", "atomic war"],
+      "nuclear_markers": ["nuclear", "atomic", "radiation", "bomb", "fallout"],
+      "strong_signals": ["nuclear apocalypse", "nuclear war", "radiation"],
+      "minimum_confidence": 0.62
+    },
+    
+    "plague-apocalypse": {
+      "name": "Plague Apocalypse",
+      "parent_genre": "post-apocalyptic-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["plague apocalypse", "pandemic", "disease outbreak"],
+      "exact_phrases": ["plague", "pandemic", "outbreak"],
+      "plague_markers": ["plague", "pandemic", "disease", "outbreak", "virus"],
+      "strong_signals": ["plague", "pandemic", "outbreak"],
+      "minimum_confidence": 0.60
+    },
+    
+    "algorithms": {
+      "name": "Algorithms",
+      "parent_genre": "programming",
+      "parent_supergenre": "technology-engineering",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["algorithms", "algorithmic design", "computational algorithms"],
+      "exact_phrases": ["algorithms", "algorithmic", "data structures"],
+      "algorithm_markers": ["algorithms", "algorithmic", "data structures", "complexity", "optimization"],
+      "strong_signals": ["algorithms", "data structures", "computational"],
+      "minimum_confidence": 0.65
+    },
+    
+    "coding-tutorials": {
+      "name": "Coding Tutorials",
+      "parent_genre": "programming",
+      "parent_supergenre": "technology-engineering",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["coding tutorials", "programming tutorials", "learn to code"],
+      "exact_phrases": ["coding tutorials", "learn to code", "programming guide"],
+      "tutorial_markers": ["tutorial", "learn", "coding", "guide", "beginner"],
+      "strong_signals": ["coding tutorials", "learn to code", "programming guide"],
+      "minimum_confidence": 0.60
+    },
+    
+    "programming-languages": {
+      "name": "Programming Languages",
+      "parent_genre": "programming",
+      "parent_supergenre": "technology-engineering",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["programming languages", "language design", "specific languages"],
+      "exact_phrases": ["programming languages", "Python", "Java", "JavaScript"],
+      "language_markers": ["programming", "language", "Python", "Java", "syntax"],
+      "strong_signals": ["programming languages", "Python", "Java"],
+      "minimum_confidence": 0.62
+    },
+    
+    "software-development": {
+      "name": "Software Development",
+      "parent_genre": "programming",
+      "parent_supergenre": "technology-engineering",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["software development", "software engineering", "development practices"],
+      "exact_phrases": ["software development", "software engineering", "development"],
+      "dev_markers": ["software", "development", "engineering", "agile", "programming"],
+      "strong_signals": ["software development", "software engineering", "agile"],
+      "minimum_confidence": 0.60
+    },
+    
+    "psychoanalytic-fiction": {
+      "name": "Psychoanalytic Fiction",
+      "parent_genre": "psychological-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["psychoanalytic", "psychological depth", "Freudian themes"],
+      "exact_phrases": ["psychoanalytic", "psychological depth", "Freudian"],
+      "psycho_markers": ["psychoanalytic", "Freudian", "unconscious", "psyche", "analysis"],
+      "strong_signals": ["psychoanalytic", "Freudian", "psychological depth"],
+      "minimum_confidence": 0.62
+    },
+    
+    "anxiety-management": {
+      "name": "Anxiety Management",
+      "parent_genre": "psychology-self-help",
+      "parent_supergenre": "health-psychology",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["anxiety management", "anxiety relief", "coping with anxiety"],
+      "exact_phrases": ["anxiety management", "anxiety relief", "managing anxiety"],
+      "anxiety_markers": ["anxiety", "worry", "stress", "panic", "management"],
+      "strong_signals": ["anxiety management", "anxiety relief", "worry"],
+      "minimum_confidence": 0.60
+    },
+    
+    "cognitive-behavioral-therapy": {
+      "name": "Cognitive Behavioral Therapy",
+      "parent_genre": "psychology-self-help",
+      "parent_supergenre": "health-psychology",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["CBT", "cognitive behavioral therapy", "cognitive therapy"],
+      "exact_phrases": ["CBT", "cognitive behavioral therapy", "cognitive therapy"],
+      "cbt_markers": ["CBT", "cognitive", "behavioral", "therapy", "thoughts"],
+      "strong_signals": ["CBT", "cognitive behavioral therapy", "cognitive therapy"],
+      "minimum_confidence": 0.65
+    },
+    
+    "almanacs": {
+      "name": "Almanacs",
+      "parent_genre": "reference",
+      "parent_supergenre": "reference-education",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["almanac", "yearly reference", "facts and figures"],
+      "exact_phrases": ["almanac", "yearly reference", "annual reference"],
+      "almanac_markers": ["almanac", "yearly", "annual", "reference", "facts"],
+      "strong_signals": ["almanac", "yearly reference", "annual"],
+      "minimum_confidence": 0.65
+    },
+    
+    "dictionaries": {
+      "name": "Dictionaries",
+      "parent_genre": "reference",
+      "parent_supergenre": "reference-education",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["dictionary", "word definitions", "lexicon"],
+      "exact_phrases": ["dictionary", "lexicon", "word reference"],
+      "dictionary_markers": ["dictionary", "words", "definitions", "lexicon", "vocabulary"],
+      "strong_signals": ["dictionary", "lexicon", "definitions"],
+      "minimum_confidence": 0.65
+    },
+    
+    "encyclopedias": {
+      "name": "Encyclopedias",
+      "parent_genre": "reference",
+      "parent_supergenre": "reference-education",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["encyclopedia", "comprehensive reference", "knowledge compendium"],
+      "exact_phrases": ["encyclopedia", "encyclopaedia", "compendium"],
+      "encyclopedia_markers": ["encyclopedia", "encyclopaedia", "reference", "compendium", "knowledge"],
+      "strong_signals": ["encyclopedia", "compendium", "comprehensive"],
+      "minimum_confidence": 0.65
+    },
+    
+    "handbooks": {
+      "name": "Handbooks",
+      "parent_genre": "reference",
+      "parent_supergenre": "reference-education",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["handbook", "manual", "practical guide"],
+      "exact_phrases": ["handbook", "manual", "practical guide"],
+      "handbook_markers": ["handbook", "manual", "guide", "reference", "practical"],
+      "strong_signals": ["handbook", "manual", "practical guide"],
+      "minimum_confidence": 0.62
+    },
+    
+    "style-guides": {
+      "name": "Style Guides",
+      "parent_genre": "reference",
+      "parent_supergenre": "reference-education",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["style guide", "writing style", "grammar guide"],
+      "exact_phrases": ["style guide", "writing style", "grammar guide"],
+      "style_markers": ["style", "guide", "writing", "grammar", "usage"],
+      "strong_signals": ["style guide", "writing style", "grammar"],
+      "minimum_confidence": 0.62
+    },
+    
+    "thesauri": {
+      "name": "Thesauri",
+      "parent_genre": "reference",
+      "parent_supergenre": "reference-education",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["thesaurus", "synonyms", "word reference"],
+      "exact_phrases": ["thesaurus", "synonyms", "antonyms"],
+      "thesaurus_markers": ["thesaurus", "synonyms", "antonyms", "words", "reference"],
+      "strong_signals": ["thesaurus", "synonyms", "antonyms"],
+      "minimum_confidence": 0.65
+    },
+    
+    "comparative-religion": {
+      "name": "Comparative Religion",
+      "parent_genre": "religion",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["comparative religion", "world religions", "religious comparison"],
+      "exact_phrases": ["comparative religion", "world religions", "religious comparison"],
+      "comparative_markers": ["comparative", "religion", "world", "comparison", "faiths"],
+      "strong_signals": ["comparative religion", "world religions", "comparison"],
+      "minimum_confidence": 0.60
+    },
+    
+    "mythology": {
+      "name": "Mythology",
+      "parent_genre": "religion",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["mythology", "myths", "mythological stories"],
+      "exact_phrases": ["mythology", "myths", "mythological"],
+      "myth_markers": ["mythology", "myths", "mythological", "gods", "legends"],
+      "strong_signals": ["mythology", "myths", "gods"],
+      "minimum_confidence": 0.60
+    },
+    
+    "religious-history": {
+      "name": "Religious History",
+      "parent_genre": "religion",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["religious history", "history of religion", "faith history"],
+      "exact_phrases": ["religious history", "history of religion", "faith history"],
+      "history_markers": ["religious", "history", "faith", "development", "evolution"],
+      "strong_signals": ["religious history", "history of religion", "faith history"],
+      "minimum_confidence": 0.58
+    },
+    
+    "spirituality": {
+      "name": "Spirituality",
+      "parent_genre": "religion",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["spirituality", "spiritual practice", "spiritual growth"],
+      "exact_phrases": ["spirituality", "spiritual practice", "spiritual growth"],
+      "spiritual_markers": ["spirituality", "spiritual", "practice", "growth", "inner"],
+      "strong_signals": ["spirituality", "spiritual practice", "spiritual growth"],
+      "minimum_confidence": 0.58
+    },
+    
+    "islamic-fiction": {
+      "name": "Islamic Fiction",
+      "parent_genre": "religious-fiction",
+      "parent_supergenre": "inspirational-religious-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Islamic fiction", "Muslim fiction", "Islamic themes"],
+      "exact_phrases": ["Islamic fiction", "Muslim fiction", "Islamic themes"],
+      "islamic_markers": ["Islamic", "Muslim", "Islam", "faith", "religious"],
+      "strong_signals": ["Islamic fiction", "Muslim", "Islamic themes"],
+      "minimum_confidence": 0.62
+    },
+    
+    "jewish-fiction": {
+      "name": "Jewish Fiction",
+      "parent_genre": "religious-fiction",
+      "parent_supergenre": "inspirational-religious-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Jewish fiction", "Jewish themes", "Jewish life"],
+      "exact_phrases": ["Jewish fiction", "Jewish themes", "Jewish life"],
+      "jewish_markers": ["Jewish", "Judaism", "Hebrew", "synagogue", "Torah"],
+      "strong_signals": ["Jewish fiction", "Jewish themes", "Judaism"],
+      "minimum_confidence": 0.62
+    },
+    
+    "spiritual-allegory": {
+      "name": "Spiritual Allegory",
+      "parent_genre": "religious-fiction",
+      "parent_supergenre": "inspirational-religious-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["spiritual allegory", "allegorical fiction", "metaphorical spirituality"],
+      "exact_phrases": ["spiritual allegory", "allegorical", "metaphor"],
+      "allegory_markers": ["allegory", "allegorical", "metaphor", "spiritual", "symbolic"],
+      "strong_signals": ["spiritual allegory", "allegorical", "metaphor"],
+      "minimum_confidence": 0.60
+    },
+    
+    "automation": {
+      "name": "Automation",
+      "parent_genre": "robotics",
+      "parent_supergenre": "technology-engineering",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["automation", "automated systems", "industrial automation"],
+      "exact_phrases": ["automation", "automated systems", "industrial automation"],
+      "automation_markers": ["automation", "automated", "systems", "industrial", "robots"],
+      "strong_signals": ["automation", "automated systems", "industrial"],
+      "minimum_confidence": 0.60
+    },
+    
+    "robot-design": {
+      "name": "Robot Design",
+      "parent_genre": "robotics",
+      "parent_supergenre": "technology-engineering",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["robot design", "robotic engineering", "robot construction"],
+      "exact_phrases": ["robot design", "robotic engineering", "robot construction"],
+      "design_markers": ["robot", "design", "engineering", "construction", "mechanics"],
+      "strong_signals": ["robot design", "robotic engineering", "construction"],
+      "minimum_confidence": 0.62
+    },
+    
+    "robot-ethics": {
+      "name": "Robot Ethics",
+      "parent_genre": "robotics",
+      "parent_supergenre": "technology-engineering",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["robot ethics", "AI ethics", "robotics morality"],
+      "exact_phrases": ["robot ethics", "AI ethics", "robotic ethics"],
+      "ethics_markers": ["robot", "ethics", "AI", "morality", "responsibility"],
+      "strong_signals": ["robot ethics", "AI ethics", "morality"],
+      "minimum_confidence": 0.62
+    },
+    
+    "robotics-programming": {
+      "name": "Robotics Programming",
+      "parent_genre": "robotics",
+      "parent_supergenre": "technology-engineering",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["robotics programming", "robot coding", "robotic control"],
+      "exact_phrases": ["robotics programming", "robot coding", "robotic control"],
+      "programming_markers": ["robotics", "programming", "coding", "control", "software"],
+      "strong_signals": ["robotics programming", "robot coding", "control"],
+      "minimum_confidence": 0.62
+    },
+    
+    "dark-romance": {
+      "name": "Dark Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["dark romance", "twisted love", "dark themes"],
+      "exact_phrases": ["dark romance", "twisted romance", "dark love"],
+      "dark_markers": ["dark", "twisted", "obsessive", "intense", "dangerous"],
+      "strong_signals": ["dark romance", "twisted", "obsessive"],
+      "minimum_confidence": 0.62
+    },
+    
+    "military-romance": {
+      "name": "Military Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["military romance", "soldier romance", "military love story"],
+      "exact_phrases": ["military romance", "soldier romance", "military love"],
+      "military_markers": ["military", "soldier", "army", "navy", "deployment"],
+      "strong_signals": ["military romance", "soldier", "deployment"],
+      "minimum_confidence": 0.60
+    },
+    
+    "western-romance": {
+      "name": "Western Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["western romance", "cowboy romance", "frontier romance"],
+      "exact_phrases": ["western romance", "cowboy romance", "frontier romance"],
+      "western_markers": ["western", "cowboy", "frontier", "ranch", "rodeo"],
+      "strong_signals": ["western romance", "cowboy", "frontier"],
+      "minimum_confidence": 0.62
+    },
+    
+    "dystopian-sf": {
+      "name": "Dystopian SF",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["dystopian science fiction", "futuristic dystopia", "sci-fi dystopia"],
+      "exact_phrases": ["dystopian SF", "dystopian science fiction", "sci-fi dystopia"],
+      "dystopian_markers": ["dystopian", "dystopia", "sci-fi", "futuristic", "oppressive"],
+      "strong_signals": ["dystopian SF", "dystopian science fiction", "futuristic"],
+      "minimum_confidence": 0.60
+    },
+    
+    "hard-science-fiction": {
+      "name": "Hard Science Fiction",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["hard SF", "scientifically accurate", "technical sci-fi"],
+      "exact_phrases": ["hard SF", "hard science fiction", "scientifically accurate"],
+      "hard_markers": ["hard", "scientific", "accurate", "technical", "physics"],
+      "strong_signals": ["hard SF", "scientifically accurate", "technical"],
+      "minimum_confidence": 0.62
+    },
+    
+    "military-science-fiction": {
+      "name": "Military Science Fiction",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["military SF", "space marines", "military sci-fi"],
+      "exact_phrases": ["military SF", "military science fiction", "space marines"],
+      "military_markers": ["military", "marines", "war", "combat", "space"],
+      "strong_signals": ["military SF", "space marines", "military sci-fi"],
+      "minimum_confidence": 0.62
+    },
+    
+    "post-apocalyptic-sf": {
+      "name": "Post Apocalyptic SF",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["post-apocalyptic SF", "after the apocalypse", "post-collapse"],
+      "exact_phrases": ["post-apocalyptic SF", "post-apocalyptic", "after the apocalypse"],
+      "post_markers": ["post-apocalyptic", "apocalypse", "collapse", "survivors", "wasteland"],
+      "strong_signals": ["post-apocalyptic", "after the apocalypse", "wasteland"],
+      "minimum_confidence": 0.60
+    },
+    
+    "time-travel-sf": {
+      "name": "Time Travel SF",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["time travel SF", "temporal sci-fi", "time machine"],
+      "exact_phrases": ["time travel", "time machine", "temporal"],
+      "time_markers": ["time", "travel", "temporal", "paradox", "timeline"],
+      "strong_signals": ["time travel", "time machine", "temporal"],
+      "minimum_confidence": 0.62
+    },
+    
+    "time-management": {
+      "name": "Time Management",
+      "parent_genre": "self-help",
+      "parent_supergenre": "self-help-wellness",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["time management", "productivity", "time optimization"],
+      "exact_phrases": ["time management", "productivity", "time optimization"],
+      "time_markers": ["time", "management", "productivity", "efficiency", "planning"],
+      "strong_signals": ["time management", "productivity", "efficiency"],
+      "minimum_confidence": 0.60
+    },
+    
+    "shinto-history": {
+      "name": "Shinto History",
+      "parent_genre": "shinto",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Shinto history", "Japanese religion history", "Shinto development"],
+      "exact_phrases": ["Shinto history", "history of Shinto"],
+      "history_markers": ["Shinto", "history", "Japanese", "religion", "development"],
+      "strong_signals": ["Shinto history", "Japanese religion", "Shinto development"],
+      "minimum_confidence": 0.62
+    },
+    
+    "shinto-mythology": {
+      "name": "Shinto Mythology",
+      "parent_genre": "shinto",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Shinto mythology", "kami", "Japanese myths"],
+      "exact_phrases": ["Shinto mythology", "kami", "Japanese myths"],
+      "myth_markers": ["Shinto", "mythology", "kami", "myths", "gods"],
+      "strong_signals": ["Shinto mythology", "kami", "Japanese myths"],
+      "minimum_confidence": 0.62
+    },
+    
+    "shinto-rituals": {
+      "name": "Shinto Rituals",
+      "parent_genre": "shinto",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Shinto rituals", "Shinto practices", "Japanese rituals"],
+      "exact_phrases": ["Shinto rituals", "Shinto practices", "Japanese rituals"],
+      "ritual_markers": ["Shinto", "rituals", "practices", "ceremonies", "shrine"],
+      "strong_signals": ["Shinto rituals", "Shinto practices", "ceremonies"],
+      "minimum_confidence": 0.62
+    },
+    
+    "guru-granth-sahib-studies": {
+      "name": "Guru Granth Sahib Studies",
+      "parent_genre": "sikhism",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Guru Granth Sahib", "Sikh scripture", "Sikh holy book"],
+      "exact_phrases": ["Guru Granth Sahib", "Sikh scripture", "Sikh holy book"],
+      "scripture_markers": ["Guru Granth Sahib", "Sikh", "scripture", "holy", "gurbani"],
+      "strong_signals": ["Guru Granth Sahib", "Sikh scripture", "gurbani"],
+      "minimum_confidence": 0.65
+    },
+    
+    "sikh-history": {
+      "name": "Sikh History",
+      "parent_genre": "sikhism",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Sikh history", "Sikhism history", "Guru history"],
+      "exact_phrases": ["Sikh history", "history of Sikhism", "Guru history"],
+      "history_markers": ["Sikh", "history", "Sikhism", "Guru", "Punjab"],
+      "strong_signals": ["Sikh history", "Sikhism", "Guru"],
+      "minimum_confidence": 0.62
+    },
+    
+    "sikh-theology": {
+      "name": "Sikh Theology",
+      "parent_genre": "sikhism",
+      "parent_supergenre": "religion-spirituality",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Sikh theology", "Sikh beliefs", "Sikh doctrine"],
+      "exact_phrases": ["Sikh theology", "Sikh beliefs", "Sikh doctrine"],
+      "theology_markers": ["Sikh", "theology", "beliefs", "doctrine", "faith"],
+      "strong_signals": ["Sikh theology", "Sikh beliefs", "doctrine"],
+      "minimum_confidence": 0.62
+    },
+    
+    "civil-rights": {
+      "name": "Civil Rights",
+      "parent_genre": "social-justice",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["civil rights", "equality", "civil rights movement"],
+      "exact_phrases": ["civil rights", "equality", "civil rights movement"],
+      "rights_markers": ["civil", "rights", "equality", "justice", "movement"],
+      "strong_signals": ["civil rights", "equality", "justice"],
+      "minimum_confidence": 0.60
+    },
+    
+    "feminism": {
+      "name": "Feminism",
+      "parent_genre": "social-justice",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["feminism", "feminist theory", "women's rights"],
+      "exact_phrases": ["feminism", "feminist", "women's rights"],
+      "feminist_markers": ["feminism", "feminist", "women", "gender", "equality"],
+      "strong_signals": ["feminism", "feminist", "women's rights"],
+      "minimum_confidence": 0.60
+    },
+    
+    "lgbtq+-rights": {
+      "name": "LGBTQ+ Rights",
+      "parent_genre": "social-justice",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["LGBTQ+ rights", "queer rights", "gay rights"],
+      "exact_phrases": ["LGBTQ+", "queer rights", "gay rights"],
+      "lgbtq_markers": ["LGBTQ", "queer", "gay", "lesbian", "transgender"],
+      "strong_signals": ["LGBTQ+", "queer rights", "gay rights"],
+      "minimum_confidence": 0.62
+    },
+    
+    "racial-justice": {
+      "name": "Racial Justice",
+      "parent_genre": "social-justice",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["racial justice", "anti-racism", "racial equality"],
+      "exact_phrases": ["racial justice", "anti-racism", "racial equality"],
+      "justice_markers": ["racial", "justice", "anti-racism", "equality", "discrimination"],
+      "strong_signals": ["racial justice", "anti-racism", "equality"],
+      "minimum_confidence": 0.60
+    },
+    
+    "cultural-studies-basics": {
+      "name": "Cultural Studies Basics",
+      "parent_genre": "social-science",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["cultural studies intro", "culture basics", "cultural analysis intro"],
+      "exact_phrases": ["cultural studies", "introduction to culture", "culture basics"],
+      "cultural_markers": ["cultural", "culture", "studies", "society", "analysis"],
+      "strong_signals": ["cultural studies", "culture", "analysis"],
+      "minimum_confidence": 0.58
+    },
+    
+    "demography": {
+      "name": "Demography",
+      "parent_genre": "social-science",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["demography", "population studies", "demographic analysis"],
+      "exact_phrases": ["demography", "population studies", "demographic"],
+      "demographic_markers": ["demography", "population", "demographic", "statistics", "census"],
+      "strong_signals": ["demography", "population studies", "demographic"],
+      "minimum_confidence": 0.62
+    },
+    
+    "criminology": {
+      "name": "Criminology",
+      "parent_genre": "sociology",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["criminology", "crime study", "criminal behavior"],
+      "exact_phrases": ["criminology", "crime study", "criminal behavior"],
+      "crime_markers": ["criminology", "crime", "criminal", "deviance", "justice"],
+      "strong_signals": ["criminology", "crime study", "criminal behavior"],
+      "minimum_confidence": 0.62
+    },
+    
+    "family-sociology": {
+      "name": "Family Sociology",
+      "parent_genre": "sociology",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["family sociology", "family studies", "family structures"],
+      "exact_phrases": ["family sociology", "family studies", "family structures"],
+      "family_markers": ["family", "sociology", "relationships", "kinship", "domestic"],
+      "strong_signals": ["family sociology", "family studies", "kinship"],
+      "minimum_confidence": 0.60
+    },
+    
+    "gender-sociology": {
+      "name": "Gender Sociology",
+      "parent_genre": "sociology",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["gender sociology", "gender studies", "gender roles"],
+      "exact_phrases": ["gender sociology", "gender studies", "gender roles"],
+      "gender_markers": ["gender", "sociology", "roles", "identity", "masculinity"],
+      "strong_signals": ["gender sociology", "gender studies", "gender roles"],
+      "minimum_confidence": 0.60
+    },
+    
+    "urban-sociology": {
+      "name": "Urban Sociology",
+      "parent_genre": "sociology",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["urban sociology", "city studies", "urban life"],
+      "exact_phrases": ["urban sociology", "city studies", "urban life"],
+      "urban_markers": ["urban", "city", "sociology", "metropolitan", "urbanization"],
+      "strong_signals": ["urban sociology", "city studies", "urbanization"],
+      "minimum_confidence": 0.60
+    },
+    
+    "sports-coaching": {
+      "name": "Sports Coaching",
+      "parent_genre": "sports",
+      "parent_supergenre": "sports-recreation",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["sports coaching", "athletic coaching", "coaching techniques"],
+      "exact_phrases": ["sports coaching", "coaching", "athletic coaching"],
+      "coaching_markers": ["coaching", "coach", "training", "athletic", "techniques"],
+      "strong_signals": ["sports coaching", "coaching", "athletic"],
+      "minimum_confidence": 0.60
+    },
+    
+    "sports-history": {
+      "name": "Sports History",
+      "parent_genre": "sports",
+      "parent_supergenre": "sports-recreation",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["sports history", "athletic history", "sports evolution"],
+      "exact_phrases": ["sports history", "history of sports", "athletic history"],
+      "history_markers": ["sports", "history", "athletic", "evolution", "legacy"],
+      "strong_signals": ["sports history", "athletic history", "sports evolution"],
+      "minimum_confidence": 0.58
+    },
+    
+    "sports-psychology": {
+      "name": "Sports Psychology",
+      "parent_genre": "sports",
+      "parent_supergenre": "sports-recreation",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["sports psychology", "mental training", "athletic psychology"],
+      "exact_phrases": ["sports psychology", "mental training", "athletic psychology"],
+      "psych_markers": ["sports", "psychology", "mental", "athletic", "performance"],
+      "strong_signals": ["sports psychology", "mental training", "performance"],
+      "minimum_confidence": 0.62
     }
   }
 }
