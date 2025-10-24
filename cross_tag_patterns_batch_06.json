@@ -1,0 +1,706 @@
+{
+  "batch_info": {
+    "batch_number": 6,
+    "patterns_in_batch": 100,
+    "cumulative_total": 705,
+    "focus_areas": ["western tropes", "steampunk elements", "urban fantasy", "cozy mystery", "noir elements", "gothic elements", "fairy tale retellings", "space opera", "military sci-fi", "paranormal investigation"]
+  },
+  "patterns": {
+    "gunslinger": {
+      "exact": ["gunslinger", "gun fighter", "quick draw"],
+      "synonyms": ["shootist", "pistolero", "gunman"],
+      "phrases": ["gunslinger character", "quick draw artist", "gun fighter", "fastest draw"],
+      "avoid": ["gun control", "gunslinger game"],
+      "confidence_boost": 0.2,
+      "notes": "Western trope: gunslinger"
+    },
+    "outlaw": {
+      "exact": ["outlaw", "wanted criminal", "bandit"],
+      "synonyms": ["desperado", "fugitive", "renegade"],
+      "phrases": ["outlaw character", "wanted man", "bandit gang", "fugitive outlaw"],
+      "avoid": ["outlaw country music", "outlaw motorcycle"],
+      "confidence_boost": 0.1,
+      "notes": "Western trope: outlaw"
+    },
+    "lawman": {
+      "exact": ["lawman", "sheriff", "marshal"],
+      "synonyms": ["law enforcement", "frontier justice", "town sheriff"],
+      "phrases": ["lawman character", "frontier sheriff", "marshal protagonist", "upholding law"],
+      "avoid": ["law firm", "lawman game"],
+      "confidence_boost": 0.2,
+      "notes": "Western trope: lawman"
+    },
+    "showdown": {
+      "exact": ["showdown", "high noon", "duel"],
+      "synonyms": ["shootout", "final confrontation", "standoff"],
+      "phrases": ["western showdown", "high noon duel", "gunfight showdown", "final shootout"],
+      "avoid": ["showdown game", "showdown competition"],
+      "confidence_boost": 0.1,
+      "notes": "Western trope: showdown/duel"
+    },
+    "cattle-drive": {
+      "exact": ["cattle drive", "driving cattle", "cattle trail"],
+      "synonyms": ["cattle herding", "trail drive", "cattle run"],
+      "phrases": ["cattle drive west", "driving herd", "cattle trail", "long cattle drive"],
+      "avoid": ["cattle farming", "drive-through"],
+      "confidence_boost": 0.2,
+      "notes": "Western trope: cattle drive"
+    },
+    "gold-rush": {
+      "exact": ["gold rush", "gold prospecting", "gold fever"],
+      "synonyms": ["gold mining", "prospector", "gold claim"],
+      "phrases": ["gold rush era", "prospecting for gold", "gold fever", "striking gold"],
+      "avoid": ["gold rush game", "california gold rush history"],
+      "confidence_boost": 0.2,
+      "notes": "Western trope: gold rush"
+    },
+    "saloon": {
+      "exact": ["saloon", "western saloon", "drinking establishment"],
+      "synonyms": ["bar", "tavern", "watering hole"],
+      "phrases": ["saloon setting", "western bar", "frontier saloon", "saloon scene"],
+      "avoid": ["saloon car", "beauty saloon"],
+      "confidence_boost": 0.1,
+      "notes": "Western setting: saloon"
+    },
+    "revenge-western": {
+      "exact": ["revenge western", "vengeance quest", "avenging death"],
+      "synonyms": ["revenge tale", "vengeance story", "payback"],
+      "phrases": ["seeking revenge", "avenging family", "revenge quest", "vengeance mission"],
+      "avoid": ["revenge movie", "revenge song"],
+      "confidence_boost": 0.2,
+      "notes": "Western plot: revenge"
+    },
+    "clockwork": {
+      "exact": ["clockwork", "mechanical devices", "clockwork mechanisms"],
+      "synonyms": ["gears and cogs", "mechanical technology", "clockwork machines"],
+      "phrases": ["clockwork technology", "mechanical clockwork", "gears and steam", "clockwork devices"],
+      "avoid": ["clockwork orange", "clockwork toy"],
+      "confidence_boost": 0.1,
+      "notes": "Steampunk: clockwork technology"
+    },
+    "steam-powered": {
+      "exact": ["steam powered", "steam technology", "steam engine"],
+      "synonyms": ["steam-driven", "steam mechanics", "coal-powered"],
+      "phrases": ["steam-powered machines", "steam technology", "steam-driven devices", "coal and steam"],
+      "avoid": ["steam game", "steam cleaner"],
+      "confidence_boost": 0.2,
+      "notes": "Steampunk: steam power"
+    },
+    "airship": {
+      "exact": ["airship", "dirigible", "zeppelin"],
+      "synonyms": ["flying ship", "aerial vessel", "sky ship"],
+      "phrases": ["airship travel", "flying dirigible", "zeppelin voyage", "sky vessel"],
+      "avoid": ["airship game", "airship toy"],
+      "confidence_boost": 0.2,
+      "notes": "Steampunk: airship"
+    },
+    "victorian-tech": {
+      "exact": ["victorian technology", "victorian era tech", "anachronistic technology"],
+      "synonyms": ["victorian steampunk", "retro-futurism", "brass and copper"],
+      "phrases": ["victorian-era technology", "brass gadgets", "victorian inventions", "anachronistic tech"],
+      "avoid": ["victorian house", "victorian fashion"],
+      "confidence_boost": 0.2,
+      "notes": "Steampunk: victorian technology"
+    },
+    "goggles-and-gears": {
+      "exact": ["goggles and gears", "steampunk aesthetic", "brass goggles"],
+      "synonyms": ["steampunk fashion", "mechanical aesthetic", "victorian punk"],
+      "phrases": ["steampunk goggles", "brass and leather", "gears aesthetic", "steampunk style"],
+      "avoid": ["ski goggles", "gear shift"],
+      "confidence_boost": 0.2,
+      "notes": "Steampunk: aesthetic elements"
+    },
+    "mad-inventor": {
+      "exact": ["mad inventor", "eccentric inventor", "genius inventor"],
+      "synonyms": ["brilliant inventor", "crazy scientist", "genius engineer"],
+      "phrases": ["mad inventor creates", "eccentric genius", "brilliant but mad", "inventor character"],
+      "avoid": ["inventor patent", "invention idea"],
+      "confidence_boost": 0.2,
+      "notes": "Steampunk: mad inventor"
+    },
+    "hidden-magic-world": {
+      "exact": ["hidden magic world", "secret magical society", "masquerade"],
+      "synonyms": ["hidden magical realm", "secret magic", "magic hidden from mundanes"],
+      "phrases": ["magic hidden from humans", "secret magical world", "masquerade of magic", "hidden supernatural"],
+      "avoid": ["hidden object game", "magic trick"],
+      "confidence_boost": 0.2,
+      "notes": "Urban fantasy: hidden magic world"
+    },
+    "masquerade": {
+      "exact": ["masquerade", "magical masquerade", "hiding magic"],
+      "synonyms": ["secret keeping", "hidden identity", "concealing magic"],
+      "phrases": ["maintaining masquerade", "hiding from humans", "secret magic society", "masquerade broken"],
+      "avoid": ["masquerade ball", "masquerade party"],
+      "confidence_boost": 0.1,
+      "notes": "Urban fantasy: masquerade"
+    },
+    "supernatural-detective": {
+      "exact": ["supernatural detective", "paranormal investigator", "magic detective"],
+      "synonyms": ["occult detective", "supernatural PI", "paranormal sleuth"],
+      "phrases": ["detective investigates supernatural", "paranormal investigation", "supernatural cases", "occult investigator"],
+      "avoid": ["detective show", "detective game"],
+      "confidence_boost": 0.2,
+      "notes": "Urban fantasy: supernatural detective"
+    },
+    "urban-magic": {
+      "exact": ["urban magic", "city magic", "modern magic"],
+      "synonyms": ["contemporary magic", "magic in city", "urban sorcery"],
+      "phrases": ["magic in modern city", "urban fantasy magic", "contemporary magical", "city with magic"],
+      "avoid": ["urban planning", "urban development"],
+      "confidence_boost": 0.2,
+      "notes": "Urban fantasy: urban magic setting"
+    },
+    "fae-in-city": {
+      "exact": ["fae in city", "urban fae", "fairies in modern world"],
+      "synonyms": ["city faeries", "urban fairies", "modern fae"],
+      "phrases": ["fae living in city", "fairies in urban setting", "city fae", "modern faerie tale"],
+      "avoid": ["fairy tale", "tooth fairy"],
+      "confidence_boost": 0.2,
+      "notes": "Urban fantasy: fae in modern setting"
+    },
+    "supernatural-police": {
+      "exact": ["supernatural police", "magical law enforcement", "paranormal cops"],
+      "synonyms": ["magic police", "supernatural authorities", "occult law enforcement"],
+      "phrases": ["police for supernatural", "magical law enforcement", "paranormal police force", "supernatural cops"],
+      "avoid": ["police brutality", "police station"],
+      "confidence_boost": 0.2,
+      "notes": "Urban fantasy: supernatural police"
+    },
+    "cozy-mystery": {
+      "exact": ["cozy mystery", "cozy crime", "gentle mystery"],
+      "synonyms": ["light mystery", "small-town mystery", "amateur sleuth"],
+      "phrases": ["cozy mystery style", "gentle crime story", "small-town murder", "amateur detective"],
+      "avoid": ["cozy blanket", "cozy home"],
+      "confidence_boost": 0.2,
+      "notes": "Mystery subgenre: cozy"
+    },
+    "amateur-sleuth": {
+      "exact": ["amateur sleuth", "amateur detective", "civilian investigator"],
+      "synonyms": ["non-professional detective", "hobbyist investigator", "civilian sleuth"],
+      "phrases": ["amateur detective solves", "civilian investigates", "non-professional sleuth", "amateur investigator"],
+      "avoid": ["amateur hour", "amateur radio"],
+      "confidence_boost": 0.2,
+      "notes": "Cozy mystery: amateur sleuth"
+    },
+    "culinary-mystery": {
+      "exact": ["culinary mystery", "cooking mystery", "chef detective"],
+      "synonyms": ["food mystery", "restaurant mystery", "cooking sleuth"],
+      "phrases": ["chef solves mystery", "culinary sleuth", "cooking detective", "food-themed mystery"],
+      "avoid": ["culinary school", "cooking show"],
+      "confidence_boost": 0.2,
+      "notes": "Cozy mystery: culinary theme"
+    },
+    "bookstore-mystery": {
+      "exact": ["bookstore mystery", "bookshop mystery", "literary mystery"],
+      "synonyms": ["book-themed mystery", "bookshop sleuth", "literary detective"],
+      "phrases": ["bookstore owner investigates", "bookshop mystery", "book-themed crime", "literary sleuth"],
+      "avoid": ["bookstore hours", "bookshop cafe"],
+      "confidence_boost": 0.2,
+      "notes": "Cozy mystery: bookstore theme"
+    },
+    "craft-mystery": {
+      "exact": ["craft mystery", "crafting mystery", "artisan mystery"],
+      "synonyms": ["hobby mystery", "craft-themed crime", "artisan sleuth"],
+      "phrases": ["crafter solves mystery", "craft-themed mystery", "artisan detective", "hobby sleuth"],
+      "avoid": ["craft store", "craft beer"],
+      "confidence_boost": 0.2,
+      "notes": "Cozy mystery: craft theme"
+    },
+    "small-town-sleuth": {
+      "exact": ["small town sleuth", "village detective", "small-town investigator"],
+      "synonyms": ["village sleuth", "small-town amateur", "rural detective"],
+      "phrases": ["small-town detective", "village investigator", "rural sleuth", "small-town mystery solver"],
+      "avoid": ["small town charm", "village life"],
+      "confidence_boost": 0.2,
+      "notes": "Cozy mystery: small-town setting"
+    },
+    "hard-boiled": {
+      "exact": ["hard boiled", "hard-boiled detective", "tough detective"],
+      "synonyms": ["tough PI", "cynical detective", "gritty detective"],
+      "phrases": ["hard-boiled style", "tough private eye", "cynical investigator", "gritty noir detective"],
+      "avoid": ["hard boiled egg", "hard-boiled egg"],
+      "confidence_boost": 0.2,
+      "notes": "Noir: hard-boiled detective"
+    },
+    "cynical-detective": {
+      "exact": ["cynical detective", "world-weary PI", "jaded investigator"],
+      "synonyms": ["disillusioned detective", "bitter PI", "cynical sleuth"],
+      "phrases": ["cynical private eye", "world-weary detective", "jaded investigator", "disillusioned sleuth"],
+      "avoid": ["cynical person", "cynical attitude"],
+      "confidence_boost": 0.2,
+      "notes": "Noir: cynical detective"
+    },
+    "dame-in-distress": {
+      "exact": ["dame in distress", "mysterious woman", "femme fatale client"],
+      "synonyms": ["troubled woman", "mysterious dame", "noir woman"],
+      "phrases": ["dame walks in", "mysterious woman hires", "woman in trouble", "noir dame"],
+      "avoid": ["damsel in distress", "notre dame"],
+      "confidence_boost": 0.2,
+      "notes": "Noir: dame character"
+    },
+    "rain-soaked-streets": {
+      "exact": ["rain soaked streets", "rainy noir setting", "wet city streets"],
+      "synonyms": ["rain-drenched city", "wet streets", "rainy urban"],
+      "phrases": ["rain-soaked city", "wet noir streets", "rainy city setting", "rain-drenched urban"],
+      "avoid": ["rain forecast", "street cleaning"],
+      "confidence_boost": 0.2,
+      "notes": "Noir: rain-soaked atmosphere"
+    },
+    "neon-noir": {
+      "exact": ["neon noir", "neon-lit noir", "modern noir"],
+      "synonyms": ["contemporary noir", "neon darkness", "modern detective"],
+      "phrases": ["neon-lit noir", "modern noir setting", "neon darkness", "contemporary noir story"],
+      "avoid": ["neon lights", "noir movie"],
+      "confidence_boost": 0.2,
+      "notes": "Noir: neon noir subgenre"
+    },
+    "corruption": {
+      "exact": ["corruption", "corrupt system", "systemic corruption"],
+      "synonyms": ["widespread corruption", "corrupt officials", "systemic rot"],
+      "phrases": ["corruption throughout", "corrupt system", "widespread graft", "systemic corruption"],
+      "avoid": ["data corruption", "file corruption"],
+      "confidence_boost": 0.1,
+      "notes": "Noir theme: corruption"
+    },
+    "crumbling-mansion": {
+      "exact": ["crumbling mansion", "decaying estate", "ruined manor"],
+      "synonyms": ["dilapidated mansion", "decrepit estate", "falling manor"],
+      "phrases": ["crumbling gothic mansion", "decaying estate", "ruined manor house", "dilapidated mansion"],
+      "avoid": ["mansion for sale", "mansion tour"],
+      "confidence_boost": 0.2,
+      "notes": "Gothic: crumbling mansion"
+    },
+    "dark-secrets": {
+      "exact": ["dark secrets", "family secrets", "buried secrets"],
+      "synonyms": ["hidden secrets", "dark past", "buried truth"],
+      "phrases": ["dark family secrets", "buried secrets revealed", "hidden dark past", "family secrets"],
+      "avoid": ["secret recipe", "secret santa"],
+      "confidence_boost": 0.1,
+      "notes": "Gothic: dark secrets"
+    },
+    "mad-relative": {
+      "exact": ["mad relative", "insane family member", "mad woman in attic"],
+      "synonyms": ["crazy relative", "insane aunt", "locked-up family"],
+      "phrases": ["mad woman in attic", "insane relative", "crazy family member locked away", "hidden mad relative"],
+      "avoid": ["mad max", "relatively speaking"],
+      "confidence_boost": 0.2,
+      "notes": "Gothic: mad relative trope"
+    },
+    "ancestral-home": {
+      "exact": ["ancestral home", "family estate", "inherited manor"],
+      "synonyms": ["family mansion", "ancestral estate", "inherited house"],
+      "phrases": ["returns to ancestral home", "family estate", "inherited manor", "ancestral mansion"],
+      "avoid": ["ancestral dna", "home insurance"],
+      "confidence_boost": 0.2,
+      "notes": "Gothic: ancestral home"
+    },
+    "portrait-comes-alive": {
+      "exact": ["portrait comes alive", "living portrait", "moving painting"],
+      "synonyms": ["animated portrait", "portrait that watches", "living painting"],
+      "phrases": ["portrait comes to life", "painting moves", "living portrait", "portrait watches"],
+      "avoid": ["portrait photography", "family portrait"],
+      "confidence_boost": 0.2,
+      "notes": "Gothic: living portrait"
+    },
+    "cursed-family": {
+      "exact": ["cursed family", "family curse", "cursed bloodline"],
+      "synonyms": ["family under curse", "cursed lineage", "doomed family"],
+      "phrases": ["family curse", "cursed bloodline", "family under curse", "cursed lineage"],
+      "avoid": ["cursed object", "cursed image"],
+      "confidence_boost": 0.2,
+      "notes": "Gothic: cursed family"
+    },
+    "forbidden-romance-gothic": {
+      "exact": ["forbidden gothic romance", "dark forbidden love", "cursed romance"],
+      "synonyms": ["dark romance", "forbidden love gothic", "doomed gothic love"],
+      "phrases": ["forbidden gothic love", "dark romantic gothic", "cursed romance", "doomed love story"],
+      "avoid": ["romance novel", "forbidden city"],
+      "confidence_boost": 0.2,
+      "notes": "Gothic: forbidden romance"
+    },
+    "oppressive-atmosphere-gothic": {
+      "exact": ["oppressive gothic atmosphere", "suffocating gothic", "heavy gothic mood"],
+      "synonyms": ["dark oppressive setting", "heavy gothic atmosphere", "suffocating mood"],
+      "phrases": ["oppressive gothic atmosphere", "heavy dark mood", "suffocating gothic setting", "dark oppressive"],
+      "avoid": ["oppressive government", "oppressive heat"],
+      "confidence_boost": 0.2,
+      "notes": "Gothic: oppressive atmosphere"
+    },
+    "cinderella-retelling": {
+      "exact": ["cinderella retelling", "cinderella adaptation", "rags to riches tale"],
+      "synonyms": ["cinderella story", "glass slipper", "fairy godmother"],
+      "phrases": ["retelling of cinderella", "cinderella reimagined", "modern cinderella", "cinderella adaptation"],
+      "avoid": ["cinderella movie", "cinderella castle"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Cinderella"
+    },
+    "beauty-and-beast": {
+      "exact": ["beauty and beast", "beauty beast retelling", "beast romance"],
+      "synonyms": ["beast love story", "beauty beast tale", "monstrous love"],
+      "phrases": ["beauty and the beast retelling", "beast romance", "beauty falls for beast", "beast transformation"],
+      "avoid": ["beauty and the beast movie", "beast mode"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Beauty and the Beast"
+    },
+    "little-mermaid": {
+      "exact": ["little mermaid", "mermaid retelling", "mermaid adaptation"],
+      "synonyms": ["mermaid tale", "mermaid story", "underwater princess"],
+      "phrases": ["little mermaid retelling", "mermaid adaptation", "mermaid leaves sea", "mermaid sacrifice"],
+      "avoid": ["little mermaid movie", "mermaid costume"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Little Mermaid"
+    },
+    "sleeping-beauty": {
+      "exact": ["sleeping beauty", "sleeping beauty retelling", "cursed sleep"],
+      "synonyms": ["sleeping curse", "sleeping princess", "beauty asleep"],
+      "phrases": ["sleeping beauty adaptation", "cursed to sleep", "sleeping princess", "awakening kiss"],
+      "avoid": ["sleeping beauty castle", "sleeping bag"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Sleeping Beauty"
+    },
+    "snow-white": {
+      "exact": ["snow white", "snow white retelling", "poisoned apple"],
+      "synonyms": ["snow white adaptation", "seven dwarfs", "poison apple"],
+      "phrases": ["snow white reimagined", "poisoned apple", "seven companions", "fairest of all"],
+      "avoid": ["snow white movie", "white snow"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Snow White"
+    },
+    "red-riding-hood": {
+      "exact": ["red riding hood", "little red retelling", "wolf story"],
+      "synonyms": ["red hood adaptation", "little red cape", "wolf tale"],
+      "phrases": ["red riding hood retelling", "girl and wolf", "red hood story", "big bad wolf"],
+      "avoid": ["red riding hood movie", "red hood game"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Red Riding Hood"
+    },
+    "rapunzel": {
+      "exact": ["rapunzel", "rapunzel retelling", "tower prison"],
+      "synonyms": ["rapunzel adaptation", "locked in tower", "long hair"],
+      "phrases": ["rapunzel reimagined", "locked in tower", "rapunzel's tower", "hair magic"],
+      "avoid": ["rapunzel movie", "rapunzel doll"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Rapunzel"
+    },
+    "hansel-and-gretel": {
+      "exact": ["hansel and gretel", "hansel gretel retelling", "witch candy house"],
+      "synonyms": ["hansel gretel adaptation", "gingerbread house", "witch in woods"],
+      "phrases": ["hansel and gretel reimagined", "witch's house", "children lost in woods", "candy house"],
+      "avoid": ["hansel and gretel movie", "gingerbread recipe"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Hansel and Gretel"
+    },
+    "twelve-dancing-princesses": {
+      "exact": ["twelve dancing princesses", "dancing princesses retelling", "secret dancing"],
+      "synonyms": ["twelve princesses", "dancing curse", "secret ballroom"],
+      "phrases": ["twelve dancing princesses adaptation", "secret dancing", "worn-out shoes", "hidden ballroom"],
+      "avoid": ["dancing with the stars", "princess movie"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Twelve Dancing Princesses"
+    },
+    "bluebeard": {
+      "exact": ["bluebeard", "bluebeard retelling", "forbidden room"],
+      "synonyms": ["bluebeard adaptation", "dark husband", "forbidden chamber"],
+      "phrases": ["bluebeard reimagined", "forbidden room secret", "murderous husband", "dark secret room"],
+      "avoid": ["blue beard", "blackbeard pirate"],
+      "confidence_boost": 0.2,
+      "notes": "Fairy tale retelling: Bluebeard"
+    },
+    "galactic-empire": {
+      "exact": ["galactic empire", "space empire", "interstellar empire"],
+      "synonyms": ["stellar empire", "galaxy-spanning empire", "cosmic empire"],
+      "phrases": ["galactic empire rules", "empire spans galaxy", "interstellar empire", "galaxy-wide empire"],
+      "avoid": ["empire state", "roman empire"],
+      "confidence_boost": 0.2,
+      "notes": "Space opera: galactic empire"
+    },
+    "rebellion": {
+      "exact": ["rebellion", "rebel alliance", "resistance"],
+      "synonyms": ["uprising", "revolt", "insurgency"],
+      "phrases": ["rebellion against empire", "rebel resistance", "fighting the empire", "resistance movement"],
+      "avoid": ["teenage rebellion", "rebellion game"],
+      "confidence_boost": 0.1,
+      "notes": "Space opera: rebellion"
+    },
+    "star-fleet": {
+      "exact": ["star fleet", "space fleet", "starship fleet"],
+      "synonyms": ["space armada", "stellar navy", "fleet of ships"],
+      "phrases": ["star fleet command", "space fleet", "armada of starships", "fleet of vessels"],
+      "avoid": ["fleet management", "fishing fleet"],
+      "confidence_boost": 0.2,
+      "notes": "Space opera: star fleet"
+    },
+    "first-contact": {
+      "exact": ["first contact", "first alien contact", "initial encounter"],
+      "synonyms": ["first meeting aliens", "initial contact", "alien first contact"],
+      "phrases": ["first contact with aliens", "humanity's first contact", "initial alien encounter", "meeting aliens first time"],
+      "avoid": ["contact lens", "first contact movie"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: first contact"
+    },
+    "alien-alliance": {
+      "exact": ["alien alliance", "alliance with aliens", "multi-species alliance"],
+      "synonyms": ["interspecies alliance", "alien coalition", "united species"],
+      "phrases": ["alliance of alien species", "humans and aliens allied", "multi-species coalition", "interstellar alliance"],
+      "avoid": ["alliance bank", "alliance party"],
+      "confidence_boost": 0.2,
+      "notes": "Space opera: alien alliance"
+    },
+    "space-battle": {
+      "exact": ["space battle", "starship combat", "space warfare"],
+      "synonyms": ["space combat", "stellar warfare", "ship-to-ship battle"],
+      "phrases": ["epic space battle", "starship combat", "fleet battle", "space warfare"],
+      "avoid": ["battle royale", "space invaders"],
+      "confidence_boost": 0.2,
+      "notes": "Space opera: space battle"
+    },
+    "hyperspace": {
+      "exact": ["hyperspace", "faster than light", "FTL travel"],
+      "synonyms": ["jump drive", "warp speed", "hyperspace jump"],
+      "phrases": ["hyperspace travel", "FTL drive", "jump to hyperspace", "faster-than-light"],
+      "avoid": ["hyperspace game", "hyperspace movie"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: hyperspace travel"
+    },
+    "wormhole": {
+      "exact": ["wormhole", "space portal", "wormhole travel"],
+      "synonyms": ["space tunnel", "portal travel", "wormhole gate"],
+      "phrases": ["wormhole travel", "through wormhole", "wormhole portal", "space tunnel"],
+      "avoid": ["wormhole theory", "black hole"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: wormhole"
+    },
+    "dyson-sphere": {
+      "exact": ["dyson sphere", "megastructure", "stellar engine"],
+      "synonyms": ["dyson swarm", "stellar megastructure", "star-enclosing structure"],
+      "phrases": ["dyson sphere construction", "megastructure around star", "stellar megastructure", "dyson sphere"],
+      "avoid": ["dyson vacuum", "sphere shape"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: dyson sphere"
+    },
+    "generation-ship": {
+      "exact": ["generation ship", "generational starship", "multi-generation voyage"],
+      "synonyms": ["generation starship", "centuries-long journey", "multi-generation ship"],
+      "phrases": ["generation ship voyage", "multi-generational journey", "starship for generations", "century ship"],
+      "avoid": ["generation gap", "ship building"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: generation ship"
+    },
+    "sleeper-ship": {
+      "exact": ["sleeper ship", "cryosleep ship", "suspended animation voyage"],
+      "synonyms": ["cryo ship", "stasis ship", "frozen crew"],
+      "phrases": ["sleeper ship journey", "crew in cryosleep", "suspended animation ship", "frozen voyage"],
+      "avoid": ["sleeper agent", "sleeper sofa"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: sleeper ship"
+    },
+    "terra forming": {
+      "exact": ["terraforming", "terra forming", "planet engineering"],
+      "synonyms": ["planetary engineering", "world shaping", "planet transformation"],
+      "phrases": ["terraforming planet", "making planet habitable", "planetary engineering", "world transformation"],
+      "avoid": ["terraform software", "forming company"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: terraforming"
+    },
+    "orbital-habitat": {
+      "exact": ["orbital habitat", "space habitat", "orbital colony"],
+      "synonyms": ["space settlement", "orbital station", "space colony"],
+      "phrases": ["orbital habitat living", "space habitat", "orbital colony", "living in orbit"],
+      "avoid": ["habitat for humanity", "natural habitat"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: orbital habitat"
+    },
+    "military-hierarchy": {
+      "exact": ["military hierarchy", "chain of command", "military ranks"],
+      "synonyms": ["military structure", "rank structure", "command hierarchy"],
+      "phrases": ["military chain of command", "strict hierarchy", "military ranks", "command structure"],
+      "avoid": ["corporate hierarchy", "social hierarchy"],
+      "confidence_boost": 0.1,
+      "notes": "Military sci-fi: hierarchy"
+    },
+    "boot-camp": {
+      "exact": ["boot camp", "military training", "basic training"],
+      "synonyms": ["recruit training", "military boot camp", "basic training"],
+      "phrases": ["boot camp training", "military boot camp", "recruit training", "basic military training"],
+      "avoid": ["fitness boot camp", "coding bootcamp"],
+      "confidence_boost": 0.2,
+      "notes": "Military: boot camp"
+    },
+    "space-marines": {
+      "exact": ["space marines", "space soldiers", "military sci-fi"],
+      "synonyms": ["space infantry", "stellar marines", "space troops"],
+      "phrases": ["space marine unit", "space soldiers", "military in space", "space infantry"],
+      "avoid": ["space marine game", "marine biology"],
+      "confidence_boost": 0.2,
+      "notes": "Military sci-fi: space marines"
+    },
+    "drop-ship": {
+      "exact": ["drop ship", "combat drop", "orbital insertion"],
+      "synonyms": ["drop pod", "landing craft", "troop transport"],
+      "phrases": ["drop ship deployment", "combat drop", "orbital drop", "troop insertion"],
+      "avoid": ["dropshipping business", "drop shipping"],
+      "confidence_boost": 0.2,
+      "notes": "Military sci-fi: drop ship"
+    },
+    "powered-armor": {
+      "exact": ["powered armor", "power armor", "exoskeleton suit"],
+      "synonyms": ["mech suit", "combat exoskeleton", "armor suit"],
+      "phrases": ["powered armor suit", "combat exoskeleton", "mechanical armor", "power suit"],
+      "avoid": ["armor game", "body armor"],
+      "confidence_boost": 0.2,
+      "notes": "Military sci-fi: powered armor"
+    },
+    "mech": {
+      "exact": ["mech", "giant robot", "piloted robot"],
+      "synonyms": ["mecha", "battle mech", "combat robot"],
+      "phrases": ["piloting mech", "giant robot", "battle mech", "mecha suit"],
+      "avoid": ["mechanic", "mechanical engineering"],
+      "confidence_boost": 0.2,
+      "notes": "Military sci-fi: mech"
+    },
+    "tactical-combat": {
+      "exact": ["tactical combat", "strategic warfare", "tactical operations"],
+      "synonyms": ["tactical warfare", "strategic combat", "military tactics"],
+      "phrases": ["tactical combat operations", "strategic military action", "tactical warfare", "combat tactics"],
+      "avoid": ["tactical vest", "tactical gear"],
+      "confidence_boost": 0.1,
+      "notes": "Military: tactical combat"
+    },
+    "war-crimes": {
+      "exact": ["war crimes", "atrocities", "crimes against humanity"],
+      "synonyms": ["military atrocities", "war atrocities", "military crimes"],
+      "phrases": ["war crimes committed", "military atrocities", "crimes of war", "atrocities in war"],
+      "avoid": ["war crime tribunal", "crime statistics"],
+      "confidence_boost": 0.2,
+      "notes": "Military theme: war crimes"
+    },
+    "court-martial": {
+      "exact": ["court martial", "military trial", "court-martial"],
+      "synonyms": ["military tribunal", "court martial trial", "military justice"],
+      "phrases": ["court martial proceedings", "military trial", "faces court martial", "military tribunal"],
+      "avoid": ["martial arts", "marshal"],
+      "confidence_boost": 0.2,
+      "notes": "Military: court martial"
+    },
+    "ghost-hunters": {
+      "exact": ["ghost hunters", "paranormal investigators", "ghost investigation"],
+      "synonyms": ["ghost hunting team", "paranormal researchers", "spirit investigators"],
+      "phrases": ["ghost hunting", "paranormal investigation team", "hunting ghosts", "investigating spirits"],
+      "avoid": ["ghost hunters show", "ghost hunting equipment"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: ghost hunters"
+    },
+    "demon-hunters": {
+      "exact": ["demon hunters", "demon slayers", "hunting demons"],
+      "synonyms": ["demon hunting team", "demon killers", "exorcists"],
+      "phrases": ["hunting demons", "demon slayer", "demon hunting", "fighting demons"],
+      "avoid": ["demon slayer anime", "hunter game"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: demon hunters"
+    },
+    "monster-hunters": {
+      "exact": ["monster hunters", "creature hunters", "hunting monsters"],
+      "synonyms": ["monster slayers", "creature killers", "beast hunters"],
+      "phrases": ["hunting monsters", "monster hunting", "slaying creatures", "beast hunting"],
+      "avoid": ["monster hunter game", "hunter clothing"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: monster hunters"
+    },
+    "paranormal-investigation": {
+      "exact": ["paranormal investigation", "investigating supernatural", "paranormal research"],
+      "synonyms": ["supernatural investigation", "occult research", "paranormal inquiry"],
+      "phrases": ["paranormal investigation team", "investigating supernatural events", "researching paranormal", "supernatural inquiry"],
+      "avoid": ["investigation discovery", "criminal investigation"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: investigation"
+    },
+    "emf-detector": {
+      "exact": ["emf detector", "ghost detector", "spirit detection"],
+      "synonyms": ["paranormal equipment", "ghost hunting tools", "spirit detector"],
+      "phrases": ["using emf detector", "ghost detection equipment", "paranormal tools", "spirit sensors"],
+      "avoid": ["emf protection", "detector smoke"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: equipment"
+    },
+    "seance": {
+      "exact": ["seance", "contacting spirits", "spirit communication"],
+      "synonyms": ["spirit contact", "medium session", "contacting dead"],
+      "phrases": ["conducting seance", "spirit communication", "contacting ghosts", "medium channeling"],
+      "avoid": ["seance movie", "seance game"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: seance"
+    },
+    "ouija-board": {
+      "exact": ["ouija board", "spirit board", "talking board"],
+      "synonyms": ["spirit communication board", "ouija", "talking to spirits"],
+      "phrases": ["using ouija board", "spirit board session", "ouija communication", "board spirits"],
+      "avoid": ["ouija movie", "board game"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: ouija board"
+    },
+    "ley-lines": {
+      "exact": ["ley lines", "energy lines", "magical ley lines"],
+      "synonyms": ["mystical energy lines", "earth energy", "power lines"],
+      "phrases": ["ley line convergence", "magical ley lines", "energy lines", "ley line power"],
+      "avoid": ["power lines electrical", "energy company"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: ley lines"
+    },
+    "ritual-magic": {
+      "exact": ["ritual magic", "magical ritual", "ceremonial magic"],
+      "synonyms": ["ritualistic magic", "ceremonial sorcery", "ritual spellcasting"],
+      "phrases": ["performing ritual", "magical ritual", "ceremonial magic", "ritual spellwork"],
+      "avoid": ["ritual sacrifice", "religious ritual"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: ritual magic"
+    },
+    "summoning": {
+      "exact": ["summoning", "summoning ritual", "calling spirits"],
+      "synonyms": ["conjuring", "invoking", "calling forth"],
+      "phrases": ["summoning ritual", "conjuring spirits", "calling demons", "invoking entities"],
+      "avoid": ["summoning game", "jury summons"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: summoning"
+    },
+    "binding-spell": {
+      "exact": ["binding spell", "magical binding", "spell to bind"],
+      "synonyms": ["binding magic", "restraining spell", "containment magic"],
+      "phrases": ["casting binding spell", "magical binding", "spell binds", "binding magic"],
+      "avoid": ["book binding", "binding contract"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: binding spell"
+    },
+    "protection-circle": {
+      "exact": ["protection circle", "magic circle", "protective barrier"],
+      "synonyms": ["warding circle", "protective ring", "magical barrier"],
+      "phrases": ["casting protection circle", "magic circle protects", "protective barrier", "warding circle"],
+      "avoid": ["circle of friends", "protection plan"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal: protection circle"
+    },
+    "ancient-artifact": {
+      "exact": ["ancient artifact", "magical artifact", "powerful relic"],
+      "synonyms": ["mystical artifact", "ancient relic", "magical object"],
+      "phrases": ["ancient powerful artifact", "magical relic", "mystical object", "artifact of power"],
+      "avoid": ["artifact definition", "digital artifact"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy: ancient artifact"
+    },
+    "artifact-hunt": {
+      "exact": ["artifact hunt", "searching for artifact", "quest for relic"],
+      "synonyms": ["relic hunt", "artifact quest", "searching for object"],
+      "phrases": ["hunting for artifact", "quest for magical object", "searching for relic", "artifact search"],
+      "avoid": ["treasure hunt", "scavenger hunt"],
+      "confidence_boost": 0.2,
+      "notes": "Plot: artifact hunt"
+    },
+    "chosen-artifact": {
+      "exact": ["chosen artifact", "artifact chooses wielder", "sentient artifact"],
+      "synonyms": ["artifact selects user", "choosing artifact", "sentient object"],
+      "phrases": ["artifact chooses them", "chosen by artifact", "artifact selects wielder", "object chooses"],
+      "avoid": ["chosen one", "artifact game"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy: artifact choosing"
+    }
+  }
+}
