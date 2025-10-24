@@ -46,9 +46,10 @@ When I say “commit” or “push”, stage changes, commit with a concise mess
 # Warp Agent Guidelines
 
 ## Environment & Context
-- **Platform**: Windows 10/11 with PowerShell 5.1
+- **Platform**: Windows 10/11 with PowerShell 7.5.4 (pwsh)
 - **Shell-specific notes**: 
-  - Use `Invoke-WebRequest` instead of `curl` for API testing
+  - Modern cross-platform PowerShell with improved performance
+  - Use `Invoke-WebRequest` or `curl` alias for API testing
   - PowerShell execution policy is set to RemoteSigned
   - Node.js/npm are installed and configured
 
