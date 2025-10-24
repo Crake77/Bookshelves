@@ -1,0 +1,722 @@
+{
+  "batch_info": {
+    "batch_number": 4,
+    "patterns_in_batch": 100,
+    "cumulative_total": 505,
+    "focus_areas": ["geographic settings", "time periods", "atmospheric elements", "weather/climate", "institutional settings", "urban/rural environments", "seasonal settings"]
+  },
+  "patterns": {
+    "mountain-setting": {
+      "exact": ["mountain setting", "set in mountains", "mountain village"],
+      "synonyms": ["alpine setting", "highland", "peak", "mountainous region"],
+      "phrases": ["takes place in mountains", "mountain range", "high altitude setting", "mountain wilderness"],
+      "avoid": ["mountain climbing", "mountain bike", "mountain dew"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: mountains"
+    },
+    "island-setting": {
+      "exact": ["island setting", "set on island", "island life"],
+      "synonyms": ["tropical island", "remote island", "island paradise"],
+      "phrases": ["takes place on island", "stranded on island", "island community", "isolated island"],
+      "avoid": ["island hopping", "island kitchen", "Rhode Island"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: island"
+    },
+    "desert-setting": {
+      "exact": ["desert setting", "set in desert", "desert landscape"],
+      "synonyms": ["arid wasteland", "sandy desert", "desert wilderness"],
+      "phrases": ["takes place in desert", "harsh desert", "scorching desert", "barren desert"],
+      "avoid": ["dessert recipe", "desert storm game"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: desert"
+    },
+    "arctic-setting": {
+      "exact": ["arctic setting", "polar setting", "frozen north"],
+      "synonyms": ["ice world", "polar wasteland", "frozen tundra"],
+      "phrases": ["set in arctic", "frozen landscape", "polar expedition", "ice-covered"],
+      "avoid": ["arctic air conditioner", "arctic fox documentary"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: arctic/polar"
+    },
+    "jungle-setting": {
+      "exact": ["jungle setting", "rainforest setting", "set in jungle"],
+      "synonyms": ["tropical forest", "dense jungle", "wilderness jungle"],
+      "phrases": ["takes place in jungle", "rainforest adventure", "jungle survival", "dense vegetation"],
+      "avoid": ["jungle gym", "jungle music", "concrete jungle"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: jungle/rainforest"
+    },
+    "cave-setting": {
+      "exact": ["cave setting", "underground cave", "cavern"],
+      "synonyms": ["subterranean", "underground tunnels", "cave system"],
+      "phrases": ["takes place in caves", "underground world", "cave exploration", "hidden caves"],
+      "avoid": ["man cave", "cave diving sport", "cave painting"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: caves/underground"
+    },
+    "underground": {
+      "exact": ["underground", "beneath surface", "subterranean world"],
+      "synonyms": ["below ground", "underground city", "beneath earth"],
+      "phrases": ["underground civilization", "world beneath", "hidden underground", "underground tunnels"],
+      "avoid": ["underground railroad", "underground music", "underground parking"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: underground/subterranean"
+    },
+    "forest-setting": {
+      "exact": ["forest setting", "set in forest", "woodland"],
+      "synonyms": ["woods", "forest wilderness", "wooded area"],
+      "phrases": ["takes place in forest", "deep woods", "forest adventure", "woodland setting"],
+      "avoid": ["forest gump", "forest fire prevention"],
+      "confidence_boost": 0.1,
+      "notes": "Geographic setting: forest/woods"
+    },
+    "ocean-setting": {
+      "exact": ["ocean setting", "set at sea", "maritime"],
+      "synonyms": ["sea voyage", "nautical", "seafaring"],
+      "phrases": ["takes place at sea", "ocean adventure", "sailing story", "maritime setting"],
+      "avoid": ["ocean's eleven", "ocean spray"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: ocean/sea"
+    },
+    "underwater": {
+      "exact": ["underwater", "beneath waves", "undersea"],
+      "synonyms": ["submarine", "underwater world", "ocean depths"],
+      "phrases": ["underwater civilization", "beneath the sea", "deep ocean", "submerged world"],
+      "avoid": ["underwater camera", "underwater welding"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: underwater/undersea"
+    },
+    "swamp-setting": {
+      "exact": ["swamp setting", "marshland", "bayou"],
+      "synonyms": ["wetlands", "bog", "swampy area"],
+      "phrases": ["set in swamp", "marshy landscape", "murky swamp", "bayou setting"],
+      "avoid": ["swamp cooler", "swamped with work"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: swamp/marsh"
+    },
+    "farm-setting": {
+      "exact": ["farm setting", "set on farm", "farming community"],
+      "synonyms": ["agricultural", "farmland", "rural farm"],
+      "phrases": ["takes place on farm", "farm life", "working the farm", "farming family"],
+      "avoid": ["farm equipment", "farm to table"],
+      "confidence_boost": 0.1,
+      "notes": "Rural setting: farm"
+    },
+    "wilderness": {
+      "exact": ["wilderness", "untamed wild", "remote wilderness"],
+      "synonyms": ["wild frontier", "backcountry", "untouched nature"],
+      "phrases": ["wilderness survival", "remote wilderness", "untamed landscape", "wild country"],
+      "avoid": ["wilderness lodge", "wilderness permit"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: wilderness/backcountry"
+    },
+    "frontier": {
+      "exact": ["frontier", "frontier town", "frontier life"],
+      "synonyms": ["wild west", "edge of civilization", "borderlands"],
+      "phrases": ["frontier setting", "wild frontier", "untamed frontier", "frontier adventure"],
+      "avoid": ["frontier airlines", "final frontier"],
+      "confidence_boost": 0.1,
+      "notes": "Historical setting: frontier"
+    },
+    "badlands": {
+      "exact": ["badlands", "wasteland", "desolate landscape"],
+      "synonyms": ["barren land", "harsh terrain", "inhospitable land"],
+      "phrases": ["badlands setting", "desolate wasteland", "harsh badlands", "barren wasteland"],
+      "avoid": ["badlands national park", "badlands game"],
+      "confidence_boost": 0.2,
+      "notes": "Geographic setting: badlands/wasteland"
+    },
+    "metropolis": {
+      "exact": ["metropolis", "major city", "urban sprawl"],
+      "synonyms": ["megacity", "huge city", "urban center"],
+      "phrases": ["bustling metropolis", "massive city", "urban metropolis", "sprawling city"],
+      "avoid": ["metropolis movie", "daily planet metropolis"],
+      "confidence_boost": 0.1,
+      "notes": "Urban setting: metropolis"
+    },
+    "cyberpunk-city": {
+      "exact": ["cyberpunk city", "neon city", "high-tech dystopia"],
+      "synonyms": ["cyber metropolis", "futuristic city", "tech noir city"],
+      "phrases": ["neon-lit streets", "cyberpunk setting", "high-tech low-life", "dystopian megacity"],
+      "avoid": ["cyberpunk game", "cyberpunk 2077"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi setting: cyberpunk city"
+    },
+    "space-station": {
+      "exact": ["space station", "orbital station", "space habitat"],
+      "synonyms": ["orbiting station", "space platform", "orbital habitat"],
+      "phrases": ["set on space station", "orbiting station", "space station setting", "orbital platform"],
+      "avoid": ["space station game", "international space station"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi setting: space station"
+    },
+    "spaceship": {
+      "exact": ["spaceship", "starship", "space vessel"],
+      "synonyms": ["spacecraft", "interstellar ship", "space cruiser"],
+      "phrases": ["aboard spaceship", "on the ship", "space vessel", "starship setting"],
+      "avoid": ["spaceship toy", "spaceship emoji"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi setting: spaceship"
+    },
+    "underwater-city": {
+      "exact": ["underwater city", "submerged city", "ocean city"],
+      "synonyms": ["undersea civilization", "aquatic city", "submarine city"],
+      "phrases": ["city beneath waves", "underwater metropolis", "submerged civilization", "ocean-floor city"],
+      "avoid": ["underwater city ruins", "atlantis documentary"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi setting: underwater city"
+    },
+    "floating-city": {
+      "exact": ["floating city", "sky city", "airborne city"],
+      "synonyms": ["city in clouds", "aerial city", "levitating city"],
+      "phrases": ["city in the sky", "floating metropolis", "airborne civilization", "cloud city"],
+      "avoid": ["floating city game", "cloud city lego"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy/sci-fi: floating city"
+    },
+    "monastery": {
+      "exact": ["monastery", "monastic setting", "religious retreat"],
+      "synonyms": ["abbey", "cloister", "priory"],
+      "phrases": ["set in monastery", "monastic life", "secluded monastery", "ancient monastery"],
+      "avoid": ["monastery brewery", "monastery garden"],
+      "confidence_boost": 0.2,
+      "notes": "Institutional setting: monastery"
+    },
+    "asylum": {
+      "exact": ["asylum", "mental institution", "psychiatric hospital"],
+      "synonyms": ["sanitarium", "mental hospital", "psych ward"],
+      "phrases": ["set in asylum", "mental institution", "psychiatric facility", "asylum setting"],
+      "avoid": ["political asylum", "asylum seeker"],
+      "confidence_boost": 0.2,
+      "notes": "Institutional setting: asylum"
+    },
+    "boarding-school": {
+      "exact": ["boarding school", "private academy", "prep school"],
+      "synonyms": ["boarding academy", "residential school", "elite school"],
+      "phrases": ["set at boarding school", "boarding school setting", "academy life", "prep school setting"],
+      "avoid": ["boarding school application", "boarding pass"],
+      "confidence_boost": 0.2,
+      "notes": "Institutional setting: boarding school"
+    },
+    "magic-academy": {
+      "exact": ["magic academy", "wizard school", "magic school"],
+      "synonyms": ["magical academy", "school of magic", "sorcery school"],
+      "phrases": ["academy for magic", "magical school", "wizard academy", "school for sorcery"],
+      "avoid": ["magic school bus", "magic academy game"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy setting: magic academy"
+    },
+    "laboratory": {
+      "exact": ["laboratory", "research lab", "science facility"],
+      "synonyms": ["lab setting", "research facility", "experimental lab"],
+      "phrases": ["set in laboratory", "secret lab", "research laboratory", "scientific facility"],
+      "avoid": ["lab test", "lab equipment", "labrador"],
+      "confidence_boost": 0.1,
+      "notes": "Institutional setting: laboratory"
+    },
+    "university": {
+      "exact": ["university", "college campus", "academia"],
+      "synonyms": ["campus", "college setting", "academic setting"],
+      "phrases": ["set at university", "college life", "campus setting", "academic world"],
+      "avoid": ["university application", "university website"],
+      "confidence_boost": 0.1,
+      "notes": "Institutional setting: university"
+    },
+    "bronze-age": {
+      "exact": ["bronze age", "ancient bronze age", "bronze age setting"],
+      "synonyms": ["early civilization", "ancient world"],
+      "phrases": ["set in bronze age", "bronze age civilization", "ancient times"],
+      "avoid": ["bronze medal", "bronze statue"],
+      "confidence_boost": 0.2,
+      "notes": "Time period: bronze age"
+    },
+    "renaissance": {
+      "exact": ["renaissance", "renaissance era", "renaissance period"],
+      "synonyms": ["rebirth period", "renaissance setting"],
+      "phrases": ["set in renaissance", "renaissance Italy", "renaissance Europe", "renaissance period"],
+      "avoid": ["renaissance fair", "renaissance hotel"],
+      "confidence_boost": 0.2,
+      "notes": "Time period: renaissance"
+    },
+    "colonial": {
+      "exact": ["colonial", "colonial era", "colonial period"],
+      "synonyms": ["colonial times", "colonial setting"],
+      "phrases": ["set in colonial period", "colonial America", "colonial era", "age of colonialism"],
+      "avoid": ["colonial house style", "colonial furniture"],
+      "confidence_boost": 0.1,
+      "notes": "Time period: colonial era"
+    },
+    "gilded-age": {
+      "exact": ["gilded age", "gilded era", "late 1800s"],
+      "synonyms": ["Victorian era", "nineteenth century"],
+      "phrases": ["set in gilded age", "gilded age America", "late Victorian era"],
+      "avoid": ["gilded frame", "gilded lily"],
+      "confidence_boost": 0.2,
+      "notes": "Time period: gilded age"
+    },
+    "roaring-twenties": {
+      "exact": ["roaring twenties", "1920s", "jazz age"],
+      "synonyms": ["twenties era", "flapper era"],
+      "phrases": ["set in 1920s", "jazz age setting", "roaring twenties era", "prohibition era"],
+      "avoid": ["twenties music", "1920s fashion"],
+      "confidence_boost": 0.2,
+      "notes": "Time period: 1920s"
+    },
+    "great-depression": {
+      "exact": ["great depression", "depression era", "1930s depression"],
+      "synonyms": ["depression years", "dirty thirties"],
+      "phrases": ["set during depression", "depression-era", "1930s America", "dust bowl era"],
+      "avoid": ["clinical depression", "economic depression"],
+      "confidence_boost": 0.2,
+      "notes": "Time period: great depression"
+    },
+    "cold-war": {
+      "exact": ["cold war", "cold war era", "set during cold war"],
+      "synonyms": ["cold war period", "cold war setting"],
+      "phrases": ["cold war tensions", "cold war spy", "soviet era", "cold war politics"],
+      "avoid": ["cold war game", "cold warrior"],
+      "confidence_boost": 0.2,
+      "notes": "Time period: cold war"
+    },
+    "near-future": {
+      "exact": ["near future", "near-future setting", "tomorrow"],
+      "synonyms": ["close future", "imminent future", "just ahead"],
+      "phrases": ["set in near future", "not far future", "soon to come", "near-future world"],
+      "avoid": ["near future plans", "future tense"],
+      "confidence_boost": 0.2,
+      "notes": "Time period: near future"
+    },
+    "far-future": {
+      "exact": ["far future", "distant future", "millennia ahead"],
+      "synonyms": ["deep future", "far-future setting"],
+      "phrases": ["set in far future", "thousands of years", "distant tomorrow", "far-flung future"],
+      "avoid": ["future plans", "future technology"],
+      "confidence_boost": 0.2,
+      "notes": "Time period: far future"
+    },
+    "foggy": {
+      "exact": ["foggy", "fog-shrouded", "misty"],
+      "synonyms": ["misty atmosphere", "fog-covered", "murky"],
+      "phrases": ["shrouded in fog", "foggy setting", "mist-covered", "perpetual fog"],
+      "avoid": ["foggy memory", "foggy bottom"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: foggy/misty"
+    },
+    "stormy": {
+      "exact": ["stormy", "storm-wracked", "tempestuous"],
+      "synonyms": ["storm-tossed", "turbulent weather", "violent storms"],
+      "phrases": ["constant storms", "stormy setting", "storm-filled", "raging tempest"],
+      "avoid": ["stormy relationship", "stormy daniels"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: stormy weather"
+    },
+    "oppressive-atmosphere": {
+      "exact": ["oppressive atmosphere", "stifling", "suffocating"],
+      "synonyms": ["heavy atmosphere", "crushing atmosphere", "oppressive air"],
+      "phrases": ["oppressive feeling", "atmosphere of dread", "suffocating atmosphere", "weight of atmosphere"],
+      "avoid": ["oppressive government", "oppressive heat"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: oppressive/heavy"
+    },
+    "claustrophobic": {
+      "exact": ["claustrophobic", "confined space", "tight quarters"],
+      "synonyms": ["cramped", "enclosed", "trapped feeling"],
+      "phrases": ["claustrophobic setting", "confined spaces", "walls closing in", "trapped environment"],
+      "avoid": ["claustrophobia treatment", "claustrophobic person"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: claustrophobic"
+    },
+    "expansive": {
+      "exact": ["expansive", "vast landscape", "open spaces"],
+      "synonyms": ["sprawling", "wide open", "endless"],
+      "phrases": ["expansive setting", "vast world", "open landscape", "endless expanse"],
+      "avoid": ["expansive vocabulary", "expansive budget"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: expansive/vast"
+    },
+    "desolate": {
+      "exact": ["desolate", "barren", "empty wasteland"],
+      "synonyms": ["bleak", "forsaken", "abandoned"],
+      "phrases": ["desolate landscape", "desolate setting", "barren world", "empty desolation"],
+      "avoid": ["desolate person", "feeling desolate"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: desolate/barren"
+    },
+    "eerie": {
+      "exact": ["eerie", "unsettling", "uncanny"],
+      "synonyms": ["creepy", "disturbing", "strange atmosphere"],
+      "phrases": ["eerie atmosphere", "unsettling feeling", "eerie setting", "uncanny mood"],
+      "avoid": ["eerie name", "eerie music"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: eerie/unsettling"
+    },
+    "whimsical": {
+      "exact": ["whimsical", "fantastical", "playful"],
+      "synonyms": ["fanciful", "magical whimsy", "lighthearted"],
+      "phrases": ["whimsical setting", "playful atmosphere", "whimsical world", "fanciful tale"],
+      "avoid": ["whimsical design", "whimsical decor"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: whimsical/playful"
+    },
+    "gritty": {
+      "exact": ["gritty", "raw", "harsh reality"],
+      "synonyms": ["rough", "unvarnished", "realistic"],
+      "phrases": ["gritty setting", "gritty realism", "raw and gritty", "harsh world"],
+      "avoid": ["gritty texture", "gritty sand"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: gritty/raw"
+    },
+    "lush": {
+      "exact": ["lush", "verdant", "abundant nature"],
+      "synonyms": ["rich", "green", "flourishing"],
+      "phrases": ["lush setting", "lush landscape", "verdant world", "rich environment"],
+      "avoid": ["lush cosmetics", "lush life"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: lush/verdant"
+    },
+    "stark": {
+      "exact": ["stark", "austere", "spare"],
+      "synonyms": ["minimalist", "harsh", "unadorned"],
+      "phrases": ["stark setting", "stark landscape", "austere world", "spare environment"],
+      "avoid": ["stark contrast", "tony stark"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: stark/austere"
+    },
+    "decadent": {
+      "exact": ["decadent", "opulent", "luxurious"],
+      "synonyms": ["lavish", "extravagant", "sumptuous"],
+      "phrases": ["decadent setting", "opulent world", "luxurious atmosphere", "lavish environment"],
+      "avoid": ["decadent dessert", "decadent chocolate"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: decadent/opulent"
+    },
+    "crumbling": {
+      "exact": ["crumbling", "decaying", "falling apart"],
+      "synonyms": ["deteriorating", "dilapidated", "ruined"],
+      "phrases": ["crumbling infrastructure", "decaying world", "falling apart", "crumbling civilization"],
+      "avoid": ["crumbling cookie", "crumbling foundation"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: crumbling/decaying"
+    },
+    "vibrant": {
+      "exact": ["vibrant", "lively", "colorful"],
+      "synonyms": ["vivid", "dynamic", "energetic"],
+      "phrases": ["vibrant setting", "lively world", "colorful atmosphere", "vibrant culture"],
+      "avoid": ["vibrant color", "vibrant personality"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: vibrant/lively"
+    },
+    "winter-setting": {
+      "exact": ["winter setting", "wintertime", "set in winter"],
+      "synonyms": ["snowy season", "cold season", "winter landscape"],
+      "phrases": ["takes place in winter", "winter story", "snowy setting", "cold winter"],
+      "avoid": ["winter coat", "winter olympics"],
+      "confidence_boost": 0.2,
+      "notes": "Seasonal: winter"
+    },
+    "summer-setting": {
+      "exact": ["summer setting", "summertime", "set in summer"],
+      "synonyms": ["hot season", "summer months", "summer landscape"],
+      "phrases": ["takes place in summer", "summer story", "hot summer", "summer vacation"],
+      "avoid": ["summer camp", "summer sale"],
+      "confidence_boost": 0.2,
+      "notes": "Seasonal: summer"
+    },
+    "autumn-setting": {
+      "exact": ["autumn setting", "fall setting", "set in autumn"],
+      "synonyms": ["fall season", "autumn months", "harvest time"],
+      "phrases": ["takes place in autumn", "fall story", "autumn leaves", "harvest season"],
+      "avoid": ["autumn colors", "fall fashion"],
+      "confidence_boost": 0.2,
+      "notes": "Seasonal: autumn/fall"
+    },
+    "spring-setting": {
+      "exact": ["spring setting", "springtime", "set in spring"],
+      "synonyms": ["spring season", "spring months", "blooming season"],
+      "phrases": ["takes place in spring", "spring story", "spring flowers", "renewal season"],
+      "avoid": ["spring break", "spring cleaning"],
+      "confidence_boost": 0.2,
+      "notes": "Seasonal: spring"
+    },
+    "rainy": {
+      "exact": ["rainy", "constant rain", "rain-soaked"],
+      "synonyms": ["wet", "precipitation", "downpour"],
+      "phrases": ["always raining", "rain-drenched", "perpetual rain", "rainy setting"],
+      "avoid": ["rainy day fund", "rainy season"],
+      "confidence_boost": 0.1,
+      "notes": "Weather: rainy"
+    },
+    "snowy": {
+      "exact": ["snowy", "snow-covered", "blanketed in snow"],
+      "synonyms": ["wintry", "snow-filled", "icy"],
+      "phrases": ["covered in snow", "snowy landscape", "constant snowfall", "snow-bound"],
+      "avoid": ["snowy owl", "snowy mountains resort"],
+      "confidence_boost": 0.1,
+      "notes": "Weather: snowy"
+    },
+    "scorching": {
+      "exact": ["scorching", "blistering heat", "searing hot"],
+      "synonyms": ["blazing", "sweltering", "burning hot"],
+      "phrases": ["scorching heat", "unbearable heat", "blazing sun", "searing temperature"],
+      "avoid": ["scorching review", "scorching pace"],
+      "confidence_boost": 0.1,
+      "notes": "Weather: scorching/hot"
+    },
+    "tropical": {
+      "exact": ["tropical", "tropical climate", "tropics"],
+      "synonyms": ["equatorial", "humid tropical", "tropical setting"],
+      "phrases": ["set in tropics", "tropical paradise", "tropical environment", "humid climate"],
+      "avoid": ["tropical drink", "tropical fruit"],
+      "confidence_boost": 0.1,
+      "notes": "Climate: tropical"
+    },
+    "frozen": {
+      "exact": ["frozen", "frozen wasteland", "ice-bound"],
+      "synonyms": ["icy", "glacial", "frigid"],
+      "phrases": ["frozen landscape", "frozen world", "ice-covered", "perpetually frozen"],
+      "avoid": ["frozen food", "frozen movie"],
+      "confidence_boost": 0.1,
+      "notes": "Climate: frozen/icy"
+    },
+    "windy": {
+      "exact": ["windy", "windswept", "wind-battered"],
+      "synonyms": ["breezy", "gusty", "wind-blown"],
+      "phrases": ["constant wind", "windswept landscape", "howling winds", "perpetual wind"],
+      "avoid": ["windy city", "windy road"],
+      "confidence_boost": 0.1,
+      "notes": "Weather: windy"
+    },
+    "twilight": {
+      "exact": ["twilight", "dusk", "perpetual twilight"],
+      "synonyms": ["gloaming", "dim light", "half-light"],
+      "phrases": ["twilight world", "eternal dusk", "perpetual twilight", "dim twilight"],
+      "avoid": ["twilight movie", "twilight zone"],
+      "confidence_boost": 0.1,
+      "notes": "Atmospheric: twilight/dusk"
+    },
+    "eternal-night": {
+      "exact": ["eternal night", "perpetual darkness", "endless night"],
+      "synonyms": ["permanent darkness", "never-ending night", "always dark"],
+      "phrases": ["sun never rises", "eternal darkness", "world of night", "perpetual night"],
+      "avoid": ["night shift", "night vision"],
+      "confidence_boost": 0.2,
+      "notes": "Atmospheric: eternal night"
+    },
+    "eternal-day": {
+      "exact": ["eternal day", "perpetual daylight", "endless day"],
+      "synonyms": ["permanent light", "never-ending day", "always bright"],
+      "phrases": ["sun never sets", "eternal sunlight", "world of light", "perpetual daylight"],
+      "avoid": ["day shift", "day care"],
+      "confidence_boost": 0.2,
+      "notes": "Atmospheric: eternal day"
+    },
+    "liminal-space": {
+      "exact": ["liminal space", "in-between place", "threshold"],
+      "synonyms": ["transitional space", "between worlds", "boundary place"],
+      "phrases": ["liminal setting", "in-between realm", "threshold world", "transitional space"],
+      "avoid": ["liminal period", "liminal design"],
+      "confidence_boost": 0.2,
+      "notes": "Atmospheric: liminal/transitional"
+    },
+    "pocket-dimension": {
+      "exact": ["pocket dimension", "pocket universe", "small dimension"],
+      "synonyms": ["mini dimension", "enclosed reality", "isolated dimension"],
+      "phrases": ["separate dimension", "pocket world", "sealed dimension", "contained universe"],
+      "avoid": ["pocket watch", "dimension lumber"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy/sci-fi: pocket dimension"
+    },
+    "parallel-dimension": {
+      "exact": ["parallel dimension", "alternate dimension", "other dimension"],
+      "synonyms": ["parallel world", "alternate reality", "other realm"],
+      "phrases": ["different dimension", "parallel universe", "alternate plane", "other world"],
+      "avoid": ["dimension size", "parallel parking"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy/sci-fi: parallel dimension"
+    },
+    "spirit-realm": {
+      "exact": ["spirit realm", "spirit world", "ethereal plane"],
+      "synonyms": ["ghostly realm", "spectral world", "otherworld"],
+      "phrases": ["realm of spirits", "world of ghosts", "ethereal dimension", "spirit plane"],
+      "avoid": ["school spirit", "team spirit"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy: spirit realm"
+    },
+    "dreamscape": {
+      "exact": ["dreamscape", "dream world", "realm of dreams"],
+      "synonyms": ["dream realm", "dream dimension", "sleeping world"],
+      "phrases": ["inside dreams", "world of dreams", "dream reality", "dreamlike world"],
+      "avoid": ["dreamscape software", "dream vacation"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy: dreamscape"
+    },
+    "afterlife": {
+      "exact": ["afterlife", "realm of dead", "world beyond"],
+      "synonyms": ["hereafter", "world of dead", "beyond death"],
+      "phrases": ["journey to afterlife", "realm after death", "world of the dead", "beyond life"],
+      "avoid": ["afterlife podcast", "afterlife belief"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy: afterlife realm"
+    },
+    "limbo": {
+      "exact": ["limbo", "purgatory", "in-between realm"],
+      "synonyms": ["between worlds", "neither here nor there", "waiting place"],
+      "phrases": ["stuck in limbo", "limbo realm", "purgatory setting", "between life and death"],
+      "avoid": ["limbo game", "limbo dance"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy: limbo/purgatory"
+    },
+    "hell": {
+      "exact": ["hell", "underworld", "infernal realm"],
+      "synonyms": ["inferno", "netherworld", "realm of demons"],
+      "phrases": ["journey to hell", "underworld setting", "infernal dimension", "demon realm"],
+      "avoid": ["hell's kitchen", "hell yeah"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy: hell/underworld"
+    },
+    "heaven": {
+      "exact": ["heaven", "paradise", "celestial realm"],
+      "synonyms": ["heavenly realm", "divine world", "realm of angels"],
+      "phrases": ["journey to heaven", "celestial setting", "paradise world", "angelic realm"],
+      "avoid": ["heaven's gate", "seventh heaven"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy: heaven/paradise"
+    },
+    "void": {
+      "exact": ["void", "emptiness", "realm of nothing"],
+      "synonyms": ["nothingness", "empty space", "black void"],
+      "phrases": ["lost in void", "void between worlds", "empty void", "realm of nothing"],
+      "avoid": ["void warranty", "null and void"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy/sci-fi: void/emptiness"
+    },
+    "between-worlds": {
+      "exact": ["between worlds", "world between", "liminal realm"],
+      "synonyms": ["transitional world", "in-between place", "threshold realm"],
+      "phrases": ["caught between worlds", "realm between", "space between worlds", "transitional dimension"],
+      "avoid": ["between jobs", "between shows"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy: between worlds"
+    },
+    "multiverse": {
+      "exact": ["multiverse", "multiple universes", "many worlds"],
+      "synonyms": ["parallel universes", "infinite worlds", "many realities"],
+      "phrases": ["across multiverse", "multiple realities", "infinite universes", "many dimensions"],
+      "avoid": ["multiverse of madness", "multiverse theory"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: multiverse"
+    },
+    "ruins": {
+      "exact": ["ruins", "ancient ruins", "crumbling remains"],
+      "synonyms": ["archaeological site", "fallen civilization", "destroyed city"],
+      "phrases": ["exploring ruins", "ancient ruins", "ruins of civilization", "crumbling remnants"],
+      "avoid": ["ruins everything", "financial ruin"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: ruins/remains"
+    },
+    "abandoned-city": {
+      "exact": ["abandoned city", "ghost town", "empty city"],
+      "synonyms": ["deserted city", "forsaken metropolis", "dead city"],
+      "phrases": ["abandoned urban area", "empty streets", "deserted city", "ghost metropolis"],
+      "avoid": ["abandoned project", "abandoned car"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: abandoned city"
+    },
+    "quarantine-zone": {
+      "exact": ["quarantine zone", "sealed area", "restricted zone"],
+      "synonyms": ["isolation zone", "cordoned area", "containment zone"],
+      "phrases": ["quarantined region", "sealed off area", "restricted territory", "isolation area"],
+      "avoid": ["quarantine period", "covid quarantine"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: quarantine zone"
+    },
+    "war-torn": {
+      "exact": ["war-torn", "war-ravaged", "battle-scarred"],
+      "synonyms": ["ravaged by war", "destroyed by conflict", "war-damaged"],
+      "phrases": ["torn by war", "ravaged landscape", "war-torn setting", "scarred by battle"],
+      "avoid": ["war story", "war game"],
+      "confidence_boost": 0.1,
+      "notes": "Setting state: war-torn"
+    },
+    "occupied-territory": {
+      "exact": ["occupied territory", "under occupation", "conquered land"],
+      "synonyms": ["occupied zone", "enemy territory", "conquered region"],
+      "phrases": ["occupied by enemy", "under foreign rule", "conquered land", "occupied nation"],
+      "avoid": ["occupied seat", "occupied bathroom"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: occupied territory"
+    },
+    "neutral-ground": {
+      "exact": ["neutral ground", "neutral territory", "safe zone"],
+      "synonyms": ["no man's land", "neutral zone", "demilitarized zone"],
+      "phrases": ["neutral territory", "safe ground", "neutral meeting place", "demilitarized area"],
+      "avoid": ["neutral color", "neutral stance"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: neutral ground"
+    },
+    "border-town": {
+      "exact": ["border town", "frontier town", "edge settlement"],
+      "synonyms": ["borderlands", "edge of territory", "boundary town"],
+      "phrases": ["town on border", "frontier settlement", "edge town", "border community"],
+      "avoid": ["border collie", "border crossing"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: border town"
+    },
+    "enclave": {
+      "exact": ["enclave", "protected community", "walled settlement"],
+      "synonyms": ["fortified community", "isolated settlement", "protected zone"],
+      "phrases": ["isolated enclave", "protected settlement", "walled community", "fortified enclave"],
+      "avoid": ["enclave game", "ethnic enclave"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: enclave/protected community"
+    },
+    "trading-post": {
+      "exact": ["trading post", "merchant hub", "trade center"],
+      "synonyms": ["market town", "trading hub", "commercial center"],
+      "phrases": ["trading settlement", "merchant post", "trade hub", "commercial crossroads"],
+      "avoid": ["trading card", "stock trading"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: trading post"
+    },
+    "port-city": {
+      "exact": ["port city", "harbor town", "coastal port"],
+      "synonyms": ["seaport", "harbor city", "maritime city"],
+      "phrases": ["port town", "harbor settlement", "seaside port", "coastal trade city"],
+      "avoid": ["port wine", "airport"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: port city"
+    },
+    "mining-town": {
+      "exact": ["mining town", "mining settlement", "mining colony"],
+      "synonyms": ["miner town", "mining community", "resource town"],
+      "phrases": ["mining camp", "miner settlement", "mining outpost", "resource extraction town"],
+      "avoid": ["data mining", "mining company"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: mining town"
+    },
+    "carnival": {
+      "exact": ["carnival", "circus", "traveling fair"],
+      "synonyms": ["fairground", "circus setting", "carnival grounds"],
+      "phrases": ["set at carnival", "circus life", "traveling show", "carnival setting"],
+      "avoid": ["carnival cruise", "carnival game"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: carnival/circus"
+    },
+    "theater": {
+      "exact": ["theater", "theatre setting", "playhouse"],
+      "synonyms": ["stage", "theatrical setting", "opera house"],
+      "phrases": ["set in theater", "theater world", "backstage", "theatrical life"],
+      "avoid": ["movie theater", "home theater"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: theater/playhouse"
+    },
+    "museum": {
+      "exact": ["museum", "museum setting", "art gallery"],
+      "synonyms": ["gallery", "exhibition hall", "museum halls"],
+      "phrases": ["set in museum", "museum setting", "gallery world", "among exhibits"],
+      "avoid": ["museum ticket", "museum hours"],
+      "confidence_boost": 0.2,
+      "notes": "Setting: museum/gallery"
+    }
+  }
+}

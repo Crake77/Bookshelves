@@ -1,0 +1,706 @@
+{
+  "batch_info": {
+    "batch_number": 5,
+    "patterns_in_batch": 100,
+    "cumulative_total": 605,
+    "focus_areas": ["character archetypes", "professions", "family relationships", "friendship dynamics", "romance dynamics", "group dynamics", "power dynamics", "personality types"]
+  },
+  "patterns": {
+    "femme-fatale": {
+      "exact": ["femme fatale", "dangerous woman", "seductive villain"],
+      "synonyms": ["deadly woman", "fatal woman", "seductress"],
+      "phrases": ["femme fatale character", "dangerous seductress", "deadly beauty", "lethal woman"],
+      "avoid": ["fatal error", "fatal attraction movie"],
+      "confidence_boost": 0.2,
+      "notes": "Character archetype: femme fatale"
+    },
+    "mad-scientist": {
+      "exact": ["mad scientist", "insane researcher", "crazed inventor"],
+      "synonyms": ["deranged scientist", "crazy inventor", "obsessed researcher"],
+      "phrases": ["mad scientist character", "insane genius", "crazed researcher", "obsessed inventor"],
+      "avoid": ["scientist character", "research scientist"],
+      "confidence_boost": 0.2,
+      "notes": "Character archetype: mad scientist"
+    },
+    "wise-mentor": {
+      "exact": ["wise mentor", "sage advisor", "experienced guide"],
+      "synonyms": ["old sage", "wise teacher", "experienced mentor"],
+      "phrases": ["wise old mentor", "sage mentor", "experienced guide", "mentor figure"],
+      "avoid": ["mentor program", "business mentor"],
+      "confidence_boost": 0.2,
+      "notes": "Character archetype: wise mentor"
+    },
+    "prodigy": {
+      "exact": ["prodigy", "child genius", "young genius"],
+      "synonyms": ["gifted child", "talented youth", "wunderkind"],
+      "phrases": ["prodigy character", "child prodigy", "young talent", "gifted genius"],
+      "avoid": ["prodigy software", "prodigy service"],
+      "confidence_boost": 0.1,
+      "notes": "Character archetype: prodigy"
+    },
+    "everyman-hero": {
+      "exact": ["everyman hero", "ordinary hero", "common man"],
+      "synonyms": ["regular person", "average joe", "ordinary protagonist"],
+      "phrases": ["everyman character", "ordinary person hero", "common hero", "average protagonist"],
+      "avoid": ["everyman theater", "everyman book"],
+      "confidence_boost": 0.2,
+      "notes": "Character archetype: everyman hero"
+    },
+    "trickster": {
+      "exact": ["trickster", "con artist", "swindler"],
+      "synonyms": ["schemer", "deceiver", "manipulator"],
+      "phrases": ["trickster character", "con artist protagonist", "clever schemer", "master deceiver"],
+      "avoid": ["trickster card", "trickster mythology"],
+      "confidence_boost": 0.1,
+      "notes": "Character archetype: trickster"
+    },
+    "tragic-hero": {
+      "exact": ["tragic hero", "doomed protagonist", "flawed hero"],
+      "synonyms": ["doomed hero", "fallen protagonist"],
+      "phrases": ["tragic hero character", "doomed from start", "tragic protagonist", "flawed hero"],
+      "avoid": ["tragic accident", "tragic news"],
+      "confidence_boost": 0.2,
+      "notes": "Character archetype: tragic hero"
+    },
+    "byronic-hero": {
+      "exact": ["byronic hero", "dark brooding hero", "tortured soul"],
+      "synonyms": ["brooding protagonist", "dark hero", "tormented hero"],
+      "phrases": ["byronic character", "dark and brooding", "tortured protagonist", "brooding antihero"],
+      "avoid": ["byron poetry", "lord byron"],
+      "confidence_boost": 0.2,
+      "notes": "Character archetype: byronic hero"
+    },
+    "reluctant-leader": {
+      "exact": ["reluctant leader", "unwilling leader", "doesn't want to lead"],
+      "synonyms": ["forced leader", "accidental leader", "unwilling commander"],
+      "phrases": ["reluctant to lead", "doesn't want leadership", "forced into leadership", "unwilling leader"],
+      "avoid": ["reluctant to speak", "reluctant participant"],
+      "confidence_boost": 0.2,
+      "notes": "Character type: reluctant leader"
+    },
+    "naive-protagonist": {
+      "exact": ["naive protagonist", "innocent hero", "sheltered character"],
+      "synonyms": ["innocent protagonist", "unworldly hero", "sheltered main character"],
+      "phrases": ["naive main character", "innocent protagonist", "sheltered from world", "unworldly hero"],
+      "avoid": ["naive art", "naive person"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: naive protagonist"
+    },
+    "jaded-cynic": {
+      "exact": ["jaded cynic", "cynical character", "world-weary"],
+      "synonyms": ["world-weary", "disillusioned", "bitter cynic"],
+      "phrases": ["jaded protagonist", "cynical character", "world-weary hero", "disillusioned cynic"],
+      "avoid": ["cynical review", "cynical attitude"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: jaded cynic"
+    },
+    "optimist": {
+      "exact": ["optimist", "eternal optimist", "hopeful character"],
+      "synonyms": ["hopeful person", "positive character", "glass-half-full"],
+      "phrases": ["optimistic character", "eternal optimist", "always hopeful", "positive outlook"],
+      "avoid": ["optimistic forecast", "optimistic estimate"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: optimist"
+    },
+    "loner": {
+      "exact": ["loner", "lone wolf", "solitary character"],
+      "synonyms": ["recluse", "solitary", "isolated character"],
+      "phrases": ["loner character", "lone wolf type", "prefers solitude", "solitary hero"],
+      "avoid": ["loner lifestyle", "feeling alone"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: loner"
+    },
+    "social-butterfly": {
+      "exact": ["social butterfly", "extrovert", "outgoing character"],
+      "synonyms": ["gregarious", "sociable character", "extroverted"],
+      "phrases": ["social butterfly character", "extremely outgoing", "loves people", "gregarious protagonist"],
+      "avoid": ["social butterfly effect", "social media"],
+      "confidence_boost": 0.2,
+      "notes": "Character type: social butterfly"
+    },
+    "rebel": {
+      "exact": ["rebel", "revolutionary", "defiant character"],
+      "synonyms": ["insurgent", "nonconformist", "defiant"],
+      "phrases": ["rebel character", "rebellious protagonist", "fights the system", "defiant hero"],
+      "avoid": ["rebel yell", "rebel flag"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: rebel"
+    },
+    "conformist": {
+      "exact": ["conformist", "follower", "obedient character"],
+      "synonyms": ["rule-follower", "compliant", "traditional"],
+      "phrases": ["conformist character", "follows rules", "obedient protagonist", "traditional character"],
+      "avoid": ["conformist society", "conformist culture"],
+      "confidence_boost": 0.2,
+      "notes": "Character type: conformist"
+    },
+    "warrior": {
+      "exact": ["warrior", "fighter", "soldier character"],
+      "synonyms": ["combatant", "battle-hardened", "veteran fighter"],
+      "phrases": ["warrior character", "seasoned fighter", "battle-tested", "veteran warrior"],
+      "avoid": ["warrior pose", "warrior game"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: warrior"
+    },
+    "healer": {
+      "exact": ["healer", "medic", "doctor character"],
+      "synonyms": ["physician", "nurse", "medical professional"],
+      "phrases": ["healer character", "medical character", "doctor protagonist", "healing abilities"],
+      "avoid": ["healer job", "healer class game"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: healer"
+    },
+    "scholar": {
+      "exact": ["scholar", "academic", "researcher character"],
+      "synonyms": ["intellectual", "learned person", "academic character"],
+      "phrases": ["scholarly character", "academic protagonist", "intellectual hero", "researcher character"],
+      "avoid": ["scholar program", "scholarly article"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: scholar"
+    },
+    "artist-character": {
+      "exact": ["artist character", "creative protagonist", "artistic soul"],
+      "synonyms": ["creative character", "artistic protagonist", "artisan"],
+      "phrases": ["artist protagonist", "creative soul", "artistic character", "struggling artist"],
+      "avoid": ["artist rendering", "artist statement"],
+      "confidence_boost": 0.1,
+      "notes": "Profession: artist"
+    },
+    "writer-character": {
+      "exact": ["writer character", "author protagonist", "novelist character"],
+      "synonyms": ["author character", "writing protagonist", "literary character"],
+      "phrases": ["writer protagonist", "author character", "aspiring writer", "struggling novelist"],
+      "avoid": ["writer's block", "writer software"],
+      "confidence_boost": 0.1,
+      "notes": "Profession: writer"
+    },
+    "detective-character": {
+      "exact": ["detective character", "investigator protagonist", "sleuth"],
+      "synonyms": ["investigator", "private eye", "gumshoe"],
+      "phrases": ["detective protagonist", "investigator character", "private investigator", "sleuth character"],
+      "avoid": ["detective game", "detective show"],
+      "confidence_boost": 0.1,
+      "notes": "Profession: detective"
+    },
+    "lawyer-character": {
+      "exact": ["lawyer character", "attorney protagonist", "legal drama"],
+      "synonyms": ["attorney", "legal professional", "counselor"],
+      "phrases": ["lawyer protagonist", "attorney character", "legal character", "courtroom drama"],
+      "avoid": ["lawyer advertising", "lawyer fees"],
+      "confidence_boost": 0.1,
+      "notes": "Profession: lawyer"
+    },
+    "teacher-character": {
+      "exact": ["teacher character", "educator protagonist", "professor character"],
+      "synonyms": ["educator", "instructor", "professor"],
+      "phrases": ["teacher protagonist", "educator character", "professor protagonist", "teaching character"],
+      "avoid": ["teacher salary", "teacher training"],
+      "confidence_boost": 0.1,
+      "notes": "Profession: teacher"
+    },
+    "journalist-character": {
+      "exact": ["journalist character", "reporter protagonist", "news reporter"],
+      "synonyms": ["reporter", "news character", "investigative journalist"],
+      "phrases": ["journalist protagonist", "reporter character", "investigative reporter", "news journalist"],
+      "avoid": ["journalist salary", "journalism degree"],
+      "confidence_boost": 0.1,
+      "notes": "Profession: journalist"
+    },
+    "chef-character": {
+      "exact": ["chef character", "cook protagonist", "culinary character"],
+      "synonyms": ["cook", "culinary artist", "chef protagonist"],
+      "phrases": ["chef protagonist", "cooking character", "culinary professional", "restaurant chef"],
+      "avoid": ["chef knife", "chef recipe"],
+      "confidence_boost": 0.2,
+      "notes": "Profession: chef"
+    },
+    "thief-character": {
+      "exact": ["thief character", "burglar protagonist", "master thief"],
+      "synonyms": ["burglar", "robber", "cat burglar"],
+      "phrases": ["thief protagonist", "master burglar", "skilled thief", "gentleman thief"],
+      "avoid": ["thief game", "thief of time"],
+      "confidence_boost": 0.1,
+      "notes": "Profession: thief"
+    },
+    "pirate": {
+      "exact": ["pirate", "buccaneer", "sea raider"],
+      "synonyms": ["privateer", "corsair", "sea pirate"],
+      "phrases": ["pirate character", "pirate protagonist", "sea pirate", "pirate crew"],
+      "avoid": ["pirate movie", "pirate bay"],
+      "confidence_boost": 0.2,
+      "notes": "Character type: pirate"
+    },
+    "spy-character": {
+      "exact": ["spy character", "secret agent", "espionage agent"],
+      "synonyms": ["intelligence agent", "undercover agent", "covert operative"],
+      "phrases": ["spy protagonist", "secret agent character", "undercover operative", "intelligence operative"],
+      "avoid": ["spy game", "spy camera"],
+      "confidence_boost": 0.1,
+      "notes": "Profession: spy"
+    },
+    "mercenary": {
+      "exact": ["mercenary", "hired gun", "soldier of fortune"],
+      "synonyms": ["hired soldier", "contract killer", "merc"],
+      "phrases": ["mercenary character", "hired gun protagonist", "soldier for hire", "contract soldier"],
+      "avoid": ["mercenary attitude", "mercenary motive"],
+      "confidence_boost": 0.2,
+      "notes": "Character type: mercenary"
+    },
+    "bounty-hunter": {
+      "exact": ["bounty hunter", "hunter for hire", "tracker"],
+      "synonyms": ["fugitive hunter", "bounty killer", "manhunter"],
+      "phrases": ["bounty hunter character", "hunting fugitives", "tracker protagonist", "hired hunter"],
+      "avoid": ["bounty hunter game", "dog bounty hunter"],
+      "confidence_boost": 0.2,
+      "notes": "Character type: bounty hunter"
+    },
+    "sibling-rivalry": {
+      "exact": ["sibling rivalry", "competing siblings", "brother vs brother"],
+      "synonyms": ["sibling conflict", "brother conflict", "sister rivalry"],
+      "phrases": ["rivalry between siblings", "competing brothers", "sister vs sister", "sibling competition"],
+      "avoid": ["rivalry sports", "business rivalry"],
+      "confidence_boost": 0.2,
+      "notes": "Family dynamic: sibling rivalry"
+    },
+    "estranged-family": {
+      "exact": ["estranged family", "family estrangement", "separated family"],
+      "synonyms": ["distant family", "broken family bonds", "family separation"],
+      "phrases": ["estranged from family", "separated family members", "family rift", "distant relatives"],
+      "avoid": ["estranged spouse", "estranged meaning"],
+      "confidence_boost": 0.2,
+      "notes": "Family dynamic: estrangement"
+    },
+    "parent-child-conflict": {
+      "exact": ["parent child conflict", "generational conflict", "family tension"],
+      "synonyms": ["parent vs child", "family conflict", "generational divide"],
+      "phrases": ["conflict with parents", "parent child tension", "family disagreement", "generational clash"],
+      "avoid": ["conflict resolution", "family therapy"],
+      "confidence_boost": 0.1,
+      "notes": "Family dynamic: parent-child conflict"
+    },
+    "protective-parent": {
+      "exact": ["protective parent", "overprotective parent", "hovering parent"],
+      "synonyms": ["overprotective mother", "protective father", "helicopter parent"],
+      "phrases": ["overly protective parent", "parent protects child", "overprotective family", "sheltering parent"],
+      "avoid": ["parent guide", "protective services"],
+      "confidence_boost": 0.1,
+      "notes": "Family dynamic: protective parent"
+    },
+    "absent-parent": {
+      "exact": ["absent parent", "missing parent", "neglectful parent"],
+      "synonyms": ["absentee parent", "distant parent", "unavailable parent"],
+      "phrases": ["absent father", "missing mother", "parent not present", "neglectful parent"],
+      "avoid": ["absent minded", "parent teacher"],
+      "confidence_boost": 0.1,
+      "notes": "Family dynamic: absent parent"
+    },
+    "single-parent-family": {
+      "exact": ["single parent", "single mother", "single father"],
+      "synonyms": ["solo parent", "lone parent", "single parent family"],
+      "phrases": ["raised by single parent", "single parent household", "solo parenting", "single mom"],
+      "avoid": ["single parent dating", "single parent support"],
+      "confidence_boost": 0.1,
+      "notes": "Family type: single parent"
+    },
+    "adoptive-family": {
+      "exact": ["adoptive family", "adopted child", "foster family"],
+      "synonyms": ["foster parents", "adoption", "adopted"],
+      "phrases": ["adopted into family", "foster care", "adoptive parents", "foster child"],
+      "avoid": ["adoption agency", "foster care system"],
+      "confidence_boost": 0.2,
+      "notes": "Family type: adoptive/foster"
+    },
+    "blended-family": {
+      "exact": ["blended family", "stepfamily", "remarriage family"],
+      "synonyms": ["step family", "merged families", "reconstituted family"],
+      "phrases": ["blended family dynamics", "stepparent", "step siblings", "remarried parents"],
+      "avoid": ["family blender", "blended learning"],
+      "confidence_boost": 0.2,
+      "notes": "Family type: blended/step"
+    },
+    "dysfunctional-family": {
+      "exact": ["dysfunctional family", "toxic family", "broken family"],
+      "synonyms": ["troubled family", "unhealthy family", "family dysfunction"],
+      "phrases": ["dysfunctional household", "toxic family dynamics", "broken home", "troubled family"],
+      "avoid": ["dysfunctional organization", "dysfunction"],
+      "confidence_boost": 0.1,
+      "notes": "Family type: dysfunctional"
+    },
+    "generational-saga": {
+      "exact": ["generational saga", "family saga", "multi-generational"],
+      "synonyms": ["family epic", "generations story", "ancestral saga"],
+      "phrases": ["spans generations", "multiple generations", "family through time", "generational story"],
+      "avoid": ["generation gap", "generational wealth"],
+      "confidence_boost": 0.2,
+      "notes": "Family scope: generational saga"
+    },
+    "legacy": {
+      "exact": ["legacy", "family legacy", "inherited burden"],
+      "synonyms": ["inheritance", "family tradition", "ancestral legacy"],
+      "phrases": ["family legacy", "inherited responsibility", "burden of legacy", "ancestral duty"],
+      "avoid": ["legacy system", "legacy software"],
+      "confidence_boost": 0.1,
+      "notes": "Theme: legacy/inheritance"
+    },
+    "bromance": {
+      "exact": ["bromance", "male friendship", "brotherhood"],
+      "synonyms": ["male bonding", "bros", "male camaraderie"],
+      "phrases": ["bromance between", "strong male friendship", "brotherhood bond", "male best friends"],
+      "avoid": ["romance novel", "bromance movie"],
+      "confidence_boost": 0.2,
+      "notes": "Friendship: male bonding/bromance"
+    },
+    "female-friendship": {
+      "exact": ["female friendship", "sisterhood", "women supporting women"],
+      "synonyms": ["girl power", "female bonding", "sisterly bond"],
+      "phrases": ["strong female friendship", "sisterhood bond", "women friends", "female solidarity"],
+      "avoid": ["friendship bracelet", "friendship day"],
+      "confidence_boost": 0.2,
+      "notes": "Friendship: female friendship"
+    },
+    "unlikely-friendship": {
+      "exact": ["unlikely friendship", "odd couple", "mismatched friends"],
+      "synonyms": ["unexpected friendship", "strange pairing", "opposite friends"],
+      "phrases": ["unlikely friends", "odd pair", "unexpected bond", "opposite personalities"],
+      "avoid": ["unlikely event", "unlikely hero"],
+      "confidence_boost": 0.2,
+      "notes": "Friendship: unlikely pairing"
+    },
+    "childhood-friendship": {
+      "exact": ["childhood friendship", "lifelong friends", "friends since childhood"],
+      "synonyms": ["childhood friends", "old friends", "longtime friendship"],
+      "phrases": ["friends since kids", "childhood buddies", "lifelong friendship", "grew up together"],
+      "avoid": ["childhood memories", "childhood development"],
+      "confidence_boost": 0.2,
+      "notes": "Friendship: childhood friends"
+    },
+    "toxic-friendship": {
+      "exact": ["toxic friendship", "unhealthy friendship", "bad friend"],
+      "synonyms": ["manipulative friend", "toxic relationship", "poisonous friendship"],
+      "phrases": ["toxic friend", "unhealthy friendship", "manipulative friendship", "bad friendship"],
+      "avoid": ["toxic substance", "toxic work"],
+      "confidence_boost": 0.2,
+      "notes": "Friendship: toxic/unhealthy"
+    },
+    "betrayal-by-friend": {
+      "exact": ["betrayal by friend", "friend betrays", "friendship betrayal"],
+      "synonyms": ["friend turns traitor", "backstabbed by friend", "friend's betrayal"],
+      "phrases": ["betrayed by friend", "friend betrays trust", "friendship ruined by betrayal", "backstabbing friend"],
+      "avoid": ["betrayal trauma", "betrayed spouse"],
+      "confidence_boost": 0.2,
+      "notes": "Friendship: betrayal"
+    },
+    "friends-to-enemies": {
+      "exact": ["friends to enemies", "former friends", "friendship turns hostile"],
+      "synonyms": ["ex-friends", "fallen out", "friendship destroyed"],
+      "phrases": ["friends become enemies", "former best friends", "friendship turned sour", "once friends"],
+      "avoid": ["enemies to lovers", "friends episode"],
+      "confidence_boost": 0.2,
+      "notes": "Friendship arc: friends to enemies"
+    },
+    "enemies-to-friends": {
+      "exact": ["enemies to friends", "rivals become friends", "from enemies to allies"],
+      "synonyms": ["adversaries to friends", "foes to friends", "reconciliation"],
+      "phrases": ["enemies become friends", "rivals befriend", "former enemies", "reconciled enemies"],
+      "avoid": ["enemies to lovers", "enemies list"],
+      "confidence_boost": 0.2,
+      "notes": "Friendship arc: enemies to friends"
+    },
+    "mentor-student": {
+      "exact": ["mentor student", "teacher student bond", "mentor relationship"],
+      "synonyms": ["master apprentice", "teacher pupil", "mentor protege"],
+      "phrases": ["mentor and student", "teacher student relationship", "master teaching apprentice", "mentor bond"],
+      "avoid": ["mentor program", "student loan"],
+      "confidence_boost": 0.1,
+      "notes": "Power dynamic: mentor-student"
+    },
+    "master-apprentice": {
+      "exact": ["master apprentice", "master and student", "apprenticeship"],
+      "synonyms": ["teacher student", "master pupil", "training relationship"],
+      "phrases": ["master teaches apprentice", "apprentice learns from master", "master student dynamic", "apprenticeship bond"],
+      "avoid": ["master degree", "apprentice program"],
+      "confidence_boost": 0.2,
+      "notes": "Power dynamic: master-apprentice"
+    },
+    "instalove": {
+      "exact": ["instalove", "instant love", "love at first sight"],
+      "synonyms": ["immediate attraction", "instant chemistry", "immediate love"],
+      "phrases": ["falls instantly in love", "immediate connection", "love at first sight", "instant romance"],
+      "avoid": ["instant coffee", "instant gratification"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: instalove"
+    },
+    "slow-burn-romance": {
+      "exact": ["slow burn romance", "slow-burning love", "gradual romance"],
+      "synonyms": ["slow romance", "gradual love", "building attraction"],
+      "phrases": ["slowly falling in love", "gradual romance", "slow-burn relationship", "attraction builds slowly"],
+      "avoid": ["slow burn rate", "slow cooker"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: slow burn"
+    },
+    "pining": {
+      "exact": ["pining", "unrequited pining", "longing for love"],
+      "synonyms": ["yearning", "longing", "unrequited longing"],
+      "phrases": ["pining for", "yearning for love", "longing unrequited", "secret pining"],
+      "avoid": ["pining for fjords", "pine tree"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: pining/yearning"
+    },
+    "unrequited-love": {
+      "exact": ["unrequited love", "one-sided love", "unreciprocated feelings"],
+      "synonyms": ["one-sided romance", "love not returned", "unreturned affection"],
+      "phrases": ["love not reciprocated", "one-sided feelings", "unrequited affection", "love unreturned"],
+      "avoid": ["unrequited definition", "unrequited movie"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: unrequited love"
+    },
+    "mutual-pining": {
+      "exact": ["mutual pining", "both pining", "pining for each other"],
+      "synonyms": ["reciprocal longing", "both yearning", "mutual yearning"],
+      "phrases": ["both pining secretly", "mutual longing", "yearning for each other", "both want each other"],
+      "avoid": ["mutual fund", "mutual agreement"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: mutual pining"
+    },
+    "love-hate-relationship": {
+      "exact": ["love hate relationship", "love-hate dynamic", "passionate rivalry"],
+      "synonyms": ["volatile romance", "tempestuous relationship", "antagonistic attraction"],
+      "phrases": ["love and hate", "passionate conflict", "antagonistic romance", "volatile attraction"],
+      "avoid": ["love hate band", "love hate tattoo"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: love-hate dynamic"
+    },
+    "will-they-wont-they": {
+      "exact": ["will they won't they", "will-they-won't-they", "romantic tension"],
+      "synonyms": ["romantic uncertainty", "back and forth", "on-again off-again"],
+      "phrases": ["will they get together", "romantic back-and-forth", "uncertain romance", "relationship tension"],
+      "avoid": ["will they win", "won't they leave"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: will-they-won't-they tension"
+    },
+    "star-crossed-lovers": {
+      "exact": ["star crossed lovers", "star-crossed romance", "doomed love"],
+      "synonyms": ["tragic romance", "doomed lovers", "fated to fail"],
+      "phrases": ["star-crossed love", "doomed romance", "tragic love story", "lovers kept apart"],
+      "avoid": ["star crossed movie", "crossed wires"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: star-crossed lovers"
+    },
+    "soulmates": {
+      "exact": ["soulmates", "soul mates", "destined lovers"],
+      "synonyms": ["destined partners", "meant to be", "fated love"],
+      "phrases": ["soulmate connection", "destined for each other", "meant to be together", "soul connection"],
+      "avoid": ["soulmate app", "finding soulmate"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: soulmates"
+    },
+    "second-chance-romance": {
+      "exact": ["second chance romance", "rekindled romance", "getting back together"],
+      "synonyms": ["reunion romance", "ex-lovers reunited", "rekindled love"],
+      "phrases": ["second chance at love", "rekindling romance", "reunited lovers", "ex-lovers together again"],
+      "avoid": ["second chance employment", "second chance program"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: second chance"
+    },
+    "marriage-in-trouble": {
+      "exact": ["marriage in trouble", "failing marriage", "marital problems"],
+      "synonyms": ["struggling marriage", "marital crisis", "troubled marriage"],
+      "phrases": ["marriage falling apart", "marital difficulties", "troubled relationship", "marriage problems"],
+      "avoid": ["marriage counseling", "marriage certificate"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: troubled marriage"
+    },
+    "power-couple": {
+      "exact": ["power couple", "dynamic duo", "powerful partnership"],
+      "synonyms": ["formidable pair", "unstoppable duo", "strong partnership"],
+      "phrases": ["power couple dynamic", "formidable together", "unstoppable pair", "powerful together"],
+      "avoid": ["power couple list", "celebrity power couple"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: power couple"
+    },
+    "class-difference-romance": {
+      "exact": ["class difference romance", "rich poor romance", "across class lines"],
+      "synonyms": ["cross-class romance", "upstairs downstairs", "social divide romance"],
+      "phrases": ["romance across classes", "rich and poor love", "class divide romance", "social gap relationship"],
+      "avoid": ["class difference sociology", "social class"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: class difference"
+    },
+    "age-gap": {
+      "exact": ["age gap", "age difference", "May-December romance"],
+      "synonyms": ["age difference romance", "older younger romance", "generation gap romance"],
+      "phrases": ["age gap relationship", "significant age difference", "older man younger woman", "age difference couple"],
+      "avoid": ["age gap calculator", "generation gap"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: age gap"
+    },
+    "secret-relationship": {
+      "exact": ["secret relationship", "hidden romance", "forbidden affair"],
+      "synonyms": ["clandestine romance", "secret affair", "hidden love"],
+      "phrases": ["relationship in secret", "hidden romance", "secretly dating", "affair kept secret"],
+      "avoid": ["secret santa", "secret recipe"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: secret relationship"
+    },
+    "public-declaration": {
+      "exact": ["public declaration", "declares love publicly", "grand gesture"],
+      "synonyms": ["public confession", "grand romantic gesture", "public profession"],
+      "phrases": ["declares love publicly", "public romantic gesture", "grand declaration", "professes love publicly"],
+      "avoid": ["public declaration form", "declaration of independence"],
+      "confidence_boost": 0.2,
+      "notes": "Romance: public declaration"
+    },
+    "jealousy": {
+      "exact": ["jealousy", "jealous lover", "possessive love"],
+      "synonyms": ["possessiveness", "envious", "green-eyed"],
+      "phrases": ["jealous of", "possessive behavior", "jealousy issues", "envious lover"],
+      "avoid": ["jealousy song", "professional jealousy"],
+      "confidence_boost": 0.1,
+      "notes": "Romance element: jealousy"
+    },
+    "miscommunication": {
+      "exact": ["miscommunication", "failure to communicate", "misunderstanding"],
+      "synonyms": ["poor communication", "lack of communication", "misunderstandings"],
+      "phrases": ["miscommunication causes problems", "failure to talk", "misunderstanding ruins", "communication breakdown"],
+      "avoid": ["communication skills", "miscommunication definition"],
+      "confidence_boost": 0.1,
+      "notes": "Romance obstacle: miscommunication"
+    },
+    "chosen-family-bond": {
+      "exact": ["chosen family bond", "found family bond", "family of choice"],
+      "synonyms": ["found family", "makeshift family", "adopted family"],
+      "phrases": ["chosen family", "family they choose", "makeshift family unit", "found family dynamic"],
+      "avoid": ["family planning", "family tree"],
+      "confidence_boost": 0.2,
+      "notes": "Group dynamic: chosen family"
+    },
+    "band-of-misfits": {
+      "exact": ["band of misfits", "misfit crew", "ragtag group"],
+      "synonyms": ["ragtag team", "misfit team", "unlikely crew"],
+      "phrases": ["band of misfits", "ragtag group", "misfit crew", "unlikely team"],
+      "avoid": ["misfit toys", "band name"],
+      "confidence_boost": 0.2,
+      "notes": "Group dynamic: misfits"
+    },
+    "team-dynamics": {
+      "exact": ["team dynamics", "group dynamics", "crew interaction"],
+      "synonyms": ["team interaction", "group cohesion", "team chemistry"],
+      "phrases": ["team works together", "group dynamic", "crew interaction", "team chemistry"],
+      "avoid": ["team building", "dynamics 365"],
+      "confidence_boost": 0.1,
+      "notes": "Group dynamic: team"
+    },
+    "rival-teams": {
+      "exact": ["rival teams", "competing teams", "team rivalry"],
+      "synonyms": ["opposing teams", "competitive teams", "team competition"],
+      "phrases": ["teams compete", "rival groups", "competing crews", "team vs team"],
+      "avoid": ["sports rivalry", "business competition"],
+      "confidence_boost": 0.2,
+      "notes": "Group dynamic: rival teams"
+    },
+    "alliance": {
+      "exact": ["alliance", "uneasy alliance", "temporary partnership"],
+      "synonyms": ["coalition", "pact", "united front"],
+      "phrases": ["form alliance", "uneasy partnership", "temporary allies", "alliance formed"],
+      "avoid": ["alliance bank", "alliance party"],
+      "confidence_boost": 0.1,
+      "notes": "Group dynamic: alliance"
+    },
+    "traitor-within": {
+      "exact": ["traitor within", "betrayal from within", "turncoat"],
+      "synonyms": ["internal betrayal", "traitor in group", "insider betrayal"],
+      "phrases": ["traitor among them", "betrayal from inside", "traitor in team", "insider turns"],
+      "avoid": ["traitor game", "traitor definition"],
+      "confidence_boost": 0.2,
+      "notes": "Group dynamic: internal betrayal"
+    },
+    "leader-sacrifice": {
+      "exact": ["leader sacrifice", "leader sacrifices self", "captain goes down"],
+      "synonyms": ["leader's sacrifice", "commander's sacrifice", "leadership sacrifice"],
+      "phrases": ["leader sacrifices for team", "captain sacrifices", "leader dies for group", "commander's sacrifice"],
+      "avoid": ["sacrifice sale", "sacrifice definition"],
+      "confidence_boost": 0.2,
+      "notes": "Group dynamic: leader sacrifice"
+    },
+    "succession-struggle": {
+      "exact": ["succession struggle", "fight for leadership", "power succession"],
+      "synonyms": ["leadership battle", "succession conflict", "battle for control"],
+      "phrases": ["struggle for succession", "fighting for leadership", "succession battle", "who will lead"],
+      "avoid": ["succession planning", "succession show"],
+      "confidence_boost": 0.2,
+      "notes": "Group dynamic: succession struggle"
+    },
+    "democracy-vs-dictatorship": {
+      "exact": ["democracy vs dictatorship", "democratic vs authoritarian", "freedom vs control"],
+      "synonyms": ["liberty vs tyranny", "free vs controlled", "democratic struggle"],
+      "phrases": ["democracy versus dictatorship", "freedom against tyranny", "democratic resistance", "authoritarian control"],
+      "avoid": ["democracy definition", "dictatorship definition"],
+      "confidence_boost": 0.2,
+      "notes": "Political dynamic: democracy vs dictatorship"
+    },
+    "mentor-mentee": {
+      "exact": ["mentor mentee", "mentor protege", "teaching relationship"],
+      "synonyms": ["mentorship", "guidance relationship", "teacher student"],
+      "phrases": ["mentor and mentee", "mentorship bond", "mentor guides", "protege learns"],
+      "avoid": ["mentor program", "mentee definition"],
+      "confidence_boost": 0.2,
+      "notes": "Power dynamic: mentor-mentee"
+    },
+    "employer-employee": {
+      "exact": ["employer employee", "boss employee", "workplace hierarchy"],
+      "synonyms": ["boss worker", "superior subordinate", "management employee"],
+      "phrases": ["boss and employee", "employer employee relationship", "workplace power", "superior subordinate dynamic"],
+      "avoid": ["employee benefits", "employer insurance"],
+      "confidence_boost": 0.1,
+      "notes": "Power dynamic: employer-employee"
+    },
+    "ruler-subject": {
+      "exact": ["ruler subject", "king subject", "monarch and people"],
+      "synonyms": ["sovereign subject", "lord peasant", "royalty commoner"],
+      "phrases": ["ruler and subjects", "king and people", "monarch over subjects", "sovereign rule"],
+      "avoid": ["subject matter", "ruler measurement"],
+      "confidence_boost": 0.2,
+      "notes": "Power dynamic: ruler-subject"
+    },
+    "captor-captive": {
+      "exact": ["captor captive", "kidnapper victim", "prisoner and guard"],
+      "synonyms": ["captor prisoner", "kidnapper hostage", "jailer prisoner"],
+      "phrases": ["captor and captive", "kidnapper and victim", "prisoner and captor", "hostage situation"],
+      "avoid": ["captive audience", "captor movie"],
+      "confidence_boost": 0.2,
+      "notes": "Power dynamic: captor-captive"
+    },
+    "stockholm-syndrome": {
+      "exact": ["stockholm syndrome", "captor bonding", "captive attachment"],
+      "synonyms": ["captor bond", "hostage bonding", "traumatic bonding"],
+      "phrases": ["stockholm syndrome develops", "bonding with captor", "victim sympathizes", "captive bonds"],
+      "avoid": ["stockholm city", "syndrome definition"],
+      "confidence_boost": 0.2,
+      "notes": "Psychological: stockholm syndrome"
+    },
+    "codependency": {
+      "exact": ["codependency", "codependent relationship", "unhealthy dependence"],
+      "synonyms": ["mutual dependence", "toxic codependence", "unhealthy attachment"],
+      "phrases": ["codependent relationship", "unhealthy dependence", "toxic codependency", "mutually dependent"],
+      "avoid": ["codependency definition", "codependency recovery"],
+      "confidence_boost": 0.2,
+      "notes": "Relationship: codependency"
+    },
+    "obsession": {
+      "exact": ["obsession", "obsessive love", "unhealthy fixation"],
+      "synonyms": ["fixation", "obsessive attachment", "unhealthy obsession"],
+      "phrases": ["obsessed with", "unhealthy obsession", "obsessive behavior", "fixated on"],
+      "avoid": ["obsession perfume", "obsessive compulsive"],
+      "confidence_boost": 0.1,
+      "notes": "Relationship: obsession"
+    },
+    "stalker": {
+      "exact": ["stalker", "stalking", "obsessive stalker"],
+      "synonyms": ["pursuer", "obsessive follower", "unwanted attention"],
+      "phrases": ["stalker character", "being stalked", "obsessive stalking", "stalker follows"],
+      "avoid": ["stalker game", "night stalker"],
+      "confidence_boost": 0.2,
+      "notes": "Character type: stalker"
+    }
+  }
+}
