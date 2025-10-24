@@ -13,11 +13,11 @@
 | **Domains** | 4 | 4 | 100% | CRITICAL | ✅ COMPLETE |
 | **Supergenres** | 34 | 34 | 100% | HIGH | ✅ COMPLETE |
 | **Genres** | 101 | 100 | 99% | HIGH | ✅ PHASE 3 DONE |
-| **Subgenres** | 500 | 56 | 11% | MEDIUM | 🟡 PHASE 1 DONE |
-| **Cross-tags** | 2,733 | 640 | 23% | ONGOING | 🟢 IN PROGRESS |
+|| **Subgenres** | 500 | 101 | 20% | MEDIUM | 🟡 PHASE 2 DONE |
+|| **Cross-tags** | 2,733 | 640 | 23% | ONGOING | 🟢 IN PROGRESS |
 
-**Total Patterns Created**: 834  
-**Estimated Token Usage**: ~137k / 200k (69%)
+**Total Patterns Created**: 879  
+**Estimated Token Usage**: ~158k / 200k (79%)
 
 ---
 
@@ -234,14 +234,16 @@
 
 ---
 
-### 4. Subgenres (11% Complete 🟡)
+### 4. Subgenres (20% Complete 🟡)
 
 **File**: `subgenre_patterns.json` ✅ CREATED  
-**Patterns**: 56/500 (11%)  
-**Current Phase**: Phase 1 of 3 COMPLETE  
-**Version**: 1.0.0
+**Patterns**: 101/500 (20%)  
+**Current Phase**: Phase 2 of 3 COMPLETE  
+**Version**: 2.0.0
 
-#### Completed Patterns (56):
+#### Completed Patterns (101):
+
+**Phase 1 (56 patterns):**
 
 **Fantasy (9)**:
 1. ✅ epic-fantasy
@@ -316,6 +318,71 @@
 2. ✅ ya-dystopian
 3. ✅ ya-contemporary
 4. ✅ new-adult-romance
+
+**Phase 2 (45 patterns):**
+
+**Fantasy Expansions (5)**:
+1. ✅ cozy-fantasy
+2. ✅ paranormal-fantasy
+3. ✅ historical-fantasy
+4. ✅ romantasy
+5. ✅ progression-fantasy
+
+**Romance Expansions (5)**:
+1. ✅ billionaire-romance
+2. ✅ rockstar-romance
+3. ✅ sports-romance
+4. ✅ small-town-fiction
+5. ✅ romantic-comedy
+
+**Science Fiction Expansions (3)**:
+1. ✅ biopunk
+2. ✅ generation-ship
+3. ✅ robot-apocalypse
+
+**Horror Expansions (5)**:
+1. ✅ zombie-apocalypse
+2. ✅ vampire-fiction
+3. ✅ werewolf-fiction
+4. ✅ ghost-stories
+5. ✅ folk-horror
+
+**Historical Fiction (4)**:
+1. ✅ wwi-fiction
+2. ✅ medieval-historical
+3. ✅ napoleonic-fiction
+4. ✅ civil-war-fiction
+
+**Thriller/Mystery (4)**:
+1. ✅ political-thriller
+2. ✅ conspiracy-thriller
+3. ✅ historical-mystery
+4. ✅ legal-mystery
+
+**Literary/Contemporary (4)**:
+1. ✅ satire
+2. ✅ absurdist-fiction
+3. ✅ experimental-fiction
+4. ✅ campus-novel
+5. ✅ family-saga
+
+**Non-Fiction Biography/Memoir (6)**:
+1. ✅ memoir
+2. ✅ celebrity-memoir
+3. ✅ political-memoir
+4. ✅ historical-biography
+5. ✅ political-biography
+6. ✅ business-biography
+7. ✅ travel-memoir
+
+**Non-Fiction General (9)**:
+1. ✅ military-history
+2. ✅ cultural-history
+3. ✅ popular-science
+4. ✅ nature-writing
+5. ✅ self-help
+6. ✅ true-crime
+7. ✅ philosophy-introduction
 
 #### Pattern Features:
 - Parent genre/supergenre/domain validation

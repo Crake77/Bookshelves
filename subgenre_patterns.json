@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "version": "1.0.0",
-    "phase": "1 of 3",
+    "version": "2.0.0",
+    "phase": "2 of 3",
     "generated_date": "2025-01-24",
-    "total_patterns": 56,
-    "coverage": "11% (56/500 estimated subgenres)",
-    "description": "Phase 1: Top 56 most common subgenre patterns for specific subgenre classification"
+    "total_patterns": 101,
+    "coverage": "20% (101/500 estimated subgenres)",
+    "description": "Phase 2: Expanded to 101 subgenre patterns covering major fiction and non-fiction subgenres"
   },
   "patterns": {
     "epic-fantasy": {
@@ -678,6 +678,546 @@
       "climate_markers": ["climate", "environmental", "global warming", "disaster", "cli-fi"],
       "strong_signals": ["cli-fi", "climate", "environmental disaster", "global warming"],
       "minimum_confidence": 0.62
+    },
+    
+    "cozy-fantasy": {
+      "name": "Cozy Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["low-stakes fantasy", "gentle magic", "comfortable atmosphere", "everyday magic"],
+      "exact_phrases": ["cozy fantasy", "cozy magic", "low-stakes fantasy"],
+      "tone_markers": ["cozy", "gentle", "wholesome", "comfort", "low-stakes", "peaceful"],
+      "strong_signals": ["cozy fantasy", "gentle magic", "wholesome", "comfort"],
+      "minimum_confidence": 0.60
+    },
+    
+    "paranormal-fantasy": {
+      "name": "Paranormal Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["paranormal creatures", "supernatural beings", "vampires and werewolves in fantasy"],
+      "exact_phrases": ["paranormal fantasy", "supernatural fantasy"],
+      "creature_markers": ["paranormal", "vampire", "werewolf", "shapeshifter", "supernatural creatures"],
+      "strong_signals": ["paranormal", "vampire", "werewolf", "supernatural beings"],
+      "minimum_confidence": 0.58
+    },
+    
+    "historical-fantasy": {
+      "name": "Historical Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["historical setting with magic", "fantasy in real history", "magical historical period"],
+      "exact_phrases": ["historical fantasy", "magic in history"],
+      "blend_markers": ["historical fantasy", "period", "era", "history", "magic", "fantasy"],
+      "strong_signals": ["historical fantasy", "magic in history", "magical history"],
+      "minimum_confidence": 0.60
+    },
+    
+    "romantasy": {
+      "name": "Romantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["romance and fantasy blend", "romantic fantasy", "love story in fantasy world"],
+      "exact_phrases": ["romantasy", "romantic fantasy"],
+      "blend_markers": ["romantasy", "romance", "fantasy", "love story", "magical romance"],
+      "strong_signals": ["romantasy", "romantic fantasy", "love story", "fantasy romance"],
+      "minimum_confidence": 0.62
+    },
+    
+    "progression-fantasy": {
+      "name": "Progression Fantasy",
+      "parent_genre": "fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["character power progression", "leveling up", "skill advancement", "cultivation"],
+      "exact_phrases": ["progression fantasy", "cultivation", "leveling up"],
+      "progression_markers": ["progression", "leveling", "cultivation", "advancement", "power growth", "ranks"],
+      "strong_signals": ["progression fantasy", "cultivation", "leveling", "power growth"],
+      "minimum_confidence": 0.60
+    },
+    
+    "billionaire-romance": {
+      "name": "Billionaire Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["wealthy love interest", "billionaire hero", "luxury and wealth"],
+      "exact_phrases": ["billionaire romance", "billionaire", "wealthy hero"],
+      "wealth_markers": ["billionaire", "wealthy", "rich", "luxury", "CEO", "fortune"],
+      "strong_signals": ["billionaire", "wealthy hero", "CEO romance", "luxury"],
+      "minimum_confidence": 0.62
+    },
+    
+    "rockstar-romance": {
+      "name": "Rockstar Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["musician love interest", "rockstar hero", "music industry setting"],
+      "exact_phrases": ["rockstar romance", "rock star", "musician romance"],
+      "music_markers": ["rockstar", "rock star", "musician", "band", "music", "singer"],
+      "strong_signals": ["rockstar", "musician", "band", "rock star romance"],
+      "minimum_confidence": 0.60
+    },
+    
+    "sports-romance": {
+      "name": "Sports Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["athlete love interest", "sports setting", "athletic romance"],
+      "exact_phrases": ["sports romance", "athlete romance", "hockey romance"],
+      "sports_markers": ["athlete", "sports", "hockey", "football", "baseball", "team"],
+      "strong_signals": ["athlete", "sports romance", "hockey", "player"],
+      "minimum_confidence": 0.58
+    },
+    
+    "small-town-fiction": {
+      "name": "Small Town Romance",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["small town setting", "rural romance", "close-knit community"],
+      "exact_phrases": ["small town", "small-town romance"],
+      "setting_markers": ["small town", "rural", "village", "countryside", "community"],
+      "strong_signals": ["small town", "rural", "community", "countryside"],
+      "minimum_confidence": 0.58
+    },
+    
+    "romantic-comedy": {
+      "name": "Romantic Comedy",
+      "parent_genre": "romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["humorous romance", "lighthearted love story", "comedy and romance"],
+      "exact_phrases": ["romantic comedy", "rom-com", "romcom"],
+      "tone_markers": ["romantic comedy", "rom-com", "funny", "humorous", "lighthearted"],
+      "strong_signals": ["rom-com", "romantic comedy", "funny", "lighthearted"],
+      "minimum_confidence": 0.60
+    },
+    
+    "biopunk": {
+      "name": "Biopunk",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["biotechnology focus", "genetic engineering", "biological modification"],
+      "exact_phrases": ["biopunk", "genetic engineering", "biotech"],
+      "bio_markers": ["biopunk", "genetic", "biotech", "DNA", "genetic modification", "bio-engineering"],
+      "strong_signals": ["biopunk", "genetic engineering", "biotech", "DNA modification"],
+      "minimum_confidence": 0.62
+    },
+    
+    "generation-ship": {
+      "name": "Generation Ship",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["multi-generation space voyage", "enclosed spacecraft society", "long space journey"],
+      "exact_phrases": ["generation ship", "generational ship", "sleeper ship"],
+      "ship_markers": ["generation ship", "generations", "spacecraft", "colony ship", "voyage"],
+      "strong_signals": ["generation ship", "multi-generation", "colony ship", "space voyage"],
+      "minimum_confidence": 0.62
+    },
+    
+    "robot-apocalypse": {
+      "name": "Robot Apocalypse",
+      "parent_genre": "science-fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["AI uprising", "robot takeover", "machine rebellion"],
+      "exact_phrases": ["robot apocalypse", "AI uprising", "machine takeover"],
+      "robot_markers": ["robot", "AI", "artificial intelligence", "machines", "uprising", "rebellion"],
+      "strong_signals": ["robot apocalypse", "AI uprising", "machine rebellion"],
+      "minimum_confidence": 0.60
+    },
+    
+    "zombie-apocalypse": {
+      "name": "Zombie Apocalypse",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["zombie outbreak", "undead apocalypse", "zombie survival"],
+      "exact_phrases": ["zombie apocalypse", "zombie outbreak", "undead"],
+      "zombie_markers": ["zombie", "undead", "outbreak", "infection", "walkers", "reanimated"],
+      "strong_signals": ["zombie", "undead", "outbreak", "zombie apocalypse"],
+      "minimum_confidence": 0.62
+    },
+    
+    "vampire-fiction": {
+      "name": "Vampire Fiction",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["vampire protagonists or antagonists", "vampire lore", "bloodsuckers"],
+      "exact_phrases": ["vampire", "vampires", "bloodsucker"],
+      "vampire_markers": ["vampire", "blood", "fangs", "immortal", "undead", "stake"],
+      "strong_signals": ["vampire", "vampires", "blood", "fangs"],
+      "minimum_confidence": 0.60
+    },
+    
+    "werewolf-fiction": {
+      "name": "Werewolf Fiction",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["werewolf characters", "lycanthropy", "shapeshifters"],
+      "exact_phrases": ["werewolf", "werewolves", "lycanthrope"],
+      "were_markers": ["werewolf", "wolf", "shapeshifter", "lycanthrope", "full moon", "transformation"],
+      "strong_signals": ["werewolf", "werewolves", "lycanthrope", "shapeshifter"],
+      "minimum_confidence": 0.60
+    },
+    
+    "ghost-stories": {
+      "name": "Ghost Stories",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["ghosts and spirits", "haunting", "spectral entities"],
+      "exact_phrases": ["ghost story", "ghosts", "haunting"],
+      "ghost_markers": ["ghost", "spirit", "haunting", "spectral", "apparition", "phantom"],
+      "strong_signals": ["ghost", "haunting", "spirit", "apparition"],
+      "minimum_confidence": 0.58
+    },
+    
+    "folk-horror": {
+      "name": "Folk Horror",
+      "parent_genre": "horror",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["rural horror", "pagan elements", "isolated communities", "folk traditions"],
+      "exact_phrases": ["folk horror", "rural horror", "pagan horror"],
+      "folk_markers": ["folk", "rural", "pagan", "ritual", "isolated", "countryside", "tradition"],
+      "strong_signals": ["folk horror", "pagan", "ritual", "rural horror"],
+      "minimum_confidence": 0.60
+    },
+    
+    "wwi-fiction": {
+      "name": "World War I Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["World War I setting", "1914-1918", "Great War", "trench warfare"],
+      "exact_phrases": ["World War I", "WWI", "Great War", "First World War"],
+      "war_markers": ["WWI", "World War I", "1914", "trenches", "Great War", "Somme"],
+      "strong_signals": ["WWI", "World War I", "trenches", "Great War"],
+      "minimum_confidence": 0.62
+    },
+    
+    "medieval-historical": {
+      "name": "Medieval Historical Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["medieval period", "Middle Ages", "knights and castles", "feudal society"],
+      "exact_phrases": ["medieval", "Middle Ages", "medieval era"],
+      "period_markers": ["medieval", "Middle Ages", "knight", "castle", "feudal", "crusade"],
+      "strong_signals": ["medieval", "Middle Ages", "knight", "castle"],
+      "minimum_confidence": 0.60
+    },
+    
+    "napoleonic-fiction": {
+      "name": "Napoleonic Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Napoleonic Wars", "early 1800s", "Napoleon era", "naval warfare"],
+      "exact_phrases": ["Napoleonic", "Napoleon", "Napoleonic Wars"],
+      "period_markers": ["Napoleonic", "Napoleon", "1800s", "Waterloo", "naval", "HMS"],
+      "strong_signals": ["Napoleonic", "Napoleon", "Waterloo", "naval warfare"],
+      "minimum_confidence": 0.62
+    },
+    
+    "civil-war-fiction": {
+      "name": "Civil War Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["American Civil War", "1861-1865", "Union and Confederate", "slavery era"],
+      "exact_phrases": ["Civil War", "American Civil War", "War Between the States"],
+      "war_markers": ["Civil War", "Union", "Confederate", "1860s", "slavery", "Lincoln"],
+      "strong_signals": ["Civil War", "Union", "Confederate", "1860s"],
+      "minimum_confidence": 0.62
+    },
+    
+    "political-thriller": {
+      "name": "Political Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["political intrigue", "government conspiracy", "power struggles"],
+      "exact_phrases": ["political thriller", "political conspiracy"],
+      "political_markers": ["political", "government", "conspiracy", "power", "election", "Washington"],
+      "strong_signals": ["political thriller", "government", "conspiracy", "power"],
+      "minimum_confidence": 0.60
+    },
+    
+    "conspiracy-thriller": {
+      "name": "Conspiracy Thriller",
+      "parent_genre": "thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["uncovering conspiracy", "hidden truth", "secret organizations"],
+      "exact_phrases": ["conspiracy", "conspiracy thriller", "cover-up"],
+      "conspiracy_markers": ["conspiracy", "cover-up", "secret", "hidden", "truth", "organization"],
+      "strong_signals": ["conspiracy", "cover-up", "secret organization", "hidden truth"],
+      "minimum_confidence": 0.58
+    },
+    
+    "historical-mystery": {
+      "name": "Historical Mystery",
+      "parent_genre": "mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["mystery in historical setting", "period detective", "historical crime"],
+      "exact_phrases": ["historical mystery", "period mystery"],
+      "blend_markers": ["historical", "mystery", "period", "past", "detective", "Victorian"],
+      "strong_signals": ["historical mystery", "period detective", "historical crime"],
+      "minimum_confidence": 0.58
+    },
+    
+    "legal-mystery": {
+      "name": "Legal Mystery",
+      "parent_genre": "mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["legal mystery", "lawyer detective", "courtroom mystery"],
+      "exact_phrases": ["legal mystery", "lawyer detective"],
+      "legal_markers": ["legal", "lawyer", "attorney", "court", "trial", "law"],
+      "strong_signals": ["legal mystery", "lawyer", "courtroom", "attorney"],
+      "minimum_confidence": 0.58
+    },
+    
+    "satire": {
+      "name": "Satire",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["satirical commentary", "social critique", "ironic humor", "mocking society"],
+      "exact_phrases": ["satire", "satirical", "social satire"],
+      "tone_markers": ["satire", "satirical", "ironic", "mockery", "critique", "parody"],
+      "strong_signals": ["satire", "satirical", "social critique", "ironic"],
+      "minimum_confidence": 0.60
+    },
+    
+    "absurdist-fiction": {
+      "name": "Absurdist Fiction",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["absurdist philosophy", "meaninglessness", "illogical situations", "existential absurdity"],
+      "exact_phrases": ["absurdist", "absurdism", "absurd fiction"],
+      "style_markers": ["absurdist", "absurd", "meaningless", "illogical", "existential", "nonsensical"],
+      "strong_signals": ["absurdist", "absurd", "meaningless", "existential"],
+      "minimum_confidence": 0.60
+    },
+    
+    "experimental-fiction": {
+      "name": "Experimental Fiction",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["experimental form", "unconventional narrative", "innovative structure"],
+      "exact_phrases": ["experimental", "experimental fiction", "avant-garde"],
+      "style_markers": ["experimental", "avant-garde", "unconventional", "innovative", "form"],
+      "strong_signals": ["experimental", "avant-garde", "unconventional narrative"],
+      "minimum_confidence": 0.58
+    },
+    
+    "campus-novel": {
+      "name": "Campus Novel",
+      "parent_genre": "contemporary-fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["academic setting", "university life", "professor protagonist", "college campus"],
+      "exact_phrases": ["campus novel", "academic novel", "university"],
+      "setting_markers": ["campus", "university", "college", "academic", "professor", "faculty"],
+      "strong_signals": ["campus", "university", "academic", "professor"],
+      "minimum_confidence": 0.58
+    },
+    
+    "family-saga": {
+      "name": "Family Saga",
+      "parent_genre": "contemporary-fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["multi-generational", "family history", "spanning decades", "family dynamics"],
+      "exact_phrases": ["family saga", "generational", "multi-generational"],
+      "family_markers": ["family", "generations", "saga", "dynasty", "decades", "lineage"],
+      "strong_signals": ["family saga", "generations", "multi-generational", "decades"],
+      "minimum_confidence": 0.58
+    },
+    
+    "memoir": {
+      "name": "Memoir",
+      "parent_genre": "memoir",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["personal life story", "autobiographical", "life experiences", "memory narrative"],
+      "exact_phrases": ["memoir", "memoirs", "my story"],
+      "memoir_markers": ["memoir", "my life", "my story", "remembers", "growing up", "personal"],
+      "strong_signals": ["memoir", "my story", "my life", "personal narrative"],
+      "minimum_confidence": 0.58
+    },
+    
+    "celebrity-memoir": {
+      "name": "Celebrity Memoir",
+      "parent_genre": "memoir",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["celebrity life story", "famous person memoir", "entertainment industry"],
+      "exact_phrases": ["celebrity memoir", "actor memoir", "musician memoir"],
+      "celebrity_markers": ["celebrity", "actor", "musician", "star", "famous", "Hollywood"],
+      "strong_signals": ["celebrity", "actor", "musician", "famous", "Hollywood"],
+      "minimum_confidence": 0.60
+    },
+    
+    "political-memoir": {
+      "name": "Political Memoir",
+      "parent_genre": "memoir",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["political life", "politician memoir", "government service"],
+      "exact_phrases": ["political memoir", "politician", "my years in"],
+      "political_markers": ["political", "politician", "president", "senator", "government", "administration"],
+      "strong_signals": ["politician", "president", "senator", "administration"],
+      "minimum_confidence": 0.60
+    },
+    
+    "historical-biography": {
+      "name": "Historical Biography",
+      "parent_genre": "biography",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["historical figure biography", "past era biography", "historical person"],
+      "exact_phrases": ["biography of", "life of", "historical biography"],
+      "subject_markers": ["biography", "life of", "historical", "19th century", "18th century", "era"],
+      "strong_signals": ["biography", "life of", "historical figure"],
+      "minimum_confidence": 0.58
+    },
+    
+    "political-biography": {
+      "name": "Political Biography",
+      "parent_genre": "biography",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["politician biography", "political leader", "statesman biography"],
+      "exact_phrases": ["biography of", "life of president", "political biography"],
+      "subject_markers": ["president", "politician", "prime minister", "senator", "political leader"],
+      "strong_signals": ["president", "politician", "political leader", "statesman"],
+      "minimum_confidence": 0.60
+    },
+    
+    "military-history": {
+      "name": "Military History",
+      "parent_genre": "history",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["military campaigns", "war history", "battles and strategy"],
+      "exact_phrases": ["military history", "war history", "history of war"],
+      "military_markers": ["military", "war", "battle", "campaign", "army", "strategy"],
+      "strong_signals": ["military history", "war", "battle", "campaign"],
+      "minimum_confidence": 0.60
+    },
+    
+    "cultural-history": {
+      "name": "Cultural History",
+      "parent_genre": "history",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["cultural history", "social history", "history of culture"],
+      "exact_phrases": ["cultural history", "history of culture", "social history"],
+      "cultural_markers": ["cultural", "culture", "society", "social", "customs", "traditions"],
+      "strong_signals": ["cultural history", "social history", "culture"],
+      "minimum_confidence": 0.58
+    },
+    
+    "popular-science": {
+      "name": "Popular Science",
+      "parent_genre": "science",
+      "parent_supergenre": "education-reference",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["accessible science", "science for general readers", "layman's science"],
+      "exact_phrases": ["popular science", "science for everyone"],
+      "audience_markers": ["accessible", "general reader", "layman", "popular", "explains", "introduction"],
+      "strong_signals": ["popular science", "accessible", "general reader"],
+      "minimum_confidence": 0.58
+    },
+    
+    "business-biography": {
+      "name": "Business Biography",
+      "parent_genre": "biography",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["business leader biography", "entrepreneur biography", "CEO biography"],
+      "exact_phrases": ["biography of", "business biography", "entrepreneur"],
+      "subject_markers": ["CEO", "entrepreneur", "founder", "business leader", "tycoon", "magnate"],
+      "strong_signals": ["CEO", "entrepreneur", "founder", "business leader"],
+      "minimum_confidence": 0.60
+    },
+    
+    "travel-memoir": {
+      "name": "Travel Memoir",
+      "parent_genre": "memoir",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["travel narrative", "journey memoir", "travel experiences"],
+      "exact_phrases": ["travel memoir", "my journey", "travels in"],
+      "travel_markers": ["travel", "journey", "voyage", "expedition", "adventure", "wandering"],
+      "strong_signals": ["travel memoir", "journey", "travels", "adventure"],
+      "minimum_confidence": 0.58
+    },
+    
+    "nature-writing": {
+      "name": "Nature Writing",
+      "parent_genre": "nature-writing",
+      "parent_supergenre": "education-reference",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["nature observation", "natural world", "environmental writing", "wildlife"],
+      "exact_phrases": ["nature writing", "natural history"],
+      "nature_markers": ["nature", "wildlife", "natural", "wilderness", "outdoors", "landscape"],
+      "strong_signals": ["nature", "wildlife", "natural history", "wilderness"],
+      "minimum_confidence": 0.58
+    },
+    
+    "self-help": {
+      "name": "Self-Help",
+      "parent_genre": "self-help",
+      "parent_supergenre": "self-help-wellness",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["personal improvement", "self-improvement", "advice and guidance"],
+      "exact_phrases": ["self-help", "how to", "guide to"],
+      "help_markers": ["self-help", "improve", "guide", "how to", "advice", "tips"],
+      "strong_signals": ["self-help", "improve yourself", "guide to", "how to"],
+      "minimum_confidence": 0.58
+    },
+    
+    "true-crime": {
+      "name": "True Crime",
+      "parent_genre": "true-crime",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["real crime stories", "criminal cases", "true murder cases"],
+      "exact_phrases": ["true crime", "real crime", "murder case"],
+      "crime_markers": ["true crime", "murder", "killer", "detective", "investigation", "case"],
+      "strong_signals": ["true crime", "murder", "killer", "investigation"],
+      "minimum_confidence": 0.60
+    },
+    
+    "philosophy-introduction": {
+      "name": "Philosophy Introduction",
+      "parent_genre": "philosophy",
+      "parent_supergenre": "education-reference",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["introductory philosophy", "philosophy basics", "philosophy for beginners"],
+      "exact_phrases": ["introduction to philosophy", "philosophy basics"],
+      "intro_markers": ["introduction", "basics", "beginner", "primer", "fundamentals", "guide"],
+      "strong_signals": ["introduction", "basics", "primer", "fundamentals"],
+      "minimum_confidence": 0.58
     }
   }
 }
