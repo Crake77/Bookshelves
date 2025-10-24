@@ -1,0 +1,690 @@
+{
+  "batch_info": {
+    "batch_number": 7,
+    "patterns_in_batch": 95,
+    "cumulative_total": 800,
+    "focus_areas": ["horror subgenres", "comedy types", "literary styles", "mythology", "political themes", "economic themes", "social issues", "disability representation", "cultural elements", "food and cooking", "sports", "medical themes", "technology themes", "environmental themes"]
+  },
+  "patterns": {
+    "cosmic-horror": {
+      "exact": ["cosmic horror", "lovecraftian", "eldritch horror"],
+      "synonyms": ["existential horror", "cosmic dread", "lovecraft horror"],
+      "phrases": ["cosmic horror themes", "lovecraftian elements", "eldritch beings", "cosmic dread"],
+      "avoid": ["cosmic energy", "horror movie"],
+      "confidence_boost": 0.2,
+      "notes": "Horror subgenre: cosmic/lovecraftian"
+    },
+    "folk-horror": {
+      "exact": ["folk horror", "rural horror", "pagan horror"],
+      "synonyms": ["rustic horror", "countryside horror", "folk dread"],
+      "phrases": ["folk horror elements", "rural horror setting", "pagan rituals", "countryside dread"],
+      "avoid": ["folk music", "folk art"],
+      "confidence_boost": 0.2,
+      "notes": "Horror subgenre: folk horror"
+    },
+    "found-footage": {
+      "exact": ["found footage", "documentary style", "found film"],
+      "synonyms": ["recovered footage", "documentary horror", "pov footage"],
+      "phrases": ["found footage style", "documentary format", "recovered film", "first-person footage"],
+      "avoid": ["found object", "footage sports"],
+      "confidence_boost": 0.2,
+      "notes": "Horror style: found footage"
+    },
+    "creature-feature": {
+      "exact": ["creature feature", "monster movie", "beast horror"],
+      "synonyms": ["monster horror", "creature horror", "beast feature"],
+      "phrases": ["creature feature style", "monster attacks", "beast horror", "creature terrorizes"],
+      "avoid": ["feature film", "creature comforts"],
+      "confidence_boost": 0.2,
+      "notes": "Horror: creature feature"
+    },
+    "slasher": {
+      "exact": ["slasher", "slasher film", "masked killer"],
+      "synonyms": ["knife horror", "slasher horror", "serial killer horror"],
+      "phrases": ["slasher style", "masked killer", "slasher villain", "knife-wielding killer"],
+      "avoid": ["slasher movie", "price slasher"],
+      "confidence_boost": 0.2,
+      "notes": "Horror subgenre: slasher"
+    },
+    "satire": {
+      "exact": ["satire", "satirical", "social satire"],
+      "synonyms": ["parody", "lampoon", "satirical comedy"],
+      "phrases": ["satirical take", "social satire", "satirizes", "satirical humor"],
+      "avoid": ["satire magazine", "satire definition"],
+      "confidence_boost": 0.1,
+      "notes": "Comedy: satire"
+    },
+    "dark-comedy": {
+      "exact": ["dark comedy", "black comedy", "dark humor"],
+      "synonyms": ["black humor", "morbid comedy", "gallows humor"],
+      "phrases": ["darkly comedic", "black comedy style", "dark humor", "morbid humor"],
+      "avoid": ["dark movie", "comedy club"],
+      "confidence_boost": 0.2,
+      "notes": "Comedy: dark/black comedy"
+    },
+    "slapstick": {
+      "exact": ["slapstick", "physical comedy", "slapstick humor"],
+      "synonyms": ["physical humor", "slapstick comedy", "pratfall humor"],
+      "phrases": ["slapstick style", "physical comedy", "slapstick humor", "pratfalls"],
+      "avoid": ["slapstick movie", "comedy show"],
+      "confidence_boost": 0.2,
+      "notes": "Comedy: slapstick"
+    },
+    "rom-com": {
+      "exact": ["rom com", "romantic comedy", "rom-com"],
+      "synonyms": ["romantic comedy", "romcom", "love comedy"],
+      "phrases": ["rom-com style", "romantic comedy", "comedic romance", "love story comedy"],
+      "avoid": ["rom cd", "comedy club"],
+      "confidence_boost": 0.2,
+      "notes": "Comedy: romantic comedy"
+    },
+    "absurdist": {
+      "exact": ["absurdist", "absurd humor", "absurdist comedy"],
+      "synonyms": ["absurd", "nonsensical", "surreal comedy"],
+      "phrases": ["absurdist humor", "absurd comedy", "nonsensical humor", "surreal absurdity"],
+      "avoid": ["absurd situation", "absurdist philosophy"],
+      "confidence_boost": 0.2,
+      "notes": "Comedy: absurdist"
+    },
+    "lyrical-prose": {
+      "exact": ["lyrical prose", "poetic prose", "lyrical writing"],
+      "synonyms": ["poetic writing", "lyrical style", "beautiful prose"],
+      "phrases": ["lyrical writing style", "poetic prose", "beautifully lyrical", "lyrical language"],
+      "avoid": ["lyrical song", "lyrical dance"],
+      "confidence_boost": 0.2,
+      "notes": "Literary style: lyrical prose"
+    },
+    "sparse-prose": {
+      "exact": ["sparse prose", "minimalist writing", "stripped-down prose"],
+      "synonyms": ["minimalist prose", "spare writing", "economical prose"],
+      "phrases": ["sparse writing style", "minimalist prose", "stripped-down language", "economical writing"],
+      "avoid": ["sparse population", "sparse hair"],
+      "confidence_boost": 0.2,
+      "notes": "Literary style: sparse prose"
+    },
+    "stream-of-consciousness": {
+      "exact": ["stream of consciousness", "stream-of-consciousness", "internal monologue"],
+      "synonyms": ["interior monologue", "stream consciousness", "flowing thoughts"],
+      "phrases": ["stream-of-consciousness style", "interior monologue", "flowing narrative", "thought stream"],
+      "avoid": ["consciousness study", "stream video"],
+      "confidence_boost": 0.2,
+      "notes": "Literary style: stream of consciousness"
+    },
+    "experimental-fiction": {
+      "exact": ["experimental fiction", "avant-garde", "experimental narrative"],
+      "synonyms": ["avant garde", "experimental writing", "unconventional narrative"],
+      "phrases": ["experimental style", "avant-garde fiction", "unconventional narrative", "experimental structure"],
+      "avoid": ["experimental drug", "experimental design"],
+      "confidence_boost": 0.2,
+      "notes": "Literary style: experimental"
+    },
+    "greek-mythology": {
+      "exact": ["greek mythology", "greek myths", "greek gods"],
+      "synonyms": ["hellenic mythology", "greek pantheon", "olympian gods"],
+      "phrases": ["based on greek myths", "greek mythology elements", "greek gods", "olympian pantheon"],
+      "avoid": ["greek food", "greek island"],
+      "confidence_boost": 0.2,
+      "notes": "Mythology: Greek"
+    },
+    "norse-mythology": {
+      "exact": ["norse mythology", "norse myths", "viking gods"],
+      "synonyms": ["nordic mythology", "norse pantheon", "viking mythology"],
+      "phrases": ["based on norse myths", "norse mythology elements", "viking gods", "nordic pantheon"],
+      "avoid": ["norse code", "viking ship"],
+      "confidence_boost": 0.2,
+      "notes": "Mythology: Norse"
+    },
+    "egyptian-mythology": {
+      "exact": ["egyptian mythology", "egyptian myths", "egyptian gods"],
+      "synonyms": ["ancient egyptian", "pharaonic mythology", "egyptian pantheon"],
+      "phrases": ["based on egyptian myths", "egyptian mythology elements", "ancient egyptian gods", "pharaonic pantheon"],
+      "avoid": ["egyptian cotton", "egyptian history"],
+      "confidence_boost": 0.2,
+      "notes": "Mythology: Egyptian"
+    },
+    "celtic-mythology": {
+      "exact": ["celtic mythology", "celtic myths", "celtic legends"],
+      "synonyms": ["irish mythology", "celtic folklore", "druidic myths"],
+      "phrases": ["based on celtic myths", "celtic mythology elements", "celtic legends", "druidic lore"],
+      "avoid": ["celtic music", "celtic knot"],
+      "confidence_boost": 0.2,
+      "notes": "Mythology: Celtic"
+    },
+    "arthurian-legend": {
+      "exact": ["arthurian legend", "king arthur", "camelot"],
+      "synonyms": ["arthurian mythology", "knights of round table", "arthurian lore"],
+      "phrases": ["arthurian legend retelling", "king arthur story", "camelot setting", "knights of the round table"],
+      "avoid": ["arthur movie", "camelot musical"],
+      "confidence_boost": 0.2,
+      "notes": "Mythology: Arthurian"
+    },
+    "political-intrigue": {
+      "exact": ["political intrigue", "political scheming", "court intrigue"],
+      "synonyms": ["political machinations", "political plotting", "courtly intrigue"],
+      "phrases": ["political intrigue", "court scheming", "political machinations", "palace intrigue"],
+      "avoid": ["political science", "intrigue perfume"],
+      "confidence_boost": 0.2,
+      "notes": "Political: intrigue"
+    },
+    "revolution": {
+      "exact": ["revolution", "revolutionary", "uprising"],
+      "synonyms": ["revolt", "revolutionary movement", "insurrection"],
+      "phrases": ["revolutionary uprising", "revolution against", "revolutionary movement", "overthrowing regime"],
+      "avoid": ["industrial revolution", "revolution product"],
+      "confidence_boost": 0.1,
+      "notes": "Political: revolution"
+    },
+    "totalitarian-regime": {
+      "exact": ["totalitarian regime", "authoritarian government", "totalitarian state"],
+      "synonyms": ["dictatorial regime", "totalitarian government", "authoritarian state"],
+      "phrases": ["totalitarian regime", "authoritarian control", "dictatorial government", "totalitarian state"],
+      "avoid": ["regime change", "totalitarian definition"],
+      "confidence_boost": 0.2,
+      "notes": "Political: totalitarian regime"
+    },
+    "propaganda": {
+      "exact": ["propaganda", "state propaganda", "propaganda machine"],
+      "synonyms": ["state messaging", "propaganda campaign", "indoctrination"],
+      "phrases": ["propaganda throughout", "state propaganda", "propaganda machine", "indoctrination"],
+      "avoid": ["propaganda definition", "propaganda poster"],
+      "confidence_boost": 0.1,
+      "notes": "Political: propaganda"
+    },
+    "capitalism-critique": {
+      "exact": ["capitalism critique", "anti-capitalist", "critiques capitalism"],
+      "synonyms": ["capitalist criticism", "anti-capitalism", "corporate critique"],
+      "phrases": ["critique of capitalism", "anti-capitalist themes", "criticizes capitalism", "capitalist critique"],
+      "avoid": ["capitalism definition", "capitalist country"],
+      "confidence_boost": 0.2,
+      "notes": "Economic: capitalism critique"
+    },
+    "wealth-inequality": {
+      "exact": ["wealth inequality", "economic inequality", "class divide"],
+      "synonyms": ["income inequality", "wealth gap", "economic disparity"],
+      "phrases": ["wealth inequality themes", "economic inequality", "class divide", "income disparity"],
+      "avoid": ["inequality math", "wealth management"],
+      "confidence_boost": 0.2,
+      "notes": "Economic: wealth inequality"
+    },
+    "poverty": {
+      "exact": ["poverty", "extreme poverty", "living in poverty"],
+      "synonyms": ["destitution", "impoverishment", "economic hardship"],
+      "phrases": ["poverty themes", "living in poverty", "extreme poverty", "economic hardship"],
+      "avoid": ["poverty line", "poverty statistics"],
+      "confidence_boost": 0.1,
+      "notes": "Economic: poverty"
+    },
+    "gentrification": {
+      "exact": ["gentrification", "neighborhood gentrification", "urban renewal"],
+      "synonyms": ["urban gentrification", "neighborhood change", "urban renewal"],
+      "phrases": ["gentrification themes", "neighborhood gentrifying", "urban displacement", "gentrification effects"],
+      "avoid": ["gentrification definition", "gentrification article"],
+      "confidence_boost": 0.2,
+      "notes": "Social: gentrification"
+    },
+    "racism": {
+      "exact": ["racism", "racial discrimination", "racist society"],
+      "synonyms": ["racial prejudice", "systemic racism", "racial injustice"],
+      "phrases": ["racism themes", "racial discrimination", "confronting racism", "racial prejudice"],
+      "avoid": ["racism definition", "racism article"],
+      "confidence_boost": 0.1,
+      "notes": "Social issue: racism"
+    },
+    "colonialism": {
+      "exact": ["colonialism", "colonial oppression", "colonial legacy"],
+      "synonyms": ["imperial oppression", "colonial history", "colonization"],
+      "phrases": ["colonialism themes", "colonial oppression", "legacy of colonialism", "colonial impact"],
+      "avoid": ["colonial house", "colonialism definition"],
+      "confidence_boost": 0.2,
+      "notes": "Social issue: colonialism"
+    },
+    "immigration": {
+      "exact": ["immigration", "immigrant experience", "immigration story"],
+      "synonyms": ["immigrant journey", "migration", "immigrant life"],
+      "phrases": ["immigration themes", "immigrant experience", "immigration story", "immigrant struggle"],
+      "avoid": ["immigration law", "immigration office"],
+      "confidence_boost": 0.1,
+      "notes": "Social issue: immigration"
+    },
+    "refugee": {
+      "exact": ["refugee", "refugee experience", "displaced person"],
+      "synonyms": ["refugee journey", "displaced", "seeking asylum"],
+      "phrases": ["refugee story", "refugee experience", "displaced person", "fleeing homeland"],
+      "avoid": ["refugee camp", "refugee definition"],
+      "confidence_boost": 0.2,
+      "notes": "Social issue: refugee"
+    },
+    "disability-representation": {
+      "exact": ["disability representation", "disabled character", "disability"],
+      "synonyms": ["disabled protagonist", "character with disability", "disability rep"],
+      "phrases": ["disability representation", "disabled character", "character with disability", "disability themes"],
+      "avoid": ["disability insurance", "disability benefits"],
+      "confidence_boost": 0.2,
+      "notes": "Representation: disability"
+    },
+    "chronic-illness": {
+      "exact": ["chronic illness", "chronic disease", "living with illness"],
+      "synonyms": ["chronic condition", "long-term illness", "chronic health"],
+      "phrases": ["chronic illness themes", "living with chronic disease", "chronic condition", "long-term illness"],
+      "avoid": ["chronic pain treatment", "illness prevention"],
+      "confidence_boost": 0.2,
+      "notes": "Medical: chronic illness"
+    },
+    "deaf-culture": {
+      "exact": ["deaf culture", "deaf character", "sign language"],
+      "synonyms": ["deaf community", "hard of hearing", "ASL"],
+      "phrases": ["deaf culture", "deaf character", "sign language", "deaf community"],
+      "avoid": ["deaf ears", "tone deaf"],
+      "confidence_boost": 0.2,
+      "notes": "Representation: deaf culture"
+    },
+    "blind-character": {
+      "exact": ["blind character", "vision impaired", "blindness"],
+      "synonyms": ["visually impaired", "blind protagonist", "sight loss"],
+      "phrases": ["blind character", "character with blindness", "visually impaired", "loses sight"],
+      "avoid": ["blind spot", "blind date"],
+      "confidence_boost": 0.2,
+      "notes": "Representation: blind character"
+    },
+    "autism": {
+      "exact": ["autism", "autistic character", "autism spectrum"],
+      "synonyms": ["autistic protagonist", "on the spectrum", "ASD"],
+      "phrases": ["autistic character", "autism representation", "character on spectrum", "autism themes"],
+      "avoid": ["autism awareness", "autism definition"],
+      "confidence_boost": 0.2,
+      "notes": "Representation: autism"
+    },
+    "adhd": {
+      "exact": ["adhd", "adhd character", "attention deficit"],
+      "synonyms": ["attention deficit hyperactivity", "ADHD protagonist", "ADD"],
+      "phrases": ["ADHD character", "ADHD representation", "attention deficit", "ADHD themes"],
+      "avoid": ["ADHD medication", "ADHD treatment"],
+      "confidence_boost": 0.2,
+      "notes": "Representation: ADHD"
+    },
+    "indigenous-culture": {
+      "exact": ["indigenous culture", "indigenous character", "native culture"],
+      "synonyms": ["indigenous people", "native american", "first nations"],
+      "phrases": ["indigenous culture", "indigenous character", "native culture", "indigenous themes"],
+      "avoid": ["indigenous plants", "indigenous definition"],
+      "confidence_boost": 0.2,
+      "notes": "Cultural: indigenous"
+    },
+    "asian-culture": {
+      "exact": ["asian culture", "asian character", "asian heritage"],
+      "synonyms": ["east asian", "south asian", "asian american"],
+      "phrases": ["asian culture", "asian character", "asian heritage", "asian themes"],
+      "avoid": ["asian food", "asian market"],
+      "confidence_boost": 0.1,
+      "notes": "Cultural: Asian"
+    },
+    "latinx": {
+      "exact": ["latinx", "latino character", "latina character"],
+      "synonyms": ["hispanic", "latin american", "chicano"],
+      "phrases": ["latinx character", "latino culture", "latina protagonist", "hispanic themes"],
+      "avoid": ["latin language", "latin dance"],
+      "confidence_boost": 0.2,
+      "notes": "Cultural: Latinx"
+    },
+    "african-culture": {
+      "exact": ["african culture", "african character", "african heritage"],
+      "synonyms": ["african diaspora", "afro", "african american"],
+      "phrases": ["african culture", "african heritage", "african character", "african themes"],
+      "avoid": ["african safari", "african food"],
+      "confidence_boost": 0.1,
+      "notes": "Cultural: African"
+    },
+    "middle-eastern": {
+      "exact": ["middle eastern", "middle east culture", "arab culture"],
+      "synonyms": ["arab", "persian", "middle eastern heritage"],
+      "phrases": ["middle eastern culture", "arab character", "middle eastern themes", "persian culture"],
+      "avoid": ["middle east map", "middle eastern food"],
+      "confidence_boost": 0.2,
+      "notes": "Cultural: Middle Eastern"
+    },
+    "jewish-culture": {
+      "exact": ["jewish culture", "jewish character", "jewish heritage"],
+      "synonyms": ["judaism", "jewish traditions", "jewish faith"],
+      "phrases": ["jewish culture", "jewish character", "jewish heritage", "jewish themes"],
+      "avoid": ["jewish holiday", "jewish food"],
+      "confidence_boost": 0.2,
+      "notes": "Cultural: Jewish"
+    },
+    "muslim-character": {
+      "exact": ["muslim character", "islamic culture", "muslim protagonist"],
+      "synonyms": ["islamic faith", "muslim culture", "islam"],
+      "phrases": ["muslim character", "islamic culture", "muslim protagonist", "islamic themes"],
+      "avoid": ["muslim country", "islamic art"],
+      "confidence_boost": 0.2,
+      "notes": "Cultural: Muslim/Islamic"
+    },
+    "food-culture": {
+      "exact": ["food culture", "culinary traditions", "food heritage"],
+      "synonyms": ["cuisine culture", "food traditions", "culinary heritage"],
+      "phrases": ["food culture", "culinary traditions", "food heritage", "cuisine themes"],
+      "avoid": ["food network", "culture definition"],
+      "confidence_boost": 0.2,
+      "notes": "Cultural: food culture"
+    },
+    "baking": {
+      "exact": ["baking", "baker character", "bakery"],
+      "synonyms": ["baking character", "pastry chef", "bakery setting"],
+      "phrases": ["baking themes", "baker character", "bakery setting", "pastry making"],
+      "avoid": ["baking soda", "baking recipe"],
+      "confidence_boost": 0.1,
+      "notes": "Culinary: baking"
+    },
+    "restaurant-setting": {
+      "exact": ["restaurant setting", "restaurant", "dining"],
+      "synonyms": ["restaurant backdrop", "culinary setting", "dining establishment"],
+      "phrases": ["set in restaurant", "restaurant setting", "restaurant backdrop", "culinary world"],
+      "avoid": ["restaurant review", "restaurant menu"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: restaurant"
+    },
+    "competitive-cooking": {
+      "exact": ["competitive cooking", "cooking competition", "culinary competition"],
+      "synonyms": ["cooking contest", "culinary battle", "chef competition"],
+      "phrases": ["cooking competition", "culinary contest", "competitive cooking", "chef battle"],
+      "avoid": ["cooking show", "competition rules"],
+      "confidence_boost": 0.2,
+      "notes": "Culinary: competitive cooking"
+    },
+    "sports-romance": {
+      "exact": ["sports romance", "athlete romance", "sports love story"],
+      "synonyms": ["athletic romance", "athlete love", "sports relationship"],
+      "phrases": ["sports romance", "athlete romance", "sports love story", "athletic love"],
+      "avoid": ["sports news", "romance novel"],
+      "confidence_boost": 0.2,
+      "notes": "Sports: romance"
+    },
+    "underdog-team": {
+      "exact": ["underdog team", "underdog story", "unlikely champions"],
+      "synonyms": ["underdog sports", "unlikely winners", "underdog victory"],
+      "phrases": ["underdog team", "underdog sports story", "unlikely champions", "underdog victory"],
+      "avoid": ["underdog definition", "underdog movie"],
+      "confidence_boost": 0.2,
+      "notes": "Sports: underdog"
+    },
+    "training-montage": {
+      "exact": ["training montage", "intense training", "training sequence"],
+      "synonyms": ["training regimen", "training scenes", "preparation montage"],
+      "phrases": ["training montage", "intense training", "training sequences", "preparation scenes"],
+      "avoid": ["training program", "montage video"],
+      "confidence_boost": 0.2,
+      "notes": "Sports/action: training montage"
+    },
+    "big-game": {
+      "exact": ["big game", "championship game", "final match"],
+      "synonyms": ["championship", "final competition", "decisive game"],
+      "phrases": ["big game", "championship game", "final match", "decisive competition"],
+      "avoid": ["big game hunting", "video game"],
+      "confidence_boost": 0.1,
+      "notes": "Sports: big game/championship"
+    },
+    "medical-drama": {
+      "exact": ["medical drama", "hospital drama", "medical story"],
+      "synonyms": ["medical setting", "hospital story", "healthcare drama"],
+      "phrases": ["medical drama", "hospital setting", "medical story", "healthcare drama"],
+      "avoid": ["medical school", "drama class"],
+      "confidence_boost": 0.2,
+      "notes": "Medical: drama"
+    },
+    "pandemic": {
+      "exact": ["pandemic", "disease outbreak", "epidemic"],
+      "synonyms": ["plague", "outbreak", "viral pandemic"],
+      "phrases": ["pandemic themes", "disease outbreak", "epidemic spread", "plague"],
+      "avoid": ["pandemic definition", "pandemic news"],
+      "confidence_boost": 0.2,
+      "notes": "Medical: pandemic"
+    },
+    "plague": {
+      "exact": ["plague", "plague outbreak", "pestilence"],
+      "synonyms": ["disease plague", "pestilence", "plague epidemic"],
+      "phrases": ["plague outbreak", "plague themes", "pestilence", "plague spreads"],
+      "avoid": ["plague doctor costume", "plague game"],
+      "confidence_boost": 0.2,
+      "notes": "Medical: plague"
+    },
+    "virus": {
+      "exact": ["virus", "viral outbreak", "deadly virus"],
+      "synonyms": ["viral infection", "virus outbreak", "contagion"],
+      "phrases": ["virus outbreak", "deadly virus", "viral epidemic", "contagion"],
+      "avoid": ["computer virus", "virus protection"],
+      "confidence_boost": 0.1,
+      "notes": "Medical: virus"
+    },
+    "medical-experimentation": {
+      "exact": ["medical experimentation", "human experimentation", "medical experiments"],
+      "synonyms": ["human trials", "medical testing", "experimental medicine"],
+      "phrases": ["medical experimentation", "human experiments", "medical testing", "experimental procedures"],
+      "avoid": ["medical research", "clinical trial"],
+      "confidence_boost": 0.2,
+      "notes": "Medical: experimentation"
+    },
+    "artificial-intelligence": {
+      "exact": ["artificial intelligence", "AI", "machine intelligence"],
+      "synonyms": ["AI technology", "machine learning", "intelligent machines"],
+      "phrases": ["artificial intelligence themes", "AI", "machine intelligence", "intelligent AI"],
+      "avoid": ["AI company", "AI tool"],
+      "confidence_boost": 0.1,
+      "notes": "Technology: AI"
+    },
+    "sentient-ai": {
+      "exact": ["sentient AI", "conscious AI", "self-aware AI"],
+      "synonyms": ["sentient artificial intelligence", "conscious machine", "aware AI"],
+      "phrases": ["sentient AI", "AI becomes conscious", "self-aware artificial intelligence", "conscious machine"],
+      "avoid": ["AI software", "AI definition"],
+      "confidence_boost": 0.2,
+      "notes": "Technology: sentient AI"
+    },
+    "ai-uprising": {
+      "exact": ["AI uprising", "robot rebellion", "machine uprising"],
+      "synonyms": ["AI rebellion", "robot revolt", "machine takeover"],
+      "phrases": ["AI uprising", "robots rebel", "machine uprising", "AI takeover"],
+      "avoid": ["uprising game", "AI company"],
+      "confidence_boost": 0.2,
+      "notes": "Technology: AI uprising"
+    },
+    "singularity": {
+      "exact": ["singularity", "technological singularity", "AI singularity"],
+      "synonyms": ["tech singularity", "intelligence explosion", "singularity event"],
+      "phrases": ["technological singularity", "AI singularity", "singularity event", "intelligence explosion"],
+      "avoid": ["singularity movie", "black hole singularity"],
+      "confidence_boost": 0.2,
+      "notes": "Technology: singularity"
+    },
+    "nanotechnology": {
+      "exact": ["nanotechnology", "nanotech", "nanomachines"],
+      "synonyms": ["nano technology", "molecular machines", "nanorobots"],
+      "phrases": ["nanotechnology", "nanotech themes", "nanomachines", "molecular technology"],
+      "avoid": ["nanotechnology company", "nano product"],
+      "confidence_boost": 0.2,
+      "notes": "Technology: nanotechnology"
+    },
+    "augmented-reality": {
+      "exact": ["augmented reality", "AR", "mixed reality"],
+      "synonyms": ["augmented world", "AR technology", "mixed reality"],
+      "phrases": ["augmented reality", "AR themes", "mixed reality world", "augmented world"],
+      "avoid": ["AR app", "AR glasses"],
+      "confidence_boost": 0.2,
+      "notes": "Technology: augmented reality"
+    },
+    "simulation": {
+      "exact": ["simulation", "simulated reality", "fake reality"],
+      "synonyms": ["simulated world", "artificial reality", "simulation hypothesis"],
+      "phrases": ["living in simulation", "simulated reality", "fake world", "simulation themes"],
+      "avoid": ["simulation game", "simulation software"],
+      "confidence_boost": 0.1,
+      "notes": "Technology: simulation"
+    },
+    "climate-change": {
+      "exact": ["climate change", "global warming", "climate crisis"],
+      "synonyms": ["climate catastrophe", "environmental collapse", "climate disaster"],
+      "phrases": ["climate change themes", "global warming", "climate crisis", "environmental catastrophe"],
+      "avoid": ["climate change article", "climate science"],
+      "confidence_boost": 0.2,
+      "notes": "Environmental: climate change"
+    },
+    "environmental-disaster": {
+      "exact": ["environmental disaster", "ecological collapse", "environmental catastrophe"],
+      "synonyms": ["ecological disaster", "environmental crisis", "eco-catastrophe"],
+      "phrases": ["environmental disaster", "ecological collapse", "environmental catastrophe", "eco-crisis"],
+      "avoid": ["disaster movie", "environmental science"],
+      "confidence_boost": 0.2,
+      "notes": "Environmental: disaster"
+    },
+    "eco-thriller": {
+      "exact": ["eco thriller", "environmental thriller", "eco-suspense"],
+      "synonyms": ["environmental thriller", "ecological thriller", "eco-mystery"],
+      "phrases": ["eco-thriller", "environmental thriller", "ecological suspense", "eco-mystery"],
+      "avoid": ["eco product", "thriller genre"],
+      "confidence_boost": 0.2,
+      "notes": "Environmental: eco-thriller"
+    },
+    "solarpunk": {
+      "exact": ["solarpunk", "solar punk", "eco-optimism"],
+      "synonyms": ["eco-futurism", "optimistic ecology", "green future"],
+      "phrases": ["solarpunk setting", "solarpunk aesthetic", "eco-optimistic future", "green technology future"],
+      "avoid": ["solar panel", "punk music"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: solarpunk"
+    },
+    "ecopunk": {
+      "exact": ["ecopunk", "eco punk", "ecological punk"],
+      "synonyms": ["environmental punk", "green punk", "eco-rebellion"],
+      "phrases": ["ecopunk setting", "ecopunk aesthetic", "ecological rebellion", "environmental punk"],
+      "avoid": ["eco product", "punk rock"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: ecopunk"
+    },
+    "post-scarcity": {
+      "exact": ["post scarcity", "post-scarcity society", "abundance economy"],
+      "synonyms": ["post-scarcity world", "abundant society", "no scarcity"],
+      "phrases": ["post-scarcity society", "abundance economy", "world without scarcity", "post-scarcity future"],
+      "avoid": ["scarcity economics", "scarcity mindset"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: post-scarcity"
+    },
+    "uplift": {
+      "exact": ["uplift", "species uplift", "uplifting species"],
+      "synonyms": ["genetic uplift", "species enhancement", "uplifted animals"],
+      "phrases": ["species uplift", "uplifting animals", "genetic enhancement", "uplifted species"],
+      "avoid": ["uplift bra", "uplifting music"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: uplift"
+    },
+    "hive-mind": {
+      "exact": ["hive mind", "collective consciousness", "shared mind"],
+      "synonyms": ["collective mind", "group consciousness", "hive consciousness"],
+      "phrases": ["hive mind", "collective consciousness", "shared consciousness", "hive mentality"],
+      "avoid": ["hive tool", "mind game"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: hive mind"
+    },
+    "kaiju": {
+      "exact": ["kaiju", "giant monster", "kaiju attack"],
+      "synonyms": ["giant creature", "colossal monster", "kaiju beast"],
+      "phrases": ["kaiju attack", "giant monster", "kaiju creature", "colossal beast"],
+      "avoid": ["kaiju movie", "monster truck"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: kaiju"
+    },
+    "giant-robots": {
+      "exact": ["giant robots", "giant mech", "colossal robots"],
+      "synonyms": ["giant mecha", "massive robots", "titan robots"],
+      "phrases": ["giant robot battles", "colossal mech", "giant mecha", "massive robots"],
+      "avoid": ["robot toy", "giant robot game"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi: giant robots"
+    },
+    "biopunk": {
+      "exact": ["biopunk", "bio punk", "biological technology"],
+      "synonyms": ["biotech punk", "bio-technology", "organic technology"],
+      "phrases": ["biopunk setting", "biological technology", "biotech future", "organic tech"],
+      "avoid": ["bio product", "punk music"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: biopunk"
+    },
+    "nanopunk": {
+      "exact": ["nanopunk", "nano punk", "nanotechnology dystopia"],
+      "synonyms": ["nano-dystopia", "nanotechnology future", "nano-future"],
+      "phrases": ["nanopunk setting", "nanotechnology world", "nano-future", "nano dystopia"],
+      "avoid": ["nano product", "punk rock"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: nanopunk"
+    },
+    "dieselpunk": {
+      "exact": ["dieselpunk", "diesel punk", "diesel aesthetic"],
+      "synonyms": ["diesel-era tech", "diesel technology", "diesel future"],
+      "phrases": ["dieselpunk setting", "diesel-era aesthetic", "diesel technology", "diesel-powered world"],
+      "avoid": ["diesel fuel", "punk music"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: dieselpunk"
+    },
+    "atompunk": {
+      "exact": ["atompunk", "atom punk", "atomic age aesthetic"],
+      "synonyms": ["atomic punk", "nuclear aesthetic", "atomic-age future"],
+      "phrases": ["atompunk setting", "atomic age aesthetic", "nuclear-powered future", "atomic aesthetic"],
+      "avoid": ["atomic bomb", "punk rock"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: atompunk"
+    },
+    "weird-west": {
+      "exact": ["weird west", "weird western", "supernatural western"],
+      "synonyms": ["occult western", "fantasy western", "weird frontier"],
+      "phrases": ["weird west setting", "supernatural western", "occult frontier", "fantasy western"],
+      "avoid": ["west coast", "western movie"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: weird west"
+    },
+    "silk punk": {
+      "exact": ["silkpunk", "silk punk", "asian-inspired steampunk"],
+      "synonyms": ["east asian steampunk", "asian technology", "silk-road punk"],
+      "phrases": ["silkpunk setting", "asian-inspired technology", "east asian steampunk", "silk aesthetic"],
+      "avoid": ["silk fabric", "punk music"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: silkpunk"
+    },
+    "hopepunk": {
+      "exact": ["hopepunk", "hope punk", "optimistic rebellion"],
+      "synonyms": ["optimistic punk", "hope-driven", "earnest resistance"],
+      "phrases": ["hopepunk themes", "optimistic resistance", "hope-driven story", "earnest rebellion"],
+      "avoid": ["hope foundation", "punk rock"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: hopepunk"
+    },
+    "noblebright": {
+      "exact": ["noblebright", "noble bright", "heroic optimism"],
+      "synonyms": ["optimistic heroism", "bright heroic", "noble heroes"],
+      "phrases": ["noblebright story", "heroic optimism", "optimistic heroes", "bright noble tale"],
+      "avoid": ["noble gas", "bright light"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: noblebright"
+    },
+    "grimdark": {
+      "exact": ["grimdark", "grim dark", "dark cynical"],
+      "synonyms": ["dark cynical fantasy", "grim fantasy", "nihilistic"],
+      "phrases": ["grimdark setting", "grim and dark", "cynical dark world", "grimdark fantasy"],
+      "avoid": ["grim reaper", "dark mode"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: grimdark"
+    },
+    "slice-of-life": {
+      "exact": ["slice of life", "slice-of-life", "everyday life"],
+      "synonyms": ["daily life", "mundane life", "ordinary life"],
+      "phrases": ["slice-of-life story", "everyday life", "daily existence", "ordinary moments"],
+      "avoid": ["life insurance", "slice pizza"],
+      "confidence_boost": 0.2,
+      "notes": "Genre: slice-of-life"
+    },
+    "epistolary-novel": {
+      "exact": ["epistolary", "epistolary novel", "letters"],
+      "synonyms": ["letter format", "correspondence", "diary format"],
+      "phrases": ["epistolary novel", "told through letters", "diary entries", "correspondence format"],
+      "avoid": ["letter writing", "epistolary definition"],
+      "confidence_boost": 0.2,
+      "notes": "Format: epistolary"
+    }
+  }
+}
