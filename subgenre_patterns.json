@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "version": "3.0.0",
-    "phase": "3 of 3 COMPLETE",
+    "version": "4.0.0",
+    "phase": "Phase 4 COMPLETE",
     "generated_date": "2025-01-24",
-    "total_patterns": 175,
-    "coverage": "35% (175/500 estimated subgenres)",
-    "description": "Phase 3: Comprehensive 175 subgenre patterns covering fiction adventures, westerns, crime, thrillers, horror variants, fantasy mythology, religion, self-help, business, science, technology, arts, and lifestyle"
+    "total_patterns": 205,
+    "coverage": "41% (205/500 estimated subgenres)",
+    "description": "Phase 4: Extended to 205 subgenre patterns - added literary fiction variants, historical periods, adventure settings, memoir types, history specializations, social sciences, and self-help topics"
   },
   "patterns": {
     "epic-fantasy": {
@@ -2105,6 +2105,366 @@
       "exact_phrases": ["education theory", "pedagogy", "teaching methods"],
       "education_markers": ["education", "teaching", "pedagogy", "learning", "students"],
       "strong_signals": ["pedagogy", "teaching methods", "education theory"],
+      "minimum_confidence": 0.58
+    },
+    
+    "postmodern-fiction": {
+      "name": "Postmodern Fiction",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["postmodern techniques", "metafiction", "fragmented narrative"],
+      "exact_phrases": ["postmodern", "postmodernism", "metafiction"],
+      "style_markers": ["postmodern", "metafiction", "fragmented", "self-referential"],
+      "strong_signals": ["postmodern", "metafiction", "fragmented"],
+      "minimum_confidence": 0.60
+    },
+    
+    "philosophical-fiction": {
+      "name": "Philosophical Fiction",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["philosophical themes", "existential questions", "ideas-driven"],
+      "exact_phrases": ["philosophical fiction", "philosophical novel"],
+      "theme_markers": ["philosophical", "existential", "ideas", "meaning", "philosophy"],
+      "strong_signals": ["philosophical", "existential", "ideas"],
+      "minimum_confidence": 0.58
+    },
+    
+    "psychological-drama": {
+      "name": "Psychological Drama",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["psychological depth", "character psychology", "internal conflict"],
+      "exact_phrases": ["psychological drama", "psychological"],
+      "psych_markers": ["psychological", "inner", "mental", "character study", "depth"],
+      "strong_signals": ["psychological", "character study", "inner conflict"],
+      "minimum_confidence": 0.58
+    },
+    
+    "stream-of-consciousness": {
+      "name": "Stream of Consciousness",
+      "parent_genre": "literary-fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["stream of consciousness technique", "interior monologue", "thoughts and feelings"],
+      "exact_phrases": ["stream of consciousness", "interior monologue"],
+      "style_markers": ["stream", "consciousness", "thoughts", "interior", "monologue"],
+      "strong_signals": ["stream of consciousness", "interior monologue"],
+      "minimum_confidence": 0.62
+    },
+    
+    "domestic-fiction": {
+      "name": "Domestic Fiction",
+      "parent_genre": "contemporary-fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["domestic life", "family relationships", "household drama"],
+      "exact_phrases": ["domestic fiction", "domestic life", "family life"],
+      "domestic_markers": ["domestic", "family", "home", "household", "marriage"],
+      "strong_signals": ["domestic", "family life", "household"],
+      "minimum_confidence": 0.58
+    },
+    
+    "workplace-drama": {
+      "name": "Workplace Drama",
+      "parent_genre": "contemporary-fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["workplace setting", "office drama", "professional life"],
+      "exact_phrases": ["workplace", "office", "work life"],
+      "setting_markers": ["workplace", "office", "work", "job", "career", "professional"],
+      "strong_signals": ["workplace", "office", "career"],
+      "minimum_confidence": 0.58
+    },
+    
+    "suburban-fiction": {
+      "name": "Suburban Fiction",
+      "parent_genre": "contemporary-fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["suburban setting", "suburb life", "middle-class drama"],
+      "exact_phrases": ["suburban", "suburbs", "suburban life"],
+      "setting_markers": ["suburban", "suburbs", "neighborhood", "middle-class"],
+      "strong_signals": ["suburban", "suburbs", "neighborhood"],
+      "minimum_confidence": 0.58
+    },
+    
+    "social-drama": {
+      "name": "Social Drama",
+      "parent_genre": "contemporary-fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["social issues", "societal drama", "class conflict"],
+      "exact_phrases": ["social drama", "social issues"],
+      "theme_markers": ["social", "society", "class", "issues", "injustice"],
+      "strong_signals": ["social issues", "class", "society"],
+      "minimum_confidence": 0.58
+    },
+    
+    "renaissance-historical": {
+      "name": "Renaissance Historical Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Renaissance period", "14th-17th century", "humanism era"],
+      "exact_phrases": ["Renaissance", "Renaissance era"],
+      "period_markers": ["Renaissance", "1400s", "1500s", "Leonardo", "Medici"],
+      "strong_signals": ["Renaissance", "Medici", "humanism"],
+      "minimum_confidence": 0.60
+    },
+    
+    "ancient-historical": {
+      "name": "Ancient Historical Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["ancient civilizations", "classical antiquity", "Rome/Greece/Egypt"],
+      "exact_phrases": ["ancient", "ancient Rome", "ancient Greece"],
+      "period_markers": ["ancient", "Rome", "Greece", "Egypt", "classical", "antiquity"],
+      "strong_signals": ["ancient Rome", "ancient Greece", "classical"],
+      "minimum_confidence": 0.60
+    },
+    
+    "vietnam-war-fiction": {
+      "name": "Vietnam War Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Vietnam War", "1960s-70s conflict", "war trauma"],
+      "exact_phrases": ["Vietnam War", "Vietnam", "Nam"],
+      "war_markers": ["Vietnam", "Nam", "1960s", "war", "jungle warfare"],
+      "strong_signals": ["Vietnam War", "Nam", "jungle warfare"],
+      "minimum_confidence": 0.62
+    },
+    
+    "cold-war-fiction": {
+      "name": "Cold War Fiction",
+      "parent_genre": "historical-fiction",
+      "parent_supergenre": "historical-fiction",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Cold War era", "Soviet-US tension", "espionage"],
+      "exact_phrases": ["Cold War", "Iron Curtain"],
+      "period_markers": ["Cold War", "Soviet", "KGB", "CIA", "Iron Curtain"],
+      "strong_signals": ["Cold War", "Soviet", "KGB"],
+      "minimum_confidence": 0.60
+    },
+    
+    "nautical-adventure": {
+      "name": "Nautical Adventure",
+      "parent_genre": "action-adventure",
+      "parent_supergenre": "action-adventure",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["sea adventure", "naval stories", "sailing"],
+      "exact_phrases": ["nautical", "naval", "sea adventure"],
+      "nautical_markers": ["nautical", "naval", "sea", "ship", "sailing", "ocean"],
+      "strong_signals": ["nautical", "naval", "sea adventure"],
+      "minimum_confidence": 0.58
+    },
+    
+    "historical-adventure": {
+      "name": "Historical Adventure",
+      "parent_genre": "action-adventure",
+      "parent_supergenre": "action-adventure",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["adventure in historical setting", "period adventure"],
+      "exact_phrases": ["historical adventure", "period adventure"],
+      "blend_markers": ["historical", "adventure", "period", "past"],
+      "strong_signals": ["historical adventure", "period adventure"],
+      "minimum_confidence": 0.58
+    },
+    
+    "arctic-adventure": {
+      "name": "Arctic Adventure",
+      "parent_genre": "action-adventure",
+      "parent_supergenre": "action-adventure",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["Arctic setting", "polar adventure", "extreme cold"],
+      "exact_phrases": ["Arctic", "polar", "Antarctic"],
+      "setting_markers": ["Arctic", "polar", "Antarctic", "ice", "frozen", "tundra"],
+      "strong_signals": ["Arctic", "polar", "Antarctic"],
+      "minimum_confidence": 0.60
+    },
+    
+    "island-adventure": {
+      "name": "Island Adventure",
+      "parent_genre": "action-adventure",
+      "parent_supergenre": "action-adventure",
+      "parent_domain": "fiction",
+      "defining_characteristics": ["island setting", "stranded on island", "tropical island"],
+      "exact_phrases": ["island", "stranded", "deserted island"],
+      "setting_markers": ["island", "stranded", "tropical", "beach", "lagoon"],
+      "strong_signals": ["island", "stranded", "deserted island"],
+      "minimum_confidence": 0.58
+    },
+    
+    "sports-memoir": {
+      "name": "Sports Memoir",
+      "parent_genre": "memoir",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["athlete memoir", "sports career story", "personal sports journey"],
+      "exact_phrases": ["sports memoir", "my career", "athlete memoir"],
+      "sports_markers": ["athlete", "sports", "career", "team", "championship"],
+      "strong_signals": ["sports memoir", "athlete", "career"],
+      "minimum_confidence": 0.60
+    },
+    
+    "recovery-memoir": {
+      "name": "Recovery Memoir",
+      "parent_genre": "memoir",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["addiction recovery", "healing journey", "overcoming addiction"],
+      "exact_phrases": ["recovery", "addiction", "sobriety"],
+      "recovery_markers": ["recovery", "addiction", "sobriety", "rehab", "healing"],
+      "strong_signals": ["recovery", "addiction", "sobriety"],
+      "minimum_confidence": 0.60
+    },
+    
+    "survival-memoir": {
+      "name": "Survival Memoir",
+      "parent_genre": "memoir",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["survival story", "overcoming adversity", "true survival"],
+      "exact_phrases": ["survival", "survived", "true story"],
+      "survival_markers": ["survival", "survived", "ordeal", "adversity", "escape"],
+      "strong_signals": ["survival", "survived", "ordeal"],
+      "minimum_confidence": 0.58
+    },
+    
+    "ancient-history": {
+      "name": "Ancient History",
+      "parent_genre": "history",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["ancient civilizations", "classical history", "antiquity"],
+      "exact_phrases": ["ancient history", "ancient civilizations"],
+      "period_markers": ["ancient", "Rome", "Greece", "Egypt", "civilization"],
+      "strong_signals": ["ancient history", "civilizations", "antiquity"],
+      "minimum_confidence": 0.58
+    },
+    
+    "modern-history": {
+      "name": "Modern History",
+      "parent_genre": "history",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["20th-21st century history", "contemporary history", "recent past"],
+      "exact_phrases": ["modern history", "contemporary history", "20th century"],
+      "period_markers": ["modern", "contemporary", "20th century", "recent"],
+      "strong_signals": ["modern history", "20th century", "contemporary"],
+      "minimum_confidence": 0.58
+    },
+    
+    "medieval-history": {
+      "name": "Medieval History",
+      "parent_genre": "history",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["Middle Ages history", "medieval period", "feudal era"],
+      "exact_phrases": ["medieval history", "Middle Ages", "medieval period"],
+      "period_markers": ["medieval", "Middle Ages", "feudal", "knights", "crusades"],
+      "strong_signals": ["medieval history", "Middle Ages", "feudal"],
+      "minimum_confidence": 0.58
+    },
+    
+    "political-history": {
+      "name": "Political History",
+      "parent_genre": "history",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["political history", "government history", "political movements"],
+      "exact_phrases": ["political history", "history of politics"],
+      "political_markers": ["political", "government", "politics", "power", "elections"],
+      "strong_signals": ["political history", "government", "politics"],
+      "minimum_confidence": 0.58
+    },
+    
+    "economic-history": {
+      "name": "Economic History",
+      "parent_genre": "history",
+      "parent_supergenre": "biography-autobiography",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["economic history", "financial history", "capitalism history"],
+      "exact_phrases": ["economic history", "history of economics"],
+      "economic_markers": ["economic", "economics", "trade", "commerce", "capitalism"],
+      "strong_signals": ["economic history", "trade", "capitalism"],
+      "minimum_confidence": 0.58
+    },
+    
+    "sociology-introduction": {
+      "name": "Sociology Introduction",
+      "parent_genre": "sociology",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["introductory sociology", "society basics", "social structures"],
+      "exact_phrases": ["introduction to sociology", "sociology basics"],
+      "intro_markers": ["sociology", "introduction", "basics", "society", "social"],
+      "strong_signals": ["sociology", "introduction", "society"],
+      "minimum_confidence": 0.58
+    },
+    
+    "anthropology-introduction": {
+      "name": "Anthropology Introduction",
+      "parent_genre": "anthropology",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["introductory anthropology", "human cultures", "anthropology basics"],
+      "exact_phrases": ["introduction to anthropology", "anthropology basics"],
+      "intro_markers": ["anthropology", "introduction", "cultures", "human", "society"],
+      "strong_signals": ["anthropology", "introduction", "cultures"],
+      "minimum_confidence": 0.58
+    },
+    
+    "political-science-introduction": {
+      "name": "Political Science Introduction",
+      "parent_genre": "political-science",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["introductory political science", "government basics", "politics study"],
+      "exact_phrases": ["introduction to political science", "political science basics"],
+      "intro_markers": ["political science", "introduction", "government", "politics"],
+      "strong_signals": ["political science", "introduction", "government"],
+      "minimum_confidence": 0.58
+    },
+    
+    "relationships": {
+      "name": "Relationships",
+      "parent_genre": "self-help",
+      "parent_supergenre": "self-help-wellness",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["relationship advice", "love and relationships", "interpersonal"],
+      "exact_phrases": ["relationships", "love", "dating"],
+      "relationship_markers": ["relationships", "love", "dating", "partner", "marriage"],
+      "strong_signals": ["relationships", "love", "dating advice"],
+      "minimum_confidence": 0.58
+    },
+    
+    "communication": {
+      "name": "Communication Skills",
+      "parent_genre": "self-help",
+      "parent_supergenre": "self-help-wellness",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["communication skills", "effective communication", "talking"],
+      "exact_phrases": ["communication", "effective communication", "how to talk"],
+      "comm_markers": ["communication", "talking", "listening", "conversation", "speak"],
+      "strong_signals": ["communication", "effective communication", "conversation"],
+      "minimum_confidence": 0.58
+    },
+    
+    "self-esteem": {
+      "name": "Self-Esteem & Confidence",
+      "parent_genre": "self-help",
+      "parent_supergenre": "self-help-wellness",
+      "parent_domain": "non-fiction",
+      "defining_characteristics": ["self-esteem", "confidence building", "self-worth"],
+      "exact_phrases": ["self-esteem", "confidence", "self-worth"],
+      "confidence_markers": ["self-esteem", "confidence", "self-worth", "believe"],
+      "strong_signals": ["self-esteem", "confidence", "self-worth"],
       "minimum_confidence": 0.58
     }
   }
