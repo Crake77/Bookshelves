@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "version": "2.0.0",
-    "phase": "2 of 4",
+    "version": "3.0.0",
+    "phase": "Complete",
     "generated_date": "2025-01-24",
-    "total_patterns": 60,
-    "coverage": "59% (60/101 genres)",
-    "description": "Phase 2: Expanded to 60 genre patterns covering major fiction and non-fiction genres"
+    "total_patterns": 100,
+    "coverage": "99% (100/101 genres)",
+    "description": "Nearly complete genre taxonomy - 100 genre patterns (espionage covers spy-fiction)"
   },
   "patterns": {
     "fantasy": {
@@ -974,6 +974,630 @@
       "strong_signals": ["fitness", "exercise", "workout", "training", "physical fitness"],
       "avoid_confusion_with": {"health": ["exercise vs nutrition"], "sports": ["fitness vs competition"]},
       "minimum_confidence": 0.68
+    },
+    
+    "new-adult": {
+      "name": "New Adult",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "age_group": ["new adult", "college", "university", "18-25", "young twenties", "post-high school"],
+        "life_stage": ["first time living alone", "independence", "adult responsibilities", "transition to adulthood"],
+        "themes": ["college life", "first job", "adult relationships", "finding identity", "independence"]
+      },
+      "typical_themes": ["independence", "first love", "self-discovery", "career choices", "adult life"],
+      "age_markers": ["college student", "recent graduate", "early twenties", "18 years old", "19 years old"],
+      "strong_signals": ["new adult", "college", "university", "early twenties", "NA"],
+      "avoid_confusion_with": {"young-adult": ["college vs high school"], "contemporary-fiction": ["specific age group"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "middle-grade": {
+      "name": "Middle Grade",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "age_group": ["middle grade", "8-12 years", "tween", "pre-teen", "elementary school"],
+        "protagonist_age": ["10 year old", "11 year old", "12 year old", "young protagonist"],
+        "themes": ["friendship", "family", "school", "adventure", "growing up", "first experiences"]
+      },
+      "typical_themes": ["friendship", "school life", "family relationships", "adventure", "self-confidence"],
+      "tone_markers": ["age-appropriate", "wholesome", "adventurous", "coming-of-age"],
+      "strong_signals": ["middle grade", "MG", "tween", "8-12", "elementary"],
+      "avoid_confusion_with": {"young-adult": ["younger protagonists"], "children's": ["older than picture books"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "graphic-novel": {
+      "name": "Graphic Novel",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "format": ["graphic novel", "illustrated", "comic", "sequential art", "visual narrative"],
+        "visual_elements": ["panels", "artwork", "illustrations", "drawings", "visual storytelling"],
+        "medium": ["graphic format", "comic book", "illustrated story", "visual medium"]
+      },
+      "typical_elements": ["panel layout", "speech bubbles", "visual narrative", "illustrated pages"],
+      "strong_signals": ["graphic novel", "illustrated", "comic", "panels", "artwork"],
+      "avoid_confusion_with": {"illustrated-fiction": ["graphic vs occasional illustrations"], "manga": ["Western vs Japanese"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "short-stories": {
+      "name": "Short Stories",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "format": ["short stories", "collection", "anthology", "short fiction", "stories"],
+        "structure": ["multiple stories", "collection of", "standalone stories", "separate tales"],
+        "brevity": ["brief", "compact", "short narratives", "concise"]
+      },
+      "typical_elements": ["story collection", "multiple narratives", "varied themes", "anthology"],
+      "strong_signals": ["short stories", "collection", "anthology", "tales", "stories"],
+      "avoid_confusion_with": {"novel": ["collection vs single narrative"], "novella": ["shorter length"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "alternate-history": {
+      "name": "Alternate History",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "what_if": ["alternate history", "what if", "alternative timeline", "different outcome"],
+        "historical_divergence": ["history changed", "different history", "altered past", "divergent timeline"],
+        "real_events": ["based on", "reimagines", "historical event", "real history"]
+      },
+      "typical_tropes": ["point-of-divergence", "butterfly-effect", "changed-outcome"],
+      "plot_patterns": ["what if", "history changed", "alternate timeline", "different outcome"],
+      "strong_signals": ["alternate history", "what if", "alternative timeline", "changed history"],
+      "avoid_confusion_with": {"historical-fiction": ["altered vs actual history"], "time-travel": ["changed history vs travel"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "hard-sci-fi": {
+      "name": "Hard Science Fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "scientific_accuracy": ["hard sci-fi", "scientific accuracy", "rigorous science", "realistic science"],
+        "technical_detail": ["technical", "detailed science", "scientific principles", "physics", "engineering"],
+        "plausibility": ["plausible", "scientifically sound", "realistic technology", "based on science"]
+      },
+      "typical_elements": ["scientific explanations", "technical accuracy", "realistic physics", "detailed technology"],
+      "strong_signals": ["hard sci-fi", "hard science fiction", "scientific accuracy", "technical"],
+      "avoid_confusion_with": {"science-fiction": ["accuracy emphasis"], "space-opera": ["science vs adventure"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "military-sci-fi": {
+      "name": "Military Science Fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "military": ["military", "soldiers", "space marines", "combat", "military operations"],
+        "sci_fi_warfare": ["space warfare", "futuristic weapons", "military technology", "space military"],
+        "military_structure": ["chain of command", "military unit", "special forces", "fleet"]
+      },
+      "typical_elements": ["space battles", "military hierarchy", "combat missions", "tactical operations"],
+      "plot_patterns": ["military mission", "space combat", "war in space", "tactical operation"],
+      "character_archetypes": ["space marine", "military commander", "soldier", "fleet officer"],
+      "strong_signals": ["military sci-fi", "space marines", "military", "combat", "warfare"],
+      "avoid_confusion_with": {"space-opera": ["military vs epic"], "military-fiction": ["futuristic vs contemporary"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "urban-fiction": {
+      "name": "Urban Fiction",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "urban_setting": ["urban", "inner city", "street", "hood", "ghetto", "city life"],
+        "street_life": ["street life", "hustling", "urban culture", "street code", "city streets"],
+        "themes": ["survival", "loyalty", "struggle", "urban experience", "street drama"]
+      },
+      "typical_themes": ["street life", "survival", "loyalty", "urban struggles", "community"],
+      "tone_markers": ["gritty", "raw", "authentic", "street"],
+      "strong_signals": ["urban fiction", "street", "hood", "inner city", "urban"],
+      "avoid_confusion_with": {"urban-fantasy": ["realistic vs magical"], "contemporary-fiction": ["urban focus"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "magical-realism": {
+      "name": "Magical Realism",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "subtle_magic": ["magical realism", "magical elements", "subtle magic", "magical moments"],
+        "realistic_setting": ["real world", "everyday life", "realistic setting", "mundane"],
+        "acceptance": ["matter-of-fact", "accepted as normal", "unremarkable magic", "no explanation"]
+      },
+      "typical_elements": ["magic integrated", "realistic base", "unexplained supernatural", "literary style"],
+      "tone_markers": ["dreamlike", "surreal", "matter-of-fact", "lyrical"],
+      "strong_signals": ["magical realism", "magical elements", "surreal", "dreamlike"],
+      "avoid_confusion_with": {"fantasy": ["subtle vs overt magic"], "contemporary-fiction": ["magical elements"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "coming-of-age": {
+      "name": "Coming of Age",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "maturation": ["coming of age", "growing up", "maturation", "transition to adulthood"],
+        "self_discovery": ["finding self", "identity", "self-discovery", "who am I"],
+        "formative_experiences": ["first experiences", "loss of innocence", "life lessons", "defining moments"]
+      },
+      "typical_themes": ["identity", "self-discovery", "growing up", "maturation", "loss of innocence"],
+      "plot_patterns": ["grows up", "comes of age", "finds self", "matures", "learns about life"],
+      "strong_signals": ["coming of age", "growing up", "maturation", "self-discovery"],
+      "avoid_confusion_with": {"young-adult": ["theme vs age category"], "bildungsroman": ["modern vs traditional"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "southern-gothic": {
+      "name": "Southern Gothic",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "southern_setting": ["Southern", "South", "Southern states", "American South", "Deep South"],
+        "gothic_elements": ["gothic", "dark", "decay", "grotesque", "haunted past"],
+        "themes": ["family secrets", "racial tension", "decay", "troubled past", "Southern culture"]
+      },
+      "typical_elements": ["decaying mansions", "family dysfunction", "dark secrets", "Southern atmosphere"],
+      "tone_markers": ["atmospheric", "dark", "brooding", "decaying"],
+      "strong_signals": ["Southern Gothic", "South", "gothic", "Southern", "decaying"],
+      "avoid_confusion_with": {"gothic-fiction": ["Southern setting"], "southern-fiction": ["gothic elements"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "noir": {
+      "name": "Noir",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "dark_tone": ["noir", "dark", "bleak", "cynical", "gritty"],
+        "morally_ambiguous": ["morally gray", "anti-hero", "corrupt", "flawed protagonist"],
+        "atmosphere": ["shadowy", "urban decay", "dark city", "nighttime", "rain-soaked"]
+      },
+      "typical_elements": ["hard-boiled detective", "femme fatale", "urban setting", "moral ambiguity"],
+      "character_archetypes": ["hard-boiled detective", "femme fatale", "corrupt cop", "anti-hero"],
+      "tone_markers": ["dark", "cynical", "bleak", "atmospheric"],
+      "strong_signals": ["noir", "hard-boiled", "dark", "cynical", "gritty"],
+      "avoid_confusion_with": {"mystery": ["dark tone"], "crime-fiction": ["atmospheric vs action"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "revenge-fiction": {
+      "name": "Revenge Fiction",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "revenge_motivation": ["revenge", "vengeance", "payback", "retribution", "get even"],
+        "wronged_protagonist": ["wronged", "betrayed", "victimized", "seeks justice"],
+        "revenge_plot": ["seeks revenge", "plan for vengeance", "get back at", "make them pay"]
+      },
+      "typical_tropes": ["revenge-plot", "elaborate-scheme", "cold-dish"],
+      "plot_patterns": ["seeks revenge", "plans vengeance", "settles scores", "payback time"],
+      "strong_signals": ["revenge", "vengeance", "payback", "retribution", "seeks revenge"],
+      "avoid_confusion_with": {"thriller": ["revenge motivation"], "crime-fiction": ["personal vs criminal"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "survival-fiction": {
+      "name": "Survival Fiction",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "survival": ["survival", "survive", "stay alive", "fight for survival", "endure"],
+        "harsh_conditions": ["harsh", "extreme", "wilderness", "stranded", "isolated"],
+        "resourcefulness": ["resourceful", "ingenuity", "adapt", "overcome", "persevere"]
+      },
+      "typical_themes": ["survival instinct", "human resilience", "man vs nature", "endurance"],
+      "plot_patterns": ["must survive", "stranded", "fight to stay alive", "overcome odds"],
+      "setting_markers": ["wilderness", "isolated", "remote", "hostile environment"],
+      "strong_signals": ["survival", "survive", "stranded", "wilderness", "stay alive"],
+      "avoid_confusion_with": {"post-apocalyptic": ["natural vs societal collapse"], "adventure": ["survival focus"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "sports-fiction": {
+      "name": "Sports Fiction",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "sports": ["sports", "athlete", "team", "game", "competition", "tournament"],
+        "athletic_focus": ["training", "championship", "season", "playoffs", "sporting event"],
+        "sports_specific": ["football", "basketball", "baseball", "soccer", "hockey", "tennis"]
+      },
+      "typical_themes": ["teamwork", "competition", "dedication", "triumph", "sports rivalry"],
+      "plot_patterns": ["championship run", "underdog story", "comeback", "sports rivalry"],
+      "character_archetypes": ["athlete", "coach", "team player", "rival"],
+      "strong_signals": ["sports", "athlete", "team", "championship", "game"],
+      "avoid_confusion_with": {"sports-non-fiction": ["fiction vs true story"], "action-adventure": ["sports focus"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "nautical-fiction": {
+      "name": "Nautical Fiction",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "sea_setting": ["nautical", "sea", "ocean", "maritime", "naval", "ship"],
+        "vessels": ["ship", "boat", "vessel", "sailing", "navy", "submarine"],
+        "seafaring": ["sailor", "captain", "crew", "voyage", "at sea", "maritime"]
+      },
+      "typical_elements": ["sea adventure", "naval warfare", "sailing", "maritime culture"],
+      "plot_patterns": ["voyage", "at sea", "naval battle", "maritime adventure"],
+      "character_archetypes": ["sea captain", "sailor", "pirate", "naval officer"],
+      "strong_signals": ["nautical", "sea", "ship", "sailing", "maritime", "ocean"],
+      "avoid_confusion_with": {"adventure": ["sea focus"], "historical-fiction": ["maritime setting"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "western": {
+      "name": "Western",
+      "parent_supergenre": "adventure-action",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "old_west": ["Western", "Old West", "frontier", "Wild West", "American West"],
+        "setting": ["desert", "ranch", "saloon", "frontier town", "prairie"],
+        "western_elements": ["cowboys", "outlaws", "gunslingers", "sheriffs", "horses"]
+      },
+      "typical_tropes": ["showdown", "cattle-drive", "frontier-justice", "lone-gunslinger"],
+      "plot_patterns": ["showdown", "frontier justice", "riding into town", "gunfight"],
+      "character_archetypes": ["cowboy", "outlaw", "sheriff", "gunslinger", "rancher"],
+      "strong_signals": ["Western", "cowboy", "frontier", "Old West", "gunslinger"],
+      "avoid_confusion_with": {"historical-fiction": ["Western specific"], "adventure": ["Old West setting"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "heist-fiction": {
+      "name": "Heist Fiction",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "heist": ["heist", "robbery", "theft", "steal", "con", "caper"],
+        "planning": ["elaborate plan", "scheme", "plot", "planning", "mastermind"],
+        "crew": ["crew", "team", "accomplices", "gang", "group of thieves"]
+      },
+      "typical_tropes": ["one-last-job", "assemble-the-team", "elaborate-scheme", "twist-ending"],
+      "plot_patterns": ["plan the heist", "pull off", "elaborate scheme", "one last job"],
+      "character_archetypes": ["mastermind", "thief", "con artist", "safecracker", "driver"],
+      "strong_signals": ["heist", "robbery", "con", "caper", "steal", "theft"],
+      "avoid_confusion_with": {"crime-fiction": ["heist-specific"], "thriller": ["planning vs action"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "satire": {
+      "name": "Satire",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "satirical": ["satire", "satirical", "parody", "lampoons", "mocks"],
+        "social_commentary": ["social commentary", "critique", "criticism", "exposes"],
+        "humor": ["humorous", "witty", "ironic", "sarcastic", "biting"]
+      },
+      "typical_elements": ["social criticism", "irony", "exaggeration", "wit"],
+      "tone_markers": ["satirical", "ironic", "witty", "biting", "sardonic"],
+      "strong_signals": ["satire", "satirical", "parody", "lampoons", "social commentary"],
+      "avoid_confusion_with": {"humor": ["satirical vs pure comedy"], "literary-fiction": ["satire focus"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "absurdist-fiction": {
+      "name": "Absurdist Fiction",
+      "parent_supergenre": "literary-experimental",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "absurd": ["absurdist", "absurd", "surreal", "illogical", "nonsensical"],
+        "meaninglessness": ["meaningless", "pointless", "existential", "nihilistic"],
+        "unconventional": ["unconventional", "bizarre", "strange", "weird", "unusual"]
+      },
+      "typical_themes": ["meaninglessness", "absurdity of life", "existential crisis", "irrationality"],
+      "tone_markers": ["absurd", "surreal", "bizarre", "existential"],
+      "strong_signals": ["absurdist", "absurd", "surreal", "existential", "meaningless"],
+      "avoid_confusion_with": {"literary-fiction": ["absurdist style"], "surrealism": ["philosophical focus"]},
+      "minimum_confidence": 0.63
+    },
+    
+    "medicine": {
+      "name": "Medicine",
+      "parent_supergenre": "health-psychology",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "medical": ["medicine", "medical", "clinical", "healthcare", "medical science"],
+        "topics": ["disease", "treatment", "diagnosis", "medical practice", "patient care"],
+        "professional": ["physician", "doctor", "medical research", "clinical practice"]
+      },
+      "typical_topics": ["medical practice", "disease", "treatment", "healthcare", "medical research"],
+      "strong_signals": ["medicine", "medical", "clinical", "healthcare", "physician"],
+      "avoid_confusion_with": {"health": ["clinical vs wellness"], "medical-thriller": ["non-fiction"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "technology": {
+      "name": "Technology",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "technology": ["technology", "tech", "digital", "computer", "software", "hardware"],
+        "innovation": ["innovation", "technological advancement", "cutting-edge", "emerging tech"],
+        "technical": ["technical", "engineering", "programming", "development"]
+      },
+      "typical_topics": ["computers", "software", "internet", "digital technology", "innovation"],
+      "strong_signals": ["technology", "tech", "digital", "computer", "software"],
+      "avoid_confusion_with": {"science": ["applied vs theoretical"], "business": ["tech vs business strategy"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "education": {
+      "name": "Education",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "education": ["education", "educational", "teaching", "learning", "pedagogy"],
+        "schools": ["school", "classroom", "curriculum", "instruction", "academic"],
+        "topics": ["education system", "educational theory", "teaching methods", "students"]
+      },
+      "typical_topics": ["teaching methods", "education policy", "learning theory", "curriculum"],
+      "strong_signals": ["education", "teaching", "learning", "pedagogy", "educational"],
+      "avoid_confusion_with": {"parenting": ["formal education"], "self-help": ["institutional vs personal"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "parenting": {
+      "name": "Parenting",
+      "parent_supergenre": "self-help-personal-growth",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "parenting": ["parenting", "raising children", "child-rearing", "parenthood"],
+        "children": ["children", "kids", "toddlers", "babies", "teenagers"],
+        "guidance": ["parenting guide", "how to raise", "parenting advice", "child development"]
+      },
+      "typical_topics": ["child development", "discipline", "parenting strategies", "family dynamics"],
+      "strong_signals": ["parenting", "raising children", "child-rearing", "parenthood"],
+      "avoid_confusion_with": {"education": ["home vs school"], "psychology": ["practical vs academic"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "travel": {
+      "name": "Travel",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "travel": ["travel", "traveling", "journey", "trip", "voyage", "explore"],
+        "destinations": ["destination", "places", "countries", "cities", "locations"],
+        "guidance": ["travel guide", "guidebook", "tips", "recommendations", "itinerary"]
+      },
+      "typical_elements": ["travel tips", "destinations", "cultural experiences", "travel narratives"],
+      "strong_signals": ["travel", "guide", "destination", "journey", "explore"],
+      "avoid_confusion_with": {"memoir": ["guide vs personal story"], "geography": ["practical vs academic"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "sports-non-fiction": {
+      "name": "Sports Non-Fiction",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "sports": ["sports", "athletic", "sport", "game", "competition"],
+        "analysis": ["sports history", "sports analysis", "athletic performance", "coaching"],
+        "specific_sports": ["football", "basketball", "baseball", "soccer", "hockey"]
+      },
+      "typical_topics": ["sports history", "athlete biographies", "game analysis", "coaching"],
+      "strong_signals": ["sports", "athletic", "game", "athlete", "coach"],
+      "avoid_confusion_with": {"sports-fiction": ["non-fiction"], "biography": ["sports focus"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "music": {
+      "name": "Music",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "music": ["music", "musical", "song", "composition", "melody"],
+        "topics": ["music theory", "music history", "musicians", "genres", "instruments"],
+        "aspects": ["composition", "performance", "recording", "production"]
+      },
+      "typical_topics": ["music history", "music theory", "musician biographies", "genres"],
+      "strong_signals": ["music", "musical", "musician", "song", "composition"],
+      "avoid_confusion_with": {"biography": ["music focus"], "art": ["auditory vs visual"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "art": {
+      "name": "Art",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "art": ["art", "artwork", "painting", "sculpture", "visual art"],
+        "topics": ["art history", "artists", "art movements", "techniques", "aesthetics"],
+        "mediums": ["painting", "sculpture", "drawing", "printmaking", "mixed media"]
+      },
+      "typical_topics": ["art history", "artist biographies", "art movements", "techniques"],
+      "strong_signals": ["art", "artist", "painting", "visual art", "artwork"],
+      "avoid_confusion_with": {"photography": ["general vs photographic"], "biography": ["art focus"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "film": {
+      "name": "Film",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "film": ["film", "cinema", "movie", "movies", "filmmaking"],
+        "topics": ["film history", "film theory", "directors", "cinematography", "film criticism"],
+        "aspects": ["directing", "screenplay", "cinematography", "editing"]
+      },
+      "typical_topics": ["film history", "film criticism", "directors", "film analysis"],
+      "strong_signals": ["film", "cinema", "movie", "director", "filmmaking"],
+      "avoid_confusion_with": {"biography": ["film focus"], "art": ["cinematic vs visual"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "photography": {
+      "name": "Photography",
+      "parent_supergenre": "arts-entertainment",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "photography": ["photography", "photograph", "photo", "camera", "photographic"],
+        "topics": ["photography guide", "techniques", "composition", "lighting"],
+        "types": ["portrait", "landscape", "wildlife", "street photography"]
+      },
+      "typical_topics": ["photography techniques", "camera equipment", "composition", "photo editing"],
+      "strong_signals": ["photography", "photograph", "camera", "photographic"],
+      "avoid_confusion_with": {"art": ["photographic medium"], "technology": ["artistic vs technical"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "cooking": {
+      "name": "Cooking",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "cooking": ["cooking", "cookbook", "recipe", "culinary", "cuisine"],
+        "food": ["food", "dish", "meal", "ingredients", "flavors"],
+        "instruction": ["how to cook", "recipes", "cooking techniques", "preparation"]
+      },
+      "typical_elements": ["recipes", "cooking techniques", "ingredients", "meal preparation"],
+      "strong_signals": ["cookbook", "recipe", "cooking", "culinary", "cuisine"],
+      "avoid_confusion_with": {"food-memoir": ["recipes vs narrative"], "health": ["cooking vs nutrition"]},
+      "minimum_confidence": 0.73
+    },
+    
+    "gardening": {
+      "name": "Gardening",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "gardening": ["gardening", "garden", "plants", "growing", "cultivation"],
+        "topics": ["garden design", "plant care", "landscaping", "horticulture"],
+        "instruction": ["how to grow", "gardening guide", "planting", "care for plants"]
+      },
+      "typical_topics": ["plant care", "garden design", "growing vegetables", "landscaping"],
+      "strong_signals": ["gardening", "garden", "plants", "growing", "horticulture"],
+      "avoid_confusion_with": {"nature-writing": ["practical vs narrative"], "science": ["hobby vs academic"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "crafts": {
+      "name": "Crafts",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "crafts": ["crafts", "crafting", "handmade", "DIY", "handcraft"],
+        "activities": ["knitting", "sewing", "crochet", "quilting", "woodworking", "pottery"],
+        "instruction": ["how to make", "craft guide", "patterns", "projects"]
+      },
+      "typical_topics": ["craft projects", "techniques", "patterns", "handmade items"],
+      "strong_signals": ["crafts", "DIY", "handmade", "crafting", "projects"],
+      "avoid_confusion_with": {"art": ["craft vs fine art"], "hobbies": ["making focus"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "pets": {
+      "name": "Pets",
+      "parent_supergenre": "home-hobbies",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "pets": ["pets", "pet", "animal companions", "pet care"],
+        "animals": ["dog", "cat", "puppy", "kitten", "pets", "animals"],
+        "care": ["pet care", "training", "pet health", "care guide"]
+      },
+      "typical_topics": ["pet care", "training", "pet health", "breeds"],
+      "strong_signals": ["pets", "dog", "cat", "pet care", "training"],
+      "avoid_confusion_with": {"animals": ["pets vs wildlife"], "veterinary": ["owner vs professional"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "law": {
+      "name": "Law",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "law": ["law", "legal", "jurisprudence", "legislation", "judicial"],
+        "topics": ["legal system", "court", "justice", "rights", "legal theory"],
+        "aspects": ["constitutional", "criminal law", "civil law", "legal practice"]
+      },
+      "typical_topics": ["legal system", "court cases", "legal theory", "rights", "justice"],
+      "strong_signals": ["law", "legal", "court", "justice", "judicial"],
+      "avoid_confusion_with": {"legal-thriller": ["non-fiction"], "political-science": ["legal vs political"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "linguistics": {
+      "name": "Linguistics",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "language": ["linguistics", "language", "linguistic", "grammar", "syntax"],
+        "study": ["language study", "phonetics", "semantics", "morphology"],
+        "topics": ["language development", "language structure", "communication"]
+      },
+      "typical_topics": ["language structure", "grammar", "language evolution", "communication"],
+      "strong_signals": ["linguistics", "language", "linguistic", "grammar", "syntax"],
+      "avoid_confusion_with": {"language-learning": ["study vs learning"], "anthropology": ["language focus"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "mathematics": {
+      "name": "Mathematics",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "mathematics": ["mathematics", "math", "mathematical", "calculus", "algebra"],
+        "topics": ["numbers", "equations", "geometry", "statistics", "probability"],
+        "aspects": ["mathematical theory", "proofs", "mathematical concepts"]
+      },
+      "typical_topics": ["mathematical concepts", "equations", "theories", "problem solving"],
+      "strong_signals": ["mathematics", "math", "mathematical", "calculus", "algebra"],
+      "avoid_confusion_with": {"science": ["math vs natural science"], "education": ["pure math vs teaching"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "engineering": {
+      "name": "Engineering",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "engineering": ["engineering", "engineer", "technical", "design", "construction"],
+        "disciplines": ["mechanical", "electrical", "civil", "chemical", "software engineering"],
+        "topics": ["engineering principles", "design", "systems", "technical solutions"]
+      },
+      "typical_topics": ["engineering design", "technical systems", "construction", "innovation"],
+      "strong_signals": ["engineering", "engineer", "technical", "design", "systems"],
+      "avoid_confusion_with": {"technology": ["engineering vs products"], "science": ["applied vs pure"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "environment": {
+      "name": "Environment",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "environment": ["environment", "environmental", "ecology", "ecosystem", "climate"],
+        "topics": ["climate change", "conservation", "sustainability", "pollution", "environmental issues"],
+        "focus": ["environmental protection", "green", "ecological", "nature conservation"]
+      },
+      "typical_topics": ["climate change", "conservation", "environmental policy", "sustainability"],
+      "strong_signals": ["environment", "environmental", "climate", "ecology", "conservation"],
+      "avoid_confusion_with": {"science": ["environmental focus"], "nature-writing": ["issues vs narrative"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "current-affairs": {
+      "name": "Current Affairs",
+      "parent_supergenre": "politics-current-affairs",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "current": ["current affairs", "current events", "contemporary issues", "today's world"],
+        "topics": ["news", "politics", "social issues", "global events", "current debates"],
+        "timely": ["recent", "contemporary", "modern issues", "today's challenges"]
+      },
+      "typical_topics": ["political events", "social issues", "global affairs", "contemporary debates"],
+      "strong_signals": ["current affairs", "current events", "contemporary issues", "today"],
+      "avoid_confusion_with": {"history": ["current vs past"], "political-science": ["news vs theory"]},
+      "minimum_confidence": 0.67
     }
   }
 }
