@@ -1,0 +1,690 @@
+{
+  "batch_info": {
+    "batch_number": 2,
+    "patterns_in_batch": 100,
+    "cumulative_total": 305,
+    "focus_areas": ["romance tropes", "fantasy creatures", "shifter romances", "angels/demons", "assassins", "team dynamics", "villain types"]
+  },
+  "patterns": {
+    "arranged-marriage-romance": {
+      "exact": ["arranged marriage", "arranged marriage romance", "forced marriage"],
+      "synonyms": ["marriage of convenience", "contract marriage", "business arrangement marriage"],
+      "phrases": ["arranged to marry", "forced into marriage", "marriage arranged by family", "political marriage"],
+      "avoid": ["love marriage", "chosen marriage", "arranged flowers"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: arranged or forced marriage that becomes real"
+    },
+    "angels": {
+      "exact": ["angels", "angel", "angelic beings", "heavenly beings"],
+      "synonyms": ["celestial beings", "divine messengers", "seraphim", "cherubim"],
+      "phrases": ["angel warrior", "fallen angel", "angel appears", "angelic powers"],
+      "avoid": ["angel investment", "angel food cake", "angel statue"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy creature: angels present"
+    },
+    "demons": {
+      "exact": ["demons", "demon", "demonic", "devil"],
+      "synonyms": ["infernal beings", "hellspawn", "devil creature"],
+      "phrases": ["demon possession", "demonic powers", "summoning demons", "demon realm"],
+      "avoid": ["demon rum", "speed demon", "demon driver"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy creature: demons present"
+    },
+    "angel-demon-romance": {
+      "exact": ["angel demon romance", "angel and demon love"],
+      "synonyms": ["forbidden celestial romance", "heaven and hell romance"],
+      "phrases": ["angel falls for demon", "demon and angel together", "celestial forbidden love"],
+      "avoid": ["angel investor meets demon", "good vs evil"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: angel and demon romance"
+    },
+    "android": {
+      "exact": ["android", "androids", "synthetic human"],
+      "synonyms": ["artificial being", "synthetic person", "humanoid robot"],
+      "phrases": ["android character", "humanoid android", "sentient android"],
+      "avoid": ["Android phone", "Android OS", "android app"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi element: android characters"
+    },
+    "robot-romance": {
+      "exact": ["robot romance", "android romance", "AI romance"],
+      "synonyms": ["human-robot love", "falling for android"],
+      "phrases": ["falls in love with robot", "robot develops feelings", "android love story"],
+      "avoid": ["robot vacuum", "toy robot"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi romance: human-robot relationship"
+    },
+    "assassin": {
+      "exact": ["assassin", "hired killer", "contract killer"],
+      "synonyms": ["hitman", "professional killer", "trained assassin"],
+      "phrases": ["assassin protagonist", "trained to kill", "assassin's guild", "deadly assassin"],
+      "avoid": ["assassin's creed game", "assassin bug"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: assassin protagonist"
+    },
+    "assassin-romance": {
+      "exact": ["assassin romance", "hitman romance", "killer falls in love"],
+      "synonyms": ["deadly love story", "assassin love interest"],
+      "phrases": ["assassin who falls in love", "hired killer romance", "deadly romance"],
+      "avoid": ["assassination plot", "assassin video game"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: assassin as love interest"
+    },
+    "band-of-heroes": {
+      "exact": ["band of heroes", "group of heroes", "hero team"],
+      "synonyms": ["fellowship", "adventuring party", "hero squad"],
+      "phrases": ["team of heroes", "group on a quest", "band of adventurers"],
+      "avoid": ["marching band", "rock band", "rubber band"],
+      "confidence_boost": 0.1,
+      "notes": "Character dynamic: team of heroes"
+    },
+    "assembling-team": {
+      "exact": ["assembling team", "gathering the team", "recruiting heroes"],
+      "synonyms": ["building the crew", "forming the team", "getting the band together"],
+      "phrases": ["bringing the team together", "recruiting members", "assembling the crew"],
+      "avoid": ["assembly line", "assemble furniture"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: assembling a team"
+    },
+    "shifter-romance": {
+      "exact": ["shifter romance", "shapeshifter romance", "shifter love story"],
+      "synonyms": ["shapeshifter love", "animal shifter romance"],
+      "phrases": ["romance with shifter", "shapeshifter falls in love", "shifter mate"],
+      "avoid": ["gear shifter", "night shift romance"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal romance: shapeshifter romance"
+    },
+    "wolf-shifter": {
+      "exact": ["wolf shifter", "wolf shapeshifter", "wolf pack"],
+      "synonyms": ["werewolf pack", "wolf clan", "lupine shifter"],
+      "phrases": ["pack of wolves", "wolf pack dynamics", "alpha wolf"],
+      "avoid": ["wolf dog", "lone wolf"],
+      "confidence_boost": 0.1,
+      "notes": "Paranormal element: wolf shifters"
+    },
+    "bear-shifter": {
+      "exact": ["bear shifter", "bear shapeshifter"],
+      "synonyms": ["werebear", "ursine shifter"],
+      "phrases": ["shifter who becomes bear", "bear clan"],
+      "avoid": ["teddy bear", "bear market"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal element: bear shifters"
+    },
+    "fated-mates": {
+      "exact": ["fated mates", "destined mates", "true mates"],
+      "synonyms": ["soulmates", "mate bond", "destined pair"],
+      "phrases": ["fated to be together", "mate connection", "destined soulmates", "mate bond"],
+      "avoid": ["classmates", "roommates", "teammates"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal romance trope: fated mates"
+    },
+    "mate-bond": {
+      "exact": ["mate bond", "mating bond", "bond between mates"],
+      "synonyms": ["soulmate connection", "fated connection", "mate link"],
+      "phrases": ["feeling the mate bond", "bond connects them", "mating bond forms"],
+      "avoid": ["chemical bond", "bond investment", "friendship bond"],
+      "confidence_boost": 0.2,
+      "notes": "Paranormal romance element: supernatural mate bond"
+    },
+    "alpha-hero": {
+      "exact": ["alpha hero", "alpha male", "dominant hero"],
+      "synonyms": ["alpha character", "dominant male lead", "possessive hero"],
+      "phrases": ["alpha male protagonist", "dominant alpha", "possessive alpha"],
+      "avoid": ["alpha version", "alpha test", "alpha wolf species"],
+      "confidence_boost": 0.1,
+      "notes": "Romance character type: alpha male hero"
+    },
+    "alpha-female": {
+      "exact": ["alpha female", "dominant heroine", "alpha woman"],
+      "synonyms": ["powerful female lead", "dominant woman"],
+      "phrases": ["alpha female character", "strong dominant woman"],
+      "avoid": ["alpha test", "alpha version"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: alpha female"
+    },
+    "omega-verse": {
+      "exact": ["omegaverse", "omega verse", "alpha beta omega"],
+      "synonyms": ["ABO dynamics", "alpha/omega"],
+      "phrases": ["omegaverse world", "ABO universe", "alpha beta omega dynamics"],
+      "avoid": ["omega watch", "omega-3"],
+      "confidence_boost": 0.2,
+      "notes": "Romance subgenre: omegaverse dynamics"
+    },
+    "witches": {
+      "exact": ["witches", "witch", "witch character"],
+      "synonyms": ["sorceress", "spellcaster", "magic user"],
+      "phrases": ["witch protagonist", "witch powers", "coven of witches", "witch magic"],
+      "avoid": ["witch hunt", "witch hazel", "sandwich"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy element: witches"
+    },
+    "witch-coven": {
+      "exact": ["witch coven", "coven of witches", "witch circle"],
+      "synonyms": ["witch sisterhood", "circle of witches", "witch gathering"],
+      "phrases": ["coven of powerful witches", "witch coven politics"],
+      "avoid": ["coven oven", "covent garden"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: witch coven"
+    },
+    "wizard": {
+      "exact": ["wizard", "male witch", "sorcerer"],
+      "synonyms": ["mage", "warlock", "spellcaster", "magician"],
+      "phrases": ["powerful wizard", "wizard protagonist", "wizard magic"],
+      "avoid": ["wizard of oz", "wizard software", "spreadsheet wizard"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy character: wizard"
+    },
+    "necromancy": {
+      "exact": ["necromancy", "necromancer", "raising the dead"],
+      "synonyms": ["death magic", "undead magic", "raising corpses"],
+      "phrases": ["necromancer character", "practices necromancy", "raising undead"],
+      "avoid": ["necessary", "neck romance"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy/horror element: necromancy"
+    },
+    "ghosts": {
+      "exact": ["ghost", "ghosts", "spirit", "spirits"],
+      "synonyms": ["phantoms", "specters", "apparitions", "wraiths"],
+      "phrases": ["haunted by ghosts", "ghostly presence", "spirit appears", "seeing ghosts"],
+      "avoid": ["ghost pepper", "ghost writer", "ghost town"],
+      "confidence_boost": 0.1,
+      "notes": "Supernatural element: ghosts"
+    },
+    "possession": {
+      "exact": ["possession", "possessed", "demonic possession"],
+      "synonyms": ["spirit possession", "taken over", "entity control"],
+      "phrases": ["possessed by demon", "spirit takes control", "entity possesses"],
+      "avoid": ["material possessions", "ball possession"],
+      "confidence_boost": 0.0,
+      "notes": "Horror element: possession"
+    },
+    "exorcism": {
+      "exact": ["exorcism", "exorcist", "demon expulsion"],
+      "synonyms": ["casting out demons", "spirit banishment"],
+      "phrases": ["performing exorcism", "exorcist removes demon", "casting out evil"],
+      "avoid": ["exorcise equipment", "exercise"],
+      "confidence_boost": 0.1,
+      "notes": "Horror/supernatural element: exorcism"
+    },
+    "zombies": {
+      "exact": ["zombies", "zombie", "undead"],
+      "synonyms": ["walking dead", "reanimated corpses", "undead horde"],
+      "phrases": ["zombie outbreak", "zombie apocalypse", "undead attack", "fighting zombies"],
+      "avoid": ["zombie company", "feeling like zombie"],
+      "confidence_boost": 0.1,
+      "notes": "Horror element: zombies"
+    },
+    "zombie-apocalypse": {
+      "exact": ["zombie apocalypse", "zombie outbreak", "undead apocalypse"],
+      "synonyms": ["zombie plague", "undead invasion"],
+      "phrases": ["surviving zombie apocalypse", "world overrun by zombies", "undead outbreak"],
+      "avoid": ["zombie game", "zombie walk event"],
+      "confidence_boost": 0.2,
+      "notes": "Horror/post-apocalyptic: zombie apocalypse"
+    },
+    "virus-outbreak": {
+      "exact": ["virus outbreak", "viral outbreak", "pandemic", "plague"],
+      "synonyms": ["epidemic", "disease outbreak", "contagion"],
+      "phrases": ["deadly virus spreads", "outbreak threatens", "pandemic crisis", "plague devastates"],
+      "avoid": ["computer virus", "virus software"],
+      "confidence_boost": 0.1,
+      "notes": "Thriller/horror element: virus outbreak"
+    },
+    "aliens-invade": {
+      "exact": ["alien invasion", "aliens invade", "extraterrestrial attack"],
+      "synonyms": ["alien attack", "hostile aliens", "alien conquest"],
+      "phrases": ["aliens invading Earth", "extraterrestrial invasion", "alien forces attack"],
+      "avoid": ["illegal alien", "alien concept"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi plot: alien invasion"
+    },
+    "alien-abduction": {
+      "exact": ["alien abduction", "abducted by aliens", "UFO abduction"],
+      "synonyms": ["extraterrestrial kidnapping", "taken by aliens"],
+      "phrases": ["abducted by aliens", "alien ship takes", "UFO abduction"],
+      "avoid": ["alien registration", "feeling alienated"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi plot: alien abduction"
+    },
+    "alien-romance": {
+      "exact": ["alien romance", "human-alien romance", "extraterrestrial love"],
+      "synonyms": ["interspecies romance", "human alien love"],
+      "phrases": ["falls in love with alien", "alien love story", "human and alien together"],
+      "avoid": ["alien to the concept", "alien registration"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi romance: human-alien relationship"
+    },
+    "clone": {
+      "exact": ["clone", "clones", "cloning", "cloned"],
+      "synonyms": ["duplicate", "genetic copy", "replica"],
+      "phrases": ["cloned human", "clone army", "cloning technology", "genetic duplicate"],
+      "avoid": ["clone stamp", "git clone", "clone wars game"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi element: cloning"
+    },
+    "genetic-engineering": {
+      "exact": ["genetic engineering", "gene modification", "genetic enhancement"],
+      "synonyms": ["gene editing", "genetic manipulation", "bioengineering"],
+      "phrases": ["genetically modified", "genetic engineering creates", "gene editing technology"],
+      "avoid": ["genetic testing", "genetic counseling"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi element: genetic engineering"
+    },
+    "super-soldier": {
+      "exact": ["super soldier", "enhanced soldier", "supersoldier"],
+      "synonyms": ["augmented soldier", "enhanced warrior", "bioengineered soldier"],
+      "phrases": ["genetically enhanced soldier", "super soldier program", "enhanced combat abilities"],
+      "avoid": ["toy soldier", "soldier statue"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi trope: super soldier"
+    },
+    "superhero": {
+      "exact": ["superhero", "super hero", "costumed hero"],
+      "synonyms": ["masked hero", "caped crusader", "superhuman hero"],
+      "phrases": ["superhero with powers", "costumed crime fighter", "hero with abilities"],
+      "avoid": ["superhero movie", "superhero comic"],
+      "confidence_boost": 0.1,
+      "notes": "Genre: superhero fiction"
+    },
+    "superpowers": {
+      "exact": ["superpowers", "super powers", "superhuman abilities"],
+      "synonyms": ["special abilities", "extraordinary powers", "superhuman powers"],
+      "phrases": ["has superpowers", "develops abilities", "superhuman strength", "special powers"],
+      "avoid": ["superpower nation", "political superpower"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy/sci-fi element: superpowers"
+    },
+    "mutants": {
+      "exact": ["mutants", "mutant", "genetic mutation"],
+      "synonyms": ["evolved humans", "mutated beings"],
+      "phrases": ["mutant powers", "mutant abilities", "genetically mutated"],
+      "avoid": ["mutant ninja turtles", "mutant strain"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi element: mutants"
+    },
+    "telekinesis": {
+      "exact": ["telekinesis", "telekinetic", "move objects with mind"],
+      "synonyms": ["psychokinesis", "mind over matter", "mental powers"],
+      "phrases": ["telekinetic powers", "moves things with mind", "telekinetic ability"],
+      "avoid": ["telephone", "telemarketing"],
+      "confidence_boost": 0.2,
+      "notes": "Superpower: telekinesis"
+    },
+    "telepathy": {
+      "exact": ["telepathy", "telepathic", "mind reading"],
+      "synonyms": ["mental communication", "thought reading", "psychic connection"],
+      "phrases": ["telepathic powers", "reading minds", "mental communication", "telepathic bond"],
+      "avoid": ["telephone", "telepathic octopus joke"],
+      "confidence_boost": 0.2,
+      "notes": "Superpower: telepathy"
+    },
+    "psychic-powers": {
+      "exact": ["psychic powers", "psychic abilities", "psychic"],
+      "synonyms": ["mental powers", "ESP", "extrasensory perception"],
+      "phrases": ["has psychic abilities", "psychic visions", "mental powers"],
+      "avoid": ["psychic hotline", "psychic reading service"],
+      "confidence_boost": 0.1,
+      "notes": "Supernatural element: psychic powers"
+    },
+    "elemental-magic": {
+      "exact": ["elemental magic", "control elements", "elemental powers"],
+      "synonyms": ["fire magic", "water magic", "earth magic", "air magic"],
+      "phrases": ["controls the elements", "elemental mage", "fire and ice powers"],
+      "avoid": ["elementary school", "elemental diet"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy element: elemental magic"
+    },
+    "fire-magic": {
+      "exact": ["fire magic", "pyrokinesis", "fire powers"],
+      "synonyms": ["flame magic", "fire control", "pyromancy"],
+      "phrases": ["controls fire", "fire mage", "conjures flames", "fire manipulation"],
+      "avoid": ["fire drill", "fire sale", "campfire"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: fire magic"
+    },
+    "ice-magic": {
+      "exact": ["ice magic", "cryokinesis", "ice powers"],
+      "synonyms": ["frost magic", "ice control", "cryomancy"],
+      "phrases": ["controls ice", "ice mage", "freezing powers", "frost abilities"],
+      "avoid": ["ice cream", "ice skating", "ice breaker"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: ice magic"
+    },
+    "dark-magic": {
+      "exact": ["dark magic", "forbidden magic", "black magic"],
+      "synonyms": ["evil sorcery", "dark arts", "shadow magic"],
+      "phrases": ["practices dark magic", "forbidden spells", "dark sorcery"],
+      "avoid": ["dark chocolate", "dark mode", "dark room"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy element: dark magic"
+    },
+    "light-magic": {
+      "exact": ["light magic", "holy magic", "white magic"],
+      "synonyms": ["healing magic", "divine magic", "holy powers"],
+      "phrases": ["light magic heals", "holy spells", "divine powers"],
+      "avoid": ["light switch", "light bulb", "traffic light"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy element: light/holy magic"
+    },
+    "healing-powers": {
+      "exact": ["healing powers", "healer", "healing magic"],
+      "synonyms": ["regeneration", "healing abilities", "curative powers"],
+      "phrases": ["has healing powers", "healer character", "can heal wounds", "healing magic"],
+      "avoid": ["healing process", "emotional healing", "healing crystals"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy/superhero element: healing powers"
+    },
+    "immortal": {
+      "exact": ["immortal", "immortality", "lives forever"],
+      "synonyms": ["eternal", "undying", "ageless"],
+      "phrases": ["immortal character", "cannot die", "lives for centuries", "eternal life"],
+      "avoid": ["immortal jellyfish", "immortalized in statue"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy trope: immortal character"
+    },
+    "immortal-romance": {
+      "exact": ["immortal romance", "eternal love", "ageless love"],
+      "synonyms": ["timeless romance", "centuries of love"],
+      "phrases": ["immortal falls in love", "love across centuries", "eternal romance"],
+      "avoid": ["immortal jellyfish", "immortal legacy"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: romance with immortal"
+    },
+    "reincarnation": {
+      "exact": ["reincarnation", "reborn", "past lives"],
+      "synonyms": ["rebirth", "past life", "soul rebirth"],
+      "phrases": ["reincarnated soul", "memories of past lives", "reborn into new life"],
+      "avoid": ["reincarnation belief", "religious reincarnation"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy element: reincarnation"
+    },
+    "soul-mates-reincarnation": {
+      "exact": ["soulmates across lifetimes", "reincarnated lovers", "love through lifetimes"],
+      "synonyms": ["eternal soulmates", "lovers reborn"],
+      "phrases": ["find each other in every life", "soulmates reincarnated", "love transcends death"],
+      "avoid": ["soulmate app", "soul food"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: soulmates reincarnated"
+    },
+    "parallel-worlds": {
+      "exact": ["parallel worlds", "alternate worlds", "multiple worlds"],
+      "synonyms": ["other dimensions", "alternate realities", "multiverse"],
+      "phrases": ["travels between worlds", "parallel dimension", "alternate world"],
+      "avoid": ["parallel parking", "parallel lines"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi/fantasy: parallel worlds"
+    },
+    "dimension-hopping": {
+      "exact": ["dimension hopping", "world hopping", "dimension travel"],
+      "synonyms": ["jumping between worlds", "crossing dimensions"],
+      "phrases": ["travels between dimensions", "hops to other worlds", "dimensional travel"],
+      "avoid": ["hopping mad", "hip hop"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi/fantasy: dimension travel"
+    },
+    "virtual-reality": {
+      "exact": ["virtual reality", "VR world", "simulated reality"],
+      "synonyms": ["VR", "simulation", "digital world", "cyberspace"],
+      "phrases": ["trapped in VR", "virtual reality game", "enters simulation"],
+      "avoid": ["VR headset", "VR company", "VR technology"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi element: virtual reality"
+    },
+    "trapped-in-game": {
+      "exact": ["trapped in game", "stuck in VR", "can't log out"],
+      "synonyms": ["imprisoned in simulation", "stuck in virtual world"],
+      "phrases": ["trapped in video game", "cannot leave game", "stuck in virtual reality"],
+      "avoid": ["video game addiction", "playing games"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi plot: trapped in game/VR"
+    },
+    "isekai": {
+      "exact": ["isekai", "transported to another world", "summoned to another world"],
+      "synonyms": ["portal fantasy", "world transfer"],
+      "phrases": ["transported to fantasy world", "summoned to new world", "reborn in another world"],
+      "avoid": ["is okay", "is okay with"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy subgenre: isekai (transported to another world)"
+    },
+    "dungeon-crawl": {
+      "exact": ["dungeon crawl", "dungeon exploration", "dungeon delving"],
+      "synonyms": ["exploring dungeons", "dungeon adventure"],
+      "phrases": ["exploring the dungeon", "dungeon levels", "fighting through dungeon"],
+      "avoid": ["dungeon master", "dungeons and dragons book"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy trope: dungeon crawling"
+    },
+    "litrpg": {
+      "exact": ["LitRPG", "lit RPG", "game mechanics"],
+      "synonyms": ["RPG elements", "leveling system", "stats and skills"],
+      "phrases": ["character levels up", "gaining experience points", "RPG-style progression", "stat increases"],
+      "avoid": ["role playing game", "tabletop RPG"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy subgenre: LitRPG with game mechanics"
+    },
+    "progression-fantasy": {
+      "exact": ["progression fantasy", "power progression", "cultivation"],
+      "synonyms": ["power leveling", "growing stronger", "cultivation novel"],
+      "phrases": ["character grows stronger", "progression of power", "leveling up abilities"],
+      "avoid": ["progression rock", "disease progression"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy subgenre: progression/cultivation"
+    },
+    "academy-setting": {
+      "exact": ["academy", "magic academy", "training academy"],
+      "synonyms": ["school for heroes", "magical school", "hero academy"],
+      "phrases": ["academy training", "school for gifted", "magical academy setting"],
+      "avoid": ["academy awards", "police academy movie"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: academy or training school"
+    },
+    "tournament-arc": {
+      "exact": ["tournament arc", "fighting tournament", "competition arc"],
+      "synonyms": ["battle tournament", "contest arc", "championship"],
+      "phrases": ["enters tournament", "fighting in competition", "tournament battles"],
+      "avoid": ["golf tournament", "tennis tournament"],
+      "confidence_boost": 0.2,
+      "notes": "Plot structure: tournament arc"
+    },
+    "underdog": {
+      "exact": ["underdog", "unlikely hero", "unexpected champion"],
+      "synonyms": ["dark horse", "unexpected winner", "outmatched hero"],
+      "phrases": ["underdog story", "against all odds", "unexpected hero rises"],
+      "avoid": ["underdog team", "hot dog"],
+      "confidence_boost": 0.1,
+      "notes": "Character trope: underdog hero"
+    },
+    "training-montage": {
+      "exact": ["training montage", "training arc", "intensive training"],
+      "synonyms": ["training sequence", "getting stronger", "power training"],
+      "phrases": ["trains to become stronger", "intensive training sequence", "training under master"],
+      "avoid": ["training manual", "employee training"],
+      "confidence_boost": 0.2,
+      "notes": "Plot element: training montage/arc"
+    },
+    "revenge-quest": {
+      "exact": ["revenge quest", "quest for vengeance", "seeking revenge"],
+      "synonyms": ["vengeance journey", "revenge mission"],
+      "phrases": ["out for revenge", "revenge-driven quest", "seeking vengeance"],
+      "avoid": ["revenge fantasy game", "revenge movie"],
+      "confidence_boost": 0.1,
+      "notes": "Plot driver: revenge quest"
+    },
+    "treasure-hunt": {
+      "exact": ["treasure hunt", "searching for treasure", "quest for artifact"],
+      "synonyms": ["treasure hunting", "artifact quest", "relic hunt"],
+      "phrases": ["hunting for treasure", "searching for lost artifact", "treasure expedition"],
+      "avoid": ["treasure hunt game", "scavenger hunt"],
+      "confidence_boost": 0.1,
+      "notes": "Plot type: treasure hunt"
+    },
+    "road-trip": {
+      "exact": ["road trip", "journey story", "traveling together"],
+      "synonyms": ["cross-country journey", "traveling adventure"],
+      "phrases": ["road trip adventure", "journey across country", "traveling companions"],
+      "avoid": ["road trip snacks", "planning road trip"],
+      "confidence_boost": 0.1,
+      "notes": "Plot structure: road trip"
+    },
+    "fish-out-of-water": {
+      "exact": ["fish out of water", "out of place", "unfamiliar world"],
+      "synonyms": ["stranger in strange land", "culture shock"],
+      "phrases": ["doesn't fit in", "unfamiliar with customs", "adjusting to new world"],
+      "avoid": ["actual fish", "fishing"],
+      "confidence_boost": 0.2,
+      "notes": "Plot trope: fish out of water"
+    },
+    "rags-to-riches": {
+      "exact": ["rags to riches", "poor to rich", "rise from poverty"],
+      "synonyms": ["poverty to wealth", "from nothing to everything"],
+      "phrases": ["rises from poverty", "becomes wealthy", "poor person becomes rich"],
+      "avoid": ["rags to riches game", "get rich quick"],
+      "confidence_boost": 0.2,
+      "notes": "Plot arc: rags to riches"
+    },
+    "riches-to-rags": {
+      "exact": ["riches to rags", "fall from grace", "loses everything"],
+      "synonyms": ["downfall", "losing wealth", "fall from privilege"],
+      "phrases": ["loses fortune", "falls from wealth", "loses everything"],
+      "avoid": ["investment losses", "bankruptcy lawyer"],
+      "confidence_boost": 0.2,
+      "notes": "Plot arc: riches to rags"
+    },
+    "mistaken-identity": {
+      "exact": ["mistaken identity", "case of mistaken identity", "wrong person"],
+      "synonyms": ["identity confusion", "mistaken for someone else"],
+      "phrases": ["mistaken for another", "confused identity", "wrong person identified"],
+      "avoid": ["identity theft", "stolen identity"],
+      "confidence_boost": 0.2,
+      "notes": "Plot device: mistaken identity"
+    },
+    "secret-identity": {
+      "exact": ["secret identity", "double life", "hidden identity"],
+      "synonyms": ["dual identity", "living double life", "alter ego"],
+      "phrases": ["hiding true identity", "secret alter ego", "double life"],
+      "avoid": ["identity document", "identity verification"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: secret identity"
+    },
+    "bodyguard-romance": {
+      "exact": ["bodyguard romance", "bodyguard love story", "protector romance"],
+      "synonyms": ["protector falls in love", "guardian romance"],
+      "phrases": ["bodyguard falls for client", "protected by bodyguard", "guardian love story"],
+      "avoid": ["bodyguard service", "hiring bodyguard"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: bodyguard romance"
+    },
+    "forbidden-relationship": {
+      "exact": ["forbidden relationship", "taboo relationship", "can't be together"],
+      "synonyms": ["prohibited love", "forbidden affair", "taboo romance"],
+      "phrases": ["relationship forbidden", "not allowed to be together", "taboo connection"],
+      "avoid": ["forbidden fruit", "forbidden zone"],
+      "confidence_boost": 0.1,
+      "notes": "Romance element: forbidden relationship"
+    },
+    "secret-relationship": {
+      "exact": ["secret relationship", "hidden romance", "secret affair"],
+      "synonyms": ["clandestine romance", "hidden love", "secret love"],
+      "phrases": ["keeping relationship secret", "hidden affair", "love in secret"],
+      "avoid": ["secret santa", "secret recipe"],
+      "confidence_boost": 0.1,
+      "notes": "Romance element: secret relationship"
+    },
+    "reunion-romance": {
+      "exact": ["reunion romance", "second chance love", "reunited lovers"],
+      "synonyms": ["childhood sweethearts reunite", "lovers reunited"],
+      "phrases": ["meet again after years", "reunited with first love", "finding each other again"],
+      "avoid": ["family reunion", "class reunion"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: reunion romance"
+    },
+    "marriage-in-trouble": {
+      "exact": ["marriage in trouble", "failing marriage", "marital problems"],
+      "synonyms": ["struggling marriage", "marriage crisis", "relationship problems"],
+      "phrases": ["marriage falling apart", "trying to save marriage", "marital difficulties"],
+      "avoid": ["marriage counselor", "marriage certificate"],
+      "confidence_boost": 0.1,
+      "notes": "Romance conflict: troubled marriage"
+    },
+    "marriage-of-convenience": {
+      "exact": ["marriage of convenience", "business marriage", "practical marriage"],
+      "synonyms": ["arranged marriage", "contractual marriage", "marriage arrangement"],
+      "phrases": ["married for convenience", "business arrangement marriage", "marriage in name only"],
+      "avoid": ["convenient marriage date", "marriage license"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: marriage of convenience"
+    },
+    "pretend-dating": {
+      "exact": ["pretend dating", "fake dating", "pretend couple"],
+      "synonyms": ["fake relationship", "pretending to date", "acting as couple"],
+      "phrases": ["pretend to be dating", "fake boyfriend", "fake girlfriend", "pretend relationship"],
+      "avoid": ["dating app", "dating advice"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: pretend dating"
+    },
+    "accidental-pregnancy": {
+      "exact": ["accidental pregnancy", "unexpected pregnancy", "surprise baby"],
+      "synonyms": ["unplanned pregnancy", "surprise pregnancy"],
+      "phrases": ["unexpectedly pregnant", "surprise baby", "unplanned child"],
+      "avoid": ["pregnancy test", "pregnancy advice"],
+      "confidence_boost": 0.1,
+      "notes": "Romance plot device: accidental pregnancy"
+    },
+    "secret-baby": {
+      "exact": ["secret baby", "hidden child", "secret child"],
+      "synonyms": ["unknown child", "hidden pregnancy"],
+      "phrases": ["child he doesn't know about", "secret child revealed", "didn't know about baby"],
+      "avoid": ["baby secret recipe", "baby shower secret"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: secret baby"
+    },
+    "pregnancy-romance": {
+      "exact": ["pregnancy romance", "pregnant heroine", "expecting"],
+      "synonyms": ["romance with pregnant woman", "expecting a baby"],
+      "phrases": ["pregnant protagonist", "romance while pregnant", "expecting together"],
+      "avoid": ["pregnancy guide", "pregnancy test"],
+      "confidence_boost": 0.1,
+      "notes": "Romance element: pregnancy in story"
+    },
+    "baby-makes-three": {
+      "exact": ["baby makes three", "unexpected family", "instant family"],
+      "synonyms": ["ready-made family", "becoming a family"],
+      "phrases": ["baby brings them together", "instant parenthood", "unexpected family"],
+      "avoid": ["baby products", "baby registry"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: baby creates family"
+    },
+    "widow-widower": {
+      "exact": ["widow", "widower", "lost spouse"],
+      "synonyms": ["bereaved spouse", "surviving spouse"],
+      "phrases": ["widow finds love again", "widower moves on", "lost their spouse"],
+      "avoid": ["black widow spider", "widow's peak"],
+      "confidence_boost": 0.1,
+      "notes": "Romance element: widow/widower finding love"
+    },
+    "second-chance-love": {
+      "exact": ["second chance at love", "love again", "finding love again"],
+      "synonyms": ["second chance romance", "love after loss"],
+      "phrases": ["finds love again", "second chance at happiness", "moving on to new love"],
+      "avoid": ["second chance lottery", "game second chance"],
+      "confidence_boost": 0.2,
+      "notes": "Romance theme: second chance at love"
+    },
+    "holiday-romance": {
+      "exact": ["holiday romance", "vacation romance", "summer romance"],
+      "synonyms": ["vacation fling", "holiday love", "summer love"],
+      "phrases": ["romance on vacation", "holiday fling", "summer love story"],
+      "avoid": ["holiday shopping", "holiday party", "holiday season"],
+      "confidence_boost": 0.2,
+      "notes": "Romance setting: holiday/vacation romance"
+    },
+    "christmas-romance": {
+      "exact": ["Christmas romance", "holiday love story", "Christmas love"],
+      "synonyms": ["festive romance", "holiday season romance"],
+      "phrases": ["falls in love at Christmas", "Christmas love story", "holiday romance"],
+      "avoid": ["Christmas shopping", "Christmas tree", "Christmas decorations"],
+      "confidence_boost": 0.2,
+      "notes": "Romance subgenre: Christmas romance"
+    }
+  }
+}

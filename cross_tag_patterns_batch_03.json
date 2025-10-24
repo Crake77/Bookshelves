@@ -1,0 +1,746 @@
+{
+  "batch_info": {
+    "batch_number": 3,
+    "patterns_in_batch": 100,
+    "cumulative_total": 405,
+    "focus_areas": ["plot structures", "pacing elements", "conflict types", "story arcs", "narrative devices", "thriller elements", "action sequences"]
+  },
+  "patterns": {
+    "slow-paced": {
+      "exact": ["slow paced", "slow-paced", "leisurely pace", "slow moving"],
+      "synonyms": ["contemplative", "measured pace", "unhurried", "deliberate pacing"],
+      "phrases": ["takes its time", "slowly unfolds", "deliberate storytelling", "measured narrative"],
+      "avoid": ["slow burn", "slow cooker", "slow motion"],
+      "confidence_boost": 0.1,
+      "notes": "Pacing: slow, contemplative pace"
+    },
+    "fast-paced": {
+      "exact": ["fast paced", "fast-paced", "rapid pace", "quick moving"],
+      "synonyms": ["action-packed", "breakneck pace", "rapid-fire", "high-speed narrative"],
+      "phrases": ["moves quickly", "non-stop action", "doesn't slow down", "relentless pace"],
+      "avoid": ["fast food", "fast car", "fast track"],
+      "confidence_boost": 0.1,
+      "notes": "Pacing: fast, action-packed"
+    },
+    "page-turner": {
+      "exact": ["page turner", "page-turner", "can't put down"],
+      "synonyms": ["unputdownable", "gripping", "compulsive reading"],
+      "phrases": ["couldn't stop reading", "keeps you reading", "addictive read", "impossible to put down"],
+      "avoid": ["turning pages", "page count"],
+      "confidence_boost": 0.2,
+      "notes": "Pacing quality: highly engrossing"
+    },
+    "cliffhanger": {
+      "exact": ["cliffhanger", "cliffhanger ending", "ends on cliffhanger"],
+      "synonyms": ["unresolved ending", "suspenseful ending"],
+      "phrases": ["left hanging", "ends without resolution", "suspenseful conclusion"],
+      "avoid": ["cliff climbing", "hanging from cliff"],
+      "confidence_boost": 0.2,
+      "notes": "Plot device: cliffhanger ending"
+    },
+    "twist-ending": {
+      "exact": ["twist ending", "plot twist", "surprise ending"],
+      "synonyms": ["unexpected conclusion", "shocking reveal", "surprise twist"],
+      "phrases": ["didn't see it coming", "shocking twist", "unexpected revelation", "surprise plot turn"],
+      "avoid": ["twist tie", "twist dance"],
+      "confidence_boost": 0.2,
+      "notes": "Plot device: twist ending"
+    },
+    "multiple-timelines": {
+      "exact": ["multiple timelines", "several timelines", "different time periods"],
+      "synonyms": ["interwoven timelines", "alternating time periods"],
+      "phrases": ["jumps between time periods", "different eras", "multiple time frames"],
+      "avoid": ["timeline software", "project timeline"],
+      "confidence_boost": 0.2,
+      "notes": "Narrative structure: multiple timelines"
+    },
+    "nonlinear": {
+      "exact": ["nonlinear", "non-linear", "nonlinear narrative"],
+      "synonyms": ["fragmented narrative", "non-chronological", "fractured timeline"],
+      "phrases": ["told out of order", "jumps around in time", "non-chronological storytelling"],
+      "avoid": ["linear algebra", "nonlinear equation"],
+      "confidence_boost": 0.2,
+      "notes": "Narrative structure: nonlinear storytelling"
+    },
+    "flashbacks": {
+      "exact": ["flashback", "flashbacks", "remembering the past"],
+      "synonyms": ["memory sequences", "past memories", "retrospective"],
+      "phrases": ["flashes back to", "remembers when", "past sequences", "memory reveals"],
+      "avoid": ["flash drive", "camera flash"],
+      "confidence_boost": 0.1,
+      "notes": "Narrative device: flashbacks"
+    },
+    "frame-narrative": {
+      "exact": ["frame narrative", "story within story", "framing device"],
+      "synonyms": ["nested narrative", "story-within-a-story", "frame story"],
+      "phrases": ["story is told through", "narrative frame", "outer story contains"],
+      "avoid": ["picture frame", "door frame"],
+      "confidence_boost": 0.2,
+      "notes": "Narrative structure: frame narrative"
+    },
+    "cat-and-mouse": {
+      "exact": ["cat and mouse", "cat-and-mouse", "hunter and hunted"],
+      "synonyms": ["chase and pursuit", "predator and prey"],
+      "phrases": ["chasing each other", "hunter becomes hunted", "game of cat and mouse"],
+      "avoid": ["cat food", "computer mouse"],
+      "confidence_boost": 0.2,
+      "notes": "Plot dynamic: cat and mouse chase"
+    },
+    "whodunit": {
+      "exact": ["whodunit", "who done it", "who did it"],
+      "synonyms": ["mystery puzzle", "detective mystery"],
+      "phrases": ["solving who committed", "figuring out the killer", "mystery of who"],
+      "avoid": ["who done it game"],
+      "confidence_boost": 0.2,
+      "notes": "Mystery subtype: whodunit"
+    },
+    "howdunit": {
+      "exact": ["howdunit", "how done it", "how did they"],
+      "synonyms": ["method mystery", "impossible crime"],
+      "phrases": ["figuring out how", "mystery of the method", "how was it done"],
+      "avoid": ["how-to guide"],
+      "confidence_boost": 0.2,
+      "notes": "Mystery subtype: howdunit"
+    },
+    "whydunit": {
+      "exact": ["whydunit", "why done it", "motive mystery"],
+      "synonyms": ["exploring motive", "psychological mystery"],
+      "phrases": ["understanding why", "what drove them", "motive mystery"],
+      "avoid": ["why ask why"],
+      "confidence_boost": 0.2,
+      "notes": "Mystery subtype: whydunit (motive-focused)"
+    },
+    "red-herring": {
+      "exact": ["red herring", "false clue", "misleading clue"],
+      "synonyms": ["false lead", "deceptive clue", "misdirection"],
+      "phrases": ["misleading evidence", "false trail", "deceptive clue"],
+      "avoid": ["red fish", "herring fish"],
+      "confidence_boost": 0.2,
+      "notes": "Plot device: red herring misdirection"
+    },
+    "unreliable-evidence": {
+      "exact": ["unreliable evidence", "questionable clues", "misleading information"],
+      "synonyms": ["false information", "deceptive evidence"],
+      "phrases": ["can't trust the evidence", "misleading clues", "unreliable information"],
+      "avoid": ["evidence locker", "scientific evidence"],
+      "confidence_boost": 0.1,
+      "notes": "Mystery element: unreliable evidence"
+    },
+    "locked-room": {
+      "exact": ["locked room", "sealed room", "impossible murder"],
+      "synonyms": ["impossible crime", "sealed-room mystery"],
+      "phrases": ["murder in locked room", "no way in or out", "sealed crime scene"],
+      "avoid": ["locked door", "room key", "escape room"],
+      "confidence_boost": 0.2,
+      "notes": "Mystery trope: locked room"
+    },
+    "ticking-clock": {
+      "exact": ["ticking clock", "race against time", "deadline approaching"],
+      "synonyms": ["time running out", "time pressure", "urgent deadline"],
+      "phrases": ["running out of time", "clock is ticking", "must act fast", "time limit"],
+      "avoid": ["alarm clock", "clock repair"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: ticking clock urgency"
+    },
+    "countdown": {
+      "exact": ["countdown", "counting down", "time running out"],
+      "synonyms": ["final hours", "deadline looming"],
+      "phrases": ["counting down to", "hours remaining", "time ticking away"],
+      "avoid": ["countdown timer app", "New Year countdown"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: countdown to deadline"
+    },
+    "hostage-situation": {
+      "exact": ["hostage situation", "hostages", "taken hostage"],
+      "synonyms": ["captives", "kidnapping", "held prisoner"],
+      "phrases": ["holding hostages", "taken captive", "kidnapped and held"],
+      "avoid": ["hostage negotiation training"],
+      "confidence_boost": 0.1,
+      "notes": "Thriller plot: hostage situation"
+    },
+    "rescue-mission": {
+      "exact": ["rescue mission", "rescue operation", "saving someone"],
+      "synonyms": ["extraction", "saving captives", "rescue attempt"],
+      "phrases": ["mission to rescue", "rescuing hostages", "save the prisoner"],
+      "avoid": ["rescue dog", "rescue vehicle"],
+      "confidence_boost": 0.1,
+      "notes": "Plot type: rescue mission"
+    },
+    "infiltration": {
+      "exact": ["infiltration", "infiltrating", "going undercover"],
+      "synonyms": ["penetrating enemy lines", "covert entry", "sneaking in"],
+      "phrases": ["infiltrates the organization", "going undercover", "sneaking into enemy territory"],
+      "avoid": ["water infiltration", "infiltration system"],
+      "confidence_boost": 0.1,
+      "notes": "Plot element: infiltration"
+    },
+    "double-agent": {
+      "exact": ["double agent", "double-agent", "spy for both sides"],
+      "synonyms": ["double-crosser", "playing both sides", "mole"],
+      "phrases": ["working for both sides", "double agent reveals", "secretly a spy"],
+      "avoid": ["real estate agent", "double agent game"],
+      "confidence_boost": 0.2,
+      "notes": "Character type: double agent"
+    },
+    "mole": {
+      "exact": ["mole", "traitor in ranks", "insider threat"],
+      "synonyms": ["infiltrator", "spy among them", "traitor within"],
+      "phrases": ["mole in the organization", "traitor among us", "spy in their midst"],
+      "avoid": ["mole animal", "mole on skin", "guacamole"],
+      "confidence_boost": 0.0,
+      "notes": "Thriller element: mole/traitor"
+    },
+    "frame-up": {
+      "exact": ["frame up", "framed for crime", "wrongly accused"],
+      "synonyms": ["false accusation", "set up", "wrongful accusation"],
+      "phrases": ["framed for murder", "set up to take the fall", "wrongly accused of"],
+      "avoid": ["picture frame", "frame house"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: character framed"
+    },
+    "clear-their-name": {
+      "exact": ["clear their name", "prove innocence", "exonerate"],
+      "synonyms": ["vindication", "proving innocent"],
+      "phrases": ["clearing his name", "proving she's innocent", "exonerating"],
+      "avoid": ["clear name tag", "clearing browser"],
+      "confidence_boost": 0.2,
+      "notes": "Plot goal: clearing name/proving innocence"
+    },
+    "cover-up": {
+      "exact": ["cover up", "cover-up", "hiding the truth"],
+      "synonyms": ["concealing evidence", "hiding crimes", "suppressing truth"],
+      "phrases": ["covering up the crime", "hiding evidence", "suppressing the truth"],
+      "avoid": ["cover up clothing", "makeup coverup"],
+      "confidence_boost": 0.1,
+      "notes": "Thriller element: cover-up"
+    },
+    "whistleblower": {
+      "exact": ["whistleblower", "exposing corruption", "revealing secrets"],
+      "synonyms": ["exposer", "truth-teller", "informant"],
+      "phrases": ["blowing the whistle", "exposing wrongdoing", "revealing corruption"],
+      "avoid": ["whistle sound", "train whistle"],
+      "confidence_boost": 0.2,
+      "notes": "Thriller element: whistleblower"
+    },
+    "corporate-corruption": {
+      "exact": ["corporate corruption", "corrupt corporation", "evil company"],
+      "synonyms": ["corporate crime", "business corruption", "corporate conspiracy"],
+      "phrases": ["corrupt corporation", "evil megacorp", "corporate wrongdoing"],
+      "avoid": ["corporate training", "corporate event"],
+      "confidence_boost": 0.1,
+      "notes": "Thriller theme: corporate corruption"
+    },
+    "government-conspiracy": {
+      "exact": ["government conspiracy", "corrupt government", "government cover-up"],
+      "synonyms": ["state conspiracy", "political corruption"],
+      "phrases": ["government hiding truth", "corrupt officials", "state conspiracy"],
+      "avoid": ["government services", "government website"],
+      "confidence_boost": 0.1,
+      "notes": "Thriller theme: government conspiracy"
+    },
+    "lone-survivor": {
+      "exact": ["lone survivor", "sole survivor", "only one left"],
+      "synonyms": ["last survivor", "only survivor"],
+      "phrases": ["only one who survived", "last person alive", "sole survivor"],
+      "avoid": ["survivor TV show", "cancer survivor"],
+      "confidence_boost": 0.2,
+      "notes": "Plot element: lone survivor"
+    },
+    "final-girl": {
+      "exact": ["final girl", "last girl standing", "surviving woman"],
+      "synonyms": ["last survivor", "final survivor"],
+      "phrases": ["final girl survives", "last woman standing", "only she survives"],
+      "avoid": ["final exam", "final sale"],
+      "confidence_boost": 0.2,
+      "notes": "Horror trope: final girl"
+    },
+    "everyone-dies": {
+      "exact": ["everyone dies", "no survivors", "all die"],
+      "synonyms": ["total annihilation", "no one survives"],
+      "phrases": ["none survive", "everyone perishes", "all die in the end"],
+      "avoid": ["everyone dies eventually", "mortality"],
+      "confidence_boost": 0.1,
+      "notes": "Plot outcome: everyone dies"
+    },
+    "bittersweet-ending": {
+      "exact": ["bittersweet ending", "bittersweet", "happy-sad ending"],
+      "synonyms": ["mixed ending", "sweet and sour ending"],
+      "phrases": ["victory with cost", "happy but sad", "won but lost something"],
+      "avoid": ["bittersweet chocolate", "bittersweet vegetable"],
+      "confidence_boost": 0.2,
+      "notes": "Ending type: bittersweet"
+    },
+    "happy-ending": {
+      "exact": ["happy ending", "happily ever after", "satisfying conclusion"],
+      "synonyms": ["upbeat ending", "positive conclusion", "joyful ending"],
+      "phrases": ["ends happily", "satisfying ending", "everyone gets happiness"],
+      "avoid": ["massage happy ending", "happy ending restaurant"],
+      "confidence_boost": 0.1,
+      "notes": "Ending type: happy ending"
+    },
+    "tragic-ending": {
+      "exact": ["tragic ending", "sad ending", "unhappy ending"],
+      "synonyms": ["depressing conclusion", "sorrowful ending"],
+      "phrases": ["ends tragically", "tragic conclusion", "sad ending"],
+      "avoid": ["tragic accident", "tragic news"],
+      "confidence_boost": 0.1,
+      "notes": "Ending type: tragic ending"
+    },
+    "open-ending": {
+      "exact": ["open ending", "ambiguous ending", "unresolved ending"],
+      "synonyms": ["unclear conclusion", "left open", "no resolution"],
+      "phrases": ["leaves it open", "ambiguous conclusion", "no clear ending"],
+      "avoid": ["open door", "opening ceremony"],
+      "confidence_boost": 0.2,
+      "notes": "Ending type: open/ambiguous"
+    },
+    "hopeful-ending": {
+      "exact": ["hopeful ending", "hopeful conclusion", "ends on hope"],
+      "synonyms": ["optimistic ending", "promise of better"],
+      "phrases": ["ends with hope", "hopeful note", "optimistic conclusion"],
+      "avoid": ["hopeful candidate", "feeling hopeful"],
+      "confidence_boost": 0.2,
+      "notes": "Ending tone: hopeful"
+    },
+    "pyrrhic-victory": {
+      "exact": ["pyrrhic victory", "costly victory", "won at great cost"],
+      "synonyms": ["hollow victory", "victory with sacrifice"],
+      "phrases": ["won but at what cost", "victory cost everything", "price of winning"],
+      "avoid": ["pyrrhic war", "victory lap"],
+      "confidence_boost": 0.2,
+      "notes": "Outcome: pyrrhic victory"
+    },
+    "mentor-dies": {
+      "exact": ["mentor dies", "mentor's death", "mentor killed"],
+      "synonyms": ["mentor sacrifice", "teacher dies"],
+      "phrases": ["mentor is killed", "death of mentor", "loses their teacher"],
+      "avoid": ["mentor program ends", "mentor retires"],
+      "confidence_boost": 0.1,
+      "notes": "Plot event: mentor's death"
+    },
+    "parent-dies": {
+      "exact": ["parent dies", "parent's death", "loses parent"],
+      "synonyms": ["orphaned", "death of parent"],
+      "phrases": ["parent is killed", "loses mother", "loses father", "becomes orphan"],
+      "avoid": ["parent teacher conference", "parental leave"],
+      "confidence_boost": 0.1,
+      "notes": "Plot event: parent dies"
+    },
+    "love-interest-dies": {
+      "exact": ["love interest dies", "lover dies", "romantic death"],
+      "synonyms": ["beloved dies", "death of lover"],
+      "phrases": ["loses their love", "love interest killed", "beloved dies"],
+      "avoid": ["love interest casting", "romantic subplot"],
+      "confidence_boost": 0.1,
+      "notes": "Plot event: love interest dies"
+    },
+    "heroic-sacrifice": {
+      "exact": ["heroic sacrifice", "sacrifices self", "dies saving others"],
+      "synonyms": ["self-sacrifice", "martyr", "noble death"],
+      "phrases": ["sacrifices themselves", "dies to save others", "gives their life"],
+      "avoid": ["sacrifice bunt", "sacrifice sale"],
+      "confidence_boost": 0.1,
+      "notes": "Plot event: heroic sacrifice"
+    },
+    "noble-sacrifice": {
+      "exact": ["noble sacrifice", "selfless sacrifice", "ultimate sacrifice"],
+      "synonyms": ["heroic death", "sacrificial act"],
+      "phrases": ["noble sacrifice saves", "selfless act", "ultimate sacrifice"],
+      "avoid": ["sacrifice fly", "animal sacrifice"],
+      "confidence_boost": 0.1,
+      "notes": "Character action: noble sacrifice"
+    },
+    "villain-wins": {
+      "exact": ["villain wins", "bad guys win", "antagonist succeeds"],
+      "synonyms": ["evil triumphs", "villain succeeds"],
+      "phrases": ["villain is victorious", "bad guys succeed", "evil wins"],
+      "avoid": ["villain backstory", "villain design"],
+      "confidence_boost": 0.2,
+      "notes": "Plot outcome: villain wins"
+    },
+    "villain-redemption": {
+      "exact": ["villain redemption", "villain redeemed", "bad guy turns good"],
+      "synonyms": ["antagonist redemption", "villain's redemption arc"],
+      "phrases": ["villain becomes hero", "bad guy redeems self", "antagonist switches sides"],
+      "avoid": ["villain origin", "redemption code"],
+      "confidence_boost": 0.2,
+      "notes": "Character arc: villain redemption"
+    },
+    "sympathetic-villain": {
+      "exact": ["sympathetic villain", "relatable antagonist", "understandable villain"],
+      "synonyms": ["complex villain", "villain with reasons"],
+      "phrases": ["villain you understand", "antagonist with motives", "sympathetic bad guy"],
+      "avoid": ["sympathetic character", "sympathetic nervous system"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: sympathetic villain"
+    },
+    "tragic-villain": {
+      "exact": ["tragic villain", "sympathetic antagonist", "villain with tragic past"],
+      "synonyms": ["fallen hero", "villain with sad backstory"],
+      "phrases": ["villain's tragic past", "sympathetic antagonist", "broken villain"],
+      "avoid": ["tragic accident", "tragic hero"],
+      "confidence_boost": 0.1,
+      "notes": "Villain type: tragic villain"
+    },
+    "pure-evil": {
+      "exact": ["pure evil", "completely evil", "irredeemably evil"],
+      "synonyms": ["absolute evil", "evil incarnate", "wholly evil"],
+      "phrases": ["purely evil", "no redeeming qualities", "embodiment of evil"],
+      "avoid": ["pure water", "evil corporation"],
+      "confidence_boost": 0.1,
+      "notes": "Villain type: pure evil"
+    },
+    "greater-good": {
+      "exact": ["greater good", "for the greater good", "necessary evil"],
+      "synonyms": ["utilitarian choice", "sacrifice for many"],
+      "phrases": ["for the greater good", "sacrificing few for many", "necessary sacrifice"],
+      "avoid": ["greater good insurance", "good deal"],
+      "confidence_boost": 0.1,
+      "notes": "Moral theme: greater good"
+    },
+    "moral-dilemma": {
+      "exact": ["moral dilemma", "ethical dilemma", "impossible choice"],
+      "synonyms": ["ethical crisis", "moral quandary"],
+      "phrases": ["faces moral dilemma", "impossible ethical choice", "moral crisis"],
+      "avoid": ["dilemma definition", "social dilemma"],
+      "confidence_boost": 0.1,
+      "notes": "Plot element: moral dilemma"
+    },
+    "trolley-problem": {
+      "exact": ["trolley problem", "impossible moral choice", "who to save"],
+      "synonyms": ["ethical dilemma", "sacrifice choice"],
+      "phrases": ["choosing who lives", "impossible moral decision", "trolley dilemma"],
+      "avoid": ["trolley car", "shopping trolley"],
+      "confidence_boost": 0.2,
+      "notes": "Moral dilemma: trolley problem type"
+    },
+    "ends-justify-means": {
+      "exact": ["ends justify means", "ends justify the means", "whatever it takes"],
+      "synonyms": ["pragmatic morality", "consequentialism"],
+      "phrases": ["willing to do anything", "no matter the cost", "ends justify means"],
+      "avoid": ["means testing", "by any means"],
+      "confidence_boost": 0.2,
+      "notes": "Moral philosophy: ends justify means"
+    },
+    "power-corrupts": {
+      "exact": ["power corrupts", "corrupted by power", "power corruption"],
+      "synonyms": ["absolute power corrupts", "corruption from power"],
+      "phrases": ["power corrupts them", "corrupted by authority", "drunk on power"],
+      "avoid": ["power outage", "power tools"],
+      "confidence_boost": 0.1,
+      "notes": "Theme: power corrupts"
+    },
+    "fall-from-grace": {
+      "exact": ["fall from grace", "downfall", "fallen hero"],
+      "synonyms": ["descent", "corruption arc", "tragic fall"],
+      "phrases": ["hero falls from grace", "descends into darkness", "corruption of hero"],
+      "avoid": ["falling down", "grace period"],
+      "confidence_boost": 0.2,
+      "notes": "Character arc: fall from grace"
+    },
+    "rise-to-power": {
+      "exact": ["rise to power", "ascent to power", "gaining power"],
+      "synonyms": ["power ascent", "climbing to power"],
+      "phrases": ["rises to power", "gains authority", "ascends to throne"],
+      "avoid": ["power-up", "power surge"],
+      "confidence_boost": 0.1,
+      "notes": "Character arc: rise to power"
+    },
+    "chosen-by-fate": {
+      "exact": ["chosen by fate", "destined hero", "fate chose them"],
+      "synonyms": ["destiny called", "fated hero"],
+      "phrases": ["chosen by destiny", "fate selected", "destined for greatness"],
+      "avoid": ["chosen career", "chosen path"],
+      "confidence_boost": 0.1,
+      "notes": "Character destiny: chosen by fate"
+    },
+    "fight-fate": {
+      "exact": ["fight fate", "defying destiny", "against fate"],
+      "synonyms": ["fighting destiny", "resisting fate"],
+      "phrases": ["fights against fate", "defies destiny", "refuses fate"],
+      "avoid": ["fencing fight", "fighting game"],
+      "confidence_boost": 0.2,
+      "notes": "Theme: fighting fate"
+    },
+    "self-fulfilling-prophecy": {
+      "exact": ["self-fulfilling prophecy", "prophecy fulfills itself", "caused by trying to prevent"],
+      "synonyms": ["ironic prophecy", "prophecy paradox"],
+      "phrases": ["trying to prevent it causes it", "prophecy comes true because", "self-fulfilling prediction"],
+      "avoid": ["prophecy book", "weather prophecy"],
+      "confidence_boost": 0.2,
+      "notes": "Plot device: self-fulfilling prophecy"
+    },
+    "breaking-prophecy": {
+      "exact": ["breaking prophecy", "defying prophecy", "prophecy broken"],
+      "synonyms": ["prophecy prevented", "avoided fate"],
+      "phrases": ["breaks the prophecy", "prevents prophecy", "defies prediction"],
+      "avoid": ["breaking news", "prophecy fulfilled"],
+      "confidence_boost": 0.2,
+      "notes": "Plot outcome: prophecy broken"
+    },
+    "doomed-by-prophecy": {
+      "exact": ["doomed by prophecy", "prophecy seals fate", "cursed by prophecy"],
+      "synonyms": ["prophecy curse", "doomed by fate"],
+      "phrases": ["prophecy dooms them", "fated to die", "cursed by prediction"],
+      "avoid": ["doom game", "prophecy book"],
+      "confidence_boost": 0.1,
+      "notes": "Plot element: doomed by prophecy"
+    },
+    "curse": {
+      "exact": ["curse", "cursed", "under a curse"],
+      "synonyms": ["hex", "jinx", "magical curse"],
+      "phrases": ["cursed with", "under curse", "hexed", "curse afflicts"],
+      "avoid": ["curse word", "cursing at"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy element: curse"
+    },
+    "breaking-curse": {
+      "exact": ["breaking curse", "lift the curse", "breaking the spell"],
+      "synonyms": ["curse lifted", "spell broken"],
+      "phrases": ["breaks the curse", "lifts curse", "ending the curse", "curse is broken"],
+      "avoid": ["breaking news", "curse words"],
+      "confidence_boost": 0.2,
+      "notes": "Plot goal: breaking curse"
+    },
+    "generational-curse": {
+      "exact": ["generational curse", "family curse", "curse through generations"],
+      "synonyms": ["inherited curse", "ancestral curse"],
+      "phrases": ["curse passed down", "family cursed for generations", "inherited curse"],
+      "avoid": ["family tree", "generational wealth"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: generational curse"
+    },
+    "blood-oath": {
+      "exact": ["blood oath", "blood pact", "blood bond"],
+      "synonyms": ["blood promise", "sacred vow"],
+      "phrases": ["swears blood oath", "binds with blood", "blood pact made"],
+      "avoid": ["blood test", "blood donation"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: blood oath"
+    },
+    "magical-contract": {
+      "exact": ["magical contract", "binding contract", "unbreakable vow"],
+      "synonyms": ["magical pact", "binding agreement"],
+      "phrases": ["magically binding contract", "unbreakable vow", "magical agreement"],
+      "avoid": ["contract lawyer", "employment contract"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: magical contract"
+    },
+    "deal-with-devil": {
+      "exact": ["deal with devil", "Faustian bargain", "devil's bargain"],
+      "synonyms": ["pact with demon", "selling soul"],
+      "phrases": ["makes deal with devil", "bargain with demon", "sells their soul"],
+      "avoid": ["good deal", "business deal"],
+      "confidence_boost": 0.2,
+      "notes": "Plot device: deal with devil"
+    },
+    "price-of-magic": {
+      "exact": ["price of magic", "magic has cost", "magic comes with price"],
+      "synonyms": ["cost of power", "magic's toll"],
+      "phrases": ["magic takes a toll", "cost of using magic", "price for power"],
+      "avoid": ["price tag", "magic show"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy theme: price of magic"
+    },
+    "magic-addiction": {
+      "exact": ["magic addiction", "addicted to magic", "magic dependency"],
+      "synonyms": ["power addiction", "dependent on magic"],
+      "phrases": ["addicted to power", "can't stop using magic", "magic dependency"],
+      "avoid": ["addiction treatment", "drug addiction"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: magic addiction"
+    },
+    "magic-depletion": {
+      "exact": ["magic depletion", "magic running out", "losing magic"],
+      "synonyms": ["power drain", "magic fading"],
+      "phrases": ["magic is fading", "powers depleting", "losing magical power"],
+      "avoid": ["battery depletion", "resource depletion"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: magic depletion"
+    },
+    "power-drain": {
+      "exact": ["power drain", "draining power", "losing powers"],
+      "synonyms": ["energy drain", "power depletion"],
+      "phrases": ["powers are fading", "strength draining", "losing abilities"],
+      "avoid": ["battery drain", "power cord"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy/superhero: power drain"
+    },
+    "powerless": {
+      "exact": ["powerless", "loses powers", "without powers"],
+      "synonyms": ["depowered", "abilities gone"],
+      "phrases": ["loses their powers", "stripped of abilities", "powerless hero"],
+      "avoid": ["powerless feeling", "political powerless"],
+      "confidence_boost": 0.1,
+      "notes": "Character state: powerless"
+    },
+    "gaining-powers": {
+      "exact": ["gaining powers", "develops powers", "powers emerge"],
+      "synonyms": ["power awakening", "abilities manifest"],
+      "phrases": ["gains abilities", "powers awaken", "develops superpowers", "abilities emerge"],
+      "avoid": ["power gain setting", "gaining weight"],
+      "confidence_boost": 0.1,
+      "notes": "Character development: gaining powers"
+    },
+    "power-awakening": {
+      "exact": ["power awakening", "awakening powers", "powers awaken"],
+      "synonyms": ["ability manifestation", "powers emerge"],
+      "phrases": ["powers awaken suddenly", "abilities manifest", "power awakens"],
+      "avoid": ["awakening game", "rude awakening"],
+      "confidence_boost": 0.2,
+      "notes": "Plot event: power awakening"
+    },
+    "hidden-power": {
+      "exact": ["hidden power", "secret power", "unknown abilities"],
+      "synonyms": ["dormant power", "latent abilities"],
+      "phrases": ["hidden abilities", "secret powers", "unknown potential", "latent power"],
+      "avoid": ["hidden agenda", "hidden treasure"],
+      "confidence_boost": 0.1,
+      "notes": "Character element: hidden power"
+    },
+    "untrained-power": {
+      "exact": ["untrained power", "raw power", "uncontrolled abilities"],
+      "synonyms": ["wild power", "unstable abilities"],
+      "phrases": ["untrained in their power", "raw untamed power", "uncontrolled abilities"],
+      "avoid": ["untrained employee", "power training"],
+      "confidence_boost": 0.1,
+      "notes": "Character state: untrained power"
+    },
+    "learning-to-control": {
+      "exact": ["learning to control", "mastering powers", "controlling abilities"],
+      "synonyms": ["power training", "ability mastery"],
+      "phrases": ["learning to control powers", "mastering abilities", "training to use powers"],
+      "avoid": ["self-control", "quality control"],
+      "confidence_boost": 0.1,
+      "notes": "Character arc: learning control"
+    },
+    "power-out-of-control": {
+      "exact": ["power out of control", "uncontrolled power", "abilities run wild"],
+      "synonyms": ["rampaging power", "unstable abilities"],
+      "phrases": ["powers spiraling out of control", "can't control abilities", "power goes wild"],
+      "avoid": ["out of control car", "control panel"],
+      "confidence_boost": 0.1,
+      "notes": "Plot crisis: power out of control"
+    },
+    "split-personality": {
+      "exact": ["split personality", "multiple personalities", "dissociative identity"],
+      "synonyms": ["dual personality", "two personalities", "alter ego"],
+      "phrases": ["has multiple personalities", "split personality", "two people in one"],
+      "avoid": ["personality test", "personality type"],
+      "confidence_boost": 0.2,
+      "notes": "Psychological element: split personality"
+    },
+    "jekyll-and-hyde": {
+      "exact": ["Jekyll and Hyde", "dual nature", "good side bad side"],
+      "synonyms": ["split personality", "two sides"],
+      "phrases": ["Jekyll and Hyde dynamic", "good and evil sides", "dual nature"],
+      "avoid": ["Jekyll book", "Hyde Park"],
+      "confidence_boost": 0.2,
+      "notes": "Character trope: Jekyll and Hyde duality"
+    },
+    "body-swap": {
+      "exact": ["body swap", "switch bodies", "body switching"],
+      "synonyms": ["body exchange", "swapped bodies"],
+      "phrases": ["swaps bodies with", "wakes up in another body", "body switch"],
+      "avoid": ["body shop", "swap meet"],
+      "confidence_boost": 0.2,
+      "notes": "Plot device: body swap"
+    },
+    "mind-transfer": {
+      "exact": ["mind transfer", "consciousness transfer", "brain swap"],
+      "synonyms": ["mind swap", "consciousness upload"],
+      "phrases": ["transfers consciousness", "mind uploaded", "consciousness swapped"],
+      "avoid": ["money transfer", "file transfer"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi element: mind transfer"
+    },
+    "body-horror-transformation": {
+      "exact": ["body horror", "grotesque transformation", "physical mutation"],
+      "synonyms": ["bodily horror", "flesh horror"],
+      "phrases": ["grotesque physical changes", "horrific transformation", "body mutates"],
+      "avoid": ["body image", "body building"],
+      "confidence_boost": 0.0,
+      "notes": "Horror element: body horror transformation"
+    },
+    "transformation": {
+      "exact": ["transformation", "transforms", "metamorphosis"],
+      "synonyms": ["change", "metamorphosis", "shapeshifting"],
+      "phrases": ["transforms into", "undergoes transformation", "changes form"],
+      "avoid": ["transformer toy", "transformation project"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy element: transformation"
+    },
+    "shapeshifting": {
+      "exact": ["shapeshifting", "shape-shifting", "changes shape"],
+      "synonyms": ["transformation", "morphing", "changing form"],
+      "phrases": ["shifts shape", "transforms appearance", "changes form at will"],
+      "avoid": ["shape sorting", "shifting gears"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy ability: shapeshifting"
+    },
+    "beast-form": {
+      "exact": ["beast form", "animal form", "transforms into beast"],
+      "synonyms": ["creature form", "monstrous form"],
+      "phrases": ["takes beast form", "transforms into animal", "beast transformation"],
+      "avoid": ["beauty and the beast", "beast mode workout"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: beast form"
+    },
+    "hulking-out": {
+      "exact": ["hulking out", "rage transformation", "anger transformation"],
+      "synonyms": ["rage form", "berserker rage"],
+      "phrases": ["transforms when angry", "rage triggers transformation", "loses control in anger"],
+      "avoid": ["hulk comic", "hulking figure"],
+      "confidence_boost": 0.2,
+      "notes": "Superhero trope: rage transformation"
+    },
+    "berserker": {
+      "exact": ["berserker", "berserker rage", "battle rage"],
+      "synonyms": ["warrior rage", "battle frenzy"],
+      "phrases": ["goes berserk", "berserker fury", "uncontrolled battle rage"],
+      "avoid": ["berserker class game", "berserk anime"],
+      "confidence_boost": 0.2,
+      "notes": "Character state: berserker rage"
+    },
+    "blood-magic": {
+      "exact": ["blood magic", "blood sorcery", "hemomancy"],
+      "synonyms": ["blood power", "crimson magic"],
+      "phrases": ["uses blood for magic", "blood sorcery", "magic powered by blood"],
+      "avoid": ["blood test", "blood donation"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: blood magic"
+    },
+    "soul-magic": {
+      "exact": ["soul magic", "soul sorcery", "spirit magic"],
+      "synonyms": ["soul power", "spiritual magic"],
+      "phrases": ["magic of the soul", "soul-based magic", "power from souls"],
+      "avoid": ["soul music", "soul food"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: soul magic"
+    },
+    "death-magic": {
+      "exact": ["death magic", "necromancy", "death sorcery"],
+      "synonyms": ["dark magic", "death spells"],
+      "phrases": ["magic of death", "death-based powers", "death sorcery"],
+      "avoid": ["death metal", "death certificate"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy element: death magic"
+    },
+    "life-magic": {
+      "exact": ["life magic", "vitality magic", "healing sorcery"],
+      "synonyms": ["life force magic", "healing power"],
+      "phrases": ["magic of life", "life-giving power", "vitality sorcery"],
+      "avoid": ["life insurance", "life coach"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy element: life magic"
+    },
+    "balance": {
+      "exact": ["balance", "equilibrium", "balance of power"],
+      "synonyms": ["harmony", "equilibrium between forces"],
+      "phrases": ["maintaining balance", "balance between light and dark", "equilibrium of forces"],
+      "avoid": ["balance sheet", "bank balance", "balance beam"],
+      "confidence_boost": 0.0,
+      "notes": "Fantasy theme: balance"
+    }
+  }
+}

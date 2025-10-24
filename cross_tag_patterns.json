@@ -1,0 +1,992 @@
+{
+  "version": "1.0",
+  "generated_date": "2025-10-24",
+  "total_tags": 205,
+  "coverage_notes": "Comprehensive coverage of top 205 most common fiction/romance/fantasy/thriller/sci-fi tags across 7 categories",
+  "patterns": {
+    "second-chances": {
+      "exact": ["second chance", "second chances", "another chance", "one more chance"],
+      "synonyms": ["redemption", "fresh start", "new beginning", "do-over", "start over", "second opportunity", "new lease on life"],
+      "phrases": ["getting another shot", "trying to start over", "making amends", "opportunity to try again", "chance to redo", "rebuilding after"],
+      "avoid": ["no second chance", "never gave a second chance", "missed their chance", "one shot in life"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: characters get another opportunity at love or life"
+    },
+    "enemies-to-lovers": {
+      "exact": ["enemies to lovers", "enemies-to-lovers", "enemy to lover", "from enemies to lovers"],
+      "synonyms": ["hate-to-love", "adversaries to lovers", "rivals turned lovers", "foes become lovers"],
+      "phrases": ["started out hating each other", "enemies who fall in love", "fighting turned into attraction", "from hatred to love", "rivals who spark"],
+      "avoid": ["lovers to enemies", "friendships-turned", "enemy lines", "sworn enemies remain"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: initial hostility turning into love"
+    },
+    "friends-to-lovers": {
+      "exact": ["friends to lovers", "friends-to-lovers", "friend to lover", "best friends to lovers"],
+      "synonyms": ["friends becoming lovers", "best friends fall in love", "platonic to romantic"],
+      "phrases": ["best friends who fall in love", "close friendship turned romance", "more than friends", "crossed the friendship line"],
+      "avoid": ["just friends", "only friends", "went separate ways", "stayed friends"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: friendship developing into romance"
+    },
+    "forbidden-love": {
+      "exact": ["forbidden love", "taboo love", "forbidden romance", "forbidden relationship"],
+      "synonyms": ["taboo romance", "star-crossed", "impossible love", "illicit affair"],
+      "phrases": ["lovers not allowed", "keeping their love a secret", "romance against the rules", "can't be together", "society won't accept"],
+      "avoid": ["forbidden fruit", "forbidden forest", "forbidden zone"],
+      "confidence_boost": 0.1,
+      "notes": "Romance trope: love that defies rules or norms"
+    },
+    "love-triangle": {
+      "exact": ["love triangle", "triangle romance", "romantic triangle"],
+      "synonyms": ["three-way romance", "multiple suitors", "competing lovers", "torn between two"],
+      "phrases": ["caught between two lovers", "two people fighting for one person's love", "choosing between them", "can't decide who to love"],
+      "avoid": ["love affair", "affair triangle", "triangular geometry"],
+      "confidence_boost": 0.1,
+      "notes": "Romance trope: three people in a romantic conflict"
+    },
+    "slow-burn": {
+      "exact": ["slow burn", "slow-burn romance", "slowly falling"],
+      "synonyms": ["gradual romance", "slow-building love", "gradual attraction", "takes time"],
+      "phrases": ["growing closer over time", "sparks kindle slowly", "building chemistry gradually", "takes their time", "slowly develops feelings"],
+      "avoid": ["fast-paced", "instant love", "sudden passion", "love at first sight"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: relationship develops gradually"
+    },
+    "workplace-romance": {
+      "exact": ["workplace romance", "office romance", "office relationship", "work romance"],
+      "synonyms": ["colleague romance", "office love story", "coworker romance"],
+      "phrases": ["co-workers fall in love", "romance in the office", "forbidden office affair", "dating a coworker"],
+      "avoid": ["work environment", "job training", "office space", "workplace harassment"],
+      "confidence_boost": 0.1,
+      "notes": "Romance trope: romance between coworkers"
+    },
+    "age-gap-romance": {
+      "exact": ["age gap", "age-gap romance", "May-December romance", "age difference"],
+      "synonyms": ["large age difference", "significant age difference", "generational gap romance", "older partner"],
+      "phrases": ["much older partner", "age difference between lovers", "years apart", "older man younger woman"],
+      "avoid": ["teenage romance", "age appropriate", "same age"],
+      "confidence_boost": 0.1,
+      "notes": "Romance trope: lovers with significant age difference"
+    },
+    "opposites-attract": {
+      "exact": ["opposites attract", "opposites attract romance", "polar opposites"],
+      "synonyms": ["polar opposites", "different personalities", "night and day", "complete opposites"],
+      "phrases": ["very different people fall in love", "complete opposites finding common ground", "nothing in common", "totally different worlds"],
+      "avoid": ["similar personalities", "mirror each other", "exactly alike"],
+      "confidence_boost": 0.1,
+      "notes": "Romance trope: individuals with contrasting traits fall in love"
+    },
+    "fake-relationship": {
+      "exact": ["fake relationship", "fake dating", "pretend relationship", "fake marriage"],
+      "synonyms": ["marriage of convenience", "arranged marriage", "contract marriage", "pretend couple"],
+      "phrases": ["pretending to date", "fake it til you make it", "marriage in name only", "faking a relationship"],
+      "avoid": ["real relationship", "genuine love", "actual marriage"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: pretend relationship becomes real"
+    },
+    "forced-proximity": {
+      "exact": ["forced proximity", "stuck together", "forced to work together"],
+      "synonyms": ["trapped together", "snowbound", "stranded together", "forced cohabitation"],
+      "phrases": ["stuck in close quarters", "forced to spend time together", "can't escape each other", "snowed in together"],
+      "avoid": ["choose to stay apart", "voluntary distance", "avoiding each other"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: forced to be together leads to romance"
+    },
+    "childhood-friends": {
+      "exact": ["childhood friends", "childhood sweethearts", "childhood friend romance"],
+      "synonyms": ["knew each other as kids", "grew up together", "friends since childhood"],
+      "phrases": ["knew each other when they were young", "reunited after years apart", "childhood connection", "friends since they were kids"],
+      "avoid": ["met as adults", "strangers", "never knew each other"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: childhood connection leads to adult romance"
+    },
+    "grumpy-sunshine": {
+      "exact": ["grumpy sunshine", "grumpy-sunshine", "grump and sunshine"],
+      "synonyms": ["opposites attract", "brooding hero meets cheerful heroine", "sunshine melts grump"],
+      "phrases": ["grumpy character softened by cheerful partner", "brooding meets bubbly", "sunshine personality brightens grump"],
+      "avoid": ["both grumpy", "both cheerful", "similar temperaments"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: grumpy character paired with sunny optimist"
+    },
+    "brother-best-friend": {
+      "exact": ["brother's best friend", "brother best friend", "best friend's brother"],
+      "synonyms": ["off-limits romance", "forbidden by family", "brother's friend romance"],
+      "phrases": ["falling for brother's best friend", "off-limits because of sibling", "forbidden by brother"],
+      "avoid": ["actual brother", "sibling romance", "incest"],
+      "confidence_boost": 0.1,
+      "notes": "Romance trope: romance with sibling's best friend"
+    },
+    "single-parent": {
+      "exact": ["single parent", "single mom", "single dad", "single father", "single mother"],
+      "synonyms": ["widowed parent", "divorced parent", "raising kids alone"],
+      "phrases": ["parent raising children alone", "dating with kids", "falling for someone with children"],
+      "avoid": ["married parent", "two parents", "childless"],
+      "confidence_boost": 0.1,
+      "notes": "Romance element: character is a single parent"
+    },
+    "family-drama": {
+      "exact": ["family drama", "family conflict", "family feud", "family tensions"],
+      "synonyms": ["family tension", "domestic conflict", "family estrangement", "family secrets"],
+      "phrases": ["familial struggles", "family secrets revealed", "clashing family expectations", "torn apart by family"],
+      "avoid": ["drama class", "Drama club", "dramatic flair", "happy family"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: intense family conflicts or secrets"
+    },
+    "coming-of-age": {
+      "exact": ["coming of age", "coming-of-age story", "growing up"],
+      "synonyms": ["growing up", "maturation", "rites of passage", "transition to adulthood"],
+      "phrases": ["transition to adulthood", "journey from youth to maturity", "finding themselves", "discovering who they are"],
+      "avoid": ["teenage drama", "age of consent", "class coming", "mature adult"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: protagonist's growth from youth to adulthood"
+    },
+    "identity": {
+      "exact": ["identity", "search for identity", "self-discovery", "finding oneself"],
+      "synonyms": ["finding oneself", "self-identity", "identity crisis", "who am I"],
+      "phrases": ["struggling with who they are", "search for purpose", "discovering true self", "question of identity"],
+      "avoid": ["identity theft", "false identity", "identity parade", "proven identity"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: exploration of self or identity"
+    },
+    "grief": {
+      "exact": ["grief", "mourning", "bereavement", "grieving"],
+      "synonyms": ["loss of loved one", "sorrow after death", "grieving process", "dealing with loss"],
+      "phrases": ["coping with loss", "coming to terms with death", "emotional healing after loss", "mourning a death"],
+      "avoid": ["joy", "party after funeral", "celebration", "happiness"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: dealing with loss and mourning"
+    },
+    "redemption": {
+      "exact": ["redemption", "seeking redemption", "the redemption arc", "redeeming"],
+      "synonyms": ["atonement", "forgiveness", "making amends", "seeking forgiveness"],
+      "phrases": ["seeking forgiveness", "redeeming himself", "redeeming herself", "atoning for past"],
+      "avoid": ["redemption coupon", "free redemption code", "unredeemable"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: atoning for past wrongs"
+    },
+    "betrayal": {
+      "exact": ["betrayal", "betrayed", "act of betrayal"],
+      "synonyms": ["backstab", "double-cross", "treachery", "deception"],
+      "phrases": ["betrayed by", "act of betrayal", "stabbed in the back", "trust betrayed"],
+      "avoid": ["betrayal of nothing", "feels betrayed by weather"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: character betrayed by someone trusted"
+    },
+    "revenge": {
+      "exact": ["revenge", "vengeance", "seeking revenge", "out for revenge"],
+      "synonyms": ["vengeance", "retribution", "payback", "getting even"],
+      "phrases": ["seeking revenge", "out for vengeance", "plotting revenge", "avenging"],
+      "avoid": ["revenge fantasy", "no revenge", "forgiveness instead"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: character seeks revenge"
+    },
+    "sacrifice": {
+      "exact": ["sacrifice", "self-sacrifice", "sacrificing", "ultimate sacrifice"],
+      "synonyms": ["selflessness", "giving up everything", "martyrdom"],
+      "phrases": ["sacrifices everything", "ultimate sacrifice", "gives up", "sacrificing for others"],
+      "avoid": ["no sacrifice", "sacrifice fly", "animal sacrifice"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: character makes significant sacrifice"
+    },
+    "loyalty": {
+      "exact": ["loyalty", "loyal", "unwavering loyalty"],
+      "synonyms": ["faithfulness", "devotion", "allegiance", "fidelity"],
+      "phrases": ["unwavering loyalty", "loyal to the end", "stands by", "remains faithful"],
+      "avoid": ["disloyalty", "betrayal", "disloyal"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: strong loyalty between characters"
+    },
+    "survival": {
+      "exact": ["survival", "fight for survival", "surviving"],
+      "synonyms": ["staying alive", "fight to survive", "will to live"],
+      "phrases": ["fighting to survive", "survival instinct", "must survive", "staying alive"],
+      "avoid": ["survival guide", "survival kit", "survival show"],
+      "confidence_boost": 0.1,
+      "notes": "Common theme: characters fighting to survive"
+    },
+    "class-differences": {
+      "exact": ["class differences", "class divide", "social class", "different social standing"],
+      "synonyms": ["wealth gap", "rich and poor", "different worlds", "wrong side of tracks"],
+      "phrases": ["from different backgrounds", "social barriers", "economic disparity", "class warfare"],
+      "avoid": ["cooking class", "class schedule", "class reunion", "classroom"],
+      "confidence_boost": 0.1,
+      "notes": "Romance/drama theme: lovers from different social classes"
+    },
+    "small-town": {
+      "exact": ["small town", "small-town setting", "small-town life"],
+      "synonyms": ["rural community", "close-knit town", "tight-knit community", "village"],
+      "phrases": ["a picturesque small town", "quiet rural life", "everyone knows each other", "small-town charm"],
+      "avoid": ["big city", "metropolis", "urban"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: stories set in small towns or villages"
+    },
+    "big-city": {
+      "exact": ["big city", "large city", "urban metropolis", "city life"],
+      "synonyms": ["urban jungle", "metropolitan life", "city setting", "metropolis"],
+      "phrases": ["thriving city life", "neon-lit city streets", "crowded urban environment", "fast-paced city"],
+      "avoid": ["small town", "suburban quiet", "rural"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: stories set in major urban centers"
+    },
+    "rural": {
+      "exact": ["rural setting", "countryside", "farmland", "rural life"],
+      "synonyms": ["country life", "rustic setting", "pastoral environment", "farm country"],
+      "phrases": ["wide open spaces", "fields and farms", "country roads", "rural landscape"],
+      "avoid": ["urban area", "inner city", "metropolitan"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: stories set in countryside or rural areas"
+    },
+    "ranch": {
+      "exact": ["ranch", "cattle ranch", "ranch life", "ranch setting"],
+      "synonyms": ["farm", "homestead", "western ranch"],
+      "phrases": ["working on a ranch", "ranch in Texas", "ranch life", "cowboy ranch"],
+      "avoid": ["ranch dressing", "dude ranch vacation"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: ranch or farm setting"
+    },
+    "coastal": {
+      "exact": ["coastal", "beach town", "seaside", "oceanfront"],
+      "synonyms": ["by the sea", "shore", "waterfront", "beachside"],
+      "phrases": ["coastal village", "beach setting", "by the ocean", "seaside town"],
+      "avoid": ["coastal route", "coastal road"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: coastal or beach locations"
+    },
+    "school": {
+      "exact": ["school", "high school", "college", "university"],
+      "synonyms": ["university", "campus", "academy", "boarding school"],
+      "phrases": ["school setting", "classroom drama", "college campus life", "high school years"],
+      "avoid": ["school of fish", "fashion school", "school supply"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: stories set in academic institutions"
+    },
+    "hospital": {
+      "exact": ["hospital", "hospital setting", "medical center"],
+      "synonyms": ["medical facility", "clinic", "emergency room"],
+      "phrases": ["working at a hospital", "hospital drama", "medical setting"],
+      "avoid": ["hospitality", "hospital visit"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: hospital or medical environment"
+    },
+    "military": {
+      "exact": ["military", "military life", "army base", "military setting"],
+      "synonyms": ["armed forces", "serving soldiers", "military academy", "military base"],
+      "phrases": ["boots on the ground", "military mission", "life in the barracks", "deployed overseas"],
+      "avoid": ["military discount", "military time", "military-style"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: stories involving military environments or characters"
+    },
+    "prison": {
+      "exact": ["prison", "jail", "incarcerated", "behind bars"],
+      "synonyms": ["correctional facility", "penitentiary", "lockup"],
+      "phrases": ["locked up", "prison life", "behind bars", "serving time"],
+      "avoid": ["prison break game", "emotional prison"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: prison or incarceration"
+    },
+    "violence": {
+      "exact": ["violence", "violent content", "violent scenes", "graphic violence"],
+      "synonyms": ["physical harm", "brutality", "aggression", "bloodshed"],
+      "phrases": ["graphic violence", "acts of violence", "brutal attack", "violent confrontation"],
+      "avoid": ["domestic violence advocates", "nonviolent philosophy", "against violence"],
+      "confidence_boost": 0.1,
+      "notes": "Content warning: portrayal of violence"
+    },
+    "sexual-content": {
+      "exact": ["sexual content", "explicit sex", "graphic sex", "sexual scenes"],
+      "synonyms": ["erotic scenes", "adult content", "sexual scenes", "explicit content"],
+      "phrases": ["steamy romance", "explicit sexual scenes", "nsfw content", "mature content"],
+      "avoid": ["sexual healing", "no nudity", "fade to black"],
+      "confidence_boost": 0.1,
+      "notes": "Content warning: explicit sexual material"
+    },
+    "abuse": {
+      "exact": ["abuse", "abusive", "maltreatment", "abusive relationship"],
+      "synonyms": ["mistreatment", "exploitation", "domestic abuse", "emotional abuse"],
+      "phrases": ["suffering abuse", "abusive relationship", "victim of abuse", "cycle of abuse"],
+      "avoid": ["drug abuse", "child abuse case", "substance abuse"],
+      "confidence_boost": 0.1,
+      "notes": "Content warning: emotional or physical abuse"
+    },
+    "mental-health": {
+      "exact": ["mental health", "mental illness", "psychological issues", "mental disorder"],
+      "synonyms": ["psychological struggle", "nervous breakdown", "inner demons", "mental wellness"],
+      "phrases": ["dealing with depression", "anxiety disorder", "hidden psychological trauma", "struggles with mental health"],
+      "avoid": ["health of mind", "mentally fit", "mental health advocate"],
+      "confidence_boost": 0.1,
+      "notes": "Content warning: depiction of mental health issues"
+    },
+    "suicide": {
+      "exact": ["suicide", "attempted suicide", "suicidal thoughts", "takes own life"],
+      "synonyms": ["ending one's life", "taking one's own life", "self-destruction"],
+      "phrases": ["considering suicide", "taking a tragic step", "depicts suicide attempt", "suicidal ideation"],
+      "avoid": ["suicide prevention", "anti-suicide", "suicide hotline"],
+      "confidence_boost": 0.0,
+      "notes": "Content warning: includes suicidal content"
+    },
+    "self-harm": {
+      "exact": ["self-harm", "self-harming", "cutting", "self-injury"],
+      "synonyms": ["self-mutilation", "self-destructive behavior"],
+      "phrases": ["harming themselves", "cutting behavior", "self-inflicted wounds"],
+      "avoid": ["harm reduction", "preventing self-harm"],
+      "confidence_boost": 0.0,
+      "notes": "Content warning: self-harm depicted"
+    },
+    "addiction": {
+      "exact": ["addiction", "substance abuse", "drug addiction", "alcoholism"],
+      "synonyms": ["dependency", "substance dependency", "addicted"],
+      "phrases": ["struggling with addiction", "battle with addiction", "recovering addict"],
+      "avoid": ["addiction treatment", "addiction recovery", "preventing addiction"],
+      "confidence_boost": 0.1,
+      "notes": "Content warning: addiction themes"
+    },
+    "death": {
+      "exact": ["death", "dying", "character death"],
+      "synonyms": ["mortality", "passing away", "demise"],
+      "phrases": ["character dies", "facing death", "death of loved one", "dealing with death"],
+      "avoid": ["death metal", "death valley", "near-death experience"],
+      "confidence_boost": 0.1,
+      "notes": "Content warning: death depicted"
+    },
+    "trauma": {
+      "exact": ["trauma", "traumatic", "traumatized", "ptsd"],
+      "synonyms": ["post-traumatic stress", "psychological trauma", "traumatic experience"],
+      "phrases": ["dealing with trauma", "traumatic past", "traumatized by events", "trauma survivor"],
+      "avoid": ["physical trauma", "trauma center", "trauma surgeon"],
+      "confidence_boost": 0.1,
+      "notes": "Content warning: trauma themes"
+    },
+    "war": {
+      "exact": ["war", "warfare", "combat", "war zone"],
+      "synonyms": ["military conflict", "battlefield", "armed conflict"],
+      "phrases": ["at war", "war-torn", "wartime setting", "battle scenes"],
+      "avoid": ["star wars", "war game", "cold war"],
+      "confidence_boost": 0.1,
+      "notes": "Content warning: war themes"
+    },
+    "strong-female-lead": {
+      "exact": ["strong female lead", "strong heroine", "female protagonist", "strong woman"],
+      "synonyms": ["strong female main character", "independent woman", "empowered woman"],
+      "phrases": ["tough female protagonist", "heroines with strength", "empowered woman lead", "fierce female character"],
+      "avoid": ["male lead only", "weak woman character", "damsel"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: female protagonist with agency"
+    },
+    "reluctant-hero": {
+      "exact": ["reluctant hero", "unwilling hero", "unlikely hero"],
+      "synonyms": ["hesitant hero", "unexpected hero", "ordinary person becomes hero"],
+      "phrases": ["hero who didn't want to fight", "ordinary person becomes hero", "forced into heroism"],
+      "avoid": ["glorious hero", "reluctant villain", "eager hero"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: hero who is initially unwilling"
+    },
+    "anti-hero": {
+      "exact": ["anti-hero", "antihero", "morally gray protagonist"],
+      "synonyms": ["morally ambiguous", "flawed protagonist", "dark hero"],
+      "phrases": ["protagonist with questionable morals", "hero who breaks rules", "morally gray character"],
+      "avoid": ["traditional hero", "pure hero", "villain"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: protagonist with questionable morality"
+    },
+    "chosen-one": {
+      "exact": ["chosen one", "the chosen one", "prophesied hero"],
+      "synonyms": ["destined hero", "prophecy", "fated savior"],
+      "phrases": ["destined to save", "prophesied to defeat", "chosen by prophecy", "special destiny"],
+      "avoid": ["unchosen", "ordinary person", "random selection"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: protagonist chosen by destiny"
+    },
+    "found-family": {
+      "exact": ["found family", "chosen family", "family of choice"],
+      "synonyms": ["makeshift family", "surrogate family", "group becomes family"],
+      "phrases": ["became like family", "found a new family", "family not by blood", "chosen family bonds"],
+      "avoid": ["biological family", "birth family", "lost family"],
+      "confidence_boost": 0.2,
+      "notes": "Character dynamic: non-biological family bonds"
+    },
+    "mentor-figure": {
+      "exact": ["mentor figure", "mentor", "wise teacher", "wise guide"],
+      "synonyms": ["guide", "wise mentor", "tutor", "sensei"],
+      "phrases": ["old mentor", "wise teacher guides", "training under a master", "mentor relationship"],
+      "avoid": ["school teacher", "political mentor", "mentoring program"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: wise mentor supporting the protagonist"
+    },
+    "ensemble-cast": {
+      "exact": ["ensemble cast", "group of characters", "multiple protagonists"],
+      "synonyms": ["team of heroes", "group dynamic", "multiple viewpoints"],
+      "phrases": ["follows multiple characters", "group of protagonists", "ensemble story"],
+      "avoid": ["single protagonist", "lone hero"],
+      "confidence_boost": 0.1,
+      "notes": "Character structure: multiple main characters"
+    },
+    "unreliable-narrator": {
+      "exact": ["unreliable narrator", "untrustworthy narrator"],
+      "synonyms": ["deceptive narrator", "narrator who lies", "questionable perspective"],
+      "phrases": ["can't trust the narrator", "narrator's perspective is skewed", "unreliable point of view"],
+      "avoid": ["reliable narrator", "trustworthy perspective"],
+      "confidence_boost": 0.2,
+      "notes": "Narrative device: narrator who can't be trusted"
+    },
+    "dark": {
+      "exact": ["dark tone", "dark atmosphere", "dark themes"],
+      "synonyms": ["gloomy", "brooding", "grim", "bleak"],
+      "phrases": ["ominous mood", "shadowy setting", "dark and moody", "disturbing themes"],
+      "avoid": ["light-hearted", "sunny", "cheerful", "bright"],
+      "confidence_boost": 0.1,
+      "notes": "Tone/Mood: dark, grim atmosphere"
+    },
+    "hopeful": {
+      "exact": ["hopeful", "uplifting", "optimistic"],
+      "synonyms": ["optimistic", "inspiring", "positive", "heartwarming"],
+      "phrases": ["despite adversity, hope endures", "uplifting end", "optimistic tone", "message of hope"],
+      "avoid": ["hopeless", "despairing", "bleak"],
+      "confidence_boost": 0.1,
+      "notes": "Tone/Mood: positive and hopeful tone"
+    },
+    "suspenseful": {
+      "exact": ["suspenseful", "tension", "suspense", "tense"],
+      "synonyms": ["thrilling", "edge-of-seat", "nerve-wracking", "nail-biting"],
+      "phrases": ["cliffhanger moments", "palpable tension", "heart-pounding suspense", "keeps you guessing"],
+      "avoid": ["predictable", "relaxed", "boring"],
+      "confidence_boost": 0.1,
+      "notes": "Tone/Mood: creates suspense and tension"
+    },
+    "humorous": {
+      "exact": ["humorous", "funny", "comedic", "comedy"],
+      "synonyms": ["witty", "amusing", "lighthearted comedy", "comic relief"],
+      "phrases": ["laugh-out-loud funny", "comedic tone", "humorous moments", "witty banter"],
+      "avoid": ["serious", "grim", "tragic"],
+      "confidence_boost": 0.1,
+      "notes": "Tone/Mood: funny and amusing"
+    },
+    "emotional": {
+      "exact": ["emotional", "emotionally intense", "tearjerker"],
+      "synonyms": ["moving", "touching", "heartfelt", "poignant"],
+      "phrases": ["emotionally powerful", "will make you cry", "deeply moving", "tugs at heartstrings"],
+      "avoid": ["emotionless", "cold", "detached"],
+      "confidence_boost": 0.1,
+      "notes": "Tone/Mood: emotionally impactful"
+    },
+    "atmospheric": {
+      "exact": ["atmospheric", "immersive", "richly detailed"],
+      "synonyms": ["vivid setting", "immersive world", "rich atmosphere"],
+      "phrases": ["atmospheric setting", "richly described world", "immersive atmosphere"],
+      "avoid": ["sparse details", "minimal description"],
+      "confidence_boost": 0.1,
+      "notes": "Tone/Mood: strong sense of place"
+    },
+    "magic-system": {
+      "exact": ["magic system", "unique magic system", "magical rules"],
+      "synonyms": ["magical rules", "defined magic", "structured magic", "magic mechanics"],
+      "phrases": ["intricate magic rules", "systematic magic", "defined mystical rules", "well-developed magic"],
+      "avoid": ["magical realism", "just magic", "no magic"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy trope: well-defined magic system"
+    },
+    "dragons": {
+      "exact": ["dragons", "dragon", "dragonrider"],
+      "synonyms": ["wyvern", "dragon-like creature", "draconic beast", "wyrm"],
+      "phrases": ["breathing fire", "legendary dragon", "ancient dragon", "dragon rider"],
+      "avoid": ["Komodo dragon", "lizard", "dragon fruit"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy creature: presence of dragons"
+    },
+    "elves": {
+      "exact": ["elves", "elf", "elven"],
+      "synonyms": ["fae", "fair folk", "elven race"],
+      "phrases": ["elven kingdom", "elf character", "elven magic"],
+      "avoid": ["Christmas elves", "Santa's elves"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy race: elves present"
+    },
+    "vampires": {
+      "exact": ["vampires", "vampire", "bloodsucker"],
+      "synonyms": ["undead", "bloodsucker", "nosferatu"],
+      "phrases": ["vampire romance", "vampire hunter", "blood-drinking creatures"],
+      "avoid": ["vampire bat", "energy vampire"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy/horror creature: vampires"
+    },
+    "werewolves": {
+      "exact": ["werewolves", "werewolf", "shapeshifter", "lycanthrope"],
+      "synonyms": ["lycanthrope", "wolf shifter", "shape-shifter"],
+      "phrases": ["transforms into wolf", "wolf pack", "full moon transformation"],
+      "avoid": ["wolf", "dog", "pet wolf"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy creature: werewolves"
+    },
+    "fae": {
+      "exact": ["fae", "fairy", "faeries", "faerie"],
+      "synonyms": ["fairy folk", "fair folk", "sidhe", "fey"],
+      "phrases": ["fae court", "fairy realm", "faerie magic", "fae bargain"],
+      "avoid": ["fairy tale", "tooth fairy"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy creature: fae/fairies"
+    },
+    "portal": {
+      "exact": ["portal", "portal fantasy", "doorway to another world"],
+      "synonyms": ["gateway", "doorway between worlds", "magical portal"],
+      "phrases": ["travels through a portal", "portal to another world", "gateway between realms"],
+      "avoid": ["portal website", "internet portal"],
+      "confidence_boost": 0.1,
+      "notes": "Fantasy trope: portal to another world"
+    },
+    "time-travel": {
+      "exact": ["time travel", "travels through time", "time-traveler", "time loop"],
+      "synonyms": ["time-travelling", "chronological jump", "temporal travel", "time machine"],
+      "phrases": ["built a time machine", "jumping through time", "time warp", "travels to the past"],
+      "avoid": ["Back to the Future", "time travel paradox"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi element: characters travel through time"
+    },
+    "space-opera": {
+      "exact": ["space opera", "space adventure", "galactic empire"],
+      "synonyms": ["epic space adventure", "interstellar saga", "galactic war"],
+      "phrases": ["spanning the galaxy", "space battles", "galactic conflict", "star-spanning adventure"],
+      "avoid": ["opera house", "soap opera"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi subgenre: large-scale space adventure"
+    },
+    "dystopian": {
+      "exact": ["dystopian", "dystopia", "dystopian future"],
+      "synonyms": ["oppressive society", "totalitarian regime", "dark future"],
+      "phrases": ["oppressive government", "dystopian society", "totalitarian control", "bleak future"],
+      "avoid": ["utopian", "perfect society"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi setting: oppressive future society"
+    },
+    "post-apocalyptic": {
+      "exact": ["post-apocalyptic", "postapocalyptic", "after the apocalypse"],
+      "synonyms": ["after the apocalypse", "wasteland future", "post-collapse"],
+      "phrases": ["after the end of the world", "surviving a devastated world", "wasteland setting"],
+      "avoid": ["pre-apocalyptic", "apocalypses", "preventing apocalypse"],
+      "confidence_boost": 0.1,
+      "notes": "Science Fiction setting: world after an apocalypse"
+    },
+    "cyberpunk": {
+      "exact": ["cyberpunk", "cyber-punk", "high tech low life"],
+      "synonyms": ["neon noir", "dystopian tech", "cybernetic future"],
+      "phrases": ["high tech low life", "corporate dystopia", "cybernetic implants", "neon-lit streets"],
+      "avoid": ["steampunk", "solar punk"],
+      "confidence_boost": 0.2,
+      "notes": "Sci-fi subgenre: high-tech dystopian future"
+    },
+    "artificial-intelligence": {
+      "exact": ["artificial intelligence", "AI", "sentient AI", "machine intelligence"],
+      "synonyms": ["sentient computer", "thinking machine", "robot consciousness"],
+      "phrases": ["AI becomes sentient", "intelligent machines", "artificial consciousness"],
+      "avoid": ["AI art", "AI tool", "using AI"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi element: artificial intelligence"
+    },
+    "space-exploration": {
+      "exact": ["space exploration", "exploring space", "space voyage"],
+      "synonyms": ["interstellar travel", "exploring the cosmos", "space mission"],
+      "phrases": ["journey through space", "exploring new worlds", "space expedition"],
+      "avoid": ["NASA", "space program"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi theme: exploring space"
+    },
+    "alien-contact": {
+      "exact": ["alien contact", "first contact", "aliens", "extraterrestrial"],
+      "synonyms": ["extraterrestrial life", "alien encounter", "meeting aliens"],
+      "phrases": ["contact with aliens", "extraterrestrial beings", "alien species", "meeting alien life"],
+      "avoid": ["illegal alien", "alien concept"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi element: contact with aliens"
+    },
+    "parallel-universes": {
+      "exact": ["parallel universes", "alternate reality", "multiverse", "alternate dimension"],
+      "synonyms": ["alternate timeline", "parallel worlds", "other dimensions"],
+      "phrases": ["travels to parallel world", "alternate version of reality", "multiverse theory"],
+      "avoid": ["parallel parking", "parallel lines"],
+      "confidence_boost": 0.1,
+      "notes": "Sci-fi concept: parallel universes"
+    },
+    "mystery": {
+      "exact": ["mystery", "whodunit", "mystery plot"],
+      "synonyms": ["puzzle", "enigma", "unsolved case"],
+      "phrases": ["solving a mystery", "unraveling the truth", "piecing together clues"],
+      "avoid": ["mystery box", "mystery novel", "mysterious person"],
+      "confidence_boost": 0.1,
+      "notes": "Plot element: mystery to solve"
+    },
+    "detective": {
+      "exact": ["detective", "private investigator", "sleuth", "detective protagonist"],
+      "synonyms": ["investigator", "private eye", "gumshoe", "sleuth"],
+      "phrases": ["detective investigating", "solving crimes", "private investigator"],
+      "avoid": ["detective game", "detective kit"],
+      "confidence_boost": 0.1,
+      "notes": "Character type: detective protagonist"
+    },
+    "murder-mystery": {
+      "exact": ["murder mystery", "whodunit", "murder investigation"],
+      "synonyms": ["homicide case", "solving a murder", "murder case"],
+      "phrases": ["investigating a murder", "who killed", "murder victim", "solving the murder"],
+      "avoid": ["murder mystery game", "murder mystery party"],
+      "confidence_boost": 0.1,
+      "notes": "Plot type: murder mystery"
+    },
+    "serial-killer": {
+      "exact": ["serial killer", "serial murderer", "multiple murders"],
+      "synonyms": ["mass murderer", "killer on the loose", "hunting a killer"],
+      "phrases": ["tracking a serial killer", "killer strikes again", "pattern of murders"],
+      "avoid": ["serial number", "cereal killer joke"],
+      "confidence_boost": 0.0,
+      "notes": "Thriller element: serial killer"
+    },
+    "heist": {
+      "exact": ["heist", "robbery", "con", "theft"],
+      "synonyms": ["robbery", "con job", "caper", "theft"],
+      "phrases": ["planning a heist", "pulling off a robbery", "elaborate con", "stealing"],
+      "avoid": ["heist movie", "bank heist game"],
+      "confidence_boost": 0.1,
+      "notes": "Plot type: heist or con"
+    },
+    "conspiracy": {
+      "exact": ["conspiracy", "cover-up", "conspiracy theory"],
+      "synonyms": ["cover-up", "secret plot", "hidden agenda"],
+      "phrases": ["uncovering a conspiracy", "government cover-up", "secret organization"],
+      "avoid": ["conspiracy theorist", "wild conspiracy"],
+      "confidence_boost": 0.1,
+      "notes": "Plot element: conspiracy"
+    },
+    "political-intrigue": {
+      "exact": ["political intrigue", "political machinations", "court intrigue"],
+      "synonyms": ["power struggles", "political scheming", "palace intrigue"],
+      "phrases": ["political maneuvering", "schemes for power", "court politics"],
+      "avoid": ["political science", "political party"],
+      "confidence_boost": 0.1,
+      "notes": "Plot element: political scheming"
+    },
+    "amnesia": {
+      "exact": ["amnesia", "memory loss", "lost memories"],
+      "synonyms": ["forgotten past", "lost identity", "can't remember"],
+      "phrases": ["suffering from amnesia", "lost their memory", "can't remember who they are"],
+      "avoid": ["amnesia treatment", "preventing amnesia"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: character has amnesia"
+    },
+    "prophecy": {
+      "exact": ["prophecy", "prophesied", "foretold"],
+      "synonyms": ["prediction", "destiny", "foretelling"],
+      "phrases": ["ancient prophecy", "foretold in prophecy", "prophesied to", "fulfilling prophecy"],
+      "avoid": ["self-fulfilling prophecy"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: prophecy drives story"
+    },
+    "quest": {
+      "exact": ["quest", "journey", "epic quest"],
+      "synonyms": ["journey", "mission", "expedition", "adventure"],
+      "phrases": ["embarks on a quest", "epic journey", "quest to find", "mission to retrieve"],
+      "avoid": ["quest bar", "side quest"],
+      "confidence_boost": 0.1,
+      "notes": "Plot structure: quest or journey"
+    },
+    "race-against-time": {
+      "exact": ["race against time", "ticking clock", "running out of time"],
+      "synonyms": ["time pressure", "deadline looming", "clock is ticking"],
+      "phrases": ["running out of time", "must act quickly", "before it's too late", "time is running out"],
+      "avoid": ["time management", "plenty of time"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: urgent time pressure"
+    },
+    "forbidden-knowledge": {
+      "exact": ["forbidden knowledge", "dangerous secrets", "hidden truth"],
+      "synonyms": ["dangerous information", "secrets that should stay buried", "cursed knowledge"],
+      "phrases": ["knowledge that could destroy", "secrets best left unknown", "dangerous truths"],
+      "avoid": ["knowledge base", "common knowledge"],
+      "confidence_boost": 0.1,
+      "notes": "Plot element: dangerous forbidden knowledge"
+    },
+    "hidden-identity": {
+      "exact": ["hidden identity", "secret identity", "disguise"],
+      "synonyms": ["false identity", "living a lie", "masquerade"],
+      "phrases": ["hiding who they really are", "secret past", "concealing true identity", "living under false name"],
+      "avoid": ["identity theft", "proven identity"],
+      "confidence_boost": 0.1,
+      "notes": "Plot device: character hiding identity"
+    },
+    "magic-school": {
+      "exact": ["magic school", "school for wizards", "magical academy"],
+      "synonyms": ["wizarding school", "academy of magic", "magical training"],
+      "phrases": ["learning magic at school", "school for magical students", "magical education"],
+      "avoid": ["magic trick school", "stage magic"],
+      "confidence_boost": 0.2,
+      "notes": "Fantasy setting: school for magic users"
+    },
+    "chosen-family": {
+      "exact": ["chosen family", "found family", "family of choice"],
+      "synonyms": ["makeshift family", "created family bonds", "non-biological family"],
+      "phrases": ["became a family", "family not by blood", "choosing their family"],
+      "avoid": ["biological family", "birth family"],
+      "confidence_boost": 0.2,
+      "notes": "Theme: non-biological family bonds"
+    },
+    "haunted": {
+      "exact": ["haunted", "haunting", "ghost story", "haunted house"],
+      "synonyms": ["ghostly", "supernatural presence", "spirits"],
+      "phrases": ["haunted by ghosts", "supernatural haunting", "restless spirits"],
+      "avoid": ["haunted by memories", "emotionally haunted"],
+      "confidence_boost": 0.1,
+      "notes": "Horror element: ghosts or haunting"
+    },
+    "psychological-horror": {
+      "exact": ["psychological horror", "mind games", "psychological terror"],
+      "synonyms": ["mental horror", "mind-bending terror", "psychological dread"],
+      "phrases": ["messes with your mind", "psychological terror", "questioning reality"],
+      "avoid": ["psychological thriller", "psychology"],
+      "confidence_boost": 0.1,
+      "notes": "Horror subgenre: psychological horror"
+    },
+    "survival-horror": {
+      "exact": ["survival horror", "fighting to survive horror"],
+      "synonyms": ["horror survival", "fighting monsters to survive"],
+      "phrases": ["surviving horror", "fighting for survival against monsters"],
+      "avoid": ["survival guide", "survival tips"],
+      "confidence_boost": 0.1,
+      "notes": "Horror subgenre: survival horror"
+    },
+    "gothic": {
+      "exact": ["gothic", "gothic horror", "gothic atmosphere"],
+      "synonyms": ["dark and brooding", "Victorian horror", "gothic setting"],
+      "phrases": ["gothic mansion", "dark and atmospheric", "Victorian gothic"],
+      "avoid": ["gothic architecture", "gothic font"],
+      "confidence_boost": 0.1,
+      "notes": "Horror style: gothic atmosphere"
+    },
+    "body-horror": {
+      "exact": ["body horror", "grotesque transformation", "physical horror"],
+      "synonyms": ["transformation horror", "physical mutation", "grotesque"],
+      "phrases": ["disturbing physical transformation", "body mutilation", "grotesque changes"],
+      "avoid": ["body image", "body positive"],
+      "confidence_boost": 0.0,
+      "notes": "Horror subgenre: body horror"
+    },
+    "locked-room-mystery": {
+      "exact": ["locked room mystery", "impossible crime", "locked-room"],
+      "synonyms": ["impossible murder", "sealed room mystery"],
+      "phrases": ["murder in a locked room", "impossible crime scene", "no way in or out"],
+      "avoid": ["locked door", "escape room"],
+      "confidence_boost": 0.2,
+      "notes": "Mystery subgenre: locked room puzzle"
+    },
+    "cozy-mystery": {
+      "exact": ["cozy mystery", "cozy crime", "amateur sleuth"],
+      "synonyms": ["gentle mystery", "small-town mystery", "amateur detective"],
+      "phrases": ["amateur detective solves", "cozy crime story", "lighthearted mystery"],
+      "avoid": ["cozy blanket", "cozy home"],
+      "confidence_boost": 0.2,
+      "notes": "Mystery subgenre: cozy mystery"
+    },
+    "noir": {
+      "exact": ["noir", "noir thriller", "hardboiled"],
+      "synonyms": ["hardboiled detective", "dark crime story", "cynical detective"],
+      "phrases": ["noir atmosphere", "gritty crime story", "cynical detective"],
+      "avoid": ["pinot noir", "film noir"],
+      "confidence_boost": 0.1,
+      "notes": "Crime subgenre: noir style"
+    },
+    "police-procedural": {
+      "exact": ["police procedural", "cop drama", "police investigation"],
+      "synonyms": ["detective work", "police work", "investigation"],
+      "phrases": ["police investigating", "detective procedural", "cop solving case"],
+      "avoid": ["police academy", "police uniform"],
+      "confidence_boost": 0.1,
+      "notes": "Mystery subgenre: police procedural"
+    },
+    "legal-thriller": {
+      "exact": ["legal thriller", "courtroom drama", "lawyer thriller"],
+      "synonyms": ["courtroom thriller", "legal drama", "trial"],
+      "phrases": ["courtroom battle", "legal case", "lawyer defending"],
+      "avoid": ["legal advice", "legal document"],
+      "confidence_boost": 0.1,
+      "notes": "Thriller subgenre: legal thriller"
+    },
+    "espionage": {
+      "exact": ["espionage", "spy thriller", "spy story"],
+      "synonyms": ["spycraft", "intelligence operations", "covert ops"],
+      "phrases": ["undercover agent", "spy mission", "intelligence gathering"],
+      "avoid": ["spy kids", "spy camera"],
+      "confidence_boost": 0.1,
+      "notes": "Thriller subgenre: espionage"
+    },
+    "technothriller": {
+      "exact": ["technothriller", "tech thriller", "technology thriller"],
+      "synonyms": ["technological thriller", "cyber thriller"],
+      "phrases": ["technology-driven plot", "high-tech thriller", "cyber warfare"],
+      "avoid": ["tech support", "technology news"],
+      "confidence_boost": 0.2,
+      "notes": "Thriller subgenre: technology-focused"
+    },
+    "terrorism": {
+      "exact": ["terrorism", "terrorist", "terror attack"],
+      "synonyms": ["terror plot", "extremist threat"],
+      "phrases": ["preventing a terror attack", "terrorist plot", "fighting terrorism"],
+      "avoid": ["terror management", "reign of terror"],
+      "confidence_boost": 0.0,
+      "notes": "Thriller element: terrorism"
+    },
+    "historical": {
+      "exact": ["historical", "historical setting", "period piece"],
+      "synonyms": ["period setting", "set in the past", "historical fiction"],
+      "phrases": ["set in historical period", "takes place in the past", "historical era"],
+      "avoid": ["historical document", "historical society"],
+      "confidence_boost": 0.1,
+      "notes": "Setting: historical period"
+    },
+    "regency": {
+      "exact": ["regency", "regency era", "regency romance"],
+      "synonyms": ["Regency period", "Jane Austen era", "early 1800s England"],
+      "phrases": ["Regency England", "balls and society", "ton society"],
+      "avoid": ["hotel regency", "regency furniture"],
+      "confidence_boost": 0.2,
+      "notes": "Historical setting: Regency era"
+    },
+    "victorian": {
+      "exact": ["Victorian", "Victorian era", "Victorian England"],
+      "synonyms": ["19th century England", "Victorian period"],
+      "phrases": ["Victorian London", "Victorian society", "gaslight era"],
+      "avoid": ["Victorian house", "Victorian furniture"],
+      "confidence_boost": 0.1,
+      "notes": "Historical setting: Victorian era"
+    },
+    "world-war-ii": {
+      "exact": ["World War II", "WWII", "World War 2", "Second World War"],
+      "synonyms": ["WW2", "1940s war", "Nazi Germany era"],
+      "phrases": ["set during WWII", "World War Two setting", "1940s wartime"],
+      "avoid": ["world war game", "world war history book"],
+      "confidence_boost": 0.1,
+      "notes": "Historical setting: WWII"
+    },
+    "ancient-world": {
+      "exact": ["ancient world", "ancient Rome", "ancient Greece", "ancient Egypt"],
+      "synonyms": ["classical antiquity", "ancient civilization"],
+      "phrases": ["set in ancient times", "Roman Empire", "ancient Greece"],
+      "avoid": ["ancient history class", "ancient artifact"],
+      "confidence_boost": 0.1,
+      "notes": "Historical setting: ancient world"
+    },
+    "medieval": {
+      "exact": ["medieval", "Middle Ages", "medieval setting"],
+      "synonyms": ["Dark Ages", "feudal era", "knights and castles"],
+      "phrases": ["medieval kingdom", "knights and nobility", "feudal society"],
+      "avoid": ["medieval fair", "medieval restaurant"],
+      "confidence_boost": 0.1,
+      "notes": "Historical setting: medieval period"
+    },
+    "multiple-pov": {
+      "exact": ["multiple POV", "multiple perspectives", "multiple viewpoints"],
+      "synonyms": ["multiple narrators", "alternating perspectives", "different viewpoints"],
+      "phrases": ["told from multiple perspectives", "alternating POV", "multiple character perspectives"],
+      "avoid": ["single POV", "one perspective"],
+      "confidence_boost": 0.1,
+      "notes": "Narrative structure: multiple perspectives"
+    },
+    "first-person": {
+      "exact": ["first person", "first-person narrative", "I narrator"],
+      "synonyms": ["first-person POV", "told in first person"],
+      "phrases": ["narrated in first person", "I perspective", "told from I"],
+      "avoid": ["third person", "first person shooter"],
+      "confidence_boost": 0.1,
+      "notes": "Narrative perspective: first person"
+    },
+    "dual-timeline": {
+      "exact": ["dual timeline", "two timelines", "past and present"],
+      "synonyms": ["alternating timelines", "two time periods", "past and present narrative"],
+      "phrases": ["jumps between past and present", "two different time periods", "alternating between timelines"],
+      "avoid": ["single timeline", "linear timeline"],
+      "confidence_boost": 0.2,
+      "notes": "Narrative structure: dual timelines"
+    },
+    "epistolary": {
+      "exact": ["epistolary", "told through letters", "diary format"],
+      "synonyms": ["letter format", "journal entries", "correspondence"],
+      "phrases": ["told through letters", "diary entries", "written correspondence"],
+      "avoid": ["epistolary novel", "writing letters"],
+      "confidence_boost": 0.2,
+      "notes": "Narrative format: letters or diary"
+    },
+    "lgbtq": {
+      "exact": ["LGBTQ", "LGBT", "queer", "gay", "lesbian"],
+      "synonyms": ["queer characters", "same-sex romance", "non-binary"],
+      "phrases": ["LGBTQ representation", "queer romance", "same-sex couple", "transgender character"],
+      "avoid": ["LGBT organization", "Pride parade"],
+      "confidence_boost": 0.1,
+      "notes": "Representation: LGBTQ+ characters"
+    },
+    "bipoc": {
+      "exact": ["BIPOC", "people of color", "diverse cast"],
+      "synonyms": ["diverse characters", "multicultural", "POC"],
+      "phrases": ["diverse representation", "characters of color", "multicultural cast"],
+      "avoid": ["color theory", "people of all colors"],
+      "confidence_boost": 0.1,
+      "notes": "Representation: BIPOC characters"
+    },
+    "disability-rep": {
+      "exact": ["disability representation", "disabled character", "disability"],
+      "synonyms": ["character with disability", "disabled protagonist"],
+      "phrases": ["disability representation", "character who uses wheelchair", "blind character", "deaf character"],
+      "avoid": ["disability services", "disability benefits"],
+      "confidence_boost": 0.1,
+      "notes": "Representation: disabled characters"
+    },
+    "neurodivergent": {
+      "exact": ["neurodivergent", "autism", "ADHD", "neurodiversity"],
+      "synonyms": ["autistic character", "ADHD character", "neurodiverse"],
+      "phrases": ["neurodivergent representation", "on the spectrum", "autistic protagonist"],
+      "avoid": ["neurotypical", "autism awareness"],
+      "confidence_boost": 0.1,
+      "notes": "Representation: neurodivergent characters"
+    },
+    "enemies-to-friends": {
+      "exact": ["enemies to friends", "rivals to friends", "from enemies to allies"],
+      "synonyms": ["adversaries become friends", "rivals become allies"],
+      "phrases": ["start as enemies but become friends", "from hatred to friendship"],
+      "avoid": ["enemies to lovers", "remain enemies"],
+      "confidence_boost": 0.2,
+      "notes": "Character dynamic: enemies become friends"
+    },
+    "romantic-suspense": {
+      "exact": ["romantic suspense", "romance with suspense", "thriller romance"],
+      "synonyms": ["suspenseful romance", "romance thriller"],
+      "phrases": ["romance mixed with suspense", "love story with danger", "romantic thriller"],
+      "avoid": ["pure romance", "pure thriller"],
+      "confidence_boost": 0.2,
+      "notes": "Genre blend: romance with suspense"
+    },
+    "small-town-romance": {
+      "exact": ["small town romance", "small-town love story"],
+      "synonyms": ["rural romance", "country romance", "village romance"],
+      "phrases": ["romance in a small town", "small-town love story", "rural romance"],
+      "avoid": ["big city romance", "urban romance"],
+      "confidence_boost": 0.2,
+      "notes": "Romance setting: small town"
+    },
+    "billionaire-romance": {
+      "exact": ["billionaire romance", "rich hero", "wealthy hero"],
+      "synonyms": ["millionaire romance", "rich love interest", "wealthy businessman"],
+      "phrases": ["romance with a billionaire", "falls for a rich man", "wealthy love interest"],
+      "avoid": ["billionaire news", "richest people"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: wealthy love interest"
+    },
+    "sports-romance": {
+      "exact": ["sports romance", "athlete romance", "sports love story"],
+      "synonyms": ["athletic romance", "romance with athlete"],
+      "phrases": ["romance with an athlete", "sports star love story", "athletic hero"],
+      "avoid": ["sports news", "sports game"],
+      "confidence_boost": 0.2,
+      "notes": "Romance setting: sports world"
+    },
+    "rockstar-romance": {
+      "exact": ["rockstar romance", "rock star romance", "musician romance"],
+      "synonyms": ["romance with musician", "band member romance"],
+      "phrases": ["falls for a rockstar", "romance with musician", "rock star love story"],
+      "avoid": ["rock music", "star rating"],
+      "confidence_boost": 0.2,
+      "notes": "Romance trope: musician love interest"
+    }
+  }
+}
