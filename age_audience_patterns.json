@@ -1,0 +1,838 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-10-24",
+    "description": "Age/audience detection patterns with conservative classification rules, upward-inclusive tagging, and mature content weighting",
+    "total_patterns": 7,
+    "classification_philosophy": "Conservative: uncertain → adult; universal → general-audience; appropriate → upward-inclusive; targeted → exclusive. Sexually explicit content, heavy violence, profanity, suicide themes → minimum new-adult 18-25 or adult 25+. Heavier content pushes toward adult 25+.",
+    "mature_content_policy": "Sexual explicit content, pornographic content, spicy romance with on-page sex scenes, heavy sex scenes (not vague off-page), very mature themes (suicide, self-harm, abuse), large amounts of profanity or graphic violence ALL require minimum new-adult-18-25 or adult classification. Heavier → adult.",
+    "usage_notes": [
+      "Each pattern includes weighted scoring for detection confidence",
+      "Patterns specify tagging_strategy: 'exclusive' (targeted young audience), 'upward-inclusive' (appropriate for age+), or 'universal' (general-audience)",
+      "Content maturity indicators are CRITICAL for conservative classification",
+      "When uncertain, default to adult classification"
+    ]
+  },
+  "patterns": {
+    "early-readers-5-8": {
+      "name": "Early Readers (5–8)",
+      "age_range": "5–8",
+      "tagging_strategy": "exclusive",
+      "defining_characteristics": [
+        "Simple vocabulary and sentence structure",
+        "Large print and frequent illustrations",
+        "Phonics and early reading skill focus",
+        "Short chapters or sections (typically under 10 pages)",
+        "Age-appropriate themes (friendship, family, school, animals)",
+        "No complex plot structures",
+        "Designed specifically for beginning readers"
+      ],
+      "exact_phrases": [
+        "early reader",
+        "ages 5-8",
+        "ages 4-8",
+        "beginning reader",
+        "first reader",
+        "level 1 reader",
+        "level 2 reader",
+        "emergent reader",
+        "step into reading"
+      ],
+      "category_indicators": [
+        "juvenile fiction.*readers.*beginner",
+        "juvenile fiction.*readers.*chapter books",
+        "children.*ages 4-8",
+        "children.*ages 5-8",
+        "juvenile fiction.*early reader",
+        "children's books.*beginning reader"
+      ],
+      "description_markers": {
+        "strong": [
+          "designed for early readers",
+          "simple sentences",
+          "phonics practice",
+          "sight words",
+          "controlled vocabulary",
+          "beginning chapter book",
+          "ages 5 to 8",
+          "kindergarten",
+          "first grade",
+          "second grade"
+        ],
+        "moderate": [
+          "illustrated story",
+          "short chapters",
+          "simple plot",
+          "beginner",
+          "early childhood"
+        ],
+        "weak": [
+          "for young readers",
+          "children's story"
+        ]
+      },
+      "publisher_markers": [
+        "scholastic reader",
+        "i can read",
+        "step into reading",
+        "ready-to-read",
+        "penguin young readers",
+        "early step into reading",
+        "random house step into reading"
+      ],
+      "series_indicators": [
+        "step into reading",
+        "i can read",
+        "ready-to-read",
+        "level 1",
+        "level 2",
+        "beginning reader"
+      ],
+      "exclusion_signals": [
+        "middle grade",
+        "young adult",
+        "ya",
+        "teen",
+        "mature",
+        "ages 8-12",
+        "ages 9-12",
+        "complex themes",
+        "graphic novel"
+      ],
+      "content_maturity_indicators": {
+        "violence_level": "none",
+        "sexual_content": "none",
+        "language": "clean",
+        "themes": [
+          "friendship",
+          "family",
+          "school",
+          "animals",
+          "adventure (mild)",
+          "learning"
+        ],
+        "required_cleanliness": "absolute"
+      },
+      "minimum_confidence": 0.70,
+      "weights": {
+        "exact_phrase": 0.40,
+        "category": 0.30,
+        "description_strong": 0.15,
+        "publisher": 0.10,
+        "series": 0.05
+      },
+      "notes": "Exclusive tagging - content specifically targeted at early readers should NOT tag upward to older age groups"
+    },
+    "children-8-12": {
+      "name": "Children (8–12)",
+      "age_range": "8–12",
+      "tagging_strategy": "exclusive",
+      "defining_characteristics": [
+        "Age-appropriate content for elementary/middle school children",
+        "Child protagonists (typically 8-12 years old)",
+        "Simple to moderate complexity themes",
+        "Educational or entertainment focus",
+        "Clean language and content",
+        "Often overlaps with middle-grade but may be more general children's category"
+      ],
+      "exact_phrases": [
+        "children 8-12",
+        "ages 8-12",
+        "ages 8 to 12",
+        "ages 8 and up",
+        "children's fiction",
+        "juvenile fiction"
+      ],
+      "category_indicators": [
+        "juvenile fiction",
+        "children.*fiction",
+        "children.*ages 9-12",
+        "children.*middle grade"
+      ],
+      "description_markers": {
+        "strong": [
+          "for children",
+          "children's book",
+          "juvenile audience",
+          "ages 8-12",
+          "elementary school"
+        ],
+        "moderate": [
+          "young readers",
+          "child protagonist",
+          "kids will love"
+        ],
+        "weak": [
+          "family-friendly"
+        ]
+      },
+      "publisher_markers": [
+        "scholastic",
+        "disney press",
+        "penguin young readers",
+        "simon & schuster children's",
+        "harpercollins children's"
+      ],
+      "exclusion_signals": [
+        "young adult",
+        "ya",
+        "teen",
+        "mature themes",
+        "adult content",
+        "explicit",
+        "violence",
+        "ages 12+"
+      ],
+      "content_maturity_indicators": {
+        "violence_level": "none-to-mild",
+        "sexual_content": "none",
+        "language": "clean",
+        "themes": [
+          "friendship",
+          "family",
+          "school",
+          "adventure",
+          "mystery (mild)",
+          "fantasy (age-appropriate)"
+        ],
+        "required_cleanliness": "strict"
+      },
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.35,
+        "category": 0.30,
+        "description_strong": 0.20,
+        "publisher": 0.10,
+        "content_maturity": 0.05
+      },
+      "notes": "Exclusive tagging - overlaps with middle-grade but represents general children's category. Content targeted at children should not tag upward."
+    },
+    "middle-grade-8-12": {
+      "name": "Middle Grade (8–12)",
+      "age_range": "8–12",
+      "tagging_strategy": "exclusive",
+      "defining_characteristics": [
+        "Specifically targeted at middle-grade readers (ages 8-12)",
+        "Protagonists typically 10-13 years old",
+        "Coming-of-age themes appropriate for preteens",
+        "More complex plots than early readers but still age-appropriate",
+        "Clean content with possible mild peril or conflict",
+        "Themes: friendship, identity, family dynamics, school challenges"
+      ],
+      "exact_phrases": [
+        "middle grade",
+        "middle-grade",
+        "mg fiction",
+        "ages 8-12",
+        "ages 9-12",
+        "ages 10-12",
+        "tweens",
+        "preteen"
+      ],
+      "category_indicators": [
+        "juvenile fiction.*social themes",
+        "juvenile fiction.*family",
+        "juvenile fiction.*school",
+        "middle grade fiction",
+        "children.*ages 9-12"
+      ],
+      "description_markers": {
+        "strong": [
+          "middle grade",
+          "middle-grade readers",
+          "ages 8-12",
+          "ages 9-12",
+          "tween",
+          "preteen readers",
+          "upper elementary"
+        ],
+        "moderate": [
+          "young protagonist",
+          "coming of age",
+          "school setting",
+          "friendship story",
+          "for kids"
+        ],
+        "weak": [
+          "children's adventure",
+          "kid-friendly"
+        ]
+      },
+      "publisher_markers": [
+        "scholastic",
+        "disney-hyperion",
+        "aladdin",
+        "harpercollins children's",
+        "penguin workshop",
+        "yearling"
+      ],
+      "series_indicators": [
+        "percy jackson",
+        "diary of a wimpy kid",
+        "magic tree house",
+        "warriors",
+        "wings of fire"
+      ],
+      "exclusion_signals": [
+        "young adult",
+        "ya",
+        "teen romance",
+        "mature themes",
+        "explicit",
+        "graphic violence",
+        "sexual content",
+        "ages 12+",
+        "ages 13+"
+      ],
+      "content_maturity_indicators": {
+        "violence_level": "none-to-mild",
+        "sexual_content": "none",
+        "language": "clean",
+        "themes": [
+          "friendship",
+          "identity",
+          "family",
+          "school",
+          "adventure",
+          "fantasy (age-appropriate)",
+          "mild peril",
+          "overcoming challenges"
+        ],
+        "required_cleanliness": "strict"
+      },
+      "minimum_confidence": 0.65,
+      "weights": {
+        "exact_phrase": 0.40,
+        "category": 0.25,
+        "description_strong": 0.20,
+        "series": 0.10,
+        "publisher": 0.05
+      },
+      "notes": "Exclusive tagging - middle-grade is specifically marketed to 8-12 age group and should not tag upward to YA/adult unless content is appropriate beyond target marketing"
+    },
+    "young-adult-12-18": {
+      "name": "Young Adult (12–18)",
+      "age_range": "12–18",
+      "tagging_strategy": "upward-inclusive",
+      "defining_characteristics": [
+        "Teen protagonists (typically 14-18 years old)",
+        "Coming-of-age themes relevant to adolescence",
+        "Age-appropriate content (no explicit sexual content or graphic violence)",
+        "Themes: identity, first love, friendship, rebellion, finding one's place",
+        "Can include mild romance (fade-to-black or closed door)",
+        "Mild to moderate language acceptable",
+        "No explicit on-page sex scenes, heavy drug use, or graphic violence"
+      ],
+      "exact_phrases": [
+        "young adult",
+        "ya",
+        "ya fiction",
+        "teen",
+        "teen fiction",
+        "ages 12-18",
+        "ages 12 and up",
+        "ages 13 and up",
+        "ages 14+",
+        "teenage",
+        "adolescent fiction"
+      ],
+      "category_indicators": [
+        "young adult fiction",
+        "teen.*fiction",
+        "ya.*fiction",
+        "juvenile fiction.*teen",
+        "adolescent fiction"
+      ],
+      "description_markers": {
+        "strong": [
+          "young adult",
+          "ya fiction",
+          "teen readers",
+          "teenage protagonist",
+          "ages 12-18",
+          "ages 13 and up",
+          "coming of age",
+          "high school"
+        ],
+        "moderate": [
+          "teen romance",
+          "first love",
+          "adolescence",
+          "teen angst",
+          "finding identity",
+          "discovering who you are"
+        ],
+        "weak": [
+          "young protagonist",
+          "youth fiction"
+        ]
+      },
+      "publisher_markers": [
+        "tor teen",
+        "harperten",
+        "macmillan children's publishing",
+        "simon pulse",
+        "delacorte press",
+        "hyperion",
+        "wednesday books"
+      ],
+      "series_indicators": [
+        "hunger games",
+        "twilight",
+        "divergent",
+        "maze runner",
+        "percy jackson",
+        "throne of glass",
+        "six of crows"
+      ],
+      "exclusion_signals_push_to_new_adult_or_adult": [
+        "explicit sex",
+        "on-page sex",
+        "steamy",
+        "spicy",
+        "erotica",
+        "graphic violence",
+        "extreme gore",
+        "heavy drug use",
+        "detailed suicide",
+        "graphic abuse"
+      ],
+      "content_maturity_indicators": {
+        "violence_level": "mild-to-moderate",
+        "sexual_content": "none-to-implied",
+        "language": "clean-to-mild",
+        "romance": "fade-to-black or closed-door",
+        "themes": [
+          "identity",
+          "first love",
+          "school",
+          "friendship",
+          "family dynamics",
+          "rebellion",
+          "finding purpose",
+          "overcoming adversity"
+        ],
+        "prohibited_themes": [
+          "explicit sexual content",
+          "on-page sex scenes",
+          "graphic violence",
+          "detailed suicide depictions",
+          "heavy substance abuse"
+        ]
+      },
+      "upward_inclusive_targets": [
+        "new-adult-18-25",
+        "adult"
+      ],
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.35,
+        "category": 0.30,
+        "description_strong": 0.20,
+        "series": 0.10,
+        "content_maturity_exclusions": 0.05
+      },
+      "mature_content_override": {
+        "description": "If mature content indicators detected (explicit sex, graphic violence, heavy profanity, suicide themes), OVERRIDE to new-adult or adult",
+        "triggers": [
+          "explicit",
+          "steamy romance",
+          "spicy",
+          "on-page sex",
+          "graphic violence",
+          "gore",
+          "detailed suicide",
+          "heavy drug use",
+          "adult content",
+          "mature audiences",
+          "18+"
+        ],
+        "action": "Classify as new-adult-18-25 or adult instead of young-adult"
+      },
+      "notes": "Upward-inclusive tagging - YA content appropriate for teens is also appropriate for new-adult and adult readers. However, if mature content detected, push to new-adult or adult categories."
+    },
+    "new-adult-18-25": {
+      "name": "New Adult (18–25)",
+      "age_range": "18–25",
+      "tagging_strategy": "upward-inclusive",
+      "defining_characteristics": [
+        "Protagonists typically 18-25 years old (college age, early career)",
+        "Adult situations but younger protagonist perspective",
+        "Can include explicit sexual content (minimum threshold for spicy romance)",
+        "Can include mature themes: suicide, self-harm, abuse, addiction",
+        "Can include heavy profanity and moderate-to-heavy violence",
+        "College/university settings common",
+        "Themes: identity as emerging adult, first serious relationships, independence",
+        "This is the MINIMUM classification for sexually explicit romance, graphic content"
+      ],
+      "exact_phrases": [
+        "new adult",
+        "new-adult",
+        "na fiction",
+        "ages 18-25",
+        "ages 18+",
+        "college romance",
+        "college-aged",
+        "young adult content"
+      ],
+      "category_indicators": [
+        "new adult fiction",
+        "na fiction",
+        "fiction.*romance.*new adult",
+        "college romance"
+      ],
+      "description_markers": {
+        "strong": [
+          "new adult",
+          "ages 18-25",
+          "college setting",
+          "university life",
+          "emerging adulthood",
+          "18+",
+          "mature ya"
+        ],
+        "moderate": [
+          "college students",
+          "young adults",
+          "post-high school",
+          "first job",
+          "independence"
+        ],
+        "weak": [
+          "young protagonist",
+          "twenties"
+        ]
+      },
+      "mature_content_indicators_minimum_threshold": {
+        "sexual_content_triggers": [
+          "sexually explicit",
+          "explicit romance",
+          "spicy romance",
+          "steamy",
+          "on-page sex",
+          "sex scenes",
+          "open door romance",
+          "adult romance",
+          "hot and steamy"
+        ],
+        "violence_triggers": [
+          "graphic violence",
+          "heavy violence",
+          "gore",
+          "brutal",
+          "violent content"
+        ],
+        "profanity_triggers": [
+          "strong language",
+          "heavy profanity",
+          "explicit language",
+          "frequent profanity"
+        ],
+        "theme_triggers": [
+          "suicide",
+          "self-harm",
+          "addiction",
+          "substance abuse",
+          "graphic abuse",
+          "trauma",
+          "ptsd",
+          "eating disorders"
+        ],
+        "description": "ANY of these triggers should result in minimum new-adult-18-25 classification. Heavier content should push to adult."
+      },
+      "publisher_markers": [
+        "avon",
+        "berkley romance",
+        "st. martin's press",
+        "entangled publishing"
+      ],
+      "exclusion_signals_push_to_adult": [
+        "extremely graphic",
+        "pornographic",
+        "hardcore",
+        "bdsm",
+        "kink",
+        "erotica",
+        "extreme violence",
+        "snuff",
+        "gratuitous"
+      ],
+      "content_maturity_indicators": {
+        "violence_level": "moderate-to-heavy",
+        "sexual_content": "implied-to-explicit",
+        "language": "mild-to-heavy",
+        "romance": "open-door acceptable",
+        "themes": [
+          "identity as emerging adult",
+          "first serious relationships",
+          "independence",
+          "college life",
+          "career beginnings",
+          "mental health",
+          "addiction recovery",
+          "trauma processing"
+        ]
+      },
+      "upward_inclusive_targets": [
+        "adult"
+      ],
+      "minimum_confidence": 0.60,
+      "weights": {
+        "exact_phrase": 0.30,
+        "category": 0.20,
+        "mature_content_triggers": 0.30,
+        "description_strong": 0.15,
+        "publisher": 0.05
+      },
+      "mature_content_weight_boost": {
+        "description": "Mature content indicators heavily weighted (30%) to ensure proper classification",
+        "triggers_new_adult_minimum": [
+          "sexually explicit",
+          "spicy romance",
+          "on-page sex",
+          "graphic violence",
+          "suicide themes",
+          "self-harm",
+          "heavy profanity"
+        ]
+      },
+      "notes": "Upward-inclusive tagging - new-adult content is also appropriate for adult readers. This is the MINIMUM threshold for sexually explicit romance, graphic violence, heavy profanity, and mature themes. Heavier content should be classified as adult."
+    },
+    "adult": {
+      "name": "Adult",
+      "age_range": null,
+      "tagging_strategy": "exclusive",
+      "defining_characteristics": [
+        "Mature themes and content for adult readers (25+)",
+        "No age restrictions assumed",
+        "Default when age appropriateness is uncertain",
+        "Can include any level of sexual content, violence, profanity",
+        "Complex themes, literary fiction, serious non-fiction",
+        "Heavier/more graphic content than new-adult threshold"
+      ],
+      "exact_phrases": [
+        "adult fiction",
+        "mature audiences",
+        "18+",
+        "21+",
+        "adults only",
+        "mature content",
+        "not for children"
+      ],
+      "category_indicators": [
+        "fiction(?!.*young adult)(?!.*juvenile)",
+        "adult fiction",
+        "contemporary fiction",
+        "literary fiction",
+        "general fiction"
+      ],
+      "description_markers": {
+        "strong": [
+          "adult readers",
+          "mature themes",
+          "adult content",
+          "not suitable for children",
+          "for mature audiences"
+        ],
+        "moderate": [
+          "complex themes",
+          "sophisticated",
+          "literary"
+        ],
+        "weak": [
+          "adult protagonist"
+        ]
+      },
+      "mature_content_indicators_heavy": {
+        "sexual_content_heavy": [
+          "erotica",
+          "pornographic",
+          "extremely explicit",
+          "bdsm",
+          "kink",
+          "hardcore",
+          "multiple explicit sex scenes",
+          "graphic sexual content"
+        ],
+        "violence_heavy": [
+          "extremely graphic violence",
+          "extreme gore",
+          "torture",
+          "snuff",
+          "brutal murder",
+          "sadistic violence"
+        ],
+        "profanity_heavy": [
+          "pervasive profanity",
+          "constant strong language",
+          "extremely vulgar"
+        ],
+        "themes_heavy": [
+          "graphic depictions of suicide",
+          "detailed self-harm",
+          "extreme abuse",
+          "sexual violence",
+          "child abuse (graphic)",
+          "war atrocities"
+        ],
+        "description": "Heavy/extreme mature content indicators push classification to adult (not just new-adult)"
+      },
+      "exclusion_signals": [
+        "young adult",
+        "ya",
+        "teen",
+        "juvenile",
+        "children",
+        "ages 5-8",
+        "ages 8-12",
+        "ages 12-18",
+        "early reader",
+        "middle grade",
+        "for kids",
+        "family-friendly"
+      ],
+      "content_maturity_indicators": {
+        "violence_level": "any",
+        "sexual_content": "any",
+        "language": "any",
+        "themes": [
+          "complex",
+          "mature",
+          "adult",
+          "philosophical",
+          "political",
+          "psychological",
+          "existential",
+          "death",
+          "war",
+          "crime",
+          "addiction",
+          "trauma"
+        ]
+      },
+      "default_for_uncertainty": true,
+      "minimum_confidence": 0.50,
+      "weights": {
+        "exact_phrase": 0.25,
+        "category": 0.25,
+        "mature_content_heavy": 0.30,
+        "exclusion_signals": 0.15,
+        "default_fallback": 0.05
+      },
+      "conservative_default_rules": {
+        "description": "When uncertain about age appropriateness, default to adult classification",
+        "triggers": [
+          "No clear age market indicators",
+          "Ambiguous content maturity",
+          "Borderline mature content",
+          "Complex or sophisticated themes without clear age targeting"
+        ],
+        "action": "Classify as adult"
+      },
+      "notes": "Exclusive tagging - adult is the conservative default. Heavier mature content (beyond new-adult threshold) should be classified here. When uncertain, default to adult."
+    },
+    "general-audience": {
+      "name": "General Audience",
+      "age_range": null,
+      "tagging_strategy": "universal",
+      "defining_characteristics": [
+        "No age-specific content or concerns whatsoever",
+        "Appropriate for ALL ages without reservation",
+        "Universal themes accessible to everyone",
+        "No maturity restrictions of any kind",
+        "Clean content with broad appeal",
+        "Often educational, reference, or classic literature"
+      ],
+      "exact_phrases": [
+        "all ages",
+        "general audience",
+        "suitable for everyone",
+        "family-friendly",
+        "appropriate for all ages",
+        "universal appeal",
+        "for everyone"
+      ],
+      "category_indicators": [
+        "reference",
+        "education.*general",
+        "non-fiction.*reference",
+        "classics.*literature"
+      ],
+      "description_markers": {
+        "strong": [
+          "suitable for all ages",
+          "appropriate for everyone",
+          "family-friendly",
+          "general audience",
+          "universal appeal",
+          "no age restrictions",
+          "safe for all readers"
+        ],
+        "moderate": [
+          "timeless classic",
+          "educational for all",
+          "broad appeal"
+        ],
+        "weak": [
+          "accessible",
+          "for everyone"
+        ]
+      },
+      "content_maturity_indicators": {
+        "violence_level": "none",
+        "sexual_content": "none",
+        "language": "clean",
+        "profanity": "none",
+        "themes": [
+          "universal",
+          "timeless",
+          "educational",
+          "inspirational",
+          "informational",
+          "reference"
+        ],
+        "required_cleanliness": "absolute"
+      },
+      "publisher_markers": [
+        "dk publishing",
+        "national geographic",
+        "smithsonian",
+        "oxford university press (reference)",
+        "merriam-webster"
+      ],
+      "exclusion_signals_any_age_specific": [
+        "young adult",
+        "teen",
+        "middle grade",
+        "children",
+        "adult themes",
+        "mature content",
+        "ages 5-8",
+        "ages 8-12",
+        "ages 12+",
+        "not suitable for children"
+      ],
+      "strict_requirements": {
+        "description": "General audience requires EXPLICIT positive indicators of universal appropriateness. Absence of age markers is NOT sufficient.",
+        "must_have": [
+          "Clear statement of all-ages appropriateness OR",
+          "Reference/educational content with no maturity concerns OR",
+          "Classic literature universally taught"
+        ],
+        "must_not_have": [
+          "ANY age-specific marketing",
+          "ANY maturity concerns",
+          "ANY violence, sexual content, profanity, or mature themes"
+        ]
+      },
+      "minimum_confidence": 0.75,
+      "weights": {
+        "exact_phrase": 0.40,
+        "description_strong": 0.30,
+        "category": 0.20,
+        "content_maturity_clean": 0.10
+      },
+      "notes": "Universal tagging - general-audience is a catch-all for truly universal content. Requires HIGH confidence and explicit indicators of all-ages appropriateness. Do not default to this category."
+    }
+  }
+}

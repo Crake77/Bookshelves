@@ -1,8 +1,8 @@
 # Taxonomy Pattern Development Progress
 
-**Last Updated**: 2025-01-24  
-**Session**: 5  
-**Status**: Domains & Supergenres & Genres & Subgenres COMPLETE - All Core Taxonomy Patterns Done!
+**Last Updated**: 2025-10-24  
+**Session**: 6  
+**Status**: Core Taxonomy + Formats + Age/Audience COMPLETE!
 
 ---
 
@@ -14,10 +14,13 @@
 | **Supergenres** | 34 | 34 | 100% | HIGH | ✅ COMPLETE |
 | **Genres** | 101 | 100 | 99% | HIGH | ✅ COMPLETE |
 | **Subgenres** | 549 | 549 | 100% | HIGH | ✅ COMPLETE |
+| **Formats** | 28 | 28 | 100% | HIGH | ✅ COMPLETE |
+| **Age Markets** | 7 | 7 | 100% | HIGH | ✅ COMPLETE |
 | **Cross-tags** | 2,733 | 640 | 23% | ONGOING | 🟢 IN PROGRESS |
 
-**Total Patterns**: 1,327  
-**Estimated Token Usage**: ~67k / 200k (34% - current session)
+**Total Core Patterns**: 1,362 (domains: 4, supergenres: 34, genres: 100, subgenres: 549, formats: 28, age markets: 7)  
+**Total All Patterns**: 2,002 (core: 1,362 + cross-tags: 640)  
+**Estimated Token Usage**: ~62k / 200k (31% - current session)
 
 ---
 
@@ -462,7 +465,136 @@ cooking, gardening, music-history, film-history, art-history, photography, paren
 
 ---
 
-### 5. Cross-tags (23% Complete 🟢)
+### 5. Formats (100% Complete ✅)
+
+**File**: `format_patterns.json` ✅ COMPLETE  
+**Patterns**: 28/28 (100%)  
+**Created**: 2025-10-24 (Session 6)  
+**Version**: 1.0.0
+
+#### Completed Patterns (28):
+
+**Asian Formats (5)**:
+1. ✅ light-novel
+2. ✅ manga
+3. ✅ manhwa
+4. ✅ manhua
+5. ✅ webtoon
+
+**Traditional Prose (3)**:
+1. ✅ novel
+2. ✅ novella
+3. ✅ illustrated-novel
+
+**Collections (3)**:
+1. ✅ anthology
+2. ✅ short-story-collection
+3. ✅ omnibus
+
+**Digital/Audio (3)**:
+1. ✅ audiobook
+2. ✅ ebook
+3. ✅ web-novel
+
+**Physical (2)**:
+1. ✅ hardcover
+2. ✅ paperback
+
+**Visual/Sequential Art (2)**:
+1. ✅ graphic-novel
+2. ✅ visual-novel
+
+**Age-Specific (5)**:
+1. ✅ board-book
+2. ✅ picture-book
+3. ✅ early-reader
+4. ✅ middle-grade
+5. ✅ young-adult
+
+**Scripts (2)**:
+1. ✅ screenplay
+2. ✅ play
+
+**Educational (2)**:
+1. ✅ textbook
+2. ✅ reference
+
+**Poetry (1)**:
+1. ✅ poetry-collection
+
+#### Pattern Features:
+- Weighted scoring methodology (exact phrases, publisher markers, platform indicators, title patterns)
+- Special focus on Asian formats (light novel, manga, manhwa, manhua, webtoon)
+- Publisher/platform detection (e.g., Yen Press, Viz Media, Kodansha for manga)
+- Title pattern recognition (regex patterns like "Vol\.", "Volume \d+")
+- Category indicators from Google Books, Goodreads shelves
+- Description markers (strong/moderate/weak)
+- Confidence thresholds: 0.50-0.75 (novel as default by exclusion at 0.50)
+- Exclusion patterns to avoid false positives
+
+**Quality**: HIGH - Comprehensive format detection with special attention to distinguishing similar formats (e.g., light novel vs novel, manga vs graphic novel)
+
+**Documentation**: `FORMAT_PATTERNS_SUMMARY.md` (363 lines)
+
+---
+
+### 6. Age/Audience Markets (100% Complete ✅)
+
+**File**: `age_audience_patterns.json` ✅ COMPLETE  
+**Patterns**: 7/7 (100%)  
+**Created**: 2025-10-24 (Session 6)  
+**Version**: 1.0.0
+
+#### Completed Patterns (7):
+
+**Age Markets**:
+1. ✅ early-readers-5-8 (ages 5–8, exclusive tagging)
+2. ✅ children-8-12 (ages 8–12, exclusive tagging)
+3. ✅ middle-grade-8-12 (ages 8–12, exclusive tagging)
+4. ✅ young-adult-12-18 (ages 12–18, upward-inclusive tagging)
+5. ✅ new-adult-18-25 (ages 18–25, upward-inclusive tagging)
+6. ✅ adult (no age range, exclusive tagging, conservative default)
+7. ✅ general-audience (all ages, universal tagging)
+
+#### Conservative Classification Philosophy:
+
+**Core Rules**:
+1. **Uncertain → Adult**: When content appropriateness is ambiguous, default to adult
+2. **Universal → General Audience**: Content suitable for ALL ages without reservation
+3. **Appropriate → Upward-Inclusive**: YA appropriate for teens also tags new-adult and adult
+4. **Targeted → Exclusive**: Content designed for young audiences tags ONLY that range
+5. **Mature Content → Minimum New-Adult or Adult**: 
+   - Sexually explicit content, pornographic content, spicy romance with on-page sex scenes
+   - Heavy sex scenes (not vague off-page mentions)
+   - Very mature themes (suicide, self-harm, abuse)
+   - Large amounts of profanity or graphic violence
+   - ALL require minimum new-adult-18-25 or adult classification
+   - Heavier content pushes toward adult 25+
+
+#### Pattern Features:
+- **Weighted scoring** with mature content heavily weighted (30% for new-adult and adult)
+- **Tagging strategies**: exclusive (targeted young), upward-inclusive (appropriate for age+), universal (all ages)
+- **Mature content detection**: Sexual content triggers, violence triggers, profanity triggers, theme triggers
+- **Override logic**: YA books with mature content → reclassify as new-adult or adult
+- **Conservative defaults**: Uncertain cases → adult; High confidence required for general-audience (0.75)
+- Confidence thresholds: 0.50-0.75 (adult lowest as conservative default, general-audience highest)
+- Exact phrases, category indicators, description markers (strong/moderate/weak)
+- Publisher markers (Scholastic for children, Tor Teen for YA, etc.)
+- Series indicators (Percy Jackson for MG, Hunger Games for YA, etc.)
+- Content maturity indicators (violence level, sexual content, language, themes)
+
+**Special Features**:
+- **Upward-inclusive targets**: YA → new-adult + adult; new-adult → adult
+- **Mature content weight boost**: 30% weight for sexual, violence, profanity, theme triggers
+- **Exclusion signals**: Prevent misclassification (e.g., "explicit" disqualifies children/YA)
+
+**Quality**: HIGH - Conservative classification with heavy emphasis on mature content detection to protect younger audiences
+
+**Documentation**: `AGE_AUDIENCE_PATTERNS_SUMMARY.md` (516 lines with examples, decision trees, integration guide)
+
+---
+
+### 7. Cross-tags (23% Complete 🟢)
 
 **File**: `cross_tag_patterns_v1.json`  
 **Patterns**: 640/2,733 (23%)  
