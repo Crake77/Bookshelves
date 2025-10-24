@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "version": "1.0.0",
-    "phase": "1 of 4",
+    "version": "2.0.0",
+    "phase": "2 of 4",
     "generated_date": "2025-01-24",
-    "total_patterns": 30,
-    "coverage": "30% (30/101 genres)",
-    "description": "Phase 1: Top 30 most common genre patterns for specific genre classification"
+    "total_patterns": 60,
+    "coverage": "59% (60/101 genres)",
+    "description": "Phase 2: Expanded to 60 genre patterns covering major fiction and non-fiction genres"
   },
   "patterns": {
     "fantasy": {
@@ -477,6 +477,503 @@
       "strong_signals": ["religion", "religious", "theology", "faith", "sacred", "worship"],
       "avoid_confusion_with": {"philosophy": ["secular"], "spirituality": ["non-denominational"]},
       "minimum_confidence": 0.70
+    },
+    
+    "supernatural-fiction": {
+      "name": "Supernatural Fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "supernatural_beings": ["ghost", "spirit", "phantom", "apparition", "specter", "haunting", "wraith"],
+        "otherworldly": ["supernatural", "otherworldly", "ethereal", "spectral", "unearthly"],
+        "paranormal_events": ["haunted", "possession", "seance", "medium", "supernatural occurrences"]
+      },
+      "typical_tropes": ["haunted-house", "vengeful-ghost", "unfinished-business", "crossing-over"],
+      "plot_patterns": ["haunted by", "supernatural forces", "spirit world", "communication with dead"],
+      "tone_markers": ["eerie", "mysterious", "uncanny", "otherworldly"],
+      "subgenres": ["gothic-fiction", "ghost-story", "occult-fiction"],
+      "strong_signals": ["supernatural", "ghost", "haunted", "spirit", "paranormal", "otherworldly"],
+      "avoid_confusion_with": {"horror": ["fear-focused"], "paranormal": ["vampires/werewolves"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "cozy-mystery": {
+      "name": "Cozy Mystery",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "amateur_sleuth": ["amateur detective", "amateur sleuth", "non-professional investigator"],
+        "cozy_setting": ["small town", "village", "bookshop", "bakery", "cozy setting", "community"],
+        "lighthearted": ["lighthearted", "gentle", "no graphic violence", "charming"]
+      },
+      "typical_tropes": ["curious-protagonist", "quirky-characters", "small-town-secrets", "foodie-elements"],
+      "plot_patterns": ["stumbles upon murder", "investigates in spare time", "village mystery", "amateur investigation"],
+      "character_archetypes": ["bookstore owner", "librarian", "baker", "cat lover", "knitting enthusiast"],
+      "tone_markers": ["cozy", "charming", "lighthearted", "gentle"],
+      "strong_signals": ["cozy mystery", "amateur sleuth", "small town", "village", "charming"],
+      "avoid_confusion_with": {"mystery": ["professional detective"], "thriller": ["dark/intense"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "police-procedural": {
+      "name": "Police Procedural",
+      "parent_supergenre": "crime-mystery",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "police_work": ["police", "detective", "cop", "law enforcement", "precinct", "badge"],
+        "investigation_procedure": ["forensics", "evidence", "interrogation", "warrant", "crime scene"],
+        "institutional": ["department", "case file", "protocol", "chain of command", "police work"]
+      },
+      "typical_elements": ["police station", "crime lab", "interrogation room", "evidence analysis"],
+      "plot_patterns": ["follows investigation", "police protocol", "building case", "by-the-book"],
+      "character_archetypes": ["homicide detective", "forensic specialist", "police captain", "rookie cop"],
+      "strong_signals": ["police", "detective", "procedural", "forensics", "investigation"],
+      "avoid_confusion_with": {"mystery": ["amateur sleuth"], "thriller": ["methodical vs fast-paced"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "espionage": {
+      "name": "Espionage",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "spy_craft": ["spy", "espionage", "agent", "operative", "intelligence", "secret agent"],
+        "covert_ops": ["covert", "undercover", "classified", "surveillance", "mission", "handler"],
+        "intelligence_agencies": ["CIA", "MI6", "KGB", "intelligence agency", "secret service"]
+      },
+      "typical_tropes": ["double-agent", "international-intrigue", "cold-war", "assassination"],
+      "plot_patterns": ["international conspiracy", "spy mission", "secret operation", "infiltrate enemy"],
+      "character_archetypes": ["spy", "intelligence officer", "handler", "mole", "double agent"],
+      "strong_signals": ["spy", "espionage", "agent", "intelligence", "covert", "classified"],
+      "avoid_confusion_with": {"thriller": ["spy-specific"], "military-fiction": ["covert vs combat"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "space-opera": {
+      "name": "Space Opera",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "epic_space": ["space opera", "galactic empire", "space battles", "starship", "fleet", "space war"],
+        "grand_scale": ["epic", "galaxy-spanning", "interstellar", "cosmic scale", "multiple worlds"],
+        "adventure": ["space adventure", "heroes", "rebellion", "empire", "space saga"]
+      },
+      "typical_tropes": ["evil-empire", "rebellion", "chosen-one", "space-battles", "alien-races"],
+      "plot_patterns": ["galactic war", "save the galaxy", "rebel against empire", "epic space journey"],
+      "character_archetypes": ["space captain", "rebel leader", "galactic emperor", "alien ally"],
+      "tone_markers": ["epic", "adventurous", "grand-scale", "operatic"],
+      "strong_signals": ["space opera", "galactic", "empire", "starship", "space battle"],
+      "avoid_confusion_with": {"hard-sci-fi": ["adventure vs science"], "military-sci-fi": ["opera vs tactical"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "cyberpunk": {
+      "name": "Cyberpunk",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "high_tech": ["cyberpunk", "cybernetics", "cyberspace", "virtual reality", "AI", "hacking", "neural implants"],
+        "dystopian_future": ["dystopian", "corporate control", "megacorporation", "neon-lit", "urban decay"],
+        "counterculture": ["hacker", "anti-establishment", "underground", "punk", "rogue"]
+      },
+      "typical_tropes": ["megacorp-control", "street-samurai", "netrunner", "body-modification"],
+      "plot_patterns": ["hack the system", "corporate conspiracy", "digital frontier", "upload consciousness"],
+      "character_archetypes": ["hacker", "street samurai", "corporate drone", "netrunner"],
+      "tone_markers": ["gritty", "noir", "tech-noir", "dark future"],
+      "strong_signals": ["cyberpunk", "cyberspace", "hacking", "cybernetics", "dystopian tech"],
+      "avoid_confusion_with": {"dystopian": ["tech-focus"], "sci-fi": ["punk aesthetic"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "steampunk": {
+      "name": "Steampunk",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "victorian_setting": ["Victorian", "steam-powered", "clockwork", "industrial", "gaslight"],
+        "alternate_tech": ["steampunk", "airship", "brass goggles", "mechanical", "steam technology"],
+        "aesthetic": ["brass and copper", "gears", "cogs", "retro-futuristic", "vintage technology"]
+      },
+      "typical_elements": ["airships", "automatons", "clockwork devices", "Victorian inventors"],
+      "plot_patterns": ["invention", "airship adventure", "mechanical marvels", "alternate history"],
+      "character_archetypes": ["inventor", "airship captain", "mad scientist", "Victorian adventurer"],
+      "strong_signals": ["steampunk", "airship", "clockwork", "steam-powered", "Victorian"],
+      "avoid_confusion_with": {"historical-fiction": ["alternate tech"], "fantasy": ["tech not magic"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "time-travel": {
+      "name": "Time Travel",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "time_mechanics": ["time travel", "time machine", "temporal", "time paradox", "time loop"],
+        "crossing_eras": ["travel through time", "past and future", "different era", "timeline"],
+        "consequences": ["change history", "butterfly effect", "alternate timeline", "causality"]
+      },
+      "typical_tropes": ["grandfather-paradox", "time-loop", "changing-history", "meeting-yourself"],
+      "plot_patterns": ["travels to", "changes the past", "stuck in time", "prevent disaster"],
+      "character_archetypes": ["time traveler", "chrononaut", "temporal agent"],
+      "strong_signals": ["time travel", "time machine", "temporal", "timeline", "paradox"],
+      "avoid_confusion_with": {"historical-fiction": ["time travel element"], "sci-fi": ["time-specific"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "apocalyptic": {
+      "name": "Apocalyptic Fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "world_ending": ["apocalypse", "end of world", "armageddon", "extinction", "doomsday"],
+        "catastrophe": ["catastrophic", "civilization collapse", "global disaster", "mass extinction"],
+        "during_event": ["as world ends", "final days", "last hours", "impending doom"]
+      },
+      "typical_themes": ["survival", "human nature", "last days of humanity", "facing extinction"],
+      "plot_patterns": ["world is ending", "final days", "catastrophe strikes", "survive apocalypse"],
+      "tone_markers": ["bleak", "catastrophic", "dire", "end times"],
+      "strong_signals": ["apocalypse", "apocalyptic", "end of world", "armageddon", "doomsday"],
+      "avoid_confusion_with": {"post-apocalyptic": ["during vs after"], "dystopian": ["ending vs oppression"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "post-apocalyptic": {
+      "name": "Post-Apocalyptic Fiction",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "after_collapse": ["post-apocalyptic", "after the fall", "wasteland", "ruins", "collapsed civilization"],
+        "survival": ["survival", "scavenging", "scarce resources", "harsh world", "lawless"],
+        "rebuilding": ["rebuild", "survivors", "remnants", "new world", "what remains"]
+      },
+      "typical_themes": ["survival", "rebuilding society", "human resilience", "new order"],
+      "plot_patterns": ["survive in wasteland", "rebuild civilization", "journey through ruins", "find sanctuary"],
+      "setting_markers": ["wasteland", "ruins", "abandoned cities", "desolate"],
+      "strong_signals": ["post-apocalyptic", "wasteland", "survivors", "ruins", "after the fall"],
+      "avoid_confusion_with": {"apocalyptic": ["after vs during"], "dystopian": ["collapse vs control"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "military-fiction": {
+      "name": "Military Fiction",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "military": ["military", "soldiers", "combat", "war", "battlefield", "troops", "armed forces"],
+        "warfare": ["battle", "mission", "tactical", "operation", "warfare", "military strategy"],
+        "military_life": ["regiment", "deployment", "command", "rank", "military unit"]
+      },
+      "typical_elements": ["military operations", "combat missions", "military hierarchy", "warfare"],
+      "plot_patterns": ["military mission", "combat", "behind enemy lines", "tactical operation"],
+      "character_archetypes": ["soldier", "commander", "special forces", "marine", "veteran"],
+      "strong_signals": ["military", "combat", "soldier", "war", "battlefield", "tactical"],
+      "avoid_confusion_with": {"war-history": ["fiction vs non-fiction"], "thriller": ["military-specific"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "techno-thriller": {
+      "name": "Techno-Thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "technology": ["technology", "cyber", "digital", "computer", "tech", "high-tech"],
+        "thriller_tech": ["cyber attack", "hacking", "technological threat", "digital warfare"],
+        "modern_danger": ["cyber terrorism", "tech conspiracy", "digital threat", "technological disaster"]
+      },
+      "typical_elements": ["hacking", "cyber warfare", "tech conspiracy", "technological threat"],
+      "plot_patterns": ["tech threat", "cyber attack", "race to stop", "technological conspiracy"],
+      "character_archetypes": ["hacker", "tech expert", "cybersecurity specialist", "programmer"],
+      "strong_signals": ["techno-thriller", "cyber", "hacking", "technology", "digital threat"],
+      "avoid_confusion_with": {"cyberpunk": ["thriller vs dystopian"], "thriller": ["tech-driven"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "legal-thriller": {
+      "name": "Legal Thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "legal_system": ["lawyer", "attorney", "courtroom", "trial", "legal", "law firm"],
+        "legal_drama": ["case", "lawsuit", "verdict", "jury", "judge", "testimony"],
+        "legal_intrigue": ["legal conspiracy", "corruption", "cover-up", "legal battle"]
+      },
+      "typical_elements": ["courtroom drama", "legal maneuvering", "trial preparation", "legal strategy"],
+      "plot_patterns": ["defend client", "uncover conspiracy", "courtroom battle", "legal investigation"],
+      "character_archetypes": ["defense attorney", "prosecutor", "judge", "legal associate"],
+      "strong_signals": ["legal thriller", "lawyer", "courtroom", "trial", "attorney"],
+      "avoid_confusion_with": {"thriller": ["legal-specific"], "mystery": ["courtroom focus"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "medical-thriller": {
+      "name": "Medical Thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "medical": ["medical", "hospital", "doctor", "surgeon", "patient", "medical crisis"],
+        "medical_danger": ["epidemic", "virus", "outbreak", "medical conspiracy", "deadly disease"],
+        "healthcare": ["emergency room", "surgery", "diagnosis", "medical procedure", "pharmaceutical"]
+      },
+      "typical_elements": ["hospital setting", "medical mystery", "disease outbreak", "medical ethics"],
+      "plot_patterns": ["medical crisis", "outbreak", "medical conspiracy", "race to cure"],
+      "character_archetypes": ["doctor", "surgeon", "medical examiner", "epidemiologist"],
+      "strong_signals": ["medical thriller", "hospital", "doctor", "epidemic", "outbreak"],
+      "avoid_confusion_with": {"thriller": ["medical-specific"], "medical-drama": ["thriller elements"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "domestic-thriller": {
+      "name": "Domestic Thriller",
+      "parent_supergenre": "thriller-suspense",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "home_setting": ["domestic", "home", "marriage", "family", "household", "suburban"],
+        "psychological": ["secrets", "lies", "betrayal", "manipulation", "psychological"],
+        "intimate_danger": ["dangerous spouse", "family secrets", "domestic danger", "trust issues"]
+      },
+      "typical_elements": ["unreliable narrator", "twisted marriage", "suburban secrets", "home invasion"],
+      "plot_patterns": ["marriage turns dark", "family secrets", "trust betrayed", "home becomes prison"],
+      "tone_markers": ["claustrophobic", "intimate", "psychological", "unsettling"],
+      "strong_signals": ["domestic thriller", "marriage", "family secrets", "suburban", "home"],
+      "avoid_confusion_with": {"psychological-thriller": ["domestic setting"], "family-drama": ["thriller elements"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "epic-fantasy": {
+      "name": "Epic Fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "grand_scale": ["epic", "saga", "grand scale", "world-spanning", "kingdoms", "empires"],
+        "quest": ["quest", "journey", "epic quest", "save the world", "prophecy"],
+        "high_stakes": ["fate of world", "battle between good and evil", "dark lord", "chosen one"]
+      },
+      "typical_tropes": ["chosen-one", "epic-quest", "dark-lord", "prophecy", "fellowship"],
+      "plot_patterns": ["epic journey", "save the world", "battle dark forces", "unite kingdoms"],
+      "character_archetypes": ["chosen one", "wizard", "warrior", "dark lord", "fellowship"],
+      "tone_markers": ["epic", "grand", "sweeping", "mythic"],
+      "strong_signals": ["epic fantasy", "saga", "quest", "kingdoms", "chosen one"],
+      "avoid_confusion_with": {"fantasy": ["epic scale"], "adventure": ["fantasy elements"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "dark-fantasy": {
+      "name": "Dark Fantasy",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "dark_tone": ["dark fantasy", "grim", "dark", "brutal", "bleak", "violent"],
+        "morally_gray": ["morally gray", "anti-hero", "dark magic", "corruption", "no heroes"],
+        "horror_elements": ["horror elements", "disturbing", "macabre", "nightmare", "gothic"]
+      },
+      "typical_themes": ["moral ambiguity", "corruption", "dark magic", "grim reality"],
+      "plot_patterns": ["descent into darkness", "corrupt magic", "morally gray choices", "brutal world"],
+      "tone_markers": ["dark", "grim", "bleak", "brutal", "unforgiving"],
+      "strong_signals": ["dark fantasy", "grim", "brutal", "dark magic", "morally gray"],
+      "avoid_confusion_with": {"fantasy": ["dark tone"], "horror": ["fantasy vs fear"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "sword-and-sorcery": {
+      "name": "Sword and Sorcery",
+      "parent_supergenre": "speculative-fiction",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "action_focus": ["sword", "sorcery", "combat", "battle", "fighting", "warrior"],
+        "adventure": ["adventure", "action-packed", "swashbuckling", "heroic", "pulp"],
+        "magic_combat": ["magic and steel", "swordplay", "spell-casting", "barbarian"]
+      },
+      "typical_elements": ["sword fights", "personal scale", "rogues and warriors", "treasure hunting"],
+      "plot_patterns": ["heroic adventure", "quest for treasure", "battle sorcerer", "sword fights"],
+      "character_archetypes": ["barbarian", "warrior", "rogue", "sellsword", "wandering hero"],
+      "tone_markers": ["action-packed", "pulpy", "adventurous", "swashbuckling"],
+      "strong_signals": ["sword and sorcery", "barbarian", "warrior", "swordplay", "adventure"],
+      "avoid_confusion_with": {"epic-fantasy": ["personal vs epic scale"], "fantasy": ["action-focus"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "supernatural-romance": {
+      "name": "Supernatural Romance",
+      "parent_supergenre": "romance",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "romance": ["romance", "love story", "falling in love", "relationship", "passion"],
+        "supernatural": ["supernatural", "paranormal", "magical", "otherworldly", "immortal"],
+        "creatures": ["vampire", "werewolf", "witch", "demon", "angel", "shapeshifter"]
+      },
+      "typical_tropes": ["forbidden-love", "immortal-romance", "fated-mates", "human-supernatural"],
+      "plot_patterns": ["falls for supernatural", "forbidden romance", "love across species", "immortal love"],
+      "character_dynamics": ["vampire romance", "werewolf mate", "witch love", "demon attraction"],
+      "strong_signals": ["supernatural romance", "paranormal romance", "vampire", "werewolf", "immortal love"],
+      "avoid_confusion_with": {"paranormal": ["romance primary"], "romance": ["supernatural elements"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "chick-lit": {
+      "name": "Chick Lit",
+      "parent_supergenre": "contemporary-realism",
+      "parent_domain": "fiction",
+      "core_elements": {
+        "contemporary_woman": ["modern woman", "career", "dating", "friendships", "urban life"],
+        "lighthearted": ["lighthearted", "humorous", "witty", "fun", "entertaining"],
+        "relatable": ["relatable", "everyday struggles", "modern life", "shopping", "relationships"]
+      },
+      "typical_themes": ["career challenges", "dating mishaps", "friendship", "self-discovery"],
+      "plot_patterns": ["navigates modern life", "finds herself", "career and romance", "friend group"],
+      "character_archetypes": ["single woman", "career woman", "fashionista", "best friends"],
+      "tone_markers": ["lighthearted", "humorous", "witty", "fun", "relatable"],
+      "strong_signals": ["chick lit", "modern woman", "dating", "shopping", "girlfriends"],
+      "avoid_confusion_with": {"women's-fiction": ["lighthearted vs serious"], "romance": ["broader focus"]},
+      "minimum_confidence": 0.65
+    },
+    
+    "autobiography": {
+      "name": "Autobiography",
+      "parent_supergenre": "biography-memoir",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "self_written": ["autobiography", "my life", "my story", "I was born", "my journey"],
+        "complete_life": ["from birth", "entire life", "life story", "complete account", "my years"],
+        "first_person": ["I grew up", "my childhood", "my career", "my experiences"]
+      },
+      "typical_elements": ["chronological", "self-narrated", "complete life arc", "personal account"],
+      "strong_signals": ["autobiography", "my life", "my story", "by [author name]"],
+      "avoid_confusion_with": {"memoir": ["complete life vs period"], "biography": ["self-written"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "political-science": {
+      "name": "Political Science",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "politics": ["politics", "political", "government", "democracy", "elections", "policy"],
+        "political_systems": ["political system", "governance", "constitution", "political theory"],
+        "power": ["power", "authority", "political power", "state", "political institutions"]
+      },
+      "typical_topics": ["political theory", "governance", "political systems", "democracy", "elections"],
+      "strong_signals": ["political science", "politics", "government", "democracy", "political theory"],
+      "avoid_confusion_with": {"history": ["political focus"], "current-affairs": ["theory vs news"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "sociology": {
+      "name": "Sociology",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "society": ["sociology", "sociological", "society", "social", "social structures"],
+        "social_issues": ["inequality", "class", "race", "gender", "social issues", "community"],
+        "analysis": ["social analysis", "study of society", "social patterns", "cultural norms"]
+      },
+      "typical_topics": ["social structures", "inequality", "social movements", "culture"],
+      "strong_signals": ["sociology", "sociological", "society", "social structures", "inequality"],
+      "avoid_confusion_with": {"anthropology": ["own culture vs other cultures"], "psychology": ["group vs individual"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "anthropology": {
+      "name": "Anthropology",
+      "parent_supergenre": "social-science",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "human_culture": ["anthropology", "anthropological", "culture", "cultural", "human societies"],
+        "study": ["study of", "fieldwork", "ethnography", "cultural practices", "rituals"],
+        "diverse_cultures": ["indigenous", "tribal", "cultural diversity", "customs", "traditions"]
+      },
+      "typical_topics": ["cultural practices", "human evolution", "ethnography", "rituals", "customs"],
+      "strong_signals": ["anthropology", "anthropological", "ethnography", "cultural", "indigenous"],
+      "avoid_confusion_with": {"sociology": ["other cultures vs own society"], "archaeology": ["living vs ancient"]},
+      "minimum_confidence": 0.68
+    },
+    
+    "economics": {
+      "name": "Economics",
+      "parent_supergenre": "business-economics",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "economic": ["economics", "economic", "economy", "macroeconomics", "microeconomics"],
+        "theory": ["economic theory", "supply and demand", "market forces", "capitalism"],
+        "systems": ["economic system", "trade", "markets", "fiscal", "monetary"]
+      },
+      "typical_topics": ["economic theory", "markets", "trade", "fiscal policy", "capitalism"],
+      "strong_signals": ["economics", "economic", "economy", "macroeconomics", "fiscal"],
+      "avoid_confusion_with": {"business": ["theory vs practice"], "finance": ["broad vs personal"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "nature-writing": {
+      "name": "Nature Writing",
+      "parent_supergenre": "science-nature",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "nature": ["nature", "natural world", "wilderness", "landscape", "wildlife"],
+        "personal_narrative": ["personal journey", "observation", "experience in nature", "nature walk"],
+        "reflection": ["contemplation", "connection to nature", "natural beauty", "seasons"]
+      },
+      "typical_elements": ["nature observation", "personal reflection", "environmental awareness"],
+      "strong_signals": ["nature writing", "wilderness", "natural world", "landscape", "wildlife"],
+      "avoid_confusion_with": {"science": ["narrative vs academic"], "memoir": ["nature focus"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "military-history": {
+      "name": "Military History",
+      "parent_supergenre": "history",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "warfare": ["military history", "war", "battle", "campaign", "warfare", "military"],
+        "historical_conflicts": ["World War", "Civil War", "conflict", "military operations"],
+        "analysis": ["strategy", "tactics", "military analysis", "commanders", "battles"]
+      },
+      "typical_topics": ["wars", "battles", "military campaigns", "military strategy", "commanders"],
+      "strong_signals": ["military history", "war", "battle", "campaign", "military"],
+      "avoid_confusion_with": {"military-fiction": ["non-fiction"], "history": ["military focus"]},
+      "minimum_confidence": 0.70
+    },
+    
+    "cultural-history": {
+      "name": "Cultural History",
+      "parent_supergenre": "history",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "culture": ["cultural history", "culture", "cultural", "social history", "customs"],
+        "movements": ["cultural movement", "social change", "cultural trends", "artistic movements"],
+        "daily_life": ["everyday life", "social practices", "cultural practices", "traditions"]
+      },
+      "typical_topics": ["cultural movements", "social trends", "daily life", "artistic periods"],
+      "strong_signals": ["cultural history", "social history", "culture", "cultural movement"],
+      "avoid_confusion_with": {"history": ["cultural focus"], "anthropology": ["historical vs contemporary"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "health": {
+      "name": "Health",
+      "parent_supergenre": "health-psychology",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "health_topics": ["health", "wellness", "nutrition", "diet", "healthy living"],
+        "guidance": ["health guide", "how to be healthy", "improve health", "medical advice"],
+        "body": ["body", "physical health", "immune system", "disease prevention"]
+      },
+      "typical_topics": ["nutrition", "diet", "wellness", "disease prevention", "healthy lifestyle"],
+      "strong_signals": ["health", "wellness", "nutrition", "diet", "healthy"],
+      "avoid_confusion_with": {"medical": ["general vs clinical"], "fitness": ["health vs exercise"]},
+      "minimum_confidence": 0.67
+    },
+    
+    "fitness": {
+      "name": "Fitness",
+      "parent_supergenre": "health-psychology",
+      "parent_domain": "non-fiction",
+      "core_elements": {
+        "exercise": ["fitness", "exercise", "workout", "training", "physical fitness"],
+        "programs": ["fitness program", "training routine", "exercise plan", "workout guide"],
+        "goals": ["get fit", "build muscle", "lose weight", "strength training", "endurance"]
+      },
+      "typical_topics": ["exercise routines", "training programs", "strength", "conditioning"],
+      "strong_signals": ["fitness", "exercise", "workout", "training", "physical fitness"],
+      "avoid_confusion_with": {"health": ["exercise vs nutrition"], "sports": ["fitness vs competition"]},
+      "minimum_confidence": 0.68
     }
   }
 }
