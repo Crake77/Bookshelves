@@ -1,5 +1,8 @@
 # Bookshelves – Codex Playbook
 
+> **⚠️ NOTE:** For Warp agents, use `SESSION_START.md` instead - it consolidates all workflow context in one place.
+> This file (AGENTS.md) contains legacy multi-agent guidelines and detailed protocols.
+
 ## Goal
 Build and deploy Bookshelves with Vercel in a fully automated flow. Do not ask for approvals unless a command fails.
 
