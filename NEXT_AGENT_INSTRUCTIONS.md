@@ -1,7 +1,69 @@
-# NEXT AGENT INSTRUCTIONS: Complete Taxonomy SQL Generation
+# NEXT AGENT INSTRUCTIONS
+
+**Last Updated:** 2025-10-25T11:45:00Z  
+**Priority:** HIGH - Development Environment Setup Required
+
+## 🔄 SESSION HANDOFF SUMMARY (2025-10-25)
+
+### ✅ Completed This Session
+1. Created comprehensive age/audience detection patterns (`taxonomy/age_audience_patterns.json`)
+2. Created detailed documentation (`AGE_AUDIENCE_PATTERNS_SUMMARY.md`)
+3. Set up documentation management system with master index (`MASTER_DOCUMENTATION_INDEX.md`)
+4. Archived 24 old documentation files to `archives/` directory
+5. Installed Python 3.12 (requires terminal restart to take effect)
+6. Updated progress tracking in `TAXONOMY_PATTERNS_PROGRESS.md`
+
+### 📊 Token Usage
+- Total tokens used: ~20,700 / 200,000 (10.4%)
+- Efficient session with structured deliverables
+
+---
+
+## 🚨 IMMEDIATE PRIORITY: Development Environment Setup
+
+**CRITICAL:** User has restarted PowerShell terminal. Python 3.12 is now installed.
+
+### Step 1: Verify Python Installation
+```pwsh
+python --version
+pip --version
+```
+
+### Step 2: Install Essential Development Tools
+```pwsh
+# Install Git (if not already installed)
+winget install Git.Git --silent
+
+# Install Node.js LTS (for TypeScript/JavaScript tooling)
+winget install OpenJS.NodeJS.LTS --silent
+
+# Install jq (JSON CLI processor)
+winget install jqlang.jq --silent
+```
+
+### Step 3: Install Python Dependencies
+```pwsh
+# Core scraping and data processing libraries
+pip install requests beautifulsoup4 lxml playwright pyyaml
+
+# Optional: Install playwright browsers
+python -m playwright install
+```
+
+### Step 4: Verify Installation
+```pwsh
+git --version
+node --version
+npm --version
+jq --version
+python -c "import requests, bs4, lxml, yaml; print('Python packages OK')"
+```
+
+---
+
+## 📚 PREVIOUS CONTEXT (Taxonomy SQL Generation - COMPLETE)
 
 **Status:** ✅ 100% COMPLETE - Ready for deployment  
-**Priority:** HIGH - Required for production deployment  
 **Completion Time:** 2025-10-23T02:50:00Z
 
 ## ✅ COMPLETED SECTIONS (as of 2025-10-23T02:48:00Z)
