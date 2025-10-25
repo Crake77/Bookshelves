@@ -105,6 +105,25 @@ Before starting each batch, verify you have access to:
 
 ---
 
+## 🧠 Evidence Packs & Provenance (Enrichment v3)
+
+The enrichment pipeline now operates on **multi-source evidence packs** so every tag/genre decision is auditable and legally sourced. This augments—rather than replaces—the core pattern system:
+
+1. **Harvest evidence snapshots** (see `HARVEST_RUNBOOK.md`). Each run gathers:
+   - **OpenLibrary** work/edition metadata (CC0 subjects, languages, excerpts)
+   - **Wikipedia** intro extracts with revision IDs (CC-BY-SA)
+   - Future sources (Wikidata, Google Books, LCSH) plug into the same `source_snapshots` table.
+2. **Persist provenance** in `source_snapshots` (one row per source per work) with `sha256` fingerprints, `license`, and trimmed `extract` text.
+3. **Hybrid tagging pipeline**:
+   - **Pattern engine first** – run the Core Pattern files (domains → cross-tags) against harvested extracts + AI summaries, honoring existing weights/confidence thresholds.
+   - **LLM fallback** – when patterns leave a tag undecided/low-confidence, feed the compiled evidence pack into the LLM prompt. Require the model to cite the supporting `source_snapshots.id` (or source key) for every suggestion.
+   - **Store provenance** – write cited snapshot IDs to `book_cross_tags.source_ids` and set `method` to `pattern-match`, `llm`, or `hybrid`.
+4. **Validator (WIP)** will enforce contradiction rules, confidence minimums (patterns ≥0.7, LLM ≥0.8 with ≥2 sources), and the presence of provenance for any AI-assisted tag.
+
+Always harvest before running tagging so both the deterministic patterns and the LLM operate on the same trusted inputs.
+
+---
+
 ## 📊 PART 0: BATCH PRIORITIZATION STRATEGY
 
 **CRITICAL:** Process the most popular/impactful books FIRST to maximize immediate value.
@@ -1355,4 +1374,3 @@ Use insights to improve subsequent batches.
 - v1.0 (2025-10-22): Initial metadata enrichment plan
 
 **Agent Contact:** This guide is for GPT-4 autonomous execution. For human review, see Warp Agent (infrastructure).
-

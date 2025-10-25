@@ -435,6 +435,10 @@ export async function getUserBooks(userId: string, status?: string): Promise<Use
     }
     const data = await response.json();
     if (Array.isArray(data)) {
+      // If API returns an empty array (e.g., preview env without seed), fall back to demo data
+      if (data.length === 0) {
+        return cloneDemoBooks(status);
+      }
       return data;
     }
     console.warn("[getUserBooks] API returned non-array payload, using demo data");

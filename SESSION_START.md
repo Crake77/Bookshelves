@@ -15,9 +15,11 @@ That's it! This file contains everything you need.
 
 ---
 
+> **Tip:** If the user says "read STARTUP_SESSION.md", open that file first—it references this checklist plus `NEXT_AGENT_INSTRUCTIONS.md` and `DOCUMENTATION_MASTER_INDEX.md` in the required order.
+
 ## 📋 IMMEDIATE PRIORITIES
 
-**READ THIS FIRST:** `NEXT_AGENT_INSTRUCTIONS.md`
+**READ THIS FIRST (after pulling latest):** `NEXT_AGENT_INSTRUCTIONS.md`
 
 The immediate priorities, current task status, and next actions are maintained in `NEXT_AGENT_INSTRUCTIONS.md` to avoid duplication. Always read that file for:
 - What was completed last session
@@ -78,7 +80,7 @@ git push             # Push to GitHub
 ## 📚 DOCUMENTATION SYSTEM
 
 ### Core Documentation Files (Read as Needed)
-1. **MASTER_DOCUMENTATION_INDEX.md** - Complete index of all project docs
+1. **DOCUMENTATION_MASTER_INDEX.md** - Complete index of all project docs
 2. **NEXT_AGENT_INSTRUCTIONS.md** - Current priorities and handoff context
 3. **TAXONOMY_PATTERNS_PROGRESS.md** - Pattern completion tracking (2,002 total patterns)
 4. **GPT_METADATA_ENRICHMENT_GUIDE.md** - AI enrichment task guide
@@ -104,10 +106,11 @@ Old/completed docs moved to `archives/` via manual archive process.
 ## 🤖 AI AGENT WORKFLOW
 
 ### Session Start Protocol
-1. Read `SESSION_START.md` (this file) for complete context
-2. Check immediate priorities section above
-3. Pull latest changes: `git pull`
-4. Execute current priority tasks
+1. Pull latest changes from GitHub: `git fetch && git pull` (always do this first)
+2. Read `SESSION_START.md` (this file) for stable context and guardrails
+3. Read `NEXT_AGENT_INSTRUCTIONS.md` for immediate priorities and next actions
+4. Read `DOCUMENTATION_MASTER_INDEX.md` to identify any additional docs relevant to this session
+5. Execute the actions defined in `NEXT_AGENT_INSTRUCTIONS.md`
 
 ### During Session
 - Work on priority tasks efficiently
@@ -126,7 +129,7 @@ Old/completed docs moved to `archives/` via manual archive process.
      - What was completed
      - Token usage summary
      - Next immediate priority
-   - Update `MASTER_DOCUMENTATION_INDEX.md` if new docs created
+   - Update `DOCUMENTATION_MASTER_INDEX.md` if new docs created
 
 3. **Commit Everything**:
    ```pwsh

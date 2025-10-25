@@ -1,7 +1,7 @@
 # Evidence-Pack Architecture Implementation Plan
 
 **Created:** 2025-10-25  
-**Status:** Ready to implement  
+**Status:** Refer to `GPT_METADATA_ENRICHMENT_GUIDE.md` ("Evidence Packs & Provenance") for the canonical workflow. This document now tracks high-level status/changelog only.  
 **Goal:** Replace single-summary tagging with multi-source evidence packs for richer, auditable metadata
 
 ---

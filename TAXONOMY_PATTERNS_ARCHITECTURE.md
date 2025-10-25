@@ -438,6 +438,16 @@ function calculateCrossTagScore(pattern, summary) {
 11. Build pattern validation test suite
 12. Create pattern improvement feedback loop
 
+## 🔗 Integration with Evidence Packs
+
+- **Input sources:** Run pattern matching against both AI summaries *and* harvested evidence snapshots (`source_snapshots.extract`). Snapshots provide CC0/CC-BY-SA text identical to what downstream LLMs consume, keeping confidence scores aligned.
+- **Execution order:**
+  1. Harvest evidence (OpenLibrary, Wikipedia, future Wikidata/LCSH).
+  2. Execute the deterministic pattern engine using the weighting rules in this document.
+  3. Invoke LLM fallbacks only when patterns leave tags unresolved or under the confidence threshold, and insist that every AI suggestion cites the supporting snapshot ID.
+- **Provenance writing:** When a pattern fires, record the snapshot ID(s) that contained the match so `book_cross_tags.source_ids` captures deterministic as well as AI-derived evidence.
+- **Conflict handling:** If harvested evidence contradicts a high-weight pattern (e.g., repeated non-fiction indicators vs. a fiction pattern), keep the higher-confidence result but flag it for the validator defined in `GPT_METADATA_ENRICHMENT_GUIDE.md`.
+
 ## Quality Standards
 
 ### Pattern Completeness Requirements

@@ -1,3 +1,7 @@
+# SESSION_START REMINDER
+
+Codex: Do not begin any task from `/status` until you have opened `SESSION_START.md`, completed its checklist, and only then returned here for the detailed Bookshelves playbook. Repeat that process whenever the environment changes.
+
 # Bookshelves – Codex Playbook
 
 > **⚠️ NOTE:** For Warp agents, use `SESSION_START.md` instead - it consolidates all workflow context in one place.
@@ -6,12 +10,19 @@
 ## Goal
 Build and deploy Bookshelves with Vercel in a fully automated flow. Do not ask for approvals unless a command fails.
 
+## Startup Workflow (Always)
+- Pull latest from GitHub first: `git fetch && git pull`
+- Read `SESSION_START.md` for stable context and guardrails
+- Read `NEXT_AGENT_INSTRUCTIONS.md` for immediate priorities
+- Read `DOCUMENTATION_MASTER_INDEX.md` to identify any relevant docs for this session
+- Only execute deploys/tests when explicitly requested in `NEXT_AGENT_INSTRUCTIONS.md` or by the user
+
 ## Auth & Env
 - Use the saved Vercel CLI login from this machine. If commands return “login required”, prompt me to run `vercel login` in the Ubuntu shell and retry.
 - Do **not** write or prompt for tokens. No secrets in files.
 
-## Preview Deploy (default task)
-Run these commands in this repo, non-interactively:
+## Preview Deploy (when requested)
+If `NEXT_AGENT_INSTRUCTIONS.md` or the user requests a preview deploy, run:
 1. `vercel pull --environment=preview --yes`
 2. `vercel build`
 3. `vercel deploy --prebuilt`

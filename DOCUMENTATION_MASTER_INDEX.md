@@ -91,8 +91,9 @@ Instructions for AI agents performing enrichment tasks.
 
 | File | Size | Purpose |
 |------|------|---------|
-| `GPT_METADATA_ENRICHMENT_GUIDE.md` | 51 KB | **Master enrichment guide** - comprehensive instructions for AI to enrich book metadata (8 tasks: covers, authors, summaries, domains, genres, subgenres, cross-tags, formats/audience) |
-| `GPT_CROSS_TAG_GENERATION_PROMPT.md` | 12 KB | Prompt template for AI to generate cross-tag patterns with examples and quality standards |
+| `GPT_METADATA_ENRICHMENT_GUIDE.md` | 51 KB | **Master enrichment guide** - comprehensive instructions for AI to enrich book metadata (now includes Evidence Packs & Provenance) |
+| `STARTUP_SESSION.md` | 3 KB | Session bootstrap checklist (pull → env → Session Start → Next Agent → Doc index → plan → report) |
+| `archives/GPT_CROSS_TAG_GENERATION_PROMPT.md` | 12 KB | (Archived) Legacy prompt for cross-tag pattern generation; superseded by `cross_tag_patterns_v1.json` |
 | `AGENTS.md` | 5 KB | **AI agent workflow guide** - session structure, handoff protocol, archive review process |
 
 ---
