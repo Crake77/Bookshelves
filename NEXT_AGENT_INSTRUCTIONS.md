@@ -1,67 +1,89 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-10-25T13:45:00Z  
-**Priority:** HIGH - Implement Evidence-Pack Architecture for Books 11-20
+**Last Updated:** 2025-10-25T14:12:00Z  
+**Priority:** HIGH - Continue Evidence-Pack Architecture Implementation
 
-## 🔄 SESSION HANDOFF SUMMARY (2025-10-25)
+## 🔄 SESSION HANDOFF SUMMARY (2025-10-25 - Evidence Pack Foundation)
 
 ### ✅ Completed This Session
-1. Created comprehensive age/audience detection patterns (`taxonomy/age_audience_patterns.json`)
-2. Created detailed documentation (`AGE_AUDIENCE_PATTERNS_SUMMARY.md`)
-3. Set up documentation management system with master index (`MASTER_DOCUMENTATION_INDEX.md`)
-4. Archived 24 old documentation files to `archives/` directory
-5. Created `SESSION_START.md` - single-file session context for all future sessions
-6. Installed complete development environment:
-   - ✅ Git 2.51.1
-   - ✅ Node.js v25.0.0 + NPM 11.6.2
-   - ✅ Python 3.12.10 + pip 25.0.1
-   - ✅ jq 1.8.1
-   - ✅ Python packages: requests, beautifulsoup4, lxml, playwright, pyyaml
-   - ✅ Playwright Chromium browser
-7. Fixed Windows App Execution Aliases (Python PATH issue)
+1. **Environment Setup:**
+   - Created `.env` file with DATABASE_URL and secrets (⚠️ protected in `.gitignore`)
+   - Installed npm dependencies: undici, p-retry, p-limit, dotenv
+   
+2. **Database Migration:**
+   - ✅ Executed `001_evidence_pack_architecture.sql` migration
+   - Added `source_snapshots` table for evidence storage
+   - Added provenance fields to `book_cross_tags`, `book_subgenres`, `book_genres`
+   - Added `work_ref_type`/`work_ref_value` to `works` table
+   
+3. **Drizzle Schema Updates:**
+   - ✅ Updated `shared/schema.ts` with all evidence-pack fields
+   - Added `sourceSnapshots` table export
+   - Added provenance tracking to book taxonomy tables
+   
+4. **Utility Modules Created:**
+   - ✅ `scripts/utils/hash.ts` - SHA-256 hashing for fingerprints
+   - ✅ `scripts/utils/rateLimit.ts` - Rate limiting with jitter
+   - ✅ `scripts/utils/objectStore.ts` - S3/R2 abstraction (stub)
+   
+5. **API Clients Started:**
+   - ✅ `scripts/harvest/clients/wikidata.ts` - SPARQL queries for structured genre data
+   - ⏳ Wikipedia client (TODO)
+   - ⏳ OpenLibrary client (TODO)
 
 ### 📊 Token Usage
-- Total tokens used: ~76,000 / 200,000 (38%)
-- Efficient multi-task session with environment setup
+- Total tokens used: ~71,000 / 200,000 (35.5%)
+- Foundation work complete for Week 1 Day 1-2
 
 ---
 
-## 🚨 IMMEDIATE PRIORITY: Evidence-Pack Architecture Implementation
+## 🚨 IMMEDIATE PRIORITY: Continue Evidence-Pack Implementation
 
-**GOAL:** Implement multi-source evidence harvesting for books 11-20 to replace single-summary tagging.
+**STATUS:** Foundation complete (✅ Migration, ✅ Schema, ✅ Utils, ✅ Wikidata client)
 
-**WHY:** Current approach has shallow signals, no provenance, and circular feedback loop on own summaries.
+**NEXT STEPS:**
 
-**WHAT'S READY:**
-- ✅ SQL migration created (`db/migrations/001_evidence_pack_architecture.sql`)
-- ✅ Implementation plan documented (`EVIDENCE_PACK_IMPLEMENTATION_PLAN.md`)
-- ✅ Development environment complete (Python, Node.js, Git, jq, libraries)
-
-### Step 1: Run SQL Migration
+### Step 1: Complete API Clients
 ```pwsh
-# Execute SQL to add source_snapshots table and provenance fields
-node -e "const pg = require('pg'); const fs = require('fs'); const sql = fs.readFileSync('db/migrations/001_evidence_pack_architecture.sql', 'utf8'); const client = new pg.Client({connectionString: process.env.DATABASE_URL, ssl: {rejectUnauthorized: false}}); client.connect().then(() => client.query(sql)).then(() => {console.log('Migration complete'); process.exit(0);}).catch(err => {console.error(err); process.exit(1);});"
+# Create Wikipedia client
+# File: scripts/harvest/clients/wikipedia.ts
+# - REST API for article extracts
+# - Rate limiting (200ms + jitter)
+# - Revision tracking
+
+# Create OpenLibrary client  
+# File: scripts/harvest/clients/openLibrary.ts
+# - Enhanced OL API with Work ID resolution
+# - Subject extraction
+# - Rate limiting
 ```
 
-### Step 2: Install Dependencies
+### Step 2: Build Evidence Pack Builder
 ```pwsh
-npm install undici p-retry p-limit zod
+# Create: scripts/harvest/buildEvidence.ts
+# Functions needed:
+# - getISBNForWork(workId)
+# - getWikipediaTitleForWork(workId)  
+# - needsReharvest(workId)
+# - buildAndPersistEvidence(workId)
 ```
 
-### Step 3: Review Implementation Plan
+### Step 3: Create Main Harvester
 ```pwsh
-# Read the complete plan
-cat EVIDENCE_PACK_IMPLEMENTATION_PLAN.md
+# Create: scripts/harvest/main.ts
+# - Concurrency control (p-limit)
+# - Progress tracking
+# - Error handling
 ```
 
-### Step 4: Begin Week 1 Implementation
-Follow `EVIDENCE_PACK_IMPLEMENTATION_PLAN.md` → Week 1 → Day 1-2:
-1. Update Drizzle schema (`shared/schema.ts`)
-2. Create utility modules (`scripts/utils/`)
-3. Create API clients (`scripts/harvest/clients/`)
-4. Test on 10-50 works
+### Step 4: Test on Small Batch
+```pwsh
+node scripts/harvest/main.ts 10  # Test on 10 works
+# Verify source_snapshots table populated
+# Check provenance fields
+```
 
-**Target:** Have evidence harvesting working for books 11-20 by end of next session.
+**Target:** Evidence harvesting working for books 11-20 by end of Week 1.
 
 ---
 

@@ -397,6 +397,11 @@ export const bookGenres = pgTable(
     id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
     bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
     genreId: uuid("genre_id").notNull().references(() => genres.id, { onDelete: "cascade" }),
+    
+    // Provenance tracking
+    sourceIds: uuid("source_ids").array(),
+    method: text("method"), // 'pattern-match' | 'llm' | 'hybrid' | 'user'
+    taggedAt: timestamp("tagged_at").defaultNow(),
   },
   (table) => ({
     uqBookGenre: uniqueIndex("uq_book_genre").on(table.bookId, table.genreId),
@@ -418,6 +423,11 @@ export const bookSubgenres = pgTable(
     bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
     subgenreId: uuid("subgenre_id").notNull().references(() => subgenres.id, { onDelete: "cascade" }),
     confidence: real("confidence"), // AI confidence score (optional)
+    
+    // Provenance tracking
+    sourceIds: uuid("source_ids").array(),
+    method: text("method"), // 'pattern-match' | 'llm' | 'hybrid' | 'user'
+    taggedAt: timestamp("tagged_at").defaultNow(),
   },
   (table) => ({
     uqBookSubgenre: uniqueIndex("uq_book_subgenre").on(table.bookId, table.subgenreId),
@@ -479,6 +489,11 @@ export const bookCrossTags = pgTable(
     bookId: uuid("book_id").notNull().references(() => books.id, { onDelete: "cascade" }),
     crossTagId: uuid("cross_tag_id").notNull().references(() => crossTags.id, { onDelete: "cascade" }),
     confidence: real("confidence"), // AI confidence score (optional)
+    
+    // Provenance tracking  
+    sourceIds: uuid("source_ids").array(),
+    method: text("method"), // 'pattern-match' | 'llm' | 'hybrid' | 'user'
+    taggedAt: timestamp("tagged_at").defaultNow(),
   },
   (table) => ({
     uqBookCrossTag: uniqueIndex("uq_book_cross_tag").on(table.bookId, table.crossTagId),
@@ -519,6 +534,10 @@ export const works = pgTable(
     // Deduplication metadata
     matchConfidence: integer("match_confidence").default(100), // 0-100
     isManuallyConfirmed: boolean("is_manually_confirmed").default(false),
+    
+    // FRBR-lite: Authority references for work deduplication
+    workRefType: text("work_ref_type"), // 'openlibrary' | 'wikidata' | 'none'
+    workRefValue: text("work_ref_value"), // e.g. 'OL12345W' or 'Q12345'
     
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at").defaultNow().notNull(),
@@ -635,3 +654,45 @@ export const insertReleaseEventSchema = createInsertSchema(releaseEvents).omit({
 });
 export type InsertReleaseEvent = z.infer<typeof insertReleaseEventSchema>;
 export type ReleaseEvent = typeof releaseEvents.$inferSelect;
+
+// -----------------------
+// Evidence-Pack Architecture: Source Snapshots
+// -----------------------
+
+export const sourceTypes = [
+  "openlibrary",
+  "wikidata",
+  "wikipedia",
+  "googlebooks",
+  "lcsh",
+] as const;
+
+// Source snapshots: Thin, versioned evidence from multiple sources
+export const sourceSnapshots = pgTable(
+  "source_snapshots",
+  {
+    id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+    workId: uuid("work_id").notNull().references(() => works.id, { onDelete: "cascade" }),
+    source: text("source").notNull().$type<typeof sourceTypes[number]>(),
+    sourceKey: text("source_key"), // e.g. Wikidata QID, Wikipedia page title
+    revision: text("revision"), // Version identifier (wiki rev_id, wikidata lastmod)
+    url: text("url"), // Source URL
+    license: text("license"), // 'CC0', 'CC-BY-SA', 'API-TOS', etc.
+    fetchedAt: timestamp("fetched_at").defaultNow().notNull(),
+    sha256: text("sha256"), // SHA-256 hash of extract for verification
+    extract: text("extract"), // Trimmed 0.5-2KB excerpt used for tagging
+    objectUri: text("object_uri"), // Optional: s3://... pointer to full gzipped JSON
+  },
+  (table) => ({
+    idxSourceSnapshotsWork: index("idx_source_snapshots_work").on(table.workId),
+    idxSourceSnapshotsSourceKey: index("idx_source_snapshots_source_key").on(table.source, table.sourceKey),
+    idxSourceSnapshotsFetched: index("idx_source_snapshots_fetched").on(table.fetchedAt),
+    uqSourceSnapshotWorkSource: uniqueIndex("uq_source_snapshot_work_source").on(table.workId, table.source),
+  })
+);
+
+export const insertSourceSnapshotSchema = createInsertSchema(sourceSnapshots).omit({
+  id: true,
+});
+export type InsertSourceSnapshot = z.infer<typeof insertSourceSnapshotSchema>;
+export type SourceSnapshot = typeof sourceSnapshots.$inferSelect;

@@ -8,4 +8,5 @@ vite.config.ts.*
 .vercel
 
 .vercel
+.env
 .env*.local
