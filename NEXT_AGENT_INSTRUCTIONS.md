@@ -1,7 +1,7 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-10-25T13:07:00Z  
-**Priority:** MEDIUM - Verify Python PATH and Begin Development Work
+**Last Updated:** 2025-10-25T13:45:00Z  
+**Priority:** HIGH - Implement Evidence-Pack Architecture for Books 11-20
 
 ## 🔄 SESSION HANDOFF SUMMARY (2025-10-25)
 
@@ -26,36 +26,42 @@
 
 ---
 
-## 🚨 IMMEDIATE PRIORITY: Verify Python PATH After PowerShell Restart
+## 🚨 IMMEDIATE PRIORITY: Evidence-Pack Architecture Implementation
 
-**CRITICAL:** User has toggled off Windows App Execution Aliases for Python and is restarting PowerShell.
+**GOAL:** Implement multi-source evidence harvesting for books 11-20 to replace single-summary tagging.
 
-### Step 1: Verify Python is Now in PATH
+**WHY:** Current approach has shallow signals, no provenance, and circular feedback loop on own summaries.
+
+**WHAT'S READY:**
+- ✅ SQL migration created (`db/migrations/001_evidence_pack_architecture.sql`)
+- ✅ Implementation plan documented (`EVIDENCE_PACK_IMPLEMENTATION_PLAN.md`)
+- ✅ Development environment complete (Python, Node.js, Git, jq, libraries)
+
+### Step 1: Run SQL Migration
 ```pwsh
-python --version
-pip --version
+# Execute SQL to add source_snapshots table and provenance fields
+node -e "const pg = require('pg'); const fs = require('fs'); const sql = fs.readFileSync('db/migrations/001_evidence_pack_architecture.sql', 'utf8'); const client = new pg.Client({connectionString: process.env.DATABASE_URL, ssl: {rejectUnauthorized: false}}); client.connect().then(() => client.query(sql)).then(() => {console.log('Migration complete'); process.exit(0);}).catch(err => {console.error(err); process.exit(1);});"
 ```
 
-**Expected output:**
-- `Python 3.12.10`
-- `pip 25.0.1 ...`
-
-**If still not working:**
-The Python installation is at: `C:\Users\johnd\AppData\Local\Programs\Python\Python312\`
-Use full path temporarily:
+### Step 2: Install Dependencies
 ```pwsh
-& "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe" --version
+npm install undici p-retry p-limit zod
 ```
 
-### Step 2: Quick Environment Test
+### Step 3: Review Implementation Plan
 ```pwsh
-# Verify all tools
-python --version
-node --version
-git --version
-jq --version
-python -c "import requests, bs4, lxml, yaml, playwright; print('✓ All packages working')"
+# Read the complete plan
+cat EVIDENCE_PACK_IMPLEMENTATION_PLAN.md
 ```
+
+### Step 4: Begin Week 1 Implementation
+Follow `EVIDENCE_PACK_IMPLEMENTATION_PLAN.md` → Week 1 → Day 1-2:
+1. Update Drizzle schema (`shared/schema.ts`)
+2. Create utility modules (`scripts/utils/`)
+3. Create API clients (`scripts/harvest/clients/`)
+4. Test on 10-50 works
+
+**Target:** Have evidence harvesting working for books 11-20 by end of next session.
 
 ---
 
