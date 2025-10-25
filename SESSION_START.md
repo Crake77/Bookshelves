@@ -17,45 +17,15 @@ That's it! This file contains everything you need.
 
 ## 📋 IMMEDIATE PRIORITIES
 
-### Current Task Status
-**Priority:** HIGH - Development Environment Setup Required
+**READ THIS FIRST:** `NEXT_AGENT_INSTRUCTIONS.md`
 
-#### Completed Last Session (2025-10-25)
-1. ✅ Created age/audience detection patterns (`taxonomy/age_audience_patterns.json`)
-2. ✅ Created `AGE_AUDIENCE_PATTERNS_SUMMARY.md` documentation
-3. ✅ Set up `MASTER_DOCUMENTATION_INDEX.md` system
-4. ✅ Archived 24 old documentation files to `archives/`
-5. ✅ Installed Python 3.12 (user must restart terminal)
-6. ✅ Updated `TAXONOMY_PATTERNS_PROGRESS.md`
+The immediate priorities, current task status, and next actions are maintained in `NEXT_AGENT_INSTRUCTIONS.md` to avoid duplication. Always read that file for:
+- What was completed last session
+- Current blocking issues
+- Next immediate actions
+- Specific task instructions
 
-#### Next Immediate Actions
-1. **Verify Python Installation** (after user restarts terminal)
-   ```pwsh
-   python --version
-   pip --version
-   ```
-
-2. **Install Essential Development Tools**
-   ```pwsh
-   winget install Git.Git --silent
-   winget install OpenJS.NodeJS.LTS --silent
-   winget install jqlang.jq --silent
-   ```
-
-3. **Install Python Dependencies**
-   ```pwsh
-   pip install requests beautifulsoup4 lxml playwright pyyaml
-   python -m playwright install
-   ```
-
-4. **Verify All Installations**
-   ```pwsh
-   git --version
-   node --version
-   npm --version
-   jq --version
-   python -c "import requests, bs4, lxml, yaml; print('Python packages OK')"
-   ```
+This file (SESSION_START.md) provides the **stable context** that doesn't change session-to-session.
 
 ---
 
@@ -184,11 +154,42 @@ Old/completed docs moved to `archives/` via manual archive process.
 ## 🗄️ DATABASE ARCHITECTURE
 
 ### Key Tables
-- `books` - Core book records with embeddings
-- `genres`, `subgenres`, `supergenres` - Hierarchical taxonomy
-- `cross_tags` - Orthogonal tags (tropes, themes, settings, etc.)
-- `user_books` - User's shelf associations
-- `shelves` - Default and custom shelves
+
+**Core Book Data:**
+- `books` - Core book records (id, title, authors, description, coverUrl, etc.)
+- `book_embeddings` - OpenAI vector embeddings for AI recommendations
+- `book_stats` - Aggregated ratings and rankings
+
+**User Management:**
+- `users` - User accounts
+- `user_books` - User's shelf associations and ratings
+- `custom_shelves` - User-defined shelf types
+- `browse_category_preferences` - User's browse category preferences
+
+**Hierarchical Taxonomy:**
+- `domains` - Top-level classification (fiction, nonfiction, poetry, drama)
+- `supergenres` - Umbrella categories grouping related genres
+- `genres` - Primary genre classification
+- `subgenres` - Most specific genre classification
+- `formats` - Book format (novel, manga, light-novel, audiobook, etc.)
+- `age_markets` - Target readership age ranges (early-readers, middle-grade, YA, adult, etc.)
+- `cross_tags` - Orthogonal tags (tropes, themes, settings, tone, content warnings, etc.)
+- `aliases` - Alternative terms mapped to canonical slugs
+
+**Taxonomy Relationships:**
+- `supergenre_domains` - Supergenre ↔ Domain links
+- `genre_domains` - Genre ↔ Domain links
+- `genre_supergenres` - Genre ↔ Supergenre links
+- `subgenre_genres` - Subgenre cross-attachments to additional genres
+
+**Book Classifications:**
+- `book_domains` - Book → Domain assignment (one per book)
+- `book_supergenres` - Book → Supergenre assignments (multiple allowed)
+- `book_genres` - Book → Genre assignments (multiple allowed)
+- `book_subgenres` - Book → Subgenre assignments (multiple allowed)
+- `book_formats` - Book → Format assignments
+- `book_age_markets` - Book → Age market assignments
+- `book_cross_tags` - Book → Cross-tag assignments
 
 ### Database Operations
 ```javascript
