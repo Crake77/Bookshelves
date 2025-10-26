@@ -1,9 +1,39 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-10-25T14:12:00Z  
-**Priority:** HIGH - Continue Evidence-Pack Architecture Implementation
+**Last Updated:** 2025-10-26T03:05:00Z  
+**Priority:** BLOCKED – Fix validator + TypeScript before next harvest
 
-## 🔄 SESSION HANDOFF SUMMARY (2025-10-25 - Evidence Pack Foundation)
+## 🔄 SESSION HANDOFF SUMMARY (2025-10-26 – Validator & Evidence Sync)
+
+### ✅ Completed This Session
+1. Ran `npm run doctor` (Neon DNS/TLS/PG all green) and `npm run harvest -- 25`; refreshed evidence for 25 works.
+2. Synced/Applied enrichment for three books (`033508ff‑…dc84`, `0482d088‑…6e1b`, `02bd1dc8‑…97d6`) so Neon now matches the latest provenance JSON.
+3. Added a provenance-aware validator (`scripts/validate/validator.ts`) plus `npm run validate` (chains doctor → tsc → validator); collected full report of missing provenance + TypeScript blockers.
+4. Documented all open issues: 
+   - `docs/ops/session-issues-2025-10-26.md` (TypeScript + validator gaps with “why” and fixes)
+   - `docs/ops/cross-tag-gap-report.md` (399 pattern slugs missing from taxonomy + suggested mappings)
+
+### ⚠️ Current Blockers (must resolve before next deploy/harvest)
+1. **TypeScript build fails** (`npm run check`): see `docs/ops/session-issues-2025-10-26.md`. HorizontalBookRow/Browse chips need typed unions; several server handlers import missing modules; `server/lib/editions-api.ts` misuses Drizzle APIs. Until fixed, `npm run validate` will always halt and CI is red.
+2. **Validator failures**: 10 enrichment files (136 tags) declare `method = pattern-match+evidence/llm/hybrid` but have empty `provenance_snapshot_ids`. Details + affected slugs live in `docs/ops/session-issues-2025-10-26.md`. Rerun `npm run evidence:sync -- <book-id>` or trim tags so provenance exists.
+3. **Cross-tag vocabulary gaps**: `cross_tag_patterns_v1.json` references 399 unknown slugs (report at `docs/ops/cross-tag-gap-report.md`). Deterministic tagging logs `[cross-tags] Skipping unknown slug …`, reducing coverage and pushing load to the LLM helper.
+
+### 🎯 Next Steps for Warp
+1. **Restore `npm run check`**: Type `secondaryChips` properly, align `HorizontalBookRow`/`BrowsePage` props, and reinstate the missing server imports/Drizzle helpers per the session issues doc.
+2. **Clear validator errors**: For each listed book, run `npm run evidence:sync -- <book-id>` (or drop unsupported tags) until `scripts/validate/validator.ts` prints “All enrichment files passed validation”.
+3. **Map/add missing cross-tag slugs**: Use `docs/ops/cross-tag-gap-report.md` to decide which slugs become aliases vs. new taxonomy entries; update `bookshelves_complete_taxonomy.json` + DB accordingly, then rerun deterministic tagging.
+4. Re-run `npm run validate`. Once it passes, resume the doctor → harvest → evidence:sync → enrichment:apply workflow for the next batch.
+5. Only after the validator + TypeScript pass should we run `vercel --prod` for future releases.
+
+**Reference docs created/updated this session:**
+- `docs/ops/session-issues-2025-10-26.md`
+- `docs/ops/cross-tag-gap-report.md`
+
+---
+
+## 📜 Historical Context (2025-10-25 – Evidence Pack Foundation)
+
+### 🔄 SESSION HANDOFF SUMMARY (2025-10-25 - Evidence Pack Foundation)
 
 ### ✅ Completed This Session
 1. **Environment Setup:**

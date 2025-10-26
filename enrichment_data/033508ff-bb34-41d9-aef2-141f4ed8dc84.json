@@ -240,7 +240,7 @@
     "work_id": "056969dc-9406-4fd3-88db-76a5a9f70adf",
     "work_title": "The Complete Nebula Award-winning Fiction",
     "work_ref": null,
-    "fetched_at": "2025-10-25T23:03:00.322Z",
+    "fetched_at": "2025-10-26T02:42:41.728Z",
     "sources": [
       {
         "snapshot_id": "8d7e14be-df35-4aa2-9024-6ac32a606609",
@@ -249,7 +249,7 @@
         "revision": "3",
         "url": "https://openlibrary.org/works/OL8075956W",
         "license": "CC0",
-        "fetched_at": "2025-10-25T23:03:00.322Z",
+        "fetched_at": "2025-10-26T02:42:41.728Z",
         "sha256": "ac87ee44d5abfb5398a0356ede127b8c7aba44b15487484922b38b2eae9ed033",
         "extract": "Title: The complete Nebula award-winning fiction of Samuel R. Delaney\n\nPublication: 1986\n\nLanguages: eng"
       }

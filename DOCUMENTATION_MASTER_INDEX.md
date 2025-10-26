@@ -1,6 +1,6 @@
 # Bookshelves Project - Master Documentation Index
 
-**Last Updated**: 2025-10-24  
+**Last Updated**: 2025-10-26  
 **Version**: 1.0.0  
 **Purpose**: Central index of all active project documentation, logically organized by purpose
 
@@ -202,6 +202,8 @@ Located in `docs/` directory:
 | `docs/ops/taxonomy-heuristics.md` | Taxonomy heuristic detection rules and logic |
 | `docs/ops/vercel-functions-reduction.md` | Strategy to reduce Vercel serverless function count |
 | `docs/ops/dialog-runtime-error.md` | Dialog component runtime error troubleshooting |
+| `docs/ops/cross-tag-gap-report.md` | Missing cross-tag slug inventory + mapping/alias recommendations (2025-10-26) |
+| `docs/ops/session-issues-2025-10-26.md` | Validator + TypeScript blocker summary with remediation steps |
 
 ### Reference
 
