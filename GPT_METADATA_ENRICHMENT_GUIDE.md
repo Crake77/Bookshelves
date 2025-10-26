@@ -114,10 +114,11 @@ The enrichment pipeline now operates on **multi-source evidence packs** so every
    - **Wikipedia** intro extracts with revision IDs (CC-BY-SA)
    - Future sources (Wikidata, Google Books, LCSH) plug into the same `source_snapshots` table.
 2. **Persist provenance** in `source_snapshots` (one row per source per work) with `sha256` fingerprints, `license`, and trimmed `extract` text.
+   - Use `npm run evidence:sync -- <book-id>` to copy the latest snapshots into `enrichment_data/<book-id>.json`. This adds an `evidence` block that downstream tasks (pattern engine + LLM) can consume without hitting the database.
 3. **Hybrid tagging pipeline**:
-   - **Pattern engine first** – run the Core Pattern files (domains → cross-tags) against harvested extracts + AI summaries, honoring existing weights/confidence thresholds.
+   - **Pattern engine first** – run the Core Pattern files (domains → cross-tags) against harvested extracts + AI summaries, honoring existing weights/confidence thresholds. The cross-tag script now reads `enrichment_data.*.evidence.sources` (populated via `npm run evidence:sync`) so it can cite snapshot IDs even when the match came from deterministic rules.
    - **LLM fallback** – when patterns leave a tag undecided/low-confidence, feed the compiled evidence pack into the LLM prompt. Require the model to cite the supporting `source_snapshots.id` (or source key) for every suggestion.
-   - **Store provenance** – write cited snapshot IDs to `book_cross_tags.source_ids` and set `method` to `pattern-match`, `llm`, or `hybrid`.
+   - **Store provenance** – write cited snapshot IDs to `book_cross_tags.source_ids` and set `method` to `pattern-match`, `llm`, or `hybrid` (Task 8 already persists `confidence`, `method`, `source_ids`).
 4. **Validator (WIP)** will enforce contradiction rules, confidence minimums (patterns ≥0.7, LLM ≥0.8 with ≥2 sources), and the presence of provenance for any AI-assisted tag.
 
 Always harvest before running tagging so both the deterministic patterns and the LLM operate on the same trusted inputs.
@@ -737,6 +738,52 @@ If the book contains sensitive material (violence, sexual content, abuse, trauma
 - trauma, ptsd, war-trauma
 
 **Validation:** Every tag slug MUST exist in the cross_tags taxonomy.
+
+#### LLM Fallback Prompt (Provenance Required)
+
+Only invoke the LLM when the deterministic pass (Task 6) can’t hit the 10–20 tag window or leaves obvious gaps. Always feed the harvested evidence so the model can cite sources.
+
+**Prompt Template (excerpt):**
+
+```text
+You are a senior metadata editor. Use only the evidence extracts and summary provided.
+
+INPUT JSON:
+{
+  "book": { "id": "<uuid>", "title": "...", "authors": ["..."], "summary": "..." },
+  "evidence": [
+    { "snapshot_id": "858a5...", "source": "openlibrary", "license": "CC0", "extract": "..." },
+    { "snapshot_id": "a1b2c3", "source": "wikipedia", "license": "CC-BY-SA-4.0", "extract": "..." }
+  ],
+  "existing_tags": ["murder-mystery", "victorian-era"]
+}
+
+TASK:
+1. Propose 10-20 cross-tags that do NOT duplicate existing_tags.
+2. Every tag MUST cite at least one snapshot_id from the evidence array.
+3. Only use slugs from Bookshelves taxonomy (fail if unsure).
+4. Output strict JSON:
+{
+  "tags": [
+    {
+      "slug": "serial-killer",
+      "group": "plot",
+      "confidence": 0.86,
+      "snapshot_ids": ["a1b2c3"],
+      "rationale": "Detective pursues serial killer per Wikipedia extract."
+    }
+  ],
+  "notes": []
+}
+```
+
+Run via CLI: `npm run enrichment:cross-tags -- <book-id>` (requires `OPENAI_API_KEY`).
+
+**Acceptance Rules**
+- Reject any tag without `snapshot_ids`.
+- Confidence must be ≥0.80 for LLM-sourced tags.
+- Snapshot IDs must exist in `source_snapshots`; keep the array small (1-2 best citations).
+- Store `snapshot_ids` as `book_cross_tags.source_ids` and set `method` to `llm` or `hybrid`.
 
 ### Step 3.5: Assign Format (IF KNOWN)
 

@@ -39,51 +39,57 @@
 
 ## 🚨 IMMEDIATE PRIORITY: Continue Evidence-Pack Implementation
 
-**STATUS:** Foundation complete (✅ Migration, ✅ Schema, ✅ Utils, ✅ Wikidata client)
+**STATUS:** Foundation + operational tooling shipped (✅ Migration, ✅ Schema, ✅ Utils, ✅ Wikidata/Wikipedia/OpenLibrary clients, ✅ Evidence builder, ✅ Main harvester, ✅ Preflight script).
 
-**NEXT STEPS:**
+**NEXT STEPS (RUN EACH SESSION):**
 
-### Step 1: Complete API Clients
+### Step 1: Run connectivity preflight (bin/neon-preflight)
 ```pwsh
-# Create Wikipedia client
-# File: scripts/harvest/clients/wikipedia.ts
-# - REST API for article extracts
-# - Rate limiting (200ms + jitter)
-# - Revision tracking
-
-# Create OpenLibrary client  
-# File: scripts/harvest/clients/openLibrary.ts
-# - Enhanced OL API with Work ID resolution
-# - Subject extraction
-# - Rate limiting
+npm run doctor
 ```
+- Verifies DNS → TLS → PG before touching Neon.
+- Fails fast if resolver/SNI issues return; follow troubleshooting map in HARVEST_RUNBOOK.md.
 
-### Step 2: Build Evidence Pack Builder
+### Step 2: Harvest a batch (default 25 works)
 ```pwsh
-# Create: scripts/harvest/buildEvidence.ts
-# Functions needed:
-# - getISBNForWork(workId)
-# - getWikipediaTitleForWork(workId)  
-# - needsReharvest(workId)
-# - buildAndPersistEvidence(workId)
+npm run harvest -- 25         # Safe runner (Node + dotenv + IPv4-first)
+# Overrides:
+# HARVEST_BATCH_SIZE=50 HARVEST_CONCURRENCY=5 npm run harvest
 ```
+- Targets works needing snapshots (`needsReharvest` logic).
+- Expect <5m for batch sizes ≤50; throttle if OpenLibrary/Wikipedia return 429s.
+- After harvesting a work that exists in `enrichment_data`, run:
+  ```pwsh
+  npm run evidence:sync -- <book-id>
+  ```
+  to copy `source_snapshots` into the JSON (script resolves `book-id → work-id` automatically). Task 6 now reads `evidence.sources[*].extract` + `snapshot_id` for provenance.
 
-### Step 3: Create Main Harvester
+### Step 3: Apply enrichment back to Neon
 ```pwsh
-# Create: scripts/harvest/main.ts
-# - Concurrency control (p-limit)
-# - Progress tracking
-# - Error handling
+npm run enrichment:apply -- <book-id>     # Optional --dry-run preview
 ```
+- Uses the enrichment JSON (updated by Task 6 + evidence sync) to rewrite `books`, taxonomy links, and `book_cross_tags` (confidence/method/source_ids) directly in Neon.
+- Run after each enrichment session to keep production data aligned; script is idempotent and safe to rerun.
 
-### Step 4: Test on Small Batch
-```pwsh
-node scripts/harvest/main.ts 10  # Test on 10 works
-# Verify source_snapshots table populated
-# Check provenance fields
+### Step 4: Spot-check source_snapshots + provenance
+```sql
+SELECT work_id, source, fetched_at FROM source_snapshots ORDER BY fetched_at DESC LIMIT 20;
 ```
+- Ensure new rows have `license`, `revision`, and non-empty `extract`.
+- File issues for works repeatedly missing ISBN/Wikipedia matches.
 
-**Target:** Evidence harvesting working for books 11-20 by end of Week 1.
+### Step 5: Feed evidence into enrichment/tagger
+- Wire `source_snapshots` IDs + extracts into the cross-tag task (`enrichment-tasks/task-06-cross-tags.js`).
+- When deterministic matching can’t reach 10-20 tags, run the LLM helper (`npm run enrichment:cross-tags -- <book-id>`) after setting `OPENAI_API_KEY`. It merges new tags (with `snapshot_ids`) back into the enrichment JSON before applying.
+- Update `GPT_METADATA_ENRICHMENT_GUIDE.md` once LLM prompt changes are finalized (include provenance expectations).
+- Goal: start tagging books 11‑20 with provenance-backed evidence by end of Week 1.
+
+### 📌 Upcoming Work (next session)
+1. **Expand cross-tag vocabulary** – review `enrichment-tasks/task-06-cross-tags.js` logs for “Skipping unknown slug …” and either map those concepts to existing taxonomy slugs or add the missing slugs/patterns so deterministic tagging stays accurate without LLM help.
+2. **Validator / CI hook** – add a lightweight script (or `npm run doctor` + lint combo) that runs automatically before pushes/PRs to catch missing formats, low tag counts, or provenance gaps.
+
+### 🔭 Future TODO
+- After the validator + taxonomy cleanup, scale the full doctor → harvest → sync → apply workflow to the next large batch (25–50 works) so production stays fully backfilled.
 
 ---
 

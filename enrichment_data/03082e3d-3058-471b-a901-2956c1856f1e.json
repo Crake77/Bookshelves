@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL39527188M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:52:41.603Z",
+  "last_updated": "2025-10-26T01:07:44.288Z",
   "authors": {
     "original": [
       "Marek C. Oziewicz"
@@ -35,13 +35,13 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "nonfiction",
       "confidence": "high",
       "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
-        "slug": "literature-writing",
+        "slug": "essays-criticism",
         "confidence": "suggested",
         "reason": "Derived from categories"
       },
@@ -57,51 +57,226 @@
     "subgenres": [],
     "cross_tags": [
       {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
+          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
+        ]
+      },
+      {
         "slug": "complex",
         "name": "Complex",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a86b6ab1-74aa-4df1-9ab2-bca08b547701"
+        ]
       },
       {
         "slug": "poetic",
         "name": "Poetic",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a86b6ab1-74aa-4df1-9ab2-bca08b547701"
+        ]
       },
       {
         "slug": "fairy",
         "name": "Fairy",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a86b6ab1-74aa-4df1-9ab2-bca08b547701"
+        ]
+      },
+      {
+        "slug": "experimental",
+        "name": "Experimental",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a86b6ab1-74aa-4df1-9ab2-bca08b547701"
+        ]
       },
       {
         "slug": "revolution",
         "name": "Revolution",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 9,
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "educational-tone",
         "name": "Educational",
         "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 8,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a86b6ab1-74aa-4df1-9ab2-bca08b547701"
+        ]
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "gritty",
+        "name": "Gritty",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "war",
+        "name": "War",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "demons",
+        "name": "Demons",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "fire-magic",
+        "name": "Fire Magic",
+        "group": "trope",
         "confidence": "medium",
-        "match_score": 4
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "nanotechnology",
+        "name": "Nanotechnology",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "riches-to-rags",
+        "name": "Riches to Rags",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "underwater-city",
+        "name": "Underwater City",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "sparse-prose",
+        "name": "Sparse Prose",
+        "group": "style",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "secret-baby",
+        "name": "Secret Baby",
+        "group": "tropes_themes",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 5
+    "cross_tags_count": 20,
+    "cross_tags_status": "needs_more"
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "compendium",
+    "confidence": "medium",
+    "reason": "Scholarly nonfiction volume"
   },
   "audience": {
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "9a98e647-76c9-4ec4-b1b4-0a7986e45129",
+    "work_title": "Justice in Young Adult Speculative Fiction",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:02:59.660Z",
+    "sources": [
+      {
+        "snapshot_id": "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
+        "source": "googlebooks",
+        "source_key": "TX5KCAAAQBAJ",
+        "revision": "2015-04-17",
+        "url": "https://books.google.com/books?id=TX5KCAAAQBAJ",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-10-25T23:02:59.660Z",
+        "sha256": "9164fe568bd832311920a6e3333c510cf992575cb948cbc35b70d34f564fd4bf",
+        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nDescription: This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts—patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fic..."
+      },
+      {
+        "snapshot_id": "3d3be7b4-fbab-4dec-840a-087638e35cd8",
+        "source": "openlibrary",
+        "source_key": "OL21296030W",
+        "revision": "4",
+        "url": "https://openlibrary.org/works/OL21296030W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T23:02:59.197Z",
+        "sha256": "83a64e1e2f858fe7a241efa42f408dce8cdfafe4cd97f6677af84d29aaa50436",
+        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nSubjects: Young adult literature, history and criticism, Justice in literature, Fantasy fiction, history and criticism, Young adult fiction, History and criticism, Speculative fiction, Fantasy fiction, Roman pour jeunes adultes, Histoire et critique, Roman d'hypothèse, Justice dans la littérature, LITERARY CRITICISM, Children's Literature\n\nPublication: 2015\n\nLanguages: eng"
+      }
+    ]
   }
 }

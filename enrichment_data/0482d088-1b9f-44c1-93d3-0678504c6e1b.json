@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL56957378M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:52:41.860Z",
+  "last_updated": "2025-10-26T01:07:44.756Z",
   "authors": {
     "original": [
       "Sarah Schulman"
@@ -35,13 +35,13 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "nonfiction",
       "confidence": "high",
       "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
-        "slug": "science-technology",
+        "slug": "science-nature",
         "confidence": "suggested",
         "reason": "Derived from categories"
       },
@@ -67,61 +67,212 @@
         "name": "Abortion",
         "group": "content_flags",
         "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "liberation",
-        "name": "Liberation",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "artistic",
-        "name": "Artistic",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "poetic",
-        "name": "Poetic",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9
-      },
-      {
-        "slug": "uplifting",
-        "name": "Uplifting",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
+        ]
       },
       {
         "slug": "war",
         "name": "War",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
+        ]
       },
       {
         "slug": "queer",
         "name": "Queer",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
+        ]
+      },
+      {
+        "slug": "liberation",
+        "name": "Liberation",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artistic",
+        "name": "Artistic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "poetic",
+        "name": "Poetic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "uplifting",
+        "name": "Uplifting",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "hopeful",
+        "name": "Hopeful",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "gritty",
+        "name": "Gritty",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "coming-of-age",
+        "name": "Coming of Age",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "elves",
+        "name": "Elves",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "lgbtq",
+        "name": "LGBTQ+",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "fire-magic",
+        "name": "Fire Magic",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "nanotechnology",
+        "name": "Nanotechnology",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "riches-to-rags",
+        "name": "Riches to Rags",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "underwater-city",
+        "name": "Underwater City",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 7
+    "cross_tags_count": 20,
+    "cross_tags_status": "needs_more"
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "compendium",
+    "confidence": "medium",
+    "reason": "Non-fiction anthology of essays"
   },
   "audience": {
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "b888fd97-e551-4615-b8bf-8ae676e79bee",
+    "work_title": "The Fantasy and Necessity of Solidarity",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:03:02.860Z",
+    "sources": [
+      {
+        "snapshot_id": "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+        "source": "googlebooks",
+        "source_key": "3msrEQAAQBAJ",
+        "revision": "2025-04-22",
+        "url": "https://books.google.com/books?id=3msrEQAAQBAJ",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-10-25T23:03:02.860Z",
+        "sha256": "a9bec6a0152f013a10af7bf9fd49b133d1487d099f77666409b01a60ffd2aaed",
+        "extract": "Title: The Fantasy and Necessity of Solidarity\n\nDescription: Writer and activist Sarah Schulman examines the psychological and social complexities of solidarity movements, drawing from decades of experience in queer activism, AIDS advocacy, and anti-war organizing. The book challenges common assumptions about solidarity work, arguing that both those seeking support and those offering it operate within fantasies that often lead to disappointment and conflict.\n\nSchulman identifies competing fantasies at play in solidarity movements. Oppressed groups hope for intervention from bystanders, accountability for oppressors, and relief from injustice. Meanwhile, those standing in solidarity imagine their actions will be effective, cost-free, and rewarded with gratitude and friendship. These misaligned expectations create inevitable friction even within movements working toward shared goals.\n\nThe book examines multiple case studies spanning decades and movements: abortion rights activism in post-Franco Spain, AIDS organizing in 1990s New York City, campus protests against Israel's war on Gaza, and Schulman's experiences as a queer female artist navigating male-dominated cultural industries. Through these examples, she draws connections between various struggles for justice.\n\nSchulman argues that effective solidarity requires acknowledging its limitations and costs. In globalized power structures, solidarity demands that bystanders and even conflicted perpetrators collaborate with the excluded and oppressed, accepting that such action may be difficult, expensive, and unappreciated.\n\nThe book offers both critique and possibility, recognizing solidarity's inherent challenges while asserting its necessity for progressive change. Schulman's analysis is particularly timely given cur..."
+      },
+      {
+        "snapshot_id": "8b6e92cd-8b69-4446-b74b-ca56006b70aa",
+        "source": "openlibrary",
+        "source_key": "OL41941442W",
+        "revision": "2",
+        "url": "https://openlibrary.org/works/OL41941442W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T23:03:02.364Z",
+        "sha256": "986b89ae4c8e63eb100924bafe3e73b1b3e3e6f81357829f98b62afbb1534f7b",
+        "extract": "Title: The Fantasy and Necessity of Solidarity\n\nPublication: April 22, 2025"
+      }
+    ]
   }
 }

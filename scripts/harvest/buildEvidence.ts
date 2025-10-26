@@ -6,19 +6,23 @@ import { db } from '../../db/index.js';
 import {
   works,
   editions,
+  books,
   sourceSnapshots,
   type Work,
   type Edition,
+  type Book,
   type InsertSourceSnapshot,
   type SourceSnapshot,
 } from '@shared/schema';
 import { sha256 } from '../utils/hash.js';
 import { lookupOpenLibraryByISBN, type OpenLibraryEvidence } from './clients/openLibrary.js';
 import { fetchWikipediaExtract } from './clients/wikipedia.js';
+import { fetchGoogleBooksByISBN, fetchGoogleBooksById } from './clients/googleBooks.js';
 
 type SourceName = SourceSnapshot['source'];
 
 const REQUIRED_SOURCES: SourceName[] = ['openlibrary', 'wikipedia'];
+const DEFAULT_SOURCES: SourceName[] = [...REQUIRED_SOURCES, 'googlebooks'];
 const STALE_DAYS = Number(process.env.EVIDENCE_STALE_DAYS ?? '90');
 const EXTRACT_CHAR_LIMIT = Number(process.env.EVIDENCE_EXTRACT_LIMIT ?? '1800');
 const WIKIDATA_ENTITY_URL = 'https://www.wikidata.org/wiki/Special:EntityData';
@@ -28,6 +32,8 @@ export interface ISBNDetails {
   editionId?: string | null;
   isbn10?: string | null;
   isbn13?: string | null;
+  googleBooksId?: string | null;
+  legacyBookId?: string | null;
 }
 
 export interface WikipediaTitle {
@@ -64,6 +70,8 @@ export async function getISBNForWork(work: Work): Promise<ISBNDetails | null> {
       editionId: preferEdition.id,
       isbn13: preferEdition.isbn13,
       isbn10: preferEdition.isbn10,
+      googleBooksId: preferEdition.googleBooksId ?? null,
+      legacyBookId: preferEdition.legacyBookId ?? null,
     };
   }
 
@@ -85,6 +93,8 @@ export async function getISBNForWork(work: Work): Promise<ISBNDetails | null> {
     editionId: fallback.id,
     isbn13: fallback.isbn13,
     isbn10: fallback.isbn10,
+    googleBooksId: fallback.googleBooksId ?? null,
+    legacyBookId: fallback.legacyBookId ?? null,
   };
 }
 
@@ -195,6 +205,27 @@ function buildWikipediaExtract(extract: string, categories: string[]): string {
   return truncateExtract(parts.join('\n\n'));
 }
 
+function buildGoogleBooksExtract(
+  title: string,
+  description?: string,
+  categories: string[] = [],
+): string | null {
+  const sections: string[] = [`Title: ${title}`];
+  if (description) {
+    sections.push(`Description: ${description}`);
+  }
+  if (categories.length) {
+    sections.push(`Categories: ${categories.slice(0, 20).join(', ')}`);
+  }
+  const extract = sections.join('\n\n').trim();
+  return extract ? truncateExtract(extract) : null;
+}
+
+async function loadLegacyBook(legacyBookId?: string | null): Promise<Book | null> {
+  if (!legacyBookId) return null;
+  return db.query.books.findFirst({ where: eq(books.id, legacyBookId) });
+}
+
 async function upsertSnapshot(snapshot: InsertSourceSnapshot): Promise<void> {
   await db
     .insert(sourceSnapshots)
@@ -215,7 +246,7 @@ async function upsertSnapshot(snapshot: InsertSourceSnapshot): Promise<void> {
 }
 
 export async function buildAndPersistEvidence(options: BuildEvidenceOptions): Promise<BuildEvidenceResult> {
-  const { workId, force = false, sources = REQUIRED_SOURCES } = options;
+  const { workId, force = false, sources = DEFAULT_SOURCES } = options;
 
   const work = await db.query.works.findFirst({ where: eq(works.id, workId) });
   if (!work) {
@@ -231,10 +262,10 @@ export async function buildAndPersistEvidence(options: BuildEvidenceOptions): Pr
 
   const updatedSources: SourceName[] = [];
   const skippedSources: Array<{ source: SourceName; reason: string }> = [];
+  const isbnDetails = await getISBNForWork(work);
 
   // OpenLibrary evidence
   if (sources.includes('openlibrary')) {
-    const isbnDetails = await getISBNForWork(work);
     const isbn = isbnDetails?.isbn13 ?? isbnDetails?.isbn10;
     if (!isbn) {
       skippedSources.push({ source: 'openlibrary', reason: 'no ISBN available' });
@@ -282,6 +313,70 @@ export async function buildAndPersistEvidence(options: BuildEvidenceOptions): Pr
         extract,
       });
       updatedSources.push('wikipedia');
+    }
+  }
+
+  // Google Books evidence
+  if (sources.includes('googlebooks')) {
+    const isbn = isbnDetails?.isbn13 ?? isbnDetails?.isbn10;
+    const googleIdFromEdition = isbnDetails?.googleBooksId ?? null;
+    const preferredGoogleId = googleIdFromEdition || null;
+    const legacyBookId = isbnDetails?.legacyBookId ?? null;
+
+    if (!isbn && !preferredGoogleId && !legacyBookId) {
+      skippedSources.push({ source: 'googlebooks', reason: 'no ISBN, Google Books ID, or legacy book available' });
+    } else {
+      const evidence = isbn
+        ? await fetchGoogleBooksByISBN(isbn)
+        : preferredGoogleId
+          ? await fetchGoogleBooksById(preferredGoogleId)
+          : null;
+      const legacyBook = !evidence && legacyBookId ? await loadLegacyBook(legacyBookId) : null;
+      if (!evidence) {
+        if (!legacyBook) {
+          skippedSources.push({ source: 'googlebooks', reason: 'no Google Books match' });
+        } else {
+          const extract = buildGoogleBooksExtract(
+            legacyBook.title,
+            legacyBook.description ?? undefined,
+            legacyBook.categories ?? [],
+          );
+          if (!extract) {
+            skippedSources.push({ source: 'googlebooks', reason: 'no usable data in legacy book' });
+          } else {
+            await upsertSnapshot({
+              workId,
+              source: 'googlebooks',
+              sourceKey: legacyBook.googleBooksId ?? legacyBook.id,
+              revision: legacyBook.publishedDate ?? null,
+              url: legacyBook.googleBooksId
+                ? `https://books.google.com/books?id=${legacyBook.googleBooksId}`
+                : null,
+              license: 'GOOGLE_BOOKS_TOS',
+              sha256: sha256(extract),
+              extract,
+            });
+            updatedSources.push('googlebooks');
+          }
+        }
+      } else {
+        const extract = buildGoogleBooksExtract(evidence.title, evidence.description, evidence.categories);
+        if (!extract) {
+          skippedSources.push({ source: 'googlebooks', reason: 'empty extract' });
+        } else {
+          await upsertSnapshot({
+            workId,
+            source: 'googlebooks',
+            sourceKey: evidence.volumeId,
+            revision: evidence.publishedDate ?? null,
+            url: evidence.previewLink ?? evidence.infoLink ?? null,
+            license: 'GOOGLE_BOOKS_TOS',
+            sha256: sha256(extract),
+            extract,
+          });
+          updatedSources.push('googlebooks');
+        }
+      }
     }
   }
 

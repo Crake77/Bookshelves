@@ -7,6 +7,35 @@ import path from 'path';
 
 const ENRICHMENT_DIR = 'enrichment_data';
 const taxonomy = JSON.parse(fs.readFileSync('bookshelves_complete_taxonomy.json', 'utf8'));
+const crossTagPatterns = JSON.parse(fs.readFileSync('cross_tag_patterns_v1.json', 'utf8')).patterns;
+
+const CROSS_TAG_META = new Map();
+Object.entries(taxonomy.cross_tags.by_group || {}).forEach(([group, tags]) => {
+  if (Array.isArray(tags)) {
+    tags.forEach((tag) => {
+      if (tag?.slug) {
+        CROSS_TAG_META.set(tag.slug, { name: tag.name ?? tag.slug, group });
+      }
+    });
+  }
+});
+
+function getCrossTagMeta(slug) {
+  return CROSS_TAG_META.get(slug) ?? { name: slug, group: 'trope' };
+}
+
+function getEvidenceSources(enrichmentData) {
+  const sources = enrichmentData?.evidence?.sources;
+  if (!Array.isArray(sources)) return [];
+  return sources
+    .filter((source) => typeof source.extract === 'string' && source.extract.trim().length)
+    .map((source) => ({
+      snapshotId: source.snapshot_id || source.id || null,
+      label: source.source_key || source.source,
+      source: source.source,
+      extract: source.extract.toLowerCase(),
+    }));
+}
 
 // Get all cross-tags organized by group
 function getCrossTagsByGroup() {
@@ -28,6 +57,11 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
   
   const title = book.title.toLowerCase();
   const categories = (book.categories || []).map(c => c.toLowerCase());
+  const evidenceSources = getEvidenceSources(enrichmentData);
+  if (evidenceSources.length) {
+    console.log(`    🧾 Evidence sources available: ${evidenceSources.length}`);
+  }
+
   const tags = [];
   
   // CRITICAL: Detect if this is academic/analytical book
@@ -49,16 +83,31 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
       // RULE 1: Require FULL slug or very specific phrase matching
       // Don't split tag names into individual words
       let matchScore = 0;
+      const provenanceSources = new Set();
       
       // Check for exact slug match (with word boundaries)
       const slugPattern = new RegExp(`\\b${tagSlug.replace(/-/g, '[\\s-]')}\\b`, 'i');
-      if (slugPattern.test(description)) matchScore += 5;
-      if (slugPattern.test(title)) matchScore += 3;
-      
-      // Check for exact tag name match
       const namePattern = new RegExp(`\\b${tagName.replace(/[\s-]+/g, '[\\s-]')}\\b`, 'i');
-      if (namePattern.test(description)) matchScore += 4;
-      if (namePattern.test(title)) matchScore += 2;
+
+      const applyMatch = (text, slugWeight = 0, nameWeight = 0, provenanceId = null) => {
+        if (!text) return;
+        if (slugWeight && slugPattern.test(text)) {
+          matchScore += slugWeight;
+          if (provenanceId) provenanceSources.add(provenanceId);
+        }
+        if (nameWeight && namePattern.test(text)) {
+          matchScore += nameWeight;
+          if (provenanceId) provenanceSources.add(provenanceId);
+        }
+      };
+
+      applyMatch(description, 5, 4);
+      applyMatch(title, 3, 2);
+      applyMatch(categories.join(' '), 2, 1);
+
+      evidenceSources.forEach((source) => {
+        applyMatch(source.extract, 5, 4, source.snapshotId);
+      });
       
       // RULE 2: Exclude structure/format tags from cross-tags
       // anthology is now detected as a format, not a tag
@@ -96,20 +145,116 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
       
       // RULE 5: Require minimum match score of 3 (not just > 0)
       if (matchScore >= 3) {
-        tags.push({
+        const entry = {
           slug: tagSlug,
           name: tag.name,
           group: tag.group,
           confidence: matchScore >= 5 ? 'high' : 'medium',
-          match_score: matchScore
-        });
+          match_score: matchScore,
+          method: evidenceSources.length > 0 ? 'pattern-match+evidence' : 'pattern-match',
+        };
+        if (provenanceSources.size > 0) {
+          entry.provenance_snapshot_ids = Array.from(provenanceSources);
+        }
+        tags.push(entry);
       }
     });
   });
   
   // Sort by match score and return top 20
   tags.sort((a, b) => b.match_score - a.match_score);
+
+  if (tags.length < 20) {
+    const patternMatches = generatePatternTags(book, enrichmentData, evidenceSources);
+    const existingSlugs = new Set(tags.map((tag) => tag.slug));
+    for (const match of patternMatches) {
+      if (existingSlugs.has(match.slug)) continue;
+      tags.push(match);
+      existingSlugs.add(match.slug);
+      if (tags.length >= 20) break;
+    }
+  }
+
   return tags.slice(0, 20);
+}
+
+function generatePatternTags(book, enrichmentData, evidenceSources) {
+  if (!crossTagPatterns) return [];
+  const segments = [];
+  if (book.title) segments.push(book.title);
+  if (book.description) segments.push(book.description);
+  if (Array.isArray(book.categories) && book.categories.length) {
+    segments.push(book.categories.join(' '));
+  }
+  if (enrichmentData?.summary?.new_summary) {
+    segments.push(enrichmentData.summary.new_summary);
+  }
+  evidenceSources.forEach((source) => {
+    if (source.extract) segments.push(source.extract);
+  });
+  const haystack = segments.join(' ').toLowerCase();
+  if (!haystack.trim()) return [];
+
+  const results = [];
+  Object.entries(crossTagPatterns).forEach(([slug, pattern]) => {
+    if (!CROSS_TAG_META.has(slug)) return;
+    const score = scorePattern(pattern, haystack);
+    if (score <= 0) return;
+    const meta = getCrossTagMeta(slug);
+    results.push({
+      slug,
+      name: meta.name,
+      group: meta.group,
+      confidence: score >= 2 ? 'high' : 'medium',
+      match_score: score,
+      method: evidenceSources.length ? 'pattern-match+evidence' : 'pattern-match',
+    });
+  });
+
+  results.sort((a, b) => b.match_score - a.match_score);
+  return results;
+}
+
+function scorePattern(pattern, haystack) {
+  const avoid = pattern.avoid || [];
+  for (const term of avoid) {
+    if (!term) continue;
+    if (haystack.includes(term.toLowerCase())) {
+      return 0;
+    }
+  }
+
+  let score = 0;
+  const exacts = pattern.exact || [];
+  const synonyms = pattern.synonyms || [];
+  const phrases = pattern.phrases || [];
+
+  for (const term of exacts) {
+    if (term && haystack.includes(term.toLowerCase())) {
+      score += 2;
+      break;
+    }
+  }
+
+  for (const term of synonyms) {
+    if (term && haystack.includes(term.toLowerCase())) {
+      score += 1;
+      break;
+    }
+  }
+
+  for (const term of phrases) {
+    if (term && haystack.includes(term.toLowerCase())) {
+      score += 1;
+      break;
+    }
+  }
+
+  if (pattern.confidence_boost) {
+    score += pattern.confidence_boost;
+  }
+
+  return score;
 }
 
 async function assignCrossTags(bookId) {

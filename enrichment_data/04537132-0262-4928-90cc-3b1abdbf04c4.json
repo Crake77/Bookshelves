@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL28151758M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:52:41.782Z",
+  "last_updated": "2025-10-26T01:07:44.602Z",
   "authors": {
     "original": [
       "V. E. Schwab"
@@ -56,17 +56,245 @@
       }
     ],
     "subgenres": [],
-    "cross_tags": [],
-    "cross_tags_count": 0
+    "cross_tags": [
+      {
+        "slug": "dark",
+        "name": "Dark",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
+          "f357c822-7c7a-4d42-af5f-44cf5b97db51"
+        ]
+      },
+      {
+        "slug": "ghost",
+        "name": "Ghost",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8"
+        ]
+      },
+      {
+        "slug": "bestseller",
+        "name": "Bestseller",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2830cc57-2c28-417e-9ea6-026d9c50a493"
+        ]
+      },
+      {
+        "slug": "complex",
+        "name": "Complex",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8"
+        ]
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2830cc57-2c28-417e-9ea6-026d9c50a493"
+        ]
+      },
+      {
+        "slug": "faustian-bargain",
+        "name": "Faustian Bargain",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2830cc57-2c28-417e-9ea6-026d9c50a493"
+        ]
+      },
+      {
+        "slug": "gods",
+        "name": "Gods",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8"
+        ]
+      },
+      {
+        "slug": "lgbtq",
+        "name": "LGBTQ+",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2830cc57-2c28-417e-9ea6-026d9c50a493"
+        ]
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "gritty",
+        "name": "Gritty",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "deal-with-devil",
+        "name": "Deal with Devil",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "war",
+        "name": "War",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "elves",
+        "name": "Elves",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "curse",
+        "name": "Curse",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "slice-of-life",
+        "name": "Slice of Life",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "desolate",
+        "name": "Desolate",
+        "group": "tone",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "psychic-powers",
+        "name": "Psychic Powers",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      }
+    ],
+    "cross_tags_count": 20,
+    "cross_tags_status": "needs_more"
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "novel",
+    "confidence": "high",
+    "reason": "Standalone adult fantasy novel"
   },
   "audience": {
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "9a484f82-3554-4e37-af00-b3e80c19afa1",
+    "work_title": "The Invisible Life of Addie LaRue",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:03:01.801Z",
+    "sources": [
+      {
+        "snapshot_id": "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
+        "source": "googlebooks",
+        "source_key": "demo-book-6",
+        "revision": "2020-10-06",
+        "url": "https://books.google.com/books?id=demo-book-6",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-10-25T23:03:01.801Z",
+        "sha256": "cc610dd331c6626d7d822f384eb7914d224cafa397083a54b526c8942fd3f326",
+        "extract": "Title: The Invisible Life of Addie LaRue\n\nDescription: In 1714 France, a young woman named Addie LaRue makes a desperate bargain to escape an unwanted marriage. She prays to the gods for freedom, and when darkness answers, she receives immortality—but at a terrible cost. Everyone who meets her immediately forgets her the moment she leaves their sight.\n\nFor three hundred years, Addie lives as a ghost in plain sight, unable to leave a mark on the world or form lasting connections. She cannot be remembered, cannot be photographed, and leaves no trace of her existence. Each encounter must be carefully managed, each relationship abandoned before dawn. She learns to steal what she needs and finds brief moments of art and beauty while navigating a life of perpetual anonymity.\n\nThe story follows Addie across centuries as she encounters the dark figure who cursed her, a being she both resents and finds herself drawn to through their intermittent meetings. Their complex relationship evolves over the decades as she struggles against the terms of their bargain.\n\nIn present-day New York, everything changes when Addie meets Henry, a young man who somehow remembers her. For the first time in three centuries, she can be known by another person, opening possibilities she thought forever closed. But Henry has his own secrets, and their connection will force Addie to confront what she truly wants from her immortal existence.\n\nThe novel explores themes of legacy, memory, and what makes a life meaningful when you cannot be remembered. It questions whether existence without connection has value and examines the human need to be seen and known by others.\n\nCategories: Fantasy, Historical Fiction"
+      },
+      {
+        "snapshot_id": "f357c822-7c7a-4d42-af5f-44cf5b97db51",
+        "source": "wikipedia",
+        "source_key": "The Invisible Life of Addie LaRue",
+        "revision": "1318026906",
+        "url": "https://en.wikipedia.org/wiki/The_Invisible_Life_of_Addie_LaRue",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-10-25T23:03:01.492Z",
+        "sha256": "52514a55627909e8d05aa68d67ebf8e34430e6de711bae121903acd656902a58",
+        "extract": "The Invisible Life of Addie LaRue is a fantasy novel by the American author V. E. Schwab. It was published by Tor Books on October 6, 2020. The story follows a young French woman in 1714 who makes a bargain with the Dark that makes her immortal, but curses her to be forgotten by everyone she meets. It was widely praised and nominated for the 2021 Locus Award for Best Fantasy Novel.\n\nCategories: 2020 American novels, 2020 fantasy novels, Articles with short description, CS1 errors: periodical ignored, Short description is different from Wikidata, Tor Books books, Use mdy dates from September 2023"
+      },
+      {
+        "snapshot_id": "2830cc57-2c28-417e-9ea6-026d9c50a493",
+        "source": "openlibrary",
+        "source_key": "OL20796936W",
+        "revision": "16",
+        "url": "https://openlibrary.org/works/OL20796936W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T23:03:01.325Z",
+        "sha256": "8086bd2728e623ddcda46242e36a4082ec4f6e4449118dd677c24aba81154459",
+        "extract": "Title: The Invisible Life of Addie LaRue\n\nDescription: France, 1714: in a moment of desperation, a young woman makes a Faustian bargain to live forever and is cursed to be forgotten by everyone she meets.\r\n\r\nThus begins the extraordinary life of Addie LaRue, and a dazzling adventure that will play out across centuries and continents, across history and art, as a young woman learns how far she will go to leave her mark on the world.\r\n\r\nBut everything changes when, after nearly 300 years, Addie stumbles across a young man in a hidden bookstore and he remembers her name.\n\nSubjects: nyt:combined-print-and-e-book-fiction=2020-10-25, New York Times bestseller, Fiction, fantasy, historical, LGBTQ science fiction & fantasy, Memory, Fiction, Immortalism, Deals, Man-woman relationships, FICTION / Fantasy / Historical, FICTION / Literary\n\nPublication: Oct 06, 2020\n\nLanguages: eng"
+      }
+    ]
   }
 }

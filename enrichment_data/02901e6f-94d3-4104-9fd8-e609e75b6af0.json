@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:52:41.405Z",
+  "last_updated": "2025-10-26T01:07:43.989Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -35,7 +35,7 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "nonfiction",
       "confidence": "high",
       "reason": "Academic/analytical work (about genres, not in a genre)"
     },
@@ -53,24 +53,206 @@
         "name": "Lovecraftian",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
       },
       {
         "slug": "war",
         "name": "War",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
       },
       {
         "slug": "cosmic-horror",
         "name": "Cosmic Horror",
         "group": "trope",
         "confidence": "high",
-        "match_score": 5
+        "match_score": 14,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "juxtaposition",
+        "name": "Juxtaposition",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "original",
+        "name": "Original",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "otherworldly",
+        "name": "Otherworldly",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "strange",
+        "name": "Strange",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "unique",
+        "name": "Unique",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "unsettling",
+        "name": "Unsettling",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "visceral",
+        "name": "Visceral",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "atmospheric",
+        "name": "Atmospheric",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "ancient-evil",
+        "name": "Ancient Evil",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "revolution",
+        "name": "Revolution",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "cosmic-dread",
+        "name": "Cosmic Dread",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "gritty",
+        "name": "Gritty",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "suspenseful",
+        "name": "Suspenseful",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "eerie",
+        "name": "Eerie",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 3
+    "cross_tags_count": 20,
+    "cross_tags_status": "needs_more"
   },
   "format": {
     "slug": "anthology",
@@ -81,5 +263,35 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "d9dbe75d-94ae-46ad-8e50-0469464a0393",
+    "work_title": "Summer of Lovecraft: Cosmic Horror in the 1960s",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:02:57.474Z",
+    "sources": [
+      {
+        "snapshot_id": "1b739773-ea63-4678-bb25-1c1627e9330c",
+        "source": "googlebooks",
+        "source_key": "7KpdzAEACAAJ",
+        "revision": "2019-12-05",
+        "url": "https://books.google.com/books?id=7KpdzAEACAAJ",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-10-25T23:02:57.474Z",
+        "sha256": "61056c6a6a6e9134fc3c09116cd50e8cd3a1b0952c16f37b623daa3433a13f4a",
+        "extract": "Title: Summer of Lovecraft: Cosmic Horror in the 1960s\n\nDescription: This anthology brings together eighteen original Lovecraftian horror stories set during the 1960s, blending cosmic dread with the era's counterculture. From the editors behind World War Cthulhu, these tales reimagine H.P. Lovecraft's mythos against the backdrop of the Summer of Love, Vietnam, and social upheaval.\n\nThe collection features stories by Lois H. Gresh, Edward M. Erdelac, Pete Rawlik, William Meikle, and others, each exploring how ancient cosmic horrors might manifest during an age of psychedelic experimentation and cultural revolution. The juxtaposition of 1960s optimism with Lovecraftian nihilism creates a unique tension throughout the anthology.\n\nStories range from drug-fueled encounters with otherworldly entities to investigations of strange occurrences in Arkham and beyond. The anthology explores themes of forbidden knowledge, reality-bending substances, and the thin veil between our world and darker dimensions. Some tales incorporate period-specific elements like the music scene, anti-war movements, and social transformation, while others use the decade as atmospheric background for traditional cosmic horror.\n\nThe anthology offers variety in tone and approach, from visceral horror to psychological dread, unified by the Lovecraftian tradition of humanity's insignificance against incomprehensible cosmic forces. Fans of both Lovecraft's work and 1960s period pieces will find familiar territory reimagined through an unsettling lens where peace, love, and ancient evil collide.\n\nCategories: Fiction"
+      },
+      {
+        "snapshot_id": "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f",
+        "source": "openlibrary",
+        "source_key": "OL24810446W",
+        "revision": "1",
+        "url": "https://openlibrary.org/works/OL24810446W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T23:02:57.029Z",
+        "sha256": "04e4f6aafdd06274442927745ee47b3c3ae4c0458b3a46570cba7cd4958e46f6",
+        "extract": "Title: Summer of Lovecraft\n\nPublication: Feb 09, 2020"
+      }
+    ]
   }
 }

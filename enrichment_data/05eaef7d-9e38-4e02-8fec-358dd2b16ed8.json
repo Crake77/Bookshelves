@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=NJFzGwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T21:52:42.022Z",
+  "last_updated": "2025-10-26T01:07:45.071Z",
   "authors": {
     "original": [
       "Science Fiction Writers of America"
@@ -46,7 +46,7 @@
         "reason": "Derived from categories"
       },
       {
-        "slug": "science-technology",
+        "slug": "science-nature",
         "confidence": "suggested",
         "reason": "Derived from categories"
       }
@@ -61,17 +61,198 @@
       }
     ],
     "subgenres": [],
-    "cross_tags": [],
-    "cross_tags_count": 0
+    "cross_tags": [
+      {
+        "slug": "novelette",
+        "name": "Novelette",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "novella",
+        "name": "Novella",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "complex",
+        "name": "Complex",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "experimental",
+        "name": "Experimental",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "imaginative",
+        "name": "Imaginative",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "war",
+        "name": "War",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "fire-magic",
+        "name": "Fire Magic",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "nanotechnology",
+        "name": "Nanotechnology",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "riches-to-rags",
+        "name": "Riches to Rags",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "underwater-city",
+        "name": "Underwater City",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "sparse-prose",
+        "name": "Sparse Prose",
+        "group": "style",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "secret-baby",
+        "name": "Secret Baby",
+        "group": "tropes_themes",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "open-ending",
+        "name": "Open Ending",
+        "group": "plot",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      }
+    ],
+    "cross_tags_count": 20,
+    "cross_tags_status": "needs_more"
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "short-story-collection",
+    "confidence": "high",
+    "reason": "Award-winning short story anthology"
   },
   "audience": {
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "0cfdc1d3-b119-4bae-829d-c9094d5cbdb6",
+    "work_title": "Nebula Award Stories Five",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:03:04.197Z",
+    "sources": [
+      {
+        "snapshot_id": "57f47799-a209-4fcc-b3be-7fc030648537",
+        "source": "wikipedia",
+        "source_key": "Nebula Award Stories 5",
+        "revision": "1205361285",
+        "url": "https://en.wikipedia.org/wiki/Nebula_Award_Stories_5",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-10-25T23:03:04.197Z",
+        "sha256": "896e68fd88f34c6edfb28a46879fde725916ade7d1ab6cfd3e032c160585dcd2",
+        "extract": "Nebula Award Stories 5 is an anthology of award-winning science fiction short works edited by James Blish. It was first published in the United Kingdom in hardcover by Gollancz in November 1970. The first American edition was published by Doubleday in December of the same year. Paperback editions followed from Pocket Books in the U.S. in January 1972, and Panther in the U.K. in December 1972. The American editions bore the variant title Nebula Award Stories Five. The book has also been published in German.\n\nCategories: 1970 anthologies, 1970s science fiction works, Articles with short description, Doubleday (publisher) books, Nebula Award anthologies, Short description is different from Wikidata, Victor Gollancz Ltd books"
+      }
+    ]
   }
 }

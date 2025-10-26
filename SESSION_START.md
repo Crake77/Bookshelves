@@ -48,6 +48,10 @@ This file (SESSION_START.md) provides the **stable context** that doesn't change
 npm run dev          # Start dev server (http://localhost:8001)
 npm run build        # Build for production
 npm start            # Start production server
+npm run doctor       # DNS/TLS/PG preflight before harvest
+npm run harvest 25   # Evidence harvester (safe runner w/ IPv4-first)
+npm run evidence:sync -- <book-id>   # Copy harvested snapshots into enrichment JSON
+npm run enrichment:apply -- <book-id>   # Write enrichment data (incl. provenance) into DB
 
 # Database
 npm run db:push      # Push schema changes to Neon DB

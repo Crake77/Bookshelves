@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-23T21:52:41.310Z",
+  "last_updated": "2025-10-26T01:07:43.873Z",
   "authors": {
     "original": [
       "Dominika Oramus"
@@ -35,13 +35,13 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "nonfiction",
       "confidence": "high",
       "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
-        "slug": "literature-writing",
+        "slug": "essays-criticism",
         "confidence": "suggested",
         "reason": "Derived from categories"
       },
@@ -61,33 +61,207 @@
         "name": "Anxiety",
         "group": "content_flags",
         "confidence": "high",
-        "match_score": 14
+        "match_score": 23,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "holocaust",
         "name": "Holocaust",
         "group": "content_warning",
         "confidence": "high",
-        "match_score": 14
+        "match_score": 23,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "countdown",
         "name": "Countdown",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 9
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
+      },
+      {
+        "slug": "environmental-collapse",
+        "name": "Environmental Collapse",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "gritty",
+        "name": "Gritty",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "demons",
+        "name": "Demons",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "elves",
+        "name": "Elves",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "eerie",
+        "name": "Eerie",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "legal-thriller",
+        "name": "Legal Thriller",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "vibrant",
+        "name": "Vibrant",
+        "group": "tone",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "suicide",
+        "name": "Suicide",
+        "group": "content_flags",
+        "confidence": "medium",
+        "match_score": 1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "fire-magic",
+        "name": "Fire Magic",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "nanotechnology",
+        "name": "Nanotechnology",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "riches-to-rags",
+        "name": "Riches to Rags",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "underwater-city",
+        "name": "Underwater City",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 3
+    "cross_tags_count": 20,
+    "cross_tags_status": "sufficient"
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "compendium",
+    "confidence": "medium",
+    "reason": "Scholarly nonfiction monograph"
   },
   "audience": {
     "slug": "adult",
     "confidence": "high",
     "reason": "Academic audience indicated"
+  },
+  "evidence": {
+    "work_id": "45cd371f-00e7-4271-a5b1-6670d1688d90",
+    "work_title": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:02:56.222Z",
+    "sources": [
+      {
+        "snapshot_id": "0aab9abf-1e8d-4d44-9590-04ea021d7347",
+        "source": "googlebooks",
+        "source_key": "tNe-EAAAQBAJ",
+        "revision": "2023-07-07",
+        "url": "https://books.google.com/books?id=tNe-EAAAQBAJ",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-10-25T23:02:56.222Z",
+        "sha256": "b2f5113c98478b2fc0d2f94f4922d0d79a0afda56fa827b8b88325c0c7b24e0a",
+        "extract": "Title: (Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction\n\nDescription: This academic study examines apocalyptic fiction through the lens of psychological trauma, focusing on how nuclear holocaust narratives and climate fiction portray collective anxiety about impending disaster. Oramus analyzes what she terms \"Doomsday Clock Narratives\"—stories set in post-catastrophic worlds where characters await an even greater calamity.\n\nThe book explores how these narratives depict pretraumatic stress, a psychological condition where the certainty of future disaster creates present-day trauma. Characters in these stories inhabit landscapes marked by industrial decay and environmental collapse, viewed through the eyes of survivors who feel the countdown to extinction has already begun.\n\nDrawing on novels by Walter M. Miller, Nevil Shute, J.G. Ballard, Paolo Bacigalupi, Ruth Ozeki, and others, Oramus traces how disaster fiction has evolved over the past century while maintaining core themes of anticipatory dread. The geological and environmental details in these works serve as archaeological evidence of human civilization's self-destruction.\n\nThe study connects nuclear age anxieties with contemporary climate concerns, arguing that both genres express a shared psychological experience of waiting for catastrophe. This scholarly analysis is aimed at researchers and students of British and American literature, particularly those interested in science fiction studies and how speculative genres process cultural trauma and environmental anxiety.\n\nCategories: Literary Criticism, Science Fiction"
+      }
+    ]
   }
 }

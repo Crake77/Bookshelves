@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL27208943M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:52:41.941Z",
+  "last_updated": "2025-10-26T01:07:44.961Z",
   "authors": {
     "original": [
       "Abbi Glines"
@@ -56,17 +56,247 @@
       }
     ],
     "subgenres": [],
-    "cross_tags": [],
-    "cross_tags_count": 0
+    "cross_tags": [
+      {
+        "slug": "abuse",
+        "name": "Abuse",
+        "group": "content_warning",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
+      },
+      {
+        "slug": "straightforward",
+        "name": "Straightforward",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
+        ]
+      },
+      {
+        "slug": "ranch",
+        "name": "Ranch",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
+        ]
+      },
+      {
+        "slug": "accessible",
+        "name": "Accessible",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
+        ]
+      },
+      {
+        "slug": "complex",
+        "name": "Complex",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
+        ]
+      },
+      {
+        "slug": "personal",
+        "name": "Personal",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
+        ]
+      },
+      {
+        "slug": "spirited",
+        "name": "Spirited",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
+      },
+      {
+        "slug": "emotional",
+        "name": "Emotional",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
+        ]
+      },
+      {
+        "slug": "family-dynamics",
+        "name": "Family Dynamics",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
+        ]
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "gritty",
+        "name": "Gritty",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "war",
+        "name": "War",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "void",
+        "name": "Void",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "elves",
+        "name": "Elves",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "vibrant",
+        "name": "Vibrant",
+        "group": "tone",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "psychic-powers",
+        "name": "Psychic Powers",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "fire-magic",
+        "name": "Fire Magic",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "nanotechnology",
+        "name": "Nanotechnology",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      }
+    ],
+    "cross_tags_count": 20,
+    "cross_tags_status": "needs_more"
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "novel",
+    "confidence": "high",
+    "reason": "Contemporary romance novel"
   },
   "audience": {
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "f9653beb-7569-4c0c-98c8-b41ea4372a56",
+    "work_title": "When I'm Gone",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:03:03.844Z",
+    "sources": [
+      {
+        "snapshot_id": "5865094e-cbe1-4650-a941-f9aa893f2e85",
+        "source": "googlebooks",
+        "source_key": "dba8BwAAQBAJ",
+        "revision": "2015-04-07",
+        "url": "https://books.google.com/books?id=dba8BwAAQBAJ",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-10-25T23:03:03.844Z",
+        "sha256": "1b75a2905859d4bc14e0e13f030dcc190cc41b07236d6ff197308fe5c9542fe7",
+        "extract": "Title: When I'm Gone\n\nDescription: Set in the fictional Gulf Coast town of Rosemary Beach, this contemporary romance follows Reese Ellis, a Texas rancher who arrives at his famous rock star father's estate and finds himself drawn to Mase, a young woman working as a housemaid there.\n\nReese has maintained distance from his father's glamorous, chaotic world, preferring the straightforward life of ranch work in Texas. His visit to his father's coastal mansion forces him into proximity with the entertainment industry lifestyle he has long avoided. There he encounters Mase, whose circumstances have brought her to domestic work in a place far removed from her own background and dreams.\n\nThe romance develops against the backdrop of class differences and the complex dynamics of the rock star's household. Both characters carry their own histories and hesitations into their growing connection. Their relationship must navigate not only personal barriers but also the social and economic distances between Reese's ranching life and Mase's current situation.\n\nThe Rosemary Beach setting provides the story's atmosphere—a wealthy coastal community where different worlds collide. The novel explores themes common to contemporary romance: overcoming personal past, bridging social divides, and finding connection despite circumstances that might keep two people apart.\n\nAbbi Glines writes accessible contemporary romance focused on character relationships and emotional development. This installment in the Rosemary Beach series offers readers a romance narrative built around attraction across different life circumstances, with the added complication of family dynamics and the entertainment world's influence on personal relationships. The story follows the genre's conventions while incorporatin..."
+      },
+      {
+        "snapshot_id": "59e35586-9280-42ef-a476-68720eff2bb3",
+        "source": "wikipedia",
+        "source_key": "When I'm Gone",
+        "revision": "1316402562",
+        "url": "https://en.wikipedia.org/wiki/When_I%27m_Gone",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-10-25T23:03:03.561Z",
+        "sha256": "22923e2047508255e49ccae80eec00c58f436bd3ce84da249fd57cb9e5ce24e6",
+        "extract": "When I'm Gone may refer to:\n\n\"When I'm Gone\" (3 Doors Down song)\n\"When I'm Gone\" (Albert Hammond song)\n\"When I'm Gone\" (Alesso and Katy Perry song)\n\"When I'm Gone\" (Eminem song)\n\"When I'm Gone\" (Maria Sur song)\n\"When I'm Gone\" (Motown song), written by Smokey Robinson and recorded by Brenda Holloway and by Mary Wells\n\"When I'm Gone\" (Simple Plan song)\n\"When I'm Gone\" (Carter Family song), written by A. P. Carter and recorded originally by the Carter Family, reworked by Anna Kendrick as \"Cups\"\n\"When I'm Gone\", by Before You Exit from All the Lights\n\"When I'm Gone\", by the Click Five from Modern Minds and Pastimes\n\"When I'm Gone\", by Craig Morgan from A Whole Lot More to Me\n\"When I'm Gone\", by McAuley Schenker Group from M.S.G.\n\"When I'm Gone\", by Phil Ochs from Phil Ochs in Concert\n\"When I'm Gone\", by Randy Newman written for the TV series Monk\n\"When I'm Gone\", by the Staple Singers from Freedom Highway\n\"When I'm Gone (Sadie)\", by No Address from Time Doesn't Notice\n\nCategories: All article disambiguation pages, All disambiguation pages, Disambiguation pages, Short description is different from Wikidata"
+      },
+      {
+        "snapshot_id": "7c145ee4-0ba5-4603-a925-0519b61e9f45",
+        "source": "openlibrary",
+        "source_key": "OL20028893W",
+        "revision": "5",
+        "url": "https://openlibrary.org/works/OL20028893W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T23:03:03.449Z",
+        "sha256": "30378544425b5926e3074cae517528605b68c2d9495056e8a6836ae71355e5ec",
+        "extract": "Title: When I'm Gone\n\nDescription: \"From #1 New York Times bestselling author Abbi Glines comes the next new adult novel in the Rosemary Beach series, in which we meet Mase, a Texas heartthrob first introduced in Take a Chance who comes to Rosemary Beach to stir things up. I had an urge to fix all her problems. Which was stupid. She was doing fine without me. But something about those big eyes ... Mase Colt-Manning has always preferred his humble life as a Texas rancher to his birthright as the son of a legendary rock star. In fact, he rarely visits his father's rarefied world in Rosemary Beach, especially if it means bunking at his vile half-sister Nan's house--until one visit leads to a chance encounter with a young, gorgeous house maid who awakens him with her off-key but spirited imitation of a country music star ... Reese Ellis finally has her freedom. After escaping a lifetime of abuse from her parents and classmates for an undiagnosed learning disorder, she seizes the opportunity to be a house maid to some of the richest families in Rosemary Beach. But her job is in jeopardy when she causes an accident at the home of her most important client, Nan Dillon. When a hot, half-naked stranger with a cowboy's swagger comes to her rescue, she's intrigued--then afraid once he shows his own interest. Reese has never met a trustworthy man in her life. Will Mase be any different?\"--\r\n\r\n\"A new adult novel set in the fictional town of Rosemary Beach about a Texas Rancher who falls in love with a housemaid at his rock star father's estate\"--\n\nSubjects: Housekeepers, Man-woman relationships, Ranchers, Fiction, FICTION / Romance / Contemporary, FICTION / Romance / General, Fiction, romance, contemporary, Texas, fiction\n\nPublication: 2015\n\nLanguages: eng"
+      }
+    ]
   }
 }

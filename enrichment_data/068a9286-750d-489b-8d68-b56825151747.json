@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL1275650M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:52:42.101Z",
+  "last_updated": "2025-10-26T01:07:45.274Z",
   "authors": {
     "original": [
       "Isaac Asimov",
@@ -50,7 +50,7 @@
         "reason": "Derived from categories"
       },
       {
-        "slug": "science-technology",
+        "slug": "science-nature",
         "confidence": "suggested",
         "reason": "Derived from categories"
       }
@@ -70,17 +70,275 @@
       }
     ],
     "subgenres": [],
-    "cross_tags": [],
-    "cross_tags_count": 0
+    "cross_tags": [
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c",
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "manipulation",
+        "name": "Manipulation",
+        "group": "content_warning",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "complex",
+        "name": "Complex",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "creative",
+        "name": "Creative",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "engaging",
+        "name": "Engaging",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "imaginative",
+        "name": "Imaginative",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "original",
+        "name": "Original",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "soft",
+        "name": "Soft",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "unique",
+        "name": "Unique",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "cyberpunk",
+        "name": "Cyberpunk",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "hard-science-fiction",
+        "name": "Hard Science Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "revolution",
+        "name": "Revolution",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "space-exploration",
+        "name": "Space Exploration",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "time-travel",
+        "name": "Time Travel",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+        ]
+      },
+      {
+        "slug": "educational-tone",
+        "name": "Educational",
+        "group": "tone_mood",
+        "confidence": "medium",
+        "match_score": 4,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "alien-contact",
+        "name": "Alien Contact",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      }
+    ],
+    "cross_tags_count": 20,
+    "cross_tags_status": "needs_more"
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "compendium",
+    "confidence": "medium",
+    "reason": "Educational nonfiction comparing science and fiction"
   },
   "audience": {
-    "slug": "children",
+    "slug": "middle-grade",
     "confidence": "medium",
-    "reason": "Category indicates Juvenile/Children"
+    "reason": "Juvenile nonfiction positioning aligns with middle-grade readers"
+  },
+  "evidence": {
+    "work_id": "b1e089dd-50f1-4aa6-9435-8d0e6c62983b",
+    "work_title": "Science Fiction",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:03:05.338Z",
+    "sources": [
+      {
+        "snapshot_id": "a70ec256-c687-4909-a3b8-3bce623ac75c",
+        "source": "googlebooks",
+        "source_key": "O72EoPJN4mUC",
+        "revision": "1995",
+        "url": "https://books.google.com/books?id=O72EoPJN4mUC",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-10-25T23:03:05.338Z",
+        "sha256": "b98b1823d66d6c23f33c7c75bee878bcd7058c4c2e55f91589ad56923ebdb0c0",
+        "extract": "Title: Science Fiction\n\nDescription: This juvenile nonfiction book examines the relationship between science fiction literature and actual scientific principles, aimed at young readers interested in how speculative fiction relates to real-world science. Isaac Asimov, one of science fiction's most prolific authors and a trained biochemist, brings both literary and scientific expertise to the discussion.\n\nThe book likely explores common science fiction concepts—space travel, artificial intelligence, time manipulation, alien life—and compares them with contemporary scientific understanding and possibility. Asimov was known for his ability to explain complex scientific ideas accessibly, making real science engaging for general audiences including young readers.\n\nAs both a practicing scientist and science fiction writer, Asimov occupied a unique position to address where science fiction takes creative liberties and where it extrapolates from genuine scientific principles. The comparison format helps young readers develop critical thinking about speculative fiction while learning actual science concepts.\n\nThe book serves educational purposes, using science fiction's imaginative appeal to generate interest in real scientific fields. It may examine which technologies predicted in earlier science fiction have been realized, which remain impossible, and which might become feasible. Such comparisons teach both scientific literacy and appreciation for how fiction can explore scientific ideas' implications.\n\nFor young readers in the mid-1990s, this book would have addressed contemporary concerns about technology's trajectory while using the enduring appeal of science fiction as an entry point. The format encourages readers to think critically about both science and fiction, under..."
+      },
+      {
+        "snapshot_id": "bc43295f-faed-439b-b6a4-efb20b3cafa8",
+        "source": "wikipedia",
+        "source_key": "Science fiction",
+        "revision": "1317784945",
+        "url": "https://en.wikipedia.org/wiki/Science_fiction",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-10-25T23:03:05.020Z",
+        "sha256": "50ccccf903eed5dd8dd04cf737c194a1387dfcf2990623aad61d629338b28786",
+        "extract": "Science fiction (often shortened to sci-fi or abbreviated SF) is the genre of speculative fiction that imagines advanced and futuristic scientific progress and typically includes elements like information technology and robotics, biological manipulations, space exploration, time travel, parallel universes, and extraterrestrial life. The genre often specifically explores human responses to the consequences of these types of projected or imagined scientific advances. \nScience fiction's precise definition has long been disputed among authors, critics, scholars, and readers. It contains many subgenres include hard science fiction, which emphasizes scientific accuracy, and soft science fiction, which focuses on social sciences. Other notable subgenres are cyberpunk, which explores the interface between technology and society, climate fiction, which addresses environmental issues, and space opera, which emphasizes pure adventure in a universe in which space travel is common. \nPrecedents for science fiction are claimed to exist as far back as antiquity. Some books written in the Scientific Revolution and the Enlightenment Age were considered early science-fantasy stories. The modern genre...\n\nCategories: All articles with dead external links, All articles with failed verification, All articles with incomplete citations, Articles with dead external links from August 2023, Articles with failed verification from January 2025, Articles with incomplete citations from December 2019, Articles with permanently dead external links, Articles with short description, CS1: unfit URL, CS1 German-language sources (de), CS1 Polish-language sources (pl), CS1 Russian-language sources (ru), CS1 maint: bot: original URL status unknown, Pages using Sister project links with default search, Page..."
+      },
+      {
+        "snapshot_id": "f59f4c8d-800e-4904-ab0b-397236fc70d4",
+        "source": "openlibrary",
+        "source_key": "OL46182W",
+        "revision": "11",
+        "url": "https://openlibrary.org/works/OL46182W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T23:03:04.866Z",
+        "sha256": "078545dbb7b6329a6beda66383176560bc9337e1f02d41fb3076d9ac07e532fc",
+        "extract": "Title: Science fiction, science fact\n\nDescription: Compares what writers over the centuries have written about an imaginary future with the reality revealed by time.\n\nSubjects: Science -- Juvenile literature, Science fiction -- Juvenile literature, Science fiction -- History and criticism, Forecasting, Juvenile literature, Science fiction, History and criticism, Science, Science, juvenile literature, Science fiction, juvenile literature\n\nPublication: 1995\n\nLanguages: eng"
+      }
+    ]
   }
 }

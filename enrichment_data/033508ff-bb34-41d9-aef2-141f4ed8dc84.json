@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-23T21:52:41.697Z",
+  "last_updated": "2025-10-26T01:07:44.396Z",
   "authors": {
     "original": [
       "Samuel R. Delany"
@@ -46,7 +46,7 @@
         "reason": "Derived from categories"
       },
       {
-        "slug": "science-technology",
+        "slug": "science-nature",
         "confidence": "suggested",
         "reason": "Derived from categories"
       }
@@ -61,8 +61,170 @@
       }
     ],
     "subgenres": [],
-    "cross_tags": [],
-    "cross_tags_count": 0
+    "cross_tags": [
+      {
+        "slug": "novella",
+        "name": "Novella",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "complex",
+        "name": "Complex",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "experimental",
+        "name": "Experimental",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "sophisticated",
+        "name": "Sophisticated",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "philosophical",
+        "name": "Philosophical",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "augmented-reality",
+        "name": "Augmented Reality",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "war",
+        "name": "War",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "demons",
+        "name": "Demons",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "gritty",
+        "name": "Gritty",
+        "group": "tone_mood",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "fire-magic",
+        "name": "Fire Magic",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "nanotechnology",
+        "name": "Nanotechnology",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "riches-to-rags",
+        "name": "Riches to Rags",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "underwater-city",
+        "name": "Underwater City",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 0.2,
+        "method": "pattern-match+evidence"
+      }
+    ],
+    "cross_tags_count": 20,
+    "cross_tags_status": "needs_more"
   },
   "format": {
     "slug": "anthology",
@@ -73,5 +235,24 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "056969dc-9406-4fd3-88db-76a5a9f70adf",
+    "work_title": "The Complete Nebula Award-winning Fiction",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T23:03:00.322Z",
+    "sources": [
+      {
+        "snapshot_id": "8d7e14be-df35-4aa2-9024-6ac32a606609",
+        "source": "openlibrary",
+        "source_key": "OL8075956W",
+        "revision": "3",
+        "url": "https://openlibrary.org/works/OL8075956W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T23:03:00.322Z",
+        "sha256": "ac87ee44d5abfb5398a0356ede127b8c7aba44b15487484922b38b2eae9ed033",
+        "extract": "Title: The complete Nebula award-winning fiction of Samuel R. Delaney\n\nPublication: 1986\n\nLanguages: eng"
+      }
+    ]
   }
 }

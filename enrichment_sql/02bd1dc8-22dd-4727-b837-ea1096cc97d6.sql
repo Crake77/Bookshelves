@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Blue-Green Rehabilitation
 -- Book ID: 02bd1dc8-22dd-4727-b837-ea1096cc97d6
--- Generated: 2025-10-23T21:52:41.586Z
+-- Generated: 2025-10-25T21:38:51.338Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '02bd1dc8-22dd-4727-b837-ea1096cc97d6';
@@ -41,10 +41,10 @@ INSERT INTO book_genres (book_id, genre_id)
 SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM genres WHERE slug = 'fantasy';
 
 -- Insert cross-tags (2 tags)
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM cross_tags WHERE slug = 'neglect';
-INSERT INTO book_cross_tags (book_id, cross_tag_id)
-SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id FROM cross_tags WHERE slug = 'conclusion';
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id, 0.9, 'pattern-match+evidence' FROM cross_tags WHERE slug = 'neglect';
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '02bd1dc8-22dd-4727-b837-ea1096cc97d6', id, 0.9, 'pattern-match+evidence' FROM cross_tags WHERE slug = 'conclusion';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)

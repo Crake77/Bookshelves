@@ -1,6 +1,6 @@
 -- Enrichment SQL for: Nebula Award Stories Five
 -- Book ID: 05eaef7d-9e38-4e02-8fec-358dd2b16ed8
--- Generated: 2025-10-23T21:52:42.087Z
+-- Generated: 2025-10-25T22:30:10.841Z
 
 -- Clean up existing taxonomy links
 DELETE FROM book_domains WHERE book_id = '05eaef7d-9e38-4e02-8fec-358dd2b16ed8';
@@ -41,6 +41,22 @@ SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM supergenres WHERE slug = 
 -- Insert genres
 INSERT INTO book_genres (book_id, genre_id)
 SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id FROM genres WHERE slug = 'science-fiction';
+
+-- Insert cross-tags (7 tags)
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id, 0.9, 'pattern-match' FROM cross_tags WHERE slug = 'novelette';
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id, 0.9, 'pattern-match' FROM cross_tags WHERE slug = 'novella';
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id, 0.9, 'pattern-match' FROM cross_tags WHERE slug = 'space';
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id, 0.9, 'pattern-match' FROM cross_tags WHERE slug = 'complex';
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id, 0.9, 'pattern-match' FROM cross_tags WHERE slug = 'experimental';
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id, 0.9, 'pattern-match' FROM cross_tags WHERE slug = 'imaginative';
+INSERT INTO book_cross_tags (book_id, cross_tag_id, confidence, method)
+SELECT '05eaef7d-9e38-4e02-8fec-358dd2b16ed8', id, 0.9, 'pattern-match' FROM cross_tags WHERE slug = 'literary';
 
 -- Insert audience
 INSERT INTO book_age_markets (book_id, age_market_id)
