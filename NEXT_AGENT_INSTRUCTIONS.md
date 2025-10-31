@@ -1,7 +1,29 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-10-31T18:45:00Z  
-**Priority:** MEDIUM – App is stable, ready for feature work
+**Last Updated:** 2025-10-31T21:05:00Z  
+**Priority:** HIGH – Build external metadata adapters & clean cross-tag fallout
+
+## 🔄 SESSION HANDOFF SUMMARY (2025-10-31 – Taxonomy Dialog Fix & Metadata Roadmap)
+
+### ✅ Completed This Session
+1. **Taxonomy chip fixes shipped** – Authors, format, and audience chips now open filtered dialogs without listing the originating book (prod URL: `bookshelves-9n6q9hzqr-…`).
+2. **Cross-tag scorer hardened** – `task-06-cross-tags.js` uses word-boundary regex + requires real matches before confidence boosts, stopping “elves”/“fire-magic” leakage.
+3. **Metadata roadmap drafted** – Added `docs/ops/metadata-source-roadmap.md` outlining multi-source adapter architecture (LoC, FAST, Wikidata, CrossRef, OpenAlex, BISAC, etc.).
+
+### ⚠️ Active Issues
+- Legacy cross tags remain in the DB for the original 10-book batch (e.g., `(Eco)Anxiety…`, *Fantasy and Necessity of Solidarity*). Re-run Task 6 + `enrichment:apply` after source adapters land.
+- `/api/user-books` ingest endpoints were previously re-disabled (503 “ingestion temporarily disabled”); confirm status before QA.
+
+### 🎯 Next Steps (metadata focus)
+1. Scaffold `metadata/` module (adapter base, caching, normalization helpers).
+2. Implement **LoC**, **FAST**, **Wikidata** adapters (P0) with slug-mapping tables + provenance.
+3. Wire adapters into enrichment pipeline (feature flag per source) and update docs with usage instructions.
+4. After adapters verified, regenerate enrichment for the 10-book cohort and sync to DB to purge stale fantasy tags.
+
+### 📊 Token Usage
+- Estimated: ~12,000 / 200,000 (6%) this session.
+
+---
 
 ## 🔄 SESSION HANDOFF SUMMARY (2025-10-31 – Screen Freeze Fix + Book Status Updates)
 
