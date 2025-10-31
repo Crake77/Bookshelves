@@ -1,9 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import {
-  useQuery,
-  useInfiniteQuery,
-  type InfiniteData,
-} from "@tanstack/react-query";
+import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
 import HorizontalBookRow, { type SecondaryChip, type ChipVariant } from "@/components/HorizontalBookRow";
 import { lazy, Suspense } from "react";
@@ -22,7 +18,6 @@ import {
   type BrowseAlgo,
 } from "@/lib/api";
 import { consumePendingBrowseFilter, type BrowseFilter } from "@/lib/browseFilter";
-import { getFallbackBrowse } from "@/lib/browseFallback";
 import {
   Select,
   SelectContent,
@@ -55,23 +50,6 @@ interface UseBrowseCarouselArgs {
 }
 
 function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blockedTags, format, audience, domain, supergenre }: UseBrowseCarouselArgs) {
-  const hasAnyFilters = Boolean(
-    genre || subgenre || tag || (tagAny && tagAny.length > 0) ||
-    (blockedTags && blockedTags.length > 0) || format ||
-    audience || domain || supergenre
-  );
-
-  const fallbackBooks = useMemo(
-    () => (hasAnyFilters ? [] : getFallbackBrowse(algo, genre ?? undefined)),
-    [algo, genre, hasAnyFilters]
-  );
-  const fallbackInfiniteData = useMemo<InfiniteData<BookSearchResult[], number>>(() => {
-    return {
-      pages: [fallbackBooks],
-      pageParams: [0],
-    };
-  }, [fallbackBooks]);
-
   // TEMPORARILY DISABLED: Works endpoint for batch 1-3 validation
   // Use browse endpoint for all queries until works are properly seeded
   const useWorksEndpoint = false; // Temporarily disabled
@@ -137,7 +115,7 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blocked
       : undefined),
     staleTime: 1000 * 60,
     gcTime: 1000 * 60 * 5,
-    placeholderData: (previousData) => previousData ?? fallbackInfiniteData,
+    placeholderData: (previousData) => previousData ?? { pages: [], pageParams: [] },
   });
 
   const rawBooks = useMemo(() => {
@@ -163,8 +141,7 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blocked
       return item as BookSearchResult;
     });
   }, [data]);
-  const hasRealData = status === "success" && rawBooks.length > 0;
-  const displayBooks = hasRealData ? rawBooks : fallbackBooks;
+  const displayBooks = rawBooks;
   const errorMessage =
     status === "error"
       ? error instanceof Error
@@ -172,8 +149,8 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blocked
         : "Failed to load recommendations"
       : null;
   const isInitialLoadInFlight =
-    isLoading || (isFetching && !hasRealData);
-  const resolvedHasNextPage = hasNextPage ?? (!hasRealData && displayBooks.length > 0);
+    isLoading || (isFetching && (data?.pages?.length ?? 0) === 0);
+  const resolvedHasNextPage = hasNextPage ?? false;
 
   return {
     books: displayBooks,
