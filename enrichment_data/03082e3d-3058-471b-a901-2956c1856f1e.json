@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL39527188M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-31T13:17:19.654Z",
+  "last_updated": "2025-10-31T14:28:18Z",
   "authors": {
     "original": [
       "Marek C. Oziewicz"
@@ -20,9 +20,9 @@
     "notes": []
   },
   "summary": {
-    "original_description": "This book is the first to offer a justice-focused cognitive reading of modern YA speculative fiction in its narrative and filmic forms. It links the expansion of YA speculative fiction in the 20th century with the emergence of human and civil rights movements, with the communitarian revolution in conceptualizations of justice, and with spectacular advances in cognitive sciences as applied to the examination of narrative fiction. Oziewicz argues that complex ideas such as justice are processed by the human mind as cognitive scripts; that scripts, when narrated, take the form of multiply indexable stories; and that YA speculative fiction is currently the largest conceptual testing ground in the forging of justice consciousness for the 21st century world. Drawing on recent research in the cognitive and evolutionary sciences, Oziewicz explains how poetic, retributive, restorative, environmental, social, and global types of justice have been represented in narrative fiction, from 19th century folk and fairy tales through 21st century fantasy, dystopia, and science fiction. Suggesting that the appeal of these and other nonmimetic genres is largely predicated on the dream of justice, Oziewicz theorizes new justice scripts as conceptual tools essential to help humanity survive the qualitative leap toward an environmentally conscious, culturally diversified global world. This book is an important contribution to studies of children’s and YA speculative fiction, adding a new perspective to discussions about the educational as well as social potential of nonmimetic genres. It demonstrates that the justice imperative is very much alive in YA speculative fiction, creating new visions of justice relevant to contemporary challenges.",
+    "original_description": "This book is the first to offer a justice-focused cognitive reading of modern YA speculative fiction in its narrative and filmic forms. It links the expansion of YA speculative fiction in the 20th century with the emergence of human and civil rights movements, with the communitarian revolution in conceptualizations of justice, and with spectacular advances in cognitive sciences as applied to the examination of narrative fiction. Oziewicz argues that complex ideas such as justice are processed by the human mind as cognitive scripts; that scripts, when narrated, take the form of multiply indexable stories; and that YA speculative fiction is currently the largest conceptual testing ground in the forging of justice consciousness for the 21st century world. Drawing on recent research in the cognitive and evolutionary sciences, Oziewicz explains how poetic, retributive, restorative, environmental, social, and global types of justice have been represented in narrative fiction, from 19th century folk and fairy tales through 21st century fantasy, dystopia, and science fiction. Suggesting that the appeal of these and other nonmimetic genres is largely predicated on the dream of justice, Oziewicz theorizes new justice scripts as conceptual tools essential to help humanity survive the qualitative leap toward an environmentally conscious, culturally diversified global world. This book is an important contribution to studies of children\u2019s and YA speculative fiction, adding a new perspective to discussions about the educational as well as social potential of nonmimetic genres. It demonstrates that the justice imperative is very much alive in YA speculative fiction, creating new visions of justice relevant to contemporary challenges.",
     "original_length": 1747,
-    "new_summary": "This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts—patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fiction in preparing young people for an interconnected, environmentally threatened world requiring new approaches to fairness and equity.",
+    "new_summary": "This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts\u2014patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fiction in preparing young people for an interconnected, environmentally threatened world requiring new approaches to fairness and equity.",
     "new_length": 1868,
     "word_count": 247,
     "status": "completed",
@@ -37,24 +37,41 @@
     "domain": {
       "slug": "nonfiction",
       "confidence": "high",
-      "reason": "Academic/analytical work (about genres, not in a genre)"
+      "reason": "Scholarly analysis of YA literature"
     },
     "supergenres": [
       {
         "slug": "essays-criticism",
-        "confidence": "suggested",
-        "reason": "Derived from categories"
+        "confidence": "high",
+        "reason": "Literary criticism focus"
       },
       {
-        "slug": "speculative-fiction",
-        "confidence": "suggested",
-        "reason": "Derived from categories"
+        "slug": "reference-education",
+        "confidence": "medium",
+        "reason": "Resource for educators"
       }
     ],
-    "status": "suggested",
+    "status": "completed",
     "notes": [],
-    "genres": [],
-    "subgenres": [],
+    "genres": [
+      {
+        "slug": "cultural-studies",
+        "name": "Cultural Studies",
+        "confidence": "high"
+      },
+      {
+        "slug": "education",
+        "name": "Education & Teaching",
+        "confidence": "medium"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "education-policy",
+        "name": "Education Policy",
+        "confidence": "medium"
+      }
+    ],
     "cross_tags": [
       {
         "slug": "literary",
@@ -320,7 +337,7 @@
         "license": "GOOGLE_BOOKS_TOS",
         "fetched_at": "2025-10-25T23:02:59.660Z",
         "sha256": "9164fe568bd832311920a6e3333c510cf992575cb948cbc35b70d34f564fd4bf",
-        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nDescription: This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts—patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fic..."
+        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nDescription: This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts\u2014patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fic..."
       },
       {
         "snapshot_id": "3d3be7b4-fbab-4dec-840a-087638e35cd8",
@@ -331,7 +348,7 @@
         "license": "CC0",
         "fetched_at": "2025-10-25T23:02:59.197Z",
         "sha256": "83a64e1e2f858fe7a241efa42f408dce8cdfafe4cd97f6677af84d29aaa50436",
-        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nSubjects: Young adult literature, history and criticism, Justice in literature, Fantasy fiction, history and criticism, Young adult fiction, History and criticism, Speculative fiction, Fantasy fiction, Roman pour jeunes adultes, Histoire et critique, Roman d'hypothèse, Justice dans la littérature, LITERARY CRITICISM, Children's Literature\n\nPublication: 2015\n\nLanguages: eng"
+        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nSubjects: Young adult literature, history and criticism, Justice in literature, Fantasy fiction, history and criticism, Young adult fiction, History and criticism, Speculative fiction, Fantasy fiction, Roman pour jeunes adultes, Histoire et critique, Roman d'hypoth\u00e8se, Justice dans la litt\u00e9rature, LITERARY CRITICISM, Children's Literature\n\nPublication: 2015\n\nLanguages: eng"
       }
     ]
   }

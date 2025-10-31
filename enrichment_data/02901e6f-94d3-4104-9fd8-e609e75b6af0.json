@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-31T13:17:19.651Z",
+  "last_updated": "2025-10-31T14:28:18Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -37,16 +37,44 @@
     "domain": {
       "slug": "nonfiction",
       "confidence": "high",
-      "reason": "Academic/analytical work (about genres, not in a genre)"
+      "reason": "Critical essays on cosmic horror media"
     },
-    "supergenres": [],
-    "status": "needs_manual_review",
+    "supergenres": [
+      {
+        "slug": "essays-criticism",
+        "confidence": "high",
+        "reason": "Literary/cultural criticism"
+      },
+      {
+        "slug": "arts-entertainment",
+        "confidence": "medium",
+        "reason": "Analyzes horror across media"
+      }
+    ],
+    "status": "completed",
     "notes": [
       "WARNING: No supergenres could be automatically suggested",
       "MANUAL STEP: Assign 1-2 supergenres from taxonomy"
     ],
-    "genres": [],
-    "subgenres": [],
+    "genres": [
+      {
+        "slug": "cultural-studies",
+        "name": "Cultural Studies",
+        "confidence": "high"
+      },
+      {
+        "slug": "arts-entertainment",
+        "name": "Arts & Entertainment",
+        "confidence": "medium"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "film-studies",
+        "name": "Film Studies",
+        "confidence": "medium"
+      }
+    ],
     "cross_tags": [
       {
         "slug": "lovecraftian",
