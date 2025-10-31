@@ -55,9 +55,15 @@ interface UseBrowseCarouselArgs {
 }
 
 function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blockedTags, format, audience, domain, supergenre }: UseBrowseCarouselArgs) {
+  const hasAnyFilters = Boolean(
+    genre || subgenre || tag || (tagAny && tagAny.length > 0) ||
+    (blockedTags && blockedTags.length > 0) || format ||
+    audience || domain || supergenre
+  );
+
   const fallbackBooks = useMemo(
-    () => getFallbackBrowse(algo, genre ?? undefined),
-    [algo, genre]
+    () => (hasAnyFilters ? [] : getFallbackBrowse(algo, genre ?? undefined)),
+    [algo, genre, hasAnyFilters]
   );
   const fallbackInfiniteData = useMemo<InfiniteData<BookSearchResult[], number>>(() => {
     return {
@@ -68,12 +74,6 @@ function useBrowseCarousel({ algo, userId, genre, subgenre, tag, tagAny, blocked
 
   // TEMPORARILY DISABLED: Works endpoint for batch 1-3 validation
   // Use browse endpoint for all queries until works are properly seeded
-  const hasAnyFilters = Boolean(
-    genre || subgenre || tag || (tagAny && tagAny.length > 0) || 
-    (blockedTags && blockedTags.length > 0) || format || 
-    audience || domain || supergenre
-  );
-  
   const useWorksEndpoint = false; // Temporarily disabled
 
   const {
