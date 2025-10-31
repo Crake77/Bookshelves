@@ -216,10 +216,17 @@ function generatePatternTags(book, enrichmentData, evidenceSources) {
 }
 
 function scorePattern(pattern, haystack) {
+  const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const matchesTerm = (term) => {
+    if (!term) return false;
+    const escaped = escapeRegex(term.toLowerCase());
+    const boundaryPattern = new RegExp(`\\b${escaped}\\b`, 'i');
+    return boundaryPattern.test(haystack);
+  };
+
   const avoid = pattern.avoid || [];
   for (const term of avoid) {
-    if (!term) continue;
-    if (haystack.includes(term.toLowerCase())) {
+    if (matchesTerm(term)) {
       return 0;
     }
   }
@@ -230,27 +237,27 @@ function scorePattern(pattern, haystack) {
   const phrases = pattern.phrases || [];
 
   for (const term of exacts) {
-    if (term && haystack.includes(term.toLowerCase())) {
+    if (matchesTerm(term)) {
       score += 2;
       break;
     }
   }
 
   for (const term of synonyms) {
-    if (term && haystack.includes(term.toLowerCase())) {
+    if (matchesTerm(term)) {
       score += 1;
       break;
     }
   }
 
   for (const term of phrases) {
-    if (term && haystack.includes(term.toLowerCase())) {
+    if (matchesTerm(term)) {
       score += 1;
       break;
     }
   }
 
-  if (pattern.confidence_boost) {
+  if (score > 0 && pattern.confidence_boost) {
     score += pattern.confidence_boost;
   }
 
