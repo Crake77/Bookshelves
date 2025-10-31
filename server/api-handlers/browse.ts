@@ -42,6 +42,7 @@ interface RawBookRow {
 type BrowseAlgo = "popular" | "rating" | "recent" | "for-you";
 
 interface BookPayload {
+  id?: string; // DB book id when available
   googleBooksId: string;
   title: string;
   authors: string[];
@@ -407,6 +408,7 @@ function toBookPayload(row: RawBookRow): BookPayload {
         : undefined;
 
   return {
+    id: row.id,
     googleBooksId: row.google_books_id ?? row.id,
     title: row.title ?? "Untitled",
     authors,

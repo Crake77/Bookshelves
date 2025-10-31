@@ -103,7 +103,17 @@ export default function ShelvesPage() {
 
       {dialogOpen && (
         <Suspense fallback={null}>
-          <BookDetailDialog book={selectedBook} open={dialogOpen} onOpenChange={setDialogOpen} />
+          <BookDetailDialog 
+            book={selectedBook} 
+            open={dialogOpen} 
+            onOpenChange={(open) => {
+              setDialogOpen(open);
+              if (!open) {
+                // Clear selection when dialog closes to prevent stale state
+                setSelectedBook(null);
+              }
+            }} 
+          />
         </Suspense>
       )}
     </div>

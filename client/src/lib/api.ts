@@ -1,6 +1,7 @@
 import { apiRequest } from "./queryClient";
 
 export interface BookSearchResult {
+  id?: string; // DB id when returned from browse
   googleBooksId: string;
   title: string;
   authors: string[];

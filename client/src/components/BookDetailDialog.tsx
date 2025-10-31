@@ -204,7 +204,13 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
       });
     },
     onSettled: () => {
-      queryClient.refetchQueries({ queryKey: userBooksQueryKey });
+      // Defer refetch to avoid conflicting with dialog close and state updates
+      // The query data is already updated optimistically, so refetch can wait
+      setTimeout(() => {
+        queryClient.refetchQueries({ queryKey: userBooksQueryKey });
+      }, 500);
+      // Don't invalidate browse queries here to prevent screen freeze
+      // BrowsePage queries will refetch naturally when navigated to
     },
   });
 
@@ -259,6 +265,13 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
         variant: updated.status ? "default" : "destructive",
       });
     },
+    onSettled: () => {
+      // Close dialog after all mutations settle to prevent freeze
+      // Use setTimeout to ensure React has processed all state updates
+      setTimeout(() => {
+        onOpenChange(false);
+      }, 200);
+    },
   });
 
   const updateRatingMutation = useMutation({
@@ -275,7 +288,7 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
     },
   });
 
-  // Make sure the book exists in the backend (ingest + return id) before we try to save shelf/rating state.
+  // Make sure the book exists in the backend before we try to save shelf/rating state.
   const ensureBookIngested = async (): Promise<string> => {
     if (existingUserBook?.bookId) {
       return existingUserBook.bookId;
@@ -287,12 +300,15 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
       throw new Error("Book not available");
     }
 
-    const ingestedBook = await ingestMutation.mutateAsync(book);
-    if (!ingestedBook?.id) {
-      throw new Error("Ingest did not return book ID");
+    // Ingestion is gated off by default. If the book isn't already present,
+    // require an existing DB id on the provided book payload and skip ingestion.
+    const maybeId = (book as unknown as { id?: string })?.id;
+    if (maybeId && typeof maybeId === "string" && maybeId.length > 0) {
+      setIngestedBookId(maybeId);
+      return maybeId;
     }
-    setIngestedBookId(ingestedBook.id);
-    return ingestedBook.id;
+
+    throw new Error("This title isn't in the library yet. Ingestion is disabled.");
   };
 
   const handleShelfSelection = async (status: string | null) => {
