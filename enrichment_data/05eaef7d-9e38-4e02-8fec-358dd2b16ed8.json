@@ -1,6 +1,6 @@
 {
   "cover_urls": {
-    "existing": null,
+    "existing": "https://books.google.com/books/content?id=NJFzGwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "google_books": "https://books.google.com/books/content?id=NJFzGwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "openlibrary": "https://covers.openlibrary.org/b/isbn/OCLC:8134990-L.jpg",
     "openlibrary_olid": null,
@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=NJFzGwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-31T13:17:19.659Z",
+  "last_updated": "2025-10-31T14:59:29Z",
   "authors": {
     "original": [
       "Science Fiction Writers of America"
