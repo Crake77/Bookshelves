@@ -72,6 +72,7 @@ export interface BrowseRequestOptions {
   genreSlug?: string;
   subgenre?: string;
   tag?: string;
+  author?: string;
   tagAny?: string[];
   blockedTags?: string[];
   format?: string;
@@ -91,6 +92,7 @@ export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<B
   if (options.genreSlug) params.set("genreSlug", options.genreSlug);
   if (options.subgenre) params.set("subgenre", options.subgenre);
   if (options.tag) params.set("tag", options.tag);
+  if (options.author) params.set("author", options.author);
   if (typeof options.limit === "number") params.set("limit", String(options.limit));
   if (typeof options.offset === "number") params.set("offset", String(options.offset));
   if (Array.isArray(options.tagAny) && options.tagAny.length > 0) {
@@ -111,6 +113,7 @@ export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<B
       options.tag ||
       (options.tagAny && options.tagAny.length > 0) ||
       (options.blockedTags && options.blockedTags.length > 0) ||
+      options.author ||
       options.format ||
       options.audience ||
       options.domain ||
@@ -193,12 +196,15 @@ export async function browseWorks(options: BrowseWorksOptions): Promise<Work[]> 
 
 // Taxonomy for a book (from DB, best-effort)
 export interface BookTaxonomy {
+  genres?: Array<{ slug: string; name: string }>;
+  subgenres?: Array<{ slug: string; name: string }>;
   genre?: { slug: string; name: string };
   subgenre?: { slug: string; name: string };
   tags: Array<{ slug: string; name: string; group: string }>;
   allTagCount: number;
-  format?: string;
-  audience?: string;
+  format?: { slug: string; name: string };
+  ageMarket?: { slug: string; name: string };
+  audience?: { slug: string; name: string };
 }
 
 export async function getBookTaxonomy(googleBooksId: string): Promise<BookTaxonomy | null> {

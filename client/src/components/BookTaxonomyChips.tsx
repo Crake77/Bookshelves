@@ -3,26 +3,22 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getBookTaxonomy, ingestBook, type BookSearchResult } from "@/lib/api";
-import { detectTaxonomy, detectAgeMarketSlug } from "../../../shared/taxonomy";
-import TaxonomyListDialog from "@/components/TaxonomyListDialog";
+import type { TaxonomyFilter } from "@/components/TaxonomyListDialog";
 
 interface Props {
   book: BookSearchResult;
   hint?: { kind: "tag" | "subgenre"; slug: string; label: string };
+  onOpenFilter?: (filter: TaxonomyFilter) => void;
 }
 
-export default function BookTaxonomyChips({ book, hint }: Props) {
+type FilterKind = TaxonomyFilter["kind"];
+
+export default function BookTaxonomyChips({ book, hint, onOpenFilter }: Props) {
   const queryClient = useQueryClient();
   const [showAllTags, setShowAllTags] = useState(false);
   const ingestAttemptedRef = useRef(false);
   const attachAttemptedRef = useRef(false);
   const seededRef = useRef(false);
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [dialogFilter, setDialogFilter] = useState<{
-    kind: "genre" | "subgenre" | "tag";
-    slug: string;
-    label: string;
-  } | null>(null);
 
   const taxonomyQuery = useQuery({
     queryKey: ["/api/book-taxonomy", book.googleBooksId],
@@ -80,9 +76,9 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
     );
   }
 
-  const openDialog = (kind: "genre" | "subgenre" | "tag", slug: string, label: string) => {
-    setDialogFilter({ kind, slug, label });
-    setDialogOpen(true);
+  const openDialog = (kind: FilterKind, slug?: string | null, label?: string | null) => {
+    if (!onOpenFilter || !slug) return;
+    onOpenFilter({ kind, slug, label: label ?? slug });
   };
 
   // Separate regular tags from content warnings
@@ -92,6 +88,29 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
   const regularTags = taxonomy.tags.filter(t => 
     t.group !== 'content_warnings' && t.group !== 'content_flags'
   );
+
+  const slugify = (value: string) =>
+    value
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+  const normalizeChip = (value: any) => {
+    if (!value) return undefined;
+    if (typeof value === "string") {
+      const slug = slugify(value);
+      return { slug: slug.length > 0 ? slug : value, name: value };
+    }
+    if (typeof value === "object" && value.slug && value.name) {
+      return value;
+    }
+    return undefined;
+  };
+
+  const format = normalizeChip(taxonomy.format);
+  const ageMarket = normalizeChip(taxonomy.ageMarket);
+  const audience = normalizeChip(taxonomy.audience) ?? ageMarket;
 
   return (
     <div className="px-6 py-4 border-b border-border/50" data-testid="taxonomy-chips">
@@ -189,14 +208,15 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
           {/* Format */}
           <div>
             <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Format</div>
-            {taxonomy.format ? (
+            {format ? (
               <div className="flex flex-wrap gap-2">
                 <Badge
                   variant="outline"
-                  className=""
+                  className="cursor-pointer"
+                  onClick={() => openDialog("format", format.slug, format.name)}
                   data-testid="chip-format"
                 >
-                  {taxonomy.format}
+                  {format.name}
                 </Badge>
               </div>
             ) : (
@@ -207,14 +227,15 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
           {/* Audience (Age Market) */}
           <div>
             <div className="text-xs font-semibold text-muted-foreground uppercase mb-2">Audience</div>
-            {taxonomy.audience ? (
+            {audience ? (
               <div className="flex flex-wrap gap-2">
                 <Badge
                   variant="outline"
-                  className=""
+                  className="cursor-pointer"
+                  onClick={() => openDialog("audience", audience.slug, audience.name)}
                   data-testid="chip-audience"
                 >
-                  {taxonomy.audience}
+                  {audience.name}
                 </Badge>
               </div>
             ) : (
@@ -234,9 +255,6 @@ export default function BookTaxonomyChips({ book, hint }: Props) {
             )}
           </div>
         </div>
-        
-        {/* Inline dialog for taxonomy browsing */}
-        <TaxonomyListDialog open={dialogOpen} onOpenChange={setDialogOpen} filter={dialogFilter} />
       </div>
     </div>
   );

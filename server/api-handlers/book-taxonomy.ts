@@ -167,12 +167,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ORDER BY ct."group" ASC, ct.name ASC
     ` as Array<{ slug: string; name: string; group: string }>;
 
+    const primaryAgeMarket = ageMarkets[0] ? { slug: ageMarkets[0].slug, name: ageMarkets[0].name } : undefined;
+    const primaryFormat = bookFormats[0] ? { slug: bookFormats[0].slug, name: bookFormats[0].name } : undefined;
+
     const data = {
       genres: genres,
       subgenres: subgenres,
-      ageMarket: ageMarkets[0] || undefined,
-      format: bookFormats[0]?.name || undefined,
-      audience: ageMarkets[0]?.name || undefined,
+      ageMarket: primaryAgeMarket,
+      format: primaryFormat,
+      audience: primaryAgeMarket,
       tags,
       allTagCount: tags.length,
       // Legacy compatibility - use first genre/subgenre if present

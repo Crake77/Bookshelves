@@ -18,20 +18,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const bookId = bookRows[0].id;
 
     // Fetch book's taxonomy
-    const [genres, subgenres, tags, tagCount, formats, audiences] = await Promise.all([
+    const [
+      genres,
+      subgenres,
+      tags,
+      tagCount,
+      formats,
+      audiences,
+    ] = await Promise.all([
       sql`
         SELECT g.id, g.slug, g.name 
         FROM book_genres bg
         JOIN genres g ON g.id = bg.genre_id
         WHERE bg.book_id = ${bookId}
-        LIMIT 1
       `,
       sql`
         SELECT s.id, s.slug, s.name
         FROM book_subgenres bs
         JOIN subgenres s ON s.id = bs.subgenre_id
         WHERE bs.book_id = ${bookId}
-        LIMIT 1
       `,
       sql`
         SELECT ct.id, ct.slug, ct.name, ct."group"
@@ -51,28 +56,37 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         FROM book_formats bf
         JOIN formats f ON f.id = bf.format_id
         WHERE bf.book_id = ${bookId}
-        LIMIT 1
       `,
       sql`
         SELECT am.id, am.slug, am.name
         FROM book_age_markets bam
         JOIN age_markets am ON am.id = bam.age_market_id
         WHERE bam.book_id = ${bookId}
-        LIMIT 1
       `
     ]);
 
-    return res.status(200).json({
-      ok: true,
-      data: {
-        genre: genres.length > 0 ? genres[0] : null,
-        subgenre: subgenres.length > 0 ? subgenres[0] : null,
-        tags: tags,
-        allTagCount: tagCount.length > 0 ? parseInt(tagCount[0].count) : 0,
-        format: formats.length > 0 ? formats[0].name : null,
-        audience: audiences.length > 0 ? audiences[0].name : null
-      }
-    });
+    const primaryGenre = genres[0] ?? null;
+    const primarySubgenre = subgenres[0] ?? null;
+    const primaryFormat = formats[0]
+      ? { slug: formats[0].slug, name: formats[0].name }
+      : undefined;
+    const primaryAudience = audiences[0]
+      ? { slug: audiences[0].slug, name: audiences[0].name }
+      : undefined;
+
+    const data = {
+      genres,
+      subgenres,
+      tags,
+      allTagCount: tagCount.length > 0 ? Number.parseInt(tagCount[0].count) : 0,
+      format: primaryFormat,
+      ageMarket: primaryAudience,
+      audience: primaryAudience,
+      genre: primaryGenre,
+      subgenre: primarySubgenre,
+    };
+
+    return res.status(200).json({ ok: true, data });
   } catch (error: any) {
     console.error('Failed to load book taxonomy:', error);
     return res.status(500).json({ error: 'Failed to load book taxonomy', details: error.message });

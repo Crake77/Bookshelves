@@ -10,11 +10,11 @@ import React, { lazy, Suspense } from "react";
 import BookCard from "@/components/BookCard";
 const BookDetailDialog = lazy(() => import("@/components/BookDetailDialog"));
 
-type Kind = "genre" | "subgenre" | "tag";
+type Kind = "genre" | "subgenre" | "tag" | "author" | "format" | "audience";
 
 export interface TaxonomyFilter {
   kind: Kind;
-  slug: string; // for genre, this is the display label we search categories by
+  slug: string; // for author this is the display name we query by
   label: string;
 }
 
@@ -23,6 +23,8 @@ interface Props {
   onOpenChange: (open: boolean) => void;
   filter: TaxonomyFilter | null;
   ranking?: BrowseAlgo; // optional; default popular
+  sourceBookId?: string | null;
+  sourceGoogleBooksId?: string | null;
 }
 
 const PAGE_SIZE = 24;
@@ -38,6 +40,9 @@ function useTaxonomyInfinite(filter: TaxonomyFilter | null, ranking: BrowseAlgo)
       if (filter.kind === "genre") params.genreSlug = filter.slug; // taxonomy genre slug
       if (filter.kind === "subgenre") params.subgenre = filter.slug;
       if (filter.kind === "tag") params.tag = filter.slug;
+      if (filter.kind === "author") params.author = filter.slug;
+      if (filter.kind === "format") params.format = filter.slug;
+      if (filter.kind === "audience") params.audience = filter.slug;
       return fetchBrowseBooks(params);
     },
     getNextPageParam: (lastPage: BookSearchResult[], _pages, lastPageParam: number) =>
@@ -47,9 +52,16 @@ function useTaxonomyInfinite(filter: TaxonomyFilter | null, ranking: BrowseAlgo)
   });
 }
 
-export default function TaxonomyListDialog({ open, onOpenChange, filter, ranking = "popular" }: Props) {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useTaxonomyInfinite(filter, ranking);
-  const books = useMemo(() => (data?.pages ?? []).flat(), [data]);
+export default function TaxonomyListDialog({ open, onOpenChange, filter, ranking = "popular", sourceBookId, sourceGoogleBooksId }: Props) {
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isFetching } = useTaxonomyInfinite(filter, ranking);
+  const books = useMemo(() => {
+    const items = (data?.pages ?? []).flat();
+    return items.filter((b) => {
+      if (sourceGoogleBooksId && b.googleBooksId === sourceGoogleBooksId) return false;
+      if (sourceBookId && b.id === sourceBookId) return false;
+      return true;
+    });
+  }, [data, sourceBookId, sourceGoogleBooksId]);
   const [selectedBook, setSelectedBook] = React.useState<BookSearchResult | null>(null);
 
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
@@ -71,8 +83,30 @@ export default function TaxonomyListDialog({ open, onOpenChange, filter, ranking
   const header = useMemo(() => {
     if (!filter) return "";
     if (filter.kind === "tag") return `#${filter.label}`;
+    if (filter.kind === "author") return filter.label;
     return filter.label;
   }, [filter]);
+
+  const subheading = useMemo(() => {
+    if (!filter) return "";
+    switch (filter.kind) {
+      case "tag":
+        return "Browse books for this tag.";
+      case "subgenre":
+      case "genre":
+        return "Browse books for this category.";
+      case "author":
+        return "Browse books by this author.";
+      case "format":
+        return "Browse books in this format.";
+      case "audience":
+        return "Browse books for this audience.";
+      default:
+        return "Browse related books.";
+    }
+  }, [filter]);
+
+  const showEmpty = !isLoading && !isFetching && books.length === 0;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -89,7 +123,7 @@ export default function TaxonomyListDialog({ open, onOpenChange, filter, ranking
         <div className="px-6 pt-6 pb-3 border-b border-border/50">
           <h2 className="font-display text-lg font-semibold truncate" data-testid="taxonomy-dialog-header">{header}</h2>
           <p className="text-xs text-muted-foreground mt-1">
-            Browse books for this {filter?.kind === "tag" ? "tag" : "category"}.
+            {subheading}
           </p>
         </div>
 
@@ -107,6 +141,12 @@ export default function TaxonomyListDialog({ open, onOpenChange, filter, ranking
               </div>
             ))}
           </div>
+
+          {showEmpty && (
+            <div className="py-10 text-center text-muted-foreground text-xs">
+              No books match this filter yet.
+            </div>
+          )}
 
           {hasNextPage && (
             <div ref={loadMoreRef} className="h-10" aria-hidden />

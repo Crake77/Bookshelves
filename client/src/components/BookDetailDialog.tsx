@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   Dialog,
   DialogContent,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,10 +28,12 @@ import {
 } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Minus, Plus } from "lucide-react";
+import type { TaxonomyFilter } from "@/components/TaxonomyListDialog";
 //
 import { useShelfPreferences } from "@/hooks/usePreferences";
 import React, { Suspense as _Suspense } from "react";
 const LazyTaxonomyChips = React.lazy(() => import("@/components/BookTaxonomyChips"));
+const LazyTaxonomyListDialog = React.lazy(() => import("@/components/TaxonomyListDialog"));
 
 type HydratedUserBook = UserBook & { book?: BookSearchResult };
 
@@ -62,9 +65,21 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
   const [maskHeight, setMaskHeight] = useState<number>(0);
   const [isSmall, setIsSmall] = useState<boolean>(false);
   const [ingestedBookId, setIngestedBookId] = useState<string | null>(null);
+  const [taxonomyDialogFilter, setTaxonomyDialogFilter] = useState<TaxonomyFilter | null>(null);
+  const [taxonomySource, setTaxonomySource] = useState<{ bookId?: string; googleBooksId?: string } | null>(null);
+  const [isTaxonomyDialogOpen, setIsTaxonomyDialogOpen] = useState(false);
   const { toast } = useToast();
   const lastStatusRef = useRef<string | null>(null);
   const queryClient = useQueryClient();
+  const openTaxonomyDialog = useCallback((filter: TaxonomyFilter) => {
+    if (book) {
+      setTaxonomySource({ bookId: book.id, googleBooksId: book.googleBooksId });
+    } else {
+      setTaxonomySource(null);
+    }
+    setTaxonomyDialogFilter(filter);
+    setIsTaxonomyDialogOpen(true);
+  }, [book]);
   const userBooksQueryKey = ["/api/user-books", DEMO_USER_ID] as const;
 
   // Fetch user's books to check if this book is already in library
@@ -180,6 +195,14 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
       lastStatusRef.current = null;
     }
   }, [open, existingUserBook]);
+
+  useEffect(() => {
+    if (!open) {
+      setIsTaxonomyDialogOpen(false);
+      setTaxonomyDialogFilter(null);
+      setTaxonomySource(null);
+    }
+  }, [open]);
 
   const ingestMutation = useMutation({ mutationFn: ingestBook });
 
@@ -530,7 +553,27 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
                 )}
 
                 <h2 className="font-display text-xl font-bold" data-testid="text-book-title">{book.title}</h2>
-                <p className="text-sm text-muted-foreground" data-testid="text-book-author">{book.authors.join(", ")}</p>
+                {book.authors.length > 0 && (
+                  <div
+                    className="flex flex-wrap justify-center gap-2"
+                    data-testid="text-book-author"
+                  >
+                    {book.authors.map((author, index) => {
+                      const trimmed = author.trim();
+                      const key = `${trimmed}-${index}`;
+                      return (
+                        <Badge
+                          key={key}
+                          variant="outline"
+                          className="cursor-pointer"
+                          onClick={() => openTaxonomyDialog({ kind: "author", slug: trimmed, label: trimmed })}
+                        >
+                          {trimmed}
+                        </Badge>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -628,7 +671,12 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
             {book && (
               <_Suspense fallback={null}>
                 {/* Key ensures fresh mount per book so ingest logic runs per selection */}
-                <LazyTaxonomyChips key={book.googleBooksId} book={book} hint={taxonomyHint} />
+                <LazyTaxonomyChips
+                  key={book.googleBooksId}
+                  book={book}
+                  hint={taxonomyHint}
+                  onOpenFilter={openTaxonomyDialog}
+                />
               </_Suspense>
             )}
 
@@ -742,6 +790,21 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
           </>
         )}
       </DialogContent>
+      <_Suspense fallback={null}>
+        <LazyTaxonomyListDialog
+          open={isTaxonomyDialogOpen}
+          onOpenChange={(next) => {
+            setIsTaxonomyDialogOpen(next);
+            if (!next) {
+              setTaxonomyDialogFilter(null);
+              setTaxonomySource(null);
+            }
+          }}
+          filter={taxonomyDialogFilter}
+          sourceBookId={taxonomySource?.bookId}
+          sourceGoogleBooksId={taxonomySource?.googleBooksId}
+        />
+      </_Suspense>
     </Dialog>
   );
 }

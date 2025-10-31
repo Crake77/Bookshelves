@@ -18,6 +18,7 @@ interface BrowseParams {
   tagSlug?: string | null;      // taxonomy: cross tag slug
   tagAny?: string[] | null;     // preference boost: any of these tag slugs
   blockedTags?: string[] | null; // taxonomy: exclude books with these tag slugs
+  authorName?: string | null;    // author exact match
   formatSlug?: string | null;    // taxonomy: format slug
   audienceSlug?: string | null;  // taxonomy: age market slug
   domainSlug?: string | null;    // taxonomy: domain slug
@@ -448,6 +449,56 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           FROM unnest(COALESCE(b.categories, ARRAY[]::text[])) AS cat(category)
           WHERE LOWER(cat.category) LIKE ${genrePattern}
         )
+        AND (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_subgenres bps
+          JOIN subgenres sg ON sg.id = bps.subgenre_id
+          WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
+        ))
+        AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_genres bg
+          JOIN genres g ON g.id = bg.genre_id
+          WHERE bg.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
+        ))
+        AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_cross_tags bct
+          JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+          WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
+        ))
+        AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+          SELECT 1 FROM book_cross_tags bct
+          JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+          WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+        ))
+        AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_subgenres bps
+          JOIN subgenres sg ON sg.id = bps.subgenre_id
+          JOIN genres g ON g.id = sg.genre_id
+          JOIN genre_domains gd ON gd.genre_id = g.id
+          JOIN domains d ON d.id = gd.domain_id
+          WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+        ))
+        AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_subgenres bps
+          JOIN subgenres sg ON sg.id = bps.subgenre_id
+          JOIN genres g ON g.id = sg.genre_id
+          JOIN genre_supergenres gs ON gs.genre_id = g.id
+          JOIN supergenres sp ON sp.id = gs.supergenre_id
+          WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+        ))
+        AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_formats bf
+          JOIN formats f ON f.id = bf.format_id
+          WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+        ))
+        AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_age_markets bam
+          JOIN age_markets am ON am.id = bam.age_market_id
+          WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+        ))
+        AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
+          WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
+        ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -469,6 +520,57 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           b.isbn
         FROM books b
         LEFT JOIN book_stats bs ON bs.book_id = b.id
+        WHERE 1=1
+        AND (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_subgenres bps
+          JOIN subgenres sg ON sg.id = bps.subgenre_id
+          WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
+        ))
+        AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_genres bg
+          JOIN genres g ON g.id = bg.genre_id
+          WHERE bg.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
+        ))
+        AND (${params.tagSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_cross_tags bct
+          JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+          WHERE bct.book_id = b.id AND ct.slug = ${params.tagSlug ?? null}
+        ))
+        AND (${params.blockedTags ?? null}::text[] IS NULL OR NOT EXISTS (
+          SELECT 1 FROM book_cross_tags bct
+          JOIN cross_tags ct ON ct.id = bct.cross_tag_id
+          WHERE bct.book_id = b.id AND ct.slug = ANY(${params.blockedTags ?? null}::text[])
+        ))
+        AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_subgenres bps
+          JOIN subgenres sg ON sg.id = bps.subgenre_id
+          JOIN genres g ON g.id = sg.genre_id
+          JOIN genre_domains gd ON gd.genre_id = g.id
+          JOIN domains d ON d.id = gd.domain_id
+          WHERE bps.book_id = b.id AND d.slug = ${params.domainSlug ?? null}
+        ))
+        AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_subgenres bps
+          JOIN subgenres sg ON sg.id = bps.subgenre_id
+          JOIN genres g ON g.id = sg.genre_id
+          JOIN genre_supergenres gs ON gs.genre_id = g.id
+          JOIN supergenres sp ON sp.id = gs.supergenre_id
+          WHERE bps.book_id = b.id AND sp.slug = ${params.supergenreSlug ?? null}
+        ))
+        AND (${params.formatSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_formats bf
+          JOIN formats f ON f.id = bf.format_id
+          WHERE bf.book_id = b.id AND f.slug = ${params.formatSlug ?? null}
+        ))
+        AND (${params.audienceSlug ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM book_age_markets bam
+          JOIN age_markets am ON am.id = bam.age_market_id
+          WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+        ))
+        AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
+          WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
+        ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -637,12 +739,12 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             WHERE LOWER(cat.category) LIKE ${genrePattern}
           )
           AND (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
           AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
@@ -660,7 +762,7 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
           ))
           -- Domain filter
           AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_domains gd ON gd.genre_id = g.id
@@ -669,7 +771,7 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
           ))
           -- Supergenre filter
           AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_supergenres gs ON gs.genre_id = g.id
@@ -687,6 +789,16 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             SELECT 1 FROM book_age_markets bam
             JOIN age_markets am ON am.id = bam.age_market_id
             WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
+          -- Author filter
+          AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
+            WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
+          ))
+          -- Author filter
+          AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
+            WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
           ))
         ),
         global AS (
@@ -757,12 +869,12 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
               AND (${params.tagAny ?? null}::text[] IS NOT NULL AND ct.slug = ANY(${params.tagAny ?? null}::text[]))
           ) tm ON TRUE
           WHERE (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
           AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
@@ -780,7 +892,7 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
           ))
           -- Domain filter
           AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_domains gd ON gd.genre_id = g.id
@@ -789,7 +901,7 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
           ))
           -- Supergenre filter
           AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_supergenres gs ON gs.genre_id = g.id
@@ -807,6 +919,11 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             SELECT 1 FROM book_age_markets bam
             JOIN age_markets am ON am.id = bam.age_market_id
             WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
+          -- Author filter
+          AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
+            WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
           ))
         ),
         global AS (
@@ -930,12 +1047,12 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             WHERE LOWER(cat.category) LIKE ${genrePattern}
           )
           AND (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
           AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
@@ -953,7 +1070,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
           ))
           -- Domain filter
           AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_domains gd ON gd.genre_id = g.id
@@ -962,7 +1079,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
           ))
           -- Supergenre filter
           AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_supergenres gs ON gs.genre_id = g.id
@@ -980,6 +1097,11 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM book_age_markets bam
             JOIN age_markets am ON am.id = bam.age_market_id
             WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
+          -- Author filter
+          AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
+            WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
           ))
         )
         SELECT
@@ -1036,12 +1158,12 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
               AND (${params.tagAny ?? null}::text[] IS NOT NULL AND ct.slug = ANY(${params.tagAny ?? null}::text[]))
           ) tm ON TRUE
           WHERE (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
           AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
@@ -1059,7 +1181,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
           ))
           -- Domain filter
           AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_domains gd ON gd.genre_id = g.id
@@ -1068,7 +1190,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
           ))
           -- Supergenre filter
           AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_supergenres gs ON gs.genre_id = g.id
@@ -1086,6 +1208,11 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM book_age_markets bam
             JOIN age_markets am ON am.id = bam.age_market_id
             WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
+          -- Author filter
+          AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
+            WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
           ))
         )
         SELECT
@@ -1327,12 +1454,12 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             WHERE LOWER(cat.category) LIKE ${genrePattern}
           )
           AND (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
           AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
@@ -1350,7 +1477,7 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
           ))
           -- Domain filter
           AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_domains gd ON gd.genre_id = g.id
@@ -1359,7 +1486,7 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
           ))
           -- Supergenre filter
           AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_supergenres gs ON gs.genre_id = g.id
@@ -1377,6 +1504,11 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM book_age_markets bam
             JOIN age_markets am ON am.id = bam.age_market_id
             WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
+          -- Author filter
+          AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
+            WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
           ))
         ),
         preference_scores AS (
@@ -1477,12 +1609,12 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
           FROM books b
           LEFT JOIN book_stats bs ON bs.book_id = b.id
           WHERE (${params.subgenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             WHERE bps.book_id = b.id AND sg.slug = ${params.subgenreSlug ?? null}
           ))
           AND (${params.genreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             WHERE bps.book_id = b.id AND g.slug = ${params.genreSlug ?? null}
@@ -1500,7 +1632,7 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
           ))
           -- Domain filter
           AND (${params.domainSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_domains gd ON gd.genre_id = g.id
@@ -1509,7 +1641,7 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
           ))
           -- Supergenre filter
           AND (${params.supergenreSlug ?? null}::text IS NULL OR EXISTS (
-            SELECT 1 FROM book_primary_subgenres bps
+            SELECT 1 FROM book_subgenres bps
             JOIN subgenres sg ON sg.id = bps.subgenre_id
             JOIN genres g ON g.id = sg.genre_id
             JOIN genre_supergenres gs ON gs.genre_id = g.id
@@ -1659,6 +1791,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const tagAny = tagAnyRaw ? tagAnyRaw.split(",").map((s) => s.trim()).filter((s) => s.length > 0) : null;
     const blockedTagsRaw = typeof req.query.blockedTags === "string" ? req.query.blockedTags : null;
     const blockedTags = blockedTagsRaw ? blockedTagsRaw.split(",").map((s) => s.trim()).filter((s) => s.length > 0) : null;
+    const authorName = typeof req.query.author === "string" ? req.query.author : null;
     const formatSlug = typeof req.query.format === "string" ? req.query.format : null;
     const audienceSlug = typeof req.query.audience === "string" ? req.query.audience : null;
     const domainSlug = typeof req.query.domain === "string" ? req.query.domain : null;
@@ -1685,6 +1818,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       offset,
       tagAny,
       blockedTags,
+      authorName,
       formatSlug,
       audienceSlug,
       domainSlug,
