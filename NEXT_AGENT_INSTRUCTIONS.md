@@ -1,7 +1,40 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-10-26T04:45:00Z  
-**Priority:** HIGH – Verify Neon connectivity, then resume harvest/enrichment pipeline
+**Last Updated:** 2025-10-31T18:45:00Z  
+**Priority:** MEDIUM – App is stable, ready for feature work
+
+## 🔄 SESSION HANDOFF SUMMARY (2025-10-31 – Screen Freeze Fix + Book Status Updates)
+
+### ✅ Completed This Session
+1. **Fixed ingestion endpoint** – Re-enabled `/api/ingest` that was returning 503 by connecting to actual handler
+2. **Added book ID to browse API** – Browse API now returns `id` field so frontend can validate books are in database before allowing shelf/rating operations
+3. **Fixed screen freeze on status updates** – Resolved critical bug where screen would freeze when updating book status (especially Plan to Read, On Hold, Dropped)
+   - Moved dialog close to `onSettled` with setTimeout to prevent React render conflicts
+   - Deferred query refetch to avoid blocking during dialog close
+   - Added proper state cleanup in ShelvesPage when dialog closes
+   - Removed aggressive query invalidation that was causing freezes
+4. **Client-side guardrails** – BookDetailDialog now prevents adding/rating books that aren't in database (ingestion is gated by ENABLE_INGEST env var)
+5. **Thorough browser testing** – Tested status changes on both Browse and Shelves tabs to verify fixes
+6. **Production deployment** – Committed to GitHub (commit `18733e9`) and deployed to production
+
+### 🔧 Technical Changes
+- `api/ingest/index.ts` – Connected to real handler instead of 503 stub
+- `server/api-handlers/browse.ts` – Added `id` field to BookPayload
+- `client/src/lib/api.ts` – Added optional `id` to BookSearchResult interface
+- `client/src/components/BookDetailDialog.tsx` – Fixed dialog close timing and query management
+- `client/src/pages/ShelvesPage.tsx` – Added selectedBook cleanup on dialog close
+
+### ⚠️ Active Issues
+- None – app is stable and working
+
+### 🎯 Next Steps
+- Continue with feature development or harvest/enrichment pipeline
+- All critical bugs have been resolved
+
+### 📊 Token Usage
+- Estimated: ~85,000 / 200,000 (42.5%)
+
+---
 
 ## 🔄 SESSION HANDOFF SUMMARY (2025-10-26 – Validator Fix + Provenance Backfill)
 
