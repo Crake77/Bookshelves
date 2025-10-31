@@ -319,7 +319,7 @@
     "work_id": "3985cdc7-37d3-4341-a776-a3b4dc927a11",
     "work_title": "Blue-Green Rehabilitation",
     "work_ref": null,
-    "fetched_at": "2025-10-26T02:42:49.119Z",
+    "fetched_at": "2025-10-31T14:11:46.179Z",
     "sources": [
       {
         "snapshot_id": "cc5660f3-4c8b-4825-8619-b934eab1c535",
@@ -328,7 +328,7 @@
         "revision": "2025-06-30",
         "url": "https://books.google.com/books?id=jHVsEQAAQBAJ",
         "license": "GOOGLE_BOOKS_TOS",
-        "fetched_at": "2025-10-26T02:42:49.119Z",
+        "fetched_at": "2025-10-31T14:11:46.179Z",
         "sha256": "73f87f9c45638fc7abef01ecc87a084e2f9205d3fae8f773ed979781ba0ac5d9",
         "extract": "Title: Blue-Green Rehabilitation\n\nDescription: This collection of nine international case studies examines urban waterway rehabilitation projects that combine water features with adjacent green spaces—so-called blue-green corridors. These initiatives have become increasingly popular in urban planning as cities seek to revitalize neglected industrial waterfronts and polluted rivers.\n\nThe anthology explores both successes and complications arising from these rehabilitation efforts. Successful projects have provided residents with recreational opportunities including swimming, kayaking, and waterside relaxation while attracting tourism. Restored green spaces have enabled native species to return, and preserved industrial heritage has added cultural value to these corridors.\n\nHowever, the book also examines significant challenges. Gentrification often follows rehabilitation, driving up housing costs and displacing established communities. De-industrialization can eliminate employment opportunities for local residents, creating economic hardship even as environmental conditions improve. The studies analyze these competing stakeholder interests and the tension between ecological restoration and social equity.\n\nEach case study investigates the political, economic, and social dynamics of waterway transformation, exploring how cities negotiate between conservation, development, and community needs. The anthology examines destination branding strategies and how local projects fit within regional and national frameworks.\n\nThe conclusion synthesizes lessons from these diverse examples to propose principles for more equitable and sustainable blue-green development. This work serves as a practical reference for urban planners, policymakers, and researchers working on waterfront re..."
       },
@@ -339,7 +339,7 @@
         "revision": "1",
         "url": "https://openlibrary.org/works/OL42412911W",
         "license": "CC0",
-        "fetched_at": "2025-10-26T02:42:48.593Z",
+        "fetched_at": "2025-10-31T14:11:45.683Z",
         "sha256": "ca2c119b318fc87025d61a3c1214c8fff111ca2d72dab0b5d23bf77ceb6ccc80",
         "extract": "Title: Blue-Green Rehabilitation\n\nPublication: 2025\n\nLanguages: eng"
       }

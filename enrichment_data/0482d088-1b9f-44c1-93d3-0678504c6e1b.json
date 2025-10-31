@@ -317,18 +317,18 @@
     "work_id": "b888fd97-e551-4615-b8bf-8ae676e79bee",
     "work_title": "The Fantasy and Necessity of Solidarity",
     "work_ref": null,
-    "fetched_at": "2025-10-26T02:42:42.512Z",
+    "fetched_at": "2025-10-31T14:11:39.364Z",
     "sources": [
       {
         "snapshot_id": "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
         "source": "googlebooks",
         "source_key": "3msrEQAAQBAJ",
         "revision": "2025-04-22",
-        "url": "https://books.google.com/books?id=3msrEQAAQBAJ",
+        "url": "http://books.google.com/books?id=3msrEQAAQBAJ&printsec=frontcover&dq=isbn:9780593854259&hl=&cd=1&source=gbs_api",
         "license": "GOOGLE_BOOKS_TOS",
-        "fetched_at": "2025-10-26T02:42:42.512Z",
-        "sha256": "a9bec6a0152f013a10af7bf9fd49b133d1487d099f77666409b01a60ffd2aaed",
-        "extract": "Title: The Fantasy and Necessity of Solidarity\n\nDescription: Writer and activist Sarah Schulman examines the psychological and social complexities of solidarity movements, drawing from decades of experience in queer activism, AIDS advocacy, and anti-war organizing. The book challenges common assumptions about solidarity work, arguing that both those seeking support and those offering it operate within fantasies that often lead to disappointment and conflict.\n\nSchulman identifies competing fantasies at play in solidarity movements. Oppressed groups hope for intervention from bystanders, accountability for oppressors, and relief from injustice. Meanwhile, those standing in solidarity imagine their actions will be effective, cost-free, and rewarded with gratitude and friendship. These misaligned expectations create inevitable friction even within movements working toward shared goals.\n\nThe book examines multiple case studies spanning decades and movements: abortion rights activism in post-Franco Spain, AIDS organizing in 1990s New York City, campus protests against Israel's war on Gaza, and Schulman's experiences as a queer female artist navigating male-dominated cultural industries. Through these examples, she draws connections between various struggles for justice.\n\nSchulman argues that effective solidarity requires acknowledging its limitations and costs. In globalized power structures, solidarity demands that bystanders and even conflicted perpetrators collaborate with the excluded and oppressed, accepting that such action may be difficult, expensive, and unappreciated.\n\nThe book offers both critique and possibility, recognizing solidarity's inherent challenges while asserting its necessity for progressive change. Schulman's analysis is particularly timely given cur..."
+        "fetched_at": "2025-10-31T14:11:39.364Z",
+        "sha256": "13803a96aa94c11f593936ce344ba558421170e1daeea8eb0ac3ad01a80e9863",
+        "extract": "Title: The Fantasy and Necessity of Solidarity\n\nDescription: From award-winning writer Sarah Schulman, a longtime social activist and outspoken critic of the Israeli war on Gaza, comes a brilliant examination of the inherent psychological and social challenges to solidarity movements, and what that means for the future For those who seek to combat injustice, solidarity with the oppressed is one of the highest ideals, yet it does not come without complication. In this searing yet uplifting book, award-winning writer and cultural critic Sarah Schulman delves into the intricate and often misunderstood concept of solidarity to provide a new vision for what it means to engage in this work—and why it matters. To grapple with solidarity, Schulman writes, we must recognize its inherent fantasies. Those being oppressed dream of relief, that a bystander will intervene though it may not seem to be in their immediate interest to do so, and that the oppressor will be called out and punished. Those standing in solidarity with the oppressed are occluded by a different fantasy: that their intervention is effective, that it will not cost them, and that they will be rewarded with friendship and thanks. Neither is always the case, and yet in order to realize our full potential as human beings in relation with others, we must continue to pursue action towards these shared goals. Within this framework, Schulman examines a range of case studies, from the fight for abortion rights in post-Franco Spain, to NYC’s AIDS activism in the 1990s, to the current wave of campus protest movements against Israel’s war on Gaza, and her own experience growing up as a queer female artist in male dominated culture industries. Drawing parallels between queer, Palestinian, feminist, and artistic struggles f..."
       },
       {
         "snapshot_id": "8b6e92cd-8b69-4446-b74b-ca56006b70aa",
@@ -337,7 +337,7 @@
         "revision": "2",
         "url": "https://openlibrary.org/works/OL41941442W",
         "license": "CC0",
-        "fetched_at": "2025-10-26T02:42:41.784Z",
+        "fetched_at": "2025-10-31T14:11:38.865Z",
         "sha256": "986b89ae4c8e63eb100924bafe3e73b1b3e3e6f81357829f98b62afbb1534f7b",
         "extract": "Title: The Fantasy and Necessity of Solidarity\n\nPublication: April 22, 2025"
       }
