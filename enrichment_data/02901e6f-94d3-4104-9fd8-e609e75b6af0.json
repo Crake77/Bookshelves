@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-26T01:07:43.989Z",
+  "last_updated": "2025-10-31T13:17:19.651Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -208,7 +208,11 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c",
+          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
+        ]
       },
       {
         "slug": "gritty",
@@ -216,7 +220,11 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c",
+          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
+        ]
       },
       {
         "slug": "augmented-reality",
@@ -224,7 +232,11 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c",
+          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
+        ]
       },
       {
         "slug": "heist",
@@ -232,7 +244,11 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c",
+          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
+        ]
       },
       {
         "slug": "suspenseful",
@@ -240,7 +256,11 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c",
+          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
+        ]
       },
       {
         "slug": "eerie",
@@ -248,7 +268,11 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c",
+          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
+        ]
       }
     ],
     "cross_tags_count": 20,

@@ -1,12 +1,14 @@
 import { db } from "../../db/index";
-import { works, editions, releaseEvents, books } from "@shared/schema";
-import { eq, desc, asc, and, or, gte, lte, notInArray, sql } from "drizzle-orm";
+import { works, editions, releaseEvents, books, releaseEventTypes } from "@shared/schema";
+import { eq, desc, asc, and, or, gte, lte, notInArray, sql, isNotNull } from "drizzle-orm";
 import {
   parsePublishedDate,
   detectEventType,
   updateWorkDates,
   calculateMatchScore,
 } from "./editions-utils";
+
+type ReleaseEventType = (typeof releaseEventTypes)[number];
 
 /**
  * Create a work and edition from a book ingest
@@ -163,7 +165,7 @@ export async function browseWorks(options: {
     
     query = query.where(
       and(
-        works.latestMajorReleaseDate !== null,
+        isNotNull(works.latestMajorReleaseDate),
         gte(works.latestMajorReleaseDate, sinceDate)
       )
     ) as any;
@@ -177,7 +179,7 @@ export async function browseWorks(options: {
       .from(editions)
       .where(
         and(
-          editions.legacyBookId !== null,
+          isNotNull(editions.legacyBookId),
           sql`${editions.legacyBookId} IN (${sql.join(excludeUserBookIds.map(id => sql`${id}`), sql`, `)})`
         )
       )
@@ -292,7 +294,7 @@ export async function addEditionToWork(
     pageCount?: number | null;
     categories?: string[] | null;
   },
-  eventType: string = "MINOR_REPRINT",
+  eventType: ReleaseEventType = "MINOR_REPRINT",
   promoStrength: number = 20
 ) {
   // Create edition

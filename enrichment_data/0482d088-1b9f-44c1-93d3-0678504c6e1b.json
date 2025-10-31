@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL56957378M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-26T01:07:44.756Z",
+  "last_updated": "2025-10-31T13:17:19.657Z",
   "authors": {
     "original": [
       "Sarah Schulman"
@@ -101,7 +101,11 @@
         "group": "plot",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "artistic",
@@ -109,7 +113,11 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "poetic",
@@ -117,7 +125,11 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "uplifting",
@@ -125,7 +137,11 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "hopeful",
@@ -133,7 +149,11 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "artificial-intelligence",
@@ -141,7 +161,11 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "gritty",
@@ -149,7 +173,11 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "coming-of-age",
@@ -157,7 +185,11 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "augmented-reality",
@@ -165,7 +197,11 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "elves",
@@ -173,7 +209,11 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "heist",
@@ -181,7 +221,11 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "lgbtq",
@@ -189,7 +233,11 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "fire-magic",
@@ -197,7 +245,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "nanotechnology",
@@ -205,7 +257,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "riches-to-rags",
@@ -213,7 +269,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "underwater-city",
@@ -221,7 +281,11 @@
         "group": "setting",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       },
       {
         "slug": "progression-fantasy",
@@ -229,7 +293,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
+          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
+        ]
       }
     ],
     "cross_tags_count": 20,

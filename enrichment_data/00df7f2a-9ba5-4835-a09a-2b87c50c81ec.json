@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-26T01:07:43.873Z",
+  "last_updated": "2025-10-31T13:17:19.649Z",
   "authors": {
     "original": [
       "Dominika Oramus"
@@ -117,7 +117,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "gritty",
@@ -125,7 +128,10 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "augmented-reality",
@@ -133,7 +139,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "demons",
@@ -141,7 +150,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "elves",
@@ -149,7 +161,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "heist",
@@ -157,7 +172,10 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "eerie",
@@ -165,7 +183,10 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "legal-thriller",
@@ -173,7 +194,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "vibrant",
@@ -181,7 +205,10 @@
         "group": "tone",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "suicide",
@@ -189,7 +216,10 @@
         "group": "content_flags",
         "confidence": "medium",
         "match_score": 1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "fire-magic",
@@ -197,7 +227,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "nanotechnology",
@@ -205,7 +238,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "riches-to-rags",
@@ -213,7 +249,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "underwater-city",
@@ -221,7 +260,10 @@
         "group": "setting",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "progression-fantasy",
@@ -229,7 +271,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       }
     ],
     "cross_tags_count": 20,

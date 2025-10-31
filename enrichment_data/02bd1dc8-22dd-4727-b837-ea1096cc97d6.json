@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL57546024M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-26T01:07:44.136Z",
+  "last_updated": "2025-10-31T13:17:19.653Z",
   "authors": {
     "original": [
       "Philip Hayward"
@@ -79,7 +79,11 @@
         "group": "content_warning",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "artificial-intelligence",
@@ -87,7 +91,11 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "augmented-reality",
@@ -95,7 +103,11 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "void",
@@ -103,7 +115,11 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "heist",
@@ -111,7 +127,11 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "suspenseful",
@@ -119,7 +139,11 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "poverty",
@@ -127,7 +151,11 @@
         "group": "content_warning",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "legal-thriller",
@@ -135,7 +163,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "vibrant",
@@ -143,7 +175,11 @@
         "group": "tone",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "gritty",
@@ -151,7 +187,11 @@
         "group": "tone_mood",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "fire-magic",
@@ -159,7 +199,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "nanotechnology",
@@ -167,7 +211,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "riches-to-rags",
@@ -175,7 +223,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "underwater-city",
@@ -183,7 +235,11 @@
         "group": "setting",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "progression-fantasy",
@@ -191,7 +247,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "sparse-prose",
@@ -199,7 +259,11 @@
         "group": "style",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "secret-baby",
@@ -207,7 +271,11 @@
         "group": "tropes_themes",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "open-ending",
@@ -215,7 +283,11 @@
         "group": "plot",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       },
       {
         "slug": "alien-romance",
@@ -223,7 +295,11 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535",
+          "858a51e5-757f-4528-a4bf-60a2f902e542"
+        ]
       }
     ],
     "cross_tags_count": 20,

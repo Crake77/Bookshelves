@@ -1,6 +1,6 @@
 // api/monitor.ts
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getSql } from '../server/lib/api-db.js';
+import { getSql } from '../lib/api-db';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const check = req.query.check as string | undefined;

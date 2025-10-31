@@ -5,7 +5,7 @@ import {
   type InfiniteData,
 } from "@tanstack/react-query";
 import AppHeader from "@/components/AppHeader";
-import HorizontalBookRow from "@/components/HorizontalBookRow";
+import HorizontalBookRow, { type SecondaryChip, type ChipVariant } from "@/components/HorizontalBookRow";
 import { lazy, Suspense } from "react";
 const BookDetailDialog = lazy(() => import("@/components/BookDetailDialog"));
 import SearchBar from "@/components/SearchBar";
@@ -284,8 +284,9 @@ function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarou
   // Format chips: include regular tags and blocked tags with proper types
   // Content flags are detected by tag group field (content_warnings, content_flags)
   // Order: blue (regular tags), orange (content flags), red (blocked)
-  const regularTags: Array<{label: string, type: string}> = [];
-  const contentFlagTags: Array<{label: string, type: string}> = [];
+  type ChipObject = { label: string; type: ChipVariant };
+  const regularTags: ChipObject[] = [];
+  const contentFlagTags: ChipObject[] = [];
   
   (config.tagSlugs ?? []).forEach((slug, index) => {
     const label = config.tags?.[index] ?? slug;
@@ -298,10 +299,10 @@ function CategoryCarousel({ config, onBookClick, onEditCategory }: CategoryCarou
     }
   });
   
-  const chips = [
+  const chips: SecondaryChip[] = [
     ...regularTags,
     ...contentFlagTags,
-    ...(config.blockedTagNames ?? []).map(label => ({ label, type: 'blocked' }))
+    ...(config.blockedTagNames ?? []).map<ChipObject>(label => ({ label, type: 'blocked' }))
   ];
 
   return (

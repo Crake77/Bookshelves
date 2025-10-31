@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL27208943M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-26T01:07:44.961Z",
+  "last_updated": "2025-10-31T13:17:19.658Z",
   "authors": {
     "original": [
       "Abbi Glines"
@@ -162,7 +162,12 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "gritty",
@@ -170,7 +175,12 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "augmented-reality",
@@ -178,7 +188,12 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "war",
@@ -186,7 +201,12 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "void",
@@ -194,7 +214,12 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "elves",
@@ -202,7 +227,12 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "heist",
@@ -210,7 +240,12 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "vibrant",
@@ -218,7 +253,12 @@
         "group": "tone",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "psychic-powers",
@@ -226,7 +266,12 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "fire-magic",
@@ -234,7 +279,12 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       },
       {
         "slug": "nanotechnology",
@@ -242,7 +292,12 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85",
+          "59e35586-9280-42ef-a476-68720eff2bb3",
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
       }
     ],
     "cross_tags_count": 20,

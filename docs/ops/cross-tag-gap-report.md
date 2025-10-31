@@ -1,6 +1,8 @@
 # Cross-Tag Gap Report – 2025-10-26
 
-**Purpose:** Snapshot of pattern slugs referenced by `cross_tag_patterns_v1.json` that are missing from `bookshelves_complete_taxonomy.json`. These gaps produce `[cross-tags] Skipping unknown slug …` warnings during `enrichment:cross-tags` runs and prevent deterministic tagging from reaching the 10–20 tag target.
+**Purpose:** Snapshot of pattern slugs referenced by `cross_tag_patterns_v1.json` that were missing from `bookshelves_complete_taxonomy.json`. These gaps produced `[cross-tags] Skipping unknown slug …` warnings during `enrichment:cross-tags` runs and prevented deterministic tagging from reaching the 10–20 tag target.
+
+> **Update (2025-10-26):** All 399 missing slugs have been added to the taxonomy; this report remains for reference when auditing future pattern additions.
 
 ---
 

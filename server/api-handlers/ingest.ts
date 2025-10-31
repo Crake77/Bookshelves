@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { z } from "zod";
-import { upsertBook, type BookInput } from "../server/lib/user-books-db.js";
-import { detectTaxonomy } from "../shared/taxonomy.js";
+import { upsertBook, type BookInput } from "../lib/user-books-db";
+import { detectTaxonomy } from "../../shared/taxonomy";
 import { neon } from "@neondatabase/serverless";
 
 const ingestSchema = z.object({
@@ -43,18 +43,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Dual-write: create work and edition (best-effort; skip on failure)
     try {
-      const { createWorkFromBook } = await import("../server/lib/editions-api.js");
+      const { createWorkFromBook } = await import("../lib/editions-api");
       await createWorkFromBook({
         id: ingested.id,
         title: ingested.title,
-        authors: ingested.authors,
-        description: ingested.description,
-        publishedDate: ingested.publishedDate,
-        isbn: ingested.isbn,
-        coverUrl: ingested.coverUrl,
-        googleBooksId: ingested.googleBooksId,
-        pageCount: ingested.pageCount,
-        categories: ingested.categories,
+        authors: ingested.authors ?? [],
+        description: ingested.description ?? null,
+        publishedDate: ingested.publishedDate ?? null,
+        isbn: ingested.isbn ?? null,
+        coverUrl: ingested.coverUrl ?? null,
+        googleBooksId: ingested.googleBooksId ?? null,
+        pageCount: ingested.pageCount ?? null,
+        categories: ingested.categories ?? null,
       });
     } catch (e) {
       // Swallow edition creation errors to keep ingest fast and resilient

@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL1275650M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-26T01:07:45.274Z",
+  "last_updated": "2025-10-31T13:17:19.660Z",
   "authors": {
     "original": [
       "Isaac Asimov",
@@ -276,7 +276,12 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c",
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8",
+          "f59f4c8d-800e-4904-ab0b-397236fc70d4"
+        ]
       },
       {
         "slug": "augmented-reality",
@@ -284,7 +289,12 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c",
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8",
+          "f59f4c8d-800e-4904-ab0b-397236fc70d4"
+        ]
       }
     ],
     "cross_tags_count": 20,

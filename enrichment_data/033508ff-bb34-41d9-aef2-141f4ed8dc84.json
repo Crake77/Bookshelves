@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-26T01:07:44.396Z",
+  "last_updated": "2025-10-31T13:17:19.655Z",
   "authors": {
     "original": [
       "Samuel R. Delany"
@@ -68,7 +68,10 @@
         "group": "market",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "space",
@@ -76,7 +79,10 @@
         "group": "setting",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "complex",
@@ -84,7 +90,10 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "experimental",
@@ -92,7 +101,10 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "literary",
@@ -100,7 +112,10 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "sophisticated",
@@ -108,7 +123,10 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "philosophical",
@@ -116,7 +134,10 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "space-opera",
@@ -124,7 +145,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "artificial-intelligence",
@@ -132,7 +156,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "augmented-reality",
@@ -140,7 +167,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "war",
@@ -148,7 +178,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "demons",
@@ -156,7 +189,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "heist",
@@ -164,7 +200,10 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "quest",
@@ -172,7 +211,10 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "gritty",
@@ -180,7 +222,10 @@
         "group": "tone_mood",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "fire-magic",
@@ -188,7 +233,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "nanotechnology",
@@ -196,7 +244,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "riches-to-rags",
@@ -204,7 +255,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "underwater-city",
@@ -212,7 +266,10 @@
         "group": "setting",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       },
       {
         "slug": "progression-fantasy",
@@ -220,7 +277,10 @@
         "group": "trope",
         "confidence": "medium",
         "match_score": 0.2,
-        "method": "pattern-match+evidence"
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8d7e14be-df35-4aa2-9024-6ac32a606609"
+        ]
       }
     ],
     "cross_tags_count": 20,

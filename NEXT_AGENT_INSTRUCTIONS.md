@@ -1,31 +1,29 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-10-26T03:05:00Z  
-**Priority:** BLOCKED – Fix validator + TypeScript before next harvest
+**Last Updated:** 2025-10-26T04:45:00Z  
+**Priority:** HIGH – Verify Neon connectivity, then resume harvest/enrichment pipeline
 
-## 🔄 SESSION HANDOFF SUMMARY (2025-10-26 – Validator & Evidence Sync)
+## 🔄 SESSION HANDOFF SUMMARY (2025-10-26 – Validator Fix + Provenance Backfill)
 
 ### ✅ Completed This Session
-1. Ran `npm run doctor` (Neon DNS/TLS/PG all green) and `npm run harvest -- 25`; refreshed evidence for 25 works.
-2. Synced/Applied enrichment for three books (`033508ff‑…dc84`, `0482d088‑…6e1b`, `02bd1dc8‑…97d6`) so Neon now matches the latest provenance JSON.
-3. Added a provenance-aware validator (`scripts/validate/validator.ts`) plus `npm run validate` (chains doctor → tsc → validator); collected full report of missing provenance + TypeScript blockers.
-4. Documented all open issues: 
-   - `docs/ops/session-issues-2025-10-26.md` (TypeScript + validator gaps with “why” and fixes)
-   - `docs/ops/cross-tag-gap-report.md` (399 pattern slugs missing from taxonomy + suggested mappings)
+1. Resolved all TypeScript build errors (`npm run check`) by typing `HorizontalBookRow` chips, updating Browse usage, fixing API-handler import paths, and tightening Drizzle queries in `server/lib/editions-api.ts`.
+2. Backfilled missing provenance across 10 enrichment JSON files; `scripts/validate/validator.ts` now reports "All enrichment files passed validation."
+3. Added 399 missing cross-tag slugs to `bookshelves_complete_taxonomy.json` (total cross-tags: 3,132) so deterministic tagging covers every pattern.
+4. Documented outcomes in:
+   - `docs/ops/session-issues-2025-10-26.md` (all blockers now marked ✅)
+   - `docs/ops/cross-tag-gap-report.md` (kept as a historical inventory of the added slugs)
+5. Attempted `npm run validate`; run halts at the `npm run doctor` step because Neon DNS returned `EAI_AGAIN`. The validator itself passes when executed directly with `node --dns-result-order=ipv4first --import tsx scripts/validate/validator.ts`.
 
-### ⚠️ Current Blockers (must resolve before next deploy/harvest)
-1. **TypeScript build fails** (`npm run check`): see `docs/ops/session-issues-2025-10-26.md`. HorizontalBookRow/Browse chips need typed unions; several server handlers import missing modules; `server/lib/editions-api.ts` misuses Drizzle APIs. Until fixed, `npm run validate` will always halt and CI is red.
-2. **Validator failures**: 10 enrichment files (136 tags) declare `method = pattern-match+evidence/llm/hybrid` but have empty `provenance_snapshot_ids`. Details + affected slugs live in `docs/ops/session-issues-2025-10-26.md`. Rerun `npm run evidence:sync -- <book-id>` or trim tags so provenance exists.
-3. **Cross-tag vocabulary gaps**: `cross_tag_patterns_v1.json` references 399 unknown slugs (report at `docs/ops/cross-tag-gap-report.md`). Deterministic tagging logs `[cross-tags] Skipping unknown slug …`, reducing coverage and pushing load to the LLM helper.
+### ⚠️ Active Blockers
+1. **Intermittent Neon DNS** – `npm run doctor` intermittently fails with `getaddrinfo EAI_AGAIN`. Re-run before the next deploy to confirm connectivity (doctor must succeed before shipping).
 
 ### 🎯 Next Steps for Warp
-1. **Restore `npm run check`**: Type `secondaryChips` properly, align `HorizontalBookRow`/`BrowsePage` props, and reinstate the missing server imports/Drizzle helpers per the session issues doc.
-2. **Clear validator errors**: For each listed book, run `npm run evidence:sync -- <book-id>` (or drop unsupported tags) until `scripts/validate/validator.ts` prints “All enrichment files passed validation”.
-3. **Map/add missing cross-tag slugs**: Use `docs/ops/cross-tag-gap-report.md` to decide which slugs become aliases vs. new taxonomy entries; update `bookshelves_complete_taxonomy.json` + DB accordingly, then rerun deterministic tagging.
-4. Re-run `npm run validate`. Once it passes, resume the doctor → harvest → evidence:sync → enrichment:apply workflow for the next batch.
-5. Only after the validator + TypeScript pass should we run `vercel --prod` for future releases.
+1. Re-run `npm run doctor` until connectivity is green; if the DNS error persists, follow the mitigation steps in `HARVEST_RUNBOOK.md`.
+2. Once preflight passes, run `npm run validate` (doctor → tsc → validator) to confirm the full chain succeeds.
+3. Resume the harvest workflow (doctor → harvest → evidence:sync → enrichment:apply) for the next batch immediately after validation.
+4. When ready to ship, run `vercel --prod` only after a clean `npm run validate`.
 
-**Reference docs created/updated this session:**
+**Reference docs updated this session:**
 - `docs/ops/session-issues-2025-10-26.md`
 - `docs/ops/cross-tag-gap-report.md`
 
