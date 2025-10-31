@@ -103,6 +103,19 @@ export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<B
   if (options.domain) params.set("domain", options.domain);
   if (options.supergenre) params.set("supergenre", options.supergenre);
 
+  const hasFilters = Boolean(
+    options.genre ||
+      options.genreSlug ||
+      options.subgenre ||
+      options.tag ||
+      (options.tagAny && options.tagAny.length > 0) ||
+      (options.blockedTags && options.blockedTags.length > 0) ||
+      options.format ||
+      options.audience ||
+      options.domain ||
+      options.supergenre
+  );
+
   try {
     const response = await fetch(`/api/browse?${params.toString()}`, {
       signal: options.signal,
@@ -112,12 +125,20 @@ export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<B
       throw new Error(`Failed to load browse books: ${response.status}`);
     }
     const payload = await response.json();
-    if (Array.isArray(payload) && payload.length > 0) {
-      return payload;
+    if (Array.isArray(payload)) {
+      if (payload.length > 0) {
+        return payload;
+      }
+      if (hasFilters) {
+        return [];
+      }
+      console.warn("[fetchBrowseBooks] API returned empty payload, using fallback");
     }
-    console.warn("[fetchBrowseBooks] API returned empty payload, using fallback");
   } catch (error) {
     console.warn("[fetchBrowseBooks] falling back due to error", error);
+    if (hasFilters) {
+      return [];
+    }
   }
 
   if (options.offset && options.offset > 0) {
