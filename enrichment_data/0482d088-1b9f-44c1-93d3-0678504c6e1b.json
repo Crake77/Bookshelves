@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL56957378M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-31T14:28:18Z",
+  "last_updated": "2025-11-01T19:05:12.696Z",
   "authors": {
     "original": [
       "Sarah Schulman"
@@ -85,6 +85,28 @@
         ]
       },
       {
+        "slug": "artistic",
+        "name": "Artistic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
+        ]
+      },
+      {
+        "slug": "uplifting",
+        "name": "Uplifting",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
+        ]
+      },
+      {
         "slug": "war",
         "name": "War",
         "group": "trope",
@@ -112,23 +134,7 @@
         "group": "plot",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
-      },
-      {
-        "slug": "artistic",
-        "name": "Artistic",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "poetic",
@@ -136,23 +142,7 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
-      },
-      {
-        "slug": "uplifting",
-        "name": "Uplifting",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "hopeful",
@@ -160,35 +150,7 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
-      },
-      {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
-      },
-      {
-        "slug": "gritty",
-        "name": "Gritty",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "coming-of-age",
@@ -196,47 +158,15 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "augmented-reality",
-        "name": "Augmented Reality",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
-      },
-      {
-        "slug": "elves",
-        "name": "Elves",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
+        "slug": "identity",
+        "name": "Identity",
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "lgbtq",
@@ -244,74 +174,42 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "fire-magic",
-        "name": "Fire Magic",
+        "slug": "conformist",
+        "name": "Conformist",
         "group": "trope",
         "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "match_score": 1.2,
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "nanotechnology",
-        "name": "Nanotechnology",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
-      },
-      {
-        "slug": "riches-to-rags",
-        "name": "Riches to Rags",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
-      },
-      {
-        "slug": "underwater-city",
-        "name": "Underwater City",
+        "slug": "school",
+        "name": "School",
         "group": "setting",
         "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "progression-fantasy",
-        "name": "Progression Fantasy",
+        "slug": "transformation",
+        "name": "Transformation",
         "group": "trope",
         "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
-          "8b6e92cd-8b69-4446-b74b-ca56006b70aa"
-        ]
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "university",
+        "name": "University",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 20,
+    "cross_tags_count": 15,
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {

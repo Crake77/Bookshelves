@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-31T14:28:18Z",
+  "last_updated": "2025-11-01T19:05:10.854Z",
   "authors": {
     "original": [
       "Dominika Oramus"
@@ -87,7 +87,7 @@
       {
         "slug": "holocaust",
         "name": "Holocaust",
-        "group": "content_warning",
+        "group": "content_flags",
         "confidence": "high",
         "match_score": 23,
         "method": "pattern-match+evidence",
@@ -118,6 +118,25 @@
         ]
       },
       {
+        "slug": "trauma",
+        "name": "Trauma",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
+      },
+      {
+        "slug": "climate-change",
+        "name": "Climate Change",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
         "slug": "environmental-collapse",
         "name": "Environmental Collapse",
         "group": "trope",
@@ -129,70 +148,12 @@
         ]
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "gritty",
-        "name": "Gritty",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "augmented-reality",
-        "name": "Augmented Reality",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "demons",
-        "name": "Demons",
+        "slug": "scholar",
+        "name": "Scholar",
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "elves",
-        "name": "Elves",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "eerie",
@@ -200,32 +161,23 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "legal-thriller",
-        "name": "Legal Thriller",
+        "slug": "death",
+        "name": "Death",
+        "group": "content_flags",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "transformation",
+        "name": "Transformation",
         "group": "trope",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "vibrant",
-        "name": "Vibrant",
-        "group": "tone",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "suicide",
@@ -233,68 +185,10 @@
         "group": "content_flags",
         "confidence": "medium",
         "match_score": 1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "fire-magic",
-        "name": "Fire Magic",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "nanotechnology",
-        "name": "Nanotechnology",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "riches-to-rags",
-        "name": "Riches to Rags",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "underwater-city",
-        "name": "Underwater City",
-        "group": "setting",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "progression-fantasy",
-        "name": "Progression Fantasy",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 20,
+    "cross_tags_count": 12,
     "cross_tags_status": "sufficient",
     "external_subjects": [
       {

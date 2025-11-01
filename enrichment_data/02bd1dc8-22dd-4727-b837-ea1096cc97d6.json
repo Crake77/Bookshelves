@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=jHVsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-31T14:59:29Z",
+  "last_updated": "2025-11-01T19:05:11.416Z",
   "authors": {
     "original": [
       "Philip Hayward"
@@ -90,63 +90,33 @@
         ]
       },
       {
+        "slug": "gentrification",
+        "name": "Gentrification",
+        "group": "representation",
+        "confidence": "high",
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535"
+        ]
+      },
+      {
         "slug": "neglect",
         "name": "Neglect",
-        "group": "content_warning",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "transformation",
+        "name": "Transformation",
+        "group": "trope",
         "confidence": "high",
         "match_score": 9,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "augmented-reality",
-        "name": "Augmented Reality",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "void",
-        "name": "Void",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
+          "cc5660f3-4c8b-4825-8619-b934eab1c535"
         ]
       },
       {
@@ -155,170 +125,42 @@
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "poverty",
         "name": "Poverty",
-        "group": "content_warning",
+        "group": "content_flags",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "legal-thriller",
-        "name": "Legal Thriller",
+        "slug": "shapeshifting",
+        "name": "Shapeshifting",
         "group": "trope",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "vibrant",
-        "name": "Vibrant",
+        "slug": "lush",
+        "name": "Lush",
         "group": "tone",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "gritty",
-        "name": "Gritty",
-        "group": "tone_mood",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "fire-magic",
-        "name": "Fire Magic",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "nanotechnology",
-        "name": "Nanotechnology",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "riches-to-rags",
-        "name": "Riches to Rags",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "underwater-city",
-        "name": "Underwater City",
+        "slug": "coastal",
+        "name": "Coastal",
         "group": "setting",
         "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "progression-fantasy",
-        "name": "Progression Fantasy",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "sparse-prose",
-        "name": "Sparse Prose",
-        "group": "style",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "secret-baby",
-        "name": "Secret Baby",
-        "group": "tropes_themes",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "open-ending",
-        "name": "Open Ending",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
-      },
-      {
-        "slug": "alien-romance",
-        "name": "Alien Romance",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "cc5660f3-4c8b-4825-8619-b934eab1c535",
-          "858a51e5-757f-4528-a4bf-60a2f902e542"
-        ]
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 20,
+    "cross_tags_count": 9,
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {

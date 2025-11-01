@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL27208943M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-31T13:17:19.658Z",
+  "last_updated": "2025-11-01T19:05:13.105Z",
   "authors": {
     "original": [
       "Abbi Glines"
@@ -60,7 +60,7 @@
       {
         "slug": "abuse",
         "name": "Abuse",
-        "group": "content_warning",
+        "group": "content_flags",
         "confidence": "high",
         "match_score": 9,
         "method": "pattern-match+evidence",
@@ -72,6 +72,17 @@
         "slug": "straightforward",
         "name": "Straightforward",
         "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
+        ]
+      },
+      {
+        "slug": "coastal",
+        "name": "Coastal",
+        "group": "setting",
         "confidence": "high",
         "match_score": 9,
         "method": "pattern-match+evidence",
@@ -157,150 +168,18 @@
         ]
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "gritty",
-        "name": "Gritty",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "augmented-reality",
-        "name": "Augmented Reality",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "war",
-        "name": "War",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "void",
-        "name": "Void",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "elves",
-        "name": "Elves",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
+        "slug": "class-differences",
+        "name": "Class Differences",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 9,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "vibrant",
-        "name": "Vibrant",
-        "group": "tone",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "psychic-powers",
-        "name": "Psychic Powers",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "fire-magic",
-        "name": "Fire Magic",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
-        ]
-      },
-      {
-        "slug": "nanotechnology",
-        "name": "Nanotechnology",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "5865094e-cbe1-4650-a941-f9aa893f2e85",
-          "59e35586-9280-42ef-a476-68720eff2bb3",
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+          "5865094e-cbe1-4650-a941-f9aa893f2e85"
         ]
       }
     ],
-    "cross_tags_count": 20,
+    "cross_tags_count": 11,
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {

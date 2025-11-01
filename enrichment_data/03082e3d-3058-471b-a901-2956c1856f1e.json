@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=TX5KCAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-31T14:59:29Z",
+  "last_updated": "2025-11-01T19:05:11.741Z",
   "authors": {
     "original": [
       "Marek C. Oziewicz"
@@ -135,10 +135,17 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 9,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "redemption",
+        "name": "Redemption",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 9,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
+          "a86b6ab1-74aa-4df1-9ab2-bca08b547701"
         ]
       },
       {
@@ -153,163 +160,47 @@
         ]
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
+        "slug": "scholar",
+        "name": "Scholar",
         "group": "trope",
         "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "dystopian",
+        "name": "Dystopian",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "fae",
+        "name": "Fae",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "second-chances",
+        "name": "Second Chances",
+        "group": "tropes_themes",
+        "confidence": "medium",
+        "match_score": 1.2,
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "gritty",
         "name": "Gritty",
         "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "augmented-reality",
-        "name": "Augmented Reality",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "war",
-        "name": "War",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "demons",
-        "name": "Demons",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "fire-magic",
-        "name": "Fire Magic",
-        "group": "trope",
         "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "nanotechnology",
-        "name": "Nanotechnology",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "riches-to-rags",
-        "name": "Riches to Rags",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "underwater-city",
-        "name": "Underwater City",
-        "group": "setting",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "progression-fantasy",
-        "name": "Progression Fantasy",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "sparse-prose",
-        "name": "Sparse Prose",
-        "group": "style",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
-      },
-      {
-        "slug": "secret-baby",
-        "name": "Secret Baby",
-        "group": "tropes_themes",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a86b6ab1-74aa-4df1-9ab2-bca08b547701",
-          "3d3be7b4-fbab-4dec-840a-087638e35cd8"
-        ]
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 20,
+    "cross_tags_count": 13,
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {

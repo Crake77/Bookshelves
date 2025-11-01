@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-31T14:28:18Z",
+  "last_updated": "2025-11-01T19:05:11.105Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -104,6 +104,17 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 14,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
+        "slug": "forbidden-knowledge",
+        "name": "Forbidden Knowledge",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -220,6 +231,17 @@
         ]
       },
       {
+        "slug": "transformation",
+        "name": "Transformation",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
+      },
+      {
         "slug": "cosmic-dread",
         "name": "Cosmic Dread",
         "group": "tropes_themes",
@@ -231,64 +253,12 @@
         ]
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "1b739773-ea63-4678-bb25-1c1627e9330c",
-          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
-        ]
-      },
-      {
-        "slug": "gritty",
-        "name": "Gritty",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "1b739773-ea63-4678-bb25-1c1627e9330c",
-          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
-        ]
-      },
-      {
-        "slug": "augmented-reality",
-        "name": "Augmented Reality",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "1b739773-ea63-4678-bb25-1c1627e9330c",
-          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
-        ]
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "1b739773-ea63-4678-bb25-1c1627e9330c",
-          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
-        ]
-      },
-      {
         "slug": "suspenseful",
         "name": "Suspenseful",
         "group": "tone_mood",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "1b739773-ea63-4678-bb25-1c1627e9330c",
-          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "eerie",
@@ -296,11 +266,23 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "1b739773-ea63-4678-bb25-1c1627e9330c",
-          "43b140c6-8e2d-42ee-b9fb-d6ffeda6934f"
-        ]
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "conformist",
+        "name": "Conformist",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "shapeshifting",
+        "name": "Shapeshifting",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
       }
     ],
     "cross_tags_count": 20,

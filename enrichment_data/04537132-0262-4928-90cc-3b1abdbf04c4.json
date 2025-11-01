@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL28151758M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-10-31T13:17:19.656Z",
+  "last_updated": "2025-11-01T19:05:12.366Z",
   "authors": {
     "original": [
       "V. E. Schwab"
@@ -58,9 +58,33 @@
     "subgenres": [],
     "cross_tags": [
       {
+        "slug": "historical",
+        "name": "Historical",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
+          "2830cc57-2c28-417e-9ea6-026d9c50a493"
+        ]
+      },
+      {
         "slug": "dark",
         "name": "Dark",
         "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 18,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
+          "f357c822-7c7a-4d42-af5f-44cf5b97db51"
+        ]
+      },
+      {
+        "slug": "immortal",
+        "name": "Immortal",
+        "group": "trope",
         "confidence": "high",
         "match_score": 18,
         "method": "pattern-match+evidence",
@@ -136,6 +160,17 @@
         ]
       },
       {
+        "slug": "legacy",
+        "name": "Legacy",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8"
+        ]
+      },
+      {
         "slug": "lgbtq",
         "name": "LGBTQ+",
         "group": "tropes_themes",
@@ -147,108 +182,20 @@
         ]
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
-      },
-      {
-        "slug": "quest",
-        "name": "Quest",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
-      },
-      {
-        "slug": "gritty",
-        "name": "Gritty",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
-      },
-      {
-        "slug": "augmented-reality",
-        "name": "Augmented Reality",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
-      },
-      {
         "slug": "deal-with-devil",
         "name": "Deal with Devil",
         "group": "trope",
         "confidence": "high",
         "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "war",
-        "name": "War",
+        "slug": "ghosts",
+        "name": "Ghosts",
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
-      },
-      {
-        "slug": "elves",
-        "name": "Elves",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "curse",
@@ -256,25 +203,7 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
-      },
-      {
-        "slug": "slice-of-life",
-        "name": "Slice of Life",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "desolate",
@@ -282,28 +211,18 @@
         "group": "tone",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "psychic-powers",
-        "name": "Psychic Powers",
+        "slug": "quest",
+        "name": "Quest",
         "group": "trope",
         "confidence": "medium",
         "match_score": 1.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "861604ac-68fd-4b65-a2bd-d8cb7a406dd8",
-          "f357c822-7c7a-4d42-af5f-44cf5b97db51",
-          "2830cc57-2c28-417e-9ea6-026d9c50a493"
-        ]
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 20,
+    "cross_tags_count": 16,
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {

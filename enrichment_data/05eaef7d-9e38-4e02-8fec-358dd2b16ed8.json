@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=NJFzGwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-10-31T14:59:29Z",
+  "last_updated": "2025-11-01T19:05:13.353Z",
   "authors": {
     "original": [
       "Science Fiction Writers of America"
@@ -68,10 +68,7 @@
         "group": "market",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "novella",
@@ -79,10 +76,15 @@
         "group": "market",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "historical",
+        "name": "Historical",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "space",
@@ -90,10 +92,7 @@
         "group": "setting",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "complex",
@@ -101,10 +100,7 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "experimental",
@@ -112,10 +108,7 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "imaginative",
@@ -123,10 +116,7 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "literary",
@@ -134,156 +124,26 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "augmented-reality",
-        "name": "Augmented Reality",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "war",
-        "name": "War",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "quest",
-        "name": "Quest",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "fire-magic",
-        "name": "Fire Magic",
+        "slug": "conformist",
+        "name": "Conformist",
         "group": "trope",
         "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "match_score": 1.2,
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "nanotechnology",
-        "name": "Nanotechnology",
+        "slug": "transformation",
+        "name": "Transformation",
         "group": "trope",
         "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "riches-to-rags",
-        "name": "Riches to Rags",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "underwater-city",
-        "name": "Underwater City",
-        "group": "setting",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "progression-fantasy",
-        "name": "Progression Fantasy",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "sparse-prose",
-        "name": "Sparse Prose",
-        "group": "style",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "secret-baby",
-        "name": "Secret Baby",
-        "group": "tropes_themes",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
-      },
-      {
-        "slug": "open-ending",
-        "name": "Open Ending",
-        "group": "plot",
-        "confidence": "medium",
-        "match_score": 0.2,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "57f47799-a209-4fcc-b3be-7fc030648537"
-        ]
+        "match_score": 1.1,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 20,
+    "cross_tags_count": 10,
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {
