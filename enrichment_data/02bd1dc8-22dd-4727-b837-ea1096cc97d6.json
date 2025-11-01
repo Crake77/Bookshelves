@@ -322,53 +322,121 @@
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {
-        "slug": "environmental-science",
-        "name": "Stream restoration--Case studies",
-        "confidence": "high",
+        "slug": "blue-ridge-school-greene-county-va",
+        "name": "Blue Ridge School (Greene County, Va.)",
+        "confidence": "medium",
         "kind": "topic",
-        "taxonomy_type": "genre",
+        "taxonomy_type": "unknown",
         "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2025002848",
-            "url": "http://lccn.loc.gov/2025002848"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01777504",
+            "url": "https://id.worldcat.org/fast/1777504"
           }
         ]
       },
       {
-        "slug": "river-setting",
-        "name": "Rivers--Social aspects--Case studies",
-        "confidence": "high",
+        "slug": "cyanobacteria",
+        "name": "Cyanobacteria",
+        "confidence": "medium",
         "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "setting",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2025002848",
-            "url": "http://lccn.loc.gov/2025002848"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00885738",
+            "url": "https://id.worldcat.org/fast/885738"
           }
         ]
       },
       {
-        "slug": "urban-sociology",
-        "name": "Urban renewal--Case studies",
-        "confidence": "high",
+        "slug": "cyanobacterial-toxins",
+        "name": "Cyanobacterial toxins",
+        "confidence": "medium",
         "kind": "topic",
-        "taxonomy_type": "subgenre",
+        "taxonomy_type": "unknown",
         "taxonomy_group": null,
-        "taxonomy_parent": "sociology",
+        "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2025002848",
-            "url": "http://lccn.loc.gov/2025002848"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00885752",
+            "url": "https://id.worldcat.org/fast/885752"
+          }
+        ]
+      },
+      {
+        "slug": "edwin-h-greene-intermediate-school-blue-ash-ohio",
+        "name": "Edwin H. Greene Intermediate School (Blue Ash, Ohio)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01671662",
+            "url": "https://id.worldcat.org/fast/1671662"
+          }
+        ]
+      },
+      {
+        "slug": "graphocephala-atropunctata",
+        "name": "Graphocephala atropunctata",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01983230",
+            "url": "https://id.worldcat.org/fast/1983230"
+          }
+        ]
+      },
+      {
+        "slug": "green-flash",
+        "name": "Green flash",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00947606",
+            "url": "https://id.worldcat.org/fast/947606"
+          }
+        ]
+      },
+      {
+        "slug": "super-blue-green-algae-dietary-supplement",
+        "name": "Super Blue Green Algae (Dietary supplement)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01938746",
+            "url": "https://id.worldcat.org/fast/1938746"
           }
         ]
       }
@@ -415,9 +483,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:33:59.553Z",
+    "last_run": "2025-11-01T18:56:20.482Z",
     "sources_enabled": [
-      "loc"
+      "fast"
     ],
     "input_snapshot": {
       "title": "Blue-Green Rehabilitation",
@@ -430,82 +498,185 @@
     },
     "sources": {
       "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
         "labels": [
           {
-            "slug": "urban-sociology",
-            "name": "Urban renewal--Case studies",
+            "slug": "green-flash",
+            "name": "Green flash",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2025002848",
-            "url": "http://lccn.loc.gov/2025002848",
+            "id": "fst00947606",
+            "url": "https://id.worldcat.org/fast/947606",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "Urban renewal--Case studies",
-                "matchType": "label"
+                "fastId": "fst00947606",
+                "label": "Green flash",
+                "matchType": "generated",
+                "score": 2.6284866,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "river-setting",
-            "name": "Rivers--Social aspects--Case studies",
+            "slug": "cyanobacteria",
+            "name": "Cyanobacteria",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2025002848",
-            "url": "http://lccn.loc.gov/2025002848",
+            "id": "fst00885738",
+            "url": "https://id.worldcat.org/fast/885738",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "Rivers--Social aspects--Case studies",
-                "matchType": "label"
+                "fastId": "fst00885738",
+                "label": "Cyanobacteria",
+                "matchType": "generated",
+                "score": 2.6284866,
+                "type": "alt"
               },
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "Waterways--Environmental aspects--Case studies",
-                "matchType": "label"
+                "fastId": "fst00885738",
+                "label": "Cyanobacteria",
+                "matchType": "generated",
+                "score": 2.6284866,
+                "type": "alt"
               },
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "River tourism--Case studies",
-                "matchType": "label"
+                "fastId": "fst00885738",
+                "label": "Cyanobacteria",
+                "matchType": "generated",
+                "score": 2.6284866,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00885738",
+                "label": "Cyanobacteria",
+                "matchType": "generated",
+                "score": 2.1904054,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "environmental-science",
-            "name": "Stream restoration--Case studies",
+            "slug": "cyanobacterial-toxins",
+            "name": "Cyanobacterial toxins",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2025002848",
-            "url": "http://lccn.loc.gov/2025002848",
+            "id": "fst00885752",
+            "url": "https://id.worldcat.org/fast/885752",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "Stream restoration--Case studies",
-                "matchType": "label"
+                "fastId": "fst00885752",
+                "label": "Cyanobacterial toxins",
+                "matchType": "generated",
+                "score": 2.1904054,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "graphocephala-atropunctata",
+            "name": "Graphocephala atropunctata",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01983230",
+            "url": "https://id.worldcat.org/fast/1983230",
+            "raw": [
+              {
+                "fastId": "fst01983230",
+                "label": "Graphocephala atropunctata",
+                "matchType": "generated",
+                "score": 2.1904054,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "super-blue-green-algae-dietary-supplement",
+            "name": "Super Blue Green Algae (Dietary supplement)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01938746",
+            "url": "https://id.worldcat.org/fast/1938746",
+            "raw": [
+              {
+                "fastId": "fst01938746",
+                "label": "Super Blue Green Algae (Dietary supplement)",
+                "matchType": "generated",
+                "score": 2.1253774,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "edwin-h-greene-intermediate-school-blue-ash-ohio",
+            "name": "Edwin H. Greene Intermediate School (Blue Ash, Ohio)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01671662",
+            "url": "https://id.worldcat.org/fast/1671662",
+            "raw": [
+              {
+                "fastId": "fst01671662",
+                "label": "Edwin H. Greene Intermediate School (Blue Ash, Ohio)",
+                "matchType": "generated",
+                "score": 1.7711478,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "blue-ridge-school-greene-county-va",
+            "name": "Blue Ridge School (Greene County, Va.)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01777504",
+            "url": "https://id.worldcat.org/fast/1777504",
+            "raw": [
+              {
+                "fastId": "fst01777504",
+                "label": "Blue Ridge School (Greene County, Va.)",
+                "matchType": "generated",
+                "score": 1.7711478,
+                "type": "auth"
               }
             ],
             "notes": []
           }
         ],
         "notes": [
-          "[loc] cache hit"
+          "[fast] title returned no results",
+          "[fast] title-core returned no results",
+          "[fast] fallback succeeded via title-bigram"
         ]
-      },
-      "fast": {
-        "labels": [],
-        "notes": []
       },
       "wikidata": {
         "labels": [],
@@ -515,96 +686,233 @@
     "merged": {
       "subjects": [
         {
-          "slug": "environmental-science",
-          "name": "Stream restoration--Case studies",
+          "slug": "blue-ridge-school-greene-county-va",
+          "name": "Blue Ridge School (Greene County, Va.)",
           "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2025002848",
-              "url": "http://lccn.loc.gov/2025002848"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01777504",
+              "url": "https://id.worldcat.org/fast/1777504"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "Stream restoration--Case studies",
-                "matchType": "label"
+                "fastId": "fst01777504",
+                "label": "Blue Ridge School (Greene County, Va.)",
+                "matchType": "generated",
+                "score": 1.7711478,
+                "type": "auth"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "river-setting",
-          "name": "Rivers--Social aspects--Case studies",
+          "slug": "cyanobacteria",
+          "name": "Cyanobacteria",
           "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "setting",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2025002848",
-              "url": "http://lccn.loc.gov/2025002848"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00885738",
+              "url": "https://id.worldcat.org/fast/885738"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "Rivers--Social aspects--Case studies",
-                "matchType": "label"
+                "fastId": "fst00885738",
+                "label": "Cyanobacteria",
+                "matchType": "generated",
+                "score": 2.6284866,
+                "type": "alt"
               },
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "Waterways--Environmental aspects--Case studies",
-                "matchType": "label"
+                "fastId": "fst00885738",
+                "label": "Cyanobacteria",
+                "matchType": "generated",
+                "score": 2.6284866,
+                "type": "alt"
               },
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "River tourism--Case studies",
-                "matchType": "label"
+                "fastId": "fst00885738",
+                "label": "Cyanobacteria",
+                "matchType": "generated",
+                "score": 2.6284866,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00885738",
+                "label": "Cyanobacteria",
+                "matchType": "generated",
+                "score": 2.1904054,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "urban-sociology",
-          "name": "Urban renewal--Case studies",
+          "slug": "cyanobacterial-toxins",
+          "name": "Cyanobacterial toxins",
           "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "subgenre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
           "taxonomy_group": null,
-          "taxonomy_parent": "sociology",
+          "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2025002848",
-              "url": "http://lccn.loc.gov/2025002848"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00885752",
+              "url": "https://id.worldcat.org/fast/885752"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2025002848",
-                "subject": "Urban renewal--Case studies",
-                "matchType": "label"
+                "fastId": "fst00885752",
+                "label": "Cyanobacterial toxins",
+                "matchType": "generated",
+                "score": 2.1904054,
+                "type": "alt"
               }
             ],
-            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "edwin-h-greene-intermediate-school-blue-ash-ohio",
+          "name": "Edwin H. Greene Intermediate School (Blue Ash, Ohio)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01671662",
+              "url": "https://id.worldcat.org/fast/1671662"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01671662",
+                "label": "Edwin H. Greene Intermediate School (Blue Ash, Ohio)",
+                "matchType": "generated",
+                "score": 1.7711478,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "graphocephala-atropunctata",
+          "name": "Graphocephala atropunctata",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01983230",
+              "url": "https://id.worldcat.org/fast/1983230"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01983230",
+                "label": "Graphocephala atropunctata",
+                "matchType": "generated",
+                "score": 2.1904054,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "green-flash",
+          "name": "Green flash",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00947606",
+              "url": "https://id.worldcat.org/fast/947606"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00947606",
+                "label": "Green flash",
+                "matchType": "generated",
+                "score": 2.6284866,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "super-blue-green-algae-dietary-supplement",
+          "name": "Super Blue Green Algae (Dietary supplement)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01938746",
+              "url": "https://id.worldcat.org/fast/1938746"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01938746",
+                "label": "Super Blue Green Algae (Dietary supplement)",
+                "matchType": "generated",
+                "score": 2.1253774,
+                "type": "alt"
+              }
+            ],
             "wikidata": []
           }
         }

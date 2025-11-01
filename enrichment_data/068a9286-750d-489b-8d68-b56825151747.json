@@ -307,53 +307,121 @@
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {
-        "slug": "future-tense",
-        "name": "Forecasting",
+        "slug": "science-fiction",
+        "name": "Science fiction",
         "confidence": "high",
         "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "style",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/95007233",
-            "url": "http://lccn.loc.gov/95007233"
-          }
-        ]
-      },
-      {
-        "slug": "science-fiction",
-        "name": "Science fiction--Juvenile literature",
-        "confidence": "high",
-        "kind": "genre",
         "taxonomy_type": "genre",
         "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "high",
-            "id": "http://lccn.loc.gov/95007233",
-            "url": "http://lccn.loc.gov/95007233"
+            "id": "fst01108566",
+            "url": "https://id.worldcat.org/fast/1108566"
           }
         ]
       },
       {
-        "slug": "science-nature",
-        "name": "Science--Juvenile literature",
-        "confidence": "high",
+        "slug": "science-fiction-arabic",
+        "name": "Science fiction, Arabic",
+        "confidence": "medium",
         "kind": "topic",
-        "taxonomy_type": "supergenre",
+        "taxonomy_type": "unknown",
         "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/95007233",
-            "url": "http://lccn.loc.gov/95007233"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01108646",
+            "url": "https://id.worldcat.org/fast/1108646"
+          }
+        ]
+      },
+      {
+        "slug": "science-fiction-fans",
+        "name": "Science fiction fans",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01108615",
+            "url": "https://id.worldcat.org/fast/1108615"
+          }
+        ]
+      },
+      {
+        "slug": "science-fiction-films",
+        "name": "Science fiction films",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01108616",
+            "url": "https://id.worldcat.org/fast/1108616"
+          }
+        ]
+      },
+      {
+        "slug": "science-fiction-in-art",
+        "name": "Science fiction in art",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01108621",
+            "url": "https://id.worldcat.org/fast/1108621"
+          }
+        ]
+      },
+      {
+        "slug": "science-fiction-plays",
+        "name": "Science fiction plays",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01108622",
+            "url": "https://id.worldcat.org/fast/1108622"
+          }
+        ]
+      },
+      {
+        "slug": "science-fiction-poetry",
+        "name": "Science fiction poetry",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01108627",
+            "url": "https://id.worldcat.org/fast/1108627"
           }
         ]
       }
@@ -411,10 +479,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:16:44.207Z",
+    "last_run": "2025-11-01T18:57:29.758Z",
     "sources_enabled": [
-      "loc",
-      "wikidata"
+      "fast"
     ],
     "input_snapshot": {
       "title": "Science Fiction: Visions of Tomorrow",
@@ -429,174 +496,419 @@
     },
     "sources": {
       "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
         "labels": [
           {
-            "slug": "science-nature",
-            "name": "Science--Juvenile literature",
+            "slug": "science-fiction",
+            "name": "Science fiction",
             "kind": "topic",
             "confidence": "high",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/95007233",
-            "url": "http://lccn.loc.gov/95007233",
+            "id": "fst01108566",
+            "url": "https://id.worldcat.org/fast/1108566",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/95007233",
-                "subject": "Science--Juvenile literature",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "science-fiction",
-            "name": "Science fiction--Juvenile literature",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/95007233",
-            "url": "http://lccn.loc.gov/95007233",
-            "raw": [
-              {
-                "recordId": "http://lccn.loc.gov/95007233",
-                "subject": "Science fiction--Juvenile literature",
-                "matchType": "label"
+                "fastId": "fst01108566",
+                "label": "Science fiction",
+                "matchType": "label",
+                "score": 2.5930445,
+                "type": "auth"
               },
               {
-                "recordId": "http://lccn.loc.gov/95007233",
-                "subject": "Science fiction--History and criticism",
-                "matchType": "label"
+                "fastId": "fst01726489",
+                "label": "Science fiction",
+                "matchType": "label",
+                "score": 2.5930445,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "future-tense",
-            "name": "Forecasting",
+            "slug": "science-fiction-fans",
+            "name": "Science fiction fans",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/95007233",
-            "url": "http://lccn.loc.gov/95007233",
+            "id": "fst01108615",
+            "url": "https://id.worldcat.org/fast/1108615",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/95007233",
-                "subject": "Forecasting",
-                "matchType": "label"
+                "fastId": "fst01108615",
+                "label": "Science fiction fans",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-films",
+            "name": "Science fiction films",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01108616",
+            "url": "https://id.worldcat.org/fast/1108616",
+            "raw": [
+              {
+                "fastId": "fst01108616",
+                "label": "Science fiction films",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-in-art",
+            "name": "Science fiction in art",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01108621",
+            "url": "https://id.worldcat.org/fast/1108621",
+            "raw": [
+              {
+                "fastId": "fst01108621",
+                "label": "Science fiction in art",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-plays",
+            "name": "Science fiction plays",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01108622",
+            "url": "https://id.worldcat.org/fast/1108622",
+            "raw": [
+              {
+                "fastId": "fst01108622",
+                "label": "Science fiction plays",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01108622",
+                "label": "Science fiction plays",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-poetry",
+            "name": "Science fiction poetry",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01108627",
+            "url": "https://id.worldcat.org/fast/1108627",
+            "raw": [
+              {
+                "fastId": "fst01108627",
+                "label": "Science fiction poetry",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-arabic",
+            "name": "Science fiction, Arabic",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01108646",
+            "url": "https://id.worldcat.org/fast/1108646",
+            "raw": [
+              {
+                "fastId": "fst01108646",
+                "label": "Science fiction, Arabic",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01108646",
+                "label": "Science fiction, Arabic",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "alt"
               }
             ],
             "notes": []
           }
         ],
         "notes": [
-          "[loc] cache hit"
+          "[fast] cache hit"
         ]
-      },
-      "fast": {
-        "labels": [],
-        "notes": []
       },
       "wikidata": {
         "labels": [],
-        "notes": [
-          "[wikidata] retrying with title search",
-          "[wikidata] no matches returned"
-        ]
+        "notes": []
       }
     },
     "merged": {
       "subjects": [
         {
-          "slug": "future-tense",
-          "name": "Forecasting",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "style",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/95007233",
-              "url": "http://lccn.loc.gov/95007233"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/95007233",
-                "subject": "Forecasting",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
           "slug": "science-fiction",
-          "name": "Science fiction--Juvenile literature",
-          "kind": "genre",
+          "name": "Science fiction",
+          "kind": "topic",
           "confidence": "high",
           "taxonomy_type": "genre",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "high",
-              "id": "http://lccn.loc.gov/95007233",
-              "url": "http://lccn.loc.gov/95007233"
+              "id": "fst01108566",
+              "url": "https://id.worldcat.org/fast/1108566"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/95007233",
-                "subject": "Science fiction--Juvenile literature",
-                "matchType": "label"
+                "fastId": "fst01108566",
+                "label": "Science fiction",
+                "matchType": "label",
+                "score": 2.5930445,
+                "type": "auth"
               },
               {
-                "recordId": "http://lccn.loc.gov/95007233",
-                "subject": "Science fiction--History and criticism",
-                "matchType": "label"
+                "fastId": "fst01726489",
+                "label": "Science fiction",
+                "matchType": "label",
+                "score": 2.5930445,
+                "type": "auth"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "science-nature",
-          "name": "Science--Juvenile literature",
+          "slug": "science-fiction-arabic",
+          "name": "Science fiction, Arabic",
           "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "supergenre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/95007233",
-              "url": "http://lccn.loc.gov/95007233"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01108646",
+              "url": "https://id.worldcat.org/fast/1108646"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/95007233",
-                "subject": "Science--Juvenile literature",
-                "matchType": "label"
+                "fastId": "fst01108646",
+                "label": "Science fiction, Arabic",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01108646",
+                "label": "Science fiction, Arabic",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "alt"
               }
             ],
-            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-fans",
+          "name": "Science fiction fans",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01108615",
+              "url": "https://id.worldcat.org/fast/1108615"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01108615",
+                "label": "Science fiction fans",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-films",
+          "name": "Science fiction films",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01108616",
+              "url": "https://id.worldcat.org/fast/1108616"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01108616",
+                "label": "Science fiction films",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-in-art",
+          "name": "Science fiction in art",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01108621",
+              "url": "https://id.worldcat.org/fast/1108621"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01108621",
+                "label": "Science fiction in art",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-plays",
+          "name": "Science fiction plays",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01108622",
+              "url": "https://id.worldcat.org/fast/1108622"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01108622",
+                "label": "Science fiction plays",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01108622",
+                "label": "Science fiction plays",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-poetry",
+          "name": "Science fiction poetry",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01108627",
+              "url": "https://id.worldcat.org/fast/1108627"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01108627",
+                "label": "Science fiction poetry",
+                "matchType": "generated",
+                "score": 2.268914,
+                "type": "auth"
+              }
+            ],
             "wikidata": []
           }
         }

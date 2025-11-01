@@ -307,229 +307,8 @@
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {
-        "slug": "bisexual",
-        "name": "Bisexuals",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "tropes_themes",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "bisexual-mc",
-        "name": "Bisexual people--Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "representation",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "fantasy",
-        "name": "Fantasy fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "genre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "fiction",
-        "name": "Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "historical-fantasy",
-        "name": "FICTION / Fantasy / Historical",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "subgenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": "fantasy",
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "historical-fiction",
-        "name": "Historical fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "supergenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "immortal",
-        "name": "Immortalism--Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "trope",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "literary-fiction",
-        "name": "FICTION / Literary",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "genre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "memory-narrative",
-        "name": "Memory--Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "trope",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "new-york-city",
-        "name": "New York (N.Y.)--Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "setting",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "novel",
-        "name": "Novels",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "paris",
-        "name": "Paris (France)--Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "setting",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "relationships",
-        "name": "Man-woman relationships--Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "subgenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": "psychology-self-help",
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-          }
-        ]
-      },
-      {
-        "slug": "deals",
-        "name": "Deals",
+        "slug": "arthur-et-les-minimoys-motion-picture",
+        "name": "Arthur et les Minimoys (Motion picture)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -537,27 +316,95 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            "id": "fst01776388",
+            "url": "https://id.worldcat.org/fast/1776388"
           }
         ]
       },
       {
-        "slug": "deals-fiction",
-        "name": "Deals--Fiction",
+        "slug": "gospel-of-the-egyptians",
+        "name": "Gospel of the Egyptians",
         "confidence": "medium",
-        "kind": "genre",
+        "kind": "topic",
         "taxonomy_type": "unknown",
         "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            "id": "fst01370757",
+            "url": "https://id.worldcat.org/fast/1370757"
+          }
+        ]
+      },
+      {
+        "slug": "invisible-empire-knights-of-the-ku-klux-klan-1975",
+        "name": "Invisible Empire, Knights of the Ku Klux Klan (1975)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01995192",
+            "url": "https://id.worldcat.org/fast/1995192"
+          }
+        ]
+      },
+      {
+        "slug": "photography-of-the-invisible",
+        "name": "Photography of the invisible",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01061950",
+            "url": "https://id.worldcat.org/fast/1061950"
+          }
+        ]
+      },
+      {
+        "slug": "skazanie-o-nevidimom-grade-kitezhe-i-deve-fevronii-rimsky-korsakov-nikolay",
+        "name": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01367551",
+            "url": "https://id.worldcat.org/fast/1367551"
+          }
+        ]
+      },
+      {
+        "slug": "wonders-of-the-invisible-world-mather-cotton",
+        "name": "Wonders of the invisible world (Mather, Cotton)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01358146",
+            "url": "https://id.worldcat.org/fast/1358146"
           }
         ]
       }
@@ -615,9 +462,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:35:45.695Z",
+    "last_run": "2025-11-01T18:56:50.744Z",
     "sources_enabled": [
-      "loc"
+      "fast"
     ],
     "input_snapshot": {
       "title": "The Invisible Life of Addie LaRue",
@@ -630,445 +477,164 @@
     },
     "sources": {
       "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
         "labels": [
           {
-            "slug": "memory-narrative",
-            "name": "Memory--Fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Memory--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Memory",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Memory--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Memory",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "immortal",
-            "name": "Immortalism--Fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Immortalism--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Immortalism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Immortality--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Immortalism--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Immortalism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Immortality--Fiction",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "deals-fiction",
-            "name": "Deals--Fiction",
-            "kind": "genre",
-            "confidence": "medium",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Deals--Fiction",
-                "matchType": "generated"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Deals--Fiction",
-                "matchType": "generated"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "bisexual-mc",
-            "name": "Bisexual people--Fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Bisexual people--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Bisexual people--Fiction",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "paris",
-            "name": "Paris (France)--Fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Paris (France)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "France--Paris",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Paris (France)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "France--Paris",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "new-york-city",
-            "name": "New York (N.Y.)--Fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "New York (N.Y.)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "New York (N.Y)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "New York (State)--New York",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "New York (N.Y.)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "New York (N.Y)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "New York (State)--New York",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "relationships",
-            "name": "Man-woman relationships--Fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Man-woman relationships--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Man-woman relationships",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Man-woman relationships--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Man-woman relationships",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "historical-fantasy",
-            "name": "FICTION / Fantasy / Historical",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "FICTION / Fantasy / Historical",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "FICTION / Fantasy / Historical",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "literary-fiction",
-            "name": "FICTION / Literary",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "FICTION / Literary",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "FICTION / Literary",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "bisexual",
-            "name": "Bisexuals",
-            "kind": "topic",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "raw": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Bisexuals",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Bisexuals",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "deals",
-            "name": "Deals",
+            "slug": "photography-of-the-invisible",
+            "name": "Photography of the invisible",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "id": "fst01061950",
+            "url": "https://id.worldcat.org/fast/1061950",
             "raw": [
               {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Deals",
-                "matchType": "generated"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Deals",
-                "matchType": "generated"
+                "fastId": "fst01061950",
+                "label": "Photography of the invisible",
+                "matchType": "generated",
+                "score": 2.4976702,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "fantasy",
-            "name": "Fantasy fiction",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "arthur-et-les-minimoys-motion-picture",
+            "name": "Arthur et les Minimoys (Motion picture)",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "id": "fst01776388",
+            "url": "https://id.worldcat.org/fast/1776388",
             "raw": [
               {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Fantasy fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Fantasy fiction",
-                "matchType": "label"
+                "fastId": "fst01776388",
+                "label": "Arthur et les Minimoys (Motion picture)",
+                "matchType": "generated",
+                "score": 2.0813918,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "historical-fiction",
-            "name": "Historical fiction",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "wonders-of-the-invisible-world-mather-cotton",
+            "name": "Wonders of the invisible world (Mather, Cotton)",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "id": "fst01358146",
+            "url": "https://id.worldcat.org/fast/1358146",
             "raw": [
               {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Historical fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Historical fiction",
-                "matchType": "label"
+                "fastId": "fst01358146",
+                "label": "Wonders of the invisible world (Mather, Cotton)",
+                "matchType": "generated",
+                "score": 2.0813918,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "novel",
-            "name": "Novels",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "gospel-of-the-egyptians",
+            "name": "Gospel of the Egyptians",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "id": "fst01370757",
+            "url": "https://id.worldcat.org/fast/1370757",
             "raw": [
               {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Novels",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Novels",
-                "matchType": "label"
+                "fastId": "fst01370757",
+                "label": "Gospel of the Egyptians",
+                "matchType": "generated",
+                "score": 2.0813918,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "fiction",
-            "name": "Fiction",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "invisible-empire-knights-of-the-ku-klux-klan-1975",
+            "name": "Invisible Empire, Knights of the Ku Klux Klan (1975)",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "id": "fst01995192",
+            "url": "https://id.worldcat.org/fast/1995192",
             "raw": [
               {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Fiction",
-                "matchType": "label"
+                "fastId": "fst01995192",
+                "label": "Invisible Empire, Knights of the Ku Klux Klan (1975)",
+                "matchType": "generated",
+                "score": 1.6651134,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "skazanie-o-nevidimom-grade-kitezhe-i-deve-fevronii-rimsky-korsakov-nikolay",
+            "name": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01367551",
+            "url": "https://id.worldcat.org/fast/1367551",
+            "raw": [
+              {
+                "fastId": "fst01367551",
+                "label": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+                "matchType": "generated",
+                "score": 1.4569743,
+                "type": "alt"
               },
               {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Fiction",
-                "matchType": "label"
+                "fastId": "fst01367551",
+                "label": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+                "matchType": "generated",
+                "score": 1.4569743,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01367551",
+                "label": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+                "matchType": "generated",
+                "score": 1.4569743,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01367551",
+                "label": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+                "matchType": "generated",
+                "score": 1.4569743,
+                "type": "alt"
               }
             ],
             "notes": []
           }
         ],
         "notes": [
-          "[loc] cache hit"
+          "[fast] title returned no results",
+          "[fast] title-core returned no results",
+          "[fast] fallback succeeded via title-bigram"
         ]
-      },
-      "fast": {
-        "labels": [],
-        "notes": []
       },
       "wikidata": {
         "labels": [],
@@ -1078,507 +644,8 @@
     "merged": {
       "subjects": [
         {
-          "slug": "bisexual",
-          "name": "Bisexuals",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "tropes_themes",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Bisexuals",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Bisexuals",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "bisexual-mc",
-          "name": "Bisexual people--Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "representation",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Bisexual people--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Bisexual people--Fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "fantasy",
-          "name": "Fantasy fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "genre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Fantasy fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Fantasy fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "fiction",
-          "name": "Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "unknown",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "historical-fantasy",
-          "name": "FICTION / Fantasy / Historical",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "subgenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": "fantasy",
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "FICTION / Fantasy / Historical",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "FICTION / Fantasy / Historical",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "historical-fiction",
-          "name": "Historical fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "supergenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Historical fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Historical fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "immortal",
-          "name": "Immortalism--Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "trope",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Immortalism--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Immortalism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Immortality--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Immortalism--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Immortalism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Immortality--Fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "literary-fiction",
-          "name": "FICTION / Literary",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "genre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "FICTION / Literary",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "FICTION / Literary",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "memory-narrative",
-          "name": "Memory--Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "trope",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Memory--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Memory",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Memory--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Memory",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "new-york-city",
-          "name": "New York (N.Y.)--Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "setting",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "New York (N.Y.)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "New York (N.Y)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "New York (State)--New York",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "New York (N.Y.)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "New York (N.Y)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "New York (State)--New York",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "novel",
-          "name": "Novels",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "unknown",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Novels",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Novels",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "paris",
-          "name": "Paris (France)--Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "setting",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Paris (France)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "France--Paris",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Paris (France)--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "France--Paris",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "relationships",
-          "name": "Man-woman relationships--Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "subgenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": "psychology-self-help",
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Man-woman relationships--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Man-woman relationships",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Man-woman relationships--Fiction",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Man-woman relationships",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "deals",
-          "name": "Deals",
+          "slug": "arthur-et-les-minimoys-motion-picture",
+          "name": "Arthur et les Minimoys (Motion picture)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1586,59 +653,194 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+              "id": "fst01776388",
+              "url": "https://id.worldcat.org/fast/1776388"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Deals",
-                "matchType": "generated"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Deals",
-                "matchType": "generated"
+                "fastId": "fst01776388",
+                "label": "Arthur et les Minimoys (Motion picture)",
+                "matchType": "generated",
+                "score": 2.0813918,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "deals-fiction",
-          "name": "Deals--Fiction",
-          "kind": "genre",
+          "slug": "gospel-of-the-egyptians",
+          "name": "Gospel of the Egyptians",
+          "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+              "id": "fst01370757",
+              "url": "https://id.worldcat.org/fast/1370757"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
-                "subject": "Deals--Fiction",
-                "matchType": "generated"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2022513515",
-                "subject": "Deals--Fiction",
-                "matchType": "generated"
+                "fastId": "fst01370757",
+                "label": "Gospel of the Egyptians",
+                "matchType": "generated",
+                "score": 2.0813918,
+                "type": "alt"
               }
             ],
-            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "invisible-empire-knights-of-the-ku-klux-klan-1975",
+          "name": "Invisible Empire, Knights of the Ku Klux Klan (1975)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01995192",
+              "url": "https://id.worldcat.org/fast/1995192"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01995192",
+                "label": "Invisible Empire, Knights of the Ku Klux Klan (1975)",
+                "matchType": "generated",
+                "score": 1.6651134,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "photography-of-the-invisible",
+          "name": "Photography of the invisible",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01061950",
+              "url": "https://id.worldcat.org/fast/1061950"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01061950",
+                "label": "Photography of the invisible",
+                "matchType": "generated",
+                "score": 2.4976702,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "skazanie-o-nevidimom-grade-kitezhe-i-deve-fevronii-rimsky-korsakov-nikolay",
+          "name": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01367551",
+              "url": "https://id.worldcat.org/fast/1367551"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01367551",
+                "label": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+                "matchType": "generated",
+                "score": 1.4569743,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01367551",
+                "label": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+                "matchType": "generated",
+                "score": 1.4569743,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01367551",
+                "label": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+                "matchType": "generated",
+                "score": 1.4569743,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01367551",
+                "label": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
+                "matchType": "generated",
+                "score": 1.4569743,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "wonders-of-the-invisible-world-mather-cotton",
+          "name": "Wonders of the invisible world (Mather, Cotton)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01358146",
+              "url": "https://id.worldcat.org/fast/1358146"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01358146",
+                "label": "Wonders of the invisible world (Mather, Cotton)",
+                "matchType": "generated",
+                "score": 2.0813918,
+                "type": "auth"
+              }
+            ],
             "wikidata": []
           }
         }

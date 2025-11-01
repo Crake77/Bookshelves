@@ -313,74 +313,6 @@
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {
-        "slug": "essays-criticism",
-        "name": "Criticism, interpretation, etc",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "supergenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/"
-          }
-        ]
-      },
-      {
-        "slug": "fantasy",
-        "name": "Fantasy fiction--History and criticism",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "genre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2014045549",
-            "url": "http://lccn.loc.gov/2014045549"
-          }
-        ]
-      },
-      {
-        "slug": "holocaust",
-        "name": "Holocaust, Jewish (1939-1945), in literature",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "content_flags",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/"
-          }
-        ]
-      },
-      {
-        "slug": "memory-narrative",
-        "name": "Memory in literature",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "trope",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/"
-          }
-        ]
-      },
-      {
         "slug": "social-justice",
         "name": "Justice in literature",
         "confidence": "high",
@@ -390,50 +322,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "high",
-            "id": "http://lccn.loc.gov/2014045549",
-            "url": "http://lccn.loc.gov/2014045549"
+            "id": "fst00985152",
+            "url": "https://id.worldcat.org/fast/985152"
           }
         ]
       },
       {
-        "slug": "speculative-fiction",
-        "name": "Speculative fiction--History and criticism",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "supergenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2014045549",
-            "url": "http://lccn.loc.gov/2014045549"
-          }
-        ]
-      },
-      {
-        "slug": "young-adult-mc",
-        "name": "Young adult fiction--History and criticism",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "representation",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2014045549",
-            "url": "http://lccn.loc.gov/2014045549"
-          }
-        ]
-      },
-      {
-        "slug": "childrens-literature-polish",
-        "name": "Children's literature, Polish",
+        "slug": "indian-judges",
+        "name": "Indian judges",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -441,16 +339,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/"
+            "id": "fst00969124",
+            "url": "https://id.worldcat.org/fast/969124"
           }
         ]
       },
       {
-        "slug": "childrens-literature-polish-history-and-criticism",
-        "name": "Children's literature, Polish--History and criticism",
+        "slug": "innes-l-c-lewis-charles",
+        "name": "Innes, L. C. (Lewis Charles)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -458,10 +356,129 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/"
+            "id": "fst01483995",
+            "url": "https://id.worldcat.org/fast/1483995"
+          }
+        ]
+      },
+      {
+        "slug": "justice-in-adolescence",
+        "name": "Justice in adolescence",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01200437",
+            "url": "https://id.worldcat.org/fast/1200437"
+          }
+        ]
+      },
+      {
+        "slug": "justice-in-art",
+        "name": "Justice in art",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00985151",
+            "url": "https://id.worldcat.org/fast/985151"
+          }
+        ]
+      },
+      {
+        "slug": "justice-in-comics",
+        "name": "Justice in comics",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst02061298",
+            "url": "https://id.worldcat.org/fast/2061298"
+          }
+        ]
+      },
+      {
+        "slug": "justice-in-mass-media",
+        "name": "Justice in mass media",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst02003071",
+            "url": "https://id.worldcat.org/fast/2003071"
+          }
+        ]
+      },
+      {
+        "slug": "justice-in-the-hadith",
+        "name": "Justice in the Hadith",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst02016944",
+            "url": "https://id.worldcat.org/fast/2016944"
+          }
+        ]
+      },
+      {
+        "slug": "justice-in-young-adults",
+        "name": "Justice in young adults",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01200438",
+            "url": "https://id.worldcat.org/fast/1200438"
+          }
+        ]
+      },
+      {
+        "slug": "social-justice-in-art",
+        "name": "Social justice in art",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01921435",
+            "url": "https://id.worldcat.org/fast/1921435"
           }
         ]
       }
@@ -508,10 +525,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:15:41.336Z",
+    "last_run": "2025-11-01T18:56:31.069Z",
     "sources_enabled": [
-      "loc",
-      "wikidata"
+      "fast"
     ],
     "input_snapshot": {
       "title": "Justice in Young Adult Speculative Fiction",
@@ -524,51 +540,91 @@
     },
     "sources": {
       "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
         "labels": [
           {
-            "slug": "young-adult-mc",
-            "name": "Young adult fiction--History and criticism",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "indian-judges",
+            "name": "Indian judges",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2014045549",
-            "url": "http://lccn.loc.gov/2014045549",
+            "id": "fst00969124",
+            "url": "https://id.worldcat.org/fast/969124",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2014045549",
-                "subject": "Young adult fiction--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Young adult literature, Polish--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Young adult literature, Polish",
-                "matchType": "label"
+                "fastId": "fst00969124",
+                "label": "Indian judges",
+                "matchType": "generated",
+                "score": 2.253444,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "speculative-fiction",
-            "name": "Speculative fiction--History and criticism",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "justice-in-art",
+            "name": "Justice in art",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2014045549",
-            "url": "http://lccn.loc.gov/2014045549",
+            "id": "fst00985151",
+            "url": "https://id.worldcat.org/fast/985151",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2014045549",
-                "subject": "Speculative fiction--History and criticism",
-                "matchType": "label"
+                "fastId": "fst00985151",
+                "label": "Justice in art",
+                "matchType": "generated",
+                "score": 2.253444,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "innes-l-c-lewis-charles",
+            "name": "Innes, L. C. (Lewis Charles)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01483995",
+            "url": "https://id.worldcat.org/fast/1483995",
+            "raw": [
+              {
+                "fastId": "fst01483995",
+                "label": "Innes, L. C. (Lewis Charles)",
+                "matchType": "generated",
+                "score": 2.253444,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "justice-in-comics",
+            "name": "Justice in comics",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst02061298",
+            "url": "https://id.worldcat.org/fast/2061298",
+            "raw": [
+              {
+                "fastId": "fst02061298",
+                "label": "Justice in comics",
+                "matchType": "generated",
+                "score": 2.253444,
+                "type": "auth"
               }
             ],
             "notes": []
@@ -581,272 +637,138 @@
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2014045549",
-            "url": "http://lccn.loc.gov/2014045549",
+            "id": "fst00985152",
+            "url": "https://id.worldcat.org/fast/985152",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2014045549",
-                "subject": "Justice in literature",
-                "matchType": "label"
+                "fastId": "fst00985152",
+                "label": "Justice in literature",
+                "matchType": "label",
+                "score": 1.9717634,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "fantasy",
-            "name": "Fantasy fiction--History and criticism",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2014045549",
-            "url": "http://lccn.loc.gov/2014045549",
-            "raw": [
-              {
-                "recordId": "http://lccn.loc.gov/2014045549",
-                "subject": "Fantasy fiction--History and criticism",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "childrens-literature-polish-history-and-criticism",
-            "name": "Children's literature, Polish--History and criticism",
+            "slug": "justice-in-adolescence",
+            "name": "Justice in adolescence",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/",
+            "id": "fst01200437",
+            "url": "https://id.worldcat.org/fast/1200437",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Children's literature, Polish--History and criticism",
-                "matchType": "generated"
+                "fastId": "fst01200437",
+                "label": "Justice in adolescence",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "holocaust",
-            "name": "Holocaust, Jewish (1939-1945), in literature",
-            "kind": "topic",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/",
-            "raw": [
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Holocaust, Jewish (1939-1945), in literature",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Holocaust, Jewish (1939-1945) in literature",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "childrens-literature-polish",
-            "name": "Children's literature, Polish",
+            "slug": "justice-in-young-adults",
+            "name": "Justice in young adults",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/",
+            "id": "fst01200438",
+            "url": "https://id.worldcat.org/fast/1200438",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Children's literature, Polish",
-                "matchType": "generated"
+                "fastId": "fst01200438",
+                "label": "Justice in young adults",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "memory-narrative",
-            "name": "Memory in literature",
+            "slug": "social-justice-in-art",
+            "name": "Social justice in art",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/",
+            "id": "fst01921435",
+            "url": "https://id.worldcat.org/fast/1921435",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Memory in literature",
-                "matchType": "label"
+                "fastId": "fst01921435",
+                "label": "Social justice in art",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "essays-criticism",
-            "name": "Criticism, interpretation, etc",
+            "slug": "justice-in-mass-media",
+            "name": "Justice in mass media",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2020718437/",
-            "url": "http://www.loc.gov/item/2020718437/",
+            "id": "fst02003071",
+            "url": "https://id.worldcat.org/fast/2003071",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Criticism, interpretation, etc",
-                "matchType": "label"
+                "fastId": "fst02003071",
+                "label": "Justice in mass media",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "justice-in-the-hadith",
+            "name": "Justice in the Hadith",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst02016944",
+            "url": "https://id.worldcat.org/fast/2016944",
+            "raw": [
+              {
+                "fastId": "fst02016944",
+                "label": "Justice in the Hadith",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
               }
             ],
             "notes": []
           }
         ],
         "notes": [
-          "[loc] cache hit"
+          "[fast] title returned no results",
+          "[fast] title-core returned no results",
+          "[fast] fallback succeeded via title-bigram"
         ]
-      },
-      "fast": {
-        "labels": [],
-        "notes": []
       },
       "wikidata": {
         "labels": [],
-        "notes": [
-          "[wikidata] retrying with title search",
-          "[wikidata] no matches returned"
-        ]
+        "notes": []
       }
     },
     "merged": {
       "subjects": [
-        {
-          "slug": "essays-criticism",
-          "name": "Criticism, interpretation, etc",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "supergenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://www.loc.gov/item/2020718437/",
-              "url": "http://www.loc.gov/item/2020718437/"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Criticism, interpretation, etc",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "fantasy",
-          "name": "Fantasy fiction--History and criticism",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "genre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2014045549",
-              "url": "http://lccn.loc.gov/2014045549"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2014045549",
-                "subject": "Fantasy fiction--History and criticism",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "holocaust",
-          "name": "Holocaust, Jewish (1939-1945), in literature",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "content_flags",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://www.loc.gov/item/2020718437/",
-              "url": "http://www.loc.gov/item/2020718437/"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Holocaust, Jewish (1939-1945), in literature",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Holocaust, Jewish (1939-1945) in literature",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "memory-narrative",
-          "name": "Memory in literature",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "trope",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://www.loc.gov/item/2020718437/",
-              "url": "http://www.loc.gov/item/2020718437/"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Memory in literature",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
         {
           "slug": "social-justice",
           "name": "Justice in literature",
@@ -857,93 +779,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "high",
-              "id": "http://lccn.loc.gov/2014045549",
-              "url": "http://lccn.loc.gov/2014045549"
+              "id": "fst00985152",
+              "url": "https://id.worldcat.org/fast/985152"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2014045549",
-                "subject": "Justice in literature",
-                "matchType": "label"
+                "fastId": "fst00985152",
+                "label": "Justice in literature",
+                "matchType": "label",
+                "score": 1.9717634,
+                "type": "auth"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "speculative-fiction",
-          "name": "Speculative fiction--History and criticism",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "supergenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2014045549",
-              "url": "http://lccn.loc.gov/2014045549"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2014045549",
-                "subject": "Speculative fiction--History and criticism",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "young-adult-mc",
-          "name": "Young adult fiction--History and criticism",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "representation",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2014045549",
-              "url": "http://lccn.loc.gov/2014045549"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2014045549",
-                "subject": "Young adult fiction--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Young adult literature, Polish--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Young adult literature, Polish",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "childrens-literature-polish",
-          "name": "Children's literature, Polish",
+          "slug": "indian-judges",
+          "name": "Indian judges",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -951,27 +809,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/2020718437/",
-              "url": "http://www.loc.gov/item/2020718437/"
+              "id": "fst00969124",
+              "url": "https://id.worldcat.org/fast/969124"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Children's literature, Polish",
-                "matchType": "generated"
+                "fastId": "fst00969124",
+                "label": "Indian judges",
+                "matchType": "generated",
+                "score": 2.253444,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "childrens-literature-polish-history-and-criticism",
-          "name": "Children's literature, Polish--History and criticism",
+          "slug": "innes-l-c-lewis-charles",
+          "name": "Innes, L. C. (Lewis Charles)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -979,21 +839,233 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/2020718437/",
-              "url": "http://www.loc.gov/item/2020718437/"
+              "id": "fst01483995",
+              "url": "https://id.worldcat.org/fast/1483995"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/2020718437/",
-                "subject": "Children's literature, Polish--History and criticism",
-                "matchType": "generated"
+                "fastId": "fst01483995",
+                "label": "Innes, L. C. (Lewis Charles)",
+                "matchType": "generated",
+                "score": 2.253444,
+                "type": "alt"
               }
             ],
-            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "justice-in-adolescence",
+          "name": "Justice in adolescence",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01200437",
+              "url": "https://id.worldcat.org/fast/1200437"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01200437",
+                "label": "Justice in adolescence",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "justice-in-art",
+          "name": "Justice in art",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00985151",
+              "url": "https://id.worldcat.org/fast/985151"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00985151",
+                "label": "Justice in art",
+                "matchType": "generated",
+                "score": 2.253444,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "justice-in-comics",
+          "name": "Justice in comics",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst02061298",
+              "url": "https://id.worldcat.org/fast/2061298"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst02061298",
+                "label": "Justice in comics",
+                "matchType": "generated",
+                "score": 2.253444,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "justice-in-mass-media",
+          "name": "Justice in mass media",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst02003071",
+              "url": "https://id.worldcat.org/fast/2003071"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst02003071",
+                "label": "Justice in mass media",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "justice-in-the-hadith",
+          "name": "Justice in the Hadith",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst02016944",
+              "url": "https://id.worldcat.org/fast/2016944"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst02016944",
+                "label": "Justice in the Hadith",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "justice-in-young-adults",
+          "name": "Justice in young adults",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01200438",
+              "url": "https://id.worldcat.org/fast/1200438"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01200438",
+                "label": "Justice in young adults",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "social-justice-in-art",
+          "name": "Social justice in art",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01921435",
+              "url": "https://id.worldcat.org/fast/1921435"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01921435",
+                "label": "Social justice in art",
+                "matchType": "generated",
+                "score": 1.9717634,
+                "type": "auth"
+              }
+            ],
             "wikidata": []
           }
         }

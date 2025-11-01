@@ -15,8 +15,8 @@ Generated list of subject slugs returned by Library of Congress lookups that are
 | `copyright-united-states-history-sources` | 1 | `enrichment_data/033508ff-bb34-41d9-aef2-141f4ed8dc84.json` | Skip – cataloging/admin topic |
 | `crawford-james-ludovic-lindsay-earl-of-1847-1913-library-catalogs` | 1 | `enrichment_data/033508ff-bb34-41d9-aef2-141f4ed8dc84.json` | Skip – specific catalog heading |
 | `criticism-interpretation-etc` | 1 | `enrichment_data/03082e3d-3058-471b-a901-2956c1856f1e.json` | Alias to `essays-criticism` (added) |
-| `deals` | 1 | `enrichment_data/04537132-0262-4928-90cc-3b1abdbf04c4.json` | Candidate for `deal-with-devil` alias; verify context |
-| `deals-fiction` | 1 | `enrichment_data/04537132-0262-4928-90cc-3b1abdbf04c4.json` | Same as above – potential `deal-with-devil` mapping |
+| `deals` | 1 | `enrichment_data/04537132-0262-4928-90cc-3b1abdbf04c4.json` | ✅ Mapped to `deal-with-devil` (2025-11-02) |
+| `deals-fiction` | 1 | `enrichment_data/04537132-0262-4928-90cc-3b1abdbf04c4.json` | ✅ Mapped to `deal-with-devil` (2025-11-02) |
 | `delany-samuel-r` | 1 | `enrichment_data/05eaef7d-9e38-4e02-8fec-358dd2b16ed8.json` | Skip – author-specific heading |
 | `delany-samuel-r-correspondence` | 1 | `enrichment_data/05eaef7d-9e38-4e02-8fec-358dd2b16ed8.json` | Skip – author-specific correspondence |
 | `early-printed-books-bibliography-catalogs` | 1 | `enrichment_data/033508ff-bb34-41d9-aef2-141f4ed8dc84.json` | Skip – archival bibliography |

@@ -305,7 +305,144 @@
     ],
     "cross_tags_count": 20,
     "cross_tags_status": "needs_more",
-    "external_subjects": []
+    "external_subjects": [
+      {
+        "slug": "animals-summering",
+        "name": "Animals--Summering",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00809550",
+            "url": "https://id.worldcat.org/fast/809550"
+          }
+        ]
+      },
+      {
+        "slug": "folklore-institute-of-america",
+        "name": "Folklore Institute of America",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00587018",
+            "url": "https://id.worldcat.org/fast/587018"
+          }
+        ]
+      },
+      {
+        "slug": "letnii-dvoret-s-petra-i",
+        "name": "Letniĭ dvoret︠s︡ Petra I",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00514524",
+            "url": "https://id.worldcat.org/fast/514524"
+          }
+        ]
+      },
+      {
+        "slug": "norfolk-chamber-music-festival-yale-summer-school-of-music",
+        "name": "Norfolk Chamber Music Festival/Yale Summer School of Music",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01560013",
+            "url": "https://id.worldcat.org/fast/1560013"
+          }
+        ]
+      },
+      {
+        "slug": "shinnecock-summer-school-of-art",
+        "name": "Shinnecock Summer School of Art",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00624832",
+            "url": "https://id.worldcat.org/fast/624832"
+          }
+        ]
+      },
+      {
+        "slug": "summer-institute-of-linguistics",
+        "name": "Summer Institute of Linguistics",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00549719",
+            "url": "https://id.worldcat.org/fast/549719"
+          }
+        ]
+      },
+      {
+        "slug": "summer-of-the-swans-byars-betsy",
+        "name": "Summer of the swans (Byars, Betsy)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01374463",
+            "url": "https://id.worldcat.org/fast/1374463"
+          }
+        ]
+      },
+      {
+        "slug": "telling-seymour-miranda",
+        "name": "Telling (Seymour, Miranda)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01393060",
+            "url": "https://id.worldcat.org/fast/1393060"
+          }
+        ]
+      }
+    ]
   },
   "format": {
     "slug": "anthology",
@@ -348,10 +485,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:15:22.060Z",
+    "last_run": "2025-11-01T18:56:09.399Z",
     "sources_enabled": [
-      "loc",
-      "wikidata"
+      "fast"
     ],
     "input_snapshot": {
       "title": "Summer of Lovecraft: Cosmic Horror in the 1960s",
@@ -365,26 +501,461 @@
     "sources": {
       "loc": {
         "labels": [],
-        "notes": [
-          "[loc] isbn lookup returned no matches",
-          "[loc] title fallback returned no matches",
-          "[loc] no matches returned"
-        ]
+        "notes": []
       },
       "fast": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "animals-summering",
+            "name": "Animals--Summering",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00809550",
+            "url": "https://id.worldcat.org/fast/809550",
+            "raw": [
+              {
+                "fastId": "fst00809550",
+                "label": "Animals--Summering",
+                "matchType": "generated",
+                "score": 2.23184,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "shinnecock-summer-school-of-art",
+            "name": "Shinnecock Summer School of Art",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00624832",
+            "url": "https://id.worldcat.org/fast/624832",
+            "raw": [
+              {
+                "fastId": "fst00624832",
+                "label": "Shinnecock Summer School of Art",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "summer-institute-of-linguistics",
+            "name": "Summer Institute of Linguistics",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00549719",
+            "url": "https://id.worldcat.org/fast/549719",
+            "raw": [
+              {
+                "fastId": "fst00549719",
+                "label": "Summer Institute of Linguistics",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00549719",
+                "label": "Summer Institute of Linguistics",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00549719",
+                "label": "Summer Institute of Linguistics",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "folklore-institute-of-america",
+            "name": "Folklore Institute of America",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00587018",
+            "url": "https://id.worldcat.org/fast/587018",
+            "raw": [
+              {
+                "fastId": "fst00587018",
+                "label": "Folklore Institute of America",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "letnii-dvoret-s-petra-i",
+            "name": "Letniĭ dvoret︠s︡ Petra I",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00514524",
+            "url": "https://id.worldcat.org/fast/514524",
+            "raw": [
+              {
+                "fastId": "fst00514524",
+                "label": "Letniĭ dvoret︠s︡ Petra I",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "summer-of-the-swans-byars-betsy",
+            "name": "Summer of the swans (Byars, Betsy)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01374463",
+            "url": "https://id.worldcat.org/fast/1374463",
+            "raw": [
+              {
+                "fastId": "fst01374463",
+                "label": "Summer of the swans (Byars, Betsy)",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "norfolk-chamber-music-festival-yale-summer-school-of-music",
+            "name": "Norfolk Chamber Music Festival/Yale Summer School of Music",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01560013",
+            "url": "https://id.worldcat.org/fast/1560013",
+            "raw": [
+              {
+                "fastId": "fst01560013",
+                "label": "Norfolk Chamber Music Festival/Yale Summer School of Music",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "telling-seymour-miranda",
+            "name": "Telling (Seymour, Miranda)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01393060",
+            "url": "https://id.worldcat.org/fast/1393060",
+            "raw": [
+              {
+                "fastId": "fst01393060",
+                "label": "Telling (Seymour, Miranda)",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] title returned no results",
+          "[fast] title-core returned no results",
+          "[fast] fallback succeeded via title-bigram"
+        ]
       },
       "wikidata": {
         "labels": [],
-        "notes": [
-          "[wikidata] retrying with title search",
-          "[wikidata] no matches returned"
-        ]
+        "notes": []
       }
     },
     "merged": {
-      "subjects": []
+      "subjects": [
+        {
+          "slug": "animals-summering",
+          "name": "Animals--Summering",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00809550",
+              "url": "https://id.worldcat.org/fast/809550"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00809550",
+                "label": "Animals--Summering",
+                "matchType": "generated",
+                "score": 2.23184,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "folklore-institute-of-america",
+          "name": "Folklore Institute of America",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00587018",
+              "url": "https://id.worldcat.org/fast/587018"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00587018",
+                "label": "Folklore Institute of America",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "letnii-dvoret-s-petra-i",
+          "name": "Letniĭ dvoret︠s︡ Petra I",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00514524",
+              "url": "https://id.worldcat.org/fast/514524"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00514524",
+                "label": "Letniĭ dvoret︠s︡ Petra I",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "norfolk-chamber-music-festival-yale-summer-school-of-music",
+          "name": "Norfolk Chamber Music Festival/Yale Summer School of Music",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01560013",
+              "url": "https://id.worldcat.org/fast/1560013"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01560013",
+                "label": "Norfolk Chamber Music Festival/Yale Summer School of Music",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "shinnecock-summer-school-of-art",
+          "name": "Shinnecock Summer School of Art",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00624832",
+              "url": "https://id.worldcat.org/fast/624832"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00624832",
+                "label": "Shinnecock Summer School of Art",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "summer-institute-of-linguistics",
+          "name": "Summer Institute of Linguistics",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00549719",
+              "url": "https://id.worldcat.org/fast/549719"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00549719",
+                "label": "Summer Institute of Linguistics",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00549719",
+                "label": "Summer Institute of Linguistics",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00549719",
+                "label": "Summer Institute of Linguistics",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "summer-of-the-swans-byars-betsy",
+          "name": "Summer of the swans (Byars, Betsy)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01374463",
+              "url": "https://id.worldcat.org/fast/1374463"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01374463",
+                "label": "Summer of the swans (Byars, Betsy)",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "telling-seymour-miranda",
+          "name": "Telling (Seymour, Miranda)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01393060",
+              "url": "https://id.worldcat.org/fast/1393060"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01393060",
+                "label": "Telling (Seymour, Miranda)",
+                "matchType": "generated",
+                "score": 1.9130056,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
     }
   }
 }

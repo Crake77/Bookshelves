@@ -315,70 +315,121 @@
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {
-        "slug": "activism-rep",
-        "name": "Political participation",
-        "confidence": "high",
+        "slug": "fantasie-und-fuge-u-ber-den-choral-ad-nos-ad-salutarem-undam-liszt-franz",
+        "name": "Fantasie und Fuge über den Choral Ad nos, ad salutarem undam (Liszt, Franz)",
+        "confidence": "medium",
         "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "representation",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2024055409",
-            "url": "http://lccn.loc.gov/2024055409"
-          }
-        ]
-      },
-      {
-        "slug": "collective-action",
-        "name": "Solidarity",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "theme",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2024055409",
-            "url": "http://lccn.loc.gov/2024055409"
-          }
-        ]
-      },
-      {
-        "slug": "geopolitical-history",
-        "name": "Palestine question (1948-)--Public opinion",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "theme",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2024055409",
-            "url": "http://lccn.loc.gov/2024055409"
-          }
-        ]
-      },
-      {
-        "slug": "social-justice",
-        "name": "Justice",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "genre",
+        "taxonomy_type": "unknown",
         "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2024055409",
-            "url": "http://lccn.loc.gov/2024055409"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01378893",
+            "url": "https://id.worldcat.org/fast/1378893"
+          }
+        ]
+      },
+      {
+        "slug": "fantasy-in-art-themes-motives",
+        "name": "Fantasy in art--Themes, motives",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00920846",
+            "url": "https://id.worldcat.org/fast/920846"
+          }
+        ]
+      },
+      {
+        "slug": "fantasy-therapeutic-use",
+        "name": "Fantasy--Therapeutic use",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00920696",
+            "url": "https://id.worldcat.org/fast/920696"
+          }
+        ]
+      },
+      {
+        "slug": "final-fantasy-motion-picture",
+        "name": "Final fantasy (Motion picture)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01396007",
+            "url": "https://id.worldcat.org/fast/1396007"
+          }
+        ]
+      },
+      {
+        "slug": "makrokosmos-crumb-george",
+        "name": "Makrokosmos (Crumb, George)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01364657",
+            "url": "https://id.worldcat.org/fast/1364657"
+          }
+        ]
+      },
+      {
+        "slug": "power-the-fantasy-game",
+        "name": "Power, The (Fantasy game)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01074428",
+            "url": "https://id.worldcat.org/fast/1074428"
+          }
+        ]
+      },
+      {
+        "slug": "validation-therapy",
+        "name": "Validation therapy",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01163812",
+            "url": "https://id.worldcat.org/fast/1163812"
           }
         ]
       }
@@ -425,9 +476,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:45:52.365Z",
+    "last_run": "2025-11-01T18:56:58.880Z",
     "sources_enabled": [
-      "loc"
+      "fast"
     ],
     "input_snapshot": {
       "title": "The Fantasy and Necessity of Solidarity",
@@ -440,91 +491,185 @@
     },
     "sources": {
       "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
         "labels": [
           {
-            "slug": "collective-action",
-            "name": "Solidarity",
+            "slug": "power-the-fantasy-game",
+            "name": "Power, The (Fantasy game)",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2024055409",
-            "url": "http://lccn.loc.gov/2024055409",
+            "id": "fst01074428",
+            "url": "https://id.worldcat.org/fast/1074428",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2024055409",
-                "subject": "Solidarity",
-                "matchType": "label"
+                "fastId": "fst01074428",
+                "label": "Power, The (Fantasy game)",
+                "matchType": "generated",
+                "score": 2.4311285,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01074428",
+                "label": "Power, The (Fantasy game)",
+                "matchType": "generated",
+                "score": 2.4311285,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "social-justice",
-            "name": "Justice",
+            "slug": "fantasy-therapeutic-use",
+            "name": "Fantasy--Therapeutic use",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2024055409",
-            "url": "http://lccn.loc.gov/2024055409",
+            "id": "fst00920696",
+            "url": "https://id.worldcat.org/fast/920696",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2024055409",
-                "subject": "Justice",
-                "matchType": "label"
+                "fastId": "fst00920696",
+                "label": "Fantasy--Therapeutic use",
+                "matchType": "generated",
+                "score": 2.3181167,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "activism-rep",
-            "name": "Political participation",
+            "slug": "final-fantasy-motion-picture",
+            "name": "Final fantasy (Motion picture)",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2024055409",
-            "url": "http://lccn.loc.gov/2024055409",
+            "id": "fst01396007",
+            "url": "https://id.worldcat.org/fast/1396007",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2024055409",
-                "subject": "Political participation",
-                "matchType": "label"
+                "fastId": "fst01396007",
+                "label": "Final fantasy (Motion picture)",
+                "matchType": "generated",
+                "score": 2.0838244,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "geopolitical-history",
-            "name": "Palestine question (1948-)--Public opinion",
+            "slug": "makrokosmos-crumb-george",
+            "name": "Makrokosmos (Crumb, George)",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2024055409",
-            "url": "http://lccn.loc.gov/2024055409",
+            "id": "fst01364657",
+            "url": "https://id.worldcat.org/fast/1364657",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2024055409",
-                "subject": "Palestine question (1948-)--Public opinion",
-                "matchType": "label"
+                "fastId": "fst01364657",
+                "label": "Makrokosmos (Crumb, George)",
+                "matchType": "generated",
+                "score": 1.8544934,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01364657",
+                "label": "Makrokosmos (Crumb, George)",
+                "matchType": "generated",
+                "score": 1.8544934,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01364657",
+                "label": "Makrokosmos (Crumb, George)",
+                "matchType": "generated",
+                "score": 1.8544934,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasy-in-art-themes-motives",
+            "name": "Fantasy in art--Themes, motives",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00920846",
+            "url": "https://id.worldcat.org/fast/920846",
+            "raw": [
+              {
+                "fastId": "fst00920846",
+                "label": "Fantasy in art--Themes, motives",
+                "matchType": "generated",
+                "score": 1.7365204,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "validation-therapy",
+            "name": "Validation therapy",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01163812",
+            "url": "https://id.worldcat.org/fast/1163812",
+            "raw": [
+              {
+                "fastId": "fst01163812",
+                "label": "Validation therapy",
+                "matchType": "generated",
+                "score": 1.3892163,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasie-und-fuge-u-ber-den-choral-ad-nos-ad-salutarem-undam-liszt-franz",
+            "name": "Fantasie und Fuge über den Choral Ad nos, ad salutarem undam (Liszt, Franz)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01378893",
+            "url": "https://id.worldcat.org/fast/1378893",
+            "raw": [
+              {
+                "fastId": "fst01378893",
+                "label": "Fantasie und Fuge über den Choral Ad nos, ad salutarem undam (Liszt, Franz)",
+                "matchType": "generated",
+                "score": 1.3892163,
+                "type": "alt"
               }
             ],
             "notes": []
           }
         ],
         "notes": [
-          "[loc] cache hit"
+          "[fast] title returned no results",
+          "[fast] title-core returned no results",
+          "[fast] fallback succeeded via title-bigram"
         ]
-      },
-      "fast": {
-        "labels": [],
-        "notes": []
       },
       "wikidata": {
         "labels": [],
@@ -534,114 +679,233 @@
     "merged": {
       "subjects": [
         {
-          "slug": "activism-rep",
-          "name": "Political participation",
+          "slug": "fantasie-und-fuge-u-ber-den-choral-ad-nos-ad-salutarem-undam-liszt-franz",
+          "name": "Fantasie und Fuge über den Choral Ad nos, ad salutarem undam (Liszt, Franz)",
           "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "representation",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2024055409",
-              "url": "http://lccn.loc.gov/2024055409"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2024055409",
-                "subject": "Political participation",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "collective-action",
-          "name": "Solidarity",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "theme",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2024055409",
-              "url": "http://lccn.loc.gov/2024055409"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2024055409",
-                "subject": "Solidarity",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "geopolitical-history",
-          "name": "Palestine question (1948-)--Public opinion",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "theme",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2024055409",
-              "url": "http://lccn.loc.gov/2024055409"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2024055409",
-                "subject": "Palestine question (1948-)--Public opinion",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "social-justice",
-          "name": "Justice",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2024055409",
-              "url": "http://lccn.loc.gov/2024055409"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01378893",
+              "url": "https://id.worldcat.org/fast/1378893"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2024055409",
-                "subject": "Justice",
-                "matchType": "label"
+                "fastId": "fst01378893",
+                "label": "Fantasie und Fuge über den Choral Ad nos, ad salutarem undam (Liszt, Franz)",
+                "matchType": "generated",
+                "score": 1.3892163,
+                "type": "alt"
               }
             ],
-            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fantasy-in-art-themes-motives",
+          "name": "Fantasy in art--Themes, motives",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00920846",
+              "url": "https://id.worldcat.org/fast/920846"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00920846",
+                "label": "Fantasy in art--Themes, motives",
+                "matchType": "generated",
+                "score": 1.7365204,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fantasy-therapeutic-use",
+          "name": "Fantasy--Therapeutic use",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00920696",
+              "url": "https://id.worldcat.org/fast/920696"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00920696",
+                "label": "Fantasy--Therapeutic use",
+                "matchType": "generated",
+                "score": 2.3181167,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "final-fantasy-motion-picture",
+          "name": "Final fantasy (Motion picture)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01396007",
+              "url": "https://id.worldcat.org/fast/1396007"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01396007",
+                "label": "Final fantasy (Motion picture)",
+                "matchType": "generated",
+                "score": 2.0838244,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "makrokosmos-crumb-george",
+          "name": "Makrokosmos (Crumb, George)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01364657",
+              "url": "https://id.worldcat.org/fast/1364657"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01364657",
+                "label": "Makrokosmos (Crumb, George)",
+                "matchType": "generated",
+                "score": 1.8544934,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01364657",
+                "label": "Makrokosmos (Crumb, George)",
+                "matchType": "generated",
+                "score": 1.8544934,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01364657",
+                "label": "Makrokosmos (Crumb, George)",
+                "matchType": "generated",
+                "score": 1.8544934,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "power-the-fantasy-game",
+          "name": "Power, The (Fantasy game)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01074428",
+              "url": "https://id.worldcat.org/fast/1074428"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01074428",
+                "label": "Power, The (Fantasy game)",
+                "matchType": "generated",
+                "score": 2.4311285,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01074428",
+                "label": "Power, The (Fantasy game)",
+                "matchType": "generated",
+                "score": 2.4311285,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "validation-therapy",
+          "name": "Validation therapy",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01163812",
+              "url": "https://id.worldcat.org/fast/1163812"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01163812",
+                "label": "Validation therapy",
+                "matchType": "generated",
+                "score": 1.3892163,
+                "type": "alt"
+              }
+            ],
             "wikidata": []
           }
         }

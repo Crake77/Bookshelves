@@ -299,69 +299,171 @@
     "external_subjects": [
       {
         "slug": "anxiety",
-        "name": "Anxiety in literature",
-        "confidence": "high",
+        "name": "Anxiety",
+        "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "cross_tag",
         "taxonomy_group": "content_flags",
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2023003224",
-            "url": "http://lccn.loc.gov/2023003224"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00810950",
+            "url": "https://id.worldcat.org/fast/810950"
           }
         ]
       },
       {
-        "slug": "climate-change",
-        "name": "Ecofiction--20th century--History and criticism",
-        "confidence": "high",
+        "slug": "anxiety-in-art",
+        "name": "Anxiety in art",
+        "confidence": "medium",
         "kind": "topic",
-        "taxonomy_type": "genre",
+        "taxonomy_type": "unknown",
         "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2023003224",
-            "url": "http://lccn.loc.gov/2023003224"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00810981",
+            "url": "https://id.worldcat.org/fast/810981"
           }
         ]
       },
       {
-        "slug": "environmental-disaster",
-        "name": "Disasters in literature",
-        "confidence": "high",
+        "slug": "anxiety-in-infants",
+        "name": "Anxiety in infants",
+        "confidence": "medium",
         "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "setting",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2023003224",
-            "url": "http://lccn.loc.gov/2023003224"
-          }
-        ]
-      },
-      {
-        "slug": "essays-criticism",
-        "name": "Literary criticism",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "supergenre",
+        "taxonomy_type": "unknown",
         "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2023003224",
-            "url": "http://lccn.loc.gov/2023003224"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00810986",
+            "url": "https://id.worldcat.org/fast/810986"
+          }
+        ]
+      },
+      {
+        "slug": "anxiety-in-old-age",
+        "name": "Anxiety in old age",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00810988",
+            "url": "https://id.worldcat.org/fast/810988"
+          }
+        ]
+      },
+      {
+        "slug": "anxiety-in-women",
+        "name": "Anxiety in women",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00810989",
+            "url": "https://id.worldcat.org/fast/810989"
+          }
+        ]
+      },
+      {
+        "slug": "anxiety-in-youth",
+        "name": "Anxiety in youth",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00810991",
+            "url": "https://id.worldcat.org/fast/810991"
+          }
+        ]
+      },
+      {
+        "slug": "anxiety-sex-factors",
+        "name": "Anxiety--Sex factors",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00810974",
+            "url": "https://id.worldcat.org/fast/810974"
+          }
+        ]
+      },
+      {
+        "slug": "anxiety-testing",
+        "name": "Anxiety--Testing",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00810977",
+            "url": "https://id.worldcat.org/fast/810977"
+          }
+        ]
+      },
+      {
+        "slug": "endler-multidimensional-anxiety-scales",
+        "name": "Endler Multidimensional Anxiety Scales",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00909709",
+            "url": "https://id.worldcat.org/fast/909709"
+          }
+        ]
+      },
+      {
+        "slug": "social-phobia",
+        "name": "Social phobia",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01122723",
+            "url": "https://id.worldcat.org/fast/1122723"
           }
         ]
       }
@@ -397,10 +499,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:15:10.037Z",
+    "last_run": "2025-11-01T18:56:01.962Z",
     "sources_enabled": [
-      "loc",
-      "wikidata"
+      "fast"
     ],
     "input_snapshot": {
       "title": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction",
@@ -413,291 +514,533 @@
     },
     "sources": {
       "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
         "labels": [
           {
-            "slug": "climate-change",
-            "name": "Ecofiction--20th century--History and criticism",
-            "kind": "topic",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2023003224",
-            "url": "http://lccn.loc.gov/2023003224",
-            "raw": [
-              {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Ecofiction--20th century--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Ecofiction--21st century--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Climatic changes in literature",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Ecofiction--20th century--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Ecofiction--21st century--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Climatic changes in literature",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
             "slug": "anxiety",
-            "name": "Anxiety in literature",
+            "name": "Anxiety",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2023003224",
-            "url": "http://lccn.loc.gov/2023003224",
+            "id": "fst00810950",
+            "url": "https://id.worldcat.org/fast/810950",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Anxiety in literature",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Anxiety in literature",
-                "matchType": "label"
+                "fastId": "fst00810950",
+                "label": "Anxiety",
+                "matchType": "generated",
+                "score": 4.293633,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "environmental-disaster",
-            "name": "Disasters in literature",
+            "slug": "anxiety-sex-factors",
+            "name": "Anxiety--Sex factors",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2023003224",
-            "url": "http://lccn.loc.gov/2023003224",
+            "id": "fst00810974",
+            "url": "https://id.worldcat.org/fast/810974",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Disasters in literature",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Disasters in literature",
-                "matchType": "label"
+                "fastId": "fst00810974",
+                "label": "Anxiety--Sex factors",
+                "matchType": "generated",
+                "score": 3.036057,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "essays-criticism",
-            "name": "Literary criticism",
+            "slug": "anxiety-testing",
+            "name": "Anxiety--Testing",
             "kind": "topic",
-            "confidence": "high",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2023003224",
-            "url": "http://lccn.loc.gov/2023003224",
+            "id": "fst00810977",
+            "url": "https://id.worldcat.org/fast/810977",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Literary criticism",
-                "matchType": "label"
-              },
+                "fastId": "fst00810977",
+                "label": "Anxiety--Testing",
+                "matchType": "generated",
+                "score": 3.036057,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "anxiety-in-art",
+            "name": "Anxiety in art",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00810981",
+            "url": "https://id.worldcat.org/fast/810981",
+            "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Literary criticism",
-                "matchType": "label"
+                "fastId": "fst00810981",
+                "label": "Anxiety in art",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "anxiety-in-infants",
+            "name": "Anxiety in infants",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00810986",
+            "url": "https://id.worldcat.org/fast/810986",
+            "raw": [
+              {
+                "fastId": "fst00810986",
+                "label": "Anxiety in infants",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "anxiety-in-old-age",
+            "name": "Anxiety in old age",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00810988",
+            "url": "https://id.worldcat.org/fast/810988",
+            "raw": [
+              {
+                "fastId": "fst00810988",
+                "label": "Anxiety in old age",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "anxiety-in-women",
+            "name": "Anxiety in women",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00810989",
+            "url": "https://id.worldcat.org/fast/810989",
+            "raw": [
+              {
+                "fastId": "fst00810989",
+                "label": "Anxiety in women",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "anxiety-in-youth",
+            "name": "Anxiety in youth",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00810991",
+            "url": "https://id.worldcat.org/fast/810991",
+            "raw": [
+              {
+                "fastId": "fst00810991",
+                "label": "Anxiety in youth",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "endler-multidimensional-anxiety-scales",
+            "name": "Endler Multidimensional Anxiety Scales",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00909709",
+            "url": "https://id.worldcat.org/fast/909709",
+            "raw": [
+              {
+                "fastId": "fst00909709",
+                "label": "Endler Multidimensional Anxiety Scales",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "social-phobia",
+            "name": "Social phobia",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01122723",
+            "url": "https://id.worldcat.org/fast/1122723",
+            "raw": [
+              {
+                "fastId": "fst01122723",
+                "label": "Social phobia",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "alt"
               }
             ],
             "notes": []
           }
         ],
         "notes": [
-          "[loc] cache hit"
+          "[fast] title returned no results",
+          "[fast] title-core returned no results",
+          "[fast] title-bigram returned no results",
+          "[fast] fallback succeeded via token:anxiety"
         ]
-      },
-      "fast": {
-        "labels": [],
-        "notes": []
       },
       "wikidata": {
         "labels": [],
-        "notes": [
-          "[wikidata] retrying with title search",
-          "[wikidata] no matches returned"
-        ]
+        "notes": []
       }
     },
     "merged": {
       "subjects": [
         {
           "slug": "anxiety",
-          "name": "Anxiety in literature",
+          "name": "Anxiety",
           "kind": "topic",
-          "confidence": "high",
+          "confidence": "medium",
           "taxonomy_type": "cross_tag",
           "taxonomy_group": "content_flags",
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2023003224",
-              "url": "http://lccn.loc.gov/2023003224"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00810950",
+              "url": "https://id.worldcat.org/fast/810950"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Anxiety in literature",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Anxiety in literature",
-                "matchType": "label"
+                "fastId": "fst00810950",
+                "label": "Anxiety",
+                "matchType": "generated",
+                "score": 4.293633,
+                "type": "auth"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "climate-change",
-          "name": "Ecofiction--20th century--History and criticism",
+          "slug": "anxiety-in-art",
+          "name": "Anxiety in art",
           "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2023003224",
-              "url": "http://lccn.loc.gov/2023003224"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00810981",
+              "url": "https://id.worldcat.org/fast/810981"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Ecofiction--20th century--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Ecofiction--21st century--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Climatic changes in literature",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Ecofiction--20th century--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Ecofiction--21st century--History and criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Climatic changes in literature",
-                "matchType": "label"
+                "fastId": "fst00810981",
+                "label": "Anxiety in art",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "environmental-disaster",
-          "name": "Disasters in literature",
+          "slug": "anxiety-in-infants",
+          "name": "Anxiety in infants",
           "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "cross_tag",
-          "taxonomy_group": "setting",
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2023003224",
-              "url": "http://lccn.loc.gov/2023003224"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Disasters in literature",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Disasters in literature",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "essays-criticism",
-          "name": "Literary criticism",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "supergenre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2023003224",
-              "url": "http://lccn.loc.gov/2023003224"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00810986",
+              "url": "https://id.worldcat.org/fast/810986"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2023003224",
-                "subject": "Literary criticism",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2023003225",
-                "subject": "Literary criticism",
-                "matchType": "label"
+                "fastId": "fst00810986",
+                "label": "Anxiety in infants",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
               }
             ],
-            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "anxiety-in-old-age",
+          "name": "Anxiety in old age",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00810988",
+              "url": "https://id.worldcat.org/fast/810988"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00810988",
+                "label": "Anxiety in old age",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "anxiety-in-women",
+          "name": "Anxiety in women",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00810989",
+              "url": "https://id.worldcat.org/fast/810989"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00810989",
+                "label": "Anxiety in women",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "anxiety-in-youth",
+          "name": "Anxiety in youth",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00810991",
+              "url": "https://id.worldcat.org/fast/810991"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00810991",
+                "label": "Anxiety in youth",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "anxiety-sex-factors",
+          "name": "Anxiety--Sex factors",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00810974",
+              "url": "https://id.worldcat.org/fast/810974"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00810974",
+                "label": "Anxiety--Sex factors",
+                "matchType": "generated",
+                "score": 3.036057,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "anxiety-testing",
+          "name": "Anxiety--Testing",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00810977",
+              "url": "https://id.worldcat.org/fast/810977"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00810977",
+                "label": "Anxiety--Testing",
+                "matchType": "generated",
+                "score": 3.036057,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "endler-multidimensional-anxiety-scales",
+          "name": "Endler Multidimensional Anxiety Scales",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00909709",
+              "url": "https://id.worldcat.org/fast/909709"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00909709",
+                "label": "Endler Multidimensional Anxiety Scales",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "social-phobia",
+          "name": "Social phobia",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01122723",
+              "url": "https://id.worldcat.org/fast/1122723"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01122723",
+                "label": "Social phobia",
+                "matchType": "generated",
+                "score": 2.862422,
+                "type": "alt"
+              }
+            ],
             "wikidata": []
           }
         }

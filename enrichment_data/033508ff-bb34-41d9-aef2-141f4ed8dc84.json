@@ -287,93 +287,8 @@
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {
-        "slug": "adventure-action",
-        "name": "Adventure fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "supergenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/98814342",
-            "url": "http://lccn.loc.gov/98814342"
-          }
-        ]
-      },
-      {
-        "slug": "fantasy",
-        "name": "Fantasy fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "genre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/98814342",
-            "url": "http://lccn.loc.gov/98814342"
-          }
-        ]
-      },
-      {
-        "slug": "linguistics",
-        "name": "English language--Grammar",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "subgenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": "language",
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://www.loc.gov/item/02005671/",
-            "url": "http://www.loc.gov/item/02005671/"
-          }
-        ]
-      },
-      {
-        "slug": "reference",
-        "name": "Encyclopedias and dictionaries",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "genre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://www.loc.gov/item/00002444/",
-            "url": "http://www.loc.gov/item/00002444/"
-          }
-        ]
-      },
-      {
-        "slug": "science-fiction",
-        "name": "Science fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "genre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/98814342",
-            "url": "http://lccn.loc.gov/98814342"
-          }
-        ]
-      },
-      {
-        "slug": "copyright-titles-united-states",
-        "name": "Copyright--Titles--United States",
+        "slug": "ba-qi-manzhou-shi-zu-tong-pu",
+        "name": "Ba qi Manzhou shi zu tong pu",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -381,16 +296,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/2019713453/",
-            "url": "http://www.loc.gov/item/2019713453/"
+            "id": "fst01394363",
+            "url": "https://id.worldcat.org/fast/1394363"
           }
         ]
       },
       {
-        "slug": "copyright-united-states-history-sources",
-        "name": "Copyright--United States--History--Sources",
+        "slug": "cic-hearing-aids",
+        "name": "CIC hearing aids",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -398,16 +313,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/2019713453/",
-            "url": "http://www.loc.gov/item/2019713453/"
+            "id": "fst00843397",
+            "url": "https://id.worldcat.org/fast/843397"
           }
         ]
       },
       {
-        "slug": "crawford-james-ludovic-lindsay-earl-of-1847-1913-library-catalogs",
-        "name": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
+        "slug": "completeness-theorem",
+        "name": "Completeness theorem",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -415,16 +330,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/"
+            "id": "fst00871577",
+            "url": "https://id.worldcat.org/fast/871577"
           }
         ]
       },
       {
-        "slug": "early-printed-books-bibliography-catalogs",
-        "name": "Early printed books--Bibliography--Catalogs",
+        "slug": "poems-blake-william",
+        "name": "Poems (Blake, William)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -432,16 +347,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/"
+            "id": "fst01790008",
+            "url": "https://id.worldcat.org/fast/1790008"
           }
         ]
       },
       {
-        "slug": "great-britain-bibliography-catalogs",
-        "name": "Great Britain--Bibliography--Catalogs",
+        "slug": "poems-hardy-thomas",
+        "name": "Poems (Hardy, Thomas)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -449,16 +364,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/"
+            "id": "fst01790054",
+            "url": "https://id.worldcat.org/fast/1790054"
           }
         ]
       },
       {
-        "slug": "incunabula-england-bibliography-catalogs",
-        "name": "Incunabula--England--Bibliography--Catalogs",
+        "slug": "poems-swift-jonathan",
+        "name": "Poems (Swift, Jonathan)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -466,16 +381,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/"
+            "id": "fst01790134",
+            "url": "https://id.worldcat.org/fast/1790134"
           }
         ]
       },
       {
-        "slug": "private-libraries-england-catalogs",
-        "name": "Private libraries--England--Catalogs",
+        "slug": "works-berlioz-hector",
+        "name": "Works (Berlioz, Hector)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -483,16 +398,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/"
+            "id": "fst01796214",
+            "url": "https://id.worldcat.org/fast/1796214"
           }
         ]
       },
       {
-        "slug": "rare-books-england-bibliography-catalogs",
-        "name": "Rare books--England--Bibliography--Catalogs",
+        "slug": "works-johnson-robert",
+        "name": "Works (Johnson, Robert)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -500,16 +415,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/"
+            "id": "fst01796263",
+            "url": "https://id.worldcat.org/fast/1796263"
           }
         ]
       },
       {
-        "slug": "scotland-bibliography-catalogs",
-        "name": "Scotland--Bibliography--Catalogs",
+        "slug": "works-more-thomas-saint",
+        "name": "Works (More, Thomas, Saint)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -517,16 +432,16 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/"
+            "id": "fst01792224",
+            "url": "https://id.worldcat.org/fast/1792224"
           }
         ]
       },
       {
-        "slug": "title-pages-specimens",
-        "name": "Title pages--Specimens",
+        "slug": "works-vivekananda-swami",
+        "name": "Works (Vivekananda, Swami)",
         "confidence": "medium",
         "kind": "topic",
         "taxonomy_type": "unknown",
@@ -534,27 +449,10 @@
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
+            "source": "fast",
             "confidence": "medium",
-            "id": "http://www.loc.gov/item/2019713453/",
-            "url": "http://www.loc.gov/item/2019713453/"
-          }
-        ]
-      },
-      {
-        "slug": "united-states-imprints-history-sources",
-        "name": "United States--Imprints--History--Sources",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "medium",
-            "id": "http://www.loc.gov/item/2019713453/",
-            "url": "http://www.loc.gov/item/2019713453/"
+            "id": "fst01792255",
+            "url": "https://id.worldcat.org/fast/1792255"
           }
         ]
       }
@@ -590,10 +488,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:15:52.729Z",
+    "last_run": "2025-11-01T18:56:39.568Z",
     "sources_enabled": [
-      "loc",
-      "wikidata"
+      "fast"
     ],
     "input_snapshot": {
       "title": "The Complete Nebula Award-winning Fiction",
@@ -606,473 +503,238 @@
     },
     "sources": {
       "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
         "labels": [
           {
-            "slug": "science-fiction",
-            "name": "Science fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/98814342",
-            "url": "http://lccn.loc.gov/98814342",
-            "raw": [
-              {
-                "recordId": "http://lccn.loc.gov/98814342",
-                "subject": "Science fiction",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "fantasy",
-            "name": "Fantasy fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/98814342",
-            "url": "http://lccn.loc.gov/98814342",
-            "raw": [
-              {
-                "recordId": "http://lccn.loc.gov/98814342",
-                "subject": "Fantasy fiction",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "adventure-action",
-            "name": "Adventure fiction",
-            "kind": "genre",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/98814342",
-            "url": "http://lccn.loc.gov/98814342",
-            "raw": [
-              {
-                "recordId": "http://lccn.loc.gov/98814342",
-                "subject": "Adventure fiction",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "reference",
-            "name": "Encyclopedias and dictionaries",
-            "kind": "topic",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/00002444/",
-            "url": "http://www.loc.gov/item/00002444/",
-            "raw": [
-              {
-                "recordId": "http://www.loc.gov/item/00002444/",
-                "subject": "Encyclopedias and dictionaries",
-                "matchType": "label"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "title-pages-specimens",
-            "name": "Title pages--Specimens",
+            "slug": "completeness-theorem",
+            "name": "Completeness theorem",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2019713453/",
-            "url": "http://www.loc.gov/item/2019713453/",
+            "id": "fst00871577",
+            "url": "https://id.worldcat.org/fast/871577",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/2019713453/",
-                "subject": "Title pages--Specimens",
-                "matchType": "generated"
+                "fastId": "fst00871577",
+                "label": "Completeness theorem",
+                "matchType": "generated",
+                "score": 2.44445,
+                "type": "auth"
               }
             ],
             "notes": []
           },
           {
-            "slug": "copyright-titles-united-states",
-            "name": "Copyright--Titles--United States",
+            "slug": "cic-hearing-aids",
+            "name": "CIC hearing aids",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2019713453/",
-            "url": "http://www.loc.gov/item/2019713453/",
+            "id": "fst00843397",
+            "url": "https://id.worldcat.org/fast/843397",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/2019713453/",
-                "subject": "Copyright--Titles--United States",
-                "matchType": "generated"
+                "fastId": "fst00843397",
+                "label": "CIC hearing aids",
+                "matchType": "generated",
+                "score": 1.865859,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "copyright-united-states-history-sources",
-            "name": "Copyright--United States--History--Sources",
+            "slug": "poems-blake-william",
+            "name": "Poems (Blake, William)",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2019713453/",
-            "url": "http://www.loc.gov/item/2019713453/",
+            "id": "fst01790008",
+            "url": "https://id.worldcat.org/fast/1790008",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/2019713453/",
-                "subject": "Copyright--United States--History--Sources",
-                "matchType": "generated"
+                "fastId": "fst01790008",
+                "label": "Poems (Blake, William)",
+                "matchType": "generated",
+                "score": 1.7460356,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "united-states-imprints-history-sources",
-            "name": "United States--Imprints--History--Sources",
+            "slug": "ba-qi-manzhou-shi-zu-tong-pu",
+            "name": "Ba qi Manzhou shi zu tong pu",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/2019713453/",
-            "url": "http://www.loc.gov/item/2019713453/",
+            "id": "fst01394363",
+            "url": "https://id.worldcat.org/fast/1394363",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/2019713453/",
-                "subject": "United States--Imprints--History--Sources",
-                "matchType": "generated"
+                "fastId": "fst01394363",
+                "label": "Ba qi Manzhou shi zu tong pu",
+                "matchType": "generated",
+                "score": 1.5063832,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "crawford-james-ludovic-lindsay-earl-of-1847-1913-library-catalogs",
-            "name": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
+            "slug": "works-more-thomas-saint",
+            "name": "Works (More, Thomas, Saint)",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/",
+            "id": "fst01792224",
+            "url": "https://id.worldcat.org/fast/1792224",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01792224",
+                "label": "Works (More, Thomas, Saint)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "private-libraries-england-catalogs",
-            "name": "Private libraries--England--Catalogs",
+            "slug": "works-vivekananda-swami",
+            "name": "Works (Vivekananda, Swami)",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/",
+            "id": "fst01792255",
+            "url": "https://id.worldcat.org/fast/1792255",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Private libraries--England--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01792255",
+                "label": "Works (Vivekananda, Swami)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "rare-books-england-bibliography-catalogs",
-            "name": "Rare books--England--Bibliography--Catalogs",
+            "slug": "works-berlioz-hector",
+            "name": "Works (Berlioz, Hector)",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/",
+            "id": "fst01796214",
+            "url": "https://id.worldcat.org/fast/1796214",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Rare books--England--Bibliography--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01796214",
+                "label": "Works (Berlioz, Hector)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "incunabula-england-bibliography-catalogs",
-            "name": "Incunabula--England--Bibliography--Catalogs",
+            "slug": "works-johnson-robert",
+            "name": "Works (Johnson, Robert)",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/",
+            "id": "fst01796263",
+            "url": "https://id.worldcat.org/fast/1796263",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Incunabula--England--Bibliography--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01796263",
+                "label": "Works (Johnson, Robert)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "great-britain-bibliography-catalogs",
-            "name": "Great Britain--Bibliography--Catalogs",
+            "slug": "poems-hardy-thomas",
+            "name": "Poems (Hardy, Thomas)",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/",
+            "id": "fst01790054",
+            "url": "https://id.worldcat.org/fast/1790054",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Great Britain--Bibliography--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01790054",
+                "label": "Poems (Hardy, Thomas)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "scotland-bibliography-catalogs",
-            "name": "Scotland--Bibliography--Catalogs",
+            "slug": "poems-swift-jonathan",
+            "name": "Poems (Swift, Jonathan)",
             "kind": "topic",
             "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/",
+            "id": "fst01790134",
+            "url": "https://id.worldcat.org/fast/1790134",
             "raw": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Scotland--Bibliography--Catalogs",
-                "matchType": "generated"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "early-printed-books-bibliography-catalogs",
-            "name": "Early printed books--Bibliography--Catalogs",
-            "kind": "topic",
-            "confidence": "medium",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/10027735/",
-            "url": "http://www.loc.gov/item/10027735/",
-            "raw": [
-              {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Early printed books--Bibliography--Catalogs",
-                "matchType": "generated"
-              }
-            ],
-            "notes": []
-          },
-          {
-            "slug": "linguistics",
-            "name": "English language--Grammar",
-            "kind": "topic",
-            "confidence": "high",
-            "taxonomy_type": null,
-            "taxonomy_group": null,
-            "taxonomy_parent": null,
-            "id": "http://www.loc.gov/item/02005671/",
-            "url": "http://www.loc.gov/item/02005671/",
-            "raw": [
-              {
-                "recordId": "http://www.loc.gov/item/02005671/",
-                "subject": "English language--Grammar",
-                "matchType": "label"
+                "fastId": "fst01790134",
+                "label": "Poems (Swift, Jonathan)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
             "notes": []
           }
         ],
         "notes": [
-          "[loc] cache hit"
+          "[fast] title returned no results",
+          "[fast] title-core returned no results",
+          "[fast] fallback succeeded via title-bigram"
         ]
-      },
-      "fast": {
-        "labels": [],
-        "notes": []
       },
       "wikidata": {
         "labels": [],
-        "notes": [
-          "[wikidata] retrying with title search",
-          "[wikidata] no matches returned"
-        ]
+        "notes": []
       }
     },
     "merged": {
       "subjects": [
         {
-          "slug": "adventure-action",
-          "name": "Adventure fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "supergenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/98814342",
-              "url": "http://lccn.loc.gov/98814342"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/98814342",
-                "subject": "Adventure fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "fantasy",
-          "name": "Fantasy fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "genre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/98814342",
-              "url": "http://lccn.loc.gov/98814342"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/98814342",
-                "subject": "Fantasy fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "linguistics",
-          "name": "English language--Grammar",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "subgenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": "language",
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://www.loc.gov/item/02005671/",
-              "url": "http://www.loc.gov/item/02005671/"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://www.loc.gov/item/02005671/",
-                "subject": "English language--Grammar",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "reference",
-          "name": "Encyclopedias and dictionaries",
-          "kind": "topic",
-          "confidence": "high",
-          "taxonomy_type": "genre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://www.loc.gov/item/00002444/",
-              "url": "http://www.loc.gov/item/00002444/"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://www.loc.gov/item/00002444/",
-                "subject": "Encyclopedias and dictionaries",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "science-fiction",
-          "name": "Science fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "genre",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/98814342",
-              "url": "http://lccn.loc.gov/98814342"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/98814342",
-                "subject": "Science fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "copyright-titles-united-states",
-          "name": "Copyright--Titles--United States",
+          "slug": "ba-qi-manzhou-shi-zu-tong-pu",
+          "name": "Ba qi Manzhou shi zu tong pu",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1080,27 +742,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/2019713453/",
-              "url": "http://www.loc.gov/item/2019713453/"
+              "id": "fst01394363",
+              "url": "https://id.worldcat.org/fast/1394363"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/2019713453/",
-                "subject": "Copyright--Titles--United States",
-                "matchType": "generated"
+                "fastId": "fst01394363",
+                "label": "Ba qi Manzhou shi zu tong pu",
+                "matchType": "generated",
+                "score": 1.5063832,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "copyright-united-states-history-sources",
-          "name": "Copyright--United States--History--Sources",
+          "slug": "cic-hearing-aids",
+          "name": "CIC hearing aids",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1108,27 +772,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/2019713453/",
-              "url": "http://www.loc.gov/item/2019713453/"
+              "id": "fst00843397",
+              "url": "https://id.worldcat.org/fast/843397"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/2019713453/",
-                "subject": "Copyright--United States--History--Sources",
-                "matchType": "generated"
+                "fastId": "fst00843397",
+                "label": "CIC hearing aids",
+                "matchType": "generated",
+                "score": 1.865859,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "crawford-james-ludovic-lindsay-earl-of-1847-1913-library-catalogs",
-          "name": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
+          "slug": "completeness-theorem",
+          "name": "Completeness theorem",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1136,27 +802,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/10027735/",
-              "url": "http://www.loc.gov/item/10027735/"
+              "id": "fst00871577",
+              "url": "https://id.worldcat.org/fast/871577"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst00871577",
+                "label": "Completeness theorem",
+                "matchType": "generated",
+                "score": 2.44445,
+                "type": "auth"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "early-printed-books-bibliography-catalogs",
-          "name": "Early printed books--Bibliography--Catalogs",
+          "slug": "poems-blake-william",
+          "name": "Poems (Blake, William)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1164,27 +832,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/10027735/",
-              "url": "http://www.loc.gov/item/10027735/"
+              "id": "fst01790008",
+              "url": "https://id.worldcat.org/fast/1790008"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Early printed books--Bibliography--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01790008",
+                "label": "Poems (Blake, William)",
+                "matchType": "generated",
+                "score": 1.7460356,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "great-britain-bibliography-catalogs",
-          "name": "Great Britain--Bibliography--Catalogs",
+          "slug": "poems-hardy-thomas",
+          "name": "Poems (Hardy, Thomas)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1192,27 +862,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/10027735/",
-              "url": "http://www.loc.gov/item/10027735/"
+              "id": "fst01790054",
+              "url": "https://id.worldcat.org/fast/1790054"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Great Britain--Bibliography--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01790054",
+                "label": "Poems (Hardy, Thomas)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "incunabula-england-bibliography-catalogs",
-          "name": "Incunabula--England--Bibliography--Catalogs",
+          "slug": "poems-swift-jonathan",
+          "name": "Poems (Swift, Jonathan)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1220,27 +892,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/10027735/",
-              "url": "http://www.loc.gov/item/10027735/"
+              "id": "fst01790134",
+              "url": "https://id.worldcat.org/fast/1790134"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Incunabula--England--Bibliography--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01790134",
+                "label": "Poems (Swift, Jonathan)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "private-libraries-england-catalogs",
-          "name": "Private libraries--England--Catalogs",
+          "slug": "works-berlioz-hector",
+          "name": "Works (Berlioz, Hector)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1248,27 +922,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/10027735/",
-              "url": "http://www.loc.gov/item/10027735/"
+              "id": "fst01796214",
+              "url": "https://id.worldcat.org/fast/1796214"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Private libraries--England--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01796214",
+                "label": "Works (Berlioz, Hector)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "rare-books-england-bibliography-catalogs",
-          "name": "Rare books--England--Bibliography--Catalogs",
+          "slug": "works-johnson-robert",
+          "name": "Works (Johnson, Robert)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1276,27 +952,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/10027735/",
-              "url": "http://www.loc.gov/item/10027735/"
+              "id": "fst01796263",
+              "url": "https://id.worldcat.org/fast/1796263"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Rare books--England--Bibliography--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01796263",
+                "label": "Works (Johnson, Robert)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "scotland-bibliography-catalogs",
-          "name": "Scotland--Bibliography--Catalogs",
+          "slug": "works-more-thomas-saint",
+          "name": "Works (More, Thomas, Saint)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1304,27 +982,29 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/10027735/",
-              "url": "http://www.loc.gov/item/10027735/"
+              "id": "fst01792224",
+              "url": "https://id.worldcat.org/fast/1792224"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/10027735/",
-                "subject": "Scotland--Bibliography--Catalogs",
-                "matchType": "generated"
+                "fastId": "fst01792224",
+                "label": "Works (More, Thomas, Saint)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
-            "fast": [],
             "wikidata": []
           }
         },
         {
-          "slug": "title-pages-specimens",
-          "name": "Title pages--Specimens",
+          "slug": "works-vivekananda-swami",
+          "name": "Works (Vivekananda, Swami)",
           "kind": "topic",
           "confidence": "medium",
           "taxonomy_type": "unknown",
@@ -1332,49 +1012,23 @@
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
+              "source": "fast",
               "confidence": "medium",
-              "id": "http://www.loc.gov/item/2019713453/",
-              "url": "http://www.loc.gov/item/2019713453/"
+              "id": "fst01792255",
+              "url": "https://id.worldcat.org/fast/1792255"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://www.loc.gov/item/2019713453/",
-                "subject": "Title pages--Specimens",
-                "matchType": "generated"
+                "fastId": "fst01792255",
+                "label": "Works (Vivekananda, Swami)",
+                "matchType": "generated",
+                "score": 1.3968284,
+                "type": "alt"
               }
             ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "united-states-imprints-history-sources",
-          "name": "United States--Imprints--History--Sources",
-          "kind": "topic",
-          "confidence": "medium",
-          "taxonomy_type": "unknown",
-          "taxonomy_group": null,
-          "taxonomy_parent": null,
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "medium",
-              "id": "http://www.loc.gov/item/2019713453/",
-              "url": "http://www.loc.gov/item/2019713453/"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://www.loc.gov/item/2019713453/",
-                "subject": "United States--Imprints--History--Sources",
-                "matchType": "generated"
-              }
-            ],
-            "fast": [],
             "wikidata": []
           }
         }

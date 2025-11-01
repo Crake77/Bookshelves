@@ -304,70 +304,172 @@
     "cross_tags_status": "needs_more",
     "external_subjects": [
       {
-        "slug": "contemporary-romance",
-        "name": "FICTION / Romance / Contemporary",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "subgenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": "romance",
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2014049131",
-            "url": "http://lccn.loc.gov/2014049131"
-          }
-        ]
-      },
-      {
-        "slug": "domestic-fiction",
-        "name": "Housekeepers--Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "subgenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": "contemporary-fiction",
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2014049131",
-            "url": "http://lccn.loc.gov/2014049131"
-          }
-        ]
-      },
-      {
-        "slug": "ranch-western",
-        "name": "Ranchers--Fiction",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "subgenre",
-        "taxonomy_group": null,
-        "taxonomy_parent": "western",
-        "sources": [
-          {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2014049131",
-            "url": "http://lccn.loc.gov/2014049131"
-          }
-        ]
-      },
-      {
-        "slug": "romance",
-        "name": "FICTION / Romance / General",
-        "confidence": "high",
-        "kind": "genre",
-        "taxonomy_type": "supergenre",
+        "slug": "can-vei-la-lauzeta-bernart-de-ventadorn",
+        "name": "Can vei la lauzeta (Bernart, de Ventadorn)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
         "taxonomy_group": null,
         "taxonomy_parent": null,
         "sources": [
           {
-            "source": "loc",
-            "confidence": "high",
-            "id": "http://lccn.loc.gov/2014049131",
-            "url": "http://lccn.loc.gov/2014049131"
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01378050",
+            "url": "https://id.worldcat.org/fast/1378050"
+          }
+        ]
+      },
+      {
+        "slug": "cuando-los-guayacanes-floreci-an-estupin-a-n-bass-nelson",
+        "name": "Cuando los guayacanes florecían (Estupiñán Bass, Nelson)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01374931",
+            "url": "https://id.worldcat.org/fast/1374931"
+          }
+        ]
+      },
+      {
+        "slug": "land-transport-nz",
+        "name": "Land Transport NZ",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01601391",
+            "url": "https://id.worldcat.org/fast/1601391"
+          }
+        ]
+      },
+      {
+        "slug": "na-r-vi-d-de-va-gner-ibsen-henrik",
+        "name": "Når vi døde vågner (Ibsen, Henrik)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01378464",
+            "url": "https://id.worldcat.org/fast/1378464"
+          }
+        ]
+      },
+      {
+        "slug": "remember-when-auctions-firm",
+        "name": "Remember When Auctions (Firm)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst00787659",
+            "url": "https://id.worldcat.org/fast/787659"
+          }
+        ]
+      },
+      {
+        "slug": "ta-t-e-n-ngo-ta-t-to",
+        "name": "Tá̆t đèn (Ngô, Tất Tố)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01794113",
+            "url": "https://id.worldcat.org/fast/1794113"
+          }
+        ]
+      },
+      {
+        "slug": "when-i-was-puerto-rican-santiago-esmeralda",
+        "name": "When I was Puerto Rican (Santiago, Esmeralda)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01386021",
+            "url": "https://id.worldcat.org/fast/1386021"
+          }
+        ]
+      },
+      {
+        "slug": "when-insane-do-as-the-sane-do-choreographic-work-rose",
+        "name": "When insane, do as the sane do (Choreographic work : Rose)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01795905",
+            "url": "https://id.worldcat.org/fast/1795905"
+          }
+        ]
+      },
+      {
+        "slug": "when-this-cruel-war-is-over-tucker-henry",
+        "name": "When this cruel war is over (Tucker, Henry)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01383573",
+            "url": "https://id.worldcat.org/fast/1383573"
+          }
+        ]
+      },
+      {
+        "slug": "works-ives-charles",
+        "name": "Works (Ives, Charles)",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "fast",
+            "confidence": "medium",
+            "id": "fst01918373",
+            "url": "https://id.worldcat.org/fast/1918373"
           }
         ]
       }
@@ -425,10 +527,9 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T16:16:23.883Z",
+    "last_run": "2025-11-01T18:57:10.154Z",
     "sources_enabled": [
-      "loc",
-      "wikidata"
+      "fast"
     ],
     "input_snapshot": {
       "title": "When I'm Gone",
@@ -441,221 +542,532 @@
     },
     "sources": {
       "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
         "labels": [
           {
-            "slug": "ranch-western",
-            "name": "Ranchers--Fiction",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "land-transport-nz",
+            "name": "Land Transport NZ",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2014049131",
-            "url": "http://lccn.loc.gov/2014049131",
+            "id": "fst01601391",
+            "url": "https://id.worldcat.org/fast/1601391",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "Ranchers--Fiction",
-                "matchType": "label"
+                "fastId": "fst01601391",
+                "label": "Land Transport NZ",
+                "matchType": "generated",
+                "score": 2.67976,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "domestic-fiction",
-            "name": "Housekeepers--Fiction",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "remember-when-auctions-firm",
+            "name": "Remember When Auctions (Firm)",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2014049131",
-            "url": "http://lccn.loc.gov/2014049131",
+            "id": "fst00787659",
+            "url": "https://id.worldcat.org/fast/787659",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "Housekeepers--Fiction",
-                "matchType": "label"
+                "fastId": "fst00787659",
+                "label": "Remember When Auctions (Firm)",
+                "matchType": "generated",
+                "score": 2.2969372,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "contemporary-romance",
-            "name": "FICTION / Romance / Contemporary",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "ta-t-e-n-ngo-ta-t-to",
+            "name": "Tá̆t đèn (Ngô, Tất Tố)",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2014049131",
-            "url": "http://lccn.loc.gov/2014049131",
+            "id": "fst01794113",
+            "url": "https://id.worldcat.org/fast/1794113",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "FICTION / Romance / Contemporary",
-                "matchType": "label"
+                "fastId": "fst01794113",
+                "label": "Tá̆t đèn (Ngô, Tất Tố)",
+                "matchType": "generated",
+                "score": 2.2969372,
+                "type": "alt"
               }
             ],
             "notes": []
           },
           {
-            "slug": "romance",
-            "name": "FICTION / Romance / General",
-            "kind": "genre",
-            "confidence": "high",
+            "slug": "na-r-vi-d-de-va-gner-ibsen-henrik",
+            "name": "Når vi døde vågner (Ibsen, Henrik)",
+            "kind": "topic",
+            "confidence": "medium",
             "taxonomy_type": null,
             "taxonomy_group": null,
             "taxonomy_parent": null,
-            "id": "http://lccn.loc.gov/2014049131",
-            "url": "http://lccn.loc.gov/2014049131",
+            "id": "fst01378464",
+            "url": "https://id.worldcat.org/fast/1378464",
             "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "FICTION / Romance / General",
-                "matchType": "label"
-              },
+                "fastId": "fst01378464",
+                "label": "Når vi døde vågner (Ibsen, Henrik)",
+                "matchType": "generated",
+                "score": 2.2969372,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "works-ives-charles",
+            "name": "Works (Ives, Charles)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01918373",
+            "url": "https://id.worldcat.org/fast/1918373",
+            "raw": [
               {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "Love stories",
-                "matchType": "label"
+                "fastId": "fst01918373",
+                "label": "Works (Ives, Charles)",
+                "matchType": "generated",
+                "score": 2.2969372,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "can-vei-la-lauzeta-bernart-de-ventadorn",
+            "name": "Can vei la lauzeta (Bernart, de Ventadorn)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01378050",
+            "url": "https://id.worldcat.org/fast/1378050",
+            "raw": [
+              {
+                "fastId": "fst01378050",
+                "label": "Can vei la lauzeta (Bernart, de Ventadorn)",
+                "matchType": "generated",
+                "score": 1.9141144,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "when-this-cruel-war-is-over-tucker-henry",
+            "name": "When this cruel war is over (Tucker, Henry)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01383573",
+            "url": "https://id.worldcat.org/fast/1383573",
+            "raw": [
+              {
+                "fastId": "fst01383573",
+                "label": "When this cruel war is over (Tucker, Henry)",
+                "matchType": "generated",
+                "score": 1.9141144,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "when-i-was-puerto-rican-santiago-esmeralda",
+            "name": "When I was Puerto Rican (Santiago, Esmeralda)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01386021",
+            "url": "https://id.worldcat.org/fast/1386021",
+            "raw": [
+              {
+                "fastId": "fst01386021",
+                "label": "When I was Puerto Rican (Santiago, Esmeralda)",
+                "matchType": "generated",
+                "score": 1.9141144,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "when-insane-do-as-the-sane-do-choreographic-work-rose",
+            "name": "When insane, do as the sane do (Choreographic work : Rose)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01795905",
+            "url": "https://id.worldcat.org/fast/1795905",
+            "raw": [
+              {
+                "fastId": "fst01795905",
+                "label": "When insane, do as the sane do (Choreographic work : Rose)",
+                "matchType": "generated",
+                "score": 1.5312915,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "cuando-los-guayacanes-floreci-an-estupin-a-n-bass-nelson",
+            "name": "Cuando los guayacanes florecían (Estupiñán Bass, Nelson)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01374931",
+            "url": "https://id.worldcat.org/fast/1374931",
+            "raw": [
+              {
+                "fastId": "fst01374931",
+                "label": "Cuando los guayacanes florecían (Estupiñán Bass, Nelson)",
+                "matchType": "generated",
+                "score": 1.5312915,
+                "type": "alt"
               }
             ],
             "notes": []
           }
         ],
         "notes": [
-          "[loc] cache hit"
+          "[fast] title returned no results",
+          "[fast] title-core returned no results",
+          "[fast] fallback succeeded via title-bigram"
         ]
-      },
-      "fast": {
-        "labels": [],
-        "notes": []
       },
       "wikidata": {
         "labels": [],
-        "notes": [
-          "[wikidata] retrying with title search",
-          "[wikidata] no matches returned"
-        ]
+        "notes": []
       }
     },
     "merged": {
       "subjects": [
         {
-          "slug": "contemporary-romance",
-          "name": "FICTION / Romance / Contemporary",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "subgenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": "romance",
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2014049131",
-              "url": "http://lccn.loc.gov/2014049131"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "FICTION / Romance / Contemporary",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "domestic-fiction",
-          "name": "Housekeepers--Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "subgenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": "contemporary-fiction",
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2014049131",
-              "url": "http://lccn.loc.gov/2014049131"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "Housekeepers--Fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "ranch-western",
-          "name": "Ranchers--Fiction",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "subgenre",
-          "taxonomy_group": null,
-          "taxonomy_parent": "western",
-          "sources": [
-            {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2014049131",
-              "url": "http://lccn.loc.gov/2014049131"
-            }
-          ],
-          "raw": {
-            "loc": [
-              {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "Ranchers--Fiction",
-                "matchType": "label"
-              }
-            ],
-            "fast": [],
-            "wikidata": []
-          }
-        },
-        {
-          "slug": "romance",
-          "name": "FICTION / Romance / General",
-          "kind": "genre",
-          "confidence": "high",
-          "taxonomy_type": "supergenre",
+          "slug": "can-vei-la-lauzeta-bernart-de-ventadorn",
+          "name": "Can vei la lauzeta (Bernart, de Ventadorn)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
             {
-              "source": "loc",
-              "confidence": "high",
-              "id": "http://lccn.loc.gov/2014049131",
-              "url": "http://lccn.loc.gov/2014049131"
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01378050",
+              "url": "https://id.worldcat.org/fast/1378050"
             }
           ],
           "raw": {
-            "loc": [
+            "loc": [],
+            "fast": [
               {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "FICTION / Romance / General",
-                "matchType": "label"
-              },
-              {
-                "recordId": "http://lccn.loc.gov/2014049131",
-                "subject": "Love stories",
-                "matchType": "label"
+                "fastId": "fst01378050",
+                "label": "Can vei la lauzeta (Bernart, de Ventadorn)",
+                "matchType": "generated",
+                "score": 1.9141144,
+                "type": "alt"
               }
             ],
-            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "cuando-los-guayacanes-floreci-an-estupin-a-n-bass-nelson",
+          "name": "Cuando los guayacanes florecían (Estupiñán Bass, Nelson)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01374931",
+              "url": "https://id.worldcat.org/fast/1374931"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01374931",
+                "label": "Cuando los guayacanes florecían (Estupiñán Bass, Nelson)",
+                "matchType": "generated",
+                "score": 1.5312915,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "land-transport-nz",
+          "name": "Land Transport NZ",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01601391",
+              "url": "https://id.worldcat.org/fast/1601391"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01601391",
+                "label": "Land Transport NZ",
+                "matchType": "generated",
+                "score": 2.67976,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "na-r-vi-d-de-va-gner-ibsen-henrik",
+          "name": "Når vi døde vågner (Ibsen, Henrik)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01378464",
+              "url": "https://id.worldcat.org/fast/1378464"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01378464",
+                "label": "Når vi døde vågner (Ibsen, Henrik)",
+                "matchType": "generated",
+                "score": 2.2969372,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "remember-when-auctions-firm",
+          "name": "Remember When Auctions (Firm)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00787659",
+              "url": "https://id.worldcat.org/fast/787659"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00787659",
+                "label": "Remember When Auctions (Firm)",
+                "matchType": "generated",
+                "score": 2.2969372,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "ta-t-e-n-ngo-ta-t-to",
+          "name": "Tá̆t đèn (Ngô, Tất Tố)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01794113",
+              "url": "https://id.worldcat.org/fast/1794113"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01794113",
+                "label": "Tá̆t đèn (Ngô, Tất Tố)",
+                "matchType": "generated",
+                "score": 2.2969372,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "when-i-was-puerto-rican-santiago-esmeralda",
+          "name": "When I was Puerto Rican (Santiago, Esmeralda)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01386021",
+              "url": "https://id.worldcat.org/fast/1386021"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01386021",
+                "label": "When I was Puerto Rican (Santiago, Esmeralda)",
+                "matchType": "generated",
+                "score": 1.9141144,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "when-insane-do-as-the-sane-do-choreographic-work-rose",
+          "name": "When insane, do as the sane do (Choreographic work : Rose)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01795905",
+              "url": "https://id.worldcat.org/fast/1795905"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01795905",
+                "label": "When insane, do as the sane do (Choreographic work : Rose)",
+                "matchType": "generated",
+                "score": 1.5312915,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "when-this-cruel-war-is-over-tucker-henry",
+          "name": "When this cruel war is over (Tucker, Henry)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01383573",
+              "url": "https://id.worldcat.org/fast/1383573"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01383573",
+                "label": "When this cruel war is over (Tucker, Henry)",
+                "matchType": "generated",
+                "score": 1.9141144,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "works-ives-charles",
+          "name": "Works (Ives, Charles)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01918373",
+              "url": "https://id.worldcat.org/fast/1918373"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01918373",
+                "label": "Works (Ives, Charles)",
+                "matchType": "generated",
+                "score": 2.2969372,
+                "type": "alt"
+              }
+            ],
             "wikidata": []
           }
         }
