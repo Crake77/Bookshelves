@@ -304,7 +304,8 @@
       }
     ],
     "cross_tags_count": 20,
-    "cross_tags_status": "needs_more"
+    "cross_tags_status": "needs_more",
+    "external_subjects": []
   },
   "format": {
     "slug": "anthology",
@@ -345,5 +346,45 @@
         "extract": "Title: Summer of Lovecraft\n\nPublication: Feb 09, 2020"
       }
     ]
+  },
+  "external_metadata": {
+    "last_run": "2025-11-01T16:15:22.060Z",
+    "sources_enabled": [
+      "loc",
+      "wikidata"
+    ],
+    "input_snapshot": {
+      "title": "Summer of Lovecraft: Cosmic Horror in the 1960s",
+      "authors": [
+        "Lois H. Gresh"
+      ],
+      "isbn10": "1626412928",
+      "isbn13": null,
+      "edition_id": "2a1b6012-4f75-4d20-8de5-3e2611c5e6ac"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": [
+          "[loc] isbn lookup returned no matches",
+          "[loc] title fallback returned no matches",
+          "[loc] no matches returned"
+        ]
+      },
+      "fast": {
+        "labels": [],
+        "notes": []
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
+      }
+    },
+    "merged": {
+      "subjects": []
+    }
   }
 }

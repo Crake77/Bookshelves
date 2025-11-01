@@ -20,9 +20,9 @@
     "notes": []
   },
   "summary": {
-    "original_description": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction: Doomsday Clock Narratives demonstrates that disaster fiction\u2014 nuclear holocaust and climate change alike\u2014 allows us to unearth and anatomise contemporary psychodynamics and enables us to identify pretraumatic stress as the common denominator of seemingly unrelated types of texts. These Doomsday Clock Narratives argue that earth\u2019s demise is soon and certain. They are set after some catastrophe and depict people waiting for an even worse catastrophe to come. References to geology are particularly important\u2014 in descriptions of the landscape, the emphasis falls on waste and industrial bric- a- brac, which is seen through the eyes of a future, posthuman archaeologist. Their protagonists have the uncanny feeling that the countdown has already started, and they are coping with both traumatic memories and pretraumatic stress. Readings of novels by Walter M. Miller, Nevil Shute, John Christopher, J. G. Ballard, George Turner, Maggie Gee, Paolo Bacigalupi, Ruth Ozeki, and Yoko Tawada demonstrate that the authors are both indebted to a century- old tradition and inventively looking for new ways of expressing the pretraumatic stress syndrome common in contemporary society. This book is written for an academic audience (postgraduates, researchers, and academics) specialising in British Literature, American Literature, and Science Fiction Studies.",
+    "original_description": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction: Doomsday Clock Narratives demonstrates that disaster fiction— nuclear holocaust and climate change alike— allows us to unearth and anatomise contemporary psychodynamics and enables us to identify pretraumatic stress as the common denominator of seemingly unrelated types of texts. These Doomsday Clock Narratives argue that earth’s demise is soon and certain. They are set after some catastrophe and depict people waiting for an even worse catastrophe to come. References to geology are particularly important— in descriptions of the landscape, the emphasis falls on waste and industrial bric- a- brac, which is seen through the eyes of a future, posthuman archaeologist. Their protagonists have the uncanny feeling that the countdown has already started, and they are coping with both traumatic memories and pretraumatic stress. Readings of novels by Walter M. Miller, Nevil Shute, John Christopher, J. G. Ballard, George Turner, Maggie Gee, Paolo Bacigalupi, Ruth Ozeki, and Yoko Tawada demonstrate that the authors are both indebted to a century- old tradition and inventively looking for new ways of expressing the pretraumatic stress syndrome common in contemporary society. This book is written for an academic audience (postgraduates, researchers, and academics) specialising in British Literature, American Literature, and Science Fiction Studies.",
     "original_length": 1418,
-    "new_summary": "This academic study examines apocalyptic fiction through the lens of psychological trauma, focusing on how nuclear holocaust narratives and climate fiction portray collective anxiety about impending disaster. Oramus analyzes what she terms \"Doomsday Clock Narratives\"\u2014stories set in post-catastrophic worlds where characters await an even greater calamity.\n\nThe book explores how these narratives depict pretraumatic stress, a psychological condition where the certainty of future disaster creates present-day trauma. Characters in these stories inhabit landscapes marked by industrial decay and environmental collapse, viewed through the eyes of survivors who feel the countdown to extinction has already begun.\n\nDrawing on novels by Walter M. Miller, Nevil Shute, J.G. Ballard, Paolo Bacigalupi, Ruth Ozeki, and others, Oramus traces how disaster fiction has evolved over the past century while maintaining core themes of anticipatory dread. The geological and environmental details in these works serve as archaeological evidence of human civilization's self-destruction.\n\nThe study connects nuclear age anxieties with contemporary climate concerns, arguing that both genres express a shared psychological experience of waiting for catastrophe. This scholarly analysis is aimed at researchers and students of British and American literature, particularly those interested in science fiction studies and how speculative genres process cultural trauma and environmental anxiety.",
+    "new_summary": "This academic study examines apocalyptic fiction through the lens of psychological trauma, focusing on how nuclear holocaust narratives and climate fiction portray collective anxiety about impending disaster. Oramus analyzes what she terms \"Doomsday Clock Narratives\"—stories set in post-catastrophic worlds where characters await an even greater calamity.\n\nThe book explores how these narratives depict pretraumatic stress, a psychological condition where the certainty of future disaster creates present-day trauma. Characters in these stories inhabit landscapes marked by industrial decay and environmental collapse, viewed through the eyes of survivors who feel the countdown to extinction has already begun.\n\nDrawing on novels by Walter M. Miller, Nevil Shute, J.G. Ballard, Paolo Bacigalupi, Ruth Ozeki, and others, Oramus traces how disaster fiction has evolved over the past century while maintaining core themes of anticipatory dread. The geological and environmental details in these works serve as archaeological evidence of human civilization's self-destruction.\n\nThe study connects nuclear age anxieties with contemporary climate concerns, arguing that both genres express a shared psychological experience of waiting for catastrophe. This scholarly analysis is aimed at researchers and students of British and American literature, particularly those interested in science fiction studies and how speculative genres process cultural trauma and environmental anxiety.",
     "new_length": 1479,
     "word_count": 200,
     "status": "completed",
@@ -295,7 +295,77 @@
       }
     ],
     "cross_tags_count": 20,
-    "cross_tags_status": "sufficient"
+    "cross_tags_status": "sufficient",
+    "external_subjects": [
+      {
+        "slug": "anxiety",
+        "name": "Anxiety in literature",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "content_flags",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224"
+          }
+        ]
+      },
+      {
+        "slug": "climate-change",
+        "name": "Ecofiction--20th century--History and criticism",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "genre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224"
+          }
+        ]
+      },
+      {
+        "slug": "environmental-disaster",
+        "name": "Disasters in literature",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "setting",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224"
+          }
+        ]
+      },
+      {
+        "slug": "essays-criticism",
+        "name": "Literary criticism",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "supergenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224"
+          }
+        ]
+      }
+    ]
   },
   "format": {
     "slug": "compendium",
@@ -322,8 +392,316 @@
         "license": "GOOGLE_BOOKS_TOS",
         "fetched_at": "2025-10-25T23:02:56.222Z",
         "sha256": "b2f5113c98478b2fc0d2f94f4922d0d79a0afda56fa827b8b88325c0c7b24e0a",
-        "extract": "Title: (Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction\n\nDescription: This academic study examines apocalyptic fiction through the lens of psychological trauma, focusing on how nuclear holocaust narratives and climate fiction portray collective anxiety about impending disaster. Oramus analyzes what she terms \"Doomsday Clock Narratives\"\u2014stories set in post-catastrophic worlds where characters await an even greater calamity.\n\nThe book explores how these narratives depict pretraumatic stress, a psychological condition where the certainty of future disaster creates present-day trauma. Characters in these stories inhabit landscapes marked by industrial decay and environmental collapse, viewed through the eyes of survivors who feel the countdown to extinction has already begun.\n\nDrawing on novels by Walter M. Miller, Nevil Shute, J.G. Ballard, Paolo Bacigalupi, Ruth Ozeki, and others, Oramus traces how disaster fiction has evolved over the past century while maintaining core themes of anticipatory dread. The geological and environmental details in these works serve as archaeological evidence of human civilization's self-destruction.\n\nThe study connects nuclear age anxieties with contemporary climate concerns, arguing that both genres express a shared psychological experience of waiting for catastrophe. This scholarly analysis is aimed at researchers and students of British and American literature, particularly those interested in science fiction studies and how speculative genres process cultural trauma and environmental anxiety.\n\nCategories: Literary Criticism, Science Fiction"
+        "extract": "Title: (Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction\n\nDescription: This academic study examines apocalyptic fiction through the lens of psychological trauma, focusing on how nuclear holocaust narratives and climate fiction portray collective anxiety about impending disaster. Oramus analyzes what she terms \"Doomsday Clock Narratives\"—stories set in post-catastrophic worlds where characters await an even greater calamity.\n\nThe book explores how these narratives depict pretraumatic stress, a psychological condition where the certainty of future disaster creates present-day trauma. Characters in these stories inhabit landscapes marked by industrial decay and environmental collapse, viewed through the eyes of survivors who feel the countdown to extinction has already begun.\n\nDrawing on novels by Walter M. Miller, Nevil Shute, J.G. Ballard, Paolo Bacigalupi, Ruth Ozeki, and others, Oramus traces how disaster fiction has evolved over the past century while maintaining core themes of anticipatory dread. The geological and environmental details in these works serve as archaeological evidence of human civilization's self-destruction.\n\nThe study connects nuclear age anxieties with contemporary climate concerns, arguing that both genres express a shared psychological experience of waiting for catastrophe. This scholarly analysis is aimed at researchers and students of British and American literature, particularly those interested in science fiction studies and how speculative genres process cultural trauma and environmental anxiety.\n\nCategories: Literary Criticism, Science Fiction"
       }
     ]
+  },
+  "external_metadata": {
+    "last_run": "2025-11-01T16:15:10.037Z",
+    "sources_enabled": [
+      "loc",
+      "wikidata"
+    ],
+    "input_snapshot": {
+      "title": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction",
+      "authors": [
+        "Dominika Oramus"
+      ],
+      "isbn10": null,
+      "isbn13": "9781000910254",
+      "edition_id": "693456e1-7d6f-4f9b-92c1-964c7c6d2582"
+    },
+    "sources": {
+      "loc": {
+        "labels": [
+          {
+            "slug": "climate-change",
+            "name": "Ecofiction--20th century--History and criticism",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Ecofiction--20th century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Ecofiction--21st century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Climatic changes in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Ecofiction--20th century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Ecofiction--21st century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Climatic changes in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "anxiety",
+            "name": "Anxiety in literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Anxiety in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Anxiety in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "environmental-disaster",
+            "name": "Disasters in literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Disasters in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Disasters in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "essays-criticism",
+            "name": "Literary criticism",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
+      },
+      "fast": {
+        "labels": [],
+        "notes": []
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "anxiety",
+          "name": "Anxiety in literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "content_flags",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023003224",
+              "url": "http://lccn.loc.gov/2023003224"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Anxiety in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Anxiety in literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "climate-change",
+          "name": "Ecofiction--20th century--History and criticism",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023003224",
+              "url": "http://lccn.loc.gov/2023003224"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Ecofiction--20th century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Ecofiction--21st century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Climatic changes in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Ecofiction--20th century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Ecofiction--21st century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Climatic changes in literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "environmental-disaster",
+          "name": "Disasters in literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023003224",
+              "url": "http://lccn.loc.gov/2023003224"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Disasters in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Disasters in literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "essays-criticism",
+          "name": "Literary criticism",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023003224",
+              "url": "http://lccn.loc.gov/2023003224"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        }
+      ]
+    }
   }
 }

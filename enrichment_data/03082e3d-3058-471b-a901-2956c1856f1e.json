@@ -20,9 +20,9 @@
     "notes": []
   },
   "summary": {
-    "original_description": "This book is the first to offer a justice-focused cognitive reading of modern YA speculative fiction in its narrative and filmic forms. It links the expansion of YA speculative fiction in the 20th century with the emergence of human and civil rights movements, with the communitarian revolution in conceptualizations of justice, and with spectacular advances in cognitive sciences as applied to the examination of narrative fiction. Oziewicz argues that complex ideas such as justice are processed by the human mind as cognitive scripts; that scripts, when narrated, take the form of multiply indexable stories; and that YA speculative fiction is currently the largest conceptual testing ground in the forging of justice consciousness for the 21st century world. Drawing on recent research in the cognitive and evolutionary sciences, Oziewicz explains how poetic, retributive, restorative, environmental, social, and global types of justice have been represented in narrative fiction, from 19th century folk and fairy tales through 21st century fantasy, dystopia, and science fiction. Suggesting that the appeal of these and other nonmimetic genres is largely predicated on the dream of justice, Oziewicz theorizes new justice scripts as conceptual tools essential to help humanity survive the qualitative leap toward an environmentally conscious, culturally diversified global world. This book is an important contribution to studies of children\u2019s and YA speculative fiction, adding a new perspective to discussions about the educational as well as social potential of nonmimetic genres. It demonstrates that the justice imperative is very much alive in YA speculative fiction, creating new visions of justice relevant to contemporary challenges.",
+    "original_description": "This book is the first to offer a justice-focused cognitive reading of modern YA speculative fiction in its narrative and filmic forms. It links the expansion of YA speculative fiction in the 20th century with the emergence of human and civil rights movements, with the communitarian revolution in conceptualizations of justice, and with spectacular advances in cognitive sciences as applied to the examination of narrative fiction. Oziewicz argues that complex ideas such as justice are processed by the human mind as cognitive scripts; that scripts, when narrated, take the form of multiply indexable stories; and that YA speculative fiction is currently the largest conceptual testing ground in the forging of justice consciousness for the 21st century world. Drawing on recent research in the cognitive and evolutionary sciences, Oziewicz explains how poetic, retributive, restorative, environmental, social, and global types of justice have been represented in narrative fiction, from 19th century folk and fairy tales through 21st century fantasy, dystopia, and science fiction. Suggesting that the appeal of these and other nonmimetic genres is largely predicated on the dream of justice, Oziewicz theorizes new justice scripts as conceptual tools essential to help humanity survive the qualitative leap toward an environmentally conscious, culturally diversified global world. This book is an important contribution to studies of children’s and YA speculative fiction, adding a new perspective to discussions about the educational as well as social potential of nonmimetic genres. It demonstrates that the justice imperative is very much alive in YA speculative fiction, creating new visions of justice relevant to contemporary challenges.",
     "original_length": 1747,
-    "new_summary": "This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts\u2014patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fiction in preparing young people for an interconnected, environmentally threatened world requiring new approaches to fairness and equity.",
+    "new_summary": "This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts—patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fiction in preparing young people for an interconnected, environmentally threatened world requiring new approaches to fairness and equity.",
     "new_length": 1868,
     "word_count": 247,
     "status": "completed",
@@ -310,7 +310,162 @@
       }
     ],
     "cross_tags_count": 20,
-    "cross_tags_status": "needs_more"
+    "cross_tags_status": "needs_more",
+    "external_subjects": [
+      {
+        "slug": "essays-criticism",
+        "name": "Criticism, interpretation, etc",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "supergenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/"
+          }
+        ]
+      },
+      {
+        "slug": "fantasy",
+        "name": "Fantasy fiction--History and criticism",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "genre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2014045549",
+            "url": "http://lccn.loc.gov/2014045549"
+          }
+        ]
+      },
+      {
+        "slug": "holocaust",
+        "name": "Holocaust, Jewish (1939-1945), in literature",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "content_flags",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/"
+          }
+        ]
+      },
+      {
+        "slug": "memory-narrative",
+        "name": "Memory in literature",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "trope",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/"
+          }
+        ]
+      },
+      {
+        "slug": "social-justice",
+        "name": "Justice in literature",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "genre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2014045549",
+            "url": "http://lccn.loc.gov/2014045549"
+          }
+        ]
+      },
+      {
+        "slug": "speculative-fiction",
+        "name": "Speculative fiction--History and criticism",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "supergenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2014045549",
+            "url": "http://lccn.loc.gov/2014045549"
+          }
+        ]
+      },
+      {
+        "slug": "young-adult-mc",
+        "name": "Young adult fiction--History and criticism",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "representation",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2014045549",
+            "url": "http://lccn.loc.gov/2014045549"
+          }
+        ]
+      },
+      {
+        "slug": "childrens-literature-polish",
+        "name": "Children's literature, Polish",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/"
+          }
+        ]
+      },
+      {
+        "slug": "childrens-literature-polish-history-and-criticism",
+        "name": "Children's literature, Polish--History and criticism",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/"
+          }
+        ]
+      }
+    ]
   },
   "format": {
     "slug": "compendium",
@@ -337,7 +492,7 @@
         "license": "GOOGLE_BOOKS_TOS",
         "fetched_at": "2025-10-25T23:02:59.660Z",
         "sha256": "9164fe568bd832311920a6e3333c510cf992575cb948cbc35b70d34f564fd4bf",
-        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nDescription: This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts\u2014patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fic..."
+        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nDescription: This scholarly work examines how young adult speculative fiction has become a primary vehicle for exploring justice concepts in contemporary literature. Oziewicz argues that YA fantasy, dystopia, and science fiction serve as experimental spaces where new understandings of justice are tested and developed for readers who will shape future society.\n\nThe book applies cognitive science to literary analysis, proposing that complex ideas like justice are processed mentally as scripts—patterns of understanding that narratives can reinforce or challenge. Oziewicz traces how various justice types have been represented across speculative fiction from nineteenth-century fairy tales through modern YA literature.\n\nThe study categorizes and analyzes multiple justice frameworks: poetic justice, retributive justice, restorative justice, environmental justice, social justice, and emerging global justice concepts. Each framework appears in different ways across fantasy and science fiction, allowing young readers to encounter and evaluate competing ideas about fairness, punishment, redemption, and societal organization.\n\nOziewicz connects the twentieth-century expansion of YA speculative fiction with civil rights movements and evolving justice philosophy, suggesting these are not coincidental parallels. The book argues that nonmimetic genres appeal to readers partly because they allow exploration of justice ideals freed from realistic constraints.\n\nThe work contributes to academic discussion about the educational and social functions of YA literature, particularly speculative genres. By demonstrating how these stories develop readers' justice consciousness, Oziewicz makes a case for the relevance of fantasy and science fic..."
       },
       {
         "snapshot_id": "3d3be7b4-fbab-4dec-840a-087638e35cd8",
@@ -348,8 +503,501 @@
         "license": "CC0",
         "fetched_at": "2025-10-25T23:02:59.197Z",
         "sha256": "83a64e1e2f858fe7a241efa42f408dce8cdfafe4cd97f6677af84d29aaa50436",
-        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nSubjects: Young adult literature, history and criticism, Justice in literature, Fantasy fiction, history and criticism, Young adult fiction, History and criticism, Speculative fiction, Fantasy fiction, Roman pour jeunes adultes, Histoire et critique, Roman d'hypoth\u00e8se, Justice dans la litt\u00e9rature, LITERARY CRITICISM, Children's Literature\n\nPublication: 2015\n\nLanguages: eng"
+        "extract": "Title: Justice in Young Adult Speculative Fiction\n\nSubjects: Young adult literature, history and criticism, Justice in literature, Fantasy fiction, history and criticism, Young adult fiction, History and criticism, Speculative fiction, Fantasy fiction, Roman pour jeunes adultes, Histoire et critique, Roman d'hypothèse, Justice dans la littérature, LITERARY CRITICISM, Children's Literature\n\nPublication: 2015\n\nLanguages: eng"
       }
     ]
+  },
+  "external_metadata": {
+    "last_run": "2025-11-01T16:15:41.336Z",
+    "sources_enabled": [
+      "loc",
+      "wikidata"
+    ],
+    "input_snapshot": {
+      "title": "Justice in Young Adult Speculative Fiction",
+      "authors": [
+        "Marek C. Oziewicz"
+      ],
+      "isbn10": null,
+      "isbn13": "9781317610816",
+      "edition_id": "5cc6648b-b23b-4a76-b69d-d004465ce8c2"
+    },
+    "sources": {
+      "loc": {
+        "labels": [
+          {
+            "slug": "young-adult-mc",
+            "name": "Young adult fiction--History and criticism",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014045549",
+            "url": "http://lccn.loc.gov/2014045549",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014045549",
+                "subject": "Young adult fiction--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Young adult literature, Polish--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Young adult literature, Polish",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "speculative-fiction",
+            "name": "Speculative fiction--History and criticism",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014045549",
+            "url": "http://lccn.loc.gov/2014045549",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014045549",
+                "subject": "Speculative fiction--History and criticism",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "social-justice",
+            "name": "Justice in literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014045549",
+            "url": "http://lccn.loc.gov/2014045549",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014045549",
+                "subject": "Justice in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasy",
+            "name": "Fantasy fiction--History and criticism",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014045549",
+            "url": "http://lccn.loc.gov/2014045549",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014045549",
+                "subject": "Fantasy fiction--History and criticism",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "childrens-literature-polish-history-and-criticism",
+            "name": "Children's literature, Polish--History and criticism",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Children's literature, Polish--History and criticism",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "holocaust",
+            "name": "Holocaust, Jewish (1939-1945), in literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Holocaust, Jewish (1939-1945), in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Holocaust, Jewish (1939-1945) in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "childrens-literature-polish",
+            "name": "Children's literature, Polish",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Children's literature, Polish",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "memory-narrative",
+            "name": "Memory in literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Memory in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "essays-criticism",
+            "name": "Criticism, interpretation, etc",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2020718437/",
+            "url": "http://www.loc.gov/item/2020718437/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Criticism, interpretation, etc",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
+      },
+      "fast": {
+        "labels": [],
+        "notes": []
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "essays-criticism",
+          "name": "Criticism, interpretation, etc",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/2020718437/",
+              "url": "http://www.loc.gov/item/2020718437/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Criticism, interpretation, etc",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fantasy",
+          "name": "Fantasy fiction--History and criticism",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014045549",
+              "url": "http://lccn.loc.gov/2014045549"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014045549",
+                "subject": "Fantasy fiction--History and criticism",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "holocaust",
+          "name": "Holocaust, Jewish (1939-1945), in literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "content_flags",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/2020718437/",
+              "url": "http://www.loc.gov/item/2020718437/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Holocaust, Jewish (1939-1945), in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Holocaust, Jewish (1939-1945) in literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "memory-narrative",
+          "name": "Memory in literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "trope",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/2020718437/",
+              "url": "http://www.loc.gov/item/2020718437/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Memory in literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "social-justice",
+          "name": "Justice in literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014045549",
+              "url": "http://lccn.loc.gov/2014045549"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014045549",
+                "subject": "Justice in literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "speculative-fiction",
+          "name": "Speculative fiction--History and criticism",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014045549",
+              "url": "http://lccn.loc.gov/2014045549"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014045549",
+                "subject": "Speculative fiction--History and criticism",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "young-adult-mc",
+          "name": "Young adult fiction--History and criticism",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "representation",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014045549",
+              "url": "http://lccn.loc.gov/2014045549"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014045549",
+                "subject": "Young adult fiction--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Young adult literature, Polish--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Young adult literature, Polish",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "childrens-literature-polish",
+          "name": "Children's literature, Polish",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/2020718437/",
+              "url": "http://www.loc.gov/item/2020718437/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Children's literature, Polish",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "childrens-literature-polish-history-and-criticism",
+          "name": "Children's literature, Polish--History and criticism",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/2020718437/",
+              "url": "http://www.loc.gov/item/2020718437/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2020718437/",
+                "subject": "Children's literature, Polish--History and criticism",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        }
+      ]
+    }
   }
 }

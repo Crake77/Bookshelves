@@ -304,7 +304,264 @@
       }
     ],
     "cross_tags_count": 20,
-    "cross_tags_status": "needs_more"
+    "cross_tags_status": "needs_more",
+    "external_subjects": [
+      {
+        "slug": "bisexual",
+        "name": "Bisexuals",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "tropes_themes",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "bisexual-mc",
+        "name": "Bisexual people--Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "representation",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "fantasy",
+        "name": "Fantasy fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "genre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "fiction",
+        "name": "Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "historical-fantasy",
+        "name": "FICTION / Fantasy / Historical",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "subgenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": "fantasy",
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "historical-fiction",
+        "name": "Historical fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "supergenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "immortal",
+        "name": "Immortalism--Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "trope",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "literary-fiction",
+        "name": "FICTION / Literary",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "genre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "memory-narrative",
+        "name": "Memory--Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "trope",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "new-york-city",
+        "name": "New York (N.Y.)--Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "setting",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "novel",
+        "name": "Novels",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "paris",
+        "name": "Paris (France)--Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "setting",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "relationships",
+        "name": "Man-woman relationships--Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "subgenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": "psychology-self-help",
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "deals",
+        "name": "Deals",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      },
+      {
+        "slug": "deals-fiction",
+        "name": "Deals--Fiction",
+        "confidence": "medium",
+        "kind": "genre",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+          }
+        ]
+      }
+    ]
   },
   "format": {
     "slug": "novel",
@@ -356,5 +613,1036 @@
         "extract": "Title: The Invisible Life of Addie LaRue\n\nDescription: France, 1714: in a moment of desperation, a young woman makes a Faustian bargain to live forever and is cursed to be forgotten by everyone she meets.\r\n\r\nThus begins the extraordinary life of Addie LaRue, and a dazzling adventure that will play out across centuries and continents, across history and art, as a young woman learns how far she will go to leave her mark on the world.\r\n\r\nBut everything changes when, after nearly 300 years, Addie stumbles across a young man in a hidden bookstore and he remembers her name.\n\nSubjects: nyt:combined-print-and-e-book-fiction=2020-10-25, New York Times bestseller, Fiction, fantasy, historical, LGBTQ science fiction & fantasy, Memory, Fiction, Immortalism, Deals, Man-woman relationships, FICTION / Fantasy / Historical, FICTION / Literary\n\nPublication: Oct 06, 2020\n\nLanguages: eng"
       }
     ]
+  },
+  "external_metadata": {
+    "last_run": "2025-11-01T16:35:45.695Z",
+    "sources_enabled": [
+      "loc"
+    ],
+    "input_snapshot": {
+      "title": "The Invisible Life of Addie LaRue",
+      "authors": [
+        "V. E. Schwab"
+      ],
+      "isbn10": null,
+      "isbn13": "9780765387561",
+      "edition_id": "7b4408e2-70f5-4af6-a036-ed7bd0a5c2de"
+    },
+    "sources": {
+      "loc": {
+        "labels": [
+          {
+            "slug": "memory-narrative",
+            "name": "Memory--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Memory--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Memory",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Memory--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Memory",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "immortal",
+            "name": "Immortalism--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Immortalism--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Immortalism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Immortality--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Immortalism--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Immortalism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Immortality--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "deals-fiction",
+            "name": "Deals--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Deals--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Deals--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "bisexual-mc",
+            "name": "Bisexual people--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Bisexual people--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Bisexual people--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "paris",
+            "name": "Paris (France)--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Paris (France)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "France--Paris",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Paris (France)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "France--Paris",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "new-york-city",
+            "name": "New York (N.Y.)--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "New York (N.Y.)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "New York (N.Y)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "New York (State)--New York",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "New York (N.Y.)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "New York (N.Y)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "New York (State)--New York",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "relationships",
+            "name": "Man-woman relationships--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Man-woman relationships--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Man-woman relationships",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Man-woman relationships--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Man-woman relationships",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "historical-fantasy",
+            "name": "FICTION / Fantasy / Historical",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "FICTION / Fantasy / Historical",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "FICTION / Fantasy / Historical",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "literary-fiction",
+            "name": "FICTION / Literary",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "FICTION / Literary",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "FICTION / Literary",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "bisexual",
+            "name": "Bisexuals",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Bisexuals",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Bisexuals",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "deals",
+            "name": "Deals",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Deals",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Deals",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasy",
+            "name": "Fantasy fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "historical-fiction",
+            "name": "Historical fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Historical fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Historical fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "novel",
+            "name": "Novels",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Novels",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Novels",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fiction",
+            "name": "Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+            "raw": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
+      },
+      "fast": {
+        "labels": [],
+        "notes": []
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "bisexual",
+          "name": "Bisexuals",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "tropes_themes",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Bisexuals",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Bisexuals",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "bisexual-mc",
+          "name": "Bisexual people--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "representation",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Bisexual people--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Bisexual people--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fantasy",
+          "name": "Fantasy fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fiction",
+          "name": "Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "historical-fantasy",
+          "name": "FICTION / Fantasy / Historical",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "fantasy",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "FICTION / Fantasy / Historical",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "FICTION / Fantasy / Historical",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "historical-fiction",
+          "name": "Historical fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Historical fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Historical fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "immortal",
+          "name": "Immortalism--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "trope",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Immortalism--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Immortalism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Immortality--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Immortalism--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Immortalism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Immortality--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "literary-fiction",
+          "name": "FICTION / Literary",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "FICTION / Literary",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "FICTION / Literary",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "memory-narrative",
+          "name": "Memory--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "trope",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Memory--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Memory",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Memory--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Memory",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "new-york-city",
+          "name": "New York (N.Y.)--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "New York (N.Y.)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "New York (N.Y)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "New York (State)--New York",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "New York (N.Y.)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "New York (N.Y)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "New York (State)--New York",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "novel",
+          "name": "Novels",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Novels",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Novels",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "paris",
+          "name": "Paris (France)--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Paris (France)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "France--Paris",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Paris (France)--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "France--Paris",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "relationships",
+          "name": "Man-woman relationships--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "psychology-self-help",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Man-woman relationships--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Man-woman relationships",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Man-woman relationships--Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Man-woman relationships",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "deals",
+          "name": "Deals",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Deals",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Deals",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "deals-fiction",
+          "name": "Deals--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+              "url": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://catalog.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&BBID=22389831&v3=1",
+                "subject": "Deals--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2022513515",
+                "subject": "Deals--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        }
+      ]
+    }
   }
 }

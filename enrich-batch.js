@@ -29,6 +29,7 @@ async function enrichBook(bookId, bookTitle) {
   console.log(`${'='.repeat(80)}\n`);
   
   const tasks = [
+    'task-00-external-metadata.js',
     'task-01-cover-urls.js',
     'task-02-authors.js',
     'task-03-summary.js',

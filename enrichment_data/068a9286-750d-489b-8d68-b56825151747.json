@@ -26,7 +26,7 @@
   "summary": {
     "original_description": "This book compares science fiction with science fact.",
     "original_length": 53,
-    "new_summary": "This juvenile nonfiction book examines the relationship between science fiction literature and actual scientific principles, aimed at young readers interested in how speculative fiction relates to real-world science. Isaac Asimov, one of science fiction's most prolific authors and a trained biochemist, brings both literary and scientific expertise to the discussion.\n\nThe book likely explores common science fiction concepts\u2014space travel, artificial intelligence, time manipulation, alien life\u2014and compares them with contemporary scientific understanding and possibility. Asimov was known for his ability to explain complex scientific ideas accessibly, making real science engaging for general audiences including young readers.\n\nAs both a practicing scientist and science fiction writer, Asimov occupied a unique position to address where science fiction takes creative liberties and where it extrapolates from genuine scientific principles. The comparison format helps young readers develop critical thinking about speculative fiction while learning actual science concepts.\n\nThe book serves educational purposes, using science fiction's imaginative appeal to generate interest in real scientific fields. It may examine which technologies predicted in earlier science fiction have been realized, which remain impossible, and which might become feasible. Such comparisons teach both scientific literacy and appreciation for how fiction can explore scientific ideas' implications.\n\nFor young readers in the mid-1990s, this book would have addressed contemporary concerns about technology's trajectory while using the enduring appeal of science fiction as an entry point. The format encourages readers to think critically about both science and fiction, understanding each on its own terms while appreciating their productive intersection.\n\nThe collaboration with Greg Walz-Chojnacki and Francis Reddy suggests multimedia or illustrated elements enhancing the educational content.",
+    "new_summary": "This juvenile nonfiction book examines the relationship between science fiction literature and actual scientific principles, aimed at young readers interested in how speculative fiction relates to real-world science. Isaac Asimov, one of science fiction's most prolific authors and a trained biochemist, brings both literary and scientific expertise to the discussion.\n\nThe book likely explores common science fiction concepts—space travel, artificial intelligence, time manipulation, alien life—and compares them with contemporary scientific understanding and possibility. Asimov was known for his ability to explain complex scientific ideas accessibly, making real science engaging for general audiences including young readers.\n\nAs both a practicing scientist and science fiction writer, Asimov occupied a unique position to address where science fiction takes creative liberties and where it extrapolates from genuine scientific principles. The comparison format helps young readers develop critical thinking about speculative fiction while learning actual science concepts.\n\nThe book serves educational purposes, using science fiction's imaginative appeal to generate interest in real scientific fields. It may examine which technologies predicted in earlier science fiction have been realized, which remain impossible, and which might become feasible. Such comparisons teach both scientific literacy and appreciation for how fiction can explore scientific ideas' implications.\n\nFor young readers in the mid-1990s, this book would have addressed contemporary concerns about technology's trajectory while using the enduring appeal of science fiction as an entry point. The format encourages readers to think critically about both science and fiction, understanding each on its own terms while appreciating their productive intersection.\n\nThe collaboration with Greg Walz-Chojnacki and Francis Reddy suggests multimedia or illustrated elements enhancing the educational content.",
     "new_length": 1981,
     "word_count": 264,
     "status": "completed",
@@ -304,7 +304,60 @@
       }
     ],
     "cross_tags_count": 20,
-    "cross_tags_status": "needs_more"
+    "cross_tags_status": "needs_more",
+    "external_subjects": [
+      {
+        "slug": "future-tense",
+        "name": "Forecasting",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "style",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233"
+          }
+        ]
+      },
+      {
+        "slug": "science-fiction",
+        "name": "Science fiction--Juvenile literature",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "genre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233"
+          }
+        ]
+      },
+      {
+        "slug": "science-nature",
+        "name": "Science--Juvenile literature",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "supergenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233"
+          }
+        ]
+      }
+    ]
   },
   "format": {
     "slug": "compendium",
@@ -331,7 +384,7 @@
         "license": "GOOGLE_BOOKS_TOS",
         "fetched_at": "2025-10-25T23:03:05.338Z",
         "sha256": "b98b1823d66d6c23f33c7c75bee878bcd7058c4c2e55f91589ad56923ebdb0c0",
-        "extract": "Title: Science Fiction\n\nDescription: This juvenile nonfiction book examines the relationship between science fiction literature and actual scientific principles, aimed at young readers interested in how speculative fiction relates to real-world science. Isaac Asimov, one of science fiction's most prolific authors and a trained biochemist, brings both literary and scientific expertise to the discussion.\n\nThe book likely explores common science fiction concepts\u2014space travel, artificial intelligence, time manipulation, alien life\u2014and compares them with contemporary scientific understanding and possibility. Asimov was known for his ability to explain complex scientific ideas accessibly, making real science engaging for general audiences including young readers.\n\nAs both a practicing scientist and science fiction writer, Asimov occupied a unique position to address where science fiction takes creative liberties and where it extrapolates from genuine scientific principles. The comparison format helps young readers develop critical thinking about speculative fiction while learning actual science concepts.\n\nThe book serves educational purposes, using science fiction's imaginative appeal to generate interest in real scientific fields. It may examine which technologies predicted in earlier science fiction have been realized, which remain impossible, and which might become feasible. Such comparisons teach both scientific literacy and appreciation for how fiction can explore scientific ideas' implications.\n\nFor young readers in the mid-1990s, this book would have addressed contemporary concerns about technology's trajectory while using the enduring appeal of science fiction as an entry point. The format encourages readers to think critically about both science and fiction, under..."
+        "extract": "Title: Science Fiction\n\nDescription: This juvenile nonfiction book examines the relationship between science fiction literature and actual scientific principles, aimed at young readers interested in how speculative fiction relates to real-world science. Isaac Asimov, one of science fiction's most prolific authors and a trained biochemist, brings both literary and scientific expertise to the discussion.\n\nThe book likely explores common science fiction concepts—space travel, artificial intelligence, time manipulation, alien life—and compares them with contemporary scientific understanding and possibility. Asimov was known for his ability to explain complex scientific ideas accessibly, making real science engaging for general audiences including young readers.\n\nAs both a practicing scientist and science fiction writer, Asimov occupied a unique position to address where science fiction takes creative liberties and where it extrapolates from genuine scientific principles. The comparison format helps young readers develop critical thinking about speculative fiction while learning actual science concepts.\n\nThe book serves educational purposes, using science fiction's imaginative appeal to generate interest in real scientific fields. It may examine which technologies predicted in earlier science fiction have been realized, which remain impossible, and which might become feasible. Such comparisons teach both scientific literacy and appreciation for how fiction can explore scientific ideas' implications.\n\nFor young readers in the mid-1990s, this book would have addressed contemporary concerns about technology's trajectory while using the enduring appeal of science fiction as an entry point. The format encourages readers to think critically about both science and fiction, under..."
       },
       {
         "snapshot_id": "bc43295f-faed-439b-b6a4-efb20b3cafa8",
@@ -356,5 +409,198 @@
         "extract": "Title: Science fiction, science fact\n\nDescription: Compares what writers over the centuries have written about an imaginary future with the reality revealed by time.\n\nSubjects: Science -- Juvenile literature, Science fiction -- Juvenile literature, Science fiction -- History and criticism, Forecasting, Juvenile literature, Science fiction, History and criticism, Science, Science, juvenile literature, Science fiction, juvenile literature\n\nPublication: 1995\n\nLanguages: eng"
       }
     ]
+  },
+  "external_metadata": {
+    "last_run": "2025-11-01T16:16:44.207Z",
+    "sources_enabled": [
+      "loc",
+      "wikidata"
+    ],
+    "input_snapshot": {
+      "title": "Science Fiction: Visions of Tomorrow",
+      "authors": [
+        "Isaac Asimov",
+        "Greg Walz-Chojnacki",
+        "Francis Reddy"
+      ],
+      "isbn10": "0836812247",
+      "isbn13": null,
+      "edition_id": "b6b55f7a-b930-486f-992b-d9afb7089393"
+    },
+    "sources": {
+      "loc": {
+        "labels": [
+          {
+            "slug": "science-nature",
+            "name": "Science--Juvenile literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science--Juvenile literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction",
+            "name": "Science fiction--Juvenile literature",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science fiction--Juvenile literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science fiction--History and criticism",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "future-tense",
+            "name": "Forecasting",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Forecasting",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
+      },
+      "fast": {
+        "labels": [],
+        "notes": []
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "future-tense",
+          "name": "Forecasting",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "style",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/95007233",
+              "url": "http://lccn.loc.gov/95007233"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Forecasting",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction",
+          "name": "Science fiction--Juvenile literature",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/95007233",
+              "url": "http://lccn.loc.gov/95007233"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science fiction--Juvenile literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science fiction--History and criticism",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-nature",
+          "name": "Science--Juvenile literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/95007233",
+              "url": "http://lccn.loc.gov/95007233"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science--Juvenile literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        }
+      ]
+    }
   }
 }

@@ -130,6 +130,8 @@
    - New step `collectExternalSubjects(book)`.
    - Merge results into `enrichment_data/<book>.json` before LLM/pattern stages.
 
+> **2025-11-01 Update:** `metadata/` module now live with file-cache, slug mappings, and review queue. Run `node --dns-result-order=ipv4first --import tsx scripts/enrichment/collect-metadata.ts <book-id>` (or `npm run` wrapper TBD) to populate `external_metadata` in each enrichment file. Feature-flag adapters via `METADATA_SOURCES=loc,fast,wikidata` or `--sources=` CLI arg.
+
 ### Phase B – Adapter Wave 1 (P0 sources)
 1. **LoC Adapter**
    - Use id.loc.gov JSON when URI known; fallback to SRU search by ISBN/title.
@@ -137,6 +139,7 @@
 2. **FAST Adapter**
    - Requires `FAST_API_KEY`.
    - Query by OCLC, ISBN, or text; return `heading`, `type`, `id`.
+   - Adapter skips automatically when `FAST_API_KEY` is unset to avoid 403 responses.
 3. **Wikidata Adapter**
    - Query by ISBN/DOI (properties `P212`, `P356`) or title + author.
    - Collect `P921` (main subject), `P136` (genre), `P180` (depicts), `P495` (country of origin), etc.
@@ -206,3 +209,20 @@
 - [ ] Wire adapters into enrichment step (feature-flagged).
 - [ ] Draft MVP tests + CLI report for merged subjects.
 - [ ] Pilot run on 10-book cohort, review results before batch re-enrichment.
+
+---
+
+## 11. Adapter CLI Quickstart
+
+```bash
+# Populate external metadata sections for a single book
+METADATA_SOURCES=loc,fast,wikidata \
+  node --dns-result-order=ipv4first --import tsx scripts/enrichment/collect-metadata.ts <book-id>
+
+# Skip writes while verifying requests
+node --dns-result-order=ipv4first --import tsx scripts/enrichment/collect-metadata.ts <book-id> --dry-run
+```
+
+- Results are written to `enrichment_data/<book-id>.json.external_metadata`.
+- Per-source notes and raw payload snippets are retained for provenance.
+- Unknown subjects are queued in `metadata/review/new-subjects.json` for editorial mapping.

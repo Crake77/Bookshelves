@@ -20,7 +20,7 @@
     "notes": []
   },
   "summary": {
-    "original_description": "From award-winning writer Sarah Schulman, a longtime social activist and outspoken critic of the Israeli war on Gaza, comes a brilliant examination of the inherent psychological and social challenges to solidarity movements, and what that means for the future For those who seek to combat injustice, solidarity with the oppressed is one of the highest ideals, yet it does not come without complication. In this searing yet uplifting book, award-winning writer and cultural critic Sarah Schulman delves into the intricate and often misunderstood concept of solidarity to provide a new vision for what it means to engage in this work\u2014and why it matters. To grapple with solidarity, Schulman writes, we must recognize its inherent fantasies. Those being oppressed dream of relief, that a bystander will intervene though it may not seem to be in their immediate interest to do so, and that the oppressor will be called out and punished. Those standing in solidarity with the oppressed are occluded by a different fantasy: that their intervention is effective, that it will not cost them, and that they will be rewarded with friendship and thanks. Neither is always the case, and yet in order to realize our full potential as human beings in relation with others, we must continue to pursue action towards these shared goals. Within this framework, Schulman examines a range of case studies, from the fight for abortion rights in post-Franco Spain, to NYC\u2019s AIDS activism in the 1990s, to the current wave of campus protest movements against Israel\u2019s war on Gaza, and her own experience growing up as a queer female artist in male dominated culture industries. Drawing parallels between queer, Palestinian, feminist, and artistic struggles for justice, Schulman challenges the traditional notion of solidarity as a simple union of equals, arguing that in today's world of globalized power structures, true solidarity requires the collaboration of bystanders and conflicted perpetrators with the excluded and oppressed. That action comes at a cost, and is not always effective. And yet without it we sentence ourselves to a world without progressive change towards visions of liberation. By turns challenging, inspiring, pragmatic, and poetic, The Fantasy and Necessity of Solidarity provides a much-needed path for how we can work together to create a more just, more equitable present and future.",
+    "original_description": "From award-winning writer Sarah Schulman, a longtime social activist and outspoken critic of the Israeli war on Gaza, comes a brilliant examination of the inherent psychological and social challenges to solidarity movements, and what that means for the future For those who seek to combat injustice, solidarity with the oppressed is one of the highest ideals, yet it does not come without complication. In this searing yet uplifting book, award-winning writer and cultural critic Sarah Schulman delves into the intricate and often misunderstood concept of solidarity to provide a new vision for what it means to engage in this work—and why it matters. To grapple with solidarity, Schulman writes, we must recognize its inherent fantasies. Those being oppressed dream of relief, that a bystander will intervene though it may not seem to be in their immediate interest to do so, and that the oppressor will be called out and punished. Those standing in solidarity with the oppressed are occluded by a different fantasy: that their intervention is effective, that it will not cost them, and that they will be rewarded with friendship and thanks. Neither is always the case, and yet in order to realize our full potential as human beings in relation with others, we must continue to pursue action towards these shared goals. Within this framework, Schulman examines a range of case studies, from the fight for abortion rights in post-Franco Spain, to NYC’s AIDS activism in the 1990s, to the current wave of campus protest movements against Israel’s war on Gaza, and her own experience growing up as a queer female artist in male dominated culture industries. Drawing parallels between queer, Palestinian, feminist, and artistic struggles for justice, Schulman challenges the traditional notion of solidarity as a simple union of equals, arguing that in today's world of globalized power structures, true solidarity requires the collaboration of bystanders and conflicted perpetrators with the excluded and oppressed. That action comes at a cost, and is not always effective. And yet without it we sentence ourselves to a world without progressive change towards visions of liberation. By turns challenging, inspiring, pragmatic, and poetic, The Fantasy and Necessity of Solidarity provides a much-needed path for how we can work together to create a more just, more equitable present and future.",
     "original_length": 2392,
     "new_summary": "Writer and activist Sarah Schulman examines the psychological and social complexities of solidarity movements, drawing from decades of experience in queer activism, AIDS advocacy, and anti-war organizing. The book challenges common assumptions about solidarity work, arguing that both those seeking support and those offering it operate within fantasies that often lead to disappointment and conflict.\n\nSchulman identifies competing fantasies at play in solidarity movements. Oppressed groups hope for intervention from bystanders, accountability for oppressors, and relief from injustice. Meanwhile, those standing in solidarity imagine their actions will be effective, cost-free, and rewarded with gratitude and friendship. These misaligned expectations create inevitable friction even within movements working toward shared goals.\n\nThe book examines multiple case studies spanning decades and movements: abortion rights activism in post-Franco Spain, AIDS organizing in 1990s New York City, campus protests against Israel's war on Gaza, and Schulman's experiences as a queer female artist navigating male-dominated cultural industries. Through these examples, she draws connections between various struggles for justice.\n\nSchulman argues that effective solidarity requires acknowledging its limitations and costs. In globalized power structures, solidarity demands that bystanders and even conflicted perpetrators collaborate with the excluded and oppressed, accepting that such action may be difficult, expensive, and unappreciated.\n\nThe book offers both critique and possibility, recognizing solidarity's inherent challenges while asserting its necessity for progressive change. Schulman's analysis is particularly timely given current debates around ally-ship, identity politics, and movement building. Her work provides practical and philosophical frameworks for those engaged in or studying social justice organizing.",
     "new_length": 1925,
@@ -312,7 +312,77 @@
       }
     ],
     "cross_tags_count": 20,
-    "cross_tags_status": "needs_more"
+    "cross_tags_status": "needs_more",
+    "external_subjects": [
+      {
+        "slug": "activism-rep",
+        "name": "Political participation",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "representation",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409"
+          }
+        ]
+      },
+      {
+        "slug": "collective-action",
+        "name": "Solidarity",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "theme",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409"
+          }
+        ]
+      },
+      {
+        "slug": "geopolitical-history",
+        "name": "Palestine question (1948-)--Public opinion",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "theme",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409"
+          }
+        ]
+      },
+      {
+        "slug": "social-justice",
+        "name": "Justice",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "genre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409"
+          }
+        ]
+      }
+    ]
   },
   "format": {
     "slug": "compendium",
@@ -339,7 +409,7 @@
         "license": "GOOGLE_BOOKS_TOS",
         "fetched_at": "2025-10-31T14:11:39.364Z",
         "sha256": "13803a96aa94c11f593936ce344ba558421170e1daeea8eb0ac3ad01a80e9863",
-        "extract": "Title: The Fantasy and Necessity of Solidarity\n\nDescription: From award-winning writer Sarah Schulman, a longtime social activist and outspoken critic of the Israeli war on Gaza, comes a brilliant examination of the inherent psychological and social challenges to solidarity movements, and what that means for the future For those who seek to combat injustice, solidarity with the oppressed is one of the highest ideals, yet it does not come without complication. In this searing yet uplifting book, award-winning writer and cultural critic Sarah Schulman delves into the intricate and often misunderstood concept of solidarity to provide a new vision for what it means to engage in this work\u2014and why it matters. To grapple with solidarity, Schulman writes, we must recognize its inherent fantasies. Those being oppressed dream of relief, that a bystander will intervene though it may not seem to be in their immediate interest to do so, and that the oppressor will be called out and punished. Those standing in solidarity with the oppressed are occluded by a different fantasy: that their intervention is effective, that it will not cost them, and that they will be rewarded with friendship and thanks. Neither is always the case, and yet in order to realize our full potential as human beings in relation with others, we must continue to pursue action towards these shared goals. Within this framework, Schulman examines a range of case studies, from the fight for abortion rights in post-Franco Spain, to NYC\u2019s AIDS activism in the 1990s, to the current wave of campus protest movements against Israel\u2019s war on Gaza, and her own experience growing up as a queer female artist in male dominated culture industries. Drawing parallels between queer, Palestinian, feminist, and artistic struggles f..."
+        "extract": "Title: The Fantasy and Necessity of Solidarity\n\nDescription: From award-winning writer Sarah Schulman, a longtime social activist and outspoken critic of the Israeli war on Gaza, comes a brilliant examination of the inherent psychological and social challenges to solidarity movements, and what that means for the future For those who seek to combat injustice, solidarity with the oppressed is one of the highest ideals, yet it does not come without complication. In this searing yet uplifting book, award-winning writer and cultural critic Sarah Schulman delves into the intricate and often misunderstood concept of solidarity to provide a new vision for what it means to engage in this work—and why it matters. To grapple with solidarity, Schulman writes, we must recognize its inherent fantasies. Those being oppressed dream of relief, that a bystander will intervene though it may not seem to be in their immediate interest to do so, and that the oppressor will be called out and punished. Those standing in solidarity with the oppressed are occluded by a different fantasy: that their intervention is effective, that it will not cost them, and that they will be rewarded with friendship and thanks. Neither is always the case, and yet in order to realize our full potential as human beings in relation with others, we must continue to pursue action towards these shared goals. Within this framework, Schulman examines a range of case studies, from the fight for abortion rights in post-Franco Spain, to NYC’s AIDS activism in the 1990s, to the current wave of campus protest movements against Israel’s war on Gaza, and her own experience growing up as a queer female artist in male dominated culture industries. Drawing parallels between queer, Palestinian, feminist, and artistic struggles f..."
       },
       {
         "snapshot_id": "8b6e92cd-8b69-4446-b74b-ca56006b70aa",
@@ -353,5 +423,229 @@
         "extract": "Title: The Fantasy and Necessity of Solidarity\n\nPublication: April 22, 2025"
       }
     ]
+  },
+  "external_metadata": {
+    "last_run": "2025-11-01T16:45:52.365Z",
+    "sources_enabled": [
+      "loc"
+    ],
+    "input_snapshot": {
+      "title": "The Fantasy and Necessity of Solidarity",
+      "authors": [
+        "Sarah Schulman"
+      ],
+      "isbn10": null,
+      "isbn13": "9780593854259",
+      "edition_id": "6df2b900-c936-4bc7-adfe-96c335679a2b"
+    },
+    "sources": {
+      "loc": {
+        "labels": [
+          {
+            "slug": "collective-action",
+            "name": "Solidarity",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Solidarity",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "social-justice",
+            "name": "Justice",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Justice",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "activism-rep",
+            "name": "Political participation",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Political participation",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "geopolitical-history",
+            "name": "Palestine question (1948-)--Public opinion",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Palestine question (1948-)--Public opinion",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
+      },
+      "fast": {
+        "labels": [],
+        "notes": []
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "activism-rep",
+          "name": "Political participation",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "representation",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2024055409",
+              "url": "http://lccn.loc.gov/2024055409"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Political participation",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "collective-action",
+          "name": "Solidarity",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "theme",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2024055409",
+              "url": "http://lccn.loc.gov/2024055409"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Solidarity",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "geopolitical-history",
+          "name": "Palestine question (1948-)--Public opinion",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "theme",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2024055409",
+              "url": "http://lccn.loc.gov/2024055409"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Palestine question (1948-)--Public opinion",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "social-justice",
+          "name": "Justice",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2024055409",
+              "url": "http://lccn.loc.gov/2024055409"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Justice",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        }
+      ]
+    }
   }
 }

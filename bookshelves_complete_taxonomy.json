@@ -12615,6 +12615,41 @@
           "name": "World War Ii",
           "group": "setting",
           "description": "Historical setting: WWII"
+        },
+        {
+          "id": "2a7787fd-b1b2-4504-8d93-3bdd95b84819",
+          "slug": "paris",
+          "name": "Paris",
+          "group": "setting",
+          "description": "City: Paris, France"
+        },
+        {
+          "id": "2a595f9f-dbd5-4cf7-92e5-73e17cc73514",
+          "slug": "new-york-city",
+          "name": "New York City",
+          "group": "setting",
+          "description": "City: New York, USA"
+        },
+        {
+          "id": "947603be-add5-43f9-9659-aacb60f9f8f8",
+          "slug": "united-states",
+          "name": "United States",
+          "group": "setting",
+          "description": "Country: United States of America"
+        },
+        {
+          "id": "8d3a6ccd-80ea-4546-9d64-8ca237b6e409",
+          "slug": "era-1900s",
+          "name": "1900s (20th Century)",
+          "group": "setting",
+          "description": "Time period: 1900-1999"
+        },
+        {
+          "id": "5ea3ae1e-94a7-48fb-80f7-474540d42f3c",
+          "slug": "river-setting",
+          "name": "River",
+          "group": "setting",
+          "description": "Setting: rivers and waterways"
         }
       ],
       "structure": [
@@ -26774,6 +26809,22 @@
           "name": "Yuri",
           "group": "tropes_themes",
           "description": null
+        }
+      ],
+      "theme": [
+        {
+          "id": "eccfa784-92af-4df1-a6c0-8f66972b4e9c",
+          "slug": "collective-action",
+          "name": "Collective Action",
+          "group": "theme",
+          "description": "Themes of solidarity, coalition building, and organized activism"
+        },
+        {
+          "id": "8ea1f792-a344-4a21-8afa-175c80fdc28b",
+          "slug": "geopolitical-history",
+          "name": "Geopolitical History",
+          "group": "theme",
+          "description": "Themes of geopolitical struggle, international politics, and public opinion movements"
         }
       ]
     }

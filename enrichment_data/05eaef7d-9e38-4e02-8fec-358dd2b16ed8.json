@@ -284,7 +284,247 @@
       }
     ],
     "cross_tags_count": 20,
-    "cross_tags_status": "needs_more"
+    "cross_tags_status": "needs_more",
+    "external_subjects": [
+      {
+        "slug": "discovery-voyage",
+        "name": "Voyages around the world",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "trope",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://www.loc.gov/item/10028950/",
+            "url": "http://www.loc.gov/item/10028950/"
+          }
+        ]
+      },
+      {
+        "slug": "era-1900s",
+        "name": "1900-1999",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "cross_tag",
+        "taxonomy_group": "setting",
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      },
+      {
+        "slug": "science-nature",
+        "name": "Science--Juvenile and popular literature",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "supergenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://www.loc.gov/item/13025448/",
+            "url": "http://www.loc.gov/item/13025448/"
+          }
+        ]
+      },
+      {
+        "slug": "technology-engineering",
+        "name": "Technology--Juvenile and popular literature",
+        "confidence": "high",
+        "kind": "topic",
+        "taxonomy_type": "supergenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://www.loc.gov/item/13025448/",
+            "url": "http://www.loc.gov/item/13025448/"
+          }
+        ]
+      },
+      {
+        "slug": "authors-american",
+        "name": "Authors, American",
+        "confidence": "medium",
+        "kind": "person",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      },
+      {
+        "slug": "authors-american-20th-century-correspondence",
+        "name": "Authors, American--20th century--Correspondence",
+        "confidence": "medium",
+        "kind": "person",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      },
+      {
+        "slug": "bravard-robert-s-correspondence",
+        "name": "Bravard, Robert S.--Correspondence",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      },
+      {
+        "slug": "delany-samuel-r",
+        "name": "Delany, Samuel R",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      },
+      {
+        "slug": "delany-samuel-r-correspondence",
+        "name": "Delany, Samuel R.--Correspondence",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      },
+      {
+        "slug": "german-literature-translations-into-english",
+        "name": "German literature--Translations into English",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://www.loc.gov/item/12034140/",
+            "url": "http://www.loc.gov/item/12034140/"
+          }
+        ]
+      },
+      {
+        "slug": "german-prose-literature-history-and-criticism",
+        "name": "German prose literature--History and criticism",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://www.loc.gov/item/12034140/",
+            "url": "http://www.loc.gov/item/12034140/"
+          }
+        ]
+      },
+      {
+        "slug": "mcgraw-erin-1957-correspondence",
+        "name": "McGraw, Erin,--1957---Correspondence",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      },
+      {
+        "slug": "personal-correspondence",
+        "name": "Personal correspondence",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      },
+      {
+        "slug": "spencer-kathleen-1947-correspondence",
+        "name": "Spencer, Kathleen,--1947---Correspondence",
+        "confidence": "medium",
+        "kind": "topic",
+        "taxonomy_type": "unknown",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "medium",
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599"
+          }
+        ]
+      }
+    ]
   },
   "format": {
     "slug": "short-story-collection",
@@ -314,5 +554,699 @@
         "extract": "Nebula Award Stories 5 is an anthology of award-winning science fiction short works edited by James Blish. It was first published in the United Kingdom in hardcover by Gollancz in November 1970. The first American edition was published by Doubleday in December of the same year. Paperback editions followed from Pocket Books in the U.S. in January 1972, and Panther in the U.K. in December 1972. The American editions bore the variant title Nebula Award Stories Five. The book has also been published in German.\n\nCategories: 1970 anthologies, 1970s science fiction works, Articles with short description, Doubleday (publisher) books, Nebula Award anthologies, Short description is different from Wikidata, Victor Gollancz Ltd books"
       }
     ]
+  },
+  "external_metadata": {
+    "last_run": "2025-11-01T16:36:27.144Z",
+    "sources_enabled": [
+      "loc"
+    ],
+    "input_snapshot": {
+      "title": "Nebula Award Stories Five",
+      "authors": [
+        "Science Fiction Writers of America"
+      ],
+      "isbn10": null,
+      "isbn13": null,
+      "edition_id": "1d07d7bd-e6fa-4c2a-b5b2-adb6ca30eb95"
+    },
+    "sources": {
+      "loc": {
+        "labels": [
+          {
+            "slug": "delany-samuel-r-correspondence",
+            "name": "Delany, Samuel R.--Correspondence",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Delany, Samuel R.--Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "bravard-robert-s-correspondence",
+            "name": "Bravard, Robert S.--Correspondence",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Bravard, Robert S.--Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "spencer-kathleen-1947-correspondence",
+            "name": "Spencer, Kathleen,--1947---Correspondence",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Spencer, Kathleen,--1947---Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "mcgraw-erin-1957-correspondence",
+            "name": "McGraw, Erin,--1957---Correspondence",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "McGraw, Erin,--1957---Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "authors-american-20th-century-correspondence",
+            "name": "Authors, American--20th century--Correspondence",
+            "kind": "person",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Authors, American--20th century--Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "delany-samuel-r",
+            "name": "Delany, Samuel R",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Delany, Samuel R",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "authors-american",
+            "name": "Authors, American",
+            "kind": "person",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Authors, American",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "era-1900s",
+            "name": "1900-1999",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "1900-1999",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "personal-correspondence",
+            "name": "Personal correspondence",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2019286599",
+            "url": "http://lccn.loc.gov/2019286599",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Personal correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "german-prose-literature-history-and-criticism",
+            "name": "German prose literature--History and criticism",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/12034140/",
+            "url": "http://www.loc.gov/item/12034140/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/12034140/",
+                "subject": "German prose literature--History and criticism",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "german-literature-translations-into-english",
+            "name": "German literature--Translations into English",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/12034140/",
+            "url": "http://www.loc.gov/item/12034140/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/12034140/",
+                "subject": "German literature--Translations into English",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "technology-engineering",
+            "name": "Technology--Juvenile and popular literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/13025448/",
+            "url": "http://www.loc.gov/item/13025448/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/13025448/",
+                "subject": "Technology--Juvenile and popular literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-nature",
+            "name": "Science--Juvenile and popular literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/13025448/",
+            "url": "http://www.loc.gov/item/13025448/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/13025448/",
+                "subject": "Science--Juvenile and popular literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "discovery-voyage",
+            "name": "Voyages around the world",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/10028950/",
+            "url": "http://www.loc.gov/item/10028950/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/10028950/",
+                "subject": "Voyages around the world",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
+      },
+      "fast": {
+        "labels": [],
+        "notes": []
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "discovery-voyage",
+          "name": "Voyages around the world",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "trope",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/10028950/",
+              "url": "http://www.loc.gov/item/10028950/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/10028950/",
+                "subject": "Voyages around the world",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "era-1900s",
+          "name": "1900-1999",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "1900-1999",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-nature",
+          "name": "Science--Juvenile and popular literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/13025448/",
+              "url": "http://www.loc.gov/item/13025448/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/13025448/",
+                "subject": "Science--Juvenile and popular literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "technology-engineering",
+          "name": "Technology--Juvenile and popular literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/13025448/",
+              "url": "http://www.loc.gov/item/13025448/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/13025448/",
+                "subject": "Technology--Juvenile and popular literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "authors-american",
+          "name": "Authors, American",
+          "kind": "person",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Authors, American",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "authors-american-20th-century-correspondence",
+          "name": "Authors, American--20th century--Correspondence",
+          "kind": "person",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Authors, American--20th century--Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "bravard-robert-s-correspondence",
+          "name": "Bravard, Robert S.--Correspondence",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Bravard, Robert S.--Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "delany-samuel-r",
+          "name": "Delany, Samuel R",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Delany, Samuel R",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "delany-samuel-r-correspondence",
+          "name": "Delany, Samuel R.--Correspondence",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Delany, Samuel R.--Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "german-literature-translations-into-english",
+          "name": "German literature--Translations into English",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/12034140/",
+              "url": "http://www.loc.gov/item/12034140/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/12034140/",
+                "subject": "German literature--Translations into English",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "german-prose-literature-history-and-criticism",
+          "name": "German prose literature--History and criticism",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/12034140/",
+              "url": "http://www.loc.gov/item/12034140/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/12034140/",
+                "subject": "German prose literature--History and criticism",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "mcgraw-erin-1957-correspondence",
+          "name": "McGraw, Erin,--1957---Correspondence",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "McGraw, Erin,--1957---Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "personal-correspondence",
+          "name": "Personal correspondence",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Personal correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "spencer-kathleen-1947-correspondence",
+          "name": "Spencer, Kathleen,--1947---Correspondence",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2019286599",
+              "url": "http://lccn.loc.gov/2019286599"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2019286599",
+                "subject": "Spencer, Kathleen,--1947---Correspondence",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        }
+      ]
+    }
   }
 }

@@ -301,7 +301,77 @@
       }
     ],
     "cross_tags_count": 20,
-    "cross_tags_status": "needs_more"
+    "cross_tags_status": "needs_more",
+    "external_subjects": [
+      {
+        "slug": "contemporary-romance",
+        "name": "FICTION / Romance / Contemporary",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "subgenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": "romance",
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131"
+          }
+        ]
+      },
+      {
+        "slug": "domestic-fiction",
+        "name": "Housekeepers--Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "subgenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": "contemporary-fiction",
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131"
+          }
+        ]
+      },
+      {
+        "slug": "ranch-western",
+        "name": "Ranchers--Fiction",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "subgenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": "western",
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131"
+          }
+        ]
+      },
+      {
+        "slug": "romance",
+        "name": "FICTION / Romance / General",
+        "confidence": "high",
+        "kind": "genre",
+        "taxonomy_type": "supergenre",
+        "taxonomy_group": null,
+        "taxonomy_parent": null,
+        "sources": [
+          {
+            "source": "loc",
+            "confidence": "high",
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131"
+          }
+        ]
+      }
+    ]
   },
   "format": {
     "slug": "novel",
@@ -353,5 +423,243 @@
         "extract": "Title: When I'm Gone\n\nDescription: \"From #1 New York Times bestselling author Abbi Glines comes the next new adult novel in the Rosemary Beach series, in which we meet Mase, a Texas heartthrob first introduced in Take a Chance who comes to Rosemary Beach to stir things up. I had an urge to fix all her problems. Which was stupid. She was doing fine without me. But something about those big eyes ... Mase Colt-Manning has always preferred his humble life as a Texas rancher to his birthright as the son of a legendary rock star. In fact, he rarely visits his father's rarefied world in Rosemary Beach, especially if it means bunking at his vile half-sister Nan's house--until one visit leads to a chance encounter with a young, gorgeous house maid who awakens him with her off-key but spirited imitation of a country music star ... Reese Ellis finally has her freedom. After escaping a lifetime of abuse from her parents and classmates for an undiagnosed learning disorder, she seizes the opportunity to be a house maid to some of the richest families in Rosemary Beach. But her job is in jeopardy when she causes an accident at the home of her most important client, Nan Dillon. When a hot, half-naked stranger with a cowboy's swagger comes to her rescue, she's intrigued--then afraid once he shows his own interest. Reese has never met a trustworthy man in her life. Will Mase be any different?\"--\r\n\r\n\"A new adult novel set in the fictional town of Rosemary Beach about a Texas Rancher who falls in love with a housemaid at his rock star father's estate\"--\n\nSubjects: Housekeepers, Man-woman relationships, Ranchers, Fiction, FICTION / Romance / Contemporary, FICTION / Romance / General, Fiction, romance, contemporary, Texas, fiction\n\nPublication: 2015\n\nLanguages: eng"
       }
     ]
+  },
+  "external_metadata": {
+    "last_run": "2025-11-01T16:16:23.883Z",
+    "sources_enabled": [
+      "loc",
+      "wikidata"
+    ],
+    "input_snapshot": {
+      "title": "When I'm Gone",
+      "authors": [
+        "Abbi Glines"
+      ],
+      "isbn10": null,
+      "isbn13": "9781476776095",
+      "edition_id": "5f1ec77d-b848-41b6-833b-bc9ceebe3ecf"
+    },
+    "sources": {
+      "loc": {
+        "labels": [
+          {
+            "slug": "ranch-western",
+            "name": "Ranchers--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Ranchers--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "domestic-fiction",
+            "name": "Housekeepers--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Housekeepers--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "contemporary-romance",
+            "name": "FICTION / Romance / Contemporary",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "FICTION / Romance / Contemporary",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "romance",
+            "name": "FICTION / Romance / General",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "FICTION / Romance / General",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Love stories",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
+      },
+      "fast": {
+        "labels": [],
+        "notes": []
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "contemporary-romance",
+          "name": "FICTION / Romance / Contemporary",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "romance",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014049131",
+              "url": "http://lccn.loc.gov/2014049131"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "FICTION / Romance / Contemporary",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "domestic-fiction",
+          "name": "Housekeepers--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "contemporary-fiction",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014049131",
+              "url": "http://lccn.loc.gov/2014049131"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Housekeepers--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "ranch-western",
+          "name": "Ranchers--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "western",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014049131",
+              "url": "http://lccn.loc.gov/2014049131"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Ranchers--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "romance",
+          "name": "FICTION / Romance / General",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014049131",
+              "url": "http://lccn.loc.gov/2014049131"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "FICTION / Romance / General",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Love stories",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        }
+      ]
+    }
   }
 }
