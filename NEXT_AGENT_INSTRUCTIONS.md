@@ -1,7 +1,22 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-10-31T21:05:00Z  
-**Priority:** HIGH – Build external metadata adapters & clean cross-tag fallout
+**Last Updated:** 2025-11-01T18:45:00Z  
+**Priority:** HIGH – FAST adapter integration + metadata cleanup handoff
+
+## 🔄 SESSION HANDOFF SUMMARY (2025-11-01 – FAST Adapter Context Refresh)
+
+### ✅ Completed This Session
+1. Re-confirmed `.env.local` contains the `FAST_*` configuration (public endpoints, throttle, feature flag) and verified the assignFAST endpoint returns data (e.g., `"Cats"` suggestions).
+
+### ⚠️ Active Issues
+- No FAST adapter is currently checked into the repo; enrichment still lacks automated FAST tagging.
+- Pre-existing cleanup tasks from 2025-10-31 remain open (stale fantasy cross-tags, summary rewrites, format detection for web titles).
+
+### 🎯 Next Steps
+1. Implement the FAST adapter (TypeScript) within the project structure, honoring `FAST_ENABLED`, `FAST_SUGGEST_URL`, and `FAST_RECORD_BASE`; expose `fastSuggest`, `fastSuggestThrottled`, and `fastRecord`.
+2. Wire the adapter into the enrichment pipeline behind the FAST feature flag, ensuring polite throttling (`FAST_THROTTLE_MS`) and a smoke-test command that outputs sample suggestions (to be included in the handoff note).
+3. After wiring, continue with the 10-book batch follow-up: rewrite summaries flagged `needs_rewrite`, review/manual cross-tags, and finish format detection logic before running `npm run enrichment:apply`.
+- Leave temp scripts out of version control unless needed by the pipeline; remove any ad-hoc scratch files once the adapter lands.
 
 ## 🔄 SESSION HANDOFF SUMMARY (2025-10-31 – Taxonomy Dialog Fix & Metadata Roadmap)
 
