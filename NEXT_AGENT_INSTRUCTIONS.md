@@ -1,22 +1,72 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-11-01T18:45:00Z  
-**Priority:** HIGH – FAST adapter integration + metadata cleanup handoff
+**Last Updated:** 2025-11-02T01:00:00Z  
+**Priority:** HIGH – Batch 002 enrichment needed (10 books loaded but not enriched)
 
-## 🔄 SESSION HANDOFF SUMMARY (2025-11-01 – FAST Adapter Context Refresh)
+## 🔄 SESSION HANDOFF SUMMARY (2025-11-02 – Batch 001 Complete, Batch 002 Ready)
 
 ### ✅ Completed This Session
-1. Re-confirmed `.env.local` contains the `FAST_*` configuration (public endpoints, throttle, feature flag) and verified the assignFAST endpoint returns data (e.g., `"Cats"` suggestions).
+1. **FAST adapter verified** – FAST adapter is fully implemented and working correctly. Smoke test created: `npm run fast:smoke [query]`
+2. **Format detection enhanced** – Integrated `format_patterns.json` into `task-07-format-audience.js` with weighted scoring system for web formats (web-novel, webtoon, light-novel, manga, etc.)
+3. **Batch 001 enrichment applied** – All 10 books from batch 001 successfully synced to Neon database with:
+   - ✅ Summaries rewritten (150-300 words)
+   - ✅ Complete taxonomy (domains, genres, subgenres, cross-tags)
+   - ✅ Format and audience detection
+   - ✅ FAST metadata collected (external_metadata)
+4. **Environment setup** – Created `.env.local` with DATABASE_URL and batch script `apply-batch-enrichment.ps1` for applying enrichment data
 
-### ⚠️ Active Issues
-- No FAST adapter is currently checked into the repo; enrichment still lacks automated FAST tagging.
-- Pre-existing cleanup tasks from 2025-10-31 remain open (stale fantasy cross-tags, summary rewrites, format detection for web titles).
+### 📊 Batch Status Summary
 
-### 🎯 Next Steps
-1. Implement the FAST adapter (TypeScript) within the project structure, honoring `FAST_ENABLED`, `FAST_SUGGEST_URL`, and `FAST_RECORD_BASE`; expose `fastSuggest`, `fastSuggestThrottled`, and `fastRecord`.
-2. Wire the adapter into the enrichment pipeline behind the FAST feature flag, ensuring polite throttling (`FAST_THROTTLE_MS`) and a smoke-test command that outputs sample suggestions (to be included in the handoff note).
-3. After wiring, continue with the 10-book batch follow-up: rewrite summaries flagged `needs_rewrite`, review/manual cross-tags, and finish format detection logic before running `npm run enrichment:apply`.
-- Leave temp scripts out of version control unless needed by the pipeline; remove any ad-hoc scratch files once the adapter lands.
+**Batch 001 (10 books):** ✅ COMPLETE
+- All books enriched and applied to database
+- Enrichment data files in `enrichment_data/`
+- Status: Production-ready
+
+**Batch 002 (10 books):** ⚠️ LOADED BUT NOT ENRICHED
+- Books loaded into database ✅
+- Basic descriptions present ✅
+- **NO enrichment data files** ❌
+- **NO taxonomy assigned** ❌
+- **NO summaries rewritten** ❌
+
+### 🎯 Next Steps (Batch 002 Enrichment)
+
+**Priority 1: Export Batch 002 Books**
+1. Create `books_batch_002.json` with the 10 batch 002 books:
+   - The Eye of the World (42b1a772-97a1-4777-97cb-ae30b66feab8)
+   - The Great Hunt (a22d3173-56b0-4aaf-850e-d594a74741d3)
+   - Ender's Game (13e4fad3-10ac-4d50-92e8-96e52827dec3)
+   - Speaker for the Dead (6f3452c6-e8c5-4328-941d-4992b401e7fe)
+   - Defiance of the Fall (60eab8a3-98c7-4f63-8b81-208dd9fc8d86)
+   - Ascendance of a Bookworm: Part 1 Volume 1 (661d7f73-dc36-4fd7-94c8-5fd6bba9bf16)
+   - Delve (Path of the Deathless) (aafd33c5-f1ee-4da5-ae61-7df49eed6b0f)
+   - World of Cultivation (f8486671-601d-4267-9347-8e859a7cc35a)
+   - Tower of God Volume One (25722ee3-1244-4d3d-bf6b-6d1af5a0e8d1)
+   - Dune (a5630692-6cf1-4d8c-b834-970b18fbabe5)
+
+**Priority 2: Run Full Enrichment Pipeline**
+Run all enrichment tasks for batch 002:
+```powershell
+node enrich-batch.js
+```
+This will run tasks 0-8:
+- Task 0: External metadata (FAST/LoC/Wikidata)
+- Task 1: Cover URLs
+- Task 2: Authors
+- Task 3: Summary generation (flags for rewrite)
+- Task 4: Domain/Supergenres
+- Task 5: Genres/Subgenres
+- Task 6: Cross-tags
+- Task 7: Format/Audience (now with format_patterns.json!)
+- Task 8: Generate SQL
+
+**Priority 3: Write Summaries**
+- Generate summary worksheet: `node generate-summary-worksheet.js`
+- Write 150-300 word summaries for all 10 books
+- Import summaries: `node import-summaries.js`
+
+**Priority 4: Apply to Database**
+- Run: `.\apply-batch-enrichment.ps1` (or manually for each book)
 
 ## 🔄 SESSION HANDOFF SUMMARY (2025-10-31 – Taxonomy Dialog Fix & Metadata Roadmap)
 

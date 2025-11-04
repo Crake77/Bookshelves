@@ -204,6 +204,9 @@ Located in `docs/` directory:
 | `docs/ops/dialog-runtime-error.md` | Dialog component runtime error troubleshooting |
 | `docs/ops/cross-tag-gap-report.md` | Missing cross-tag slug inventory + mapping/alias recommendations (2025-10-26) |
 | `docs/ops/session-issues-2025-10-26.md` | Validator + TypeScript blocker summary with remediation steps |
+| `docs/ops/metadata-source-roadmap.md` | Multi-source metadata adapter architecture (LoC, FAST, Wikidata, etc.) |
+| `docs/ops/session-notes-2025-11-01-fast-integration.md` | FAST adapter connectivity verification session |
+| `docs/ops/session-notes-2025-11-02-format-detection-fast.md` | Format detection enhancement + batch 001 completion session |
 
 ### Reference
 

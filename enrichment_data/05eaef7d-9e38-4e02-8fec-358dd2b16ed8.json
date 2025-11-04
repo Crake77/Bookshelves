@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=NJFzGwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-01T19:05:13.353Z",
+  "last_updated": "2025-11-04T19:56:51.230Z",
   "authors": {
     "original": [
       "Science Fiction Writers of America"
@@ -166,9 +166,10 @@
     ]
   },
   "format": {
-    "slug": "short-story-collection",
+    "slug": "novel",
     "confidence": "high",
-    "reason": "Award-winning short story anthology"
+    "score": 1,
+    "reason": "Pattern-based detection: Novel (score: 1.00, threshold: 0.5)"
   },
   "audience": {
     "slug": "adult",

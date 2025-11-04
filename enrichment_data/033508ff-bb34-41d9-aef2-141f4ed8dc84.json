@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-01T19:05:11.976Z",
+  "last_updated": "2025-11-04T19:56:59.282Z",
   "authors": {
     "original": [
       "Samuel R. Delany"
@@ -311,9 +311,10 @@
     ]
   },
   "format": {
-    "slug": "anthology",
+    "slug": "omnibus",
     "confidence": "high",
-    "reason": "Title or description indicates anthology/collection format"
+    "score": 0.9999999999999999,
+    "reason": "Pattern-based detection: Omnibus (score: 1.00, threshold: 0.65)"
   },
   "audience": {
     "slug": "adult",

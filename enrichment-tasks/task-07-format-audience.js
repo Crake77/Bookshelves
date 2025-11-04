@@ -6,16 +6,181 @@ import fs from 'fs';
 import path from 'path';
 
 const ENRICHMENT_DIR = 'enrichment_data';
+const FORMAT_PATTERNS_FILE = 'format_patterns.json';
 
-// Detect format (hardcover, paperback, ebook, audiobook)
-function detectFormat(book, enrichmentData = null) {
+// Load format patterns
+function loadFormatPatterns() {
+  try {
+    const data = JSON.parse(fs.readFileSync(FORMAT_PATTERNS_FILE, 'utf8'));
+    return data.patterns || {};
+  } catch (error) {
+    console.warn(`    ⚠️  Could not load format patterns: ${error.message}`);
+    return {};
+  }
+}
+
+// Score a format pattern against book metadata
+function scoreFormatPattern(pattern, book, enrichmentData) {
   const categories = (book.categories || []).map(c => c.toLowerCase());
   let description = (book.description || '').toLowerCase();
   
   // Use enriched summary if original description is null/empty
   if (!description && enrichmentData?.summary?.new_summary) {
     description = enrichmentData.summary.new_summary.toLowerCase();
-    console.log(`    ℹ️  Using enriched summary for format detection (no original description)`);
+  }
+  
+  const title = book.title.toLowerCase();
+  const publisher = (book.publisher || '').toLowerCase();
+  
+  let score = 0;
+  const weights = pattern.weights || {};
+  
+  // Exact phrase matching (highest weight)
+  if (pattern.exact_phrases) {
+    for (const phrase of pattern.exact_phrases) {
+      const lowerPhrase = phrase.toLowerCase();
+      if (title.includes(lowerPhrase) || description.includes(lowerPhrase)) {
+        score += (weights.exact_phrase || 0.40);
+        break; // Only count once
+      }
+    }
+  }
+  
+  // Publisher/platform markers (high weight for web formats)
+  if (pattern.publisher_markers || pattern.platform_indicators) {
+    const markers = [
+      ...(pattern.publisher_markers || []),
+      ...(pattern.platform_indicators || [])
+    ];
+    for (const marker of markers) {
+      const lowerMarker = marker.toLowerCase();
+      if (publisher.includes(lowerMarker) || 
+          title.includes(lowerMarker) || 
+          description.includes(lowerMarker)) {
+        score += (weights.publisher || weights.platform || 0.25);
+        break;
+      }
+    }
+  }
+  
+  // Title pattern matching (regex)
+  if (pattern.title_patterns) {
+    for (const patternRegex of pattern.title_patterns) {
+      try {
+        const regex = new RegExp(patternRegex, 'i');
+        if (regex.test(title)) {
+          score += (weights.title_pattern || 0.15);
+          break;
+        }
+      } catch (e) {
+        // Invalid regex, skip
+      }
+    }
+  }
+  
+  // Category indicators
+  if (pattern.category_indicators) {
+    for (const indicator of pattern.category_indicators) {
+      if (categories.some(c => c.includes(indicator.toLowerCase()))) {
+        score += (weights.category || 0.20);
+        break;
+      }
+    }
+  }
+  
+  // Description markers
+  if (pattern.description_markers) {
+    let foundMarkers = 0;
+    for (const marker of pattern.description_markers) {
+      if (description.includes(marker.toLowerCase())) {
+        foundMarkers++;
+      }
+    }
+    if (foundMarkers > 0) {
+      // Weight decreases as we find more matches (diminishing returns)
+      const descriptionWeight = weights.description || 0.15;
+      score += Math.min(foundMarkers * (descriptionWeight / 3), descriptionWeight);
+    }
+  }
+  
+  // Strong signals (boost score if found)
+  if (pattern.strong_signals) {
+    for (const signal of pattern.strong_signals) {
+      if (title.includes(signal.toLowerCase()) || 
+          description.includes(signal.toLowerCase())) {
+        score += 0.10; // Small boost
+        break;
+      }
+    }
+  }
+  
+  return Math.min(score, 1.0); // Cap at 1.0
+}
+
+// Detect format using format_patterns.json with weighted scoring
+function detectFormat(book, enrichmentData = null) {
+  const patterns = loadFormatPatterns();
+  
+  if (Object.keys(patterns).length === 0) {
+    // Fallback to simple detection if patterns not available
+    return detectFormatSimple(book, enrichmentData);
+  }
+  
+  const categories = (book.categories || []).map(c => c.toLowerCase());
+  let description = (book.description || '').toLowerCase();
+  
+  if (!description && enrichmentData?.summary?.new_summary) {
+    description = enrichmentData.summary.new_summary.toLowerCase();
+  }
+  
+  const title = book.title.toLowerCase();
+  
+  let bestFormat = null;
+  let bestScore = 0;
+  
+  // Score all formats
+  for (const [formatSlug, pattern] of Object.entries(patterns)) {
+    const score = scoreFormatPattern(pattern, book, enrichmentData);
+    const minConfidence = pattern.minimum_confidence || 0.60;
+    
+    if (score >= minConfidence && score > bestScore) {
+      bestFormat = {
+        slug: formatSlug,
+        pattern: pattern,
+        score: score
+      };
+      bestScore = score;
+    }
+  }
+  
+  if (bestFormat) {
+    // Convert score to confidence level
+    let confidence = 'medium';
+    if (bestScore >= 0.75) {
+      confidence = 'high';
+    } else if (bestScore < 0.65) {
+      confidence = 'low';
+    }
+    
+    return {
+      slug: bestFormat.slug,
+      confidence: confidence,
+      score: bestScore,
+      reason: `Pattern-based detection: ${bestFormat.pattern.name} (score: ${bestScore.toFixed(2)}, threshold: ${bestFormat.pattern.minimum_confidence})`
+    };
+  }
+  
+  // Fallback to simple detection if no pattern matched
+  return detectFormatSimple(book, enrichmentData);
+}
+
+// Simple format detection (fallback)
+function detectFormatSimple(book, enrichmentData = null) {
+  const categories = (book.categories || []).map(c => c.toLowerCase());
+  let description = (book.description || '').toLowerCase();
+  
+  if (!description && enrichmentData?.summary?.new_summary) {
+    description = enrichmentData.summary.new_summary.toLowerCase();
   }
   
   const title = book.title.toLowerCase();
@@ -178,7 +343,8 @@ async function detectFormatAudience(bookId) {
   };
   
   if (format.slug) {
-    console.log(`  ✅ Format: ${format.slug} (${format.confidence})`);
+    const scoreInfo = format.score ? ` (score: ${format.score.toFixed(2)})` : '';
+    console.log(`  ✅ Format: ${format.slug}${scoreInfo} (${format.confidence})`);
   } else {
     console.log(`  ⚠️  Format: Unknown - ${format.reason}`);
     result.notes.push('Format could not be determined - leave NULL or manually review');
