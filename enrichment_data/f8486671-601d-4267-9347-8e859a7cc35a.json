@@ -4,7 +4,7 @@
     "timestamp": "2025-11-04T20:31:53.716Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:31:53.728Z",
+    "last_run": "2025-11-04T21:58:40.762Z",
     "sources_enabled": [
       "fast"
     ],
@@ -534,7 +534,20 @@
         "confidence": "suggested"
       }
     ],
-    "subgenres": [],
+    "subgenres": [
+      {
+        "slug": "cultivation-xianxia",
+        "name": "Cultivation Xianxia",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      }
+    ],
     "cross_tags": [
       {
         "slug": "cultivation",
@@ -561,6 +574,14 @@
         "method": "pattern-match"
       },
       {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
         "slug": "xianxia",
         "name": "Xianxia",
         "group": "trope",
@@ -585,7 +606,7 @@
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 6
+    "cross_tags_count": 7
   },
   "cover_urls": {
     "existing": "https://novelfull.com/uploads/thumbs/world-of-cultivation-cb76fd4183-2239c49aee6b961904acf173b7e4602a.jpg",
@@ -596,7 +617,7 @@
     "recommended": "https://books.google.com/books/content?id=web-world-of-cultivation&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-04T20:35:42.224Z",
+  "last_updated": "2025-11-04T21:58:52.010Z",
   "authors": {
     "original": [
       "Fang Xiang"
@@ -610,15 +631,14 @@
   "summary": {
     "original_description": "World of Cultivation is the tale of a disgruntled young man and his quest to be the best farmer he can be, at least if it wasn’t for those annoying people who keep getting in the way of his pursuit of agricultural excellence. Will conspiring forces turn him into a sword cultivator, or will he manage to throw off the shackles of fate and grow the best darn crops in the sect? Those air-headed cultivators dream of too much nonsense and don’t know how to live properly, they need to get a real job to earn some jingshi for a living like a normal person.",
     "original_length": 553,
-    "new_summary": "World of Cultivation follows a young man named Zuo Mo who initially aspires to focus on farming within a cultivation sect, prioritizing practical agriculture over the more traditional paths of martial and spiritual advancement. The story is set in a world where cultivation, the practice of increasing one's power and lifespan through various techniques, is the dominant social and cultural framework. Zuo Mo's perspective differs from typical cultivators, as he values mundane work and economic stability over the pursuit of immortality or martial prowess. However, circumstances repeatedly pull him away from his agricultural goals and into situations that require him to engage with cultivation practices despite his initial reluctance. The narrative explores the tension between personal desires and external pressures, as Zuo Mo finds himself drawn into conflicts and power struggles that challenge his attempt to live a simple, farming-focused life. The story examines how individuals navigate systems of power and expectation, and questions whether it's possible to maintain one's values when surrounded by forces that demand different priorities. Themes of pragmatism versus idealism emerge as Zuo Mo must balance his practical approach to life with the demands of the cultivation world around him. The narrative maintains a humorous tone while addressing serious questions about work, value, and personal agency within structured social systems.",
-    "new_length": 1454,
-    "word_count": 214,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:42.224Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {

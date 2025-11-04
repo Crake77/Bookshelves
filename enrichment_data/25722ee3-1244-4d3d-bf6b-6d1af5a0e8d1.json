@@ -4,7 +4,7 @@
     "timestamp": "2025-11-04T20:32:06.599Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:32:06.609Z",
+    "last_run": "2025-11-04T21:58:53.334Z",
     "sources_enabled": [
       "fast"
     ],
@@ -459,20 +459,9 @@
         "slug": "fantasy",
         "name": "Fantasy",
         "confidence": "suggested"
-      },
-      {
-        "slug": "science-fiction",
-        "name": "Science Fiction",
-        "confidence": "high"
       }
     ],
-    "subgenres": [
-      {
-        "slug": "webtoon",
-        "name": "Webtoon",
-        "confidence": "high"
-      }
-    ],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "death",
@@ -539,36 +528,23 @@
         "method": "pattern-match"
       },
       {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
         "slug": "adhd",
         "name": "Adhd",
         "group": "representation",
         "confidence": "medium",
         "match_score": 1.2,
         "method": "pattern-match"
-      },
-      {
-        "slug": "tower-climbing",
-        "name": "Tower Climbing",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "tests",
-        "name": "Tests",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "friendship",
-        "name": "Friendship",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
       }
     ],
-    "cross_tags_count": 12
+    "cross_tags_count": 10
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=v-RwEAAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73D4ORCcqrUwR55BlxC6ML0PK4cgpGSlSVmhdxgGFwHRwfpWbLAIB2AyVMUWwjdLczRexYuPwTAfIDSsoAJFriMzDD6LFUp_XW3Hu_6nNIMlZEIrRXcOcW7Y8FCXFb-5H-HtZI4&source=gbs_api",
@@ -579,7 +555,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL38067039M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T20:35:41.486Z",
+  "last_updated": "2025-11-04T21:59:04.631Z",
   "authors": {
     "original": [
       "S.I.U.",
@@ -595,29 +571,24 @@
   "summary": {
     "original_description": "<p>Twenty-Fifth Bam must journey skyward in a mysterious tower if he has any chance of reuniting with his best friend Rachel, even if that means facing his own death. <br><br>Before mysteriously disappearing into the tower gates before his very eyes, Rachel cautions Bam to forget all about her. Unwilling to lose her, Bam enters the Tower completely surrounded by Shinsu — a divine and magical water, at his own peril.<br><br>The Tower itself contains multitudes of floors as vast as continents, each one with its unique geography, language and culture. Confronted by skillful tests each step of the way, Bam meets powerful guardians and otherworldly environments, making his quest to the top no easy feat. <br><br>Beginning his journey, Bam is met by Headon, the first floor guardian and caretaker of the Tower who explains the rules of the Tower. At each level Bam is constantly tested for his strength, dexterity and wit. With help from fellow travelers and unlikely villains, Bam makes both allies and enemies in order to find Rachel; however her intentions of reconnecting with him become unclear as misinformation about her whereabouts do not add up. Behind each ascension is a revelation about their friendship, revealing a much deeper, darker secret.</p>",
     "original_length": 1263,
-    "new_summary": "Tower of God Volume One follows a young man named Bam who enters a mysterious structure known as the Tower in pursuit of his closest companion Rachel, who vanished into its depths. The Tower consists of countless floors, each functioning as a separate world with distinct rules, cultures, and challenges. Bam encounters Headon, the guardian of the first floor, who explains that ascending requires passing tests at each level. These examinations evaluate physical capability, mental acuity, and strategic thinking. The Tower's environment is permeated by Shinsu, a mystical substance that exists throughout the structure. As Bam progresses, he meets other climbers who may become allies or adversaries, and he must navigate complex social dynamics while attempting to discover Rachel's location and motivations. The narrative explores themes of determination, friendship, and the costs of pursuing one's goals. The Tower functions as both a physical challenge and a metaphorical space where individuals reveal their true nature through their choices and actions. Bam's journey becomes increasingly complicated as he learns that the circumstances surrounding Rachel's disappearance may not be what they initially appeared, suggesting deeper mysteries about their relationship and the Tower's true purpose.",
-    "new_length": 1304,
-    "word_count": 191,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:41.486Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {
-    "slug": "webtoon",
-    "confidence": "high",
-    "reason": "Manual correction: Webtoon format"
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
   },
   "audience": {
     "slug": "adult",
-    "includes": [
-      "young-adult",
-      "new-adult"
-    ],
-    "confidence": "high",
-    "reason": "Manual correction: Appeals to young-adult, new-adult, and adult audiences"
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
   }
 }

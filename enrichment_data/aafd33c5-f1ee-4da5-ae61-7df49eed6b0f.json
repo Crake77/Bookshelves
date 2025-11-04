@@ -5,12 +5,12 @@
     "title": "Path of the Deathless"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:31:40.769Z",
+    "last_run": "2025-11-04T21:58:28.141Z",
     "sources_enabled": [
       "fast"
     ],
     "input_snapshot": {
-      "title": "Path of the Deathless",
+      "title": "Delve (Path of the Deathless)",
       "authors": [
         "SenescentSoul"
       ],
@@ -389,14 +389,10 @@
     ],
     "subgenres": [
       {
-        "slug": "web-novel",
-        "name": "Web Novel",
-        "confidence": "high"
-      },
-      {
-        "slug": "post-apocalyptic",
-        "name": "Post-Apocalyptic",
-        "confidence": "high"
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
       }
     ],
     "cross_tags": [
@@ -465,10 +461,18 @@
         "method": "pattern-match"
       },
       {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
         "slug": "progression-fantasy",
         "name": "Progression Fantasy",
         "group": "trope",
-        "confidence": "medium",
+        "confidence": "high",
         "match_score": 3,
         "method": "pattern-match"
       },
@@ -487,44 +491,9 @@
         "confidence": "high",
         "match_score": 2.1,
         "method": "pattern-match"
-      },
-      {
-        "slug": "post-apocalyptic",
-        "name": "Post-Apocalyptic",
-        "group": "setting",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "anti-hero",
-        "name": "Anti-Hero",
-        "group": "character",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "male-protag",
-        "name": "Male Protagonist",
-        "group": "character",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "resurrection",
-        "name": "Resurrection",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "system",
-        "name": "System",
-        "group": "element",
-        "confidence": "high",
-        "method": "manual-fix"
       }
     ],
-    "cross_tags_count": 16
+    "cross_tags_count": 12
   },
   "cover_urls": {
     "existing": "https://www.royalroadcdn.com/public/covers-full/25225-delve.jpg",
@@ -535,7 +504,7 @@
     "recommended": "https://books.google.com/books/content?id=royalroad-path-of-the-deathless&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-04T20:35:42.129Z",
+  "last_updated": "2025-11-04T21:58:39.443Z",
   "authors": {
     "original": [
       "SenescentSoul"
@@ -549,21 +518,20 @@
   "summary": {
     "original_description": "Delve is an isekai litrpg that follows an average guy who just happened to wake up in a forest one day. He wasn’t summoned to defeat the demon lord or to save the world or anything like that, at least as far as he can tell. The only creature there to greet him was a regular old squirrel. Soon enough, he meets other people, only to discover that he can’t speak the language, and that not everybody immediately trusts random pajama-wearing strangers they met in the middle of the wilderness. Things generally go downhill from there, at least until the blue boxes start appearing. Delve is a story about finding your way in a new, strange, and dangerous world. It’s about avoiding death, figuring out what the heck is going on, and trying to make some friends along the way. It’s not about getting home, so much as finding a new one. Did I mention that there will be math?",
     "original_length": 871,
-    "new_summary": "Delve follows an ordinary man who awakens in an unfamiliar forest without explanation or apparent purpose. Unlike typical isekai narratives where characters are summoned for specific missions, this protagonist appears to have arrived by accident, with no clear goal or special destiny. He encounters a language barrier when meeting other people, complicating his attempts to understand his situation or communicate his needs. The story emphasizes the practical challenges of survival in an unknown environment, from basic needs like food and shelter to the social difficulties of being an outsider. The narrative introduces game-like systems through interface elements that appear to the protagonist, suggesting that this world operates according to rules similar to role-playing games, with levels, skills, and progression mechanics. The story focuses on the protagonist's gradual adaptation to this new reality, his efforts to learn the language and customs of the people he encounters, and his attempts to build relationships despite cultural and linguistic barriers. Themes of displacement, adaptation, and the search for belonging emerge as the protagonist realizes that returning home may not be possible and that he must instead find a way to exist in this new world. The narrative maintains a grounded, practical tone, emphasizing the day-to-day challenges of survival and integration rather than epic quests or world-saving missions.",
-    "new_length": 1442,
-    "word_count": 213,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:42.129Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {
-    "slug": "web-novel",
-    "confidence": "high",
-    "reason": "Manual correction: Royal Road web novel"
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
   },
   "audience": {
     "slug": "adult",

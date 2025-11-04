@@ -4,7 +4,7 @@
     "timestamp": "2025-11-04T20:30:03.013Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:30:36.424Z",
+    "last_run": "2025-11-04T21:57:25.097Z",
     "sources_enabled": [
       "fast"
     ],
@@ -587,33 +587,9 @@
         "method": "semantic-inference"
       },
       {
-        "slug": "prophecy",
-        "name": "Prophecy",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "heist",
-        "name": "Heist",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match"
-      },
-      {
         "slug": "dragons",
         "name": "Dragons",
         "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "identity",
-        "name": "Identity",
-        "group": "tropes_themes",
         "confidence": "high",
         "match_score": 2.1,
         "method": "pattern-match"
@@ -627,22 +603,6 @@
         "method": "pattern-match"
       },
       {
-        "slug": "suspenseful",
-        "name": "Suspenseful",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "quest",
-        "name": "Quest",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match"
-      },
-      {
         "slug": "possession",
         "name": "Possession",
         "group": "content_flags",
@@ -651,15 +611,15 @@
         "method": "pattern-match"
       },
       {
-        "slug": "chosen-one",
-        "name": "Chosen One",
+        "slug": "prophecy",
+        "name": "Prophecy",
         "group": "tropes_themes",
         "confidence": "medium",
         "match_score": 1.1,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 19
+    "cross_tags_count": 14
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=yngEsxEO4QYC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE70_Azr3z5bbE4e2MAForYW9MNQQdxip6TfWwhTltnPnL99OUMBHmTXPYfM76MQjeK4_vIgQJsfz5hT7RTWHiAQU6KgRp4lecABulT5izHFXEepH6AAByHlWB5MgpTzhxhv6Z9Hb&source=gbs_api",
@@ -670,7 +630,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24395187M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T21:33:35.372Z",
+  "last_updated": "2025-11-04T21:57:36.336Z",
   "authors": {
     "original": [
       "Robert Jordan"
@@ -684,15 +644,14 @@
   "summary": {
     "original_description": "<p><b><i>The Wheel of Time</i> is now an original series on Prime Video, starring Rosamund Pike as Moiraine!<br><br>In <i>The Great Hunt</i>, the second novel in Robert Jordan’s #1 <i>New York Times</i> bestselling epic fantasy series, The Wheel of Time®, Rand al’Thor and his companions set out to retrieve a powerful artifact from The Dark One’s Shadowspawn.</b><br><br>For centuries, gleemen have told the tales of The Great Hunt of the Horn. So many tales about each of the Hunters, and so many Hunters to tell of...<br><br>Now the Horn itself is found: the Horn of Valere long thought only legend, the Horn which will raise the dead heroes of the ages.<br><br>And it is stolen.<br><br>In pursuit of the thieves, Rand al’Thor is determined to keep the Horn out of the grasp of The Dark One. But he has also learned that he is The Dragon Reborn—the Champion of Light destined to stand against the Shadow time and again. It is a duty and a destiny that requires Rand to uncover and master extraordinary capabilities he never imagined he possessed.<br><br>Since its debut in 1990, The Wheel of Time® has captivated millions of readers around the globe with its scope, originality, and compelling characters. The last six books in series were all instant #1 <i>New York Times</i> bestsellers, and <i>The Eye of the World</i> was named one of America's best-loved novels by PBS's The Great American Read.<br><br><b>The Wheel of Time®</b><br><i>New Spring: The Novel</i><br>#1 <i>The Eye of the World</i><br>#2 <i>The Great Hunt</i><br>#3 <i>The Dragon Reborn</i><br>#4 <i>The Shadow Rising</i><br>#5 <i>The Fires of Heaven</i><br>#6 <i>Lord of Chaos</i><br>#7 <i>A Crown of Swords</i><br>#8 <i>The Path of Daggers</i><br>#9 <i>Winter's Heart</i><br>#10 <i>Crossroads of Twilight</i><br>#11 <i>Knife of Dreams</i><br><br><b>By Robert Jordan and Brandon Sanderson</b><br>#12 <i>The Gathering Storm</i><br>#13 <i>Towers of Midnight</i><br>#14 <i>A Memory of Light</i><br><br><b>By Robert Jordan and Teresa Patterson</b><br><i>The World of Robert Jordan's The Wheel of Time</i><br><br><b>By Robert Jordan, Harriet McDougal, Alan Romanczuk, and Maria Simons</b><br><i>The Wheel of Time Companion</i><br><br><b>By Robert Jordan and Amy Romanczuk</b><br><i>Patterns of the Wheel: Coloring Art Based on Robert Jordan's The Wheel of Time</i><br><br>At the Publisher's request, this title is being sold without Digital Rights Management Software (DRM) applied.</p>",
     "original_length": 2453,
-    "new_summary": "The Great Hunt continues the story of Rand al'Thor and his companions as they pursue thieves who have stolen the Horn of Valere, an artifact of legend that has the power to summon legendary heroes from the past. The theft sets in motion a quest that takes the characters across diverse lands, encountering various cultures, political structures, and magical forces. Rand must come to terms with his identity as the Dragon Reborn, a figure of prophecy with immense power and responsibility. The narrative explores the tension between personal desires and the demands of destiny, as Rand struggles with the weight of expectations placed upon him. The story expands the world introduced in the first novel, introducing new locations, characters, and conflicts while maintaining focus on the central characters' development. Themes of choice, duty, and the nature of heroism emerge as the characters face increasingly complex challenges. The narrative weaves together multiple plot threads involving political maneuvering, magical discovery, and personal relationships, creating a sense of a living world where actions have consequences and where the past continues to influence the present. The story examines how individuals respond when confronted with circumstances beyond their control and the ways in which they attempt to assert agency within those constraints.",
-    "new_length": 1364,
-    "word_count": 207,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:41.944Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {

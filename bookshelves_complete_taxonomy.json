@@ -5139,6 +5139,13 @@
           "description": "Depicts death of a child"
         },
         {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "slug": "child-soldiers",
+          "name": "Child Soldiers",
+          "group": "content_flags",
+          "description": "Depicts children or minors in combat or military roles"
+        },
+        {
           "id": "93f704fd-db13-4545-940a-7a285088259b",
           "slug": "childbirth-trauma",
           "name": "Childbirth Trauma",

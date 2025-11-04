@@ -4,7 +4,7 @@
     "timestamp": "2025-11-04T20:32:19.519Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:32:19.534Z",
+    "last_run": "2025-11-04T21:59:05.959Z",
     "sources_enabled": [
       "fast"
     ],
@@ -223,7 +223,8 @@
       {
         "slug": "space-opera",
         "name": "Space Opera",
-        "confidence": "high"
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
       }
     ],
     "cross_tags": [
@@ -271,7 +272,7 @@
         "slug": "space-opera",
         "name": "Space Opera",
         "group": "trope",
-        "confidence": "medium",
+        "confidence": "high",
         "match_score": 3,
         "method": "pattern-match"
       },
@@ -282,37 +283,9 @@
         "confidence": "medium",
         "match_score": 1.1,
         "method": "pattern-match"
-      },
-      {
-        "slug": "political-intrigue",
-        "name": "Political Intrigue",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "religion",
-        "name": "Religion",
-        "group": "element",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "ecology",
-        "name": "Ecology",
-        "group": "element",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "desert-setting",
-        "name": "Desert Setting",
-        "group": "setting",
-        "confidence": "high",
-        "method": "manual-fix"
       }
     ],
-    "cross_tags_count": 11
+    "cross_tags_count": 7
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=nrRKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72NCnV0F9-rdKYEXhuQXxSN0jIZaiE6bZia9x9SEnfNrvXT42Tt2ruHVxm4PQc3eJheu10d1GWz6FDho3jZFnZG9xV2Eb-EXBeT35Qbk7zk-BG889DGMI4qwaIvLhy09_1LDv3u&source=gbs_api",
@@ -323,7 +296,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL59726263M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T20:35:42.036Z",
+  "last_updated": "2025-11-04T21:59:17.465Z",
   "authors": {
     "original": [
       "Frank Herbert"
@@ -337,15 +310,14 @@
   "summary": {
     "original_description": "<b><b>Frank Herbert’s classic masterpiece—a triumph of the imagination and one of the bestselling science fiction novels of all time.</b></b><br><br>Set on the desert planet Arrakis, <i>Dune</i> is the story of Paul Atreides—who would become known as Muad'Dib—and of a great family's ambition to bring to fruition mankind's most ancient and unattainable dream.<br><br>A stunning blend of adventure and mysticism, environmentalism and politics, <i>Dune</i> won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
     "original_length": 588,
-    "new_summary": "Dune is set on the desert planet Arrakis, the sole source of melange, a substance essential to space travel and highly valued throughout the known universe. The story follows Paul Atreides, whose family accepts control of Arrakis from the Emperor, placing them in a position of both great opportunity and extreme danger. The planet is harsh and unforgiving, with limited water, giant sandworms, and an indigenous population known as the Fremen who have adapted to survive in this environment. The Atreides family faces political intrigue and betrayal as rival houses maneuver for control of the planet and its resources. Paul must navigate these political complexities while also discovering that he may be connected to a religious prophecy among the Fremen. The novel explores themes of ecology, as the desert environment shapes every aspect of life on Arrakis, and politics, as various factions compete for control of valuable resources. The narrative examines how power structures operate and how individuals respond when placed in positions of authority or subjugation. Themes of destiny, adaptation, and the relationship between humanity and environment run throughout the story. The novel presents a complex world where religion, politics, economics, and ecology intersect, creating a rich backdrop for character development and philosophical exploration.",
-    "new_length": 1361,
-    "word_count": 205,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:42.036Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {
@@ -357,9 +329,6 @@
   "audience": {
     "slug": "adult",
     "confidence": "medium",
-    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)",
-    "includes": [
-      "new-adult"
-    ]
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
   }
 }

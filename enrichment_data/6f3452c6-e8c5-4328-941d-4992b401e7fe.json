@@ -4,7 +4,7 @@
     "timestamp": "2025-11-04T20:31:02.135Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:31:02.136Z",
+    "last_run": "2025-11-04T21:57:50.237Z",
     "sources_enabled": [
       "fast"
     ],
@@ -117,13 +117,7 @@
         "confidence": "suggested"
       }
     ],
-    "subgenres": [
-      {
-        "slug": "space-opera",
-        "name": "Space Opera",
-        "confidence": "high"
-      }
-    ],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "mystery",
@@ -150,57 +144,23 @@
         "method": "pattern-match"
       },
       {
+        "slug": "child-soldiers",
+        "name": "Child Soldiers",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 4,
+        "method": "semantic-inference"
+      },
+      {
         "slug": "alien-contact",
         "name": "Alien Contact",
         "group": "trope",
         "confidence": "high",
         "match_score": 2.1,
         "method": "pattern-match"
-      },
-      {
-        "slug": "male-protag",
-        "name": "Male Protagonist",
-        "group": "character",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "aliens",
-        "name": "Aliens",
-        "group": "element",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "first-contact",
-        "name": "First Contact",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "cultural-misunderstanding",
-        "name": "Cultural Misunderstanding",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "redemption",
-        "name": "Redemption",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "moral-complexity",
-        "name": "Moral Complexity",
-        "group": "trope",
-        "confidence": "high",
-        "method": "manual-fix"
       }
     ],
-    "cross_tags_count": 10
+    "cross_tags_count": 5
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=GYi1s6OuY-sC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71OHvqF9rBmkaRbj_8qsF7rwFpgTj3kO374DMoaO_z_TV-9NLZ2nIE1sEPUBvpg0E_fAw3uSvaqmEa8gKJF-NDOP2FVR-4b5Ei8HvYUz3nMuvnsE9B67vLCZcyb0HFkvfE4rIJG&source=gbs_api",
@@ -211,7 +171,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL9369820M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T20:35:41.851Z",
+  "last_updated": "2025-11-04T21:58:01.485Z",
   "authors": {
     "original": [
       "Orson Scott Card"
@@ -225,15 +185,14 @@
   "summary": {
     "original_description": "<p>In the aftermath of his terrible war, Ender Wiggin disappeared, and a powerful voice arose: The Speaker for the Dead, who told the true story of the Bugger War.<br><br>Now, long years later, a second alien race has been discovered, but again the aliens' ways are strange and frightening...again, humans die. And it is only the Speaker for the Dead, who is also Ender Wiggin the Xenocide, who has the courage to confront the mystery...and the truth.<br><br><i>Speaker for the Dead</i>, the second novel in Orson Scott Card's The Ender Saga, is the winner of the 1986 Nebula Award for Best Novel and the 1987 Hugo Award for Best Novel.<br><br>THE ENDER UNIVERSE<br><br>Ender series<br><i>Ender’s Game</i> /<i> Ender in Exile </i>/ <i>Speaker for the Dead </i>/ <i>Xenocide </i>/ <i>Children of the Mind</i><br><br>Ender’s Shadow series<br><i>Ender’s Shadow </i>/ <i>Shadow of the Hegemon </i>/ <i>Shadow Puppets </i>/ <i>Shadow of the Giant </i>/ <i>Shadows in Flight</i><br><br><i>Children of the Fleet</i><br><br>The First Formic War (with Aaron Johnston)<br><i>Earth Unaware </i>/ <i>Earth Afire </i>/ <i>Earth Awakens</i><br><br>The Second Formic War (with Aaron Johnston)<br><i>The Swarm </i>/<i>The Hive</i><br><br>Ender novellas<br><i>A War of Gifts </i>/<i>First Meetings</i></p>",
     "original_length": 1288,
-    "new_summary": "Speaker for the Dead takes place years after the events of Ender's Game, following an adult Ender Wiggin who travels between human colonies under the identity of the Speaker for the Dead, a figure who tells honest accounts of people's lives after their deaths. Humanity has discovered a second alien species, and once again encounters between humans and aliens result in violence and death. Ender is summoned to a colony where a researcher studying these new aliens has been killed, and the human community struggles to understand both the alien species and the circumstances of the death. The novel examines themes of cultural misunderstanding, the difficulty of communication across species boundaries, and the consequences of past actions. Ender must navigate the complex relationship between humans and aliens while dealing with his own history and the weight of decisions made during his childhood. The story explores how fear and lack of understanding can lead to conflict, and questions whether peaceful coexistence is possible when two species have fundamentally different ways of experiencing and interacting with the world. The narrative emphasizes the importance of seeking truth and understanding before passing judgment, and examines how individuals and societies process grief, guilt, and the need for reconciliation.",
-    "new_length": 1331,
-    "word_count": 203,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:41.851Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {

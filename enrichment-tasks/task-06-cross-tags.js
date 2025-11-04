@@ -72,9 +72,12 @@ function detectProtagonistGender(book, enrichmentData) {
 
 // Semantic inference: Detect content warnings from semantic variations
 function detectContentWarnings(book, enrichmentData) {
+  // Strip HTML tags and normalize whitespace
+  const cleanText = (str) => (str || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  
   const text = [
-    book.description || '',
-    enrichmentData?.summary?.new_summary || ''
+    cleanText(book.description),
+    cleanText(enrichmentData?.summary?.new_summary)
   ].join(' ').toLowerCase();
   
   if (!text.trim()) return [];
@@ -98,18 +101,52 @@ function detectContentWarnings(book, enrichmentData) {
   }
   
   // Child soldiers detection: semantic variations -> "child-soldiers" tag (discrete content flag)
-  const childSoldierIndicators = [
-    /\bchild soldiers?\b/i,
-    /\bchildren fighting\b/i,
-    /\byoung protagonists? in combat\b/i,
-    /\bteenagers? at war\b/i,
-    /\bchildren? at war\b/i,
-    /\bchildren? killing\b/i,
-    /\bchildren? in combat\b/i,
-    /\bminors fighting\b/i,
-    /\bchildren? trained as soldiers\b/i
-  ];
-  if (childSoldierIndicators.some(pattern => pattern.test(text))) {
+  // Check for explicit mentions
+  const hasExplicitChildSoldiers = /\bchild soldiers?\b/i.test(text);
+  const hasChildrenFighting = /\bchildren fighting\b/i.test(text);
+  const hasTeenagersAtWar = /\bteenagers? at war\b/i.test(text);
+  const hasChildrenAtWar = /\bchildren? at war\b/i.test(text);
+  const hasChildrenKilling = /\bchildren? killing\b/i.test(text);
+  const hasChildrenInCombat = /\bchildren? in combat\b/i.test(text);
+  const hasMinorsFighting = /\bminors fighting\b/i.test(text);
+  
+  // Check for contextual patterns (child + training + military/war/soldier)
+  // Simplified and more reliable patterns
+  
+  // Pattern 1: "breed child geniuses" + "train" + "soldier" (key phrase from Ender's Game)
+  const hasBreedChildGeniuses = /\bbreed.*child.*geniuses?\b/i.test(text);
+  const hasTrainSoldier = /\b(train|trained|training).*soldier/i.test(text);
+  const hasBreedChildGeniusesTrain = hasBreedChildGeniuses && hasTrainSoldier;
+  
+  // Pattern 2: "young boy" + "recruitment" + "war"
+  const hasYoungBoyRecruitment = /\b(young boy|young girl|child|children).*recruitment.*war/i.test(text);
+  
+  // Pattern 3: "child geniuses" + "train" + "soldier" (any order in text)
+  const hasChildGeniuses = /\b(child geniuses?|geniuses)\b/i.test(text);
+  const hasTrain = /\b(train|trained|training)\b/i.test(text);
+  const hasSoldier = /\b(soldier|soldiers)\b/i.test(text);
+  const hasChildGeniusesTrain = hasChildGeniuses && hasTrain && hasSoldier;
+  
+  // Pattern 4: "breed" + "child" + "soldier" (any order)
+  const hasBreed = /\bbreed\b/i.test(text);
+  const hasChild = /\b(child|children|geniuses)\b/i.test(text);
+  const hasBreedChildSoldier = hasBreed && hasChild && hasSoldier;
+  
+  // Pattern 5: "young soldiers" (exact phrase)
+  const hasYoungSoldiers = /\byoung soldiers?\b/i.test(text);
+  
+  // Pattern 6: "children" + ("battle" or "war" or "soldier")
+  const hasChildrenInBattle = /\b(children|child|young).*(battle|war|combat|soldier)/i.test(text);
+  
+  // Pattern 7: "soldier-training program" + child context
+  const hasSoldierTrainingProgram = /\bsoldier.*training.*program\b/i.test(text) &&
+                                    /\b(child|children|young|geniuses)\b/i.test(text);
+  
+  if (hasExplicitChildSoldiers || hasChildrenFighting || hasTeenagersAtWar || 
+      hasChildrenAtWar || hasChildrenKilling || hasChildrenInCombat || hasMinorsFighting ||
+      hasBreedChildGeniusesTrain || hasYoungBoyRecruitment || hasChildGeniusesTrain || 
+      hasBreedChildSoldier || hasYoungSoldiers || hasChildrenInBattle || 
+      hasSoldierTrainingProgram) {
     // Use child-soldiers tag (now exists in taxonomy)
     if (CROSS_TAG_META.has('child-soldiers')) {
       warnings.push('child-soldiers');

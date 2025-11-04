@@ -4,7 +4,7 @@
     "timestamp": "2025-11-04T20:31:27.895Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:31:27.909Z",
+    "last_run": "2025-11-04T21:58:15.449Z",
     "sources_enabled": [
       "fast"
     ],
@@ -228,13 +228,7 @@
         "confidence": "suggested"
       }
     ],
-    "subgenres": [
-      {
-        "slug": "isekai",
-        "name": "Isekai",
-        "confidence": "high"
-      }
-    ],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "quest",
@@ -253,14 +247,6 @@
         "method": "semantic-inference"
       },
       {
-        "slug": "transformation",
-        "name": "Transformation",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match"
-      },
-      {
         "slug": "school",
         "name": "School",
         "group": "setting",
@@ -277,14 +263,6 @@
         "method": "pattern-match"
       },
       {
-        "slug": "medieval",
-        "name": "Medieval",
-        "group": "setting",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match"
-      },
-      {
         "slug": "isekai",
         "name": "Isekai",
         "group": "tropes_themes",
@@ -293,7 +271,7 @@
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 7
+    "cross_tags_count": 5
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=1O-ODwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE7374bJiQvs1hzQVWltFyJ3nUhiv-XCYeHm4mmudVxYuvkTvwf65Dxo61uCI_BcV07VHlma9piN1yx9yIo680J7YwSNhWGJmrl-oUC6DXY79bS-h9_yqR0Z7FZH_C-wk8kBfJdFw&source=gbs_api",
@@ -304,7 +282,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL51502999M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T21:33:29.766Z",
+  "last_updated": "2025-11-04T21:58:26.788Z",
   "authors": {
     "original": [
       "Miya Kazuki"
@@ -318,29 +296,25 @@
   "summary": {
     "original_description": "<p>A certain college girl who's loved books ever since she was a little girl dies in an accident and is reborn in another world she knows nothing about. She is now Myne, the sickly five-year-old daughter of a poor soldier. To make things worse, the world she's been reborn in has a very low literacy rate and books mostly don't exist. She'd have to pay an enormous amount of money to buy one.</p><p>Myne resolves herself: If there aren't any books, she'll just have to make them! Her goal is to become a librarian. This story begins with her quest to make books so she can live surrounded by them!</p><p>Dive into this biblio-fantasy written for book lovers and bookworms!</p>",
     "original_length": 676,
-    "new_summary": "Ascendance of a Bookworm: Part 1 Volume 1 follows a college student who dies in an accident and awakens in a new world as Myne, a five-year-old child in a medieval-style society. The protagonist retains memories of her previous life, particularly her deep love for books and reading. However, she quickly discovers that this world lacks the widespread literacy and book culture she took for granted. Books are rare, expensive commodities available only to the wealthy, and the general population has limited reading ability. Myne's new body is also frail and frequently ill, complicating her circumstances. Despite these challenges, she becomes determined to recreate the book-filled environment she once enjoyed. Her goal transforms into a practical mission: to manufacture books herself, since purchasing them remains financially impossible for her family. The story follows her efforts to understand the materials and processes needed for book production while navigating the limitations imposed by her age, health, and social status. The narrative explores themes of adaptation, determination, and the value of knowledge preservation. Myne must work within the constraints of her new world while drawing on knowledge from her previous life, creating a bridge between two very different societies and their approaches to information and learning.",
-    "new_length": 1349,
-    "word_count": 203,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:41.759Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {
-    "slug": "light-novel",
-    "confidence": "high",
-    "reason": "Manual correction: Japanese light novel format"
+    "slug": "novel",
+    "confidence": "low",
+    "score": 0.5833333333333334,
+    "reason": "Pattern-based detection: Novel (score: 0.58, threshold: 0.5)"
   },
   "audience": {
     "slug": "adult",
-    "confidence": "high",
-    "includes": [
-      "young-adult",
-      "new-adult"
-    ],
-    "reason": "Manual correction: Appeals to young-adult and new-adult audiences"
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
   }
 }

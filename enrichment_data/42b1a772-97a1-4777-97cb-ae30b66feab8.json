@@ -4,7 +4,7 @@
     "timestamp": "2025-11-04T20:29:50.254Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:30:23.545Z",
+    "last_run": "2025-11-04T21:57:12.329Z",
     "sources_enabled": [
       "fast"
     ],
@@ -560,39 +560,15 @@
         "method": "semantic-inference"
       },
       {
-        "slug": "quest",
-        "name": "Quest",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match"
-      },
-      {
         "slug": "epic",
         "name": "Epic",
         "group": "tone",
         "confidence": "medium",
         "match_score": 3,
         "method": "pattern-match"
-      },
-      {
-        "slug": "prophecy",
-        "name": "Prophecy",
-        "group": "tropes_themes",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "small-town",
-        "name": "Small Town",
-        "group": "setting",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 6
+    "cross_tags_count": 3
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=pZJ2H63MAioC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71XynFESAbbJNO3Fw7UWDEt6ucEu1auAQD0s25U-w64wipDH-cixZH6G-gMtiW1EyxHV6v-K59QBB9WUc-SLn6kzfC3KcSmcDlQSSU00jL9VSdK3SxgAWJyFuzu78Cvdnqye5gw&source=gbs_api",
@@ -603,7 +579,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24934473M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T21:37:29.731Z",
+  "last_updated": "2025-11-04T21:57:23.698Z",
   "authors": {
     "original": [
       "Robert Jordan"
@@ -617,28 +593,24 @@
   "summary": {
     "original_description": "The Wheel of Time turns and Ages come and go, leaving memories that become legend. Legend fades to myth, and even myth is long forgotten when the Age that gave it birth returns again. When The Two Rivers is attacked by Trollocs-- a savage tribe of half-men, half-beasts-- five villagers flee that night into a world they barely imagined. They find new dangers waiting in the shadows and in the light. Rand al'Thor, an orphan, does not know that he is bound to the Wheel of Time-- and there are prophecies to be fulfilled. -- adapted from jacket",
     "original_length": 544,
-    "new_summary": "The Eye of the World begins in the isolated village of Emond's Field, where a young man named Rand al'Thor lives a quiet life with his father. This peaceful existence shatters when monstrous creatures attack the village, forcing Rand and several companions to flee into a world far larger and more dangerous than they had ever imagined. The story follows their journey as they travel through unfamiliar lands, encountering both allies and enemies while pursued by dark forces. The narrative introduces a cosmology where time operates in cycles, with patterns repeating across ages. Rand gradually discovers that he may be connected to ancient prophecies and a greater destiny than he could have anticipated. The novel establishes a complex fantasy world with distinct cultures, magical systems, and political structures. Themes of fate versus free will emerge as the characters navigate their changing circumstances and grapple with revelations about their own identities and potential roles in larger conflicts. The story balances intimate character moments with broader world-building, creating a sense of both personal stakes and epic scope. Through their travels, the characters must learn to trust one another while adapting to the demands of a world far removed from their rural origins.",
-    "new_length": 1293,
-    "word_count": 200,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:41.578Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {
-    "slug": "novel",
-    "confidence": "high",
-    "reason": "Manual correction: Traditional novel format"
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
   },
   "audience": {
     "slug": "adult",
     "confidence": "medium",
-    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)",
-    "includes": [
-      "new-adult"
-    ]
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
   }
 }

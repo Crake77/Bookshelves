@@ -4,7 +4,7 @@
     "timestamp": "2025-11-04T20:31:15.101Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T20:31:15.112Z",
+    "last_run": "2025-11-04T21:58:02.852Z",
     "sources_enabled": [
       "fast"
     ],
@@ -295,14 +295,16 @@
     ],
     "subgenres": [
       {
-        "slug": "cultivation",
-        "name": "Cultivation",
-        "confidence": "high"
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
       },
       {
-        "slug": "apocalypse",
-        "name": "Apocalypse",
-        "confidence": "high"
+        "slug": "cultivation-xianxia",
+        "name": "Cultivation Xianxia",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
       }
     ],
     "cross_tags": [
@@ -379,10 +381,18 @@
         "method": "pattern-match"
       },
       {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
         "slug": "progression-fantasy",
         "name": "Progression Fantasy",
         "group": "trope",
-        "confidence": "medium",
+        "confidence": "high",
         "match_score": 3,
         "method": "pattern-match"
       },
@@ -425,23 +435,9 @@
         "confidence": "medium",
         "match_score": 1.1,
         "method": "pattern-match"
-      },
-      {
-        "slug": "apocalypse",
-        "name": "Apocalypse",
-        "group": "setting",
-        "confidence": "high",
-        "method": "manual-fix"
-      },
-      {
-        "slug": "male-protag",
-        "name": "Male Protagonist",
-        "group": "character",
-        "confidence": "high",
-        "method": "manual-fix"
       }
     ],
-    "cross_tags_count": 17
+    "cross_tags_count": 16
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72gI2a_X9H8DlZBsC-5MkFtoRc7CC6mvB-H1pPTc-XHahDRNAmAOwro01TZi4fHcxa-VoPzmDABUS_Q0lgcMEBn_hN5Yz6LdSf3_HciyYd0EhrPJwktAJGrM6vy2Rfn6Ns7kETP&source=gbs_api",
@@ -452,7 +448,7 @@
     "recommended": "https://books.google.com/books/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-04T21:41:24.012Z",
+  "last_updated": "2025-11-04T21:58:14.055Z",
   "authors": {
     "original": [
       "TheFirstDefier"
@@ -466,15 +462,14 @@
   "summary": {
     "original_description": "<p>Zac was alone in the middle of the forest when the world changed...</p><p><br></p><p>The whole planet was introduced to the multiverse by an unfeeling System... or God. A universe where an endless number of races and civilizations fought for power and dominion.</p><p><br></p><p>Zac finds himself stuck in the wilderness surrounded by deadly beasts, demons, and worse. Alone, lost and without answers, he must find the means to survive and get stronger in this new cut-throat reality.</p><p><br></p><p>With only a hatchet for his weapon, he'll have to seek out his family before the world collapses... or die trying.</p><p><br></p><p>Experience the start of the hit LitRPG series with over 20 Million views on Royal Road. For the first time, Defiance of the Fall is now available on Kindle, Kindle Unlimited, and Audible narrated by Pavi Prozcko.</p><p><br></p><p>About the Series: Jump into an apocalypse story that merges LitRPG elements with eastern cultivation. Class systems, skill systems, endless choices for progression, it has everything fans of the genre love. Explore a vast universe full of mystery, adventure, danger and even aliens; where even a random passer-by might hold the power of a god. Follow Zac as he struggles to stake out a unique path to power as a mortal in a world full of cultivators.</p>",
     "original_length": 1321,
-    "new_summary": "Defiance of the Fall begins when the entire planet is suddenly integrated into a vast multiversal system that transforms the fundamental rules of reality. Zac, the protagonist, finds himself isolated in a forest when this transformation occurs, armed only with a hatchet and facing a world now populated by dangerous creatures and hostile entities. The story follows his struggle to survive in this new environment where survival depends on understanding and mastering the system's mechanics. The narrative combines elements of LitRPG progression, where characters develop through numerical systems and leveling, with concepts drawn from cultivation traditions, where individuals seek to enhance their power through training and discipline. Zac must navigate a landscape where the old rules no longer apply and where every encounter could be lethal. His primary motivation becomes locating his family before societal collapse makes such reunions impossible. The story explores themes of adaptation, resourcefulness, and the struggle to maintain humanity in a world that increasingly values power and strength. As Zac learns to work within the system's constraints while seeking his own path forward, he encounters other survivors and must determine who can be trusted in this transformed reality. The narrative emphasizes the gradual acquisition of knowledge and capability as essential tools for survival.",
-    "new_length": 1406,
-    "word_count": 207,
-    "status": "completed",
+    "new_summary": null,
+    "new_length": 0,
+    "word_count": 0,
+    "status": "needs_rewrite",
     "notes": [
       "Existing description found - must be rewritten in own words (150-300 words)",
       "MANUAL STEP: AI must write original 150-300 word summary",
-      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
-      "Summary imported on 2025-11-04T20:35:41.671Z"
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words"
     ]
   },
   "format": {
