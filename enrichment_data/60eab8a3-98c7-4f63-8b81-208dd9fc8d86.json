@@ -1,0 +1,490 @@
+{
+  "input_snapshot": {
+    "book_id": "60eab8a3-98c7-4f63-8b81-208dd9fc8d86",
+    "timestamp": "2025-11-04T20:31:15.101Z"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:31:15.112Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "Defiance of the Fall",
+      "authors": [
+        "TheFirstDefier"
+      ],
+      "isbn10": null,
+      "isbn13": null,
+      "edition_id": "9b61c095-7684-4e82-92a9-90bc58850592"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "ohio-defiance",
+            "name": "Ohio--Defiance",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01227138",
+            "url": "https://id.worldcat.org/fast/1227138",
+            "raw": [
+              {
+                "fastId": "fst01227138",
+                "label": "Ohio--Defiance",
+                "matchType": "generated",
+                "score": 2.4773433,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "st-paul-united-church-of-christ-defiance-mo",
+            "name": "St. Paul United Church of Christ (Defiance, Mo.)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00755675",
+            "url": "https://id.worldcat.org/fast/755675",
+            "raw": [
+              {
+                "fastId": "fst00755675",
+                "label": "St. Paul United Church of Christ (Defiance, Mo.)",
+                "matchType": "generated",
+                "score": 2.0644526,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00755675",
+                "label": "St. Paul United Church of Christ (Defiance, Mo.)",
+                "matchType": "generated",
+                "score": 2.0644526,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "defiance-county-genealogical-society",
+            "name": "Defiance County Genealogical Society",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00635240",
+            "url": "https://id.worldcat.org/fast/635240",
+            "raw": [
+              {
+                "fastId": "fst00635240",
+                "label": "Defiance County Genealogical Society",
+                "matchType": "generated",
+                "score": 1.6515621,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "daughters-of-the-american-revolution-stamp-defiance-chapter-wilmington-n-c",
+            "name": "Daughters of the American Revolution. Stamp Defiance Chapter (Wilmington, N.C.)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01646093",
+            "url": "https://id.worldcat.org/fast/1646093",
+            "raw": [
+              {
+                "fastId": "fst01646093",
+                "label": "Daughters of the American Revolution. Stamp Defiance Chapter (Wilmington, N.C.)",
+                "matchType": "generated",
+                "score": 1.4451169,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01646093",
+                "label": "Daughters of the American Revolution. Stamp Defiance Chapter (Wilmington, N.C.)",
+                "matchType": "generated",
+                "score": 1.2761974,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "daughters-of-the-american-revolution-stamp-defiance-chapter-wilmington-n-c",
+          "name": "Daughters of the American Revolution. Stamp Defiance Chapter (Wilmington, N.C.)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01646093",
+              "url": "https://id.worldcat.org/fast/1646093"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01646093",
+                "label": "Daughters of the American Revolution. Stamp Defiance Chapter (Wilmington, N.C.)",
+                "matchType": "generated",
+                "score": 1.4451169,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01646093",
+                "label": "Daughters of the American Revolution. Stamp Defiance Chapter (Wilmington, N.C.)",
+                "matchType": "generated",
+                "score": 1.2761974,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "defiance-county-genealogical-society",
+          "name": "Defiance County Genealogical Society",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00635240",
+              "url": "https://id.worldcat.org/fast/635240"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00635240",
+                "label": "Defiance County Genealogical Society",
+                "matchType": "generated",
+                "score": 1.6515621,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "ohio-defiance",
+          "name": "Ohio--Defiance",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01227138",
+              "url": "https://id.worldcat.org/fast/1227138"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01227138",
+                "label": "Ohio--Defiance",
+                "matchType": "generated",
+                "score": 2.4773433,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "st-paul-united-church-of-christ-defiance-mo",
+          "name": "St. Paul United Church of Christ (Defiance, Mo.)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00755675",
+              "url": "https://id.worldcat.org/fast/755675"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00755675",
+                "label": "St. Paul United Church of Christ (Defiance, Mo.)",
+                "matchType": "generated",
+                "score": 2.0644526,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00755675",
+                "label": "St. Paul United Church of Christ (Defiance, Mo.)",
+                "matchType": "generated",
+                "score": 2.0644526,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "low",
+      "reason": "Default - needs manual review"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "cultivation",
+        "name": "Cultivation",
+        "confidence": "high"
+      },
+      {
+        "slug": "apocalypse",
+        "name": "Apocalypse",
+        "confidence": "high"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "litrpg",
+        "name": "Litrpg",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "progression",
+        "name": "Progression",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "mystery",
+        "name": "Mystery",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "forest",
+        "name": "Forest",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "wilderness",
+        "name": "Wilderness",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "unique",
+        "name": "Unique",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "demons",
+        "name": "Demons",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "multiverse",
+        "name": "Multiverse",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "cultivation",
+        "name": "Cultivation",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "alien-contact",
+        "name": "Alien Contact",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "parallel-universes",
+        "name": "Parallel Universes",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "expansive",
+        "name": "Expansive",
+        "group": "tone",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "parallel-worlds",
+        "name": "Parallel Worlds",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "apocalypse",
+        "name": "Apocalypse",
+        "group": "setting",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "male-protag",
+        "name": "Male Protagonist",
+        "group": "character",
+        "confidence": "high",
+        "method": "manual-fix"
+      }
+    ],
+    "cross_tags_count": 17
+  },
+  "cover_urls": {
+    "existing": "https://books.google.com/books/publisher/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72gI2a_X9H8DlZBsC-5MkFtoRc7CC6mvB-H1pPTc-XHahDRNAmAOwro01TZi4fHcxa-VoPzmDABUS_Q0lgcMEBn_hN5Yz6LdSf3_HciyYd0EhrPJwktAJGrM6vy2Rfn6Ns7kETP&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": null,
+    "openlibrary_olid": null,
+    "cover_id": null,
+    "recommended": "https://books.google.com/books/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-11-04T21:41:24.012Z",
+  "authors": {
+    "original": [
+      "TheFirstDefier"
+    ],
+    "validated": [
+      "TheFirstDefier"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "<p>Zac was alone in the middle of the forest when the world changed...</p><p><br></p><p>The whole planet was introduced to the multiverse by an unfeeling System... or God. A universe where an endless number of races and civilizations fought for power and dominion.</p><p><br></p><p>Zac finds himself stuck in the wilderness surrounded by deadly beasts, demons, and worse. Alone, lost and without answers, he must find the means to survive and get stronger in this new cut-throat reality.</p><p><br></p><p>With only a hatchet for his weapon, he'll have to seek out his family before the world collapses... or die trying.</p><p><br></p><p>Experience the start of the hit LitRPG series with over 20 Million views on Royal Road. For the first time, Defiance of the Fall is now available on Kindle, Kindle Unlimited, and Audible narrated by Pavi Prozcko.</p><p><br></p><p>About the Series: Jump into an apocalypse story that merges LitRPG elements with eastern cultivation. Class systems, skill systems, endless choices for progression, it has everything fans of the genre love. Explore a vast universe full of mystery, adventure, danger and even aliens; where even a random passer-by might hold the power of a god. Follow Zac as he struggles to stake out a unique path to power as a mortal in a world full of cultivators.</p>",
+    "original_length": 1321,
+    "new_summary": "Defiance of the Fall begins when the entire planet is suddenly integrated into a vast multiversal system that transforms the fundamental rules of reality. Zac, the protagonist, finds himself isolated in a forest when this transformation occurs, armed only with a hatchet and facing a world now populated by dangerous creatures and hostile entities. The story follows his struggle to survive in this new environment where survival depends on understanding and mastering the system's mechanics. The narrative combines elements of LitRPG progression, where characters develop through numerical systems and leveling, with concepts drawn from cultivation traditions, where individuals seek to enhance their power through training and discipline. Zac must navigate a landscape where the old rules no longer apply and where every encounter could be lethal. His primary motivation becomes locating his family before societal collapse makes such reunions impossible. The story explores themes of adaptation, resourcefulness, and the struggle to maintain humanity in a world that increasingly values power and strength. As Zac learns to work within the system's constraints while seeking his own path forward, he encounters other survivors and must determine who can be trusted in this transformed reality. The narrative emphasizes the gradual acquisition of knowledge and capability as essential tools for survival.",
+    "new_length": 1406,
+    "word_count": 207,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:41.671Z"
+    ]
+  },
+  "format": {
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  }
+}

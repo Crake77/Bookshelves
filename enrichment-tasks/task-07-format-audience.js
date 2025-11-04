@@ -257,72 +257,101 @@ function detectFormatSimple(book, enrichmentData = null) {
   };
 }
 
-// Detect audience (adult, young-adult, middle-grade, children)
+// Detect audience (adult, young-adult, middle-grade, children) - supports multiple audiences
 function detectAudience(book) {
   const categories = (book.categories || []).map(c => c.toLowerCase());
   const description = (book.description || '').toLowerCase();
   const title = book.title.toLowerCase();
   
+  const audiences = [];
+  
   // Check for explicit age market indicators
   if (categories.some(c => c.includes('juvenile') || c.includes('children'))) {
     if (categories.some(c => c.includes('young adult') || c.includes('ya'))) {
-      return {
+      audiences.push({
         slug: 'young-adult',
         confidence: 'high',
         reason: 'Category indicates Young Adult'
-      };
+      });
+    } else {
+      audiences.push({
+        slug: 'children',
+        confidence: 'medium',
+        reason: 'Category indicates Juvenile/Children'
+      });
     }
-    return {
-      slug: 'children',
-      confidence: 'medium',
-      reason: 'Category indicates Juvenile/Children'
-    };
   }
   
   // Check description for age indicators
-  if (description.includes('young adult') || description.includes('teen')) {
-    return {
-      slug: 'young-adult',
-      confidence: 'medium',
-      reason: 'Description mentions young adult/teen themes'
-    };
+  if (description.includes('young adult') || description.includes('teen') || description.includes('new adult')) {
+    if (!audiences.find(a => a.slug === 'young-adult')) {
+      audiences.push({
+        slug: 'young-adult',
+        confidence: 'medium',
+        reason: 'Description mentions young adult/teen themes'
+      });
+    }
+    // Check for new-adult (crossover with young-adult)
+    if (description.includes('new adult') || description.includes('new-adult')) {
+      if (!audiences.find(a => a.slug === 'new-adult')) {
+        audiences.push({
+          slug: 'new-adult',
+          confidence: 'medium',
+          reason: 'Description mentions new adult themes'
+        });
+      }
+    }
   }
   
   if (description.includes('middle grade') || description.includes('ages 8-12')) {
-    return {
-      slug: 'middle-grade',
-      confidence: 'medium',
-      reason: 'Description mentions middle grade'
-    };
+    if (!audiences.find(a => a.slug === 'middle-grade')) {
+      audiences.push({
+        slug: 'middle-grade',
+        confidence: 'medium',
+        reason: 'Description mentions middle grade'
+      });
+    }
   }
   
   // Check for academic/adult indicators
   if (description.includes('academic') || description.includes('researchers') ||
       description.includes('scholars') || description.includes('postgraduate')) {
-    return {
-      slug: 'adult',
-      confidence: 'high',
-      reason: 'Academic audience indicated'
-    };
+    if (!audiences.find(a => a.slug === 'adult')) {
+      audiences.push({
+        slug: 'adult',
+        confidence: 'high',
+        reason: 'Academic audience indicated'
+      });
+    }
   }
   
-  // Default to adult (general audience) for most books
+  // If no audiences found, default to adult
+  if (audiences.length === 0) {
+    audiences.push({
+      slug: 'adult',
+      confidence: 'medium',
+      reason: 'General adult audience (default for fiction/non-fiction without age qualifiers)'
+    });
+  }
+  
+  // Return primary audience (first) and includes (additional)
+  const primary = audiences[0];
+  const includes = audiences.slice(1).map(a => a.slug);
+  
   return {
-    slug: 'adult',
-    confidence: 'medium',
-    reason: 'General adult audience (default for fiction/non-fiction without age qualifiers)'
+    slug: primary.slug,
+    includes: includes.length > 0 ? includes : undefined,
+    confidence: primary.confidence,
+    reason: primary.reason + (includes.length > 0 ? ` (also: ${includes.join(', ')})` : '')
   };
 }
 
 async function detectFormatAudience(bookId) {
   console.log(`👥 Task 7: Detecting format + audience for book ${bookId}...`);
   
-  const booksData = JSON.parse(fs.readFileSync('books_batch_001.json', 'utf8'));
-  const book = booksData.find(b => b.id === bookId);
-  
-  if (!book) {
-    throw new Error(`Book ${bookId} not found in batch`);
-  }
+  // Load book from appropriate batch file
+  const { loadBookFromBatch } = await import('./helpers.js');
+  const book = loadBookFromBatch(bookId);
   
   console.log(`  Title: ${book.title}`);
   
@@ -336,21 +365,42 @@ async function detectFormatAudience(bookId) {
   const format = detectFormat(book, enrichmentData);
   const audience = detectAudience(book);
   
+  // Check for multiple formats (e.g., novel + audiobook)
+  const formats = [format];
+  if (format.slug) {
+    // Check if book is also available as audiobook
+    const categories = (book.categories || []).map(c => c.toLowerCase());
+    const description = (book.description || '').toLowerCase();
+    if ((categories.some(c => c.includes('audio') || c.includes('audiobook')) ||
+         description.includes('audiobook') || description.includes('audio edition')) &&
+        format.slug !== 'audiobook') {
+      formats.push({
+        slug: 'audiobook',
+        confidence: 'medium',
+        score: 0.5,
+        reason: 'Also available as audiobook'
+      });
+    }
+  }
+  
   const result = {
-    format: format,
+    format: formats[0], // Primary format
+    formats: formats.length > 1 ? formats.slice(1) : undefined, // Additional formats
     audience: audience,
     notes: []
   };
   
   if (format.slug) {
     const scoreInfo = format.score ? ` (score: ${format.score.toFixed(2)})` : '';
-    console.log(`  ✅ Format: ${format.slug}${scoreInfo} (${format.confidence})`);
+    const additionalFormats = formats.length > 1 ? ` + ${formats.slice(1).map(f => f.slug).join(', ')}` : '';
+    console.log(`  ✅ Format: ${format.slug}${additionalFormats}${scoreInfo} (${format.confidence})`);
   } else {
     console.log(`  ⚠️  Format: Unknown - ${format.reason}`);
     result.notes.push('Format could not be determined - leave NULL or manually review');
   }
   
-  console.log(`  ✅ Audience: ${audience.slug} (${audience.confidence})`);
+  const audienceInfo = audience.includes ? `${audience.slug} (also: ${audience.includes.join(', ')})` : audience.slug;
+  console.log(`  ✅ Audience: ${audienceInfo} (${audience.confidence})`);
   if (audience.confidence === 'low') {
     result.notes.push('Audience detection has low confidence - may need manual review');
   }

@@ -1,6 +1,10 @@
 // Master Orchestration Script
-// Usage: node enrich-batch.js
-// Runs all enrichment tasks for all books in books_batch_001.json
+// Usage: node enrich-batch.js [batch_number]
+// Examples:
+//   node enrich-batch.js        -> uses books_batch_001.json (default)
+//   node enrich-batch.js 001    -> uses books_batch_001.json
+//   node enrich-batch.js 002    -> uses books_batch_002.json
+// Runs all enrichment tasks for all books in the specified batch file
 
 import fs from 'fs';
 import { exec } from 'child_process';
@@ -8,7 +12,9 @@ import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
-const BOOKS_FILE = 'books_batch_001.json';
+// Get batch number from command line or default to 001
+const batchNumber = process.argv[2] || '001';
+const BOOKS_FILE = `books_batch_${batchNumber.padStart(3, '0')}.json`;
 
 async function runTask(taskScript, bookId) {
   try {
@@ -60,6 +66,19 @@ async function enrichBook(bookId, bookTitle) {
 async function main() {
   console.log(`\n🚀 Starting Batch Enrichment Process\n`);
   console.log(`Reading books from: ${BOOKS_FILE}\n`);
+  
+  // Check if file exists
+  if (!fs.existsSync(BOOKS_FILE)) {
+    console.error(`❌ Error: ${BOOKS_FILE} not found!`);
+    console.error(`\nAvailable batch files:`);
+    const files = fs.readdirSync('.').filter(f => f.startsWith('books_batch_') && f.endsWith('.json'));
+    if (files.length > 0) {
+      files.forEach(f => console.error(`   - ${f}`));
+    } else {
+      console.error(`   No batch files found in current directory`);
+    }
+    process.exit(1);
+  }
   
   // Load books
   const books = JSON.parse(fs.readFileSync(BOOKS_FILE, 'utf8'));

@@ -1,0 +1,623 @@
+{
+  "input_snapshot": {
+    "book_id": "25722ee3-1244-4d3d-bf6b-6d1af5a0e8d1",
+    "timestamp": "2025-11-04T20:32:06.599Z"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:32:06.609Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "Tower of God Volume One",
+      "authors": [
+        "S.I.U.",
+        "S I U"
+      ],
+      "isbn10": null,
+      "isbn13": "9781990259906",
+      "edition_id": "57b02517-feeb-452c-b569-8e4fddf4f077"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "babel-tower-of",
+            "name": "Babel, Tower of",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00824943",
+            "url": "https://id.worldcat.org/fast/824943",
+            "raw": [
+              {
+                "fastId": "fst00824943",
+                "label": "Babel, Tower of",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00824943",
+                "label": "Babel, Tower of",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "class-field-towers",
+            "name": "Class field towers",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00863429",
+            "url": "https://id.worldcat.org/fast/863429",
+            "raw": [
+              {
+                "fastId": "fst00863429",
+                "label": "Class field towers",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00863429",
+                "label": "Class field towers",
+                "matchType": "generated",
+                "score": 2.2544382,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "dokhmas",
+            "name": "Dokhmas",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00896388",
+            "url": "https://id.worldcat.org/fast/896388",
+            "raw": [
+              {
+                "fastId": "fst00896388",
+                "label": "Dokhmas",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "yeomen-warders",
+            "name": "Yeomen Warders",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00772746",
+            "url": "https://id.worldcat.org/fast/772746",
+            "raw": [
+              {
+                "fastId": "fst00772746",
+                "label": "Yeomen Warders",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00772746",
+                "label": "Yeomen Warders",
+                "matchType": "generated",
+                "score": 2.2544382,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "babel-tower-of-in-art",
+            "name": "Babel, Tower of, in art",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00824945",
+            "url": "https://id.worldcat.org/fast/824945",
+            "raw": [
+              {
+                "fastId": "fst00824945",
+                "label": "Babel, Tower of, in art",
+                "matchType": "generated",
+                "score": 2.2544382,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "cooling-towers-cost-of-operation",
+            "name": "Cooling towers--Cost of operation",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00878091",
+            "url": "https://id.worldcat.org/fast/878091",
+            "raw": [
+              {
+                "fastId": "fst00878091",
+                "label": "Cooling towers--Cost of operation",
+                "matchType": "generated",
+                "score": 2.1971455,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "white-tower-tower-of-london-london-england",
+            "name": "White Tower (Tower of London, London, England)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01772279",
+            "url": "https://id.worldcat.org/fast/1772279",
+            "raw": [
+              {
+                "fastId": "fst01772279",
+                "label": "White Tower (Tower of London, London, England)",
+                "matchType": "generated",
+                "score": 2.1971455,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "babel-tower-of",
+          "name": "Babel, Tower of",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00824943",
+              "url": "https://id.worldcat.org/fast/824943"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00824943",
+                "label": "Babel, Tower of",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00824943",
+                "label": "Babel, Tower of",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "babel-tower-of-in-art",
+          "name": "Babel, Tower of, in art",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00824945",
+              "url": "https://id.worldcat.org/fast/824945"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00824945",
+                "label": "Babel, Tower of, in art",
+                "matchType": "generated",
+                "score": 2.2544382,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "class-field-towers",
+          "name": "Class field towers",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00863429",
+              "url": "https://id.worldcat.org/fast/863429"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00863429",
+                "label": "Class field towers",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00863429",
+                "label": "Class field towers",
+                "matchType": "generated",
+                "score": 2.2544382,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "cooling-towers-cost-of-operation",
+          "name": "Cooling towers--Cost of operation",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00878091",
+              "url": "https://id.worldcat.org/fast/878091"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00878091",
+                "label": "Cooling towers--Cost of operation",
+                "matchType": "generated",
+                "score": 2.1971455,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "dokhmas",
+          "name": "Dokhmas",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00896388",
+              "url": "https://id.worldcat.org/fast/896388"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00896388",
+                "label": "Dokhmas",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "white-tower-tower-of-london-london-england",
+          "name": "White Tower (Tower of London, London, England)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01772279",
+              "url": "https://id.worldcat.org/fast/1772279"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01772279",
+                "label": "White Tower (Tower of London, London, England)",
+                "matchType": "generated",
+                "score": 2.1971455,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "yeomen-warders",
+          "name": "Yeomen Warders",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00772746",
+              "url": "https://id.worldcat.org/fast/772746"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00772746",
+                "label": "Yeomen Warders",
+                "matchType": "generated",
+                "score": 2.576501,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00772746",
+                "label": "Yeomen Warders",
+                "matchType": "generated",
+                "score": 2.2544382,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "high",
+      "reason": "Fiction genre category: webtoon, fantasy, action"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      },
+      {
+        "slug": "science-fiction",
+        "name": "Science Fiction",
+        "confidence": "high"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "webtoon",
+        "name": "Webtoon",
+        "confidence": "high"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "death",
+        "name": "Death",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "revelation",
+        "name": "Revelation",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "magical",
+        "name": "Magical",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "mysterious",
+        "name": "Mysterious",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "otherworldly",
+        "name": "Otherworldly",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "unique",
+        "name": "Unique",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "journey",
+        "name": "Journey",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "adhd",
+        "name": "Adhd",
+        "group": "representation",
+        "confidence": "medium",
+        "match_score": 1.2,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "tower-climbing",
+        "name": "Tower Climbing",
+        "group": "trope",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "tests",
+        "name": "Tests",
+        "group": "trope",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "friendship",
+        "name": "Friendship",
+        "group": "trope",
+        "confidence": "high",
+        "method": "manual-fix"
+      }
+    ],
+    "cross_tags_count": 12
+  },
+  "cover_urls": {
+    "existing": "https://books.google.com/books/publisher/content?id=v-RwEAAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73D4ORCcqrUwR55BlxC6ML0PK4cgpGSlSVmhdxgGFwHRwfpWbLAIB2AyVMUWwjdLczRexYuPwTAfIDSsoAJFriMzDD6LFUp_XW3Hu_6nNIMlZEIrRXcOcW7Y8FCXFb-5H-HtZI4&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=v-RwEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL38067039M-L.jpg",
+    "openlibrary_olid": "OL38067039M",
+    "cover_id": "13145627",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL38067039M-L.jpg",
+    "source": "openlibrary_olid"
+  },
+  "last_updated": "2025-11-04T20:35:41.486Z",
+  "authors": {
+    "original": [
+      "S.I.U.",
+      "S I U"
+    ],
+    "validated": [
+      "S.I.U.",
+      "S I U"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "<p>Twenty-Fifth Bam must journey skyward in a mysterious tower if he has any chance of reuniting with his best friend Rachel, even if that means facing his own death. <br><br>Before mysteriously disappearing into the tower gates before his very eyes, Rachel cautions Bam to forget all about her. Unwilling to lose her, Bam enters the Tower completely surrounded by Shinsu — a divine and magical water, at his own peril.<br><br>The Tower itself contains multitudes of floors as vast as continents, each one with its unique geography, language and culture. Confronted by skillful tests each step of the way, Bam meets powerful guardians and otherworldly environments, making his quest to the top no easy feat. <br><br>Beginning his journey, Bam is met by Headon, the first floor guardian and caretaker of the Tower who explains the rules of the Tower. At each level Bam is constantly tested for his strength, dexterity and wit. With help from fellow travelers and unlikely villains, Bam makes both allies and enemies in order to find Rachel; however her intentions of reconnecting with him become unclear as misinformation about her whereabouts do not add up. Behind each ascension is a revelation about their friendship, revealing a much deeper, darker secret.</p>",
+    "original_length": 1263,
+    "new_summary": "Tower of God Volume One follows a young man named Bam who enters a mysterious structure known as the Tower in pursuit of his closest companion Rachel, who vanished into its depths. The Tower consists of countless floors, each functioning as a separate world with distinct rules, cultures, and challenges. Bam encounters Headon, the guardian of the first floor, who explains that ascending requires passing tests at each level. These examinations evaluate physical capability, mental acuity, and strategic thinking. The Tower's environment is permeated by Shinsu, a mystical substance that exists throughout the structure. As Bam progresses, he meets other climbers who may become allies or adversaries, and he must navigate complex social dynamics while attempting to discover Rachel's location and motivations. The narrative explores themes of determination, friendship, and the costs of pursuing one's goals. The Tower functions as both a physical challenge and a metaphorical space where individuals reveal their true nature through their choices and actions. Bam's journey becomes increasingly complicated as he learns that the circumstances surrounding Rachel's disappearance may not be what they initially appeared, suggesting deeper mysteries about their relationship and the Tower's true purpose.",
+    "new_length": 1304,
+    "word_count": 191,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:41.486Z"
+    ]
+  },
+  "format": {
+    "slug": "webtoon",
+    "confidence": "high",
+    "reason": "Manual correction: Webtoon format"
+  },
+  "audience": {
+    "slug": "adult",
+    "includes": [
+      "young-adult",
+      "new-adult"
+    ],
+    "confidence": "high",
+    "reason": "Manual correction: Appeals to young-adult, new-adult, and adult audiences"
+  }
+}

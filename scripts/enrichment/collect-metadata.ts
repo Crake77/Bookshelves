@@ -120,9 +120,20 @@ function resolveAdapterInput({
 
 function loadEnrichment(bookId: string): { filePath: string; data: EnrichmentFile } {
   const filePath = path.join(ENRICHMENT_DIR, `${bookId}.json`);
+  ensureEnrichmentDir();
+  
   if (!fs.existsSync(filePath)) {
-    throw new Error(`Enrichment file not found: ${filePath}`);
+    // Create initial enrichment file structure
+    const initialData: EnrichmentFile = {
+      input_snapshot: {
+        book_id: bookId,
+        timestamp: new Date().toISOString(),
+      },
+    };
+    fs.writeFileSync(filePath, `${JSON.stringify(initialData, null, 2)}\n`, 'utf8');
+    return { filePath, data: initialData };
   }
+  
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   return { filePath, data };
 }

@@ -1,0 +1,573 @@
+{
+  "input_snapshot": {
+    "book_id": "aafd33c5-f1ee-4da5-ae61-7df49eed6b0f",
+    "timestamp": "2025-11-04T20:31:40.758Z",
+    "title": "Path of the Deathless"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:31:40.769Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "Path of the Deathless",
+      "authors": [
+        "SenescentSoul"
+      ],
+      "isbn10": null,
+      "isbn13": null,
+      "edition_id": "6bc44800-a61c-4b32-85b7-c6c1a7a8fc04"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "delvert-charles-1879-1940",
+            "name": "Delvert, Charles, 1879-1940",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01723384",
+            "url": "https://id.worldcat.org/fast/1723384",
+            "raw": [
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 4.1548486,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 2.908394,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 2.4929092,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "delvert-jean",
+            "name": "Delvert, Jean",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00089824",
+            "url": "https://id.worldcat.org/fast/89824",
+            "raw": [
+              {
+                "fastId": "fst00089824",
+                "label": "Delvert, Jean",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "delves-family",
+            "name": "Delves family",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01769017",
+            "url": "https://id.worldcat.org/fast/1769017",
+            "raw": [
+              {
+                "fastId": "fst01769017",
+                "label": "Delves family",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01769017",
+                "label": "Delves family",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "broughton-philip-delves",
+            "name": "Broughton, Philip Delves",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01777848",
+            "url": "https://id.worldcat.org/fast/1777848",
+            "raw": [
+              {
+                "fastId": "fst01777848",
+                "label": "Broughton, Philip Delves",
+                "matchType": "generated",
+                "score": 2.4929092,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "delvecchio-nick-fictitious-character",
+            "name": "Delvecchio, Nick (Fictitious character)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00890024",
+            "url": "https://id.worldcat.org/fast/890024",
+            "raw": [
+              {
+                "fastId": "fst00890024",
+                "label": "Delvecchio, Nick (Fictitious character)",
+                "matchType": "generated",
+                "score": 2.0774243,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "broughton-philip-delves",
+          "name": "Broughton, Philip Delves",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01777848",
+              "url": "https://id.worldcat.org/fast/1777848"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01777848",
+                "label": "Broughton, Philip Delves",
+                "matchType": "generated",
+                "score": 2.4929092,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "delvecchio-nick-fictitious-character",
+          "name": "Delvecchio, Nick (Fictitious character)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00890024",
+              "url": "https://id.worldcat.org/fast/890024"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00890024",
+                "label": "Delvecchio, Nick (Fictitious character)",
+                "matchType": "generated",
+                "score": 2.0774243,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "delvert-charles-1879-1940",
+          "name": "Delvert, Charles, 1879-1940",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01723384",
+              "url": "https://id.worldcat.org/fast/1723384"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 4.1548486,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 2.908394,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01723384",
+                "label": "Delvert, Charles, 1879-1940",
+                "matchType": "generated",
+                "score": 2.4929092,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "delvert-jean",
+          "name": "Delvert, Jean",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00089824",
+              "url": "https://id.worldcat.org/fast/89824"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00089824",
+                "label": "Delvert, Jean",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "delves-family",
+          "name": "Delves family",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01769017",
+              "url": "https://id.worldcat.org/fast/1769017"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01769017",
+                "label": "Delves family",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst01769017",
+                "label": "Delves family",
+                "matchType": "generated",
+                "score": 3.323879,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "low",
+      "reason": "Default - needs manual review"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "web-novel",
+        "name": "Web Novel",
+        "confidence": "high"
+      },
+      {
+        "slug": "post-apocalyptic",
+        "name": "Post-Apocalyptic",
+        "confidence": "high"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "litrpg",
+        "name": "Litrpg",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "isekai",
+        "name": "Isekai",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "death",
+        "name": "Death",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "forest",
+        "name": "Forest",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "wilderness",
+        "name": "Wilderness",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "strange",
+        "name": "Strange",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "demon-lord",
+        "name": "Demon Lord",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "save-the-world",
+        "name": "Save the World",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "progression",
+        "name": "Progression",
+        "group": "tropes_themes",
+        "confidence": "medium",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "demons",
+        "name": "Demons",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "post-apocalyptic",
+        "name": "Post-Apocalyptic",
+        "group": "setting",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "anti-hero",
+        "name": "Anti-Hero",
+        "group": "character",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "male-protag",
+        "name": "Male Protagonist",
+        "group": "character",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "resurrection",
+        "name": "Resurrection",
+        "group": "trope",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "system",
+        "name": "System",
+        "group": "element",
+        "confidence": "high",
+        "method": "manual-fix"
+      }
+    ],
+    "cross_tags_count": 16
+  },
+  "cover_urls": {
+    "existing": "https://www.royalroadcdn.com/public/covers-full/25225-delve.jpg",
+    "google_books": "https://books.google.com/books/content?id=royalroad-path-of-the-deathless&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": null,
+    "openlibrary_olid": null,
+    "cover_id": null,
+    "recommended": "https://books.google.com/books/content?id=royalroad-path-of-the-deathless&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-11-04T20:35:42.129Z",
+  "authors": {
+    "original": [
+      "SenescentSoul"
+    ],
+    "validated": [
+      "SenescentSoul"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "Delve is an isekai litrpg that follows an average guy who just happened to wake up in a forest one day. He wasn’t summoned to defeat the demon lord or to save the world or anything like that, at least as far as he can tell. The only creature there to greet him was a regular old squirrel. Soon enough, he meets other people, only to discover that he can’t speak the language, and that not everybody immediately trusts random pajama-wearing strangers they met in the middle of the wilderness. Things generally go downhill from there, at least until the blue boxes start appearing. Delve is a story about finding your way in a new, strange, and dangerous world. It’s about avoiding death, figuring out what the heck is going on, and trying to make some friends along the way. It’s not about getting home, so much as finding a new one. Did I mention that there will be math?",
+    "original_length": 871,
+    "new_summary": "Delve follows an ordinary man who awakens in an unfamiliar forest without explanation or apparent purpose. Unlike typical isekai narratives where characters are summoned for specific missions, this protagonist appears to have arrived by accident, with no clear goal or special destiny. He encounters a language barrier when meeting other people, complicating his attempts to understand his situation or communicate his needs. The story emphasizes the practical challenges of survival in an unknown environment, from basic needs like food and shelter to the social difficulties of being an outsider. The narrative introduces game-like systems through interface elements that appear to the protagonist, suggesting that this world operates according to rules similar to role-playing games, with levels, skills, and progression mechanics. The story focuses on the protagonist's gradual adaptation to this new reality, his efforts to learn the language and customs of the people he encounters, and his attempts to build relationships despite cultural and linguistic barriers. Themes of displacement, adaptation, and the search for belonging emerge as the protagonist realizes that returning home may not be possible and that he must instead find a way to exist in this new world. The narrative maintains a grounded, practical tone, emphasizing the day-to-day challenges of survival and integration rather than epic quests or world-saving missions.",
+    "new_length": 1442,
+    "word_count": 213,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:42.129Z"
+    ]
+  },
+  "format": {
+    "slug": "web-novel",
+    "confidence": "high",
+    "reason": "Manual correction: Royal Road web novel"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  }
+}

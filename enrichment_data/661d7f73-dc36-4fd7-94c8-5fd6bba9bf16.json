@@ -1,0 +1,346 @@
+{
+  "input_snapshot": {
+    "book_id": "661d7f73-dc36-4fd7-94c8-5fd6bba9bf16",
+    "timestamp": "2025-11-04T20:31:27.895Z"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:31:27.909Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "Ascendance of a Bookworm: Part 1 Volume 1",
+      "authors": [
+        "Miya Kazuki"
+      ],
+      "isbn10": null,
+      "isbn13": "9781718346000",
+      "edition_id": "29f99b9b-34db-4dea-8e5e-24d82b56484b"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "book-worms",
+            "name": "Book-worms",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00836258",
+            "url": "https://id.worldcat.org/fast/836258",
+            "raw": [
+              {
+                "fastId": "fst00836258",
+                "label": "Book-worms",
+                "matchType": "generated",
+                "score": 4.55514,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00836258",
+                "label": "Book-worms",
+                "matchType": "generated",
+                "score": 3.188598,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "ange-cornu-avec-des-ailes-de-to-le-tremblay-michel",
+            "name": "Ange cornu avec des ailes de tôle (Tremblay, Michel)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01393005",
+            "url": "https://id.worldcat.org/fast/1393005",
+            "raw": [
+              {
+                "fastId": "fst01393005",
+                "label": "Ange cornu avec des ailes de tôle (Tremblay, Michel)",
+                "matchType": "generated",
+                "score": 2.27757,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "pbs-kids-bookworm-bunch-television-program",
+            "name": "PBS Kids bookworm bunch (Television program)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01399680",
+            "url": "https://id.worldcat.org/fast/1399680",
+            "raw": [
+              {
+                "fastId": "fst01399680",
+                "label": "PBS Kids bookworm bunch (Television program)",
+                "matchType": "generated",
+                "score": 2.27757,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "ange-cornu-avec-des-ailes-de-to-le-tremblay-michel",
+          "name": "Ange cornu avec des ailes de tôle (Tremblay, Michel)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01393005",
+              "url": "https://id.worldcat.org/fast/1393005"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01393005",
+                "label": "Ange cornu avec des ailes de tôle (Tremblay, Michel)",
+                "matchType": "generated",
+                "score": 2.27757,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "book-worms",
+          "name": "Book-worms",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00836258",
+              "url": "https://id.worldcat.org/fast/836258"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00836258",
+                "label": "Book-worms",
+                "matchType": "generated",
+                "score": 4.55514,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00836258",
+                "label": "Book-worms",
+                "matchType": "generated",
+                "score": 3.188598,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "pbs-kids-bookworm-bunch-television-program",
+          "name": "PBS Kids bookworm bunch (Television program)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01399680",
+              "url": "https://id.worldcat.org/fast/1399680"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01399680",
+                "label": "PBS Kids bookworm bunch (Television program)",
+                "matchType": "generated",
+                "score": 2.27757,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "high",
+      "reason": "Fiction genre category: light novel, fantasy"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "isekai",
+        "name": "Isekai",
+        "confidence": "high"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "female-protagonist",
+        "name": "Female Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
+        "slug": "transformation",
+        "name": "Transformation",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "school",
+        "name": "School",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "reincarnation",
+        "name": "Reincarnation",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "medieval",
+        "name": "Medieval",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "isekai",
+        "name": "Isekai",
+        "group": "tropes_themes",
+        "confidence": "medium",
+        "match_score": 1.2,
+        "method": "pattern-match"
+      }
+    ],
+    "cross_tags_count": 7
+  },
+  "cover_urls": {
+    "existing": "https://books.google.com/books/publisher/content?id=1O-ODwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE7374bJiQvs1hzQVWltFyJ3nUhiv-XCYeHm4mmudVxYuvkTvwf65Dxo61uCI_BcV07VHlma9piN1yx9yIo680J7YwSNhWGJmrl-oUC6DXY79bS-h9_yqR0Z7FZH_C-wk8kBfJdFw&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=1O-ODwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL51502999M-L.jpg",
+    "openlibrary_olid": "OL51502999M",
+    "cover_id": "14603911",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL51502999M-L.jpg",
+    "source": "openlibrary_olid"
+  },
+  "last_updated": "2025-11-04T21:33:29.766Z",
+  "authors": {
+    "original": [
+      "Miya Kazuki"
+    ],
+    "validated": [
+      "Miya Kazuki"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "<p>A certain college girl who's loved books ever since she was a little girl dies in an accident and is reborn in another world she knows nothing about. She is now Myne, the sickly five-year-old daughter of a poor soldier. To make things worse, the world she's been reborn in has a very low literacy rate and books mostly don't exist. She'd have to pay an enormous amount of money to buy one.</p><p>Myne resolves herself: If there aren't any books, she'll just have to make them! Her goal is to become a librarian. This story begins with her quest to make books so she can live surrounded by them!</p><p>Dive into this biblio-fantasy written for book lovers and bookworms!</p>",
+    "original_length": 676,
+    "new_summary": "Ascendance of a Bookworm: Part 1 Volume 1 follows a college student who dies in an accident and awakens in a new world as Myne, a five-year-old child in a medieval-style society. The protagonist retains memories of her previous life, particularly her deep love for books and reading. However, she quickly discovers that this world lacks the widespread literacy and book culture she took for granted. Books are rare, expensive commodities available only to the wealthy, and the general population has limited reading ability. Myne's new body is also frail and frequently ill, complicating her circumstances. Despite these challenges, she becomes determined to recreate the book-filled environment she once enjoyed. Her goal transforms into a practical mission: to manufacture books herself, since purchasing them remains financially impossible for her family. The story follows her efforts to understand the materials and processes needed for book production while navigating the limitations imposed by her age, health, and social status. The narrative explores themes of adaptation, determination, and the value of knowledge preservation. Myne must work within the constraints of her new world while drawing on knowledge from her previous life, creating a bridge between two very different societies and their approaches to information and learning.",
+    "new_length": 1349,
+    "word_count": 203,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:41.759Z"
+    ]
+  },
+  "format": {
+    "slug": "light-novel",
+    "confidence": "high",
+    "reason": "Manual correction: Japanese light novel format"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "high",
+    "includes": [
+      "young-adult",
+      "new-adult"
+    ],
+    "reason": "Manual correction: Appeals to young-adult and new-adult audiences"
+  }
+}

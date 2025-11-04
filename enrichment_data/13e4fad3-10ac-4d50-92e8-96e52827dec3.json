@@ -1,0 +1,305 @@
+{
+  "input_snapshot": {
+    "book_id": "13e4fad3-10ac-4d50-92e8-96e52827dec3",
+    "timestamp": "2025-11-04T20:30:49.291Z"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:30:49.293Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "Ender's Game",
+      "authors": [
+        "Orson Scott Card"
+      ],
+      "isbn10": null,
+      "isbn13": "9780312932084",
+      "edition_id": "1579b28b-4ef2-4479-a01f-ab219d18459c"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "enders-game-card-orson-scott",
+            "name": "Ender's game (Card, Orson Scott)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01400824",
+            "url": "https://id.worldcat.org/fast/1400824",
+            "raw": [
+              {
+                "fastId": "fst01400824",
+                "label": "Ender's game (Card, Orson Scott)",
+                "matchType": "generated",
+                "score": 4.0210733,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "enders-game-card-orson-scott",
+          "name": "Ender's game (Card, Orson Scott)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01400824",
+              "url": "https://id.worldcat.org/fast/1400824"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01400824",
+                "label": "Ender's game (Card, Orson Scott)",
+                "matchType": "generated",
+                "score": 4.0210733,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "high",
+      "reason": "Fiction genre overrides keyword match: science fiction, military sf"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      },
+      {
+        "slug": "science-technology",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "science-fiction",
+        "name": "Science Fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "military-science-fiction",
+        "name": "Military Science Fiction",
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "military",
+        "name": "Military",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "adapted-to-film",
+        "name": "Adapted to Film",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "recruitment",
+        "name": "Recruitment",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "school",
+        "name": "School",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "unsettling",
+        "name": "Unsettling",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "war",
+        "name": "War",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
+        "slug": "coming-of-age",
+        "name": "Coming of Age",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "military-sf",
+        "name": "Military Sf",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "boot-camp",
+        "name": "Boot Camp",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "tactical-combat",
+        "name": "Tactical Combat",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "violence",
+        "name": "Violence",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "eerie",
+        "name": "Eerie",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "alien-contact",
+        "name": "Alien Contact",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "loyalty",
+        "name": "Loyalty",
+        "group": "tropes_themes",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      }
+    ],
+    "cross_tags_count": 16
+  },
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=k9vI7-WwGmMC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73AF80tkXOCNuJsDDgXrc5a87s6CmnlRFPjcgZ67kVKs2XrfhDHRGnuWhlqZj6AJFobpUsdt7BkCsD8oGhyCYCflv_OeZ63hmjG8rz5FMgf9xwZuZ0ZzvgWJlNowUAWxwgO1Zpm&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=k9vI7-WwGmMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL1532287M-L.jpg",
+    "openlibrary_olid": "OL1532287M",
+    "cover_id": "183788",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL1532287M-L.jpg",
+    "source": "openlibrary_olid"
+  },
+  "last_updated": "2025-11-04T21:41:23.406Z",
+  "authors": {
+    "original": [
+      "Orson Scott Card"
+    ],
+    "validated": [
+      "Orson Scott Card"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "<p><b>From <i>New York Times </i>bestselling author Orson Scott Card, <i>Ender's Game</i></b>—<b>adapted to film starring Asa Butterfield and Harrison Ford</b>—<b>is the classic Hugo and Nebula award-winning science fiction novel of a young boy's recruitment into the midst of an interstellar war.<br></b><br>In order to develop a secure defense against a hostile alien race's next attack, government agencies breed child geniuses and train them as soldiers. A brilliant young boy, Andrew \"Ender\" Wiggin lives with his kind but distant parents, his sadistic brother Peter, and the person he loves more than anyone else, his sister Valentine. Peter and Valentine were candidates for the soldier-training program but didn't make the cut—young Ender is the Wiggin drafted to the orbiting Battle School for rigorous military training.<br><br>Ender's skills make him a leader in school and respected in the Battle Room, where children play at mock battles in zero gravity. Yet growing up in an artificial community of young soldiers Ender suffers greatly from isolation, rivalry from his peers, pressure from the adult teachers, and an unsettling fear of the alien invaders. His psychological battles include loneliness, fear that he is becoming like the cruel brother he remembers, and fanning the flames of devotion to his beloved sister. <br><br>Is Ender the general Earth needs? But Ender is not the only result of the genetic experiments. The war with the Buggers has been raging for a hundred years, and the quest for the perfect general has been underway for almost as long. Ender's two older siblings are every bit as unusual as he is, but in very different ways. Between the three of them lie the abilities to remake a world. If, that is, the world survives.<br><br>Orson Scott Card's<i> Ender's Game</i> is the winner of the 1985 Nebula Award for Best Novel and the 1986 Hugo Award for Best Novel.<br><br>THE ENDER UNIVERSE<br><br>Ender series<br><i>Ender’s Game</i> /<i> Ender in Exile </i>/ <i>Speaker for the Dead </i>/ <i>Xenocide </i>/ <i>Children of the Mind</i><br><br>Ender’s Shadow series<br><i>Ender’s Shadow </i>/ <i>Shadow of the Hegemon </i>/ <i>Shadow Puppets </i>/ <i>Shadow of the Giant </i>/ <i>Shadows in Flight</i><br><br><i>Children of the Fleet</i><br><br>The First Formic War (with Aaron Johnston)<br><i>Earth Unaware </i>/ <i>Earth Afire </i>/ <i>Earth Awakens</i><br><br>The Second Formic War (with Aaron Johnston)<br><i>The Swarm </i>/<i>The Hive</i><br><br>Ender novellas<br><i>A War of Gifts </i>/<i>First Meetings</i></p>",
+    "original_length": 2554,
+    "new_summary": "Ender's Game follows Andrew Wiggin, a child selected by military authorities to train as a potential commander in humanity's ongoing conflict against an alien species. The story unfolds in a future where Earth faces repeated attacks from an alien race, and the military has developed a program to identify and train exceptionally gifted children in strategic warfare. Ender is separated from his family and sent to Battle School, an orbital training facility where children engage in simulated combat scenarios in zero gravity. The narrative explores themes of childhood manipulation, the psychological costs of military training, and the moral complexities of warfare. Ender struggles with isolation, the pressure to excel, and fears about his own capacity for violence as he navigates the competitive environment of Battle School. The novel examines how systems of power shape individuals and questions the boundaries between necessary preparation and psychological harm. Through Ender's experiences, the story probes the relationship between intelligence, empathy, and leadership, suggesting that the qualities that make an effective military commander may come at profound personal cost.",
+    "new_length": 1191,
+    "word_count": 174,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:41.384Z"
+    ]
+  },
+  "format": {
+    "slug": "novel",
+    "confidence": "high",
+    "score": 0.9833333333333334,
+    "reason": "Pattern-based detection: Novel (score: 0.98, threshold: 0.5)"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  }
+}

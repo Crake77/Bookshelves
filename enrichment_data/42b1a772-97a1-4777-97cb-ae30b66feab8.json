@@ -1,0 +1,644 @@
+{
+  "input_snapshot": {
+    "book_id": "42b1a772-97a1-4777-97cb-ae30b66feab8",
+    "timestamp": "2025-11-04T20:29:50.254Z"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:30:23.545Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "The Eye of the World",
+      "authors": [
+        "Robert Jordan"
+      ],
+      "isbn10": "0356519643",
+      "isbn13": "9780812500486",
+      "edition_id": "de9fc4bb-2278-4725-994a-cedbc917d5a9"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "fundus-oculi",
+            "name": "Fundus oculi",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00936207",
+            "url": "https://id.worldcat.org/fast/936207",
+            "raw": [
+              {
+                "fastId": "fst00936207",
+                "label": "Fundus oculi",
+                "matchType": "generated",
+                "score": 2.6835842,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "queen-the-eye-game",
+            "name": "Queen: The Eye (Game)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01085636",
+            "url": "https://id.worldcat.org/fast/1085636",
+            "raw": [
+              {
+                "fastId": "fst01085636",
+                "label": "Queen: The Eye (Game)",
+                "matchType": "generated",
+                "score": 2.6835842,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "xerophthalmia",
+            "name": "Xerophthalmia",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01182035",
+            "url": "https://id.worldcat.org/fast/1182035",
+            "raw": [
+              {
+                "fastId": "fst01182035",
+                "label": "Xerophthalmia",
+                "matchType": "generated",
+                "score": 2.6835842,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "eye-accommodation-and-refraction",
+            "name": "Eye--Accommodation and refraction",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00919116",
+            "url": "https://id.worldcat.org/fast/919116",
+            "raw": [
+              {
+                "fastId": "fst00919116",
+                "label": "Eye--Accommodation and refraction",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "eye-enucleation",
+            "name": "Eye--Enucleation",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00919155",
+            "url": "https://id.worldcat.org/fast/919155",
+            "raw": [
+              {
+                "fastId": "fst00919155",
+                "label": "Eye--Enucleation",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "maka-o-ka-a-ina-firm",
+            "name": "Maka o ka ʻĀina (Firm)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00724149",
+            "url": "https://id.worldcat.org/fast/724149",
+            "raw": [
+              {
+                "fastId": "fst00724149",
+                "label": "Maka o ka ʻĀina (Firm)",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "london-eye-london-england",
+            "name": "London Eye (London, England)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01719510",
+            "url": "https://id.worldcat.org/fast/1719510",
+            "raw": [
+              {
+                "fastId": "fst01719510",
+                "label": "London Eye (London, England)",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01719510",
+                "label": "London Eye (London, England)",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "eye-the-english-word",
+            "name": "Eye (The English word)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst02039841",
+            "url": "https://id.worldcat.org/fast/2039841",
+            "raw": [
+              {
+                "fastId": "fst02039841",
+                "label": "Eye (The English word)",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "adnexa-oculi",
+            "name": "Adnexa oculi",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00796966",
+            "url": "https://id.worldcat.org/fast/796966",
+            "raw": [
+              {
+                "fastId": "fst00796966",
+                "label": "Adnexa oculi",
+                "matchType": "generated",
+                "score": 2.0126882,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "adnexa-oculi",
+          "name": "Adnexa oculi",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00796966",
+              "url": "https://id.worldcat.org/fast/796966"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00796966",
+                "label": "Adnexa oculi",
+                "matchType": "generated",
+                "score": 2.0126882,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "eye-accommodation-and-refraction",
+          "name": "Eye--Accommodation and refraction",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00919116",
+              "url": "https://id.worldcat.org/fast/919116"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00919116",
+                "label": "Eye--Accommodation and refraction",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "eye-enucleation",
+          "name": "Eye--Enucleation",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00919155",
+              "url": "https://id.worldcat.org/fast/919155"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00919155",
+                "label": "Eye--Enucleation",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "eye-the-english-word",
+          "name": "Eye (The English word)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst02039841",
+              "url": "https://id.worldcat.org/fast/2039841"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst02039841",
+                "label": "Eye (The English word)",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fundus-oculi",
+          "name": "Fundus oculi",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00936207",
+              "url": "https://id.worldcat.org/fast/936207"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00936207",
+                "label": "Fundus oculi",
+                "matchType": "generated",
+                "score": 2.6835842,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "london-eye-london-england",
+          "name": "London Eye (London, England)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01719510",
+              "url": "https://id.worldcat.org/fast/1719510"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01719510",
+                "label": "London Eye (London, England)",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst01719510",
+                "label": "London Eye (London, England)",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "maka-o-ka-a-ina-firm",
+          "name": "Maka o ka ʻĀina (Firm)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00724149",
+              "url": "https://id.worldcat.org/fast/724149"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00724149",
+                "label": "Maka o ka ʻĀina (Firm)",
+                "matchType": "generated",
+                "score": 2.3481362,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "queen-the-eye-game",
+          "name": "Queen: The Eye (Game)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01085636",
+              "url": "https://id.worldcat.org/fast/1085636"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01085636",
+                "label": "Queen: The Eye (Game)",
+                "matchType": "generated",
+                "score": 2.6835842,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "xerophthalmia",
+          "name": "Xerophthalmia",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01182035",
+              "url": "https://id.worldcat.org/fast/1182035"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01182035",
+                "label": "Xerophthalmia",
+                "matchType": "generated",
+                "score": 2.6835842,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "high",
+      "reason": "Fiction genre category: fantasy, epic fantasy"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "epic-fantasy",
+        "name": "Epic Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "orphan",
+        "name": "Orphan",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "epic",
+        "name": "Epic",
+        "group": "tone",
+        "confidence": "medium",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "prophecy",
+        "name": "Prophecy",
+        "group": "tropes_themes",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "small-town",
+        "name": "Small Town",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      }
+    ],
+    "cross_tags_count": 6
+  },
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=pZJ2H63MAioC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71XynFESAbbJNO3Fw7UWDEt6ucEu1auAQD0s25U-w64wipDH-cixZH6G-gMtiW1EyxHV6v-K59QBB9WUc-SLn6kzfC3KcSmcDlQSSU00jL9VSdK3SxgAWJyFuzu78Cvdnqye5gw&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=pZJ2H63MAioC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL24934473M-L.jpg",
+    "openlibrary_olid": "OL24934473M",
+    "cover_id": "15099267",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL24934473M-L.jpg",
+    "source": "openlibrary_olid"
+  },
+  "last_updated": "2025-11-04T21:37:29.731Z",
+  "authors": {
+    "original": [
+      "Robert Jordan"
+    ],
+    "validated": [
+      "Robert Jordan"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "The Wheel of Time turns and Ages come and go, leaving memories that become legend. Legend fades to myth, and even myth is long forgotten when the Age that gave it birth returns again. When The Two Rivers is attacked by Trollocs-- a savage tribe of half-men, half-beasts-- five villagers flee that night into a world they barely imagined. They find new dangers waiting in the shadows and in the light. Rand al'Thor, an orphan, does not know that he is bound to the Wheel of Time-- and there are prophecies to be fulfilled. -- adapted from jacket",
+    "original_length": 544,
+    "new_summary": "The Eye of the World begins in the isolated village of Emond's Field, where a young man named Rand al'Thor lives a quiet life with his father. This peaceful existence shatters when monstrous creatures attack the village, forcing Rand and several companions to flee into a world far larger and more dangerous than they had ever imagined. The story follows their journey as they travel through unfamiliar lands, encountering both allies and enemies while pursued by dark forces. The narrative introduces a cosmology where time operates in cycles, with patterns repeating across ages. Rand gradually discovers that he may be connected to ancient prophecies and a greater destiny than he could have anticipated. The novel establishes a complex fantasy world with distinct cultures, magical systems, and political structures. Themes of fate versus free will emerge as the characters navigate their changing circumstances and grapple with revelations about their own identities and potential roles in larger conflicts. The story balances intimate character moments with broader world-building, creating a sense of both personal stakes and epic scope. Through their travels, the characters must learn to trust one another while adapting to the demands of a world far removed from their rural origins.",
+    "new_length": 1293,
+    "word_count": 200,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:41.578Z"
+    ]
+  },
+  "format": {
+    "slug": "novel",
+    "confidence": "high",
+    "reason": "Manual correction: Traditional novel format"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)",
+    "includes": [
+      "new-adult"
+    ]
+  }
+}

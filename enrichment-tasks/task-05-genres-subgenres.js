@@ -7,6 +7,7 @@ import path from 'path';
 
 const ENRICHMENT_DIR = 'enrichment_data';
 const taxonomy = JSON.parse(fs.readFileSync('bookshelves_complete_taxonomy.json', 'utf8'));
+const subgenrePatterns = JSON.parse(fs.readFileSync('subgenre_patterns.json', 'utf8')).patterns;
 
 // Helper to find genre by slug
 function findGenre(slug) {
@@ -102,7 +103,73 @@ function suggestGenres(book, domain) {
   return genreSlugs.slice(0, 3); // Max 3 genres
 }
 
-// Suggest subgenres based on title, description and genres
+// Score a subgenre pattern against book metadata
+function scoreSubgenrePattern(pattern, book, description, title) {
+  let score = 0;
+  const categories = (book.categories || []).map(c => c.toLowerCase()).join(' ');
+  const text = `${title} ${description} ${categories}`;
+  
+  // Check exact phrases (highest weight) - also check categories
+  if (pattern.exact_phrases) {
+    for (const phrase of pattern.exact_phrases) {
+      const phrasePattern = new RegExp(`\\b${phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (phrasePattern.test(title)) {
+        score += 0.45;
+        break;
+      } else if (phrasePattern.test(description)) {
+        score += 0.40;
+        break;
+      } else if (phrasePattern.test(categories)) {
+        score += 0.50; // Categories are very strong signal (user/publisher assigned)
+        break;
+      }
+    }
+  }
+  
+  // Check strong signals - also check categories
+  if (pattern.strong_signals) {
+    for (const signal of pattern.strong_signals) {
+      const signalPattern = new RegExp(`\\b${signal.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (signalPattern.test(title)) {
+        score += 0.20;
+        break;
+      } else if (signalPattern.test(description)) {
+        score += 0.15;
+        break;
+      } else if (signalPattern.test(categories)) {
+        score += 0.20; // Categories are strong signal
+        break;
+      }
+    }
+  }
+  
+  // Check semantic indicators (scale_markers, setting_markers, tone_markers, etc.)
+  const indicatorFields = [
+    'scale_indicators', 'setting_markers', 'tone_markers', 'action_markers',
+    'world_markers', 'time_markers', 'creature_markers', 'tech_markers',
+    'science_markers', 'progression_markers', 'cultivation_markers'
+  ];
+  
+  for (const field of indicatorFields) {
+    if (pattern[field] && Array.isArray(pattern[field])) {
+      let foundCount = 0;
+      for (const marker of pattern[field]) {
+        const markerPattern = new RegExp(`\\b${marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+        if (markerPattern.test(description)) {
+          foundCount++;
+        }
+      }
+      if (foundCount > 0) {
+        // Weight increases with more matches (multiple indicators = stronger signal)
+        score += Math.min(foundCount * 0.10, 0.25);
+      }
+    }
+  }
+  
+  return Math.min(score, 1.0); // Cap at 1.0
+}
+
+// Suggest subgenres based on title, description and genres using pattern-based detection
 function suggestSubgenres(book, genreSlugs, enrichmentData = null) {
   let description = (book.description || '').toLowerCase();
   
@@ -114,17 +181,34 @@ function suggestSubgenres(book, genreSlugs, enrichmentData = null) {
   
   const title = book.title.toLowerCase();
   const subgenres = [];
+  const scoredSubgenres = [];
   
   // For each assigned genre, look for relevant subgenres
   genreSlugs.forEach(genreSlug => {
     const availableSubgenres = findSubgenres(genreSlug);
     
-    // Check for FULL subgenre name in title or description (not individual words)
     availableSubgenres.forEach(sg => {
+      // Method 1: Pattern-based detection (if pattern exists)
+      const pattern = subgenrePatterns[sg.slug];
+      if (pattern && pattern.parent_genre === genreSlug) {
+        const score = scoreSubgenrePattern(pattern, book, description, title);
+        const minConfidence = pattern.minimum_confidence || 0.60;
+        
+        if (score >= minConfidence) {
+          scoredSubgenres.push({
+            slug: sg.slug,
+            name: sg.name,
+            genre_slug: sg.genre_slug,
+            score: score,
+            method: 'pattern-match'
+          });
+        }
+      }
+      
+      // Method 2: Literal matching (fallback if no pattern or pattern didn't match)
       const subgenreName = sg.name.toLowerCase();
       const subgenreSlug = sg.slug.toLowerCase();
       
-      // Create regex pattern for full name match (with word boundaries)
       const namePattern = new RegExp(`\\b${subgenreName.replace(/[\s-]+/g, '[\\s-]')}\\b`, 'i');
       const slugPattern = new RegExp(`\\b${subgenreSlug.replace(/-/g, '[\\s-]')}\\b`, 'i');
       
@@ -135,14 +219,34 @@ function suggestSubgenres(book, genreSlugs, enrichmentData = null) {
         matched = true;
       }
       
-      if (matched && !subgenres.find(s => s.slug === sg.slug)) {
-        subgenres.push({
-          slug: sg.slug,
-          name: sg.name,
-          genre_slug: sg.genre_slug
-        });
+      if (matched) {
+        // Only add if not already added by pattern matching
+        const existing = scoredSubgenres.find(s => s.slug === sg.slug);
+        if (!existing) {
+          scoredSubgenres.push({
+            slug: sg.slug,
+            name: sg.name,
+            genre_slug: sg.genre_slug,
+            score: 0.5, // Lower score for literal match
+            method: 'literal-match'
+          });
+        }
       }
     });
+  });
+  
+  // Sort by score (pattern matches first, then literal matches)
+  scoredSubgenres.sort((a, b) => b.score - a.score);
+  
+  // Convert to final format
+  scoredSubgenres.forEach(item => {
+    if (!subgenres.find(s => s.slug === item.slug)) {
+      subgenres.push({
+        slug: item.slug,
+        name: item.name,
+        genre_slug: item.genre_slug
+      });
+    }
   });
   
   return subgenres.slice(0, 5); // Max 5 subgenres
@@ -151,12 +255,9 @@ function suggestSubgenres(book, genreSlugs, enrichmentData = null) {
 async function assignGenresSubgenres(bookId) {
   console.log(`📚 Task 5: Assigning genres + subgenres for book ${bookId}...`);
   
-  const booksData = JSON.parse(fs.readFileSync('books_batch_001.json', 'utf8'));
-  const book = booksData.find(b => b.id === bookId);
-  
-  if (!book) {
-    throw new Error(`Book ${bookId} not found in batch`);
-  }
+  // Load book from appropriate batch file
+  const { loadBookFromBatch } = await import('./helpers.js');
+  const book = loadBookFromBatch(bookId);
   
   console.log(`  Title: ${book.title}`);
   console.log(`  Categories: ${JSON.stringify(book.categories)}`);

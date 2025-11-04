@@ -1,0 +1,634 @@
+{
+  "input_snapshot": {
+    "book_id": "f8486671-601d-4267-9347-8e859a7cc35a",
+    "timestamp": "2025-11-04T20:31:53.716Z"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:31:53.728Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "World of Cultivation",
+      "authors": [
+        "Fang Xiang"
+      ],
+      "isbn10": null,
+      "isbn13": null,
+      "edition_id": "e90bbbb4-b295-4767-a910-9204e4e9efd3"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "end-of-the-world",
+            "name": "End of the world",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00909634",
+            "url": "https://id.worldcat.org/fast/909634",
+            "raw": [
+              {
+                "fastId": "fst00909634",
+                "label": "End of the world",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00909634",
+                "label": "End of the world",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "world-of-warcraft-game",
+            "name": "World of Warcraft (Game)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01763282",
+            "url": "https://id.worldcat.org/fast/1763282",
+            "raw": [
+              {
+                "fastId": "fst01763282",
+                "label": "World of Warcraft (Game)",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "world-day-of-prayer",
+            "name": "World Day of Prayer",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01899485",
+            "url": "https://id.worldcat.org/fast/1899485",
+            "raw": [
+              {
+                "fastId": "fst01899485",
+                "label": "World Day of Prayer",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "world-of-reading",
+            "name": "World of reading",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01382675",
+            "url": "https://id.worldcat.org/fast/1382675",
+            "raw": [
+              {
+                "fastId": "fst01382675",
+                "label": "World of reading",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "foods-of-the-world",
+            "name": "Foods of the world",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01391745",
+            "url": "https://id.worldcat.org/fast/1391745",
+            "raw": [
+              {
+                "fastId": "fst01391745",
+                "label": "Foods of the world",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "worlds-fair-of-1982",
+            "name": "World's Fair of 1982",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01406051",
+            "url": "https://id.worldcat.org/fast/1406051",
+            "raw": [
+              {
+                "fastId": "fst01406051",
+                "label": "World's Fair of 1982",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "exposition-universelle-de-1889",
+            "name": "Exposition universelle de 1889",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01406250",
+            "url": "https://id.worldcat.org/fast/1406250",
+            "raw": [
+              {
+                "fastId": "fst01406250",
+                "label": "Exposition universelle de 1889",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "world-cup-of-hockey",
+            "name": "World Cup of Hockey",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01408884",
+            "url": "https://id.worldcat.org/fast/1408884",
+            "raw": [
+              {
+                "fastId": "fst01408884",
+                "label": "World Cup of Hockey",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "news-of-the-world",
+            "name": "News of the world",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01938016",
+            "url": "https://id.worldcat.org/fast/1938016",
+            "raw": [
+              {
+                "fastId": "fst01938016",
+                "label": "News of the world",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "end-of-the-world",
+          "name": "End of the world",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00909634",
+              "url": "https://id.worldcat.org/fast/909634"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00909634",
+                "label": "End of the world",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00909634",
+                "label": "End of the world",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "exposition-universelle-de-1889",
+          "name": "Exposition universelle de 1889",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01406250",
+              "url": "https://id.worldcat.org/fast/1406250"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01406250",
+                "label": "Exposition universelle de 1889",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "foods-of-the-world",
+          "name": "Foods of the world",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01391745",
+              "url": "https://id.worldcat.org/fast/1391745"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01391745",
+                "label": "Foods of the world",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "news-of-the-world",
+          "name": "News of the world",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01938016",
+              "url": "https://id.worldcat.org/fast/1938016"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01938016",
+                "label": "News of the world",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "world-cup-of-hockey",
+          "name": "World Cup of Hockey",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01408884",
+              "url": "https://id.worldcat.org/fast/1408884"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01408884",
+                "label": "World Cup of Hockey",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "world-day-of-prayer",
+          "name": "World Day of Prayer",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01899485",
+              "url": "https://id.worldcat.org/fast/1899485"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01899485",
+                "label": "World Day of Prayer",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "world-of-reading",
+          "name": "World of reading",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01382675",
+              "url": "https://id.worldcat.org/fast/1382675"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01382675",
+                "label": "World of reading",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "world-of-warcraft-game",
+          "name": "World of Warcraft (Game)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01763282",
+              "url": "https://id.worldcat.org/fast/1763282"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01763282",
+                "label": "World of Warcraft (Game)",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "worlds-fair-of-1982",
+          "name": "World's Fair of 1982",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01406051",
+              "url": "https://id.worldcat.org/fast/1406051"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01406051",
+                "label": "World's Fair of 1982",
+                "matchType": "generated",
+                "score": 2.1345325,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "high",
+      "reason": "Fiction genre category: xianxia, cultivation, fantasy"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [],
+    "cross_tags": [
+      {
+        "slug": "cultivation",
+        "name": "Cultivation",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 17,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "pursuit",
+        "name": "Pursuit",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "xianxia",
+        "name": "Xianxia",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.2,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "farm-setting",
+        "name": "Farm Setting",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      }
+    ],
+    "cross_tags_count": 6
+  },
+  "cover_urls": {
+    "existing": "https://novelfull.com/uploads/thumbs/world-of-cultivation-cb76fd4183-2239c49aee6b961904acf173b7e4602a.jpg",
+    "google_books": "https://books.google.com/books/content?id=web-world-of-cultivation&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": null,
+    "openlibrary_olid": null,
+    "cover_id": null,
+    "recommended": "https://books.google.com/books/content?id=web-world-of-cultivation&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books"
+  },
+  "last_updated": "2025-11-04T20:35:42.224Z",
+  "authors": {
+    "original": [
+      "Fang Xiang"
+    ],
+    "validated": [
+      "Fang Xiang"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "World of Cultivation is the tale of a disgruntled young man and his quest to be the best farmer he can be, at least if it wasn’t for those annoying people who keep getting in the way of his pursuit of agricultural excellence. Will conspiring forces turn him into a sword cultivator, or will he manage to throw off the shackles of fate and grow the best darn crops in the sect? Those air-headed cultivators dream of too much nonsense and don’t know how to live properly, they need to get a real job to earn some jingshi for a living like a normal person.",
+    "original_length": 553,
+    "new_summary": "World of Cultivation follows a young man named Zuo Mo who initially aspires to focus on farming within a cultivation sect, prioritizing practical agriculture over the more traditional paths of martial and spiritual advancement. The story is set in a world where cultivation, the practice of increasing one's power and lifespan through various techniques, is the dominant social and cultural framework. Zuo Mo's perspective differs from typical cultivators, as he values mundane work and economic stability over the pursuit of immortality or martial prowess. However, circumstances repeatedly pull him away from his agricultural goals and into situations that require him to engage with cultivation practices despite his initial reluctance. The narrative explores the tension between personal desires and external pressures, as Zuo Mo finds himself drawn into conflicts and power struggles that challenge his attempt to live a simple, farming-focused life. The story examines how individuals navigate systems of power and expectation, and questions whether it's possible to maintain one's values when surrounded by forces that demand different priorities. Themes of pragmatism versus idealism emerge as Zuo Mo must balance his practical approach to life with the demands of the cultivation world around him. The narrative maintains a humorous tone while addressing serious questions about work, value, and personal agency within structured social systems.",
+    "new_length": 1454,
+    "word_count": 214,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:42.224Z"
+    ]
+  },
+  "format": {
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  }
+}

@@ -4,10 +4,23 @@
 import fs from 'fs';
 
 const ENRICHMENT_DIR = 'enrichment_data';
-const BATCH_FILE = 'books_batch_001.json';
 const OUTPUT_FILE = 'SUMMARY_REWRITE_WORKSHEET.md';
 
-const books = JSON.parse(fs.readFileSync(BATCH_FILE, 'utf8'));
+// Find all batch files and load books
+function loadAllBooks() {
+  const allBooks = [];
+  for (let i = 1; i <= 100; i++) {
+    const batchNum = String(i).padStart(3, '0');
+    const batchFile = `books_batch_${batchNum}.json`;
+    if (fs.existsSync(batchFile)) {
+      const books = JSON.parse(fs.readFileSync(batchFile, 'utf8'));
+      allBooks.push(...books);
+    }
+  }
+  return allBooks;
+}
+
+const allBooks = loadAllBooks();
 const bookFiles = fs.readdirSync(ENRICHMENT_DIR).filter(f => f.endsWith('.json'));
 
 let markdown = '# Summary Rewrite Worksheet\n\n';
@@ -24,7 +37,7 @@ let count = 0;
 bookFiles.forEach((file, index) => {
   const bookId = file.replace('.json', '');
   const enrichment = JSON.parse(fs.readFileSync(`${ENRICHMENT_DIR}/${file}`, 'utf8'));
-  const book = books.find(b => b.id === bookId);
+  const book = allBooks.find(b => b.id === bookId);
   
   if (!book) return;
   

@@ -24,6 +24,118 @@ function getCrossTagMeta(slug) {
   return CROSS_TAG_META.get(slug) ?? { name: slug, group: 'trope' };
 }
 
+// Slug alias mapping: pattern slugs that don't match taxonomy slugs
+const SLUG_ALIASES = new Map([
+  ['strong-female-lead', 'female-protagonist'], // Pattern uses different slug than taxonomy
+]);
+
+function resolveSlug(patternSlug) {
+  return SLUG_ALIASES.get(patternSlug) || patternSlug;
+}
+
+// Semantic inference: Detect protagonist gender from pronouns and narrative context
+function detectProtagonistGender(book, enrichmentData) {
+  const text = [
+    book.description || '',
+    book.title || '',
+    enrichmentData?.summary?.new_summary || ''
+  ].join(' ').toLowerCase();
+  
+  if (!text.trim()) return null;
+  
+  // Count pronouns referring to protagonist
+  const malePronouns = (text.match(/\b(he|him|his)\b/g) || []).length;
+  const femalePronouns = (text.match(/\b(she|her|hers)\b/g) || []).length;
+  
+  // Check for explicit protagonist mentions
+  const hasMaleProtagonist = /\b(male protagonist|male lead|male hero|he is|he was|he has|he discovers|he finds|he journeys|he travels|his journey|his quest|his story)\b/i.test(text);
+  const hasFemaleProtagonist = /\b(female protagonist|female lead|female hero|she is|she was|she has|she discovers|she finds|she journeys|she travels|her journey|her quest|her story)\b/i.test(text);
+  
+  // Strong indicators: explicit mentions
+  if (hasFemaleProtagonist && !hasMaleProtagonist) {
+    return 'female-protagonist';
+  }
+  if (hasMaleProtagonist && !hasFemaleProtagonist) {
+    return 'male-protagonist';
+  }
+  
+  // Moderate indicators: pronoun frequency (need at least 2 occurrences to avoid false positives)
+  if (femalePronouns >= 2 && femalePronouns > malePronouns * 1.5) {
+    return 'female-protagonist';
+  }
+  if (malePronouns >= 2 && malePronouns > femalePronouns * 1.5) {
+    return 'male-protagonist';
+  }
+  
+  return null;
+}
+
+// Semantic inference: Detect content warnings from semantic variations
+function detectContentWarnings(book, enrichmentData) {
+  const text = [
+    book.description || '',
+    enrichmentData?.summary?.new_summary || ''
+  ].join(' ').toLowerCase();
+  
+  if (!text.trim()) return [];
+  
+  const warnings = [];
+  
+  // Slavery detection: semantic variations -> "slavery" tag (content_flags group)
+  const slaveryIndicators = [
+    /\benslaved\b/i,
+    /\bforced servitude\b/i,
+    /\bbondage\b/i,
+    /\bcaptivity\b/i,
+    /\bchains\b/i,
+    /\bowned by\b/i,
+    /\bslaves\b/i,
+    /\bslavery\b/i,
+    /\benslavement\b/i
+  ];
+  if (slaveryIndicators.some(pattern => pattern.test(text)) && CROSS_TAG_META.has('slavery')) {
+    warnings.push('slavery');
+  }
+  
+  // Child soldiers detection: semantic variations -> "child-soldiers" tag (discrete content flag)
+  const childSoldierIndicators = [
+    /\bchild soldiers?\b/i,
+    /\bchildren fighting\b/i,
+    /\byoung protagonists? in combat\b/i,
+    /\bteenagers? at war\b/i,
+    /\bchildren? at war\b/i,
+    /\bchildren? killing\b/i,
+    /\bchildren? in combat\b/i,
+    /\bminors fighting\b/i,
+    /\bchildren? trained as soldiers\b/i
+  ];
+  if (childSoldierIndicators.some(pattern => pattern.test(text))) {
+    // Use child-soldiers tag (now exists in taxonomy)
+    if (CROSS_TAG_META.has('child-soldiers')) {
+      warnings.push('child-soldiers');
+    } else if (CROSS_TAG_META.has('violence')) {
+      // Fallback to violence if child-soldiers not yet in DB
+      warnings.push('violence');
+    }
+  }
+  
+  // General violence detection (if not already added via child soldiers)
+  const violenceIndicators = [
+    /\bgraphic violence\b/i,
+    /\bviolent\b/i,
+    /\bbrutal\b/i,
+    /\bbloody\b/i,
+    /\bgore\b/i
+  ];
+  if (violenceIndicators.some(pattern => pattern.test(text)) && !warnings.includes('violence')) {
+    if (CROSS_TAG_META.has('violence')) {
+      warnings.push('violence');
+    }
+  }
+  
+  return warnings;
+}
+
 function getEvidenceSources(enrichmentData) {
   const sources = enrichmentData?.evidence?.sources;
   if (!Array.isArray(sources)) return [];
@@ -161,19 +273,75 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
     });
   });
   
-  // Sort by match score and return top 20
-  tags.sort((a, b) => b.match_score - a.match_score);
-
-  if (tags.length < 20) {
-    const patternMatches = generatePatternTags(book, enrichmentData, evidenceSources);
-    const existingSlugs = new Set(tags.map((tag) => tag.slug));
-    for (const match of patternMatches) {
-      if (existingSlugs.has(match.slug)) continue;
-      tags.push(match);
-      existingSlugs.add(match.slug);
-      if (tags.length >= 20) break;
+  // Add semantic inference for character traits
+  const protagonistGender = detectProtagonistGender(book, enrichmentData);
+  if (protagonistGender && CROSS_TAG_META.has(protagonistGender)) {
+    const existingSlug = tags.find(t => t.slug === protagonistGender);
+    if (!existingSlug) {
+      const meta = getCrossTagMeta(protagonistGender);
+      tags.push({
+        slug: protagonistGender,
+        name: meta.name,
+        group: meta.group,
+        confidence: 'high',
+        match_score: 5,
+        method: 'semantic-inference',
+      });
     }
   }
+  
+  // Add semantic inference for content warnings
+  const contentWarnings = detectContentWarnings(book, enrichmentData);
+  contentWarnings.forEach(warningSlug => {
+    if (CROSS_TAG_META.has(warningSlug)) {
+      const existingSlug = tags.find(t => t.slug === warningSlug);
+      if (!existingSlug) {
+        const meta = getCrossTagMeta(warningSlug);
+        tags.push({
+          slug: warningSlug,
+          name: meta.name,
+          group: meta.group,
+          confidence: 'high',
+          match_score: 4,
+          method: 'semantic-inference',
+        });
+      }
+    }
+  });
+  
+  // Sort by match score
+  tags.sort((a, b) => b.match_score - a.match_score);
+  
+  // Generate pattern tags and merge with direct matches (not just fill gaps)
+  const patternMatches = generatePatternTags(book, enrichmentData, evidenceSources);
+  const existingSlugs = new Set(tags.map((tag) => tag.slug));
+  
+  // Merge pattern results: combine scores if tag exists, add if new
+  patternMatches.forEach(patternMatch => {
+    const resolvedSlug = resolveSlug(patternMatch.slug);
+    if (!CROSS_TAG_META.has(resolvedSlug)) return; // Skip if slug doesn't exist in taxonomy
+    
+    const existing = tags.find(t => t.slug === resolvedSlug);
+    if (existing) {
+      // Combine scores: pattern matching supplements direct matching
+      existing.match_score = Math.max(existing.match_score, patternMatch.match_score * 0.8); // Slight penalty for pattern-only
+      if (patternMatch.confidence === 'high' && existing.confidence === 'medium') {
+        existing.confidence = 'high';
+      }
+      existing.method = existing.method === 'semantic-inference' 
+        ? 'semantic-inference+pattern' 
+        : (existing.method.includes('pattern') ? existing.method : `${existing.method}+pattern`);
+    } else {
+      // Add new tag from pattern
+      tags.push({
+        ...patternMatch,
+        slug: resolvedSlug,
+      });
+    }
+  });
+  
+  // Re-sort after merging
+  tags.sort((a, b) => b.match_score - a.match_score);
 
   return tags.slice(0, 20);
 }
@@ -196,13 +364,17 @@ function generatePatternTags(book, enrichmentData, evidenceSources) {
   if (!haystack.trim()) return [];
 
   const results = [];
-  Object.entries(crossTagPatterns).forEach(([slug, pattern]) => {
-    if (!CROSS_TAG_META.has(slug)) return;
+  Object.entries(crossTagPatterns).forEach(([patternSlug, pattern]) => {
+    // Resolve slug alias (e.g., strong-female-lead -> female-protagonist)
+    const resolvedSlug = resolveSlug(patternSlug);
+    if (!CROSS_TAG_META.has(resolvedSlug)) return;
+    
     const score = scorePattern(pattern, haystack);
     if (score <= 0) return;
-    const meta = getCrossTagMeta(slug);
+    
+    const meta = getCrossTagMeta(resolvedSlug);
     results.push({
-      slug,
+      slug: resolvedSlug, // Use resolved slug, not pattern slug
       name: meta.name,
       group: meta.group,
       confidence: score >= 2 ? 'high' : 'medium',
@@ -267,12 +439,9 @@ function scorePattern(pattern, haystack) {
 async function assignCrossTags(bookId) {
   console.log(`🏷️  Task 6: Assigning cross-tags for book ${bookId}...`);
   
-  const booksData = JSON.parse(fs.readFileSync('books_batch_001.json', 'utf8'));
-  const book = booksData.find(b => b.id === bookId);
-  
-  if (!book) {
-    throw new Error(`Book ${bookId} not found in batch`);
-  }
+  // Load book from appropriate batch file
+  const { loadBookFromBatch } = await import('./helpers.js');
+  const book = loadBookFromBatch(bookId);
   
   console.log(`  Title: ${book.title}`);
   

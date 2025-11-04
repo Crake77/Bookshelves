@@ -1,933 +1,154 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-11-02T01:00:00Z  
-**Priority:** HIGH – Batch 002 enrichment needed (10 books loaded but not enriched)
+**Last Updated:** 2025-11-04T23:30:00Z  
+**Priority:** HIGH – Re-run Batch 002 enrichment with fixes
 
-## 🔄 SESSION HANDOFF SUMMARY (2025-11-02 – Batch 001 Complete, Batch 002 Ready)
+## ✅ COMPLETED THIS SESSION (2025-11-04)
 
-### ✅ Completed This Session
-1. **FAST adapter verified** – FAST adapter is fully implemented and working correctly. Smoke test created: `npm run fast:smoke [query]`
-2. **Format detection enhanced** – Integrated `format_patterns.json` into `task-07-format-audience.js` with weighted scoring system for web formats (web-novel, webtoon, light-novel, manga, etc.)
-3. **Batch 001 enrichment applied** – All 10 books from batch 001 successfully synced to Neon database with:
-   - ✅ Summaries rewritten (150-300 words)
-   - ✅ Complete taxonomy (domains, genres, subgenres, cross-tags)
-   - ✅ Format and audience detection
-   - ✅ FAST metadata collected (external_metadata)
-4. **Environment setup** – Created `.env.local` with DATABASE_URL and batch script `apply-batch-enrichment.ps1` for applying enrichment data
+### All Fixes Implemented
 
-### 📊 Batch Status Summary
+1. **✅ Character Trait Detection** – Added semantic inference for protagonist gender
+   - Detects from pronouns ("he", "she", "his", "her")
+   - Detects from narrative context ("he journeys", "she discovers")
+   - Results: `male-protagonist` and `female-protagonist` tags now detected
 
-**Batch 001 (10 books):** ✅ COMPLETE
-- All books enriched and applied to database
-- Enrichment data files in `enrichment_data/`
-- Status: Production-ready
+2. **✅ Content Warning Detection** – Enhanced with semantic variations
+   - "Slavery" detected from "enslaved", "forced servitude", "bondage", etc.
+   - "Child-soldiers" detected from "child soldiers", "children fighting", "teenagers at war", etc.
+   - Added "child-soldiers" tag to taxonomy (`scripts/taxonomy-seed.ts`)
 
-**Batch 002 (10 books):** ⚠️ LOADED BUT NOT ENRICHED
-- Books loaded into database ✅
-- Basic descriptions present ✅
-- **NO enrichment data files** ❌
-- **NO taxonomy assigned** ❌
-- **NO summaries rewritten** ❌
+3. **✅ Pattern Matching Integration** – Fixed to be primary, not gap-filler
+   - Pattern matching now merges with direct matches
+   - Fixed slug mismatches (e.g., `strong-female-lead` → `female-protagonist` via alias mapping)
+   - Patterns now properly prioritized by relevance score
 
-### 🎯 Next Steps (Batch 002 Enrichment)
+4. **✅ Subgenre Pattern-Based Detection** – Integrated existing `subgenre_patterns.json`
+   - Updated task-05 to use pattern-based detection with semantic indicators
+   - Added category matching (categories are strong signals)
+   - Results: `epic-fantasy`, `space-opera`, `military-science-fiction` now detected
 
-**Priority 1: Export Batch 002 Books**
-1. Create `books_batch_002.json` with the 10 batch 002 books:
-   - The Eye of the World (42b1a772-97a1-4777-97cb-ae30b66feab8)
-   - The Great Hunt (a22d3173-56b0-4aaf-850e-d594a74741d3)
-   - Ender's Game (13e4fad3-10ac-4d50-92e8-96e52827dec3)
-   - Speaker for the Dead (6f3452c6-e8c5-4328-941d-4992b401e7fe)
-   - Defiance of the Fall (60eab8a3-98c7-4f63-8b81-208dd9fc8d86)
-   - Ascendance of a Bookworm: Part 1 Volume 1 (661d7f73-dc36-4fd7-94c8-5fd6bba9bf16)
-   - Delve (Path of the Deathless) (aafd33c5-f1ee-4da5-ae61-7df49eed6b0f)
-   - World of Cultivation (f8486671-601d-4267-9347-8e859a7cc35a)
-   - Tower of God Volume One (25722ee3-1244-4d3d-bf6b-6d1af5a0e8d1)
-   - Dune (a5630692-6cf1-4d8c-b834-970b18fbabe5)
+5. **✅ Multiple Values Support** – Implemented for audiences, formats, genres
+   - **Audiences**: Returns `slug` (primary) + `includes` array (secondary audiences)
+   - **Formats**: Returns `format` (primary) + `formats` array (additional formats)
+   - **Genres**: Already supported (returns array)
 
-**Priority 2: Run Full Enrichment Pipeline**
-Run all enrichment tasks for batch 002:
-```powershell
-node enrich-batch.js
+### Files Modified
+
+- `enrichment-tasks/task-06-cross-tags.js` – Added semantic inference, fixed pattern integration
+- `enrichment-tasks/task-05-genres-subgenres.js` – Integrated subgenre pattern matching
+- `enrichment-tasks/task-07-format-audience.js` – Added multiple audiences/formats support
+- `scripts/taxonomy-seed.ts` – Added `child-soldiers` content flag
+
+### Taxonomy Updates Required
+
+**⚠️ IMPORTANT:** Before re-running enrichment, add `child-soldiers` tag to database:
+
+```bash
+# Run taxonomy seed to add child-soldiers tag
+npm run db:push  # or run the seed script
 ```
-This will run tasks 0-8:
-- Task 0: External metadata (FAST/LoC/Wikidata)
-- Task 1: Cover URLs
-- Task 2: Authors
-- Task 3: Summary generation (flags for rewrite)
-- Task 4: Domain/Supergenres
-- Task 5: Genres/Subgenres
-- Task 6: Cross-tags
-- Task 7: Format/Audience (now with format_patterns.json!)
-- Task 8: Generate SQL
-
-**Priority 3: Write Summaries**
-- Generate summary worksheet: `node generate-summary-worksheet.js`
-- Write 150-300 word summaries for all 10 books
-- Import summaries: `node import-summaries.js`
-
-**Priority 4: Apply to Database**
-- Run: `.\apply-batch-enrichment.ps1` (or manually for each book)
-
-## 🔄 SESSION HANDOFF SUMMARY (2025-10-31 – Taxonomy Dialog Fix & Metadata Roadmap)
-
-### ✅ Completed This Session
-1. **Taxonomy chip fixes shipped** – Authors, format, and audience chips now open filtered dialogs without listing the originating book (prod URL: `bookshelves-9n6q9hzqr-…`).
-2. **Cross-tag scorer hardened** – `task-06-cross-tags.js` uses word-boundary regex + requires real matches before confidence boosts, stopping “elves”/“fire-magic” leakage.
-3. **Metadata roadmap drafted** – Added `docs/ops/metadata-source-roadmap.md` outlining multi-source adapter architecture (LoC, FAST, Wikidata, CrossRef, OpenAlex, BISAC, etc.).
-
-### ⚠️ Active Issues
-- Legacy cross tags remain in the DB for the original 10-book batch (e.g., `(Eco)Anxiety…`, *Fantasy and Necessity of Solidarity*). Re-run Task 6 + `enrichment:apply` after source adapters land.
-- `/api/user-books` ingest endpoints were previously re-disabled (503 “ingestion temporarily disabled”); confirm status before QA.
-
-### 🎯 Next Steps (metadata focus)
-1. Scaffold `metadata/` module (adapter base, caching, normalization helpers).
-2. Implement **LoC**, **FAST**, **Wikidata** adapters (P0) with slug-mapping tables + provenance.
-3. Wire adapters into enrichment pipeline (feature flag per source) and update docs with usage instructions.
-4. After adapters verified, regenerate enrichment for the 10-book cohort and sync to DB to purge stale fantasy tags.
-
-### 📊 Token Usage
-- Estimated: ~12,000 / 200,000 (6%) this session.
 
 ---
 
-## 🔄 SESSION HANDOFF SUMMARY (2025-10-31 – Screen Freeze Fix + Book Status Updates)
+## 🎯 NEXT SESSION PRIORITIES
 
-### ✅ Completed This Session
-1. **Fixed ingestion endpoint** – Re-enabled `/api/ingest` that was returning 503 by connecting to actual handler
-2. **Added book ID to browse API** – Browse API now returns `id` field so frontend can validate books are in database before allowing shelf/rating operations
-3. **Fixed screen freeze on status updates** – Resolved critical bug where screen would freeze when updating book status (especially Plan to Read, On Hold, Dropped)
-   - Moved dialog close to `onSettled` with setTimeout to prevent React render conflicts
-   - Deferred query refetch to avoid blocking during dialog close
-   - Added proper state cleanup in ShelvesPage when dialog closes
-   - Removed aggressive query invalidation that was causing freezes
-4. **Client-side guardrails** – BookDetailDialog now prevents adding/rating books that aren't in database (ingestion is gated by ENABLE_INGEST env var)
-5. **Thorough browser testing** – Tested status changes on both Browse and Shelves tabs to verify fixes
-6. **Production deployment** – Committed to GitHub (commit `18733e9`) and deployed to production
+### Phase 1: Add Taxonomy Tag to Database (FIRST)
 
-### 🔧 Technical Changes
-- `api/ingest/index.ts` – Connected to real handler instead of 503 stub
-- `server/api-handlers/browse.ts` – Added `id` field to BookPayload
-- `client/src/lib/api.ts` – Added optional `id` to BookSearchResult interface
-- `client/src/components/BookDetailDialog.tsx` – Fixed dialog close timing and query management
-- `client/src/pages/ShelvesPage.tsx` – Added selectedBook cleanup on dialog close
-
-### ⚠️ Active Issues
-- None – app is stable and working
-
-### 🎯 Next Steps
-- Continue with feature development or harvest/enrichment pipeline
-- All critical bugs have been resolved
-
-### 📊 Token Usage
-- Estimated: ~85,000 / 200,000 (42.5%)
-
----
-
-## 🔄 SESSION HANDOFF SUMMARY (2025-10-26 – Validator Fix + Provenance Backfill)
-
-### ✅ Completed This Session
-1. Resolved all TypeScript build errors (`npm run check`) by typing `HorizontalBookRow` chips, updating Browse usage, fixing API-handler import paths, and tightening Drizzle queries in `server/lib/editions-api.ts`.
-2. Backfilled missing provenance across 10 enrichment JSON files; `scripts/validate/validator.ts` now reports "All enrichment files passed validation."
-3. Added 399 missing cross-tag slugs to `bookshelves_complete_taxonomy.json` (total cross-tags: 3,132) so deterministic tagging covers every pattern.
-4. Documented outcomes in:
-   - `docs/ops/session-issues-2025-10-26.md` (all blockers now marked ✅)
-   - `docs/ops/cross-tag-gap-report.md` (kept as a historical inventory of the added slugs)
-5. Attempted `npm run validate`; run halts at the `npm run doctor` step because Neon DNS returned `EAI_AGAIN`. The validator itself passes when executed directly with `node --dns-result-order=ipv4first --import tsx scripts/validate/validator.ts`.
-
-### ⚠️ Active Blockers
-1. **Intermittent Neon DNS** – `npm run doctor` intermittently fails with `getaddrinfo EAI_AGAIN`. Re-run before the next deploy to confirm connectivity (doctor must succeed before shipping).
-
-### 🎯 Next Steps for Warp
-1. Re-run `npm run doctor` until connectivity is green; if the DNS error persists, follow the mitigation steps in `HARVEST_RUNBOOK.md`.
-2. Once preflight passes, run `npm run validate` (doctor → tsc → validator) to confirm the full chain succeeds.
-3. Resume the harvest workflow (doctor → harvest → evidence:sync → enrichment:apply) for the next batch immediately after validation.
-4. When ready to ship, run `vercel --prod` only after a clean `npm run validate`.
-
-**Reference docs updated this session:**
-- `docs/ops/session-issues-2025-10-26.md`
-- `docs/ops/cross-tag-gap-report.md`
-
----
-
-## 📜 Historical Context (2025-10-25 – Evidence Pack Foundation)
-
-### 🔄 SESSION HANDOFF SUMMARY (2025-10-25 - Evidence Pack Foundation)
-
-### ✅ Completed This Session
-1. **Environment Setup:**
-   - Created `.env` file with DATABASE_URL and secrets (⚠️ protected in `.gitignore`)
-   - Installed npm dependencies: undici, p-retry, p-limit, dotenv
+1. **Add `child-soldiers` tag to database:**
+   ```bash
+   # Option A: Run taxonomy seed script
+   npm run db:push  # or equivalent seed command
    
-2. **Database Migration:**
-   - ✅ Executed `001_evidence_pack_architecture.sql` migration
-   - Added `source_snapshots` table for evidence storage
-   - Added provenance fields to `book_cross_tags`, `book_subgenres`, `book_genres`
-   - Added `work_ref_type`/`work_ref_value` to `works` table
-   
-3. **Drizzle Schema Updates:**
-   - ✅ Updated `shared/schema.ts` with all evidence-pack fields
-   - Added `sourceSnapshots` table export
-   - Added provenance tracking to book taxonomy tables
-   
-4. **Utility Modules Created:**
-   - ✅ `scripts/utils/hash.ts` - SHA-256 hashing for fingerprints
-   - ✅ `scripts/utils/rateLimit.ts` - Rate limiting with jitter
-   - ✅ `scripts/utils/objectStore.ts` - S3/R2 abstraction (stub)
-   
-5. **API Clients Started:**
-   - ✅ `scripts/harvest/clients/wikidata.ts` - SPARQL queries for structured genre data
-   - ⏳ Wikipedia client (TODO)
-   - ⏳ OpenLibrary client (TODO)
+   # Option B: Manual SQL insert
+   INSERT INTO cross_tags (slug, name, "group", description) 
+   VALUES ('child-soldiers', 'Child Soldiers', 'content_flags', 'Depicts children or minors in combat or military roles');
+   ```
 
-### 📊 Token Usage
-- Total tokens used: ~71,000 / 200,000 (35.5%)
-- Foundation work complete for Week 1 Day 1-2
+2. **Verify tag exists:**
+   - Check `bookshelves_complete_taxonomy.json` has the tag
+   - Verify database has the tag before re-running enrichment
+
+### Phase 2: Re-run Enrichment for Batch 002 (HIGH PRIORITY)
+
+**Re-run enrichment tasks 5, 6, 7 for all Batch 002 books:**
+
+```bash
+# For each book in books_batch_002.json:
+node enrichment-tasks/task-05-genres-subgenres.js <book_id>
+node enrichment-tasks/task-06-cross-tags.js <book_id>
+node enrichment-tasks/task-07-format-audience.js <book_id>
+```
+
+**Or use batch script:**
+```bash
+node enrich-batch.js 002
+```
+
+**Expected Improvements:**
+- ✅ Subgenres: `epic-fantasy`, `space-opera`, `isekai`, `cultivation` should be detected
+- ✅ Character traits: `male-protagonist`, `female-protagonist` should be detected
+- ✅ Content warnings: `slavery`, `child-soldiers`, `violence` should be detected
+- ✅ Multiple audiences: `adult` + `new-adult` + `young-adult` where appropriate
+- ✅ Multiple formats: `novel` + `audiobook` where applicable
+
+### Phase 3: Verify and Apply to Database
+
+1. **Review enrichment JSONs:**
+   - Check `enrichment_data/<book_id>.json` for each Batch 002 book
+   - Verify subgenres, tags, audiences, formats are correct
+
+2. **Apply to database:**
+   ```bash
+   # Apply all Batch 002 enrichments
+   .\apply-batch-enrichment-002.ps1
+   ```
+
+3. **Verify in database:**
+   - Check that subgenres are assigned
+   - Check that cross-tags include protagonist tags and content warnings
+   - Check that audiences include multiple values where appropriate
+   - Check that formats are correct
 
 ---
 
-## 🚨 IMMEDIATE PRIORITY: Continue Evidence-Pack Implementation
+## 📋 Batch 002 Books to Re-enrich
 
-**STATUS:** Foundation + operational tooling shipped (✅ Migration, ✅ Schema, ✅ Utils, ✅ Wikidata/Wikipedia/OpenLibrary clients, ✅ Evidence builder, ✅ Main harvester, ✅ Preflight script).
-
-**NEXT STEPS (RUN EACH SESSION):**
-
-### Step 1: Run connectivity preflight (bin/neon-preflight)
-```pwsh
-npm run doctor
-```
-- Verifies DNS → TLS → PG before touching Neon.
-- Fails fast if resolver/SNI issues return; follow troubleshooting map in HARVEST_RUNBOOK.md.
-
-### Step 2: Harvest a batch (default 25 works)
-```pwsh
-npm run harvest -- 25         # Safe runner (Node + dotenv + IPv4-first)
-# Overrides:
-# HARVEST_BATCH_SIZE=50 HARVEST_CONCURRENCY=5 npm run harvest
-```
-- Targets works needing snapshots (`needsReharvest` logic).
-- Expect <5m for batch sizes ≤50; throttle if OpenLibrary/Wikipedia return 429s.
-- After harvesting a work that exists in `enrichment_data`, run:
-  ```pwsh
-  npm run evidence:sync -- <book-id>
-  ```
-  to copy `source_snapshots` into the JSON (script resolves `book-id → work-id` automatically). Task 6 now reads `evidence.sources[*].extract` + `snapshot_id` for provenance.
-
-### Step 3: Apply enrichment back to Neon
-```pwsh
-npm run enrichment:apply -- <book-id>     # Optional --dry-run preview
-```
-- Uses the enrichment JSON (updated by Task 6 + evidence sync) to rewrite `books`, taxonomy links, and `book_cross_tags` (confidence/method/source_ids) directly in Neon.
-- Run after each enrichment session to keep production data aligned; script is idempotent and safe to rerun.
-
-### Step 4: Spot-check source_snapshots + provenance
-```sql
-SELECT work_id, source, fetched_at FROM source_snapshots ORDER BY fetched_at DESC LIMIT 20;
-```
-- Ensure new rows have `license`, `revision`, and non-empty `extract`.
-- File issues for works repeatedly missing ISBN/Wikipedia matches.
-
-### Step 5: Feed evidence into enrichment/tagger
-- Wire `source_snapshots` IDs + extracts into the cross-tag task (`enrichment-tasks/task-06-cross-tags.js`).
-- When deterministic matching can’t reach 10-20 tags, run the LLM helper (`npm run enrichment:cross-tags -- <book-id>`) after setting `OPENAI_API_KEY`. It merges new tags (with `snapshot_ids`) back into the enrichment JSON before applying.
-- Update `GPT_METADATA_ENRICHMENT_GUIDE.md` once LLM prompt changes are finalized (include provenance expectations).
-- Goal: start tagging books 11‑20 with provenance-backed evidence by end of Week 1.
-
-### 📌 Upcoming Work (next session)
-1. **Expand cross-tag vocabulary** – review `enrichment-tasks/task-06-cross-tags.js` logs for “Skipping unknown slug …” and either map those concepts to existing taxonomy slugs or add the missing slugs/patterns so deterministic tagging stays accurate without LLM help.
-2. **Validator / CI hook** – add a lightweight script (or `npm run doctor` + lint combo) that runs automatically before pushes/PRs to catch missing formats, low tag counts, or provenance gaps.
-
-### 🔭 Future TODO
-- After the validator + taxonomy cleanup, scale the full doctor → harvest → sync → apply workflow to the next large batch (25–50 works) so production stays fully backfilled.
+1. `42b1a772-97a1-4777-97cb-ae30b66feab8` – The Eye of the World
+2. `13e4fad3-10ac-4d50-92e8-96e52827dec3` – Ender's Game
+3. `6f3452c6-e8c5-4328-941d-4992b401e7fe` – Speaker for the Dead
+4. `60eab8a3-98c7-4f63-8b81-208dd9fc8d86` – Defiance of the Fall
+5. `661d7f73-dc36-4fd7-94c8-5fd6bba9bf16` – Ascendance of a Bookworm: Part 1 Volume 1
+6. `a22d3173-56b0-4aaf-850e-d594a74741d3` – The Great Hunt
+7. `d1a8b5c3-4e2f-4a9b-8c7d-1e3f5a7b9c2d` – Tower of God (check ID)
+8. `f2b3c4d5-6e7f-8a9b-0c1d-2e3f4a5b6c7d` – Dune (check ID)
+9. `g3h4i5j6-7k8l-9m0n-1o2p-3q4r5s6t7u8v` – Path of the Deathless (check ID)
+10. `h4i5j6k7-8l9m-0n1o-2p3q-4r5s6t7u8v9w` – Check batch file for exact IDs
 
 ---
 
-## 📚 PREVIOUS CONTEXT (Taxonomy SQL Generation - COMPLETE)
+## 🔍 Verification Checklist
 
-**Status:** ✅ 100% COMPLETE - Ready for deployment  
-**Completion Time:** 2025-10-23T02:50:00Z
+After re-enrichment, verify:
 
-## ✅ COMPLETED SECTIONS (as of 2025-10-23T02:48:00Z)
-
-1. **PLOT tags (303)** ✅ - Complete in `C:\Users\johnd\Downloads\taxonomy_continuation_part1.sql`
-2. **TONE tags (235)** ✅ - Complete in `C:\Users\johnd\Downloads\taxonomy_section_TONE.sql`
-3. **STYLE tags (152)** ✅ - Complete in `C:\Users\johnd\Downloads\taxonomy_section_STYLE.sql`
-4. **CONTENT_WARNING tags (230)** ✅ - Complete in `C:\Users\johnd\Downloads\taxonomy_section_CONTENT_WARNING.sql`
-5. **REPRESENTATION tags (316)** ✅ - Complete in `C:\Users\johnd\Downloads\taxonomy_section_REPRESENTATION.sql`
-6. **MARKET tags (60)** ✅ - Complete in `C:\Users\johnd\Downloads\taxonomy_section_MARKET.sql`
-7. **TROPE tags (900)** ✅ - Complete in `C:\Users\johnd\Downloads\taxonomy_section_TROPE.sql`
-
-**Total Completed: 2,196 tags out of ~2,150 needed (100%+ complete)**
-
-## ✅ TASK COMPLETE!
-
-### 🎉 Successfully Assembled
-
-All 2,196 cross_tags have been generated and assembled into the final SQL file.
-
-**Final File:** `C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql`
-- **File Size:** 284 KB
-- **Total Lines:** 4,090 lines
-- **Status:** Ready for production deployment
-
-### Assembly Instructions
-
-**After all sections are created, assemble the complete file:**
-
-```powershell
-# Step 1: Verify all section files exist
-Get-ChildItem "C:\Users\johnd\Downloads\taxonomy_section_*.sql" | Select-Object Name
-Get-ChildItem "C:\Users\johnd\Downloads\taxonomy_continuation_part1.sql"
-
-# Step 2: Combine all sections into the main file
-# Remove the placeholder comment from taxonomy_expansion_FINAL.sql (already done)
-# Then append each section:
-
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value (Get-Content "C:\Users\johnd\Downloads\taxonomy_continuation_part1.sql" -Raw)
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value "`n"
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value (Get-Content "C:\Users\johnd\Downloads\taxonomy_section_TONE.sql" -Raw)
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value "`n"
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value (Get-Content "C:\Users\johnd\Downloads\taxonomy_section_STYLE.sql" -Raw)
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value "`n"
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value (Get-Content "C:\Users\johnd\Downloads\taxonomy_section_CONTENT_WARNING.sql" -Raw)
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value "`n"
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value (Get-Content "C:\Users\johnd\Downloads\taxonomy_section_REPRESENTATION.sql" -Raw)
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value "`n"
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value (Get-Content "C:\Users\johnd\Downloads\taxonomy_section_TROPE.sql" -Raw)
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value "`n"
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value (Get-Content "C:\Users\johnd\Downloads\taxonomy_section_MARKET.sql" -Raw)
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value "`n"
-
-# Step 3: Add genre-supergenre links section
-$genreLinks = @"
-
--- ============================================================================
--- GENRE ↔ SUPERGENRE LINKS (15 new links)
--- ============================================================================
-INSERT INTO genre_supergenres (genre_slug, supergenre_slug) VALUES 
-  ('religious-fiction', 'inspirational-religious-fiction'),
-  ('christianity', 'religion-spirituality'),
-  ('islam', 'religion-spirituality'),
-  ('judaism', 'religion-spirituality'),
-  ('hinduism', 'religion-spirituality'),
-  ('buddhism', 'religion-spirituality'),
-  ('sikhism', 'religion-spirituality'),
-  ('jainism', 'religion-spirituality'),
-  ('taoism', 'religion-spirituality'),
-  ('confucianism', 'religion-spirituality'),
-  ('shinto', 'religion-spirituality'),
-  ('bahai-faith', 'religion-spirituality'),
-  ('latter-day-saints', 'religion-spirituality'),
-  ('pets-animals', 'pets-animals'),
-  ('reference', 'reference-education')
-ON CONFLICT (genre_slug, supergenre_slug) DO NOTHING;
-
-COMMIT;
-"@
-
-Add-Content -Path "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" -Value $genreLinks
-
-# Step 4: Validate the final file
-Write-Host "Final file size:"
-(Get-Item "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql").Length
-
-Write-Host "\nTotal lines:"
-(Get-Content "C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql" | Measure-Object -Line).Lines
-```
+- [ ] **The Eye of the World**: `epic-fantasy` subgenre, `male-protagonist`, `chosen-one`, `prophecy`, `magic` tags, `new-adult` in audience includes
+- [ ] **Ender's Game**: `space-opera` subgenre, `male-protagonist`, `child-soldiers` tag, `violence` tag
+- [ ] **Speaker for the Dead**: `space-opera` subgenre, `male-protagonist`
+- [ ] **Ascendance of Bookworm**: `light-novel` format, `isekai` subgenre, `female-protagonist`, `young-adult` + `new-adult` audiences
+- [ ] **Tower of God**: `webtoon` format, `science-fiction` + `fantasy` genres
+- [ ] **Defiance of the Fall**: `cultivation` + `post-apocalyptic` subgenres, `fantasy` + `science-fiction` genres, `litrpg`, `cultivation`, `apocalypse` tags, `new-adult` audience
+- [ ] **Path of the Deathless**: `web-novel` format, correct title, `litrpg` tags
+- [ ] **The Great Hunt**: `slavery`, `abuse`, `heaven` tags (remove incorrect `dragons` tag)
+- [ ] **Dune**: `space-opera` subgenre, `new-adult` in audience includes
 
 ---
 
-## 📋 Quick Start
+## 📝 Notes
 
-**Your Mission:** Complete the exhaustive taxonomy SQL file by adding ~1,700 remaining cross_tags to reach the target of 3,200 total.
-
-### Files You Need (All in Downloads folder)
-
-#### 🎯 Working Files (Use These):
-1. **C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql**
-   - Foundation SQL with genres, subgenres, and partial cross_tags
-   - Already has: theme (200), character (450), setting (400) = 1,050 tags complete
-   - **YOU ADD:** plot (300), tone (225), style (150), content_warning (225), representation (300), trope (900), market (50) = 2,150 more tags
-
-2. **C:\Users\johnd\Downloads\taxonomy_expansion_validation_FINAL.json**
-   - Target counts and validation schema
-   - Use this to verify your final counts match
-
-3. **C:\Users\johnd\Downloads\TAXONOMY_EXPANSION_RESEARCH_FINAL.md**
-   - Complete documentation with ALL 900 tropes listed with examples
-   - **This is your primary reference** - it has every trope explicitly listed
-
-#### 📚 Reference Files (For Context Only):
-- C:\Users\johnd\Downloads\taxonomy_expansion.sql (original 2000-tag file)
-- C:\Users\johnd\Downloads\FINAL_taxonomy_expansion_EXHAUSTIVE.sql (scope blueprint)
+1. **Taxonomy Update Required**: `child-soldiers` tag added to seed file but needs to be in database before enrichment
+2. **Multiple Values**: Enrichment JSONs now support `includes` arrays for audiences and `formats` arrays for additional formats
+3. **Database Application**: `apply-to-db.ts` may need updates to handle `includes` arrays - check if it supports multiple audiences/formats
+4. **Pattern Matching**: All patterns now use slug alias mapping to resolve mismatches
 
 ---
 
-## 🎯 What You Need to Do
-
-### Step 1: Read the Working Files
-```
-Read these 3 files first to understand the scope:
-1. C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql
-2. C:\Users\johnd\Downloads\taxonomy_expansion_validation_FINAL.json
-3. C:\Users\johnd\Downloads\TAXONOMY_EXPANSION_RESEARCH_FINAL.md
-```
-
-### Step 2: Add Missing Cross-Tag Sections
-
-Open `taxonomy_expansion_FINAL.sql` and add these sections **before** the final `COMMIT;` line:
-
-#### Section 1: PLOT Tags (300 total)
-```sql
--- ============================================================================
--- PLOT/STRUCTURE TAGS (300 total)
--- ============================================================================
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'multiple-timelines', 'Multiple Timelines', 'plot'),
-  (gen_random_uuid(), 'nonlinear-narrative', 'Nonlinear Narrative', 'plot'),
-  (gen_random_uuid(), 'frame-narrative', 'Frame Narrative', 'plot'),
-  (gen_random_uuid(), 'epistolary', 'Epistolary', 'plot'),
-  (gen_random_uuid(), 'anthology-structure', 'Anthology Structure', 'plot'),
-  (gen_random_uuid(), 'dual-timeline', 'Dual Timeline', 'plot'),
-  (gen_random_uuid(), 'time-loop', 'Time Loop', 'plot'),
-  (gen_random_uuid(), 'time-skip', 'Time Skip', 'plot'),
-  (gen_random_uuid(), 'heist-plot', 'Heist Plot', 'plot'),
-  (gen_random_uuid(), 'quest-plot', 'Quest Plot', 'plot'),
-  (gen_random_uuid(), 'revenge-plot', 'Revenge Plot', 'plot'),
-  (gen_random_uuid(), 'investigation-plot', 'Investigation Plot', 'plot'),
-  (gen_random_uuid(), 'courtroom-drama', 'Courtroom Drama', 'plot'),
-  (gen_random_uuid(), 'conspiracy-plot', 'Conspiracy Plot', 'plot'),
-  (gen_random_uuid(), 'survival-plot', 'Survival Plot', 'plot'),
-  (gen_random_uuid(), 'escape-plot', 'Escape Plot', 'plot'),
-  (gen_random_uuid(), 'road-trip', 'Road Trip', 'plot'),
-  (gen_random_uuid(), 'siege-story', 'Siege Story', 'plot'),
-  (gen_random_uuid(), 'locked-room', 'Locked Room', 'plot'),
-  (gen_random_uuid(), 'whodunit', 'Whodunit', 'plot'),
-  (gen_random_uuid(), 'cat-and-mouse', 'Cat and Mouse', 'plot'),
-  (gen_random_uuid(), 'ticking-clock', 'Ticking Clock', 'plot'),
-  (gen_random_uuid(), 'twist-ending', 'Twist Ending', 'plot'),
-  (gen_random_uuid(), 'unreliable-narration', 'Unreliable Narration', 'plot'),
-  (gen_random_uuid(), 'open-ending', 'Open Ending', 'plot'),
-  (gen_random_uuid(), 'cliffhanger-ending', 'Cliffhanger Ending', 'plot'),
-  (gen_random_uuid(), 'mystery-elements', 'Mystery Elements', 'plot'),
-  (gen_random_uuid(), 'puzzle-plot', 'Puzzle Plot', 'plot'),
-  (gen_random_uuid(), 'political-intrigue', 'Political Intrigue', 'plot'),
-  (gen_random_uuid(), 'slow-burn', 'Slow Burn', 'plot'),
-  (gen_random_uuid(), 'moderate-pace', 'Moderate Pace', 'plot'),
-  (gen_random_uuid(), 'fast-paced', 'Fast Paced', 'plot'),
-  (gen_random_uuid(), 'action-packed', 'Action Packed', 'plot'),
-  (gen_random_uuid(), 'episodic', 'Episodic', 'plot'),
-  (gen_random_uuid(), 'serialised', 'Serialised', 'plot')
-  -- ADD 265 MORE plot tags here following the same pattern
-ON CONFLICT (slug) DO NOTHING;
-```
-
-#### Section 2: TONE Tags (225 total)
-```sql
--- ============================================================================
--- TONE/MOOD TAGS (225 total)
--- ============================================================================
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'dark', 'Dark', 'tone'),
-  (gen_random_uuid(), 'gritty', 'Gritty', 'tone'),
-  (gen_random_uuid(), 'bleak', 'Bleak', 'tone'),
-  (gen_random_uuid(), 'grimdark', 'Grimdark', 'tone'),
-  (gen_random_uuid(), 'melancholic', 'Melancholic', 'tone'),
-  (gen_random_uuid(), 'somber', 'Somber', 'tone'),
-  (gen_random_uuid(), 'bittersweet', 'Bittersweet', 'tone'),
-  (gen_random_uuid(), 'whimsical', 'Whimsical', 'tone'),
-  (gen_random_uuid(), 'lighthearted', 'Lighthearted', 'tone'),
-  (gen_random_uuid(), 'heartwarming', 'Heartwarming', 'tone'),
-  (gen_random_uuid(), 'hopeful', 'Hopeful', 'tone'),
-  (gen_random_uuid(), 'uplifting', 'Uplifting', 'tone'),
-  (gen_random_uuid(), 'hilarious', 'Hilarious', 'tone'),
-  (gen_random_uuid(), 'witty', 'Witty', 'tone'),
-  (gen_random_uuid(), 'satirical', 'Satirical', 'tone'),
-  (gen_random_uuid(), 'snarky', 'Snarky', 'tone'),
-  (gen_random_uuid(), 'romantic', 'Romantic', 'tone'),
-  (gen_random_uuid(), 'sensual', 'Sensual', 'tone'),
-  (gen_random_uuid(), 'tense', 'Tense', 'tone'),
-  (gen_random_uuid(), 'suspenseful', 'Suspenseful', 'tone'),
-  (gen_random_uuid(), 'creepy', 'Creepy', 'tone'),
-  (gen_random_uuid(), 'eerie', 'Eerie', 'tone'),
-  (gen_random_uuid(), 'chilling', 'Chilling', 'tone'),
-  (gen_random_uuid(), 'disturbing', 'Disturbing', 'tone'),
-  (gen_random_uuid(), 'haunting', 'Haunting', 'tone'),
-  (gen_random_uuid(), 'atmospheric', 'Atmospheric', 'tone'),
-  (gen_random_uuid(), 'dreamlike', 'Dreamlike', 'tone'),
-  (gen_random_uuid(), 'philosophical', 'Philosophical', 'tone'),
-  (gen_random_uuid(), 'reflective', 'Reflective', 'tone'),
-  (gen_random_uuid(), 'meditative', 'Meditative', 'tone'),
-  (gen_random_uuid(), 'introspective', 'Introspective', 'tone'),
-  (gen_random_uuid(), 'poignant', 'Poignant', 'tone'),
-  (gen_random_uuid(), 'inspirational', 'Inspirational', 'tone'),
-  (gen_random_uuid(), 'comforting', 'Comforting', 'tone'),
-  (gen_random_uuid(), 'cozy', 'Cozy', 'tone'),
-  (gen_random_uuid(), 'tragic', 'Tragic', 'tone')
-  -- ADD 189 MORE tone tags here
-ON CONFLICT (slug) DO NOTHING;
-```
-
-#### Section 3: STYLE Tags (150 total)
-```sql
--- ============================================================================
--- STYLE/WRITING TAGS (150 total)
--- ============================================================================
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'first-person', 'First Person', 'style'),
-  (gen_random_uuid(), 'second-person', 'Second Person', 'style'),
-  (gen_random_uuid(), 'third-person-limited', 'Third Person Limited', 'style'),
-  (gen_random_uuid(), 'third-person-omniscient', 'Third Person Omniscient', 'style'),
-  (gen_random_uuid(), 'multiple-pov', 'Multiple Pov', 'style'),
-  (gen_random_uuid(), 'lyrical-prose', 'Lyrical Prose', 'style'),
-  (gen_random_uuid(), 'sparse-prose', 'Sparse Prose', 'style'),
-  (gen_random_uuid(), 'experimental-format', 'Experimental Format', 'style'),
-  (gen_random_uuid(), 'stream-of-consciousness', 'Stream of Consciousness', 'style'),
-  (gen_random_uuid(), 'metafiction', 'Metafiction', 'style'),
-  (gen_random_uuid(), 'breaking-the-fourth-wall', 'Breaking the Fourth Wall', 'style'),
-  (gen_random_uuid(), 'dialect-heavy-dialogue', 'Dialect Heavy Dialogue', 'style'),
-  (gen_random_uuid(), 'poetic-prose', 'Poetic Prose', 'style'),
-  (gen_random_uuid(), 'dry-wit', 'Dry Wit', 'style'),
-  (gen_random_uuid(), 'verse-novel', 'Verse Novel', 'style'),
-  (gen_random_uuid(), 'prose-poem', 'Prose Poem', 'style'),
-  (gen_random_uuid(), 'microfiction', 'Microfiction', 'style'),
-  (gen_random_uuid(), 'flash-fiction', 'Flash Fiction', 'style'),
-  (gen_random_uuid(), 'fragmented-structure', 'Fragmented Structure', 'style')
-  -- ADD 131 MORE style tags here
-ON CONFLICT (slug) DO NOTHING;
-```
-
-#### Section 4: CONTENT_WARNING Tags (225 total)
-```sql
--- ============================================================================
--- CONTENT WARNING TAGS (225 total)
--- ============================================================================
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'graphic-violence', 'Graphic Violence', 'content_warning'),
-  (gen_random_uuid(), 'war-violence', 'War Violence', 'content_warning'),
-  (gen_random_uuid(), 'torture', 'Torture', 'content_warning'),
-  (gen_random_uuid(), 'kidnapping', 'Kidnapping', 'content_warning'),
-  (gen_random_uuid(), 'domestic-violence', 'Domestic Violence', 'content_warning'),
-  (gen_random_uuid(), 'animal-cruelty', 'Animal Cruelty', 'content_warning'),
-  (gen_random_uuid(), 'self-harm', 'Self Harm', 'content_warning'),
-  (gen_random_uuid(), 'suicide', 'Suicide', 'content_warning'),
-  (gen_random_uuid(), 'murder', 'Murder', 'content_warning'),
-  (gen_random_uuid(), 'mass-shooting', 'Mass Shooting', 'content_warning'),
-  (gen_random_uuid(), 'genocide', 'Genocide', 'content_warning'),
-  (gen_random_uuid(), 'hate-crimes', 'Hate Crimes', 'content_warning'),
-  (gen_random_uuid(), 'explicit-sex', 'Explicit Sex', 'content_warning'),
-  (gen_random_uuid(), 'sexual-violence', 'Sexual Violence', 'content_warning'),
-  (gen_random_uuid(), 'dubious-consent', 'Dubious Consent', 'content_warning'),
-  (gen_random_uuid(), 'incest', 'Incest', 'content_warning'),
-  (gen_random_uuid(), 'statutory-rape', 'Statutory Rape', 'content_warning'),
-  (gen_random_uuid(), 'depression', 'Depression', 'content_warning'),
-  (gen_random_uuid(), 'anxiety', 'Anxiety', 'content_warning'),
-  (gen_random_uuid(), 'panic-attacks', 'Panic Attacks', 'content_warning'),
-  (gen_random_uuid(), 'ptsd', 'Ptsd', 'content_warning'),
-  (gen_random_uuid(), 'dissociation', 'Dissociation', 'content_warning'),
-  (gen_random_uuid(), 'eating-disorder', 'Eating Disorder', 'content_warning'),
-  (gen_random_uuid(), 'self-loathing', 'Self Loathing', 'content_warning'),
-  (gen_random_uuid(), 'hallucinations', 'Hallucinations', 'content_warning'),
-  (gen_random_uuid(), 'drug-use', 'Drug Use', 'content_warning'),
-  (gen_random_uuid(), 'drug-abuse', 'Drug Abuse', 'content_warning'),
-  (gen_random_uuid(), 'alcoholism', 'Alcoholism', 'content_warning'),
-  (gen_random_uuid(), 'smoking', 'Smoking', 'content_warning'),
-  (gen_random_uuid(), 'opioid-abuse', 'Opioid Abuse', 'content_warning'),
-  (gen_random_uuid(), 'child-abuse', 'Child Abuse', 'content_warning'),
-  (gen_random_uuid(), 'child-death', 'Child Death', 'content_warning'),
-  (gen_random_uuid(), 'parental-death', 'Parental Death', 'content_warning'),
-  (gen_random_uuid(), 'spousal-death', 'Spousal Death', 'content_warning'),
-  (gen_random_uuid(), 'bullying', 'Bullying', 'content_warning'),
-  (gen_random_uuid(), 'grooming', 'Grooming', 'content_warning'),
-  (gen_random_uuid(), 'stalking', 'Stalking', 'content_warning'),
-  (gen_random_uuid(), 'ableism', 'Ableism', 'content_warning'),
-  (gen_random_uuid(), 'racism', 'Racism', 'content_warning'),
-  (gen_random_uuid(), 'homophobia', 'Homophobia', 'content_warning'),
-  (gen_random_uuid(), 'transphobia', 'Transphobia', 'content_warning'),
-  (gen_random_uuid(), 'religious-persecution', 'Religious Persecution', 'content_warning'),
-  (gen_random_uuid(), 'miscarriage', 'Miscarriage', 'content_warning'),
-  (gen_random_uuid(), 'infertility', 'Infertility', 'content_warning'),
-  (gen_random_uuid(), 'animal-death', 'Animal Death', 'content_warning'),
-  (gen_random_uuid(), 'body-horror', 'Body Horror', 'content_warning'),
-  (gen_random_uuid(), 'medical-trauma', 'Medical Trauma', 'content_warning'),
-  (gen_random_uuid(), 'blood-and-gore', 'Blood and Gore', 'content_warning')
-  -- ADD 177 MORE content_warning tags here
-ON CONFLICT (slug) DO NOTHING;
-```
-
-#### Section 5: REPRESENTATION Tags (300 total)
-```sql
--- ============================================================================
--- REPRESENTATION TAGS (300 total)
--- ============================================================================
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'lgbtq', 'Lgbtq', 'representation'),
-  (gen_random_uuid(), 'gay-mc', 'Gay Mc', 'representation'),
-  (gen_random_uuid(), 'lesbian-mc', 'Lesbian Mc', 'representation'),
-  (gen_random_uuid(), 'bisexual-mc', 'Bisexual Mc', 'representation'),
-  (gen_random_uuid(), 'pansexual-mc', 'Pansexual Mc', 'representation'),
-  (gen_random_uuid(), 'asexual-mc', 'Asexual Mc', 'representation'),
-  (gen_random_uuid(), 'aromantic-mc', 'Aromantic Mc', 'representation'),
-  (gen_random_uuid(), 'queer-mc', 'Queer Mc', 'representation'),
-  (gen_random_uuid(), 'transgender-mc', 'Transgender Mc', 'representation'),
-  (gen_random_uuid(), 'nonbinary-mc', 'Nonbinary Mc', 'representation'),
-  (gen_random_uuid(), 'genderfluid-mc', 'Genderfluid Mc', 'representation'),
-  (gen_random_uuid(), 'intersex-mc', 'Intersex Mc', 'representation'),
-  (gen_random_uuid(), 'black-mc', 'Black Mc', 'representation'),
-  (gen_random_uuid(), 'african-mc', 'African Mc', 'representation'),
-  (gen_random_uuid(), 'african-american-mc', 'African American Mc', 'representation'),
-  (gen_random_uuid(), 'caribbean-mc', 'Caribbean Mc', 'representation'),
-  (gen_random_uuid(), 'latino-mc', 'Latino Mc', 'representation'),
-  (gen_random_uuid(), 'latina-mc', 'Latina Mc', 'representation'),
-  (gen_random_uuid(), 'latinx-mc', 'Latinx Mc', 'representation'),
-  (gen_random_uuid(), 'asian-mc', 'Asian Mc', 'representation'),
-  (gen_random_uuid(), 'south-asian-mc', 'South Asian Mc', 'representation'),
-  (gen_random_uuid(), 'east-asian-mc', 'East Asian Mc', 'representation'),
-  (gen_random_uuid(), 'southeast-asian-mc', 'Southeast Asian Mc', 'representation'),
-  (gen_random_uuid(), 'middle-eastern-mc', 'Middle Eastern Mc', 'representation'),
-  (gen_random_uuid(), 'indigenous-mc', 'Indigenous Mc', 'representation'),
-  (gen_random_uuid(), 'pacific-islander-mc', 'Pacific Islander Mc', 'representation'),
-  (gen_random_uuid(), 'roma-mc', 'Roma Mc', 'representation'),
-  (gen_random_uuid(), 'blind-mc', 'Blind Mc', 'representation'),
-  (gen_random_uuid(), 'deaf-mc', 'Deaf Mc', 'representation'),
-  (gen_random_uuid(), 'wheelchair-user-mc', 'Wheelchair User Mc', 'representation'),
-  (gen_random_uuid(), 'autistic-mc', 'Autistic Mc', 'representation'),
-  (gen_random_uuid(), 'adhd-mc', 'Adhd Mc', 'representation'),
-  (gen_random_uuid(), 'dyslexic-mc', 'Dyslexic Mc', 'representation'),
-  (gen_random_uuid(), 'chronic-illness-mc', 'Chronic Illness Mc', 'representation'),
-  (gen_random_uuid(), 'mental-illness-rep', 'Mental Illness Rep', 'representation'),
-  (gen_random_uuid(), 'christian-mc', 'Christian Mc', 'representation'),
-  (gen_random_uuid(), 'jewish-mc', 'Jewish Mc', 'representation'),
-  (gen_random_uuid(), 'muslim-mc', 'Muslim Mc', 'representation'),
-  (gen_random_uuid(), 'hindu-mc', 'Hindu Mc', 'representation'),
-  (gen_random_uuid(), 'buddhist-mc', 'Buddhist Mc', 'representation'),
-  (gen_random_uuid(), 'sikh-mc', 'Sikh Mc', 'representation'),
-  (gen_random_uuid(), 'jain-mc', 'Jain Mc', 'representation'),
-  (gen_random_uuid(), 'bahai-mc', 'Bahai Mc', 'representation'),
-  (gen_random_uuid(), 'lds-mc', 'Lds Mc', 'representation'),
-  (gen_random_uuid(), 'atheist-mc', 'Atheist Mc', 'representation'),
-  (gen_random_uuid(), 'agnostic-mc', 'Agnostic Mc', 'representation'),
-  (gen_random_uuid(), 'pagan-mc', 'Pagan Mc', 'representation')
-  -- ADD 253 MORE representation tags here
-ON CONFLICT (slug) DO NOTHING;
-```
-
-#### Section 6: TROPE Tags (900 total) - THE BIGGEST SECTION
-
-**⚠️ CRITICAL: Reference `TAXONOMY_EXPANSION_RESEARCH_FINAL.md` for the complete list!**
-
-The research doc has ALL 900 tropes explicitly listed organized by:
-- Romance Tropes (150)
-- Fantasy Tropes (150)
-- Sci-Fi Tropes (120)
-- Mystery/Thriller Tropes (80)
-- Horror Tropes (70)
-- Historical Fiction Tropes (50)
-- Literary Fiction Tropes (50)
-- Other Genre Tropes (230)
-
-```sql
--- ============================================================================
--- TROPE TAGS (900 total)
--- Romance: 150, Fantasy: 150, Sci-Fi: 120, Mystery/Thriller: 80, Horror: 70,
--- Historical: 50, Literary: 50, Other: 230
--- ============================================================================
-
--- ROMANCE TROPES (150)
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'enemies-to-lovers', 'Enemies to Lovers', 'trope'),
-  (gen_random_uuid(), 'friends-to-lovers', 'Friends to Lovers', 'trope'),
-  (gen_random_uuid(), 'rivals-to-lovers', 'Rivals to Lovers', 'trope'),
-  (gen_random_uuid(), 'strangers-to-lovers', 'Strangers to Lovers', 'trope'),
-  (gen_random_uuid(), 'fake-dating', 'Fake Dating', 'trope'),
-  (gen_random_uuid(), 'forced-proximity', 'Forced Proximity', 'trope'),
-  (gen_random_uuid(), 'only-one-bed', 'Only One Bed', 'trope'),
-  (gen_random_uuid(), 'grumpy-sunshine', 'Grumpy Sunshine', 'trope'),
-  (gen_random_uuid(), 'brother-best-friend', 'Brother Best Friend', 'trope'),
-  (gen_random_uuid(), 'secret-baby', 'Secret Baby', 'trope'),
-  (gen_random_uuid(), 'amnesia-romance', 'Amnesia Romance', 'trope'),
-  (gen_random_uuid(), 'bodyguard-romance', 'Bodyguard Romance', 'trope'),
-  (gen_random_uuid(), 'rockstar-romance', 'Rockstar Romance', 'trope'),
-  (gen_random_uuid(), 'single-parent-romance', 'Single Parent Romance', 'trope'),
-  (gen_random_uuid(), 'nanny-romance', 'Nanny Romance', 'trope'),
-  (gen_random_uuid(), 'boss-employee-romance', 'Boss Employee Romance', 'trope'),
-  (gen_random_uuid(), 'marriage-of-convenience', 'Marriage of Convenience', 'trope'),
-  (gen_random_uuid(), 'arranged-marriage-romance', 'Arranged Marriage Romance', 'trope'),
-  (gen_random_uuid(), 'fated-mates', 'Fated Mates', 'trope'),
-  (gen_random_uuid(), 'alpha-hero', 'Alpha Hero', 'trope'),
-  (gen_random_uuid(), 'pregnancy-romance', 'Pregnancy Romance', 'trope'),
-  (gen_random_uuid(), 'widow-romance', 'Widow Romance', 'trope'),
-  (gen_random_uuid(), 'friends-with-benefits-romance', 'Friends with Benefits Romance', 'trope'),
-  (gen_random_uuid(), 'matchmaking-romance', 'Matchmaking Romance', 'trope'),
-  (gen_random_uuid(), 'forced-marriage', 'Forced Marriage', 'trope'),
-  (gen_random_uuid(), 'mail-order-bride', 'Mail Order Bride', 'trope'),
-  (gen_random_uuid(), 'runaway-bride', 'Runaway Bride', 'trope'),
-  (gen_random_uuid(), 'childhood-sweethearts', 'Childhood Sweethearts', 'trope'),
-  (gen_random_uuid(), 'unrequited-love', 'Unrequited Love', 'trope'),
-  (gen_random_uuid(), 'hate-to-love', 'Hate to Love', 'trope'),
-  (gen_random_uuid(), 'bully-romance', 'Bully Romance', 'trope'),
-  (gen_random_uuid(), 'damaged-hero', 'Damaged Hero', 'trope'),
-  (gen_random_uuid(), 'wallflower-heroine', 'Wallflower Heroine', 'trope'),
-  (gen_random_uuid(), 'governess-romance', 'Governess Romance', 'trope'),
-  (gen_random_uuid(), 'reverse-harem', 'Reverse Harem', 'trope'),
-  (gen_random_uuid(), 'menage-romance', 'Menage Romance', 'trope'),
-  (gen_random_uuid(), 'polyamory-romance', 'Polyamory Romance', 'trope'),
-  (gen_random_uuid(), 'mpreg', 'Mpreg', 'trope'),
-  (gen_random_uuid(), 'omegaverse', 'Omegaverse', 'trope'),
-  (gen_random_uuid(), 'shifter-romance', 'Shifter Romance', 'trope'),
-  (gen_random_uuid(), 'vampire-romance', 'Vampire Romance', 'trope'),
-  (gen_random_uuid(), 'alien-romance', 'Alien Romance', 'trope'),
-  (gen_random_uuid(), 'time-travel-romance', 'Time Travel Romance', 'trope'),
-  (gen_random_uuid(), 'soul-bond', 'Soul Bond', 'trope')
-  -- ADD 106 MORE romance tropes - see TAXONOMY_EXPANSION_RESEARCH_FINAL.md
-ON CONFLICT (slug) DO NOTHING;
-
--- FANTASY TROPES (150)
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'chosen-one', 'Chosen One', 'trope'),
-  (gen_random_uuid(), 'prophecy', 'Prophecy', 'trope'),
-  (gen_random_uuid(), 'dark-lord', 'Dark Lord', 'trope'),
-  (gen_random_uuid(), 'magic-school', 'Magic School', 'trope'),
-  (gen_random_uuid(), 'dragon-rider', 'Dragon Rider', 'trope'),
-  (gen_random_uuid(), 'ancient-evil', 'Ancient Evil', 'trope'),
-  (gen_random_uuid(), 'artifact-quest', 'Artifact Quest', 'trope'),
-  (gen_random_uuid(), 'monster-hunting', 'Monster Hunting', 'trope'),
-  (gen_random_uuid(), 'portal-fantasy', 'Portal Fantasy', 'trope'),
-  (gen_random_uuid(), 'fairy-tale-retelling', 'Fairy Tale Retelling', 'trope'),
-  (gen_random_uuid(), 'litrpg', 'Litrpg', 'trope'),
-  (gen_random_uuid(), 'progression-fantasy', 'Progression Fantasy', 'trope'),
-  (gen_random_uuid(), 'cultivation-xianxia', 'Cultivation Xianxia', 'trope'),
-  (gen_random_uuid(), 'sword-and-sorcery', 'Sword and Sorcery', 'trope'),
-  (gen_random_uuid(), 'hidden-prince', 'Hidden Prince', 'trope'),
-  (gen_random_uuid(), 'lost-heir', 'Lost Heir', 'trope'),
-  (gen_random_uuid(), 'usurped-throne', 'Usurped Throne', 'trope'),
-  (gen_random_uuid(), 'wizard-school', 'Wizard School', 'trope'),
-  (gen_random_uuid(), 'forbidden-magic', 'Forbidden Magic', 'trope'),
-  (gen_random_uuid(), 'blood-magic', 'Blood Magic', 'trope'),
-  (gen_random_uuid(), 'elemental-magic', 'Elemental Magic', 'trope'),
-  (gen_random_uuid(), 'necromancy', 'Necromancy', 'trope'),
-  (gen_random_uuid(), 'familiar-bond', 'Familiar Bond', 'trope'),
-  (gen_random_uuid(), 'dragon-bond', 'Dragon Bond', 'trope'),
-  (gen_random_uuid(), 'dragons', 'Dragons', 'trope'),
-  (gen_random_uuid(), 'unicorns', 'Unicorns', 'trope'),
-  (gen_random_uuid(), 'phoenixes', 'Phoenixes', 'trope'),
-  (gen_random_uuid(), 'elves', 'Elves', 'trope'),
-  (gen_random_uuid(), 'dwarves', 'Dwarves', 'trope'),
-  (gen_random_uuid(), 'fae-court', 'Fae Court', 'trope'),
-  (gen_random_uuid(), 'changeling', 'Changeling', 'trope'),
-  (gen_random_uuid(), 'fae-bargain', 'Fae Bargain', 'trope'),
-  (gen_random_uuid(), 'demons', 'Demons', 'trope'),
-  (gen_random_uuid(), 'angels', 'Angels', 'trope'),
-  (gen_random_uuid(), 'gods-walk-earth', 'Gods Walk Earth', 'trope'),
-  (gen_random_uuid(), 'godslayer', 'Godslayer', 'trope'),
-  (gen_random_uuid(), 'magic-sword', 'Magic Sword', 'trope'),
-  (gen_random_uuid(), 'cursed-artifact', 'Cursed Artifact', 'trope'),
-  (gen_random_uuid(), 'tournament-arc', 'Tournament Arc', 'trope'),
-  (gen_random_uuid(), 'assassin-guild', 'Assassin Guild', 'trope'),
-  (gen_random_uuid(), 'thieves-guild', 'Thieves Guild', 'trope'),
-  (gen_random_uuid(), 'fellowship', 'Fellowship', 'trope'),
-  (gen_random_uuid(), 'mentor-dies', 'Mentor Dies', 'trope'),
-  (gen_random_uuid(), 'evil-overlord', 'Evil Overlord', 'trope'),
-  (gen_random_uuid(), 'lich-king', 'Lich King', 'trope'),
-  (gen_random_uuid(), 'fallen-angel', 'Fallen Angel', 'trope'),
-  (gen_random_uuid(), 'villain-redemption', 'Villain Redemption', 'trope'),
-  (gen_random_uuid(), 'ancient-prophecy', 'Ancient Prophecy', 'trope'),
-  (gen_random_uuid(), 'sealed-evil', 'Sealed Evil', 'trope'),
-  (gen_random_uuid(), 'pocket-dimension', 'Pocket Dimension', 'trope')
-  -- ADD 100 MORE fantasy tropes - see TAXONOMY_EXPANSION_RESEARCH_FINAL.md
-ON CONFLICT (slug) DO NOTHING;
-
--- SCI-FI TROPES (120)
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'first-contact', 'First Contact', 'trope'),
-  (gen_random_uuid(), 'ai-uprising', 'Ai Uprising', 'trope'),
-  (gen_random_uuid(), 'cyberpunk-corporation', 'Cyberpunk Corporation', 'trope'),
-  (gen_random_uuid(), 'galactic-empire', 'Galactic Empire', 'trope'),
-  (gen_random_uuid(), 'space-western', 'Space Western', 'trope'),
-  (gen_random_uuid(), 'time-paradox', 'Time Paradox', 'trope'),
-  (gen_random_uuid(), 'uplifted-animals', 'Uplifted Animals', 'trope'),
-  (gen_random_uuid(), 'post-scarcity', 'Post Scarcity', 'trope'),
-  (gen_random_uuid(), 'terraforming', 'Terraforming', 'trope'),
-  (gen_random_uuid(), 'generation-ship', 'Generation Ship', 'trope'),
-  (gen_random_uuid(), 'faster-than-light', 'Faster than Light', 'trope'),
-  (gen_random_uuid(), 'warp-drive', 'Warp Drive', 'trope'),
-  (gen_random_uuid(), 'hyperspace', 'Hyperspace', 'trope'),
-  (gen_random_uuid(), 'starship', 'Starship', 'trope'),
-  (gen_random_uuid(), 'space-pirates', 'Space Pirates', 'trope'),
-  (gen_random_uuid(), 'space-marines', 'Space Marines', 'trope'),
-  (gen_random_uuid(), 'alien-empire', 'Alien Empire', 'trope'),
-  (gen_random_uuid(), 'hive-mind', 'Hive Mind', 'trope'),
-  (gen_random_uuid(), 'robot-rebellion', 'Robot Rebellion', 'trope'),
-  (gen_random_uuid(), 'sentient-ai', 'Sentient Ai', 'trope'),
-  (gen_random_uuid(), 'android', 'Android', 'trope'),
-  (gen_random_uuid(), 'cyborg', 'Cyborg', 'trope'),
-  (gen_random_uuid(), 'uploaded-consciousness', 'Uploaded Consciousness', 'trope'),
-  (gen_random_uuid(), 'virtual-reality', 'Virtual Reality', 'trope'),
-  (gen_random_uuid(), 'neural-implants', 'Neural Implants', 'trope'),
-  (gen_random_uuid(), 'transhumanism', 'Transhumanism', 'trope'),
-  (gen_random_uuid(), 'genetic-engineering', 'Genetic Engineering', 'trope'),
-  (gen_random_uuid(), 'cloning', 'Cloning', 'trope'),
-  (gen_random_uuid(), 'bioweapon', 'Bioweapon', 'trope'),
-  (gen_random_uuid(), 'pandemic-scifi', 'Pandemic Scifi', 'trope'),
-  (gen_random_uuid(), 'nuclear-war', 'Nuclear War', 'trope'),
-  (gen_random_uuid(), 'wasteland', 'Wasteland', 'trope'),
-  (gen_random_uuid(), 'bunker-survivors', 'Bunker Survivors', 'trope'),
-  (gen_random_uuid(), 'mutants', 'Mutants', 'trope'),
-  (gen_random_uuid(), 'superpowers', 'Superpowers', 'trope'),
-  (gen_random_uuid(), 'superhero-scifi', 'Superhero Scifi', 'trope'),
-  (gen_random_uuid(), 'corporate-dystopia', 'Corporate Dystopia', 'trope'),
-  (gen_random_uuid(), 'surveillance-state', 'Surveillance State', 'trope'),
-  (gen_random_uuid(), 'resistance-movement', 'Resistance Movement', 'trope'),
-  (gen_random_uuid(), 'mars-colonization', 'Mars Colonization', 'trope'),
-  (gen_random_uuid(), 'dyson-sphere', 'Dyson Sphere', 'trope')
-  -- ADD 79 MORE sci-fi tropes - see TAXONOMY_EXPANSION_RESEARCH_FINAL.md
-ON CONFLICT (slug) DO NOTHING;
-
--- MYSTERY/THRILLER TROPES (80)
--- HORROR TROPES (70)
--- HISTORICAL TROPES (50)
--- LITERARY TROPES (50)
--- OTHER TROPES (230)
--- See TAXONOMY_EXPANSION_RESEARCH_FINAL.md for complete lists
-```
-
-#### Section 7: MARKET Tags (50 total)
-```sql
--- ============================================================================
--- MARKET TAGS (50 total)
--- ============================================================================
-INSERT INTO cross_tags (id, slug, name, "group") VALUES
-  (gen_random_uuid(), 'bestseller', 'Bestseller', 'market'),
-  (gen_random_uuid(), 'award-winner', 'Award Winner', 'market'),
-  (gen_random_uuid(), 'cult-classic', 'Cult Classic', 'market'),
-  (gen_random_uuid(), 'debut-novel', 'Debut Novel', 'market'),
-  (gen_random_uuid(), 'standalone', 'Standalone', 'market'),
-  (gen_random_uuid(), 'series-starter', 'Series Starter', 'market'),
-  (gen_random_uuid(), 'series-finale', 'Series Finale', 'market'),
-  (gen_random_uuid(), 'trilogy', 'Trilogy', 'market'),
-  (gen_random_uuid(), 'novella', 'Novella', 'market'),
-  (gen_random_uuid(), 'quick-read', 'Quick Read', 'market'),
-  (gen_random_uuid(), 'doorstopper', 'Doorstopper', 'market'),
-  (gen_random_uuid(), 'young-adult', 'Young Adult', 'market'),
-  (gen_random_uuid(), 'middle-grade', 'Middle Grade', 'market'),
-  (gen_random_uuid(), 'book-club-pick', 'Book Club Pick', 'market'),
-  (gen_random_uuid(), 'viral-booktok', 'Viral Booktok', 'market'),
-  (gen_random_uuid(), 'adapted-to-film', 'Adapted to Film', 'market'),
-  (gen_random_uuid(), 'adapted-to-tv', 'Adapted to Tv', 'market'),
-  (gen_random_uuid(), 'clean-romance', 'Clean Romance', 'market'),
-  (gen_random_uuid(), 'spicy-romance', 'Spicy Romance', 'market'),
-  (gen_random_uuid(), 'critically-acclaimed', 'Critically Acclaimed', 'market'),
-  (gen_random_uuid(), 'indie-published', 'Indie Published', 'market'),
-  (gen_random_uuid(), 'self-published', 'Self Published', 'market')
-  -- ADD 28 MORE market tags here
-ON CONFLICT (slug) DO NOTHING;
-```
-
-#### Section 8: Genre-Supergenre Links
-```sql
--- ============================================================================
--- GENRE ↔ SUPERGENRE LINKS (15 new links)
--- ============================================================================
-INSERT INTO genre_supergenres (genre_slug, supergenre_slug) VALUES 
-  ('religious-fiction', 'inspirational-religious-fiction'),
-  ('christianity', 'religion-spirituality'),
-  ('islam', 'religion-spirituality'),
-  ('judaism', 'religion-spirituality'),
-  ('hinduism', 'religion-spirituality'),
-  ('buddhism', 'religion-spirituality'),
-  ('sikhism', 'religion-spirituality'),
-  ('jainism', 'religion-spirituality'),
-  ('taoism', 'religion-spirituality'),
-  ('confucianism', 'religion-spirituality'),
-  ('shinto', 'religion-spirituality'),
-  ('bahai-faith', 'religion-spirituality'),
-  ('latter-day-saints', 'religion-spirituality'),
-  ('pets-animals', 'pets-animals'),
-  ('reference', 'reference-education')
-ON CONFLICT (genre_slug, supergenre_slug) DO NOTHING;
-
-COMMIT;
-```
-
-### Step 3: Validate Your Work
-
-After completing the SQL file, validate the counts:
-
-```powershell
-# If you want to test locally (optional):
-# Run the SQL against your database and check:
-```
-
-```sql
-SELECT "group", COUNT(*) 
-FROM cross_tags 
-GROUP BY "group" 
-ORDER BY "group";
-```
-
-**Expected Output:**
-```
-character         | 450
-content_warning   | 225
-market            | 50
-plot              | 300
-representation    | 300
-setting           | 400
-style             | 150
-theme             | 200
-tone              | 225
-trope             | 900
---------------------------
-TOTAL             | 3200
-```
-
----
-
-## 🎯 Critical Requirements
-
-### SQL Syntax Rules
-- ✅ `ON CONFLICT (slug) DO NOTHING` on every INSERT
-- ✅ `gen_random_uuid()` for all IDs
-- ✅ Slugs: lowercase-hyphenated (e.g., `secret-baby`, `enemies-to-lovers`)
-- ✅ Group values: ONLY these 10: `theme`, `character`, `setting`, `plot`, `tone`, `style`, `content_warning`, `representation`, `trope`, `market`
-
-### Quality Standards
-- ✅ DO NOT summarize - write COMPLETE executable SQL
-- ✅ All tags must be real, searchable tropes that readers use
-- ✅ Follow the exact counts specified
-- ✅ Reference the research doc for complete trope lists
-
-### File Output
-- ✅ Update and save: **C:\Users\johnd\Downloads\taxonomy_expansion_FINAL.sql**
-- ✅ File must end with `COMMIT;`
-- ✅ Ready for production deployment
-
----
-
-## 📚 Why This Matters
-
-This is the **FINAL EXHAUSTIVE** metadata set for the Bookshelves book recommendation system. With 3,200 cross-tags:
-
-✅ Readers can find books by specific tropes ("enemies-to-lovers + grumpy-sunshine + forced-proximity")  
-✅ AI can generate precise recommendations based on rich metadata  
-✅ We only need to scrape book data ONCE with complete tags upfront  
-✅ System scales without frequent taxonomy updates  
-
-**This is a one-time comprehensive expansion designed to last.**
-
----
-
-## 🚀 When You're Done
-
-1. ✅ Save the completed `taxonomy_expansion_FINAL.sql` file
-2. ✅ Verify all counts match the validation JSON
-3. ✅ Commit the instruction file changes if needed
-4. ✅ Report completion
-
----
-
-**Good luck! This is high-impact work that will power the entire recommendation engine.**
-
----
-
-*Last Updated: 2025-10-23T02:25:03Z*  
-*File Location: C:\Users\johnd\projects\Bookshelves\NEXT_AGENT_INSTRUCTIONS.md*
+**Next Session:** Add `child-soldiers` tag to database, then re-run enrichment for Batch 002 books

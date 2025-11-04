@@ -134,13 +134,9 @@ function suggestSupergenres(book, domain) {
 async function assignDomainSupergenres(bookId) {
   console.log(`🏷️  Task 4: Assigning domain + supergenres for book ${bookId}...`);
   
-  // Load book batch data
-  const booksData = JSON.parse(fs.readFileSync('books_batch_001.json', 'utf8'));
-  const book = booksData.find(b => b.id === bookId);
-  
-  if (!book) {
-    throw new Error(`Book ${bookId} not found in batch`);
-  }
+  // Load book from appropriate batch file
+  const { loadBookFromBatch } = await import('./helpers.js');
+  const book = loadBookFromBatch(bookId);
   
   console.log(`  Title: ${book.title}`);
   console.log(`  Categories: ${JSON.stringify(book.categories)}`);

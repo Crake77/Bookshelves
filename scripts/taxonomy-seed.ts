@@ -1035,6 +1035,7 @@ export const CROSS_TAGS = [
   { slug: 'sexual-assault', name: 'Sexual Assault', group: 'content_flags', description: 'Depicts sexual violence' },
   { slug: 'rape', name: 'Rape', group: 'content_flags', description: 'Contains rape scenes' },
   { slug: 'child-death', name: 'Child Death', group: 'content_flags', description: 'Depicts death of a child' },
+  { slug: 'child-soldiers', name: 'Child Soldiers', group: 'content_flags', description: 'Depicts children or minors in combat or military roles' },
   { slug: 'animal-death', name: 'Animal Death', group: 'content_flags', description: 'Depicts animal death' },
   { slug: 'animal-cruelty', name: 'Animal Cruelty', group: 'content_flags', description: 'Depicts cruelty towards animals' },
   { slug: 'mental-illness', name: 'Mental Illness', group: 'content_flags', description: 'Explores mental health issues' },

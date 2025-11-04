@@ -1,0 +1,365 @@
+{
+  "input_snapshot": {
+    "book_id": "a5630692-6cf1-4d8c-b834-970b18fbabe5",
+    "timestamp": "2025-11-04T20:32:19.519Z"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:32:19.534Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "Dune",
+      "authors": [
+        "Frank Herbert"
+      ],
+      "isbn10": null,
+      "isbn13": "9780441172719",
+      "edition_id": "549a73c1-f084-4047-aee0-e3ddb9b50a21"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "dune-herbert-frank",
+            "name": "Dune (Herbert, Frank)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01365334",
+            "url": "https://id.worldcat.org/fast/1365334",
+            "raw": [
+              {
+                "fastId": "fst01365334",
+                "label": "Dune (Herbert, Frank)",
+                "matchType": "generated",
+                "score": 3.686783,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "dune-series-herbert-frank",
+            "name": "Dune series (Herbert, Frank)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01913195",
+            "url": "https://id.worldcat.org/fast/1913195",
+            "raw": [
+              {
+                "fastId": "fst01913195",
+                "label": "Dune series (Herbert, Frank)",
+                "matchType": "generated",
+                "score": 2.7650876,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "dune-chronicles-herbert-frank",
+            "name": "Dune chronicles (Herbert, Frank)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst02057236",
+            "url": "https://id.worldcat.org/fast/2057236",
+            "raw": [
+              {
+                "fastId": "fst02057236",
+                "label": "Dune chronicles (Herbert, Frank)",
+                "matchType": "generated",
+                "score": 2.7650876,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "dune-chronicles-herbert-frank",
+          "name": "Dune chronicles (Herbert, Frank)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst02057236",
+              "url": "https://id.worldcat.org/fast/2057236"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst02057236",
+                "label": "Dune chronicles (Herbert, Frank)",
+                "matchType": "generated",
+                "score": 2.7650876,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "dune-herbert-frank",
+          "name": "Dune (Herbert, Frank)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01365334",
+              "url": "https://id.worldcat.org/fast/1365334"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01365334",
+                "label": "Dune (Herbert, Frank)",
+                "matchType": "generated",
+                "score": 3.686783,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "dune-series-herbert-frank",
+          "name": "Dune series (Herbert, Frank)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01913195",
+              "url": "https://id.worldcat.org/fast/1913195"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01913195",
+                "label": "Dune series (Herbert, Frank)",
+                "matchType": "generated",
+                "score": 2.7650876,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "high",
+      "reason": "Fiction genre overrides keyword match: science fiction, space opera"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      },
+      {
+        "slug": "science-technology",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "science-fiction",
+        "name": "Science Fiction",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
+        "confidence": "high"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "desert",
+        "name": "Desert",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "desert-planet",
+        "name": "Desert Planet",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "epic",
+        "name": "Epic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "epic-tone",
+        "name": "Epic",
+        "group": "tone_mood",
+        "confidence": "medium",
+        "match_score": 4,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "political-intrigue",
+        "name": "Political Intrigue",
+        "group": "trope",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "religion",
+        "name": "Religion",
+        "group": "element",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "ecology",
+        "name": "Ecology",
+        "group": "element",
+        "confidence": "high",
+        "method": "manual-fix"
+      },
+      {
+        "slug": "desert-setting",
+        "name": "Desert Setting",
+        "group": "setting",
+        "confidence": "high",
+        "method": "manual-fix"
+      }
+    ],
+    "cross_tags_count": 11
+  },
+  "cover_urls": {
+    "existing": "https://books.google.com/books/publisher/content?id=nrRKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72NCnV0F9-rdKYEXhuQXxSN0jIZaiE6bZia9x9SEnfNrvXT42Tt2ruHVxm4PQc3eJheu10d1GWz6FDho3jZFnZG9xV2Eb-EXBeT35Qbk7zk-BG889DGMI4qwaIvLhy09_1LDv3u&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=nrRKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL59726263M-L.jpg",
+    "openlibrary_olid": "OL59726263M",
+    "cover_id": "15110282",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL59726263M-L.jpg",
+    "source": "openlibrary_olid"
+  },
+  "last_updated": "2025-11-04T20:35:42.036Z",
+  "authors": {
+    "original": [
+      "Frank Herbert"
+    ],
+    "validated": [
+      "Frank Herbert"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "<b><b>Frank Herbert’s classic masterpiece—a triumph of the imagination and one of the bestselling science fiction novels of all time.</b></b><br><br>Set on the desert planet Arrakis, <i>Dune</i> is the story of Paul Atreides—who would become known as Muad'Dib—and of a great family's ambition to bring to fruition mankind's most ancient and unattainable dream.<br><br>A stunning blend of adventure and mysticism, environmentalism and politics, <i>Dune</i> won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
+    "original_length": 588,
+    "new_summary": "Dune is set on the desert planet Arrakis, the sole source of melange, a substance essential to space travel and highly valued throughout the known universe. The story follows Paul Atreides, whose family accepts control of Arrakis from the Emperor, placing them in a position of both great opportunity and extreme danger. The planet is harsh and unforgiving, with limited water, giant sandworms, and an indigenous population known as the Fremen who have adapted to survive in this environment. The Atreides family faces political intrigue and betrayal as rival houses maneuver for control of the planet and its resources. Paul must navigate these political complexities while also discovering that he may be connected to a religious prophecy among the Fremen. The novel explores themes of ecology, as the desert environment shapes every aspect of life on Arrakis, and politics, as various factions compete for control of valuable resources. The narrative examines how power structures operate and how individuals respond when placed in positions of authority or subjugation. Themes of destiny, adaptation, and the relationship between humanity and environment run throughout the story. The novel presents a complex world where religion, politics, economics, and ecology intersect, creating a rich backdrop for character development and philosophical exploration.",
+    "new_length": 1361,
+    "word_count": 205,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:42.036Z"
+    ]
+  },
+  "format": {
+    "slug": "novel",
+    "confidence": "high",
+    "score": 1,
+    "reason": "Pattern-based detection: Novel (score: 1.00, threshold: 0.5)"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)",
+    "includes": [
+      "new-adult"
+    ]
+  }
+}

@@ -1,0 +1,709 @@
+{
+  "input_snapshot": {
+    "book_id": "a22d3173-56b0-4aaf-850e-d594a74741d3",
+    "timestamp": "2025-11-04T20:30:03.013Z"
+  },
+  "external_metadata": {
+    "last_run": "2025-11-04T20:30:36.424Z",
+    "sources_enabled": [
+      "fast"
+    ],
+    "input_snapshot": {
+      "title": "The Great Hunt",
+      "authors": [
+        "Robert Jordan"
+      ],
+      "isbn10": null,
+      "isbn13": "9781429960137",
+      "edition_id": "a7065bbb-8150-409a-94b2-3c1337ef3275"
+    },
+    "sources": {
+      "loc": {
+        "labels": [],
+        "notes": []
+      },
+      "fast": {
+        "labels": [
+          {
+            "slug": "ajax-greek-mythological-figure",
+            "name": "Ajax (Greek mythological figure)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00803917",
+            "url": "https://id.worldcat.org/fast/803917",
+            "raw": [
+              {
+                "fastId": "fst00803917",
+                "label": "Ajax (Greek mythological figure)",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "great-the-epithet",
+            "name": "Great, The (Epithet)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00947057",
+            "url": "https://id.worldcat.org/fast/947057",
+            "raw": [
+              {
+                "fastId": "fst00947057",
+                "label": "Great, The (Epithet)",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "chiquita-the-great",
+            "name": "Chiquita the Great",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00405479",
+            "url": "https://id.worldcat.org/fast/405479",
+            "raw": [
+              {
+                "fastId": "fst00405479",
+                "label": "Chiquita the Great",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "howard-joseph-e-joseph-edgar-1961",
+            "name": "Howard, Joseph E. (Joseph Edgar), -1961",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00332854",
+            "url": "https://id.worldcat.org/fast/332854",
+            "raw": [
+              {
+                "fastId": "fst00332854",
+                "label": "Howard, Joseph E. (Joseph Edgar), -1961",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "eliezer-ben-hyrcanus",
+            "name": "Eliezer ben Hyrcanus",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00078057",
+            "url": "https://id.worldcat.org/fast/78057",
+            "raw": [
+              {
+                "fastId": "fst00078057",
+                "label": "Eliezer ben Hyrcanus",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "isaac-of-antioch",
+            "name": "Isaac, of Antioch",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst01596822",
+            "url": "https://id.worldcat.org/fast/1596822",
+            "raw": [
+              {
+                "fastId": "fst01596822",
+                "label": "Isaac, of Antioch",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "emmy-the-great-1984",
+            "name": "Emmy, the Great, 1984-",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst02047497",
+            "url": "https://id.worldcat.org/fast/2047497",
+            "raw": [
+              {
+                "fastId": "fst02047497",
+                "label": "Emmy, the Great, 1984-",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "auth"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "james-the-greater-saint",
+            "name": "James, the Greater, Saint",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "fst00048588",
+            "url": "https://id.worldcat.org/fast/48588",
+            "raw": [
+              {
+                "fastId": "fst00048588",
+                "label": "James, the Greater, Saint",
+                "matchType": "generated",
+                "score": 1.8015447,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00048588",
+                "label": "James, the Greater, Saint",
+                "matchType": "generated",
+                "score": 1.8015447,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00048588",
+                "label": "James, the Greater, Saint",
+                "matchType": "generated",
+                "score": 1.8015447,
+                "type": "alt"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[fast] cache hit"
+        ]
+      },
+      "wikidata": {
+        "labels": [],
+        "notes": []
+      }
+    },
+    "merged": {
+      "subjects": [
+        {
+          "slug": "ajax-greek-mythological-figure",
+          "name": "Ajax (Greek mythological figure)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00803917",
+              "url": "https://id.worldcat.org/fast/803917"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00803917",
+                "label": "Ajax (Greek mythological figure)",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "chiquita-the-great",
+          "name": "Chiquita the Great",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00405479",
+              "url": "https://id.worldcat.org/fast/405479"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00405479",
+                "label": "Chiquita the Great",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "eliezer-ben-hyrcanus",
+          "name": "Eliezer ben Hyrcanus",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00078057",
+              "url": "https://id.worldcat.org/fast/78057"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00078057",
+                "label": "Eliezer ben Hyrcanus",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "emmy-the-great-1984",
+          "name": "Emmy, the Great, 1984-",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst02047497",
+              "url": "https://id.worldcat.org/fast/2047497"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst02047497",
+                "label": "Emmy, the Great, 1984-",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "great-the-epithet",
+          "name": "Great, The (Epithet)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00947057",
+              "url": "https://id.worldcat.org/fast/947057"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00947057",
+                "label": "Great, The (Epithet)",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "auth"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "howard-joseph-e-joseph-edgar-1961",
+          "name": "Howard, Joseph E. (Joseph Edgar), -1961",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00332854",
+              "url": "https://id.worldcat.org/fast/332854"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00332854",
+                "label": "Howard, Joseph E. (Joseph Edgar), -1961",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "isaac-of-antioch",
+          "name": "Isaac, of Antioch",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst01596822",
+              "url": "https://id.worldcat.org/fast/1596822"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst01596822",
+                "label": "Isaac, of Antioch",
+                "matchType": "generated",
+                "score": 2.0589082,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "james-the-greater-saint",
+          "name": "James, the Greater, Saint",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "fast",
+              "confidence": "medium",
+              "id": "fst00048588",
+              "url": "https://id.worldcat.org/fast/48588"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [
+              {
+                "fastId": "fst00048588",
+                "label": "James, the Greater, Saint",
+                "matchType": "generated",
+                "score": 1.8015447,
+                "type": "auth"
+              },
+              {
+                "fastId": "fst00048588",
+                "label": "James, the Greater, Saint",
+                "matchType": "generated",
+                "score": 1.8015447,
+                "type": "alt"
+              },
+              {
+                "fastId": "fst00048588",
+                "label": "James, the Greater, Saint",
+                "matchType": "generated",
+                "score": 1.8015447,
+                "type": "alt"
+              }
+            ],
+            "wikidata": []
+          }
+        }
+      ]
+    }
+  },
+  "taxonomy": {
+    "domain": {
+      "slug": "fiction",
+      "confidence": "high",
+      "reason": "Fiction genre category: fantasy, epic fantasy"
+    },
+    "supergenres": [
+      {
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
+      }
+    ],
+    "status": "suggested",
+    "notes": [],
+    "genres": [
+      {
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "subgenres": [
+      {
+        "slug": "epic-fantasy",
+        "name": "Epic Fantasy",
+        "genre_slug": "fantasy",
+        "confidence": "suggested"
+      }
+    ],
+    "cross_tags": [
+      {
+        "slug": "epic",
+        "name": "Epic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "gathering-storm",
+        "name": "Gathering Storm",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "pursuit",
+        "name": "Pursuit",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "original",
+        "name": "Original",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "twilight",
+        "name": "Twilight",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "dark",
+        "name": "Dark",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "crown",
+        "name": "Crown",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "heaven",
+        "name": "Heaven",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 9,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "epic-tone",
+        "name": "Epic",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
+        "slug": "prophecy",
+        "name": "Prophecy",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "heist",
+        "name": "Heist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 3.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "dragons",
+        "name": "Dragons",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "identity",
+        "name": "Identity",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "reincarnation",
+        "name": "Reincarnation",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "suspenseful",
+        "name": "Suspenseful",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 2.1,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "possession",
+        "name": "Possession",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 2,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "chosen-one",
+        "name": "Chosen One",
+        "group": "tropes_themes",
+        "confidence": "medium",
+        "match_score": 1.1,
+        "method": "pattern-match"
+      }
+    ],
+    "cross_tags_count": 19
+  },
+  "cover_urls": {
+    "existing": "https://books.google.com/books/content?id=yngEsxEO4QYC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE70_Azr3z5bbE4e2MAForYW9MNQQdxip6TfWwhTltnPnL99OUMBHmTXPYfM76MQjeK4_vIgQJsfz5hT7RTWHiAQU6KgRp4lecABulT5izHFXEepH6AAByHlWB5MgpTzhxhv6Z9Hb&source=gbs_api",
+    "google_books": "https://books.google.com/books/content?id=yngEsxEO4QYC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "openlibrary": "https://covers.openlibrary.org/b/olid/OL24395187M-L.jpg",
+    "openlibrary_olid": "OL24395187M",
+    "cover_id": "6649822",
+    "recommended": "https://covers.openlibrary.org/b/olid/OL24395187M-L.jpg",
+    "source": "openlibrary_olid"
+  },
+  "last_updated": "2025-11-04T21:33:35.372Z",
+  "authors": {
+    "original": [
+      "Robert Jordan"
+    ],
+    "validated": [
+      "Robert Jordan"
+    ],
+    "status": "valid",
+    "notes": []
+  },
+  "summary": {
+    "original_description": "<p><b><i>The Wheel of Time</i> is now an original series on Prime Video, starring Rosamund Pike as Moiraine!<br><br>In <i>The Great Hunt</i>, the second novel in Robert Jordan’s #1 <i>New York Times</i> bestselling epic fantasy series, The Wheel of Time®, Rand al’Thor and his companions set out to retrieve a powerful artifact from The Dark One’s Shadowspawn.</b><br><br>For centuries, gleemen have told the tales of The Great Hunt of the Horn. So many tales about each of the Hunters, and so many Hunters to tell of...<br><br>Now the Horn itself is found: the Horn of Valere long thought only legend, the Horn which will raise the dead heroes of the ages.<br><br>And it is stolen.<br><br>In pursuit of the thieves, Rand al’Thor is determined to keep the Horn out of the grasp of The Dark One. But he has also learned that he is The Dragon Reborn—the Champion of Light destined to stand against the Shadow time and again. It is a duty and a destiny that requires Rand to uncover and master extraordinary capabilities he never imagined he possessed.<br><br>Since its debut in 1990, The Wheel of Time® has captivated millions of readers around the globe with its scope, originality, and compelling characters. The last six books in series were all instant #1 <i>New York Times</i> bestsellers, and <i>The Eye of the World</i> was named one of America's best-loved novels by PBS's The Great American Read.<br><br><b>The Wheel of Time®</b><br><i>New Spring: The Novel</i><br>#1 <i>The Eye of the World</i><br>#2 <i>The Great Hunt</i><br>#3 <i>The Dragon Reborn</i><br>#4 <i>The Shadow Rising</i><br>#5 <i>The Fires of Heaven</i><br>#6 <i>Lord of Chaos</i><br>#7 <i>A Crown of Swords</i><br>#8 <i>The Path of Daggers</i><br>#9 <i>Winter's Heart</i><br>#10 <i>Crossroads of Twilight</i><br>#11 <i>Knife of Dreams</i><br><br><b>By Robert Jordan and Brandon Sanderson</b><br>#12 <i>The Gathering Storm</i><br>#13 <i>Towers of Midnight</i><br>#14 <i>A Memory of Light</i><br><br><b>By Robert Jordan and Teresa Patterson</b><br><i>The World of Robert Jordan's The Wheel of Time</i><br><br><b>By Robert Jordan, Harriet McDougal, Alan Romanczuk, and Maria Simons</b><br><i>The Wheel of Time Companion</i><br><br><b>By Robert Jordan and Amy Romanczuk</b><br><i>Patterns of the Wheel: Coloring Art Based on Robert Jordan's The Wheel of Time</i><br><br>At the Publisher's request, this title is being sold without Digital Rights Management Software (DRM) applied.</p>",
+    "original_length": 2453,
+    "new_summary": "The Great Hunt continues the story of Rand al'Thor and his companions as they pursue thieves who have stolen the Horn of Valere, an artifact of legend that has the power to summon legendary heroes from the past. The theft sets in motion a quest that takes the characters across diverse lands, encountering various cultures, political structures, and magical forces. Rand must come to terms with his identity as the Dragon Reborn, a figure of prophecy with immense power and responsibility. The narrative explores the tension between personal desires and the demands of destiny, as Rand struggles with the weight of expectations placed upon him. The story expands the world introduced in the first novel, introducing new locations, characters, and conflicts while maintaining focus on the central characters' development. Themes of choice, duty, and the nature of heroism emerge as the characters face increasingly complex challenges. The narrative weaves together multiple plot threads involving political maneuvering, magical discovery, and personal relationships, creating a sense of a living world where actions have consequences and where the past continues to influence the present. The story examines how individuals respond when confronted with circumstances beyond their control and the ways in which they attempt to assert agency within those constraints.",
+    "new_length": 1364,
+    "word_count": 207,
+    "status": "completed",
+    "notes": [
+      "Existing description found - must be rewritten in own words (150-300 words)",
+      "MANUAL STEP: AI must write original 150-300 word summary",
+      "Requirements: No spoilers, no marketing language, no copied phrases >3-4 words",
+      "Summary imported on 2025-11-04T20:35:41.944Z"
+    ]
+  },
+  "format": {
+    "slug": "novel",
+    "confidence": "low",
+    "score": 0.5833333333333334,
+    "reason": "Pattern-based detection: Novel (score: 0.58, threshold: 0.5)"
+  },
+  "audience": {
+    "slug": "adult",
+    "confidence": "medium",
+    "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  }
+}
