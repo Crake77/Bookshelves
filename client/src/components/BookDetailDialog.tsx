@@ -480,18 +480,27 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
   }, [isRatingOpen, book?.googleBooksId]);
 
   // Fetch editions for cover selection
-  const { data: editions = [] } = useQuery({
+  const { data: editions = [], error: editionsError } = useQuery({
     queryKey: ["/api/books", book?.googleBooksId, "editions"],
     queryFn: () => getBookEditions(book!.googleBooksId),
     enabled: open && !!book?.googleBooksId,
   });
 
   // Fetch series info
-  const { data: seriesInfo } = useQuery({
+  const { data: seriesInfo, error: seriesInfoError } = useQuery({
     queryKey: ["/api/books", book?.googleBooksId, "series-info"],
     queryFn: () => getBookSeriesInfo(book!.googleBooksId),
     enabled: open && !!book?.googleBooksId,
   });
+
+  // Debug logging
+  useEffect(() => {
+    if (open && book?.googleBooksId) {
+      console.log("[BookDetailDialog] Editions:", editions.length, "Error:", editionsError);
+      console.log("[BookDetailDialog] Series Info:", seriesInfo, "Error:", seriesInfoError);
+      console.log("[BookDetailDialog] Cover Carousel Open:", coverCarouselOpen);
+    }
+  }, [open, book?.googleBooksId, editions, editionsError, seriesInfo, seriesInfoError, coverCarouselOpen]);
 
   // Load cover preference and update display cover
   useEffect(() => {
@@ -597,7 +606,11 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
                 {(displayCoverUrl || book.coverUrl) && (
                   <div
                     className="relative cursor-pointer group"
-                    onClick={() => setCoverCarouselOpen(true)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      console.log("[BookDetailDialog] Cover clicked, opening carousel. Editions:", editions.length);
+                      setCoverCarouselOpen(true);
+                    }}
                     title="Click to select cover edition"
                   >
                     <img
