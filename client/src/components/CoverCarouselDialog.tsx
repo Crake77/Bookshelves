@@ -184,8 +184,19 @@ export default function CoverCarouselDialog({
     onOpenChange(false);
   };
 
+  // Show dialog even with 1 edition (user can still see edition info)
+  // Only hide if truly no editions available
   if (editions.length === 0) {
-    return null;
+    return (
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent className="max-w-[95vw] w-full max-h-[90vh] p-6">
+          <h2 className="text-xl font-bold mb-2">No Editions Available</h2>
+          <p className="text-sm text-muted-foreground">
+            No additional cover editions are available for this book at this time.
+          </p>
+        </DialogContent>
+      </Dialog>
+    );
   }
 
   return (

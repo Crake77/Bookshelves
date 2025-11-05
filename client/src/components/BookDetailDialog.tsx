@@ -624,29 +624,8 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
                 )}
 
                 <h2 className="font-display text-xl font-bold" data-testid="text-book-title">{book.title}</h2>
-                {book.authors.length > 0 && (
-                  <div
-                    className="flex flex-wrap justify-center gap-2"
-                    data-testid="text-book-author"
-                  >
-                    {book.authors.map((author, index) => {
-                      const trimmed = author.trim();
-                      const key = `${trimmed}-${index}`;
-                      return (
-                        <Badge
-                          key={key}
-                          variant="outline"
-                          className="cursor-pointer"
-                          onClick={() => openTaxonomyDialog({ kind: "author", slug: trimmed, label: trimmed })}
-                        >
-                          {trimmed}
-                        </Badge>
-                      );
-                    })}
-                  </div>
-                )}
                 
-                {/* Series Metadata */}
+                {/* Series Metadata - appears beneath title */}
                 {seriesInfo?.series && (
                   <_Suspense fallback={null}>
                     <LazyBookSeriesMetadata
@@ -670,6 +649,28 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
                       }}
                     />
                   </_Suspense>
+                )}
+                
+                {book.authors.length > 0 && (
+                  <div
+                    className="flex flex-wrap justify-center gap-2"
+                    data-testid="text-book-author"
+                  >
+                    {book.authors.map((author, index) => {
+                      const trimmed = author.trim();
+                      const key = `${trimmed}-${index}`;
+                      return (
+                        <Badge
+                          key={key}
+                          variant="outline"
+                          className="cursor-pointer"
+                          onClick={() => openTaxonomyDialog({ kind: "author", slug: trimmed, label: trimmed })}
+                        >
+                          {trimmed}
+                        </Badge>
+                      );
+                    })}
+                  </div>
                 )}
               </div>
             </div>
