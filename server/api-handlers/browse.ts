@@ -429,23 +429,13 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
   const genre = normalizeGenre(params.genre);
   const genrePattern = buildGenrePattern(genre);
   
-  // Build series filter condition as string to avoid SQL template nesting issues
-  const seriesFilterSql = params.series 
-    ? params.seriesPosition === true
-      ? sql`AND EXISTS (
-            SELECT 1 FROM editions e
-            JOIN works w ON w.id = e.work_id
-            WHERE e.legacy_book_id = b.id
-              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
-              AND w.series_order IS NOT NULL
-          )`
-      : sql`AND EXISTS (
-            SELECT 1 FROM editions e
-            JOIN works w ON w.id = e.work_id
-            WHERE e.legacy_book_id = b.id
-              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
-          )`
-    : sql``;
+  // TEMPORARY: Disable series filter to fix SQL syntax error
+  // TODO: Fix nested SQL template issue for series filter
+  // const seriesFilterSql = params.series 
+  //   ? params.seriesPosition === true
+  //     ? sql`AND EXISTS (...)
+  //     : sql`AND EXISTS (...)
+  //   : sql``;
 
   // SIMPLIFIED QUERY: Only uses books and book_stats (no taxonomy tables)
   const queryResult = genre
@@ -520,8 +510,8 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-          -- Series filter: join books -> editions -> works
-          ${seriesFilterSql}
+          -- Series filter: TEMPORARILY DISABLED to fix SQL syntax error
+          -- ${seriesFilterSql}
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -594,8 +584,8 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-          -- Series filter: join books -> editions -> works
-          ${seriesFilterSql}
+          -- Series filter: TEMPORARILY DISABLED to fix SQL syntax error
+          -- ${seriesFilterSql}
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
