@@ -735,20 +735,55 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/books/:googleBooksId/editions", async (req, res) => {
     try {
       const { googleBooksId } = req.params;
-      const { editions } = await import("@shared/schema.js");
+      const { editions, books } = await import("@shared/schema.js");
       const { works } = await import("@shared/schema.js");
       const { eq, or } = await import("drizzle-orm");
       
       // Find edition by googleBooksId
-      const edition = await db
+      let edition = await db
         .select()
         .from(editions)
         .where(eq(editions.googleBooksId, googleBooksId))
         .limit(1)
         .execute();
       
+      // Fallback: If no edition found, check legacy books table
       if (edition.length === 0) {
-        return res.json([]);
+        const legacyBook = await db
+          .select()
+          .from(books)
+          .where(eq(books.googleBooksId, googleBooksId))
+          .limit(1)
+          .execute();
+        
+        if (legacyBook.length === 0) {
+          return res.json([]);
+        }
+        
+        // Create a mock edition from the legacy book
+        // Format matches what getWorkEditions returns (edition with events array)
+        const mockEdition = {
+          id: legacyBook[0].id,
+          workId: legacyBook[0].id, // Use book ID as work ID for now
+          legacyBookId: legacyBook[0].id,
+          format: "unknown",
+          publicationDate: legacyBook[0].publishedDate ? new Date(legacyBook[0].publishedDate) : null,
+          language: null,
+          market: null,
+          isbn10: legacyBook[0].isbn?.length === 10 ? legacyBook[0].isbn : null,
+          isbn13: legacyBook[0].isbn?.length === 13 ? legacyBook[0].isbn : null,
+          googleBooksId: legacyBook[0].googleBooksId,
+          openLibraryId: null,
+          editionStatement: null,
+          pageCount: legacyBook[0].pageCount,
+          categories: legacyBook[0].categories || [],
+          coverUrl: legacyBook[0].coverUrl,
+          isManual: false,
+          createdAt: new Date(),
+          events: [], // Empty events array for legacy books
+        };
+        
+        return res.json([mockEdition]);
       }
       
       const workId = edition[0].workId;
@@ -775,22 +810,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/books/:googleBooksId/series-info", async (req, res) => {
     try {
       const { googleBooksId } = req.params;
-      const { editions, works } = await import("@shared/schema.js");
+      const { editions, works, books } = await import("@shared/schema.js");
       const { eq, and, isNotNull, sql } = await import("drizzle-orm");
       
       // Find edition by googleBooksId
-      const edition = await db
+      let edition = await db
         .select({ workId: editions.workId })
         .from(editions)
         .where(eq(editions.googleBooksId, googleBooksId))
         .limit(1)
         .execute();
       
+      let workId: string | null = null;
+      
+      // Fallback: If no edition found, check legacy books table
       if (edition.length === 0) {
+        const legacyBook = await db
+          .select()
+          .from(books)
+          .where(eq(books.googleBooksId, googleBooksId))
+          .limit(1)
+          .execute();
+        
+        if (legacyBook.length === 0) {
+          return res.json({ series: null, seriesOrder: null, totalBooksInSeries: null, workId: null });
+        }
+        
+        // For legacy books, we don't have series info yet
+        // Return null values (series info will be populated when books are migrated to works/editions)
         return res.json({ series: null, seriesOrder: null, totalBooksInSeries: null, workId: null });
       }
       
-      const workId = edition[0].workId;
+      workId = edition[0].workId;
       
       // Get work info
       const work = await db
