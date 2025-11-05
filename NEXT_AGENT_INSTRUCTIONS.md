@@ -1,9 +1,40 @@
 # NEXT AGENT INSTRUCTIONS
 
-**Last Updated:** 2025-11-05T15:20:00Z  
-**Priority:** LOW – All features implemented and deployed to production
+**Last Updated:** 2025-11-05T18:00:00Z  
+**Priority:** HIGH – Series filter temporarily disabled (SQL syntax error)
+
+## 🔴 CRITICAL ISSUE: Series Filter SQL Error
+
+**Status:** Series filter temporarily disabled due to SQL syntax error  
+**Impact:** Series filtering in browse API is broken (UI works, but filtering doesn't)  
+**Priority:** HIGH - Needs to be fixed before series metadata feature is fully functional
+
+**See:** `SERIES_FILTER_IMPLEMENTATION_PLAN.md` for detailed problem analysis and solution plan.
+
+**Quick Fix Applied:**
+- Temporarily disabled series filter in all browse query functions
+- Browse API now returns 20 books correctly
+- All other filters (genre, tag, format, etc.) work fine
+
+**Next Steps:**
+1. Read `SERIES_FILTER_IMPLEMENTATION_PLAN.md`
+2. Implement Approach 1 (pre-build SQL fragments)
+3. Test locally
+4. Deploy to preview
+5. Test in production UI
+
+---
 
 ## ✅ COMPLETED THIS SESSION (2025-11-05)
+
+### Production Browse API Fix (Complete)
+
+1. **✅ Fixed SQL Syntax Error** – Resolved issue preventing browse API from returning books
+   - Root cause: Nested SQL template literals in series filter
+   - Temporary fix: Disabled series filter to restore functionality
+   - Result: Browse API now returns 20 books correctly
+   - Files: `server/api-handlers/browse.ts`
+   - See: `SERIES_FILTER_IMPLEMENTATION_PLAN.md` for full details
 
 ### Cover Selection & Series Metadata Features (Complete)
 
@@ -25,11 +56,11 @@
    - `GET /api/books/:googleBooksId/series-info` – Returns series name, order, total books, work ID
    - Files: `server/routes.ts`
 
-4. **✅ Series Filtering** – Fully implemented
-   - Added series filter to all browse query functions (popular, rating, recent, for-you)
-   - Supports filtering by series name (slugified)
-   - Supports optional `seriesPosition` flag to exclude non-main-sequence books
-   - Files: `server/api-handlers/browse.ts`, `client/src/lib/api.ts`, `client/src/components/TaxonomyListDialog.tsx`
+4. **⚠️ Series Filtering** – UI Complete, Backend Temporarily Disabled
+   - UI components fully implemented and working
+   - Backend SQL filter temporarily disabled due to syntax error
+   - Frontend code complete: `client/src/lib/api.ts`, `client/src/components/TaxonomyListDialog.tsx`
+   - Backend needs fix: `server/api-handlers/browse.ts` (see `SERIES_FILTER_IMPLEMENTATION_PLAN.md`)
 
 5. **✅ Production Deployment** – Complete
    - All features deployed to Vercel production
@@ -84,7 +115,35 @@
 
 ---
 
-## 🎯 NEXT SESSION PRIORITIES (Low Priority)
+## 🎯 NEXT SESSION PRIORITIES (HIGH PRIORITY)
+
+### Fix Series Filter SQL Error
+
+**Priority:** HIGH  
+**Status:** 🔴 Temporarily Disabled  
+**Documentation:** See `SERIES_FILTER_IMPLEMENTATION_PLAN.md`
+
+**Required Actions:**
+1. Read `SERIES_FILTER_IMPLEMENTATION_PLAN.md` for detailed problem analysis
+2. Implement Approach 1 (pre-build SQL fragments before main query)
+3. Apply fix to all 4 query functions:
+   - `fetchPopular`
+   - `fetchHighestRated`
+   - `fetchRecentlyAdded`
+   - `fetchForYou`
+4. Test locally with curl commands
+5. Deploy to preview and test in UI
+6. Deploy to production after verification
+
+**Expected Outcome:**
+- Series filtering works without SQL errors
+- Clicking series name in BookSeriesMetadata filters books correctly
+- Clicking series position filters to main sequence only
+- All browse algorithms support series filtering
+
+---
+
+## 🎯 OPTIONAL PRIORITIES (Low Priority)
 
 ### Testing & Validation
 
