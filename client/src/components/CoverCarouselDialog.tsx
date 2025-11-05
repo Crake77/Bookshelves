@@ -275,6 +275,7 @@ export default function CoverCarouselDialog({
                 </div>
               </div>
             ))}
+            </div>
           </div>
 
           {/* Navigation Buttons */}
