@@ -106,7 +106,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       let workId: string | null = null;
 
-      // Fallback: If no edition found, check legacy books table
+      // Fallback: If no edition found, check legacy books table and find edition via legacyBookId
       if (edition.length === 0) {
         const legacyBook = await db
           .select()
@@ -119,11 +119,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           return res.json({ series: null, seriesOrder: null, totalBooksInSeries: null, workId: null });
         }
 
-        // For legacy books, we don't have series info yet
-        return res.json({ series: null, seriesOrder: null, totalBooksInSeries: null, workId: null });
-      }
+        // Find edition linked to this legacy book
+        const linkedEdition = await db
+          .select({ workId: editions.workId })
+          .from(editions)
+          .where(eq(editions.legacyBookId, legacyBook[0].id))
+          .limit(1)
+          .execute();
 
-      workId = edition[0].workId;
+        if (linkedEdition.length === 0) {
+          // No migration yet, return null
+          return res.json({ series: null, seriesOrder: null, totalBooksInSeries: null, workId: null });
+        }
+
+        workId = linkedEdition[0].workId;
+      } else {
+        workId = edition[0].workId;
+      }
 
       // Get work info
       const work = await db
