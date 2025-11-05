@@ -43,7 +43,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         .limit(1)
         .execute();
 
-      // Fallback: If no edition found, check legacy books table
+      // Fallback: If no edition found, check legacy books table and find edition via legacyBookId
+      let workId: string | null = null;
       if (edition.length === 0) {
         const legacyBook = await db
           .select()
@@ -56,32 +57,46 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           return res.json([]);
         }
 
-        // Create a mock edition from the legacy book
-        const mockEdition = {
-          id: legacyBook[0].id,
-          workId: legacyBook[0].id,
-          legacyBookId: legacyBook[0].id,
-          format: "unknown",
-          publicationDate: legacyBook[0].publishedDate ? new Date(legacyBook[0].publishedDate) : null,
-          language: null,
-          market: null,
-          isbn10: legacyBook[0].isbn?.length === 10 ? legacyBook[0].isbn : null,
-          isbn13: legacyBook[0].isbn?.length === 13 ? legacyBook[0].isbn : null,
-          googleBooksId: legacyBook[0].googleBooksId,
-          openLibraryId: null,
-          editionStatement: null,
-          pageCount: legacyBook[0].pageCount,
-          categories: legacyBook[0].categories || [],
-          coverUrl: legacyBook[0].coverUrl,
-          isManual: false,
-          createdAt: new Date(),
-          events: [],
-        };
+        // Check if there's an edition linked to this legacy book
+        const linkedEdition = await db
+          .select()
+          .from(editions)
+          .where(eq(editions.legacyBookId, legacyBook[0].id))
+          .limit(1)
+          .execute();
 
-        return res.json([mockEdition]);
+        if (linkedEdition.length > 0) {
+          // Found migrated edition, use it
+          edition = linkedEdition;
+          workId = linkedEdition[0].workId;
+        } else {
+          // Not migrated yet, create a mock edition from the legacy book
+          const mockEdition = {
+            id: legacyBook[0].id,
+            workId: legacyBook[0].id,
+            legacyBookId: legacyBook[0].id,
+            format: "unknown",
+            publicationDate: legacyBook[0].publishedDate ? new Date(legacyBook[0].publishedDate) : null,
+            language: null,
+            market: null,
+            isbn10: legacyBook[0].isbn?.length === 10 ? legacyBook[0].isbn : null,
+            isbn13: legacyBook[0].isbn?.length === 13 ? legacyBook[0].isbn : null,
+            googleBooksId: legacyBook[0].googleBooksId,
+            openLibraryId: null,
+            editionStatement: null,
+            pageCount: legacyBook[0].pageCount,
+            categories: legacyBook[0].categories || [],
+            coverUrl: legacyBook[0].coverUrl,
+            isManual: false,
+            createdAt: new Date(),
+            events: [],
+          };
+
+          return res.json([mockEdition]);
+        }
+      } else {
+        workId = edition[0].workId;
       }
-
-      const workId = edition[0].workId;
 
       // Get all editions for this work
       const editionsList = await getWorkEditions(workId);
