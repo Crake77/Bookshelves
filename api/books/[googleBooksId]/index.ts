@@ -1,9 +1,9 @@
 // Vercel serverless function for book-related endpoints (editions and series-info)
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { db } from "../../db/index.js";
+import { db } from "../../../db/index.js";
 import { editions, works, books } from "@shared/schema.js";
 import { eq, and, isNotNull, sql } from "drizzle-orm";
-import { getWorkEditions } from "../../server/lib/editions-api.js";
+import { getWorkEditions } from "../../../server/lib/editions-api.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "GET") {
