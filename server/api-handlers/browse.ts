@@ -430,9 +430,22 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
   const genrePattern = buildGenrePattern(genre);
   
   // Build series filter condition as string to avoid SQL template nesting issues
-  const seriesOrderCondition = params.seriesPosition === true 
-    ? 'AND w.series_order IS NOT NULL' 
-    : '';
+  const seriesFilterSql = params.series 
+    ? params.seriesPosition === true
+      ? sql`AND EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
+              AND w.series_order IS NOT NULL
+          )`
+      : sql`AND EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
+          )`
+    : sql``;
 
   // SIMPLIFIED QUERY: Only uses books and book_stats (no taxonomy tables)
   const queryResult = genre
@@ -507,14 +520,8 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-          -- Series filter: join books -> editions -> works (only if series is provided)
-          ${params.series ? sql`AND EXISTS (
-            SELECT 1 FROM editions e
-            JOIN works w ON w.id = e.work_id
-            WHERE e.legacy_book_id = b.id
-              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
-              ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : sql``}
-          )` : sql``}
+          -- Series filter: join books -> editions -> works
+          ${seriesFilterSql}
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -587,14 +594,8 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-          -- Series filter: join books -> editions -> works (only if series is provided)
-          ${params.series ? sql`AND EXISTS (
-            SELECT 1 FROM editions e
-            JOIN works w ON w.id = e.work_id
-            WHERE e.legacy_book_id = b.id
-              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
-              ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : sql``}
-          )` : sql``}
+          -- Series filter: join books -> editions -> works
+          ${seriesFilterSql}
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -734,9 +735,22 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
   const genrePattern = buildGenrePattern(genre);
   
   // Build series filter condition as string to avoid SQL template nesting issues
-  const seriesOrderCondition = params.seriesPosition === true 
-    ? 'AND w.series_order IS NOT NULL' 
-    : '';
+  const seriesFilterSql = params.series 
+    ? params.seriesPosition === true
+      ? sql`AND EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
+              AND w.series_order IS NOT NULL
+          )`
+      : sql`AND EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
+          )`
+    : sql``;
 
   const queryResult = genre
     ? await sql`
@@ -1058,9 +1072,22 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
   const genrePattern = buildGenrePattern(genre);
   
   // Build series filter condition as string to avoid SQL template nesting issues
-  const seriesOrderCondition = params.seriesPosition === true 
-    ? 'AND w.series_order IS NOT NULL' 
-    : '';
+  const seriesFilterSql = params.series 
+    ? params.seriesPosition === true
+      ? sql`AND EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
+              AND w.series_order IS NOT NULL
+          )`
+      : sql`AND EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
+          )`
+    : sql``;
 
   const baseQuery = genre
     ? await sql`
@@ -1447,9 +1474,22 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
   const genrePattern = buildGenrePattern(genre);
   
   // Build series filter condition as string to avoid SQL template nesting issues
-  const seriesOrderCondition = params.seriesPosition === true 
-    ? 'AND w.series_order IS NOT NULL' 
-    : '';
+  const seriesFilterSql = params.series 
+    ? params.seriesPosition === true
+      ? sql`AND EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
+              AND w.series_order IS NOT NULL
+          )`
+      : sql`AND EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
+          )`
+    : sql``;
 
   const [{ count }] = (await sql`
     SELECT COUNT(*)::int AS count
