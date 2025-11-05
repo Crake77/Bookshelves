@@ -428,6 +428,11 @@ function toBookPayload(row: RawBookRow): BookPayload {
 async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookPayload[]> {
   const genre = normalizeGenre(params.genre);
   const genrePattern = buildGenrePattern(genre);
+  
+  // Build series filter condition as string to avoid SQL template nesting issues
+  const seriesOrderCondition = params.seriesPosition === true 
+    ? 'AND w.series_order IS NOT NULL' 
+    : '';
 
   // SIMPLIFIED QUERY: Only uses books and book_stats (no taxonomy tables)
   const queryResult = genre
@@ -508,7 +513,7 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${params.seriesPosition === true ? sql` AND w.series_order IS NOT NULL` : sql``}
+              ${sql.raw(seriesOrderCondition)}
           ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
@@ -588,7 +593,7 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${params.seriesPosition === true ? sql` AND w.series_order IS NOT NULL` : sql``}
+              ${sql.raw(seriesOrderCondition)}
           ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
