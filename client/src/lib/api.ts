@@ -594,7 +594,7 @@ export interface Edition {
 }
 
 export async function getBookEditions(googleBooksId: string): Promise<Edition[]> {
-  const response = await fetch(`/api/books/${googleBooksId}/editions`);
+  const response = await fetch(`/api/books/${googleBooksId}?endpoint=editions`);
   if (!response.ok) return [];
   return response.json();
 }
@@ -608,7 +608,7 @@ export interface SeriesInfo {
 }
 
 export async function getBookSeriesInfo(googleBooksId: string): Promise<SeriesInfo | null> {
-  const response = await fetch(`/api/books/${googleBooksId}/series-info`);
+  const response = await fetch(`/api/books/${googleBooksId}?endpoint=series-info`);
   if (!response.ok) return null;
   return response.json();
 }
