@@ -511,7 +511,7 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
           -- Series filter: TEMPORARILY DISABLED to fix SQL syntax error
-          -- ${seriesFilterSql}
+          -- Will be re-enabled after fixing nested SQL template issue
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -585,7 +585,7 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
           -- Series filter: TEMPORARILY DISABLED to fix SQL syntax error
-          -- ${seriesFilterSql}
+          -- Will be re-enabled after fixing nested SQL template issue
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
