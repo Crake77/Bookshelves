@@ -116,9 +116,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           const olResponse = await fetch(`https://openlibrary.org/works/${olWorkId}.json`);
           if (olResponse.ok) {
             const olWork = await olResponse.json();
-            // OpenLibrary works have an 'editions' field that is a URL endpoint
-            // Fetch all editions from that endpoint
-            const editionsUrl = olWork.editions || `https://openlibrary.org/works/${olWorkId}/editions.json`;
+            // OpenLibrary works have an 'editions' field that is a URL endpoint (e.g., "/works/OL123456W/editions")
+            // If it's a relative URL, make it absolute; otherwise use the default endpoint
+            let editionsUrl = olWork.editions;
+            if (editionsUrl && typeof editionsUrl === 'string') {
+              if (editionsUrl.startsWith('/')) {
+                editionsUrl = `https://openlibrary.org${editionsUrl}.json`;
+              } else if (!editionsUrl.startsWith('http')) {
+                editionsUrl = `https://openlibrary.org/works/${olWorkId}/editions.json`;
+              } else {
+                editionsUrl = editionsUrl.endsWith('.json') ? editionsUrl : `${editionsUrl}.json`;
+              }
+            } else {
+              editionsUrl = `https://openlibrary.org/works/${olWorkId}/editions.json`;
+            }
             const editionsResponse = await fetch(editionsUrl);
             if (editionsResponse.ok) {
               const editionsData = await editionsResponse.json();
