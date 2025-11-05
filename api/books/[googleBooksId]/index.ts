@@ -1,11 +1,15 @@
 // Vercel serverless function for book-related endpoints (editions and series-info)
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { Pool } from "@neondatabase/serverless";
+import { Pool, neonConfig } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { eq, and, isNotNull, sql } from "drizzle-orm";
+import ws from "ws";
 
 // Import schema types
 import { books, editions, works } from "@shared/schema.js";
+
+// Configure WebSocket for Node.js environment (required for serverless)
+neonConfig.webSocketConstructor = ws;
 
 // Create database connection for Vercel serverless
 if (!process.env.DATABASE_URL) {
