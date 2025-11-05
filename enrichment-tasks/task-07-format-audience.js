@@ -213,7 +213,7 @@ function detectFormat(book, enrichmentData = null) {
 function detectMultipleFormats(book, enrichmentData, primaryFormat) {
   const formats = [primaryFormat];
   const categories = (book.categories || []).map(c => c.toLowerCase());
-  const description = (book.description || '').toLowerCase();
+  let description = (book.description || '').toLowerCase();
   
   if (!description && enrichmentData?.summary?.new_summary) {
     description = enrichmentData.summary.new_summary.toLowerCase();
