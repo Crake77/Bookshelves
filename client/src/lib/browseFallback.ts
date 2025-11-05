@@ -37,18 +37,8 @@ const BASE_FALLBACK: BookSearchResult[] = [
     categories: ["Mystery", "Thriller"],
     isbn: "9780062073488",
   },
-  {
-    googleBooksId: "red-rising",
-    title: "Red Rising",
-    authors: ["Pierce Brown"],
-    description:
-      "Born to slave beneath the surface, Darrow infiltrates the Gold ruling class to spark a revolution among the stars.",
-    coverUrl: "https://covers.openlibrary.org/b/id/8740284-L.jpg",
-    publishedDate: "2014-01-28",
-    pageCount: 400,
-    categories: ["Science Fiction"],
-    isbn: "9780345539786",
-  },
+  // REMOVED: Red Rising - not in database
+  // This fallback should only be used if API fails completely
   {
     googleBooksId: "fourth-wing",
     title: "Fourth Wing",
@@ -61,18 +51,8 @@ const BASE_FALLBACK: BookSearchResult[] = [
     categories: ["Fantasy", "Romance"],
     isbn: "9781649374042",
   },
-  {
-    googleBooksId: "legends-and-lattes",
-    title: "Legends & Lattes",
-    authors: ["Travis Baldree"],
-    description:
-      "An orc barbarian hangs up her sword to open the first coffee shop the city has ever seen.",
-    coverUrl: "https://covers.openlibrary.org/b/id/12568165-L.jpg",
-    publishedDate: "2022-02-22",
-    pageCount: 304,
-    categories: ["Fantasy", "Cozy"],
-    isbn: "9781250886088",
-  },
+  // REMOVED: Legends & Lattes - not in database
+  // This fallback should only be used if API fails completely
   {
     googleBooksId: "the-silent-patient",
     title: "The Silent Patient",
