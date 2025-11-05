@@ -521,8 +521,7 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-          -- Series filter: join books -> editions -> works
-          ${seriesFilter}
+        ${params.series ? seriesFilter : sql``}
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -595,8 +594,7 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-          -- Series filter: join books -> editions -> works
-          ${seriesFilter}
+        ${params.series ? seriesFilter : sql``}
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,

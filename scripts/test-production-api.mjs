@@ -1,12 +1,17 @@
 // Test the production browse API to see what it returns
+const LOCAL_URL = 'http://localhost:8001';
 const PROD_URL = 'https://bookshelves-k8xtxf02i-john-dunhams-projects-39f6d8ce.vercel.app';
+const PREVIEW_URL = 'https://bookshelves-puspmx4s4-john-dunhams-projects-39f6d8ce.vercel.app';
+
+// Use PREVIEW_URL by default, or override with TEST_URL env var
+const BASE_URL = process.env.TEST_URL || PREVIEW_URL;
 
 async function testAPI() {
   console.log('🧪 Testing Production Browse API\n');
   console.log('='.repeat(80));
   
   try {
-    const url = `${PROD_URL}/api/browse?algo=popular&limit=20`;
+    const url = `${BASE_URL}/api/browse?algo=popular&limit=20`;
     console.log(`📡 Requesting: ${url}\n`);
     
     const response = await fetch(url);
