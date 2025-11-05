@@ -15,10 +15,41 @@ if (!process.env.DATABASE_URL) {
 const sqlClient = neon(process.env.DATABASE_URL);
 const db = drizzle(sqlClient);
 
-// Import getWorkEditions dynamically to avoid circular imports
+// Get all editions for a work (serverless-compatible version)
 async function getWorkEditions(workId: string) {
-  const { getWorkEditions: _getWorkEditions } = await import("../../../server/lib/editions-api.js");
-  return _getWorkEditions(workId);
+  // Get all editions for this work
+  const allEditions = await db
+    .select()
+    .from(editions)
+    .where(eq(editions.workId, workId))
+    .execute();
+
+  // Get release events for these editions
+  const editionIds = allEditions.map((e) => e.id);
+  let events: any[] = [];
+  if (editionIds.length > 0) {
+    const { releaseEvents } = await import("@shared/schema.js");
+    const { inArray } = await import("drizzle-orm");
+    events = await db
+      .select()
+      .from(releaseEvents)
+      .where(inArray(releaseEvents.editionId, editionIds))
+      .execute();
+  }
+
+  // Group events by edition
+  const eventsByEdition = new Map<string, typeof events>();
+  for (const event of events) {
+    const editionEvents = eventsByEdition.get(event.editionId) || [];
+    editionEvents.push(event);
+    eventsByEdition.set(event.editionId, editionEvents);
+  }
+
+  // Combine editions with their events
+  return allEditions.map((edition) => ({
+    ...edition,
+    events: eventsByEdition.get(edition.id) || [],
+  }));
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
