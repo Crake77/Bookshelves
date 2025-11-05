@@ -732,6 +732,11 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
   const genre = normalizeGenre(params.genre);
   const priorWeight = 10;
   const genrePattern = buildGenrePattern(genre);
+  
+  // Build series filter condition as string to avoid SQL template nesting issues
+  const seriesOrderCondition = params.seriesPosition === true 
+    ? 'AND w.series_order IS NOT NULL' 
+    : '';
 
   const queryResult = genre
     ? await sql`
@@ -1051,6 +1056,11 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
 async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise<BookPayload[]> {
   const genre = normalizeGenre(params.genre);
   const genrePattern = buildGenrePattern(genre);
+  
+  // Build series filter condition as string to avoid SQL template nesting issues
+  const seriesOrderCondition = params.seriesPosition === true 
+    ? 'AND w.series_order IS NOT NULL' 
+    : '';
 
   const baseQuery = genre
     ? await sql`
@@ -1435,6 +1445,11 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
 
   const genre = normalizeGenre(params.genre);
   const genrePattern = buildGenrePattern(genre);
+  
+  // Build series filter condition as string to avoid SQL template nesting issues
+  const seriesOrderCondition = params.seriesPosition === true 
+    ? 'AND w.series_order IS NOT NULL' 
+    : '';
 
   const [{ count }] = (await sql`
     SELECT COUNT(*)::int AS count
