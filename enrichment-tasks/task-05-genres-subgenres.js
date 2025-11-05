@@ -143,25 +143,43 @@ function scoreSubgenrePattern(pattern, book, description, title) {
     }
   }
   
-  // Check semantic indicators (scale_markers, setting_markers, tone_markers, etc.)
+    // Check semantic indicators (scale_markers, setting_markers, tone_markers, etc.)                                                                             
   const indicatorFields = [
-    'scale_indicators', 'setting_markers', 'tone_markers', 'action_markers',
-    'world_markers', 'time_markers', 'creature_markers', 'tech_markers',
+    'scale_markers', 'scale_indicators', 'setting_markers', 'tone_markers', 'action_markers',    
+    'world_markers', 'time_markers', 'creature_markers', 'tech_markers',        
     'science_markers', 'progression_markers', 'cultivation_markers'
   ];
-  
+
   for (const field of indicatorFields) {
     if (pattern[field] && Array.isArray(pattern[field])) {
       let foundCount = 0;
       for (const marker of pattern[field]) {
-        const markerPattern = new RegExp(`\\b${marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-        if (markerPattern.test(description)) {
+        const markerPattern = new RegExp(`\\b${marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');                                                        
+        if (markerPattern.test(description) || markerPattern.test(title) || markerPattern.test(categories)) {
           foundCount++;
         }
       }
       if (foundCount > 0) {
-        // Weight increases with more matches (multiple indicators = stronger signal)
-        score += Math.min(foundCount * 0.10, 0.25);
+        // Weight increases with more matches (multiple indicators = stronger signal)                                                                           
+        score += Math.min(foundCount * 0.10, 0.30); // Increased max from 0.25 to 0.30
+      }
+    }
+  }
+
+  // Special case: space-opera detection (improve sensitivity)
+  if (pattern.slug === 'space-opera' || pattern.name?.toLowerCase().includes('space opera')) {
+    // Check for "space opera" phrase variations
+    const spaceOperaPhrases = [
+      /\bspace opera\b/i,
+      /\bgalactic (?:empire|scale|war|adventure)\b/i,
+      /\bepic space\b/i,
+      /\binterstellar\b/i,
+      /\bstar-spanning\b/i
+    ];
+    for (const phrase of spaceOperaPhrases) {
+      if (phrase.test(description) || phrase.test(title) || phrase.test(categories)) {
+        score += 0.25; // Boost score for space opera indicators
+        break;
       }
     }
   }

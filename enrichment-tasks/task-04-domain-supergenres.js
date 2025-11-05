@@ -104,7 +104,8 @@ function suggestSupergenres(book, domain) {
   const categories = (book.categories || []).map(c => c.toLowerCase());
   const supergenres = [];
   
-  // Common mappings (simplified - real version would use full taxonomy)
+    // Common mappings (simplified - real version would use full taxonomy)
+  // NOTE: For fiction books, use speculative-fiction supergenre (not science-technology)
   const supergenreMap = {
     'science fiction': ['speculative-fiction'],
     'fantasy': ['speculative-fiction'],
@@ -116,7 +117,11 @@ function suggestSupergenres(book, domain) {
     'history': ['history-social-sciences'],
     'biography': ['biography-memoir'],
     'business': ['business-economics'],
-    'science': ['science-technology']
+    // For non-fiction science books, use science-nature supergenre
+    // For technology/engineering books, use technology-engineering supergenre
+    'science': domain === 'non-fiction' ? ['science-nature'] : [],
+    'technology': domain === 'non-fiction' ? ['technology-engineering'] : [],
+    'engineering': domain === 'non-fiction' ? ['technology-engineering'] : []
   };
   
   categories.forEach(cat => {

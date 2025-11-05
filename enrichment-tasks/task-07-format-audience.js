@@ -20,7 +20,7 @@ function loadFormatPatterns() {
 }
 
 // Score a format pattern against book metadata
-function scoreFormatPattern(pattern, book, enrichmentData) {
+function scoreFormatPattern(pattern, formatSlug, book, enrichmentData) {
   const categories = (book.categories || []).map(c => c.toLowerCase());
   let description = (book.description || '').toLowerCase();
   
@@ -75,6 +75,41 @@ function scoreFormatPattern(pattern, book, enrichmentData) {
       } catch (e) {
         // Invalid regex, skip
       }
+    }
+  }
+
+  // Special case: Light novel detection via "Part X Volume X" pattern
+  if (formatSlug === 'light-novel') {
+    // Check for "Part 1 Volume 1" or "Part 1, Volume 1" pattern
+    const partVolumePattern = /part\s+\d+\s*(?:,|\s+)?volume\s+\d+/i;
+    if (partVolumePattern.test(title)) {
+      score += 0.30; // Strong signal for light novel
+    }
+    // Check for "Part 1 Vol. 1" pattern
+    const partVolPattern = /part\s+\d+\s*(?:,|\s+)?vol\.\s*\d+/i;
+    if (partVolPattern.test(title)) {
+      score += 0.30;
+    }
+    // Check category for "Light Novel"
+    if (categories.some(c => c.includes('light novel'))) {
+      score += 0.40; // Very strong signal
+    }
+  }
+
+  // Special case: Webtoon detection via category
+  if (formatSlug === 'webtoon') {
+    // Check category for "Webtoon"
+    if (categories.some(c => c.includes('webtoon'))) {
+      score += 0.40; // Very strong signal
+    }
+  }
+
+  // Special case: Web-novel detection via platform indicators
+  if (formatSlug === 'web-novel') {
+    // Check description for Royal Road, web serial, etc.
+    if (description.includes('royal road') || description.includes('web serial') || 
+        description.includes('serialized online') || description.includes('online novel')) {
+      score += 0.35; // Strong signal
     }
   }
   
@@ -140,7 +175,7 @@ function detectFormat(book, enrichmentData = null) {
   
   // Score all formats
   for (const [formatSlug, pattern] of Object.entries(patterns)) {
-    const score = scoreFormatPattern(pattern, book, enrichmentData);
+    const score = scoreFormatPattern(pattern, formatSlug, book, enrichmentData);
     const minConfidence = pattern.minimum_confidence || 0.60;
     
     if (score >= minConfidence && score > bestScore) {
@@ -172,6 +207,33 @@ function detectFormat(book, enrichmentData = null) {
   
   // Fallback to simple detection if no pattern matched
   return detectFormatSimple(book, enrichmentData);
+}
+
+// Multiple formats detection (e.g., novel + audiobook)
+function detectMultipleFormats(book, enrichmentData, primaryFormat) {
+  const formats = [primaryFormat];
+  const categories = (book.categories || []).map(c => c.toLowerCase());
+  const description = (book.description || '').toLowerCase();
+  
+  if (!description && enrichmentData?.summary?.new_summary) {
+    description = enrichmentData.summary.new_summary.toLowerCase();
+  }
+  
+  // Check if book is also available as audiobook (and primary format isn't audiobook)
+  if (primaryFormat.slug && primaryFormat.slug !== 'audiobook') {
+    if (categories.some(c => c.includes('audio') || c.includes('audiobook')) ||
+        description.includes('audiobook') || description.includes('audio edition') ||
+        description.includes('narrated by') || description.includes('audio version')) {
+      formats.push({
+        slug: 'audiobook',
+        confidence: 'medium',
+        score: 0.5,
+        reason: 'Also available as audiobook'
+      });
+    }
+  }
+  
+  return formats;
 }
 
 // Simple format detection (fallback)
@@ -362,26 +424,11 @@ async function detectFormatAudience(bookId) {
     enrichmentData = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
   }
   
-  const format = detectFormat(book, enrichmentData);
+    const format = detectFormat(book, enrichmentData);
   const audience = detectAudience(book);
-  
+
   // Check for multiple formats (e.g., novel + audiobook)
-  const formats = [format];
-  if (format.slug) {
-    // Check if book is also available as audiobook
-    const categories = (book.categories || []).map(c => c.toLowerCase());
-    const description = (book.description || '').toLowerCase();
-    if ((categories.some(c => c.includes('audio') || c.includes('audiobook')) ||
-         description.includes('audiobook') || description.includes('audio edition')) &&
-        format.slug !== 'audiobook') {
-      formats.push({
-        slug: 'audiobook',
-        confidence: 'medium',
-        score: 0.5,
-        reason: 'Also available as audiobook'
-      });
-    }
-  }
+  const formats = detectMultipleFormats(book, enrichmentData, format);
   
   const result = {
     format: formats[0], // Primary format

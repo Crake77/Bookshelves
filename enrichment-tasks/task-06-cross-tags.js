@@ -292,13 +292,64 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
         matchScore = 0;
       }
       
-      // RULE 5: Require minimum match score of 3 (not just > 0)
-      if (matchScore >= 3) {
+      // Also check cross-tag patterns for synonyms/phrases if pattern exists
+      const pattern = crossTagPatterns[tagSlug];
+      if (pattern && matchScore === 0) {
+        // No direct match, try pattern matching
+        const allText = `${title} ${description} ${categories.join(' ')} ${evidenceSources.map(s => s.extract).join(' ')}`.toLowerCase();
+        
+        // Check exact phrases from pattern
+        if (pattern.exact && Array.isArray(pattern.exact)) {
+          for (const phrase of pattern.exact) {
+            const phraseRegex = new RegExp(`\\b${phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+            if (phraseRegex.test(allText)) {
+              matchScore = 3; // Minimum threshold for pattern match
+              break;
+            }
+          }
+        }
+        
+        // Check synonyms if exact didn't match
+        if (matchScore === 0 && pattern.synonyms && Array.isArray(pattern.synonyms)) {
+          for (const synonym of pattern.synonyms) {
+            const synonymRegex = new RegExp(`\\b${synonym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+            if (synonymRegex.test(allText)) {
+              matchScore = 2; // Lower score for synonym match
+              break;
+            }
+          }
+        }
+        
+        // Check phrases if synonyms didn't match
+        if (matchScore === 0 && pattern.phrases && Array.isArray(pattern.phrases)) {
+          for (const phrase of pattern.phrases) {
+            const phraseRegex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+            if (phraseRegex.test(allText)) {
+              matchScore = 2; // Lower score for phrase match
+              break;
+            }
+          }
+        }
+        
+        // Check avoid patterns - if matched, disqualify
+        if (matchScore > 0 && pattern.avoid && Array.isArray(pattern.avoid)) {
+          for (const avoidPattern of pattern.avoid) {
+            const avoidRegex = new RegExp(avoidPattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+            if (avoidRegex.test(allText)) {
+              matchScore = 0; // Disqualify if avoid pattern matches
+              break;
+            }
+          }
+        }
+      }
+
+      // RULE 5: Require minimum match score of 2 (lowered from 3 to get more tags)
+      if (matchScore >= 2) {
         const entry = {
           slug: tagSlug,
           name: tag.name,
           group: tag.group,
-          confidence: matchScore >= 5 ? 'high' : 'medium',
+          confidence: matchScore >= 5 ? 'high' : (matchScore >= 3 ? 'medium' : 'low'),
           match_score: matchScore,
           method: evidenceSources.length > 0 ? 'pattern-match+evidence' : 'pattern-match',
         };
