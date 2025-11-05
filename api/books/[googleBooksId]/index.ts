@@ -98,7 +98,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     } else if (endpoint === "series-info") {
       // Find edition by googleBooksId
       let edition = await db
-        .select({ workId: schema.editions.workId })
+        .select({ workId: editions.workId })
         .from(editions)
         .where(eq(editions.googleBooksId, googleBooksId))
         .limit(1)
