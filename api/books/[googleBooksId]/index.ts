@@ -1,9 +1,19 @@
 // Vercel serverless function for book-related endpoints (editions and series-info)
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { db } from "../../../db/index.js";
-import { editions, works, books } from "@shared/schema.js";
+import { neon } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-serverless";
+import * as schema from "@shared/schema.js";
 import { eq, and, isNotNull, sql } from "drizzle-orm";
-import { getWorkEditions } from "../../../server/lib/editions-api.js";
+
+// Create database connection for Vercel serverless
+const sqlClient = neon(process.env.DATABASE_URL!);
+const db = drizzle(sqlClient, { schema });
+
+// Import getWorkEditions dynamically to avoid circular imports
+async function getWorkEditions(workId: string) {
+  const { getWorkEditions: _getWorkEditions } = await import("../../../server/lib/editions-api.js");
+  return _getWorkEditions(workId);
+}
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "GET") {
@@ -22,8 +32,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // Find edition by googleBooksId
       let edition = await db
         .select()
-        .from(editions)
-        .where(eq(editions.googleBooksId, googleBooksId))
+        .from(schema.editions)
+        .where(eq(schema.editions.googleBooksId, googleBooksId))
         .limit(1)
         .execute();
 
@@ -82,9 +92,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     } else if (endpoint === "series-info") {
       // Find edition by googleBooksId
       let edition = await db
-        .select({ workId: editions.workId })
-        .from(editions)
-        .where(eq(editions.googleBooksId, googleBooksId))
+        .select({ workId: schema.editions.workId })
+        .from(schema.editions)
+        .where(eq(schema.editions.googleBooksId, googleBooksId))
         .limit(1)
         .execute();
 
@@ -112,11 +122,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // Get work info
       const work = await db
         .select({
-          series: works.series,
-          seriesOrder: works.seriesOrder,
+          series: schema.works.series,
+          seriesOrder: schema.works.seriesOrder,
         })
-        .from(works)
-        .where(eq(works.id, workId))
+        .from(schema.works)
+        .where(eq(schema.works.id, workId))
         .limit(1)
         .execute();
 
@@ -132,11 +142,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       if (seriesName) {
         const countResult = await db
           .select({ count: sql<number>`count(*)::int` })
-          .from(works)
+          .from(schema.works)
           .where(
             and(
-              eq(works.series, seriesName),
-              isNotNull(works.seriesOrder)
+              eq(schema.works.series, seriesName),
+              isNotNull(schema.works.seriesOrder)
             )
           )
           .execute();
