@@ -947,6 +947,14 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
             WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
           ))
+          -- Series filter: join books -> editions -> works
+          AND (${params.series ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql`AND TRUE`}
+          ))
         ),
         global AS (
           SELECT
@@ -1125,6 +1133,14 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
             WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
           ))
+          -- Series filter: join books -> editions -> works
+          AND (${params.series ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql`AND TRUE`}
+          ))
         )
         SELECT
           catalog.id,
@@ -1235,6 +1251,14 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
           AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
             SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
             WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
+          ))
+          -- Series filter: join books -> editions -> works
+          AND (${params.series ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql`AND TRUE`}
           ))
         )
         SELECT
@@ -1689,6 +1713,14 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM book_age_markets bam
             JOIN age_markets am ON am.id = bam.age_market_id
             WHERE bam.book_id = b.id AND am.slug = ${params.audienceSlug ?? null}
+          ))
+          -- Series filter: join books -> editions -> works
+          AND (${params.series ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql`AND TRUE`}
           ))
         ),
         preference_scores AS (
