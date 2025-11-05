@@ -507,14 +507,14 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-          -- Series filter: join books -> editions -> works
-          AND (${params.series ?? null}::text IS NULL OR EXISTS (
+          -- Series filter: join books -> editions -> works (only if series is provided)
+          ${params.series ? sql`AND EXISTS (
             SELECT 1 FROM editions e
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
-              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
               ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : sql``}
-          ))
+          )` : sql``}
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -587,14 +587,14 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-          -- Series filter: join books -> editions -> works
-          AND (${params.series ?? null}::text IS NULL OR EXISTS (
+          -- Series filter: join books -> editions -> works (only if series is provided)
+          ${params.series ? sql`AND EXISTS (
             SELECT 1 FROM editions e
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
-              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series})
               ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : sql``}
-          ))
+          )` : sql``}
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
