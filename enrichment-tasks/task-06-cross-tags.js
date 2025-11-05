@@ -380,6 +380,7 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
         }
         
         // Check avoid patterns - if matched, disqualify (for all tags)
+        // IMPORTANT: Check avoid patterns BEFORE finalizing score to prevent false positives
         if (matchScore > 0 && pattern.avoid && Array.isArray(pattern.avoid)) {
           for (const avoidPattern of pattern.avoid) {
             const avoidRegex = new RegExp(avoidPattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
@@ -387,6 +388,35 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
               matchScore = 0; // Disqualify if avoid pattern matches
               break;
             }
+          }
+        }
+        
+        // Additional strict check for artificial-intelligence: require contextual phrases AND no avoid patterns
+        if (tagSlug === 'artificial-intelligence' && matchScore > 0) {
+          // Require at least one contextual phrase (not just "AI" alone)
+          const contextualPhrases = [
+            /\bartificial intelligence\b/i,
+            /\bmachine intelligence\b/i,
+            /\bsentient AI\b/i,
+            /\bconscious AI\b/i,
+            /\bself-aware AI\b/i,
+            /\bAI (system|character|protagonist|entity|technology|consciousness|uprising)\b/i,
+            /\bintelligent AI\b/i
+          ];
+          const hasContextualPhrase = contextualPhrases.some(re => re.test(allText));
+          
+          // Check for common false positive contexts
+          const falsePositivePatterns = [
+            /\bAI (company|tool|software|development|research|industry|definition|for|in business|for marketing)\b/i,
+            /\busing AI\b/i,
+            /\bAI-powered\b/i,
+            /\bAI-generated\b/i,
+            /\bAI (model|algorithm|framework|platform|service|solution)\b/i
+          ];
+          const hasFalsePositive = falsePositivePatterns.some(re => re.test(allText));
+          
+          if (!hasContextualPhrase || hasFalsePositive) {
+            matchScore = 0; // Disqualify if no contextual phrase or has false positive
           }
         }
       }
@@ -479,7 +509,17 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
   // Re-sort after merging
   tags.sort((a, b) => b.match_score - a.match_score);
 
-  return tags.slice(0, 20);
+  // Deduplicate tags by slug (keep highest score)
+  const uniqueTags = [];
+  const seenSlugs = new Set();
+  for (const tag of tags) {
+    if (!seenSlugs.has(tag.slug)) {
+      seenSlugs.add(tag.slug);
+      uniqueTags.push(tag);
+    }
+  }
+
+  return uniqueTags.slice(0, 20);
 }
 
 function generatePatternTags(book, enrichmentData, evidenceSources) {

@@ -60,14 +60,10 @@ function useTaxonomyInfinite(filter: TaxonomyFilter | null, ranking: BrowseAlgo)
 
 export default function TaxonomyListDialog({ open, onOpenChange, filter, ranking = "popular", sourceBookId, sourceGoogleBooksId }: Props) {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isFetching } = useTaxonomyInfinite(filter, ranking);
+  // Don't filter out the source book - show all books in series/series-position
   const books = useMemo(() => {
-    const items = (data?.pages ?? []).flat();
-    return items.filter((b) => {
-      if (sourceGoogleBooksId && b.googleBooksId === sourceGoogleBooksId) return false;
-      if (sourceBookId && b.id === sourceBookId) return false;
-      return true;
-    });
-  }, [data, sourceBookId, sourceGoogleBooksId]);
+    return (data?.pages ?? []).flat();
+  }, [data]);
   const [selectedBook, setSelectedBook] = React.useState<BookSearchResult | null>(null);
 
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
