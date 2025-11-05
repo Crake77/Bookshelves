@@ -513,7 +513,7 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${sql.raw(seriesOrderCondition)}
+              AND (${params.seriesPosition === true ? sql`w.series_order IS NOT NULL` : sql`TRUE`})
           ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
@@ -593,7 +593,7 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${sql.raw(seriesOrderCondition)}
+              AND (${params.seriesPosition === true ? sql`w.series_order IS NOT NULL` : sql`TRUE`})
           ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
