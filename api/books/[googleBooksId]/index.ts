@@ -12,8 +12,8 @@ if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not set");
 }
 
-const sql = neon(process.env.DATABASE_URL);
-const db = drizzle(sql);
+const sqlClient = neon(process.env.DATABASE_URL);
+const db = drizzle({ client: sqlClient });
 
 // Get all editions for a work (serverless-compatible version)
 async function getWorkEditions(workId: string) {
