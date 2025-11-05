@@ -30,11 +30,16 @@ async function getWorkEditions(workId: string) {
   if (editionIds.length > 0) {
     const { releaseEvents } = await import("@shared/schema.js");
     const { inArray } = await import("drizzle-orm");
-    events = await db
-      .select()
-      .from(releaseEvents)
-      .where(inArray(releaseEvents.editionId, editionIds))
-      .execute();
+    try {
+      events = await db
+        .select()
+        .from(releaseEvents)
+        .where(inArray(releaseEvents.editionId, editionIds))
+        .execute();
+    } catch (e) {
+      // If releaseEvents table doesn't exist or query fails, continue without events
+      console.warn("Failed to fetch release events:", e);
+    }
   }
 
   // Group events by edition
