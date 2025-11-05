@@ -205,7 +205,6 @@
         "reason": "Derived from categories"
       },
       {
-        "slug": "science-technology",
         "confidence": "suggested",
         "reason": "Derived from categories"
       }
@@ -256,7 +255,7 @@
         "slug": "epic-tone",
         "name": "Epic",
         "group": "tone_mood",
-        "confidence": "medium",
+        "confidence": "high",
         "match_score": 4,
         "method": "pattern-match"
       },
@@ -264,7 +263,7 @@
         "slug": "space",
         "name": "Space",
         "group": "setting",
-        "confidence": "medium",
+        "confidence": "high",
         "match_score": 3,
         "method": "pattern-match"
       },
@@ -277,15 +276,23 @@
         "method": "pattern-match"
       },
       {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match"
+      },
+      {
         "slug": "quest",
         "name": "Quest",
         "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 7
+    "cross_tags_count": 8
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=nrRKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72NCnV0F9-rdKYEXhuQXxSN0jIZaiE6bZia9x9SEnfNrvXT42Tt2ruHVxm4PQc3eJheu10d1GWz6FDho3jZFnZG9xV2Eb-EXBeT35Qbk7zk-BG889DGMI4qwaIvLhy09_1LDv3u&source=gbs_api",
@@ -296,7 +303,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL59726263M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T21:59:17.465Z",
+  "last_updated": "2025-11-05T14:07:10.819Z",
   "authors": {
     "original": [
       "Frank Herbert"

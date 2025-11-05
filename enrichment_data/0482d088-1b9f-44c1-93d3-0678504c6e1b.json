@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL56957378M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-01T19:05:12.696Z",
+  "last_updated": "2025-11-05T14:07:00.251Z",
   "authors": {
     "original": [
       "Sarah Schulman"
@@ -35,43 +35,32 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "nonfiction",
+      "slug": "non-fiction",
       "confidence": "high",
-      "reason": "Sociological study of solidarity movements"
+      "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
-        "slug": "social-science",
-        "confidence": "high",
-        "reason": "Sociology and social movement focus"
+        "slug": "science-nature",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       },
       {
-        "slug": "politics-current-affairs",
-        "confidence": "medium",
-        "reason": "Engages with contemporary activism"
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       }
     ],
-    "status": "completed",
+    "status": "suggested",
     "notes": [],
     "genres": [
       {
         "slug": "sociology",
         "name": "Sociology",
-        "confidence": "high"
-      },
-      {
-        "slug": "social-justice",
-        "name": "Social Justice & Activism",
-        "confidence": "high"
+        "confidence": "suggested"
       }
     ],
-    "subgenres": [
-      {
-        "slug": "civil-rights",
-        "name": "Civil Rights",
-        "confidence": "medium"
-      }
-    ],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "abortion",
@@ -145,11 +134,19 @@
         "method": "pattern-match+evidence"
       },
       {
+        "slug": "female-protagonist",
+        "name": "Female Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
         "slug": "hopeful",
         "name": "Hopeful",
         "group": "tone",
         "confidence": "high",
-        "match_score": 3.1,
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
@@ -157,7 +154,23 @@
         "name": "Coming of Age",
         "group": "trope",
         "confidence": "high",
-        "match_score": 3.1,
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "lgbtq",
+        "name": "LGBTQ+",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "philosophical",
+        "name": "Philosophical",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 2.12,
         "method": "pattern-match+evidence"
       },
       {
@@ -169,174 +182,60 @@
         "method": "pattern-match+evidence"
       },
       {
-        "slug": "lgbtq",
-        "name": "LGBTQ+",
-        "group": "tropes_themes",
+        "slug": "new-york-city",
+        "name": "New York City",
+        "group": "setting",
         "confidence": "high",
         "match_score": 2.1,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "conformist",
-        "name": "Conformist",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.2,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "school",
         "name": "School",
         "group": "setting",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "transformation",
-        "name": "Transformation",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "university",
         "name": "University",
         "group": "setting",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "conformist",
+        "name": "Conformist",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "transformation",
+        "name": "Transformation",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 15,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "fantasie-und-fuge-u-ber-den-choral-ad-nos-ad-salutarem-undam-liszt-franz",
-        "name": "Fantasie und Fuge über den Choral Ad nos, ad salutarem undam (Liszt, Franz)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01378893",
-            "url": "https://id.worldcat.org/fast/1378893"
-          }
-        ]
-      },
-      {
-        "slug": "fantasy-in-art-themes-motives",
-        "name": "Fantasy in art--Themes, motives",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00920846",
-            "url": "https://id.worldcat.org/fast/920846"
-          }
-        ]
-      },
-      {
-        "slug": "fantasy-therapeutic-use",
-        "name": "Fantasy--Therapeutic use",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00920696",
-            "url": "https://id.worldcat.org/fast/920696"
-          }
-        ]
-      },
-      {
-        "slug": "final-fantasy-motion-picture",
-        "name": "Final fantasy (Motion picture)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01396007",
-            "url": "https://id.worldcat.org/fast/1396007"
-          }
-        ]
-      },
-      {
-        "slug": "makrokosmos-crumb-george",
-        "name": "Makrokosmos (Crumb, George)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01364657",
-            "url": "https://id.worldcat.org/fast/1364657"
-          }
-        ]
-      },
-      {
-        "slug": "power-the-fantasy-game",
-        "name": "Power, The (Fantasy game)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01074428",
-            "url": "https://id.worldcat.org/fast/1074428"
-          }
-        ]
-      },
-      {
-        "slug": "validation-therapy",
-        "name": "Validation therapy",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01163812",
-            "url": "https://id.worldcat.org/fast/1163812"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 19
   },
   "format": {
-    "slug": "compendium",
-    "confidence": "medium",
-    "reason": "Non-fiction anthology of essays"
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
   },
   "audience": {
     "slug": "adult",

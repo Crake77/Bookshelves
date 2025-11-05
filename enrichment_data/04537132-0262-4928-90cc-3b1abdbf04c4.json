@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL28151758M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-01T19:05:12.366Z",
+  "last_updated": "2025-11-05T14:06:59.195Z",
   "authors": {
     "original": [
       "V. E. Schwab"
@@ -182,11 +182,27 @@
         ]
       },
       {
+        "slug": "female-protagonist",
+        "name": "Female Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
+        "slug": "curse",
+        "name": "Curse",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
         "slug": "deal-with-devil",
         "name": "Deal with Devil",
         "group": "trope",
         "confidence": "high",
-        "match_score": 2.2,
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
@@ -194,145 +210,40 @@
         "name": "Ghosts",
         "group": "trope",
         "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "curse",
-        "name": "Curse",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "desolate",
         "name": "Desolate",
         "group": "tone",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "quest",
         "name": "Quest",
         "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 16,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "arthur-et-les-minimoys-motion-picture",
-        "name": "Arthur et les Minimoys (Motion picture)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01776388",
-            "url": "https://id.worldcat.org/fast/1776388"
-          }
-        ]
-      },
-      {
-        "slug": "gospel-of-the-egyptians",
-        "name": "Gospel of the Egyptians",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01370757",
-            "url": "https://id.worldcat.org/fast/1370757"
-          }
-        ]
-      },
-      {
-        "slug": "invisible-empire-knights-of-the-ku-klux-klan-1975",
-        "name": "Invisible Empire, Knights of the Ku Klux Klan (1975)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01995192",
-            "url": "https://id.worldcat.org/fast/1995192"
-          }
-        ]
-      },
-      {
-        "slug": "photography-of-the-invisible",
-        "name": "Photography of the invisible",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01061950",
-            "url": "https://id.worldcat.org/fast/1061950"
-          }
-        ]
-      },
-      {
-        "slug": "skazanie-o-nevidimom-grade-kitezhe-i-deve-fevronii-rimsky-korsakov-nikolay",
-        "name": "Skazanie o nevidimom grade Kitezhe i deve Fevronii (Rimsky-Korsakov, Nikolay)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01367551",
-            "url": "https://id.worldcat.org/fast/1367551"
-          }
-        ]
-      },
-      {
-        "slug": "wonders-of-the-invisible-world-mather-cotton",
-        "name": "Wonders of the invisible world (Mather, Cotton)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01358146",
-            "url": "https://id.worldcat.org/fast/1358146"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 18
   },
   "format": {
-    "slug": "novel",
-    "confidence": "high",
-    "reason": "Standalone adult fantasy novel"
+    "slug": null,
+    "confidence": "unknown",
+    "reason": "Format cannot be determined from available metadata"
   },
   "audience": {
     "slug": "adult",

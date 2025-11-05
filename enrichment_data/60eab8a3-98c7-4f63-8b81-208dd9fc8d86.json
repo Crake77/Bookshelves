@@ -389,6 +389,22 @@
         "method": "semantic-inference"
       },
       {
+        "slug": "alien-contact",
+        "name": "Alien Contact",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "parallel-universes",
+        "name": "Parallel Universes",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
         "slug": "progression-fantasy",
         "name": "Progression Fantasy",
         "group": "trope",
@@ -397,47 +413,39 @@
         "method": "pattern-match"
       },
       {
-        "slug": "alien-contact",
-        "name": "Alien Contact",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "parallel-universes",
-        "name": "Parallel Universes",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match"
-      },
-      {
         "slug": "expansive",
         "name": "Expansive",
         "group": "tone",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       },
       {
         "slug": "parallel-worlds",
         "name": "Parallel Worlds",
         "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       },
       {
         "slug": "quest",
         "name": "Quest",
         "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 16
+    "cross_tags_count": 17
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72gI2a_X9H8DlZBsC-5MkFtoRc7CC6mvB-H1pPTc-XHahDRNAmAOwro01TZi4fHcxa-VoPzmDABUS_Q0lgcMEBn_hN5Yz6LdSf3_HciyYd0EhrPJwktAJGrM6vy2Rfn6Ns7kETP&source=gbs_api",
@@ -448,7 +456,7 @@
     "recommended": "https://books.google.com/books/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-04T21:58:14.055Z",
+  "last_updated": "2025-11-05T14:07:06.992Z",
   "authors": {
     "original": [
       "TheFirstDefier"
@@ -473,9 +481,10 @@
     ]
   },
   "format": {
-    "slug": null,
-    "confidence": "unknown",
-    "reason": "Format cannot be determined from available metadata"
+    "slug": "web-novel",
+    "confidence": "high",
+    "score": 0.7999999999999999,
+    "reason": "Pattern-based detection: Web Novel (score: 0.80, threshold: 0.65)"
   },
   "audience": {
     "slug": "adult",

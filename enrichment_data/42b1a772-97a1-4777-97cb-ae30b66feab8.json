@@ -563,23 +563,45 @@
         "slug": "epic",
         "name": "Epic",
         "group": "tone",
-        "confidence": "medium",
+        "confidence": "high",
         "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "epic-tone",
+        "name": "Epic",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 2.12,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 3
+    "cross_tags_count": 5
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=pZJ2H63MAioC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71XynFESAbbJNO3Fw7UWDEt6ucEu1auAQD0s25U-w64wipDH-cixZH6G-gMtiW1EyxHV6v-K59QBB9WUc-SLn6kzfC3KcSmcDlQSSU00jL9VSdK3SxgAWJyFuzu78Cvdnqye5gw&source=gbs_api",
     "google_books": "https://books.google.com/books/content?id=pZJ2H63MAioC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "google_books_clean": "https://books.google.com/books/content?id=pZJ2H63MAioC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "openlibrary": "https://covers.openlibrary.org/b/olid/OL24934473M-L.jpg",
     "openlibrary_olid": "OL24934473M",
     "cover_id": "15099267",
-    "recommended": "https://covers.openlibrary.org/b/olid/OL24934473M-L.jpg",
-    "source": "openlibrary_olid"
+    "recommended": "https://books.google.com/books/content?id=pZJ2H63MAioC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "source": "google_books",
+    "quality_score": 100,
+    "quality_notes": [
+      "Existing Google Books URL has scan indicators (edge=curl)",
+      "Using clean Google Books URL (removed scan parameters)"
+    ]
   },
-  "last_updated": "2025-11-04T21:57:23.698Z",
+  "last_updated": "2025-11-05T14:41:45.541Z",
   "authors": {
     "original": [
       "Robert Jordan"

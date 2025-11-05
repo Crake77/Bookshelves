@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=TX5KCAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-01T19:05:11.741Z",
+  "last_updated": "2025-11-05T14:06:57.227Z",
   "authors": {
     "original": [
       "Marek C. Oziewicz"
@@ -35,43 +35,26 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "nonfiction",
+      "slug": "non-fiction",
       "confidence": "high",
-      "reason": "Scholarly analysis of YA literature"
+      "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
-        "slug": "essays-criticism",
-        "confidence": "high",
-        "reason": "Literary criticism focus"
+        "slug": "literature-writing",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       },
       {
-        "slug": "reference-education",
-        "confidence": "medium",
-        "reason": "Resource for educators"
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       }
     ],
-    "status": "completed",
+    "status": "suggested",
     "notes": [],
-    "genres": [
-      {
-        "slug": "cultural-studies",
-        "name": "Cultural Studies",
-        "confidence": "high"
-      },
-      {
-        "slug": "education",
-        "name": "Education & Teaching",
-        "confidence": "medium"
-      }
-    ],
-    "subgenres": [
-      {
-        "slug": "education-policy",
-        "name": "Education Policy",
-        "confidence": "medium"
-      }
-    ],
+    "genres": [],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "literary",
@@ -160,19 +143,19 @@
         ]
       },
       {
-        "slug": "scholar",
-        "name": "Scholar",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence"
-      },
-      {
         "slug": "dystopian",
         "name": "Dystopian",
         "group": "setting",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "scholar",
+        "name": "Scholar",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
@@ -184,201 +167,37 @@
         "method": "pattern-match+evidence"
       },
       {
-        "slug": "second-chances",
-        "name": "Second Chances",
-        "group": "tropes_themes",
-        "confidence": "medium",
-        "match_score": 1.2,
-        "method": "pattern-match+evidence"
-      },
-      {
         "slug": "gritty",
         "name": "Gritty",
         "group": "tone_mood",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "second-chances",
+        "name": "Second Chances",
+        "group": "tropes_themes",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 13,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "social-justice",
-        "name": "Justice in literature",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "genre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "high",
-            "id": "fst00985152",
-            "url": "https://id.worldcat.org/fast/985152"
-          }
-        ]
-      },
-      {
-        "slug": "indian-judges",
-        "name": "Indian judges",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00969124",
-            "url": "https://id.worldcat.org/fast/969124"
-          }
-        ]
-      },
-      {
-        "slug": "innes-l-c-lewis-charles",
-        "name": "Innes, L. C. (Lewis Charles)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01483995",
-            "url": "https://id.worldcat.org/fast/1483995"
-          }
-        ]
-      },
-      {
-        "slug": "justice-in-adolescence",
-        "name": "Justice in adolescence",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01200437",
-            "url": "https://id.worldcat.org/fast/1200437"
-          }
-        ]
-      },
-      {
-        "slug": "justice-in-art",
-        "name": "Justice in art",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00985151",
-            "url": "https://id.worldcat.org/fast/985151"
-          }
-        ]
-      },
-      {
-        "slug": "justice-in-comics",
-        "name": "Justice in comics",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst02061298",
-            "url": "https://id.worldcat.org/fast/2061298"
-          }
-        ]
-      },
-      {
-        "slug": "justice-in-mass-media",
-        "name": "Justice in mass media",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst02003071",
-            "url": "https://id.worldcat.org/fast/2003071"
-          }
-        ]
-      },
-      {
-        "slug": "justice-in-the-hadith",
-        "name": "Justice in the Hadith",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst02016944",
-            "url": "https://id.worldcat.org/fast/2016944"
-          }
-        ]
-      },
-      {
-        "slug": "justice-in-young-adults",
-        "name": "Justice in young adults",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01200438",
-            "url": "https://id.worldcat.org/fast/1200438"
-          }
-        ]
-      },
-      {
-        "slug": "social-justice-in-art",
-        "name": "Social justice in art",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01921435",
-            "url": "https://id.worldcat.org/fast/1921435"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 14
   },
   "format": {
-    "slug": "compendium",
-    "confidence": "medium",
-    "reason": "Scholarly nonfiction volume"
+    "slug": "novel",
+    "confidence": "high",
+    "score": 0.9833333333333334,
+    "reason": "Pattern-based detection: Novel (score: 0.98, threshold: 0.5)"
   },
   "audience": {
     "slug": "adult",

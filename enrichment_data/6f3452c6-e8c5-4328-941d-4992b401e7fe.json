@@ -103,7 +103,6 @@
         "reason": "Derived from categories"
       },
       {
-        "slug": "science-technology",
         "confidence": "suggested",
         "reason": "Derived from categories"
       }
@@ -156,11 +155,19 @@
         "name": "Alien Contact",
         "group": "trope",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 5
+    "cross_tags_count": 6
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=GYi1s6OuY-sC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71OHvqF9rBmkaRbj_8qsF7rwFpgTj3kO374DMoaO_z_TV-9NLZ2nIE1sEPUBvpg0E_fAw3uSvaqmEa8gKJF-NDOP2FVR-4b5Ei8HvYUz3nMuvnsE9B67vLCZcyb0HFkvfE4rIJG&source=gbs_api",
@@ -171,7 +178,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL9369820M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T21:58:01.485Z",
+  "last_updated": "2025-11-05T14:07:08.794Z",
   "authors": {
     "original": [
       "Orson Scott Card"

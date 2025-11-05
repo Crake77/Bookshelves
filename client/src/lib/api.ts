@@ -93,6 +93,8 @@ export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<B
   if (options.subgenre) params.set("subgenre", options.subgenre);
   if (options.tag) params.set("tag", options.tag);
   if (options.author) params.set("author", options.author);
+  if (options.series) params.set("series", options.series);
+  if (options.seriesPosition) params.set("seriesPosition", "true");
   if (typeof options.limit === "number") params.set("limit", String(options.limit));
   if (typeof options.offset === "number") params.set("offset", String(options.offset));
   if (Array.isArray(options.tagAny) && options.tagAny.length > 0) {
@@ -117,7 +119,8 @@ export async function fetchBrowseBooks(options: BrowseRequestOptions): Promise<B
       options.format ||
       options.audience ||
       options.domain ||
-      options.supergenre
+      options.supergenre ||
+      options.series
   );
 
   try {
@@ -576,4 +579,38 @@ export async function getBookStats(bookId: string): Promise<BookStats | null> {
   if (!response.ok) return null;
   return response.json();
 }
+
+// Cover Editions API
+export interface Edition {
+  id: string;
+  coverUrl: string | null;
+  format: string;
+  publicationDate: string | null;
+  editionStatement: string | null;
+  googleBooksId: string | null;
+  isbn13: string | null;
+  language: string | null;
+  market: string | null;
+}
+
+export async function getBookEditions(googleBooksId: string): Promise<Edition[]> {
+  const response = await fetch(`/api/books/${googleBooksId}/editions`);
+  if (!response.ok) return [];
+  return response.json();
+}
+
+// Series Info API
+export interface SeriesInfo {
+  series: string | null;
+  seriesOrder: number | null;
+  totalBooksInSeries: number | null;
+  workId: string | null;
+}
+
+export async function getBookSeriesInfo(googleBooksId: string): Promise<SeriesInfo | null> {
+  const response = await fetch(`/api/books/${googleBooksId}/series-info`);
+  if (!response.ok) return null;
+  return response.json();
+}
+
 import { getFallbackBrowse } from "./browseFallback";

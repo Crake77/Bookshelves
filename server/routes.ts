@@ -731,6 +731,111 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Get editions by Google Books ID (for cover selection)
+  app.get("/api/books/:googleBooksId/editions", async (req, res) => {
+    try {
+      const { googleBooksId } = req.params;
+      const { editions } = await import("@shared/schema.js");
+      const { works } = await import("@shared/schema.js");
+      const { eq, or } = await import("drizzle-orm");
+      
+      // Find edition by googleBooksId
+      const edition = await db
+        .select()
+        .from(editions)
+        .where(eq(editions.googleBooksId, googleBooksId))
+        .limit(1)
+        .execute();
+      
+      if (edition.length === 0) {
+        return res.json([]);
+      }
+      
+      const workId = edition[0].workId;
+      
+      // Get all editions for this work
+      const editionsList = await getWorkEditions(workId);
+      
+      // Filter to only high-quality covers (no scans)
+      const qualityEditions = editionsList.filter(e => {
+        if (!e.coverUrl) return false;
+        const url = e.coverUrl.toLowerCase();
+        return !url.includes('edge=curl') && !url.includes('edge=shadow');
+      });
+      
+      // If no quality editions, return all (user can still see them)
+      res.json(qualityEditions.length > 0 ? qualityEditions : editionsList);
+    } catch (error) {
+      console.error("Get editions error:", error);
+      res.status(500).json({ error: "Failed to get editions" });
+    }
+  });
+
+  // Get series info for a book
+  app.get("/api/books/:googleBooksId/series-info", async (req, res) => {
+    try {
+      const { googleBooksId } = req.params;
+      const { editions, works } = await import("@shared/schema.js");
+      const { eq, and, isNotNull, sql } = await import("drizzle-orm");
+      
+      // Find edition by googleBooksId
+      const edition = await db
+        .select({ workId: editions.workId })
+        .from(editions)
+        .where(eq(editions.googleBooksId, googleBooksId))
+        .limit(1)
+        .execute();
+      
+      if (edition.length === 0) {
+        return res.json({ series: null, seriesOrder: null, totalBooksInSeries: null, workId: null });
+      }
+      
+      const workId = edition[0].workId;
+      
+      // Get work info
+      const work = await db
+        .select({
+          series: works.series,
+          seriesOrder: works.seriesOrder,
+        })
+        .from(works)
+        .where(eq(works.id, workId))
+        .limit(1)
+        .execute();
+      
+      if (work.length === 0 || !work[0].series) {
+        return res.json({ series: null, seriesOrder: null, totalBooksInSeries: null, workId });
+      }
+      
+      const seriesName = work[0].series;
+      const seriesOrder = work[0].seriesOrder;
+      
+      // Count total books in main sequence (seriesOrder IS NOT NULL)
+      const totalCount = await db
+        .select({ count: sql<number>`count(*)` })
+        .from(works)
+        .where(
+          and(
+            eq(works.series, seriesName),
+            isNotNull(works.seriesOrder)
+          )
+        )
+        .execute();
+      
+      const totalBooksInSeries = totalCount[0]?.count || null;
+      
+      res.json({
+        series: seriesName,
+        seriesOrder,
+        totalBooksInSeries,
+        workId,
+      });
+    } catch (error) {
+      console.error("Get series info error:", error);
+      res.status(500).json({ error: "Failed to get series info" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

@@ -21,19 +21,26 @@ import {
   getBookStats,
   updateBookStatus,
   updateBookRating,
+  getBookEditions,
+  getBookSeriesInfo,
   DEMO_USER_ID,
   type BookSearchResult,
   type BookStats,
   type UserBook,
+  type Edition,
+  type SeriesInfo,
 } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Minus, Plus } from "lucide-react";
 import type { TaxonomyFilter } from "@/components/TaxonomyListDialog";
+import { getCoverPreference } from "@/lib/cover-preferences";
 //
 import { useShelfPreferences } from "@/hooks/usePreferences";
 import React, { Suspense as _Suspense } from "react";
 const LazyTaxonomyChips = React.lazy(() => import("@/components/BookTaxonomyChips"));
 const LazyTaxonomyListDialog = React.lazy(() => import("@/components/TaxonomyListDialog"));
+const LazyCoverCarouselDialog = React.lazy(() => import("@/components/CoverCarouselDialog"));
+const LazyBookSeriesMetadata = React.lazy(() => import("@/components/BookSeriesMetadata"));
 
 type HydratedUserBook = UserBook & { book?: BookSearchResult };
 
@@ -58,6 +65,8 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
   const [ratingInput, setRatingInput] = useState<string>("");
   const [isRatingOpen, setIsRatingOpen] = useState(false);
   const [hasTypedRating, setHasTypedRating] = useState(false);
+  const [coverCarouselOpen, setCoverCarouselOpen] = useState(false);
+  const [displayCoverUrl, setDisplayCoverUrl] = useState<string | undefined>(book?.coverUrl);
   const headerRef = useRef<HTMLDivElement | null>(null);
   const dividerRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -470,6 +479,48 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
     }
   }, [isRatingOpen, book?.googleBooksId]);
 
+  // Fetch editions for cover selection
+  const { data: editions = [] } = useQuery({
+    queryKey: ["/api/books", book?.googleBooksId, "editions"],
+    queryFn: () => getBookEditions(book!.googleBooksId),
+    enabled: open && !!book?.googleBooksId,
+  });
+
+  // Fetch series info
+  const { data: seriesInfo } = useQuery({
+    queryKey: ["/api/books", book?.googleBooksId, "series-info"],
+    queryFn: () => getBookSeriesInfo(book!.googleBooksId),
+    enabled: open && !!book?.googleBooksId,
+  });
+
+  // Load cover preference and update display cover
+  useEffect(() => {
+    if (!book) return;
+    
+    const preference = getCoverPreference(book.googleBooksId);
+    if (preference) {
+      setDisplayCoverUrl(preference.coverUrl);
+    } else {
+      setDisplayCoverUrl(book.coverUrl);
+    }
+  }, [book]);
+
+  // Listen for cover preference changes
+  useEffect(() => {
+    if (!book) return;
+    
+    const handleCoverChange = (e: CustomEvent) => {
+      if (e.detail.bookId === book.googleBooksId) {
+        setDisplayCoverUrl(e.detail.coverUrl || book.coverUrl);
+      }
+    };
+    
+    window.addEventListener("bookshelves:cover-preference-changed", handleCoverChange as EventListener);
+    return () => {
+      window.removeEventListener("bookshelves:cover-preference-changed", handleCoverChange as EventListener);
+    };
+  }, [book]);
+
   if (!book) return null;
 
   const isShelfUpdating =
@@ -529,10 +580,10 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
             />
             {/* Cover and Title Section */}
             <div className="relative z-10 overflow-hidden px-6 pt-8 pb-4 text-center">
-              {book.coverUrl ? (
+              {(displayCoverUrl || book.coverUrl) ? (
                 <>
                   <img
-                    src={book.coverUrl}
+                    src={displayCoverUrl || book.coverUrl}
                     alt={book.title}
                     className="absolute inset-0 h-full w-full object-cover opacity-40 blur-xl -z-20"
                   />
@@ -543,13 +594,20 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
               )}
 
               <div className="mx-auto flex max-w-md flex-col items-center gap-3">
-                {book.coverUrl && (
-                  <img
-                    src={book.coverUrl}
-                    alt={book.title}
-                    className="w-32 h-48 rounded-lg object-cover shadow-2xl"
-                    data-testid="img-book-cover"
-                  />
+                {(displayCoverUrl || book.coverUrl) && (
+                  <div
+                    className="relative cursor-pointer group"
+                    onClick={() => setCoverCarouselOpen(true)}
+                    title="Click to select cover edition"
+                  >
+                    <img
+                      src={displayCoverUrl || book.coverUrl}
+                      alt={book.title}
+                      className="w-32 h-48 rounded-lg object-cover shadow-2xl transition-transform group-hover:scale-105"
+                      data-testid="img-book-cover"
+                    />
+                    <div className="absolute inset-0 rounded-lg bg-black/0 group-hover:bg-black/5 transition-colors pointer-events-none" />
+                  </div>
                 )}
 
                 <h2 className="font-display text-xl font-bold" data-testid="text-book-title">{book.title}</h2>
@@ -573,6 +631,32 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
                       );
                     })}
                   </div>
+                )}
+                
+                {/* Series Metadata */}
+                {seriesInfo?.series && (
+                  <_Suspense fallback={null}>
+                    <LazyBookSeriesMetadata
+                      series={seriesInfo.series}
+                      seriesOrder={seriesInfo.seriesOrder}
+                      totalBooksInSeries={seriesInfo.totalBooksInSeries}
+                      onSeriesClick={() => {
+                        openTaxonomyDialog({
+                          kind: "series",
+                          slug: seriesInfo.series!.toLowerCase().replace(/\s+/g, "-"),
+                          label: seriesInfo.series!,
+                        });
+                      }}
+                      onPositionClick={() => {
+                        openTaxonomyDialog({
+                          kind: "series-position",
+                          slug: seriesInfo.series!.toLowerCase().replace(/\s+/g, "-"),
+                          label: seriesInfo.series!,
+                          seriesOrder: seriesInfo.seriesOrder!,
+                        });
+                      }}
+                    />
+                  </_Suspense>
                 )}
               </div>
             </div>
@@ -803,6 +887,19 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
           filter={taxonomyDialogFilter}
           sourceBookId={taxonomySource?.bookId}
           sourceGoogleBooksId={taxonomySource?.googleBooksId}
+        />
+        <LazyCoverCarouselDialog
+          open={coverCarouselOpen}
+          onOpenChange={setCoverCarouselOpen}
+          bookId={book.googleBooksId}
+          bookTitle={book.title}
+          editions={editions}
+          selectedEditionId={getCoverPreference(book.googleBooksId)?.editionId}
+          onSelect={(editionId, coverUrl) => {
+            setDisplayCoverUrl(coverUrl);
+            // Trigger re-render of book cards if needed
+            queryClient.invalidateQueries({ queryKey: ["/api/user-books"] });
+          }}
         />
       </_Suspense>
     </Dialog>

@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-01T19:05:10.854Z",
+  "last_updated": "2025-11-05T14:06:54.166Z",
   "authors": {
     "original": [
       "Dominika Oramus"
@@ -35,43 +35,26 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "nonfiction",
+      "slug": "non-fiction",
       "confidence": "high",
-      "reason": "Scholarly climate criticism of speculative fiction"
+      "reason": "Academic/analytical work (about genres, not in a genre)"
     },
     "supergenres": [
       {
-        "slug": "essays-criticism",
-        "confidence": "high",
-        "reason": "Academic literary analysis"
+        "slug": "literature-writing",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       },
       {
-        "slug": "science-nature",
-        "confidence": "medium",
-        "reason": "Focus on climate change discourse"
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       }
     ],
-    "status": "completed",
+    "status": "suggested",
     "notes": [],
-    "genres": [
-      {
-        "slug": "climate-change",
-        "name": "Climate Change",
-        "confidence": "high"
-      },
-      {
-        "slug": "cultural-studies",
-        "name": "Cultural Studies",
-        "confidence": "medium"
-      }
-    ],
-    "subgenres": [
-      {
-        "slug": "climate-activism",
-        "name": "Climate Activism",
-        "confidence": "medium"
-      }
-    ],
+    "genres": [],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "anxiety",
@@ -148,225 +131,61 @@
         ]
       },
       {
-        "slug": "scholar",
-        "name": "Scholar",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence"
-      },
-      {
         "slug": "eerie",
         "name": "Eerie",
         "group": "tone",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "scholar",
+        "name": "Scholar",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "death",
         "name": "Death",
         "group": "content_flags",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "transformation",
-        "name": "Transformation",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "suicide",
         "name": "Suicide",
         "group": "content_flags",
-        "confidence": "medium",
-        "match_score": 1,
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "transformation",
+        "name": "Transformation",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 12,
-    "cross_tags_status": "sufficient",
-    "external_subjects": [
-      {
-        "slug": "anxiety",
-        "name": "Anxiety",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "cross_tag",
-        "taxonomy_group": "content_flags",
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00810950",
-            "url": "https://id.worldcat.org/fast/810950"
-          }
-        ]
-      },
-      {
-        "slug": "anxiety-in-art",
-        "name": "Anxiety in art",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00810981",
-            "url": "https://id.worldcat.org/fast/810981"
-          }
-        ]
-      },
-      {
-        "slug": "anxiety-in-infants",
-        "name": "Anxiety in infants",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00810986",
-            "url": "https://id.worldcat.org/fast/810986"
-          }
-        ]
-      },
-      {
-        "slug": "anxiety-in-old-age",
-        "name": "Anxiety in old age",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00810988",
-            "url": "https://id.worldcat.org/fast/810988"
-          }
-        ]
-      },
-      {
-        "slug": "anxiety-in-women",
-        "name": "Anxiety in women",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00810989",
-            "url": "https://id.worldcat.org/fast/810989"
-          }
-        ]
-      },
-      {
-        "slug": "anxiety-in-youth",
-        "name": "Anxiety in youth",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00810991",
-            "url": "https://id.worldcat.org/fast/810991"
-          }
-        ]
-      },
-      {
-        "slug": "anxiety-sex-factors",
-        "name": "Anxiety--Sex factors",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00810974",
-            "url": "https://id.worldcat.org/fast/810974"
-          }
-        ]
-      },
-      {
-        "slug": "anxiety-testing",
-        "name": "Anxiety--Testing",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00810977",
-            "url": "https://id.worldcat.org/fast/810977"
-          }
-        ]
-      },
-      {
-        "slug": "endler-multidimensional-anxiety-scales",
-        "name": "Endler Multidimensional Anxiety Scales",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00909709",
-            "url": "https://id.worldcat.org/fast/909709"
-          }
-        ]
-      },
-      {
-        "slug": "social-phobia",
-        "name": "Social phobia",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01122723",
-            "url": "https://id.worldcat.org/fast/1122723"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 13
   },
   "format": {
-    "slug": "compendium",
-    "confidence": "medium",
-    "reason": "Scholarly nonfiction monograph"
+    "slug": "novel",
+    "confidence": "high",
+    "score": 1,
+    "reason": "Pattern-based detection: Novel (score: 1.00, threshold: 0.5)"
   },
   "audience": {
     "slug": "adult",

@@ -103,7 +103,6 @@
         "reason": "Derived from categories"
       },
       {
-        "slug": "science-technology",
         "confidence": "suggested",
         "reason": "Derived from categories"
       }
@@ -199,18 +198,10 @@
         "method": "semantic-inference"
       },
       {
-        "slug": "coming-of-age",
-        "name": "Coming of Age",
-        "group": "trope",
+        "slug": "eerie",
+        "name": "Eerie",
+        "group": "tone",
         "confidence": "high",
-        "match_score": 3.1,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "military-sf",
-        "name": "Military Sf",
-        "group": "trope",
-        "confidence": "medium",
         "match_score": 3,
         "method": "pattern-match"
       },
@@ -219,27 +210,43 @@
         "name": "Boot Camp",
         "group": "trope",
         "confidence": "high",
-        "match_score": 2.2,
+        "match_score": 3,
         "method": "pattern-match"
       },
       {
-        "slug": "eerie",
-        "name": "Eerie",
-        "group": "tone",
+        "slug": "coming-of-age",
+        "name": "Coming of Age",
+        "group": "trope",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "military-sf",
+        "name": "Military Sf",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       },
       {
         "slug": "loyalty",
         "name": "Loyalty",
         "group": "tropes_themes",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 14
+    "cross_tags_count": 15
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=k9vI7-WwGmMC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73AF80tkXOCNuJsDDgXrc5a87s6CmnlRFPjcgZ67kVKs2XrfhDHRGnuWhlqZj6AJFobpUsdt7BkCsD8oGhyCYCflv_OeZ63hmjG8rz5FMgf9xwZuZ0ZzvgWJlNowUAWxwgO1Zpm&source=gbs_api",
@@ -250,7 +257,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL1532287M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T21:57:48.920Z",
+  "last_updated": "2025-11-05T14:07:04.337Z",
   "authors": {
     "original": [
       "Orson Scott Card"

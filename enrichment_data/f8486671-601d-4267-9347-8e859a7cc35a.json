@@ -582,31 +582,39 @@
         "method": "semantic-inference"
       },
       {
-        "slug": "xianxia",
-        "name": "Xianxia",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 3,
-        "method": "pattern-match"
-      },
-      {
         "slug": "progression-fantasy",
         "name": "Progression Fantasy",
         "group": "trope",
         "confidence": "high",
-        "match_score": 2.2,
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "xianxia",
+        "name": "Xianxia",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
         "method": "pattern-match"
       },
       {
         "slug": "farm-setting",
         "name": "Farm Setting",
         "group": "setting",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 7
+    "cross_tags_count": 8
   },
   "cover_urls": {
     "existing": "https://novelfull.com/uploads/thumbs/world-of-cultivation-cb76fd4183-2239c49aee6b961904acf173b7e4602a.jpg",
@@ -617,7 +625,7 @@
     "recommended": "https://books.google.com/books/content?id=web-world-of-cultivation&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-04T21:58:52.010Z",
+  "last_updated": "2025-11-05T14:07:12.830Z",
   "authors": {
     "original": [
       "Fang Xiang"

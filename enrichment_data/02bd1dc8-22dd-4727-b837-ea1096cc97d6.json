@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=jHVsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-01T19:05:11.416Z",
+  "last_updated": "2025-11-05T14:06:56.184Z",
   "authors": {
     "original": [
       "Philip Hayward"
@@ -35,48 +35,32 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "nonfiction",
+      "slug": "fiction",
       "confidence": "high",
-      "reason": "Case studies in urban environmental planning"
+      "reason": "Fiction genre overrides keyword match: business & economics, fantasy"
     },
     "supergenres": [
       {
-        "slug": "science-nature",
-        "confidence": "high",
-        "reason": "Environmental science focus"
+        "slug": "business-economics",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       },
       {
-        "slug": "business-economics",
-        "confidence": "medium",
-        "reason": "Discusses economic development impacts"
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       }
     ],
-    "status": "completed",
+    "status": "suggested",
     "notes": [],
     "genres": [
       {
-        "slug": "environmental-science",
-        "name": "Environmental Science",
-        "confidence": "high"
-      },
-      {
-        "slug": "economics",
-        "name": "Economics",
-        "confidence": "medium"
+        "slug": "fantasy",
+        "name": "Fantasy",
+        "confidence": "suggested"
       }
     ],
-    "subgenres": [
-      {
-        "slug": "climate-policy",
-        "name": "Climate Policy",
-        "confidence": "medium"
-      },
-      {
-        "slug": "urban-sociology",
-        "name": "Urban Sociology",
-        "confidence": "medium"
-      }
-    ],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "conclusion",
@@ -120,174 +104,72 @@
         ]
       },
       {
+        "slug": "anthology",
+        "name": "Anthology",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "cc5660f3-4c8b-4825-8619-b934eab1c535"
+        ]
+      },
+      {
         "slug": "suspenseful",
         "name": "Suspenseful",
         "group": "tone_mood",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "poverty",
         "name": "Poverty",
         "group": "content_flags",
-        "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "shapeshifting",
-        "name": "Shapeshifting",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "lush",
-        "name": "Lush",
-        "group": "tone",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "coastal",
         "name": "Coastal",
         "group": "setting",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "lush",
+        "name": "Lush",
+        "group": "tone",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "shapeshifting",
+        "name": "Shapeshifting",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 9,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "blue-ridge-school-greene-county-va",
-        "name": "Blue Ridge School (Greene County, Va.)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01777504",
-            "url": "https://id.worldcat.org/fast/1777504"
-          }
-        ]
-      },
-      {
-        "slug": "cyanobacteria",
-        "name": "Cyanobacteria",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00885738",
-            "url": "https://id.worldcat.org/fast/885738"
-          }
-        ]
-      },
-      {
-        "slug": "cyanobacterial-toxins",
-        "name": "Cyanobacterial toxins",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00885752",
-            "url": "https://id.worldcat.org/fast/885752"
-          }
-        ]
-      },
-      {
-        "slug": "edwin-h-greene-intermediate-school-blue-ash-ohio",
-        "name": "Edwin H. Greene Intermediate School (Blue Ash, Ohio)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01671662",
-            "url": "https://id.worldcat.org/fast/1671662"
-          }
-        ]
-      },
-      {
-        "slug": "graphocephala-atropunctata",
-        "name": "Graphocephala atropunctata",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01983230",
-            "url": "https://id.worldcat.org/fast/1983230"
-          }
-        ]
-      },
-      {
-        "slug": "green-flash",
-        "name": "Green flash",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00947606",
-            "url": "https://id.worldcat.org/fast/947606"
-          }
-        ]
-      },
-      {
-        "slug": "super-blue-green-algae-dietary-supplement",
-        "name": "Super Blue Green Algae (Dietary supplement)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01938746",
-            "url": "https://id.worldcat.org/fast/1938746"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 11
   },
   "format": {
     "slug": "anthology",
-    "confidence": "high",
-    "reason": "Title or description indicates anthology/collection format"
+    "confidence": "low",
+    "score": 0.6166666666666666,
+    "reason": "Pattern-based detection: Anthology (score: 0.62, threshold: 0.6)"
   },
   "audience": {
     "slug": "adult",

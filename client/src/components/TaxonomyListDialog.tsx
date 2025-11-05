@@ -10,12 +10,13 @@ import React, { lazy, Suspense } from "react";
 import BookCard from "@/components/BookCard";
 const BookDetailDialog = lazy(() => import("@/components/BookDetailDialog"));
 
-type Kind = "genre" | "subgenre" | "tag" | "author" | "format" | "audience";
+type Kind = "genre" | "subgenre" | "tag" | "author" | "format" | "audience" | "series" | "series-position";
 
 export interface TaxonomyFilter {
   kind: Kind;
   slug: string; // for author this is the display name we query by
   label: string;
+  seriesOrder?: number; // Only for series-position kind
 }
 
 interface Props {
@@ -43,6 +44,11 @@ function useTaxonomyInfinite(filter: TaxonomyFilter | null, ranking: BrowseAlgo)
       if (filter.kind === "author") params.author = filter.slug;
       if (filter.kind === "format") params.format = filter.slug;
       if (filter.kind === "audience") params.audience = filter.slug;
+      if (filter.kind === "series") params.series = filter.slug;
+      if (filter.kind === "series-position") {
+        params.series = filter.slug;
+        params.seriesPosition = true; // Flag to exclude prequels/add-ons
+      }
       return fetchBrowseBooks(params);
     },
     getNextPageParam: (lastPage: BookSearchResult[], _pages, lastPageParam: number) =>

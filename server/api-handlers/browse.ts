@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { neon } from "@neondatabase/serverless";
+import { sql } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
 type SqlClient = ReturnType<typeof neon>;
@@ -23,6 +24,8 @@ interface BrowseParams {
   audienceSlug?: string | null;  // taxonomy: age market slug
   domainSlug?: string | null;    // taxonomy: domain slug
   supergenreSlug?: string | null; // taxonomy: supergenre slug
+  series?: string | null; // series slug (e.g., "wheel-of-time")
+  seriesPosition?: boolean; // if true, only show books with seriesOrder (main sequence)
   limit: number;
   offset: number;
 }
@@ -499,6 +502,14 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
+        -- Series filter: join books -> editions -> works
+        AND (${params.series ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM editions e
+          JOIN works w ON w.id = e.work_id
+          WHERE e.legacy_book_id = b.id
+            AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+            ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
+        ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -570,6 +581,14 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
         AND (${params.authorName ?? null}::text IS NULL OR EXISTS (
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
+        ))
+        -- Series filter: join books -> editions -> works
+        AND (${params.series ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM editions e
+          JOIN works w ON w.id = e.work_id
+          WHERE e.legacy_book_id = b.id
+            AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+            ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
         ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
@@ -1510,6 +1529,14 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
             WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
           ))
+          -- Series filter: join books -> editions -> works
+          AND (${params.series ?? null}::text IS NULL OR EXISTS (
+            SELECT 1 FROM editions e
+            JOIN works w ON w.id = e.work_id
+            WHERE e.legacy_book_id = b.id
+              AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
+          ))
         ),
         preference_scores AS (
           SELECT
@@ -1796,6 +1823,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const audienceSlug = typeof req.query.audience === "string" ? req.query.audience : null;
     const domainSlug = typeof req.query.domain === "string" ? req.query.domain : null;
     const supergenreSlug = typeof req.query.supergenre === "string" ? req.query.supergenre : null;
+    const seriesSlug = typeof req.query.series === "string" ? req.query.series : null;
+    const seriesPosition = typeof req.query.seriesPosition === "string" && req.query.seriesPosition === "true";
 
     if (algo === "for-you" && !userId) {
       return res.status(400).json({ error: "userId is required for for-you recommendations" });
@@ -1823,6 +1852,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       audienceSlug,
       domainSlug,
       supergenreSlug,
+      series: seriesSlug,
+      seriesPosition,
     });
 
     res.status(200).json(books);

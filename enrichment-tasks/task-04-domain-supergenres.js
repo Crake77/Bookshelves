@@ -34,7 +34,7 @@ function determineDomain(book) {
   
   if (hasAcademicPhrase || isGenreAnalysis) {
     return { 
-      slug: 'non-fiction', 
+      slug: 'nonfiction', 
       confidence: 'high', 
       reason: 'Academic/analytical work (about genres, not in a genre)' 
     };
@@ -42,7 +42,7 @@ function determineDomain(book) {
   
   // PRIORITY 2: Literary criticism is always non-fiction
   if (categories.some(cat => cat.includes('literary criticism') || cat.includes('criticism'))) {
-    return { slug: 'non-fiction', confidence: 'high', reason: 'Literary criticism is non-fiction' };
+    return { slug: 'nonfiction', confidence: 'high', reason: 'Literary criticism is non-fiction' };
   }
   
   // PRIORITY 3: Detect "Social Science", "Political Science" etc.
@@ -74,7 +74,7 @@ function determineDomain(book) {
   
   if (hasNonfictionCategory) {
     return { 
-      slug: 'non-fiction', 
+      slug: 'nonfiction', 
       confidence: 'high', 
       reason: `Explicit non-fiction category: ${categories.join(', ')}` 
     };
@@ -119,9 +119,9 @@ function suggestSupergenres(book, domain) {
     'business': ['business-economics'],
     // For non-fiction science books, use science-nature supergenre
     // For technology/engineering books, use technology-engineering supergenre
-    'science': domain === 'non-fiction' ? ['science-nature'] : [],
-    'technology': domain === 'non-fiction' ? ['technology-engineering'] : [],
-    'engineering': domain === 'non-fiction' ? ['technology-engineering'] : []
+        'science': domain === 'nonfiction' ? ['science-nature'] : [],
+        'technology': domain === 'nonfiction' ? ['technology-engineering'] : [],
+        'engineering': domain === 'nonfiction' ? ['technology-engineering'] : []
   };
   
   categories.forEach(cat => {

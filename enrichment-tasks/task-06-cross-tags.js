@@ -276,7 +276,7 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
       const fairyTaleTags = ['fairy-tale', 'dark-fairy-tale', 'fairy-tale-retelling', 'fairy-tale-ending', 'twisted-fairy-tale'];
       if (fairyTaleTags.includes(tagSlug)) {
         // Only match if "fairy tale" appears as a complete phrase AND book is fiction
-        if (!(/\bfairy[\s-]tales?\b/i.test(title) || /\bfairy[\s-]tales?\b/i.test(description)) || domain === 'non-fiction') {
+        if (!(/\bfairy[\s-]tales?\b/i.test(title) || /\bfairy[\s-]tales?\b/i.test(description)) || domain === 'nonfiction') {
           matchScore = 0;
         }
       }
@@ -288,7 +288,7 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
         'high-elves', 'dragons', 'magic-system', 'prophecy', 'portal',
         'time-travel', 'parallel-worlds', 'first-contact', 'space-opera'
       ];
-      if (domain === 'non-fiction' && fictionTropes.includes(tagSlug)) {
+      if (domain === 'nonfiction' && fictionTropes.includes(tagSlug)) {
         matchScore = 0;
       }
       
@@ -298,40 +298,88 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
         // No direct match, try pattern matching
         const allText = `${title} ${description} ${categories.join(' ')} ${evidenceSources.map(s => s.extract).join(' ')}`.toLowerCase();
         
-        // Check exact phrases from pattern
-        if (pattern.exact && Array.isArray(pattern.exact)) {
-          for (const phrase of pattern.exact) {
-            const phraseRegex = new RegExp(`\\b${phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-            if (phraseRegex.test(allText)) {
-              matchScore = 3; // Minimum threshold for pattern match
-              break;
+        // SPECIAL RULE for artificial-intelligence: require more context, avoid standalone "AI"
+        if (tagSlug === 'artificial-intelligence') {
+          // Don't match standalone "AI" - require it to be part of a phrase
+          const standaloneAI = /\bAI\b/i;
+          const hasStandaloneAI = standaloneAI.test(allText);
+          const hasContextualAI = /\b(artificial intelligence|AI (system|character|protagonist|entity|technology)|sentient AI|conscious AI|self-aware AI)\b/i.test(allText);
+          
+          // Only proceed if we have contextual AI, not just standalone
+          if (hasStandaloneAI && !hasContextualAI) {
+            // Skip - standalone AI is too broad
+            matchScore = 0;
+          } else {
+            // Check exact phrases from pattern
+            if (pattern.exact && Array.isArray(pattern.exact)) {
+              for (const phrase of pattern.exact) {
+                const phraseRegex = new RegExp(`\\b${phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+                if (phraseRegex.test(allText)) {
+                  matchScore = 3; // Minimum threshold for pattern match
+                  break;
+                }
+              }
+            }
+            
+            // Check phrases (which require context)
+            if (matchScore === 0 && pattern.phrases && Array.isArray(pattern.phrases)) {
+              for (const phrase of pattern.phrases) {
+                const phraseRegex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+                if (phraseRegex.test(allText)) {
+                  matchScore = 2; // Lower score for phrase match
+                  break;
+                }
+              }
+            }
+            
+            // Check synonyms if phrases didn't match
+            if (matchScore === 0 && pattern.synonyms && Array.isArray(pattern.synonyms)) {
+              for (const synonym of pattern.synonyms) {
+                const synonymRegex = new RegExp(`\\b${synonym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+                if (synonymRegex.test(allText)) {
+                  matchScore = 2; // Lower score for synonym match
+                  break;
+                }
+              }
+            }
+          }
+        } else {
+          // Standard pattern matching for other tags
+          // Check exact phrases from pattern
+          if (pattern.exact && Array.isArray(pattern.exact)) {
+            for (const phrase of pattern.exact) {
+              const phraseRegex = new RegExp(`\\b${phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+              if (phraseRegex.test(allText)) {
+                matchScore = 3; // Minimum threshold for pattern match
+                break;
+              }
+            }
+          }
+          
+          // Check synonyms if exact didn't match
+          if (matchScore === 0 && pattern.synonyms && Array.isArray(pattern.synonyms)) {
+            for (const synonym of pattern.synonyms) {
+              const synonymRegex = new RegExp(`\\b${synonym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+              if (synonymRegex.test(allText)) {
+                matchScore = 2; // Lower score for synonym match
+                break;
+              }
+            }
+          }
+          
+          // Check phrases if synonyms didn't match
+          if (matchScore === 0 && pattern.phrases && Array.isArray(pattern.phrases)) {
+            for (const phrase of pattern.phrases) {
+              const phraseRegex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+              if (phraseRegex.test(allText)) {
+                matchScore = 2; // Lower score for phrase match
+                break;
+              }
             }
           }
         }
         
-        // Check synonyms if exact didn't match
-        if (matchScore === 0 && pattern.synonyms && Array.isArray(pattern.synonyms)) {
-          for (const synonym of pattern.synonyms) {
-            const synonymRegex = new RegExp(`\\b${synonym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-            if (synonymRegex.test(allText)) {
-              matchScore = 2; // Lower score for synonym match
-              break;
-            }
-          }
-        }
-        
-        // Check phrases if synonyms didn't match
-        if (matchScore === 0 && pattern.phrases && Array.isArray(pattern.phrases)) {
-          for (const phrase of pattern.phrases) {
-            const phraseRegex = new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-            if (phraseRegex.test(allText)) {
-              matchScore = 2; // Lower score for phrase match
-              break;
-            }
-          }
-        }
-        
-        // Check avoid patterns - if matched, disqualify
+        // Check avoid patterns - if matched, disqualify (for all tags)
         if (matchScore > 0 && pattern.avoid && Array.isArray(pattern.avoid)) {
           for (const avoidPattern of pattern.avoid) {
             const avoidRegex = new RegExp(avoidPattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');

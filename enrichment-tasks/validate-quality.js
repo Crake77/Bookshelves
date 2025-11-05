@@ -27,7 +27,7 @@ function validateEnrichment(bookId) {
   const nonfictionGenres = ['history', 'biography', 'memoir', 'autobiography', 'business', 'economics', 'psychology', 'philosophy'];
   
   genres.forEach(genre => {
-    if (domain === 'non-fiction' && fictionGenres.includes(genre.slug)) {
+    if (domain === 'nonfiction' && fictionGenres.includes(genre.slug)) {
       issues.push(`Genre '${genre.slug}' is fiction but domain is non-fiction`);
     }
     if (domain === 'fiction' && nonfictionGenres.includes(genre.slug)) {
@@ -58,7 +58,7 @@ function validateEnrichment(bookId) {
     'high-elves', 'dragons', 'magic-system', 'prophecy', 'portal'
   ];
   
-  if (domain === 'non-fiction') {
+  if (domain === 'nonfiction') {
     const fictionTropeCount = crossTags.filter(tag => fictionTropes.includes(tag.slug)).length;
     if (fictionTropeCount > 0) {
       issues.push(`Non-fiction book has ${fictionTropeCount} fiction trope tags: ${crossTags.filter(tag => fictionTropes.includes(tag.slug)).map(t => t.slug).join(', ')}`);

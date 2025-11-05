@@ -587,11 +587,19 @@
         "method": "semantic-inference"
       },
       {
+        "slug": "possession",
+        "name": "Possession",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
         "slug": "dragons",
         "name": "Dragons",
         "group": "trope",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
         "method": "pattern-match"
       },
       {
@@ -599,14 +607,14 @@
         "name": "Reincarnation",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
         "method": "pattern-match"
       },
       {
-        "slug": "possession",
-        "name": "Possession",
-        "group": "content_flags",
-        "confidence": "high",
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
         "match_score": 2,
         "method": "pattern-match"
       },
@@ -614,12 +622,12 @@
         "slug": "prophecy",
         "name": "Prophecy",
         "group": "tropes_themes",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 14
+    "cross_tags_count": 15
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=yngEsxEO4QYC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE70_Azr3z5bbE4e2MAForYW9MNQQdxip6TfWwhTltnPnL99OUMBHmTXPYfM76MQjeK4_vIgQJsfz5hT7RTWHiAQU6KgRp4lecABulT5izHFXEepH6AAByHlWB5MgpTzhxhv6Z9Hb&source=gbs_api",
@@ -630,7 +638,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24395187M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T21:57:36.336Z",
+  "last_updated": "2025-11-05T14:07:09.812Z",
   "authors": {
     "original": [
       "Robert Jordan"

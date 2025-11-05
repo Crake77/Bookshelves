@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL1275650M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-01T19:05:13.745Z",
+  "last_updated": "2025-11-05T14:07:03.384Z",
   "authors": {
     "original": [
       "Isaac Asimov",
@@ -39,43 +39,36 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "nonfiction",
+      "slug": "fiction",
       "confidence": "high",
-      "reason": "Educational overview of science fiction concepts"
+      "reason": "Fiction genre overrides keyword match: juvenile nonfiction, science fiction"
     },
     "supergenres": [
       {
-        "slug": "reference-education",
-        "confidence": "high",
-        "reason": "Juvenile reference title"
+        "slug": "speculative-fiction",
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       },
       {
-        "slug": "science-nature",
-        "confidence": "medium",
-        "reason": "Explores scientific ideas behind fiction"
+        "confidence": "suggested",
+        "reason": "Derived from categories"
       }
     ],
-    "status": "completed",
+    "status": "suggested",
     "notes": [],
     "genres": [
       {
-        "slug": "education",
-        "name": "Education & Teaching",
-        "confidence": "high"
+        "slug": "reference",
+        "name": "Reference (General)",
+        "confidence": "suggested"
       },
       {
         "slug": "science-fiction",
         "name": "Science Fiction",
-        "confidence": "medium"
+        "confidence": "suggested"
       }
     ],
-    "subgenres": [
-      {
-        "slug": "curriculum-design",
-        "name": "Curriculum Design",
-        "confidence": "low"
-      }
-    ],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "space",
@@ -280,7 +273,7 @@
         "slug": "educational-tone",
         "name": "Educational",
         "group": "tone_mood",
-        "confidence": "medium",
+        "confidence": "high",
         "match_score": 4,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
@@ -292,143 +285,22 @@
         "name": "Alien Contact",
         "group": "trope",
         "confidence": "high",
-        "match_score": 3.1,
+        "match_score": 3,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 20,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "science-fiction",
-        "name": "Science fiction",
-        "confidence": "high",
-        "kind": "topic",
-        "taxonomy_type": "genre",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "high",
-            "id": "fst01108566",
-            "url": "https://id.worldcat.org/fast/1108566"
-          }
-        ]
-      },
-      {
-        "slug": "science-fiction-arabic",
-        "name": "Science fiction, Arabic",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01108646",
-            "url": "https://id.worldcat.org/fast/1108646"
-          }
-        ]
-      },
-      {
-        "slug": "science-fiction-fans",
-        "name": "Science fiction fans",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01108615",
-            "url": "https://id.worldcat.org/fast/1108615"
-          }
-        ]
-      },
-      {
-        "slug": "science-fiction-films",
-        "name": "Science fiction films",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01108616",
-            "url": "https://id.worldcat.org/fast/1108616"
-          }
-        ]
-      },
-      {
-        "slug": "science-fiction-in-art",
-        "name": "Science fiction in art",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01108621",
-            "url": "https://id.worldcat.org/fast/1108621"
-          }
-        ]
-      },
-      {
-        "slug": "science-fiction-plays",
-        "name": "Science fiction plays",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01108622",
-            "url": "https://id.worldcat.org/fast/1108622"
-          }
-        ]
-      },
-      {
-        "slug": "science-fiction-poetry",
-        "name": "Science fiction poetry",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01108627",
-            "url": "https://id.worldcat.org/fast/1108627"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 20
   },
   "format": {
-    "slug": "compendium",
-    "confidence": "medium",
-    "reason": "Educational nonfiction comparing science and fiction"
+    "slug": "novel",
+    "confidence": "high",
+    "score": 0.9,
+    "reason": "Pattern-based detection: Novel (score: 0.90, threshold: 0.5)"
   },
   "audience": {
-    "slug": "middle-grade",
+    "slug": "children",
     "confidence": "medium",
-    "reason": "Juvenile nonfiction positioning aligns with middle-grade readers"
+    "reason": "Category indicates Juvenile/Children"
   },
   "evidence": {
     "work_id": "b1e089dd-50f1-4aa6-9435-8d0e6c62983b",

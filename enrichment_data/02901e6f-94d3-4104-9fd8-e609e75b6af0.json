@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-01T19:05:11.105Z",
+  "last_updated": "2025-11-05T14:06:55.140Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -35,46 +35,18 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "nonfiction",
+      "slug": "non-fiction",
       "confidence": "high",
-      "reason": "Critical essays on cosmic horror media"
+      "reason": "Academic/analytical work (about genres, not in a genre)"
     },
-    "supergenres": [
-      {
-        "slug": "essays-criticism",
-        "confidence": "high",
-        "reason": "Literary/cultural criticism"
-      },
-      {
-        "slug": "arts-entertainment",
-        "confidence": "medium",
-        "reason": "Analyzes horror across media"
-      }
-    ],
-    "status": "completed",
+    "supergenres": [],
+    "status": "needs_manual_review",
     "notes": [
       "WARNING: No supergenres could be automatically suggested",
       "MANUAL STEP: Assign 1-2 supergenres from taxonomy"
     ],
-    "genres": [
-      {
-        "slug": "cultural-studies",
-        "name": "Cultural Studies",
-        "confidence": "high"
-      },
-      {
-        "slug": "arts-entertainment",
-        "name": "Arts & Entertainment",
-        "confidence": "medium"
-      }
-    ],
-    "subgenres": [
-      {
-        "slug": "film-studies",
-        "name": "Film Studies",
-        "confidence": "medium"
-      }
-    ],
+    "genres": [],
+    "subgenres": [],
     "cross_tags": [
       {
         "slug": "lovecraftian",
@@ -253,183 +225,48 @@
         ]
       },
       {
-        "slug": "suspenseful",
-        "name": "Suspenseful",
-        "group": "tone_mood",
+        "slug": "anthology",
+        "name": "Anthology",
+        "group": "market",
         "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence"
+        "match_score": 3,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "1b739773-ea63-4678-bb25-1c1627e9330c"
+        ]
       },
       {
         "slug": "eerie",
         "name": "Eerie",
         "group": "tone",
         "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
-        "slug": "conformist",
-        "name": "Conformist",
-        "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.2,
+        "slug": "suspenseful",
+        "name": "Suspenseful",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
-        "slug": "shapeshifting",
-        "name": "Shapeshifting",
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
         "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 20,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "animals-summering",
-        "name": "Animals--Summering",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00809550",
-            "url": "https://id.worldcat.org/fast/809550"
-          }
-        ]
-      },
-      {
-        "slug": "folklore-institute-of-america",
-        "name": "Folklore Institute of America",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00587018",
-            "url": "https://id.worldcat.org/fast/587018"
-          }
-        ]
-      },
-      {
-        "slug": "letnii-dvoret-s-petra-i",
-        "name": "Letniĭ dvoret︠s︡ Petra I",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00514524",
-            "url": "https://id.worldcat.org/fast/514524"
-          }
-        ]
-      },
-      {
-        "slug": "norfolk-chamber-music-festival-yale-summer-school-of-music",
-        "name": "Norfolk Chamber Music Festival/Yale Summer School of Music",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01560013",
-            "url": "https://id.worldcat.org/fast/1560013"
-          }
-        ]
-      },
-      {
-        "slug": "shinnecock-summer-school-of-art",
-        "name": "Shinnecock Summer School of Art",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00624832",
-            "url": "https://id.worldcat.org/fast/624832"
-          }
-        ]
-      },
-      {
-        "slug": "summer-institute-of-linguistics",
-        "name": "Summer Institute of Linguistics",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00549719",
-            "url": "https://id.worldcat.org/fast/549719"
-          }
-        ]
-      },
-      {
-        "slug": "summer-of-the-swans-byars-betsy",
-        "name": "Summer of the swans (Byars, Betsy)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01374463",
-            "url": "https://id.worldcat.org/fast/1374463"
-          }
-        ]
-      },
-      {
-        "slug": "telling-seymour-miranda",
-        "name": "Telling (Seymour, Miranda)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01393060",
-            "url": "https://id.worldcat.org/fast/1393060"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 20
   },
   "format": {
     "slug": "anthology",
-    "confidence": "high",
-    "reason": "Title or description indicates anthology/collection format"
+    "confidence": "medium",
+    "score": 0.7,
+    "reason": "Pattern-based detection: Anthology (score: 0.70, threshold: 0.6)"
   },
   "audience": {
     "slug": "adult",

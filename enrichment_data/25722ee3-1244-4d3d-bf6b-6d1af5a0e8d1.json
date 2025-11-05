@@ -539,12 +539,20 @@
         "slug": "adhd",
         "name": "Adhd",
         "group": "representation",
-        "confidence": "medium",
-        "match_score": 1.2,
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 10
+    "cross_tags_count": 11
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=v-RwEAAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73D4ORCcqrUwR55BlxC6ML0PK4cgpGSlSVmhdxgGFwHRwfpWbLAIB2AyVMUWwjdLczRexYuPwTAfIDSsoAJFriMzDD6LFUp_XW3Hu_6nNIMlZEIrRXcOcW7Y8FCXFb-5H-HtZI4&source=gbs_api",
@@ -555,7 +563,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL38067039M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T21:59:04.631Z",
+  "last_updated": "2025-11-05T14:07:05.229Z",
   "authors": {
     "original": [
       "S.I.U.",

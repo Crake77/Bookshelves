@@ -469,6 +469,14 @@
         "method": "semantic-inference"
       },
       {
+        "slug": "demons",
+        "name": "Demons",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match"
+      },
+      {
         "slug": "progression-fantasy",
         "name": "Progression Fantasy",
         "group": "trope",
@@ -480,20 +488,20 @@
         "slug": "progression",
         "name": "Progression",
         "group": "tropes_themes",
-        "confidence": "medium",
+        "confidence": "high",
         "match_score": 3,
         "method": "pattern-match"
       },
       {
-        "slug": "demons",
-        "name": "Demons",
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
         "group": "trope",
-        "confidence": "high",
-        "match_score": 2.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 12
+    "cross_tags_count": 13
   },
   "cover_urls": {
     "existing": "https://www.royalroadcdn.com/public/covers-full/25225-delve.jpg",
@@ -504,7 +512,7 @@
     "recommended": "https://books.google.com/books/content?id=royalroad-path-of-the-deathless&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-04T21:58:39.443Z",
+  "last_updated": "2025-11-05T14:07:11.840Z",
   "authors": {
     "original": [
       "SenescentSoul"

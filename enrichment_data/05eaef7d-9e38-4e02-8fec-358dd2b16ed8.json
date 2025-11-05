@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=NJFzGwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-04T19:56:51.230Z",
+  "last_updated": "2025-11-05T14:07:02.180Z",
   "authors": {
     "original": [
       "Science Fiction Writers of America"
@@ -46,7 +46,6 @@
         "reason": "Derived from categories"
       },
       {
-        "slug": "science-nature",
         "confidence": "suggested",
         "reason": "Derived from categories"
       }
@@ -127,43 +126,42 @@
         "method": "pattern-match+evidence"
       },
       {
+        "slug": "anthology",
+        "name": "Anthology",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "57f47799-a209-4fcc-b3be-7fc030648537"
+        ]
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
         "slug": "conformist",
         "name": "Conformist",
         "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.2,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       },
       {
         "slug": "transformation",
         "name": "Transformation",
         "group": "trope",
-        "confidence": "medium",
-        "match_score": 1.1,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 10,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "nebula-award",
-        "name": "Nebula Award",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01035326",
-            "url": "https://id.worldcat.org/fast/1035326"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 12
   },
   "format": {
     "slug": "novel",

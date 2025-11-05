@@ -29,7 +29,7 @@ function suggestGenres(book, domain) {
   // Don't map it to 'literary-fiction' which is a fiction genre
   if (categories.some(cat => cat.includes('literary criticism') || cat.includes('criticism'))) {
     // This is academic analysis - check domain
-    if (domain === 'non-fiction') {
+    if (domain === 'nonfiction') {
       // Could be literary-criticism, cultural-studies, etc.
       // For now, leave empty and require manual assignment
       return [];
@@ -38,7 +38,7 @@ function suggestGenres(book, domain) {
   
   // CRITICAL: Google Books often adds spurious "Fantasy" category based on title words
   // Only trust "Fantasy" if there's supporting evidence
-  if (categories.includes('fantasy') && domain === 'non-fiction') {
+  if (categories.includes('fantasy') && domain === 'nonfiction') {
     // Remove fantasy from categories - it's likely a false positive
     console.log(`    ⚠️  Ignoring spurious 'Fantasy' category for non-fiction book (likely from title)`);
     const filteredCategories = categories.filter(c => c !== 'fantasy');
@@ -87,7 +87,7 @@ function suggestGenres(book, domain) {
           return;
         }
         
-        if (domain === 'non-fiction' && isFictionGenre) {
+        if (domain === 'nonfiction' && isFictionGenre) {
           // Skip fiction genres for non-fiction books
           console.log(`    ⚠️  Skipping fiction genre '${slug}' for non-fiction book (likely from title keyword)`);
           return;

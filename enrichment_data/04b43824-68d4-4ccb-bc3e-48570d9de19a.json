@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL27208943M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-01T19:05:13.105Z",
+  "last_updated": "2025-11-05T14:07:01.384Z",
   "authors": {
     "original": [
       "Abbi Glines"
@@ -177,187 +177,39 @@
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
         ]
+      },
+      {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
+        "slug": "child-soldiers",
+        "name": "Child Soldiers",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 4,
+        "method": "semantic-inference"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 11,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "can-vei-la-lauzeta-bernart-de-ventadorn",
-        "name": "Can vei la lauzeta (Bernart, de Ventadorn)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01378050",
-            "url": "https://id.worldcat.org/fast/1378050"
-          }
-        ]
-      },
-      {
-        "slug": "cuando-los-guayacanes-floreci-an-estupin-a-n-bass-nelson",
-        "name": "Cuando los guayacanes florecían (Estupiñán Bass, Nelson)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01374931",
-            "url": "https://id.worldcat.org/fast/1374931"
-          }
-        ]
-      },
-      {
-        "slug": "land-transport-nz",
-        "name": "Land Transport NZ",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01601391",
-            "url": "https://id.worldcat.org/fast/1601391"
-          }
-        ]
-      },
-      {
-        "slug": "na-r-vi-d-de-va-gner-ibsen-henrik",
-        "name": "Når vi døde vågner (Ibsen, Henrik)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01378464",
-            "url": "https://id.worldcat.org/fast/1378464"
-          }
-        ]
-      },
-      {
-        "slug": "remember-when-auctions-firm",
-        "name": "Remember When Auctions (Firm)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00787659",
-            "url": "https://id.worldcat.org/fast/787659"
-          }
-        ]
-      },
-      {
-        "slug": "ta-t-e-n-ngo-ta-t-to",
-        "name": "Tá̆t đèn (Ngô, Tất Tố)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01794113",
-            "url": "https://id.worldcat.org/fast/1794113"
-          }
-        ]
-      },
-      {
-        "slug": "when-i-was-puerto-rican-santiago-esmeralda",
-        "name": "When I was Puerto Rican (Santiago, Esmeralda)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01386021",
-            "url": "https://id.worldcat.org/fast/1386021"
-          }
-        ]
-      },
-      {
-        "slug": "when-insane-do-as-the-sane-do-choreographic-work-rose",
-        "name": "When insane, do as the sane do (Choreographic work : Rose)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01795905",
-            "url": "https://id.worldcat.org/fast/1795905"
-          }
-        ]
-      },
-      {
-        "slug": "when-this-cruel-war-is-over-tucker-henry",
-        "name": "When this cruel war is over (Tucker, Henry)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01383573",
-            "url": "https://id.worldcat.org/fast/1383573"
-          }
-        ]
-      },
-      {
-        "slug": "works-ives-charles",
-        "name": "Works (Ives, Charles)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01918373",
-            "url": "https://id.worldcat.org/fast/1918373"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 14
   },
   "format": {
     "slug": "novel",
     "confidence": "high",
-    "reason": "Contemporary romance novel"
+    "score": 0.9833333333333334,
+    "reason": "Pattern-based detection: Novel (score: 0.98, threshold: 0.5)"
   },
   "audience": {
     "slug": "adult",

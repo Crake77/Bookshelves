@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-04T19:56:59.282Z",
+  "last_updated": "2025-11-05T14:06:58.011Z",
   "authors": {
     "original": [
       "Samuel R. Delany"
@@ -46,7 +46,6 @@
         "reason": "Derived from categories"
       },
       {
-        "slug": "science-nature",
         "confidence": "suggested",
         "reason": "Derived from categories"
       }
@@ -60,7 +59,14 @@
         "confidence": "suggested"
       }
     ],
-    "subgenres": [],
+    "subgenres": [
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
+        "genre_slug": "science-fiction",
+        "confidence": "suggested"
+      }
+    ],
     "cross_tags": [
       {
         "slug": "novella",
@@ -133,182 +139,25 @@
         "confidence": "high",
         "match_score": 9,
         "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "male-protagonist",
+        "name": "Male Protagonist",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "semantic-inference"
+      },
+      {
+        "slug": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 9,
-    "cross_tags_status": "needs_more",
-    "external_subjects": [
-      {
-        "slug": "ba-qi-manzhou-shi-zu-tong-pu",
-        "name": "Ba qi Manzhou shi zu tong pu",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01394363",
-            "url": "https://id.worldcat.org/fast/1394363"
-          }
-        ]
-      },
-      {
-        "slug": "cic-hearing-aids",
-        "name": "CIC hearing aids",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00843397",
-            "url": "https://id.worldcat.org/fast/843397"
-          }
-        ]
-      },
-      {
-        "slug": "completeness-theorem",
-        "name": "Completeness theorem",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst00871577",
-            "url": "https://id.worldcat.org/fast/871577"
-          }
-        ]
-      },
-      {
-        "slug": "poems-blake-william",
-        "name": "Poems (Blake, William)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01790008",
-            "url": "https://id.worldcat.org/fast/1790008"
-          }
-        ]
-      },
-      {
-        "slug": "poems-hardy-thomas",
-        "name": "Poems (Hardy, Thomas)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01790054",
-            "url": "https://id.worldcat.org/fast/1790054"
-          }
-        ]
-      },
-      {
-        "slug": "poems-swift-jonathan",
-        "name": "Poems (Swift, Jonathan)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01790134",
-            "url": "https://id.worldcat.org/fast/1790134"
-          }
-        ]
-      },
-      {
-        "slug": "works-berlioz-hector",
-        "name": "Works (Berlioz, Hector)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01796214",
-            "url": "https://id.worldcat.org/fast/1796214"
-          }
-        ]
-      },
-      {
-        "slug": "works-johnson-robert",
-        "name": "Works (Johnson, Robert)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01796263",
-            "url": "https://id.worldcat.org/fast/1796263"
-          }
-        ]
-      },
-      {
-        "slug": "works-more-thomas-saint",
-        "name": "Works (More, Thomas, Saint)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01792224",
-            "url": "https://id.worldcat.org/fast/1792224"
-          }
-        ]
-      },
-      {
-        "slug": "works-vivekananda-swami",
-        "name": "Works (Vivekananda, Swami)",
-        "confidence": "medium",
-        "kind": "topic",
-        "taxonomy_type": "unknown",
-        "taxonomy_group": null,
-        "taxonomy_parent": null,
-        "sources": [
-          {
-            "source": "fast",
-            "confidence": "medium",
-            "id": "fst01792255",
-            "url": "https://id.worldcat.org/fast/1792255"
-          }
-        ]
-      }
-    ]
+    "cross_tags_count": 11
   },
   "format": {
     "slug": "omnibus",

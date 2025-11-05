@@ -1848,26 +1848,42 @@
     "artificial-intelligence": {
       "exact": [
         "artificial intelligence",
-        "AI",
         "machine intelligence"
       ],
       "synonyms": [
         "AI technology",
         "machine learning",
-        "intelligent machines"
+        "intelligent machines",
+        "sentient AI",
+        "conscious AI",
+        "self-aware AI"
       ],
       "phrases": [
         "artificial intelligence themes",
-        "AI",
         "machine intelligence",
-        "intelligent AI"
+        "intelligent AI",
+        "AI system",
+        "AI character",
+        "AI protagonist",
+        "AI entity",
+        "sentient artificial intelligence",
+        "self-aware artificial intelligence"
       ],
       "avoid": [
         "AI company",
-        "AI tool"
+        "AI tool",
+        "AI software",
+        "AI definition",
+        "AI research",
+        "AI development",
+        "AI industry",
+        "using AI",
+        "AI-powered",
+        "AI-generated",
+        "AI assistant"
       ],
       "confidence_boost": 0.1,
-      "notes": "Technology: AI"
+      "notes": "Technology: AI - Only match when AI is a story element, not when discussing AI technology"
     },
     "space-exploration": {
       "exact": [
