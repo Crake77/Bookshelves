@@ -626,12 +626,12 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
                 <h2 className="font-display text-xl font-bold" data-testid="text-book-title">{book.title}</h2>
                 
                 {/* Series Metadata - appears beneath title */}
-                {seriesInfo?.series && (
+                {seriesInfo && seriesInfo.series && (
                   <_Suspense fallback={null}>
                     <LazyBookSeriesMetadata
                       series={seriesInfo.series}
-                      seriesOrder={seriesInfo.seriesOrder}
-                      totalBooksInSeries={seriesInfo.totalBooksInSeries}
+                      seriesOrder={seriesInfo.seriesOrder ?? null}
+                      totalBooksInSeries={seriesInfo.totalBooksInSeries ?? null}
                       onSeriesClick={() => {
                         openTaxonomyDialog({
                           kind: "series",
