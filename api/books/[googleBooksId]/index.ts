@@ -1,6 +1,6 @@
 // Vercel serverless function for book-related endpoints (editions and series-info)
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { neon } from "@neondatabase/serverless";
+import { Pool } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-serverless";
 import { eq, and, isNotNull, sql } from "drizzle-orm";
 
@@ -12,8 +12,8 @@ if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not set");
 }
 
-const sqlClient = neon(process.env.DATABASE_URL);
-const db = drizzle({ client: sqlClient });
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const db = drizzle(pool);
 
 // Get all editions for a work (serverless-compatible version)
 async function getWorkEditions(workId: string) {
