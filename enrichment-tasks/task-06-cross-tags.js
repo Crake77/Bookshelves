@@ -195,31 +195,108 @@ function getCrossTagsByGroup() {
   return byGroup;
 }
 
-// Suggest cross-tags with MUCH stricter matching to prevent false positives
-function suggestCrossTags(book, domain, enrichmentData = null) {
-  // Use enriched summary if original description is null/empty
-  let description = (book.description || '').toLowerCase();
-  if (!description && enrichmentData?.summary?.new_summary) {
-    description = enrichmentData.summary.new_summary.toLowerCase();
-    console.log(`    ℹ️  Using enriched summary for cross-tag detection (no original description)`);
+// Extract text from ALL available sources for comprehensive pattern matching
+function extractAllTextSources(book, enrichmentData) {
+  const sources = [];
+  
+  // 1. Original book metadata (high weight - direct source)
+  if (book.title) {
+    sources.push({ text: book.title.toLowerCase(), source: 'book.title', weight: 3 });
+  }
+  if (book.description) {
+    sources.push({ text: book.description.toLowerCase(), source: 'book.description', weight: 5 });
+  }
+  if (Array.isArray(book.categories) && book.categories.length) {
+    sources.push({ text: book.categories.join(' ').toLowerCase(), source: 'book.categories', weight: 2 });
   }
   
-  const title = book.title.toLowerCase();
-  const categories = (book.categories || []).map(c => c.toLowerCase());
-  const evidenceSources = getEvidenceSources(enrichmentData);
-  if (evidenceSources.length) {
-    console.log(`    🧾 Evidence sources available: ${evidenceSources.length}`);
+  // 2. External metadata (Google Books, OpenLibrary, etc.) - high weight
+  const extMeta = enrichmentData?.external_metadata;
+  if (extMeta) {
+    // Google Books description
+    if (extMeta.google_books?.description) {
+      sources.push({ text: extMeta.google_books.description.toLowerCase(), source: 'google_books.description', weight: 4 });
+    }
+    // OpenLibrary subjects (very valuable for tags!)
+    if (extMeta.openlibrary?.subjects && Array.isArray(extMeta.openlibrary.subjects)) {
+      sources.push({ text: extMeta.openlibrary.subjects.join(' ').toLowerCase(), source: 'openlibrary.subjects', weight: 3 });
+    }
+    // OpenLibrary description
+    if (extMeta.openlibrary?.description) {
+      const olDesc = typeof extMeta.openlibrary.description === 'string' 
+        ? extMeta.openlibrary.description 
+        : extMeta.openlibrary.description?.value || '';
+      if (olDesc) {
+        sources.push({ text: olDesc.toLowerCase(), source: 'openlibrary.description', weight: 4 });
+      }
+    }
+    // Input snapshot (original ingested data)
+    if (extMeta.input_snapshot?.description) {
+      sources.push({ text: extMeta.input_snapshot.description.toLowerCase(), source: 'input_snapshot.description', weight: 3 });
+    }
   }
+  
+  // 3. LLM-generated summary (medium weight - can be good but may miss details)
+  if (enrichmentData?.summary?.new_summary) {
+    sources.push({ text: enrichmentData.summary.new_summary.toLowerCase(), source: 'summary.new_summary', weight: 3 });
+  }
+  // Original summary if different
+  if (enrichmentData?.summary?.original_description && 
+      enrichmentData.summary.original_description !== enrichmentData.summary.new_summary) {
+    sources.push({ text: enrichmentData.summary.original_description.toLowerCase(), source: 'summary.original_description', weight: 2 });
+  }
+  
+  // 4. Evidence pack sources (harvested from external APIs) - high weight for provenance
+  const evidenceSources = getEvidenceSources(enrichmentData);
+  evidenceSources.forEach((source) => {
+    if (source.extract) {
+      sources.push({ 
+        text: source.extract, 
+        source: `evidence.${source.source}`, 
+        weight: 5, // High weight for evidence sources
+        snapshotId: source.snapshotId 
+      });
+    }
+  });
+  
+  return sources;
+}
+
+// Suggest cross-tags with MUCH stricter matching to prevent false positives
+function suggestCrossTags(book, domain, enrichmentData = null) {
+  // Extract ALL text sources for comprehensive matching
+  const allTextSources = extractAllTextSources(book, enrichmentData);
+  
+  if (allTextSources.length === 0) {
+    console.log(`    ⚠️  No text sources available for cross-tag detection`);
+    return [];
+  }
+  
+  // Log available sources
+  const sourceCounts = {};
+  allTextSources.forEach(s => {
+    sourceCounts[s.source] = (sourceCounts[s.source] || 0) + 1;
+  });
+  console.log(`    📚 Text sources available: ${Object.keys(sourceCounts).join(', ')}`);
+  
+  // Build combined text for legacy matching (for backward compatibility)
+  const combinedText = allTextSources.map(s => s.text).join(' ');
+  const title = (book.title || '').toLowerCase();
+  const categories = (book.categories || []).map(c => c.toLowerCase());
+  const categoriesText = categories.join(' ');
+  const evidenceSources = getEvidenceSources(enrichmentData);
 
   const tags = [];
   
   // CRITICAL: Detect if this is academic/analytical book
+  // Check all text sources for academic indicators
+  const allTextCombined = allTextSources.map(s => s.text).join(' ');
   const isAcademicBook = categories.some(cat => 
     cat.includes('literary criticism') || 
     cat.includes('criticism') ||
     cat.includes('social science') ||
     cat.includes('political science')
-  ) || description.includes('analysis of') || description.includes('examination of');
+  ) || allTextCombined.includes('analysis of') || allTextCombined.includes('examination of');
   
   const allCrossTags = getCrossTagsByGroup();
   
@@ -238,24 +315,21 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
       const slugPattern = new RegExp(`\\b${tagSlug.replace(/-/g, '[\\s-]')}\\b`, 'i');
       const namePattern = new RegExp(`\\b${tagName.replace(/[\s-]+/g, '[\\s-]')}\\b`, 'i');
 
-      const applyMatch = (text, slugWeight = 0, nameWeight = 0, provenanceId = null) => {
+      // Apply pattern matching across ALL text sources with weighted scoring
+      allTextSources.forEach((textSource) => {
+        const { text, source, weight, snapshotId } = textSource;
         if (!text) return;
-        if (slugWeight && slugPattern.test(text)) {
-          matchScore += slugWeight;
-          if (provenanceId) provenanceSources.add(provenanceId);
+        
+        // Apply slug pattern matching
+        if (slugPattern.test(text)) {
+          matchScore += Math.floor(weight * 0.8); // Weighted by source importance
+          if (snapshotId) provenanceSources.add(snapshotId);
         }
-        if (nameWeight && namePattern.test(text)) {
-          matchScore += nameWeight;
-          if (provenanceId) provenanceSources.add(provenanceId);
+        // Apply name pattern matching
+        if (namePattern.test(text)) {
+          matchScore += Math.floor(weight * 0.6);
+          if (snapshotId) provenanceSources.add(snapshotId);
         }
-      };
-
-      applyMatch(description, 5, 4);
-      applyMatch(title, 3, 2);
-      applyMatch(categories.join(' '), 2, 1);
-
-      evidenceSources.forEach((source) => {
-        applyMatch(source.extract, 5, 4, source.snapshotId);
       });
       
       // RULE 2: Exclude structure/format tags from cross-tags
@@ -276,7 +350,8 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
       const fairyTaleTags = ['fairy-tale', 'dark-fairy-tale', 'fairy-tale-retelling', 'fairy-tale-ending', 'twisted-fairy-tale'];
       if (fairyTaleTags.includes(tagSlug)) {
         // Only match if "fairy tale" appears as a complete phrase AND book is fiction
-        if (!(/\bfairy[\s-]tales?\b/i.test(title) || /\bfairy[\s-]tales?\b/i.test(description)) || domain === 'nonfiction') {
+        const fairyTaleText = allTextSources.map(s => s.text).join(' ');
+        if (!(/\bfairy[\s-]tales?\b/i.test(title) || /\bfairy[\s-]tales?\b/i.test(fairyTaleText)) || domain === 'nonfiction') {
           matchScore = 0;
         }
       }
@@ -295,8 +370,8 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
       // Also check cross-tag patterns for synonyms/phrases if pattern exists
       const pattern = crossTagPatterns[tagSlug];
       if (pattern && matchScore === 0) {
-        // No direct match, try pattern matching
-        const allText = `${title} ${description} ${categories.join(' ')} ${evidenceSources.map(s => s.extract).join(' ')}`.toLowerCase();
+        // Build comprehensive text from ALL sources for pattern matching
+        const allText = allTextSources.map(s => s.text).join(' ').toLowerCase();
         
         // SPECIAL RULE for artificial-intelligence: require more context, avoid standalone "AI"
         if (tagSlug === 'artificial-intelligence') {
@@ -524,19 +599,11 @@ function suggestCrossTags(book, domain, enrichmentData = null) {
 
 function generatePatternTags(book, enrichmentData, evidenceSources) {
   if (!crossTagPatterns) return [];
-  const segments = [];
-  if (book.title) segments.push(book.title);
-  if (book.description) segments.push(book.description);
-  if (Array.isArray(book.categories) && book.categories.length) {
-    segments.push(book.categories.join(' '));
-  }
-  if (enrichmentData?.summary?.new_summary) {
-    segments.push(enrichmentData.summary.new_summary);
-  }
-  evidenceSources.forEach((source) => {
-    if (source.extract) segments.push(source.extract);
-  });
-  const haystack = segments.join(' ').toLowerCase();
+  
+  // Use the same comprehensive text extraction as suggestCrossTags
+  const allTextSources = extractAllTextSources(book, enrichmentData);
+  const haystack = allTextSources.map(s => s.text).join(' ').toLowerCase();
+  
   if (!haystack.trim()) return [];
 
   const results = [];
