@@ -1,5 +1,5 @@
 // Test the production browse API to see what it returns
-const PROD_URL = 'https://bookshelves-1f4r3as3d-john-dunhams-projects-39f6d8ce.vercel.app';
+const PROD_URL = 'https://bookshelves-82azf4jif-john-dunhams-projects-39f6d8ce.vercel.app';
 
 async function testAPI() {
   console.log('🧪 Testing Production Browse API\n');
