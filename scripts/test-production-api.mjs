@@ -1,7 +1,7 @@
 // Test the production browse API to see what it returns
 const LOCAL_URL = 'http://localhost:8001';
 const PROD_URL = 'https://bookshelves-k8xtxf02i-john-dunhams-projects-39f6d8ce.vercel.app';
-const PREVIEW_URL = 'https://bookshelves-puspmx4s4-john-dunhams-projects-39f6d8ce.vercel.app';
+const PREVIEW_URL = 'https://bookshelves-njqt9kccw-john-dunhams-projects-39f6d8ce.vercel.app';
 
 // Use PREVIEW_URL by default, or override with TEST_URL env var
 const BASE_URL = process.env.TEST_URL || PREVIEW_URL;

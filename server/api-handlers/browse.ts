@@ -521,7 +521,14 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-        ${params.series ? seriesFilter : sql``}
+        -- Series filter: join books -> editions -> works
+        AND (${params.series ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM editions e
+          JOIN works w ON w.id = e.work_id
+          WHERE e.legacy_book_id = b.id
+            AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+            AND (${params.seriesPosition === true ? sql`w.series_order IS NOT NULL` : sql`TRUE`})
+        ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
@@ -594,7 +601,14 @@ async function fetchPopular(sql: SqlClient, params: BrowseParams): Promise<BookP
           SELECT 1 FROM unnest(COALESCE(b.authors, ARRAY[]::text[])) AS author(name)
           WHERE LOWER(author.name) = LOWER(${params.authorName ?? null})
         ))
-        ${params.series ? seriesFilter : sql``}
+        -- Series filter: join books -> editions -> works
+        AND (${params.series ?? null}::text IS NULL OR EXISTS (
+          SELECT 1 FROM editions e
+          JOIN works w ON w.id = e.work_id
+          WHERE e.legacy_book_id = b.id
+            AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
+            AND (${params.seriesPosition === true ? sql`w.series_order IS NOT NULL` : sql`TRUE`})
+        ))
         ORDER BY
           COALESCE(bs.total_ratings, 0) DESC,
           COALESCE(bs.average_rating, 0) DESC,
