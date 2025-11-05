@@ -820,7 +820,7 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
+              ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : null}
           ))
         ),
         global AS (
@@ -953,7 +953,7 @@ async function fetchHighestRated(sql: SqlClient, params: BrowseParams): Promise<
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
+              ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : null}
           ))
         ),
         global AS (
@@ -1139,7 +1139,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
+              ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : null}
           ))
         )
         SELECT
@@ -1258,7 +1258,7 @@ async function fetchRecentlyAdded(sql: SqlClient, params: BrowseParams): Promise
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
+              ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : null}
           ))
         )
         SELECT
@@ -1562,7 +1562,7 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
+              ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : null}
           ))
         ),
         preference_scores AS (
@@ -1720,7 +1720,7 @@ async function fetchForYou(sql: SqlClient, params: BrowseParams): Promise<BookPa
             JOIN works w ON w.id = e.work_id
             WHERE e.legacy_book_id = b.id
               AND LOWER(REPLACE(w.series, ' ', '-')) = LOWER(${params.series ?? null})
-              ${params.seriesPosition ? sql`AND w.series_order IS NOT NULL` : sql``}
+              ${params.seriesPosition === true ? sql`AND w.series_order IS NOT NULL` : null}
           ))
         ),
         preference_scores AS (
