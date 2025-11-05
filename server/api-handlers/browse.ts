@@ -1891,9 +1891,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       seriesPosition,
     });
 
+    console.log(`[browse] Returning ${books.length} books for algo=${algo}, limit=${limit}, offset=${offset}`);
     res.status(200).json(books);
   } catch (error: any) {
     console.error("Failed to load browse recommendations", error);
+    console.error("Error stack:", error?.stack);
+    console.error("DATABASE_URL present:", Boolean(process.env.DATABASE_URL));
     res.status(500).json({
       error: "Failed to load browse recommendations",
       debug: String(error?.message || error),
