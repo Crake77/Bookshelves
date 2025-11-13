@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:31:27.895Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:58:15.449Z",
+    "last_run": "2025-11-13T19:02:47.931Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "Ascendance of a Bookworm: Part 1 Volume 1",
@@ -19,8 +21,1073 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "librarians-comic-books-strips-etc",
+            "name": "Librarians--Comic books, strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023286534",
+            "url": "http://lccn.loc.gov/2023286534",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Librarians--Comic books, strips, etc",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Librarians--Comic books, strips, etc",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Librarians--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "graphic-novels",
+            "name": "Graphic novels",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023286534",
+            "url": "http://lccn.loc.gov/2023286534",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Graphic novels",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "graphic novels",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Graphic novels",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Graphic novels",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "kazuki-miya-honzuki-no-gekokuj-english",
+            "name": "Kazuki, Miya.--Honzuki no gekokujō.--English",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023286534",
+            "url": "http://lccn.loc.gov/2023286534",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Kazuki, Miya.--Honzuki no gekokujō.--English",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "biblioth-caires-bandes-dessin-es",
+            "name": "Bibliothécaires--Bandes dessinées",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023286534",
+            "url": "http://lccn.loc.gov/2023286534",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Bibliothécaires--Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Bibliothécaires--Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Bibliothécaires--Bandes dessinées",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "romans-graphiques",
+            "name": "Romans graphiques",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023286534",
+            "url": "http://lccn.loc.gov/2023286534",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Romans graphiques",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "librarians",
+            "name": "Librarians",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023286534",
+            "url": "http://lccn.loc.gov/2023286534",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Librarians",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Librarians",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Librarians",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Librarians",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Librarians",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "comics-graphic-works",
+            "name": "Comics (Graphic works)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023286534",
+            "url": "http://lccn.loc.gov/2023286534",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Comics (Graphic works)",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Comics (Graphic works)",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Comics (Graphic works)",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "myne-fictitious-character-from-kazuki-comic-books-strips-etc",
+            "name": "Myne--(Fictitious character from Kazuki)--Comic books, strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Myne--(Fictitious character from Kazuki)--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "reincarnation-comic-books-strips-etc",
+            "name": "Reincarnation--Comic books, strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Reincarnation--Comic books, strips, etc",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Reincarnation--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "temples-comic-books-strips-etc",
+            "name": "Temples--Comic books, strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Temples--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "books-and-reading-comic-books-strips-etc",
+            "name": "Books and reading--Comic books, strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Books and reading--Comic books, strips, etc",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Books and reading--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasy-comic-books-strips-etc",
+            "name": "Fantasy comic books, strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Fantasy comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "r-incarnation-bandes-dessin-es",
+            "name": "Réincarnation--Bandes dessinées",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Réincarnation--Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Réincarnation--Bandes dessinées",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "livres-et-lecture-bandes-dessin-es",
+            "name": "Livres et lecture--Bandes dessinées",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Livres et lecture--Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Livres et lecture--Bandes dessinées",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "books-and-reading",
+            "name": "Books and reading",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Books and reading",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Books and reading",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Books and reading",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Books and reading",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "reincarnation",
+            "name": "Reincarnation",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Reincarnation",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Reincarnation",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Reincarnation",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "temples",
+            "name": "Temples",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Temples",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "young-adult-fiction",
+            "name": "Young adult fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Young adult fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "manga-comic-books",
+            "name": "manga (comic books)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "manga (comic books)",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "young-adult-works",
+            "name": "Young adult works",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Young adult works",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fiction",
+            "name": "Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasy-comics",
+            "name": "Fantasy comics",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Fantasy comics",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Fantasy comics",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "manga",
+            "name": "Manga",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Manga",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "bandes-dessin-es",
+            "name": "Bandes dessinées",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Bandes dessinées",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "mangas",
+            "name": "Mangas",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021303627",
+            "url": "http://lccn.loc.gov/2021303627",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Mangas",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "librarians-juvenile-fiction",
+            "name": "Librarians--Juvenile fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Librarians--Juvenile fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "soldiers-family-juvenile-fiction",
+            "name": "Soldiers--Family--Juvenile fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Soldiers--Family--Juvenile fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "books-and-reading-juvenile-fiction",
+            "name": "Books and reading--Juvenile fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Books and reading--Juvenile fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "biblioth-caires-romans-nouvelles-etc-pour-la-jeunesse",
+            "name": "Bibliothécaires--Romans, nouvelles, etc. pour la jeunesse",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Bibliothécaires--Romans, nouvelles, etc. pour la jeunesse",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "livres-et-lecture-romans-nouvelles-etc-pour-la-jeunesse",
+            "name": "Livres et lecture--Romans, nouvelles, etc. pour la jeunesse",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Livres et lecture--Romans, nouvelles, etc. pour la jeunesse",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "novel",
+            "name": "novels",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "novels",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Novels",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasy",
+            "name": "Fantasy fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "juvenile-works",
+            "name": "Juvenile works",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Juvenile works",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "light-novels",
+            "name": "Light novels",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Light novels",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Light novels",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "romans",
+            "name": "Romans",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287757",
+            "url": "http://lccn.loc.gov/2023287757",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Romans",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "reincarnation-fiction",
+            "name": "Reincarnation--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287760",
+            "url": "http://lccn.loc.gov/2023287760",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Reincarnation--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Reincarnation--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "librarians-fiction",
+            "name": "Librarians--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287760",
+            "url": "http://lccn.loc.gov/2023287760",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Librarians--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "soldiers-family-fiction",
+            "name": "Soldiers--Family--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287760",
+            "url": "http://lccn.loc.gov/2023287760",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Soldiers--Family--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "books-and-reading-fiction",
+            "name": "Books and reading--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287760",
+            "url": "http://lccn.loc.gov/2023287760",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Books and reading--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "magic-fiction",
+            "name": "Magic--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287760",
+            "url": "http://lccn.loc.gov/2023287760",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Magic--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "magic",
+            "name": "Magic",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287760",
+            "url": "http://lccn.loc.gov/2023287760",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Magic",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "soldiers-family-comic-books-strips-etc",
+            "name": "Soldiers--Family--Comic books, strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287297",
+            "url": "http://lccn.loc.gov/2023287297",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Soldiers--Family--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "comic-books-strips-etc-japan-translations-into-english",
+            "name": "Comic books, strips, etc.--Japan--Translations into English",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287297",
+            "url": "http://lccn.loc.gov/2023287297",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Comic books, strips, etc.--Japan--Translations into English",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "comic-books-strips-etc",
+            "name": "Comic books, strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287297",
+            "url": "http://lccn.loc.gov/2023287297",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "japan",
+            "name": "Japan",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287297",
+            "url": "http://lccn.loc.gov/2023287297",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Japan",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "graphic-novel-adaptations",
+            "name": "Graphic novel adaptations",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287297",
+            "url": "http://lccn.loc.gov/2023287297",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Graphic novel adaptations",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "translations",
+            "name": "Translations",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287297",
+            "url": "http://lccn.loc.gov/2023287297",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Translations",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "adaptations-en-romans-graphiques",
+            "name": "Adaptations en romans graphiques",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023287297",
+            "url": "http://lccn.loc.gov/2023287297",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Adaptations en romans graphiques",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -101,11 +1168,146 @@
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "fantasy",
+          "name": "Fantasy fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fiction",
+          "name": "Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "novel",
+          "name": "novels",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "novels",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Novels",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "adaptations-en-romans-graphiques",
+          "name": "Adaptations en romans graphiques",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287297",
+              "url": "http://lccn.loc.gov/2023287297"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Adaptations en romans graphiques",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
         {
           "slug": "ange-cornu-avec-des-ailes-de-to-le-tremblay-michel",
           "name": "Ange cornu avec des ailes de tôle (Tremblay, Michel)",
@@ -133,6 +1335,105 @@
                 "type": "alt"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "bandes-dessin-es",
+          "name": "Bandes dessinées",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Bandes dessinées",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "biblioth-caires-bandes-dessin-es",
+          "name": "Bibliothécaires--Bandes dessinées",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023286534",
+              "url": "http://lccn.loc.gov/2023286534"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Bibliothécaires--Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Bibliothécaires--Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Bibliothécaires--Bandes dessinées",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "biblioth-caires-romans-nouvelles-etc-pour-la-jeunesse",
+          "name": "Bibliothécaires--Romans, nouvelles, etc. pour la jeunesse",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Bibliothécaires--Romans, nouvelles, etc. pour la jeunesse",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -174,6 +1475,852 @@
           }
         },
         {
+          "slug": "books-and-reading",
+          "name": "Books and reading",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Books and reading",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Books and reading",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Books and reading",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Books and reading",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "books-and-reading-comic-books-strips-etc",
+          "name": "Books and reading--Comic books, strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Books and reading--Comic books, strips, etc",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Books and reading--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "books-and-reading-fiction",
+          "name": "Books and reading--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287760",
+              "url": "http://lccn.loc.gov/2023287760"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Books and reading--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "books-and-reading-juvenile-fiction",
+          "name": "Books and reading--Juvenile fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Books and reading--Juvenile fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "comic-books-strips-etc",
+          "name": "Comic books, strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287297",
+              "url": "http://lccn.loc.gov/2023287297"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "comic-books-strips-etc-japan-translations-into-english",
+          "name": "Comic books, strips, etc.--Japan--Translations into English",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287297",
+              "url": "http://lccn.loc.gov/2023287297"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Comic books, strips, etc.--Japan--Translations into English",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "comics-graphic-works",
+          "name": "Comics (Graphic works)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023286534",
+              "url": "http://lccn.loc.gov/2023286534"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Comics (Graphic works)",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Comics (Graphic works)",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Comics (Graphic works)",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fantasy-comic-books-strips-etc",
+          "name": "Fantasy comic books, strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Fantasy comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fantasy-comics",
+          "name": "Fantasy comics",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Fantasy comics",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Fantasy comics",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "graphic-novel-adaptations",
+          "name": "Graphic novel adaptations",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287297",
+              "url": "http://lccn.loc.gov/2023287297"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Graphic novel adaptations",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "graphic-novels",
+          "name": "Graphic novels",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023286534",
+              "url": "http://lccn.loc.gov/2023286534"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Graphic novels",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "graphic novels",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Graphic novels",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Graphic novels",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "japan",
+          "name": "Japan",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287297",
+              "url": "http://lccn.loc.gov/2023287297"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Japan",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "juvenile-works",
+          "name": "Juvenile works",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Juvenile works",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "kazuki-miya-honzuki-no-gekokuj-english",
+          "name": "Kazuki, Miya.--Honzuki no gekokujō.--English",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023286534",
+              "url": "http://lccn.loc.gov/2023286534"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Kazuki, Miya.--Honzuki no gekokujō.--English",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "librarians",
+          "name": "Librarians",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023286534",
+              "url": "http://lccn.loc.gov/2023286534"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Librarians",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Librarians",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Librarians",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Librarians",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Librarians",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "librarians-comic-books-strips-etc",
+          "name": "Librarians--Comic books, strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023286534",
+              "url": "http://lccn.loc.gov/2023286534"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Librarians--Comic books, strips, etc",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Librarians--Comic books, strips, etc",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Librarians--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "librarians-fiction",
+          "name": "Librarians--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287760",
+              "url": "http://lccn.loc.gov/2023287760"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Librarians--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "librarians-juvenile-fiction",
+          "name": "Librarians--Juvenile fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Librarians--Juvenile fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "light-novels",
+          "name": "Light novels",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Light novels",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Light novels",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "livres-et-lecture-bandes-dessin-es",
+          "name": "Livres et lecture--Bandes dessinées",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Livres et lecture--Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Livres et lecture--Bandes dessinées",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "livres-et-lecture-romans-nouvelles-etc-pour-la-jeunesse",
+          "name": "Livres et lecture--Romans, nouvelles, etc. pour la jeunesse",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Livres et lecture--Romans, nouvelles, etc. pour la jeunesse",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "magic",
+          "name": "Magic",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287760",
+              "url": "http://lccn.loc.gov/2023287760"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Magic",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "magic-fiction",
+          "name": "Magic--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287760",
+              "url": "http://lccn.loc.gov/2023287760"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Magic--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "manga",
+          "name": "Manga",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Manga",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "manga-comic-books",
+          "name": "manga (comic books)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "manga (comic books)",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "mangas",
+          "name": "Mangas",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Mangas",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "myne-fictitious-character-from-kazuki-comic-books-strips-etc",
+          "name": "Myne--(Fictitious character from Kazuki)--Comic books, strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Myne--(Fictitious character from Kazuki)--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
           "slug": "pbs-kids-bookworm-bunch-television-program",
           "name": "PBS Kids bookworm bunch (Television program)",
           "kind": "topic",
@@ -202,8 +2349,438 @@
             ],
             "wikidata": []
           }
+        },
+        {
+          "slug": "r-incarnation-bandes-dessin-es",
+          "name": "Réincarnation--Bandes dessinées",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Réincarnation--Bandes dessinées",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Réincarnation--Bandes dessinées",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "reincarnation",
+          "name": "Reincarnation",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "tropes_themes",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Reincarnation",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Reincarnation",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Reincarnation",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "reincarnation-comic-books-strips-etc",
+          "name": "Reincarnation--Comic books, strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Reincarnation--Comic books, strips, etc",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Reincarnation--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "reincarnation-fiction",
+          "name": "Reincarnation--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287760",
+              "url": "http://lccn.loc.gov/2023287760"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Reincarnation--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Reincarnation--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "romans",
+          "name": "Romans",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Romans",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "romans-graphiques",
+          "name": "Romans graphiques",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023286534",
+              "url": "http://lccn.loc.gov/2023286534"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023286534",
+                "subject": "Romans graphiques",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "soldiers-family-comic-books-strips-etc",
+          "name": "Soldiers--Family--Comic books, strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287297",
+              "url": "http://lccn.loc.gov/2023287297"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Soldiers--Family--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "soldiers-family-fiction",
+          "name": "Soldiers--Family--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287760",
+              "url": "http://lccn.loc.gov/2023287760"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287760",
+                "subject": "Soldiers--Family--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "soldiers-family-juvenile-fiction",
+          "name": "Soldiers--Family--Juvenile fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287757",
+              "url": "http://lccn.loc.gov/2023287757"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287757",
+                "subject": "Soldiers--Family--Juvenile fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "temples",
+          "name": "Temples",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Temples",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "temples-comic-books-strips-etc",
+          "name": "Temples--Comic books, strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Temples--Comic books, strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "translations",
+          "name": "Translations",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2023287297",
+              "url": "http://lccn.loc.gov/2023287297"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023287297",
+                "subject": "Translations",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "young-adult-fiction",
+          "name": "Young adult fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Young adult fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "young-adult-works",
+          "name": "Young adult works",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021303627",
+              "url": "http://lccn.loc.gov/2021303627"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021303627",
+                "subject": "Young adult works",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
         }
       ]
+    },
+    "google_books": {
+      "description": "<p>A certain college girl who's loved books ever since she was a little girl dies in an accident and is reborn in another world she knows nothing about. She is now Myne, the sickly five-year-old daughter of a poor soldier. To make things worse, the world she's been reborn in has a very low literacy rate and books mostly don't exist. She'd have to pay an enormous amount of money to buy one.</p><p>Myne resolves herself: If there aren't any books, she'll just have to make them! Her goal is to become a librarian. This story begins with her quest to make books so she can live surrounded by them!</p><p>Dive into this biblio-fantasy written for book lovers and bookworms!</p>",
+      "categories": [
+        "Young Adult Fiction / Light Novel (Ranobe)"
+      ],
+      "publishedDate": "2019-05-20",
+      "language": "en",
+      "pageCount": 282
+    },
+    "openlibrary": {
+      "subjects": [],
+      "coverImage": "https://covers.openlibrary.org/b/id/14603911-L.jpg"
     }
   },
   "taxonomy": {
@@ -235,8 +2812,11 @@
         "name": "Quest",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "017647de-5b50-44b3-ab87-162beca6c290"
+        ]
       },
       {
         "slug": "female-protagonist",
@@ -252,7 +2832,7 @@
         "group": "setting",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "reincarnation",
@@ -260,15 +2840,7 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "low",
-        "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "parallel-dimension",
@@ -276,7 +2848,7 @@
         "group": "trope",
         "confidence": "low",
         "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "isekai",
@@ -284,10 +2856,10 @@
         "group": "tropes_themes",
         "confidence": "low",
         "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 7
+    "cross_tags_count": 6
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=1O-ODwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE7374bJiQvs1hzQVWltFyJ3nUhiv-XCYeHm4mmudVxYuvkTvwf65Dxo61uCI_BcV07VHlma9piN1yx9yIo680J7YwSNhWGJmrl-oUC6DXY79bS-h9_yqR0Z7FZH_C-wk8kBfJdFw&source=gbs_api",
@@ -298,7 +2870,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL51502999M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:07.904Z",
+  "last_updated": "2025-11-13T19:06:07.298Z",
   "authors": {
     "original": [
       "Miya Kazuki"
@@ -332,5 +2904,35 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "a9cf5ede-0353-4aef-8787-c5f37a1ea31d",
+    "work_title": "Ascendance of a Bookworm: Part 1 Volume 1",
+    "work_ref": null,
+    "fetched_at": "2025-11-01T19:54:45.269Z",
+    "sources": [
+      {
+        "snapshot_id": "017647de-5b50-44b3-ab87-162beca6c290",
+        "source": "googlebooks",
+        "source_key": "1O-ODwAAQBAJ",
+        "revision": "2019-05-20",
+        "url": "https://books.google.com/books?id=1O-ODwAAQBAJ",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-11-01T19:54:45.269Z",
+        "sha256": "3404f08e3de966b0c3f52b3353aa5aeafab1255b2728a5ab26293b4f1bbbdec5",
+        "extract": "Title: Ascendance of a Bookworm: Part 1 Volume 1\n\nDescription: <p>A certain college girl who's loved books ever since she was a little girl dies in an accident and is reborn in another world she knows nothing about. She is now Myne, the sickly five-year-old daughter of a poor soldier. To make things worse, the world she's been reborn in has a very low literacy rate and books mostly don't exist. She'd have to pay an enormous amount of money to buy one.</p><p>Myne resolves herself: If there aren't any books, she'll just have to make them! Her goal is to become a librarian. This story begins with her quest to make books so she can live surrounded by them!</p><p>Dive into this biblio-fantasy written for book lovers and bookworms!</p>\n\nCategories: Light Novel, Fantasy"
+      },
+      {
+        "snapshot_id": "6b27cd26-4a30-4779-babd-c27ecd4210fe",
+        "source": "openlibrary",
+        "source_key": "OL37998501W",
+        "revision": "2",
+        "url": "https://openlibrary.org/works/OL37998501W",
+        "license": "CC0",
+        "fetched_at": "2025-11-01T19:54:44.750Z",
+        "sha256": "c2d7c78851647cdbb65b844fc26e8557872e0d4d6df24272c4c2adcfa7abf9bd",
+        "extract": "Title: Ascendance of a Bookworm\n\nPublication: 2019"
+      }
+    ]
   }
 }

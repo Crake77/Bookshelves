@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL32968519M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:06:55.140Z",
+  "last_updated": "2025-11-13T19:06:21.257Z",
   "authors": {
     "original": [
       "Lois H. Gresh"
@@ -35,7 +35,7 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "nonfiction",
       "confidence": "high",
       "reason": "Academic/analytical work (about genres, not in a genre)"
     },
@@ -53,7 +53,7 @@
         "name": "Lovecraftian",
         "group": "trope",
         "confidence": "high",
-        "match_score": 18,
+        "match_score": 24,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -64,7 +64,7 @@
         "name": "War",
         "group": "trope",
         "confidence": "high",
-        "match_score": 18,
+        "match_score": 24,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -75,7 +75,7 @@
         "name": "Cosmic Horror",
         "group": "trope",
         "confidence": "high",
-        "match_score": 14,
+        "match_score": 13,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -86,7 +86,7 @@
         "name": "Forbidden Knowledge",
         "group": "plot",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -97,7 +97,7 @@
         "name": "Juxtaposition",
         "group": "plot",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -108,7 +108,7 @@
         "name": "Original",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -119,7 +119,7 @@
         "name": "Otherworldly",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -130,7 +130,7 @@
         "name": "Strange",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -141,7 +141,7 @@
         "name": "Unique",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -152,7 +152,7 @@
         "name": "Unsettling",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -163,7 +163,7 @@
         "name": "Visceral",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -174,7 +174,7 @@
         "name": "Atmospheric",
         "group": "tone_mood",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -185,7 +185,7 @@
         "name": "Ancient Evil",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -196,7 +196,7 @@
         "name": "Revolution",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -207,7 +207,7 @@
         "name": "Transformation",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -218,7 +218,7 @@
         "name": "Cosmic Dread",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "1b739773-ea63-4678-bb25-1c1627e9330c"
@@ -252,8 +252,8 @@
         "method": "pattern-match+evidence"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
+        "slug": "conformist",
+        "name": "Conformist",
         "group": "trope",
         "confidence": "low",
         "match_score": 2,
@@ -304,9 +304,11 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T18:56:09.399Z",
+    "last_run": "2025-11-13T19:04:53.614Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "Summer of Lovecraft: Cosmic Horror in the 1960s",
@@ -320,7 +322,11 @@
     "sources": {
       "loc": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[loc] isbn lookup returned no matches",
+          "[loc] title fallback returned no matches",
+          "[loc] no matches returned"
+        ]
       },
       "fast": {
         "labels": [
@@ -508,14 +514,15 @@
           }
         ],
         "notes": [
-          "[fast] title returned no results",
-          "[fast] title-core returned no results",
-          "[fast] fallback succeeded via title-bigram"
+          "[fast] cache hit"
         ]
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
@@ -775,6 +782,19 @@
           }
         }
       ]
+    },
+    "google_books": {
+      "description": "A new Lovecraftian anthology based in the 1960s from the editors behind World War Cthulhu: A Collection of Lovecraftian War Stories! Now available for preorder in ebook and to be delivered by September 2019.TABLE OF CONTENTSNight Trippers by Lois H. GreshBeing for the Benefit of Mr. Sullivan by Lee Clark ZumpeDreamland by David DunwoodyLost In the Poppy-Fields of Flesh by Konstantine ParadiasFive To One by Edward M. ErdelacKeeping the Faith by Sam StoneMud Men by Sean HoadeMisconception by Jamie D. JenkinsNo Colors Anymore by Joe L. MurrOperation Alice by Pete RawlikShimmer and Sway by Jayaprakash SatyamurthyShort Wave by Stephen Mark RaineyThe Song that Crystal Sang by Tom LynchThrough a Looking Glass Darkly by Glynn Owen Barrass and Brian M. SammonsThe Color from the Deep by William MeikleThe Long Fine Flash by Edward MorrisThe Summer of Love by C.J. HendersonJust Another Afternoon in Arkham, Brought to You in Living Color by Mark McLaughlin and Michael Sheehan, Jr.Crystal Blue Persuasion by Jeffrey Thomas",
+      "categories": [
+        "Fiction / Horror"
+      ],
+      "publishedDate": "2019-12-05",
+      "language": "en",
+      "pageCount": 318
+    },
+    "openlibrary": {
+      "subjects": [],
+      "coverImage": "https://covers.openlibrary.org/b/id/11580683-L.jpg"
     }
   }
 }

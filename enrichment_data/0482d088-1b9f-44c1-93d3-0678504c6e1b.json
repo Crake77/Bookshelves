@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL56957378M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:00.251Z",
+  "last_updated": "2025-11-13T19:06:16.286Z",
   "authors": {
     "original": [
       "Sarah Schulman"
@@ -35,7 +35,7 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "nonfiction",
       "confidence": "high",
       "reason": "Academic/analytical work (about genres, not in a genre)"
     },
@@ -67,29 +67,7 @@
         "name": "Abortion",
         "group": "content_flags",
         "confidence": "high",
-        "match_score": 18,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
-        ]
-      },
-      {
-        "slug": "artistic",
-        "name": "Artistic",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 18,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
-        ]
-      },
-      {
-        "slug": "uplifting",
-        "name": "Uplifting",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 18,
+        "match_score": 24,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
@@ -100,7 +78,7 @@
         "name": "War",
         "group": "trope",
         "confidence": "high",
-        "match_score": 18,
+        "match_score": 24,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
@@ -111,7 +89,29 @@
         "name": "Queer",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 18,
+        "match_score": 24,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
+        ]
+      },
+      {
+        "slug": "artistic",
+        "name": "Artistic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
+        ]
+      },
+      {
+        "slug": "uplifting",
+        "name": "Uplifting",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 21,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d"
@@ -122,7 +122,7 @@
         "name": "Liberation",
         "group": "plot",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match+evidence"
       },
       {
@@ -130,7 +130,7 @@
         "name": "Poetic",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match+evidence"
       },
       {
@@ -142,9 +142,25 @@
         "method": "semantic-inference"
       },
       {
+        "slug": "new-york-city",
+        "name": "New York City",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
         "slug": "hopeful",
         "name": "Hopeful",
         "group": "tone",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "philosophical",
+        "name": "Philosophical",
+        "group": "tone_mood",
         "confidence": "high",
         "match_score": 3,
         "method": "pattern-match+evidence"
@@ -158,35 +174,19 @@
         "method": "pattern-match+evidence"
       },
       {
-        "slug": "lgbtq",
-        "name": "LGBTQ+",
+        "slug": "identity",
+        "name": "Identity",
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
-        "slug": "philosophical",
-        "name": "Philosophical",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 2.12,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "identity",
-        "name": "Identity",
+        "slug": "lgbtq",
+        "name": "LGBTQ+",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 2.1,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "new-york-city",
-        "name": "New York City",
-        "group": "setting",
-        "confidence": "high",
-        "match_score": 2.1,
+        "match_score": 3,
         "method": "pattern-match+evidence"
       },
       {
@@ -201,14 +201,6 @@
         "slug": "university",
         "name": "University",
         "group": "setting",
-        "confidence": "low",
-        "match_score": 2,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
         "confidence": "low",
         "match_score": 2,
         "method": "pattern-match+evidence"
@@ -230,7 +222,7 @@
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 19
+    "cross_tags_count": 18
   },
   "format": {
     "slug": null,
@@ -246,16 +238,16 @@
     "work_id": "b888fd97-e551-4615-b8bf-8ae676e79bee",
     "work_title": "The Fantasy and Necessity of Solidarity",
     "work_ref": null,
-    "fetched_at": "2025-10-31T14:11:39.364Z",
+    "fetched_at": "2025-11-01T19:47:26.529Z",
     "sources": [
       {
         "snapshot_id": "fb4f0e1f-3c1a-4791-a1fd-913ee256f33d",
         "source": "googlebooks",
         "source_key": "3msrEQAAQBAJ",
         "revision": "2025-04-22",
-        "url": "http://books.google.com/books?id=3msrEQAAQBAJ&printsec=frontcover&dq=isbn:9780593854259&hl=&cd=1&source=gbs_api",
+        "url": "https://books.google.com/books?id=3msrEQAAQBAJ",
         "license": "GOOGLE_BOOKS_TOS",
-        "fetched_at": "2025-10-31T14:11:39.364Z",
+        "fetched_at": "2025-11-01T19:47:26.529Z",
         "sha256": "13803a96aa94c11f593936ce344ba558421170e1daeea8eb0ac3ad01a80e9863",
         "extract": "Title: The Fantasy and Necessity of Solidarity\n\nDescription: From award-winning writer Sarah Schulman, a longtime social activist and outspoken critic of the Israeli war on Gaza, comes a brilliant examination of the inherent psychological and social challenges to solidarity movements, and what that means for the future For those who seek to combat injustice, solidarity with the oppressed is one of the highest ideals, yet it does not come without complication. In this searing yet uplifting book, award-winning writer and cultural critic Sarah Schulman delves into the intricate and often misunderstood concept of solidarity to provide a new vision for what it means to engage in this work—and why it matters. To grapple with solidarity, Schulman writes, we must recognize its inherent fantasies. Those being oppressed dream of relief, that a bystander will intervene though it may not seem to be in their immediate interest to do so, and that the oppressor will be called out and punished. Those standing in solidarity with the oppressed are occluded by a different fantasy: that their intervention is effective, that it will not cost them, and that they will be rewarded with friendship and thanks. Neither is always the case, and yet in order to realize our full potential as human beings in relation with others, we must continue to pursue action towards these shared goals. Within this framework, Schulman examines a range of case studies, from the fight for abortion rights in post-Franco Spain, to NYC’s AIDS activism in the 1990s, to the current wave of campus protest movements against Israel’s war on Gaza, and her own experience growing up as a queer female artist in male dominated culture industries. Drawing parallels between queer, Palestinian, feminist, and artistic struggles f..."
       },
@@ -266,16 +258,18 @@
         "revision": "2",
         "url": "https://openlibrary.org/works/OL41941442W",
         "license": "CC0",
-        "fetched_at": "2025-10-31T14:11:38.865Z",
+        "fetched_at": "2025-11-01T19:47:25.987Z",
         "sha256": "986b89ae4c8e63eb100924bafe3e73b1b3e3e6f81357829f98b62afbb1534f7b",
         "extract": "Title: The Fantasy and Necessity of Solidarity\n\nPublication: April 22, 2025"
       }
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T18:56:58.880Z",
+    "last_run": "2025-11-13T19:04:07.409Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "The Fantasy and Necessity of Solidarity",
@@ -288,8 +282,87 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "collective-action",
+            "name": "Solidarity",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Solidarity",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "social-justice",
+            "name": "Justice",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Justice",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "activism-rep",
+            "name": "Political participation",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Political participation",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "geopolitical-history",
+            "name": "Palestine question (1948-)--Public opinion",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2024055409",
+            "url": "http://lccn.loc.gov/2024055409",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Palestine question (1948-)--Public opinion",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -463,18 +536,131 @@
           }
         ],
         "notes": [
-          "[fast] title returned no results",
-          "[fast] title-core returned no results",
-          "[fast] fallback succeeded via title-bigram"
+          "[fast] cache hit"
         ]
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "activism-rep",
+          "name": "Political participation",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "representation",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2024055409",
+              "url": "http://lccn.loc.gov/2024055409"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Political participation",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "collective-action",
+          "name": "Solidarity",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "theme",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2024055409",
+              "url": "http://lccn.loc.gov/2024055409"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Solidarity",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "geopolitical-history",
+          "name": "Palestine question (1948-)--Public opinion",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "theme",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2024055409",
+              "url": "http://lccn.loc.gov/2024055409"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Palestine question (1948-)--Public opinion",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "social-justice",
+          "name": "Justice",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2024055409",
+              "url": "http://lccn.loc.gov/2024055409"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2024055409",
+                "subject": "Justice",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
         {
           "slug": "fantasie-und-fuge-u-ber-den-choral-ad-nos-ad-salutarem-undam-liszt-franz",
           "name": "Fantasie und Fuge über den Choral Ad nos, ad salutarem undam (Liszt, Franz)",
@@ -707,6 +893,21 @@
           }
         }
       ]
+    },
+    "google_books": {
+      "description": "<b>From award-winning writer Sarah Schulman, a longtime social activist and outspoken critic of the Israeli war on Gaza, comes a brilliant examination of the inherent psychological and social challenges to solidarity movements, and what that means for the future</b><br><br>For those who seek to combat injustice, solidarity with the oppressed is one of the highest ideals, yet it does not come without complication. In this searing yet uplifting book, award-winning writer and cultural critic Sarah Schulman delves into the intricate and often misunderstood concept of solidarity to provide a new vision for what it means to engage in this work—and why it matters.<br><br>To grapple with solidarity, Schulman writes, we must recognize its inherent fantasies. Those being oppressed dream of relief, that a bystander will intervene though it may not seem to be in their immediate interest to do so, and that the oppressor will be called out and punished. Those standing in solidarity with the oppressed are occluded by a different fantasy: that their intervention is effective, that it will not cost them, and that they will be rewarded with friendship and thanks. Neither is always the case, and yet in order to realize our full potential as human beings in relation with others, we must continue to pursue action towards these shared goals.<br><br>Within this framework, Schulman examines a range of case studies, from the fight for abortion rights in post-Franco Spain, to NYC’s AIDS activism in the 1990s, to the current wave of campus protest movements against Israel’s war on Gaza, and her own experience growing up as a queer female artist in male dominated culture industries. Drawing parallels between queer, Palestinian, feminist, and artistic struggles for justice, Schulman challenges the traditional notion of solidarity as a simple union of equals, arguing that in today's world of globalized power structures, true solidarity requires the collaboration of bystanders and conflicted perpetrators with the excluded and oppressed. That action comes at a cost, and is not always effective. And yet without it we sentence ourselves to a world without progressive change towards visions of liberation.<br><br>By turns challenging, inspiring, pragmatic, and poetic, <i>The Fantasy and Necessity of Solidarity</i> provides a much-needed path for how we can work together to create a more just, more equitable present and future.",
+      "categories": [
+        "Social Science / Activism & Social Justice",
+        "Political Science / Commentary & Opinion",
+        "History / LGBTQ"
+      ],
+      "publishedDate": "2025-04-22",
+      "language": "en",
+      "pageCount": 320
+    },
+    "openlibrary": {
+      "subjects": [],
+      "coverImage": "https://covers.openlibrary.org/b/id/14824025-L.jpg"
     }
   }
 }

@@ -6,6 +6,8 @@ import { db } from '../../db/index.js';
 import { books, editions } from '@shared/schema';
 import { MetadataOrchestrator, type AggregatedLabel } from '../../metadata/index.js';
 import type { AdapterId, AdapterInput } from '../../metadata/types.js';
+import { fetchGoogleBooksById } from '../harvest/clients/googleBooks.js';
+import { lookupOpenLibraryByISBN } from '../harvest/clients/openLibrary.js';
 
 const ENRICHMENT_DIR = 'enrichment_data';
 
@@ -84,6 +86,7 @@ async function loadBook(bookId: string) {
       title: true,
       authors: true,
       isbn: true,
+      googleBooksId: true,
     },
     where: eq(books.id, bookId),
   });
@@ -214,6 +217,48 @@ async function main(): Promise<void> {
   );
 
   const mergedSubjects = serializeAggregatedSubjects(aggregated.labels);
+  
+  // Fetch Google Books and OpenLibrary descriptions for pattern matching
+  let googleBooksData: any = null;
+  let openLibraryData: any = null;
+  
+  // Fetch Google Books description if we have a googleBooksId
+  if (book.googleBooksId) {
+    try {
+      const gbData = await fetchGoogleBooksById(book.googleBooksId);
+      if (gbData) {
+        googleBooksData = {
+          description: gbData.description,
+          categories: gbData.categories,
+          publishedDate: gbData.publishedDate,
+          language: gbData.language,
+          pageCount: gbData.pageCount,
+        };
+        console.log(`[metadata] Fetched Google Books description (${gbData.description?.length || 0} chars)`);
+      }
+    } catch (error: any) {
+      console.warn(`[metadata] Failed to fetch Google Books data: ${error.message}`);
+    }
+  }
+  
+  // Fetch OpenLibrary description if we have an ISBN
+  const isbnToUse = input.isbn13 || input.isbn10;
+  if (isbnToUse) {
+    try {
+      const olData = await lookupOpenLibraryByISBN(isbnToUse);
+      if (olData) {
+        openLibraryData = {
+          description: olData.work?.description || olData.edition?.description,
+          subjects: olData.subjects || [],
+          coverImage: olData.coverImage,
+        };
+        console.log(`[metadata] Fetched OpenLibrary data (${olData.subjects?.length || 0} subjects)`);
+      }
+    } catch (error: any) {
+      console.warn(`[metadata] Failed to fetch OpenLibrary data: ${error.message}`);
+    }
+  }
+  
   data.external_metadata = {
     last_run: new Date().toISOString(),
     sources_enabled: sources,
@@ -228,6 +273,9 @@ async function main(): Promise<void> {
     merged: {
       subjects: mergedSubjects,
     },
+    // Add Google Books and OpenLibrary descriptions for pattern matching
+    google_books: googleBooksData,
+    openlibrary: openLibraryData,
   };
 
   if (!data.taxonomy) {

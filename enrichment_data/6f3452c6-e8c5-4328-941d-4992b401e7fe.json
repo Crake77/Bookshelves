@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:31:02.135Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:57:50.237Z",
+    "last_run": "2025-11-13T19:03:21.138Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "Speaker for the Dead",
@@ -19,8 +21,373 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "wiggin-ender-fictitious-character-fiction",
+            "name": "Wiggin, Ender--(Fictitious character)--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/85051765",
+            "url": "http://lccn.loc.gov/85051765",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/85051765",
+                "subject": "Wiggin, Ender--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/91012324",
+                "subject": "Wiggin, Ender--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction",
+            "name": "Science fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/85051765",
+            "url": "http://lccn.loc.gov/85051765",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/85051765",
+                "subject": "Science fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/91012324",
+                "subject": "Science fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "scott-walter-1771-1832",
+            "name": "Scott, Walter,--1771-1832",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/04002436/",
+            "url": "http://www.loc.gov/item/04002436/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/04002436/",
+                "subject": "Scott, Walter,--1771-1832",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "scotland-description-and-travel",
+            "name": "Scotland--Description and travel",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/04002436/",
+            "url": "http://www.loc.gov/item/04002436/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/04002436/",
+                "subject": "Scotland--Description and travel",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/02000808/",
+                "subject": "Scotland--Description and travel",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "europe-description-and-travel",
+            "name": "Europe--Description and travel",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/04002436/",
+            "url": "http://www.loc.gov/item/04002436/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/04002436/",
+                "subject": "Europe--Description and travel",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/02000808/",
+                "subject": "Europe--Description and travel",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "scott-walter-1771-1832-homes-and-haunts",
+            "name": "Scott, Walter,--1771-1832--Homes and haunts",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/02000808/",
+            "url": "http://www.loc.gov/item/02000808/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/02000808/",
+                "subject": "Scott, Walter,--1771-1832--Homes and haunts",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "woodbury-conn-history",
+            "name": "Woodbury (Conn.)--History",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Woodbury (Conn.)--History",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "woodbury-conn-genealogy",
+            "name": "Woodbury (Conn.)--Genealogy",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Woodbury (Conn.)--Genealogy",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "washington-conn-history",
+            "name": "Washington (Conn.)--History",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Washington (Conn.)--History",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "southbury-conn-history",
+            "name": "Southbury (Conn.)--History",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Southbury (Conn.)--History",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "bethlehem-conn-history",
+            "name": "Bethlehem (Conn.)--History",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Bethlehem (Conn.)--History",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "roxbury-conn-town-history",
+            "name": "Roxbury (Conn. : Town)--History",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Roxbury (Conn. : Town)--History",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "registers-of-births-etc-connecticut-woodbury",
+            "name": "Registers of births, etc.--Connecticut--Woodbury",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Woodbury",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "registers-of-births-etc-connecticut-washington",
+            "name": "Registers of births, etc.--Connecticut--Washington",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Washington",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "registers-of-births-etc-connecticut-southbury",
+            "name": "Registers of births, etc.--Connecticut--Southbury",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Southbury",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "registers-of-births-etc-connecticut-bethlehem",
+            "name": "Registers of births, etc.--Connecticut--Bethlehem",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Bethlehem",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "registers-of-births-etc-connecticut-stratford",
+            "name": "Registers of births, etc.--Connecticut--Stratford",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Stratford",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "registers-of-births-etc-connecticut-roxbury-town",
+            "name": "Registers of births, etc.--Connecticut--Roxbury (Town)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/rc01003329/",
+            "url": "http://www.loc.gov/item/rc01003329/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Roxbury (Town)",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -51,12 +418,500 @@
         ]
       },
       "wikidata": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "science-fiction",
+            "name": "science fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q24925",
+            "url": "https://www.wikidata.org/wiki/Q24925",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q2291295",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "united-states",
+            "name": "United States",
+            "kind": "place",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q30",
+            "url": "https://www.wikidata.org/wiki/Q30",
+            "raw": [
+              {
+                "property": "P495",
+                "qid": "Q2291295",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[wikidata] cache hit"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "science-fiction",
+          "name": "Science fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/85051765",
+              "url": "http://lccn.loc.gov/85051765"
+            },
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q24925",
+              "url": "https://www.wikidata.org/wiki/Q24925"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/85051765",
+                "subject": "Science fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/91012324",
+                "subject": "Science fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q2291295",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "united-states",
+          "name": "United States",
+          "kind": "place",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q30",
+              "url": "https://www.wikidata.org/wiki/Q30"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P495",
+                "qid": "Q2291295",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "bethlehem-conn-history",
+          "name": "Bethlehem (Conn.)--History",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Bethlehem (Conn.)--History",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "europe-description-and-travel",
+          "name": "Europe--Description and travel",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/04002436/",
+              "url": "http://www.loc.gov/item/04002436/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/04002436/",
+                "subject": "Europe--Description and travel",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/02000808/",
+                "subject": "Europe--Description and travel",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "registers-of-births-etc-connecticut-bethlehem",
+          "name": "Registers of births, etc.--Connecticut--Bethlehem",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Bethlehem",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "registers-of-births-etc-connecticut-roxbury-town",
+          "name": "Registers of births, etc.--Connecticut--Roxbury (Town)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Roxbury (Town)",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "registers-of-births-etc-connecticut-southbury",
+          "name": "Registers of births, etc.--Connecticut--Southbury",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Southbury",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "registers-of-births-etc-connecticut-stratford",
+          "name": "Registers of births, etc.--Connecticut--Stratford",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Stratford",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "registers-of-births-etc-connecticut-washington",
+          "name": "Registers of births, etc.--Connecticut--Washington",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Washington",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "registers-of-births-etc-connecticut-woodbury",
+          "name": "Registers of births, etc.--Connecticut--Woodbury",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Registers of births, etc.--Connecticut--Woodbury",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "roxbury-conn-town-history",
+          "name": "Roxbury (Conn. : Town)--History",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Roxbury (Conn. : Town)--History",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "scotland-description-and-travel",
+          "name": "Scotland--Description and travel",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/04002436/",
+              "url": "http://www.loc.gov/item/04002436/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/04002436/",
+                "subject": "Scotland--Description and travel",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/02000808/",
+                "subject": "Scotland--Description and travel",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "scott-walter-1771-1832",
+          "name": "Scott, Walter,--1771-1832",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/04002436/",
+              "url": "http://www.loc.gov/item/04002436/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/04002436/",
+                "subject": "Scott, Walter,--1771-1832",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "scott-walter-1771-1832-homes-and-haunts",
+          "name": "Scott, Walter,--1771-1832--Homes and haunts",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/02000808/",
+              "url": "http://www.loc.gov/item/02000808/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/02000808/",
+                "subject": "Scott, Walter,--1771-1832--Homes and haunts",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "southbury-conn-history",
+          "name": "Southbury (Conn.)--History",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Southbury (Conn.)--History",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
         {
           "slug": "speaker-for-the-dead-card-orson-scott",
           "name": "Speaker for the dead (Card, Orson Scott)",
@@ -86,8 +941,186 @@
             ],
             "wikidata": []
           }
+        },
+        {
+          "slug": "washington-conn-history",
+          "name": "Washington (Conn.)--History",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Washington (Conn.)--History",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "wiggin-ender-fictitious-character-fiction",
+          "name": "Wiggin, Ender--(Fictitious character)--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/85051765",
+              "url": "http://lccn.loc.gov/85051765"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/85051765",
+                "subject": "Wiggin, Ender--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/91012324",
+                "subject": "Wiggin, Ender--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "woodbury-conn-genealogy",
+          "name": "Woodbury (Conn.)--Genealogy",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Woodbury (Conn.)--Genealogy",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "woodbury-conn-history",
+          "name": "Woodbury (Conn.)--History",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/rc01003329/",
+              "url": "http://www.loc.gov/item/rc01003329/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/rc01003329/",
+                "subject": "Woodbury (Conn.)--History",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
         }
       ]
+    },
+    "google_books": {
+      "description": "<p>In the aftermath of his terrible war, Ender Wiggin disappeared, and a powerful voice arose: The Speaker for the Dead, who told the true story of the Bugger War.<br><br>Now, long years later, a second alien race has been discovered, but again the aliens' ways are strange and frightening...again, humans die. And it is only the Speaker for the Dead, who is also Ender Wiggin the Xenocide, who has the courage to confront the mystery...and the truth.<br><br><i>Speaker for the Dead</i>, the second novel in Orson Scott Card's The Ender Saga, is the winner of the 1986 Nebula Award for Best Novel and the 1987 Hugo Award for Best Novel.<br><br>THE ENDER UNIVERSE<br><br>Ender series<br><i>Ender’s Game</i> /<i> Ender in Exile </i>/ <i>Speaker for the Dead </i>/ <i>Xenocide </i>/ <i>Children of the Mind</i><br><br>Ender’s Shadow series<br><i>Ender’s Shadow </i>/ <i>Shadow of the Hegemon </i>/ <i>Shadow Puppets </i>/ <i>Shadow of the Giant </i>/ <i>Shadows in Flight</i><br><br><i>Children of the Fleet</i><br><br>The First Formic War (with Aaron Johnston)<br><i>Earth Unaware </i>/ <i>Earth Afire </i>/ <i>Earth Awakens</i><br><br>The Second Formic War (with Aaron Johnston)<br><i>The Swarm </i>/<i>The Hive</i><br><br>Ender novellas<br><i>A War of Gifts </i>/<i>First Meetings</i></p>",
+      "categories": [
+        "Fiction / Fantasy / Epic",
+        "Fiction / Science Fiction / General",
+        "Fiction / Science Fiction / Action & Adventure",
+        "Fiction / Science Fiction / Hard Science Fiction",
+        "Fiction / Science Fiction / Space Opera",
+        "Fiction / Science Fiction / Military"
+      ],
+      "publishedDate": "1992-08-15",
+      "language": "en",
+      "pageCount": 280
+    },
+    "openlibrary": {
+      "description": "Ender Wiggin, the young military genius, discovers that a second alien war is inevitable and that he must dismiss his fears to make peace with humanity's strange new brothers.",
+      "subjects": [
+        "Fantasy",
+        "Science Fiction",
+        "Science Fiction - General",
+        "Fiction",
+        "Fiction - Science Fiction",
+        "Fiction / Science Fiction / General",
+        "Reading Level-Grade 9",
+        "Reading Level-Grade 8",
+        "Reading Level-Grade 11",
+        "Reading Level-Grade 10",
+        "Reading Level-Grade 12",
+        "Comics & graphic novels, science fiction",
+        "Wiggin, ender (fictitious character), fiction",
+        "Lusitania (imaginary place), fiction",
+        "Fiction, science fiction, hard science fiction",
+        "Fiction, fantasy, epic",
+        "Extraterrestrial beings",
+        "American Science fiction",
+        "Science fiction",
+        "Roman",
+        "Science-fiction",
+        "nyt:mass-market-paperback=2013-11-24",
+        "New York Times bestseller",
+        "award:nebula_award=novel",
+        "Hugo Award Winner",
+        "award:hugo_award=1987",
+        "award:hugo_award=novel",
+        "Space warfare",
+        "Interplanetary voyages",
+        "Guerre spatiale",
+        "Romans, nouvelles",
+        "Voyages interplanétaires",
+        "Ke xue huan xiang xiao shuo",
+        "Zhang pian xiao shuo",
+        "Ender Wiggin (Fictitious character)",
+        "Atonement",
+        "Human-alien encounters",
+        "Life on other planets",
+        "Genocide",
+        "Mei guo",
+        "Xiandai"
+      ],
+      "coverImage": "https://covers.openlibrary.org/b/id/14493530-L.jpg"
     }
   },
   "taxonomy": {
@@ -119,28 +1152,127 @@
     "subgenres": [],
     "cross_tags": [
       {
-        "slug": "mystery",
-        "name": "Mystery",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
         "slug": "strange",
         "name": "Strange",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 33,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "b5d35613-9f06-40ff-a088-4d64b4d25026",
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
       },
       {
         "slug": "war",
         "name": "War",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 33,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "b5d35613-9f06-40ff-a088-4d64b4d25026",
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
+      },
+      {
+        "slug": "mystery",
+        "name": "Mystery",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "b5d35613-9f06-40ff-a088-4d64b4d25026"
+        ]
+      },
+      {
+        "slug": "military",
+        "name": "Military",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
+      },
+      {
+        "slug": "award-winner",
+        "name": "Award Winner",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
+      },
+      {
+        "slug": "bestseller",
+        "name": "Bestseller",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
+      },
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a62e3fd6-df89-4e71-8bdc-ddaa8e8f3e35"
+        ]
+      },
+      {
+        "slug": "graphic",
+        "name": "Graphic",
+        "group": "structure",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
+      },
+      {
+        "slug": "epic",
+        "name": "Epic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
+      },
+      {
+        "slug": "hard-science-fiction",
+        "name": "Hard Science Fiction",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
+      },
+      {
+        "slug": "epic-tone",
+        "name": "Epic",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 4,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "8efdb946-0beb-40a3-a188-6bad00b51284"
+        ]
       },
       {
         "slug": "child-soldiers",
@@ -151,23 +1283,39 @@
         "method": "semantic-inference"
       },
       {
+        "slug": "genocide",
+        "name": "Genocide",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
         "slug": "alien-contact",
         "name": "Alien Contact",
         "group": "trope",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
+        "slug": "space-battle",
+        "name": "Space Battle",
         "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "redemption",
+        "name": "Redemption",
+        "group": "tropes_themes",
         "confidence": "low",
         "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 6
+    "cross_tags_count": 16
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=GYi1s6OuY-sC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71OHvqF9rBmkaRbj_8qsF7rwFpgTj3kO374DMoaO_z_TV-9NLZ2nIE1sEPUBvpg0E_fAw3uSvaqmEa8gKJF-NDOP2FVR-4b5Ei8HvYUz3nMuvnsE9B67vLCZcyb0HFkvfE4rIJG&source=gbs_api",
@@ -178,7 +1326,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL9369820M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:08.794Z",
+  "last_updated": "2025-11-13T19:06:11.077Z",
   "authors": {
     "original": [
       "Orson Scott Card"
@@ -212,5 +1360,46 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "7b59b896-c0ad-48fc-aaab-ac6b989ef2d5",
+    "work_title": "Speaker for the Dead",
+    "work_ref": null,
+    "fetched_at": "2025-11-01T19:54:45.626Z",
+    "sources": [
+      {
+        "snapshot_id": "b5d35613-9f06-40ff-a088-4d64b4d25026",
+        "source": "googlebooks",
+        "source_key": "GYi1s6OuY-sC",
+        "revision": "1992-08-15",
+        "url": "https://books.google.com/books?id=GYi1s6OuY-sC",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-11-01T19:54:45.626Z",
+        "sha256": "6003c5d8a117b126d0adcd43bd3f9519ae0558106f3286a714679b5a66259db3",
+        "extract": "Title: Speaker for the Dead\n\nDescription: <p>In the aftermath of his terrible war, Ender Wiggin disappeared, and a powerful voice arose: The Speaker for the Dead, who told the true story of the Bugger War.<br><br>Now, long years later, a second alien race has been discovered, but again the aliens' ways are strange and frightening...again, humans die. And it is only the Speaker for the Dead, who is also Ender Wiggin the Xenocide, who has the courage to confront the mystery...and the truth.<br><br><i>Speaker for the Dead</i>, the second novel in Orson Scott Card's The Ender Saga, is the winner of the 1986 Nebula Award for Best Novel and the 1987 Hugo Award for Best Novel.<br><br>THE ENDER UNIVERSE<br><br>Ender series<br><i>Ender’s Game</i> /<i> Ender in Exile </i>/ <i>Speaker for the Dead </i>/ <i>Xenocide </i>/ <i>Children of the Mind</i><br><br>Ender’s Shadow series<br><i>Ender’s Shadow </i>/ <i>Shadow of the Hegemon </i>/ <i>Shadow Puppets </i>/ <i>Shadow of the Giant </i>/ <i>Shadows in Flight</i><br><br><i>Children of the Fleet</i><br><br>The First Formic War (with Aaron Johnston)<br><i>Earth Unaware </i>/ <i>Earth Afire </i>/ <i>Earth Awakens</i><br><br>The Second Formic War (with Aaron Johnston)<br><i>The Swarm </i>/<i>The Hive</i><br><br>Ender novellas<br><i>A War of Gifts </i>/<i>First Meetings</i></p>\n\nCategories: Science Fiction"
+      },
+      {
+        "snapshot_id": "a62e3fd6-df89-4e71-8bdc-ddaa8e8f3e35",
+        "source": "wikipedia",
+        "source_key": "Speaker for the Dead",
+        "revision": "1313707230",
+        "url": "https://en.wikipedia.org/wiki/Speaker_for_the_Dead",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-11-01T19:54:45.327Z",
+        "sha256": "bf89702bc439c64ac5a3b4f9b277b0662eb7889b84da050ab38234f162fde7ea",
+        "extract": "Speaker for the Dead is a 1986 science fiction novel by American writer Orson Scott Card, an indirect sequel to the 1985 novel Ender's Game.  The book takes place around the year 5270, some 3,000 years after the events in Ender's Game. However, because of relativistic space travel at near-light speed, Ender himself is only about 35 years old.\nThis is the first book to describe the Starways Congress, a high standpoint legislature for the human space colonies, and the Hundred Worlds, the planets with human colonies that are tightly intertwined by Ansible technology, which enables instantaneous communication across any distance.\nLike Ender's Game, the book won the Nebula Award (1986) and the Hugo Award (1987). Speaker for the Dead was published in a slightly revised edition in 1991. It was followed by Xenocide and Children of the Mind.\n\nCategories: 1986 American novels, 1986 science fiction novels, All articles to be expanded, American science fiction novels, Articles to be expanded from February 2022, Articles with short description, Ender's Game series books, Fiction about time dilation, Fiction set in the 6th millennium, Hugo Award for Best Novel–winning works, Locus Award–winning works, Nebula Award for Best Novel–winning works, Novels set on fictional planets, Short description matches Wikidata, Tor Books books, Use mdy dates from March 2025, Webarchive template wayback links"
+      },
+      {
+        "snapshot_id": "8efdb946-0beb-40a3-a188-6bad00b51284",
+        "source": "openlibrary",
+        "source_key": "OL49580W",
+        "revision": "10",
+        "url": "https://openlibrary.org/works/OL49580W",
+        "license": "CC0",
+        "fetched_at": "2025-11-01T19:54:45.138Z",
+        "sha256": "b4ab8fcd3abc15827848d1c713bc1eff4115b099700761348d6f47c4efafdb34",
+        "extract": "Title: Speaker for the Dead\n\nDescription: Ender Wiggin, the young military genius, discovers that a second alien war is inevitable and that he must dismiss his fears to make peace with humanity's strange new brothers.\n\nSubjects: Fantasy, Science Fiction, Science Fiction - General, Fiction, Fiction - Science Fiction, Fiction / Science Fiction / General, Reading Level-Grade 9, Reading Level-Grade 8, Reading Level-Grade 11, Reading Level-Grade 10, Reading Level-Grade 12, Comics & graphic novels, science fiction, Wiggin, ender (fictitious character), fiction, Lusitania (imaginary place), fiction, Fiction, science fiction, hard science fiction, Fiction, fantasy, epic, Extraterrestrial beings, American Science fiction, Science fiction, Roman, Science-fiction, nyt:mass-market-paperback=2013-11-24, New York Times bestseller, award:nebula_award=novel, Hugo Award Winner\n\nPublication: 1991\n\nLanguages: eng"
+      }
+    ]
   }
 }

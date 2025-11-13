@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:32:06.599Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:58:53.334Z",
+    "last_run": "2025-11-13T19:05:49.678Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "Tower of God Volume One",
@@ -20,8 +22,49 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "tower-of-london-london-england",
+            "name": "Tower of London (London, England)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/46040802/",
+            "url": "http://www.loc.gov/item/46040802/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/46040802/",
+                "subject": "Tower of London (London, England)",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "great-britain-history",
+            "name": "Great Britain--History",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/46040802/",
+            "url": "http://www.loc.gov/item/46040802/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/46040802/",
+                "subject": "Great Britain--History",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -200,7 +243,10 @@
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
@@ -370,6 +416,62 @@
           }
         },
         {
+          "slug": "great-britain-history",
+          "name": "Great Britain--History",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/46040802/",
+              "url": "http://www.loc.gov/item/46040802/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/46040802/",
+                "subject": "Great Britain--History",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "tower-of-london-london-england",
+          "name": "Tower of London (London, England)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/46040802/",
+              "url": "http://www.loc.gov/item/46040802/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/46040802/",
+                "subject": "Tower of London (London, England)",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
           "slug": "white-tower-tower-of-london-london-england",
           "name": "White Tower (Tower of London, London, England)",
           "kind": "topic",
@@ -437,6 +539,21 @@
           }
         }
       ]
+    },
+    "google_books": {
+      "description": "<p>Twenty-Fifth Bam must journey skyward in a mysterious tower if he has any chance of reuniting with his best friend Rachel, even if that means facing his own death. <br><br>Before mysteriously disappearing into the tower gates before his very eyes, Rachel cautions Bam to forget all about her. Unwilling to lose her, Bam enters the Tower completely surrounded by Shinsu — a divine and magical water, at his own peril.<br><br>The Tower itself contains multitudes of floors as vast as continents, each one with its unique geography, language and culture. Confronted by skillful tests each step of the way, Bam meets powerful guardians and otherworldly environments, making his quest to the top no easy feat. <br><br>Beginning his journey, Bam is met by Headon, the first floor guardian and caretaker of the Tower who explains the rules of the Tower. At each level Bam is constantly tested for his strength, dexterity and wit. With help from fellow travelers and unlikely villains, Bam makes both allies and enemies in order to find Rachel; however her intentions of reconnecting with him become unclear as misinformation about her whereabouts do not add up. Behind each ascension is a revelation about their friendship, revealing a much deeper, darker secret.</p>",
+      "categories": [
+        "Young Adult Fiction / Comics & Graphic Novels / Manga",
+        "Young Adult Fiction / Comics & Graphic Novels / Action & Adventure",
+        "Young Adult Fiction / Comics & Graphic Novels / Dystopian"
+      ],
+      "publishedDate": "2022-11-22",
+      "language": "en",
+      "pageCount": 288
+    },
+    "openlibrary": {
+      "subjects": [],
+      "coverImage": "https://covers.openlibrary.org/b/id/13145627-L.jpg"
     }
   },
   "taxonomy": {
@@ -468,64 +585,88 @@
         "name": "Death",
         "group": "content_flags",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2adabdf7-e750-4975-b2d4-daf000e1c475"
+        ]
       },
       {
         "slug": "revelation",
         "name": "Revelation",
         "group": "plot",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2adabdf7-e750-4975-b2d4-daf000e1c475"
+        ]
       },
       {
         "slug": "magical",
         "name": "Magical",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2adabdf7-e750-4975-b2d4-daf000e1c475"
+        ]
       },
       {
         "slug": "mysterious",
         "name": "Mysterious",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2adabdf7-e750-4975-b2d4-daf000e1c475"
+        ]
       },
       {
         "slug": "otherworldly",
         "name": "Otherworldly",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2adabdf7-e750-4975-b2d4-daf000e1c475"
+        ]
       },
       {
         "slug": "unique",
         "name": "Unique",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2adabdf7-e750-4975-b2d4-daf000e1c475"
+        ]
       },
       {
         "slug": "quest",
         "name": "Quest",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2adabdf7-e750-4975-b2d4-daf000e1c475"
+        ]
       },
       {
         "slug": "journey",
         "name": "Journey",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2adabdf7-e750-4975-b2d4-daf000e1c475"
+        ]
       },
       {
         "slug": "male-protagonist",
@@ -541,18 +682,10 @@
         "group": "representation",
         "confidence": "low",
         "match_score": 2,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "low",
-        "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 11
+    "cross_tags_count": 10
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=v-RwEAAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73D4ORCcqrUwR55BlxC6ML0PK4cgpGSlSVmhdxgGFwHRwfpWbLAIB2AyVMUWwjdLczRexYuPwTAfIDSsoAJFriMzDD6LFUp_XW3Hu_6nNIMlZEIrRXcOcW7Y8FCXFb-5H-HtZI4&source=gbs_api",
@@ -563,7 +696,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL38067039M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:05.229Z",
+  "last_updated": "2025-11-13T19:06:27.639Z",
   "authors": {
     "original": [
       "S.I.U.",
@@ -598,5 +731,35 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "d0c58df2-a93e-4f50-9f37-a2ffa56ea9a5",
+    "work_title": "Tower of God Volume One",
+    "work_ref": null,
+    "fetched_at": "2025-11-01T19:54:44.988Z",
+    "sources": [
+      {
+        "snapshot_id": "2adabdf7-e750-4975-b2d4-daf000e1c475",
+        "source": "googlebooks",
+        "source_key": "v-RwEAAAQBAJ",
+        "revision": "2022-11-22",
+        "url": "https://books.google.com/books?id=v-RwEAAAQBAJ",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-11-01T19:54:44.988Z",
+        "sha256": "7931b14bec4061e153379807975f01fa20d4a5670e768aaeba069f68983cc435",
+        "extract": "Title: Tower of God Volume One\n\nDescription: <p>Twenty-Fifth Bam must journey skyward in a mysterious tower if he has any chance of reuniting with his best friend Rachel, even if that means facing his own death. <br><br>Before mysteriously disappearing into the tower gates before his very eyes, Rachel cautions Bam to forget all about her. Unwilling to lose her, Bam enters the Tower completely surrounded by Shinsu — a divine and magical water, at his own peril.<br><br>The Tower itself contains multitudes of floors as vast as continents, each one with its unique geography, language and culture. Confronted by skillful tests each step of the way, Bam meets powerful guardians and otherworldly environments, making his quest to the top no easy feat. <br><br>Beginning his journey, Bam is met by Headon, the first floor guardian and caretaker of the Tower who explains the rules of the Tower. At each level Bam is constantly tested for his strength, dexterity and wit. With help from fellow travelers and unlikely villains, Bam makes both allies and enemies in order to find Rachel; however her intentions of reconnecting with him become unclear as misinformation about her whereabouts do not add up. Behind each ascension is a revelation about their friendship, revealing a much deeper, darker secret.</p>\n\nCategories: Webtoon, Fantasy, Action"
+      },
+      {
+        "snapshot_id": "32f1213c-52d7-4068-ad63-2cd41e33c491",
+        "source": "openlibrary",
+        "source_key": "OL27851998W",
+        "revision": "1",
+        "url": "https://openlibrary.org/works/OL27851998W",
+        "license": "CC0",
+        "fetched_at": "2025-11-01T19:54:44.395Z",
+        "sha256": "7821d08b4d208f202a2e8e36d7f74fbf39ba3b44437a323a22df88a96547d047",
+        "extract": "Title: Tower of God Volume One\n\nPublication: 2022\n\nLanguages: eng"
+      }
+    ]
   }
 }

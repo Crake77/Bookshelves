@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:31:15.101Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:58:02.852Z",
+    "last_run": "2025-11-13T19:02:23.743Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "Defiance of the Fall",
@@ -20,7 +22,10 @@
     "sources": {
       "loc": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[loc] title lookup returned no matches",
+          "[loc] no matches returned"
+        ]
       },
       "fast": {
         "labels": [
@@ -129,7 +134,9 @@
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
@@ -269,7 +276,21 @@
           }
         }
       ]
-    }
+    },
+    "google_books": {
+      "description": "<p>Zac was alone in the middle of the forest when the world changed...</p><p><br></p><p>The whole planet was introduced to the multiverse by an unfeeling System... or God. A universe where an endless number of races and civilizations fought for power and dominion.</p><p><br></p><p>Zac finds himself stuck in the wilderness surrounded by deadly beasts, demons, and worse. Alone, lost and without answers, he must find the means to survive and get stronger in this new cut-throat reality.</p><p><br></p><p>With only a hatchet for his weapon, he'll have to seek out his family before the world collapses... or die trying.</p><p><br></p><p>Experience the start of the hit LitRPG series with over 20 Million views on Royal Road. For the first time, Defiance of the Fall is now available on Kindle, Kindle Unlimited, and Audible narrated by Pavi Prozcko.</p><p><br></p><p>About the Series: Jump into an apocalypse story that merges LitRPG elements with eastern cultivation. Class systems, skill systems, endless choices for progression, it has everything fans of the genre love. Explore a vast universe full of mystery, adventure, danger and even aliens; where even a random passer-by might hold the power of a god. Follow Zac as he struggles to stake out a unique path to power as a mortal in a world full of cultivators.</p>",
+      "categories": [
+        "Fiction / Science Fiction / Alien Contact",
+        "Fiction / Action & Adventure",
+        "Fiction / Science Fiction / Cyberpunk",
+        "Games & Activities / Role Playing & Fantasy",
+        "Fiction / LitRPG (Literary Role-Playing Game)"
+      ],
+      "publishedDate": "2025-07-21",
+      "language": "en",
+      "pageCount": 778
+    },
+    "openlibrary": null
   },
   "taxonomy": {
     "domain": {
@@ -313,7 +334,7 @@
         "name": "Litrpg",
         "group": "trope",
         "confidence": "high",
-        "match_score": 12,
+        "match_score": 16,
         "method": "pattern-match"
       },
       {
@@ -321,7 +342,7 @@
         "name": "Progression",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 12,
+        "match_score": 16,
         "method": "pattern-match"
       },
       {
@@ -329,7 +350,7 @@
         "name": "Mystery",
         "group": "plot",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match"
       },
       {
@@ -337,7 +358,7 @@
         "name": "Forest",
         "group": "setting",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match"
       },
       {
@@ -345,7 +366,7 @@
         "name": "Wilderness",
         "group": "setting",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match"
       },
       {
@@ -353,7 +374,7 @@
         "name": "Unique",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match"
       },
       {
@@ -361,7 +382,7 @@
         "name": "Demons",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match"
       },
       {
@@ -369,7 +390,7 @@
         "name": "Multiverse",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match"
       },
       {
@@ -377,7 +398,7 @@
         "name": "Cultivation",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match"
       },
       {
@@ -405,14 +426,6 @@
         "method": "pattern-match"
       },
       {
-        "slug": "progression-fantasy",
-        "name": "Progression Fantasy",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3,
-        "method": "pattern-match"
-      },
-      {
         "slug": "expansive",
         "name": "Expansive",
         "group": "tone",
@@ -421,16 +434,16 @@
         "method": "pattern-match"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
+        "slug": "parallel-worlds",
+        "name": "Parallel Worlds",
         "group": "trope",
         "confidence": "low",
         "match_score": 2,
         "method": "pattern-match"
       },
       {
-        "slug": "parallel-worlds",
-        "name": "Parallel Worlds",
+        "slug": "progression-fantasy",
+        "name": "Progression Fantasy",
         "group": "trope",
         "confidence": "low",
         "match_score": 2,
@@ -445,7 +458,7 @@
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 17
+    "cross_tags_count": 16
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72gI2a_X9H8DlZBsC-5MkFtoRc7CC6mvB-H1pPTc-XHahDRNAmAOwro01TZi4fHcxa-VoPzmDABUS_Q0lgcMEBn_hN5Yz6LdSf3_HciyYd0EhrPJwktAJGrM6vy2Rfn6Ns7kETP&source=gbs_api",
@@ -456,7 +469,7 @@
     "recommended": "https://books.google.com/books/content?id=6PRyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-05T14:07:06.992Z",
+  "last_updated": "2025-11-13T19:06:05.326Z",
   "authors": {
     "original": [
       "TheFirstDefier"

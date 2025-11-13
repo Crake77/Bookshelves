@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:29:50.254Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:57:12.329Z",
+    "last_run": "2025-11-13T19:02:58.372Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "The Eye of the World",
@@ -19,8 +21,201 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "kirkwood-samuel-jordan-1813-1894",
+            "name": "Kirkwood, Samuel Jordan,--1813-1894",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/17027455/",
+            "url": "http://www.loc.gov/item/17027455/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/17027455/",
+                "subject": "Kirkwood, Samuel Jordan,--1813-1894",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "world-war-1914-1918-humor-caricatures-etc-from-old-catalog",
+            "name": "World War, 1914-1918--Humor, caricatures, etc. [from old catalog]",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/20003187/",
+            "url": "http://www.loc.gov/item/20003187/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/20003187/",
+                "subject": "World War, 1914-1918--Humor, caricatures, etc. [from old catalog]",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "jordan-alfred-1870",
+            "name": "Jordan, Alfred,--1870",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/15001241/",
+            "url": "http://www.loc.gov/item/15001241/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/15001241/",
+                "subject": "Jordan, Alfred,--1870",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "banks-newell-w-1887",
+            "name": "Banks, Newell W.,--1887",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/15001241/",
+            "url": "http://www.loc.gov/item/15001241/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/15001241/",
+                "subject": "Banks, Newell W.,--1887",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "checkers",
+            "name": "Checkers",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/15001241/",
+            "url": "http://www.loc.gov/item/15001241/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/15001241/",
+                "subject": "Checkers",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "syria-social-life-and-customs",
+            "name": "Syria--Social life and customs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/05003451/",
+            "url": "http://www.loc.gov/item/05003451/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Syria--Social life and customs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "apologetics",
+            "name": "Apologetics",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/05003451/",
+            "url": "http://www.loc.gov/item/05003451/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Apologetics",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "missions-syria",
+            "name": "Missions--Syria",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/05003451/",
+            "url": "http://www.loc.gov/item/05003451/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Missions--Syria",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "missions-to-jews",
+            "name": "Missions to Jews",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/05003451/",
+            "url": "http://www.loc.gov/item/05003451/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Missions to Jews",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "greene-robert-1558-1592",
+            "name": "Greene, Robert,--1558?-1592",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/15020972/",
+            "url": "http://www.loc.gov/item/15020972/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/15020972/",
+                "subject": "Greene, Robert,--1558?-1592",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -226,12 +421,81 @@
         ]
       },
       "wikidata": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "high-fantasy",
+            "name": "high fantasy",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q326439",
+            "url": "https://www.wikidata.org/wiki/Q326439",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q477994",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "united-states",
+            "name": "United States",
+            "kind": "place",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q30",
+            "url": "https://www.wikidata.org/wiki/Q30",
+            "raw": [
+              {
+                "property": "P495",
+                "qid": "Q477994",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[wikidata] cache hit"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "united-states",
+          "name": "United States",
+          "kind": "place",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q30",
+              "url": "https://www.wikidata.org/wiki/Q30"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P495",
+                "qid": "Q477994",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
         {
           "slug": "adnexa-oculi",
           "name": "Adnexa oculi",
@@ -259,6 +523,90 @@
                 "type": "alt"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "apologetics",
+          "name": "Apologetics",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/05003451/",
+              "url": "http://www.loc.gov/item/05003451/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Apologetics",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "banks-newell-w-1887",
+          "name": "Banks, Newell W.,--1887",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/15001241/",
+              "url": "http://www.loc.gov/item/15001241/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/15001241/",
+                "subject": "Banks, Newell W.,--1887",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "checkers",
+          "name": "Checkers",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/15001241/",
+              "url": "http://www.loc.gov/item/15001241/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/15001241/",
+                "subject": "Checkers",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -383,6 +731,118 @@
           }
         },
         {
+          "slug": "greene-robert-1558-1592",
+          "name": "Greene, Robert,--1558?-1592",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/15020972/",
+              "url": "http://www.loc.gov/item/15020972/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/15020972/",
+                "subject": "Greene, Robert,--1558?-1592",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "high-fantasy",
+          "name": "high fantasy",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q326439",
+              "url": "https://www.wikidata.org/wiki/Q326439"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q477994",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "jordan-alfred-1870",
+          "name": "Jordan, Alfred,--1870",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/15001241/",
+              "url": "http://www.loc.gov/item/15001241/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/15001241/",
+                "subject": "Jordan, Alfred,--1870",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "kirkwood-samuel-jordan-1813-1894",
+          "name": "Kirkwood, Samuel Jordan,--1813-1894",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/17027455/",
+              "url": "http://www.loc.gov/item/17027455/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/17027455/",
+                "subject": "Kirkwood, Samuel Jordan,--1813-1894",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
           "slug": "london-eye-london-england",
           "name": "London Eye (London, England)",
           "kind": "topic",
@@ -450,6 +910,62 @@
           }
         },
         {
+          "slug": "missions-syria",
+          "name": "Missions--Syria",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/05003451/",
+              "url": "http://www.loc.gov/item/05003451/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Missions--Syria",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "missions-to-jews",
+          "name": "Missions to Jews",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/05003451/",
+              "url": "http://www.loc.gov/item/05003451/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Missions to Jews",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
           "slug": "queen-the-eye-game",
           "name": "Queen: The Eye (Game)",
           "kind": "topic",
@@ -476,6 +992,62 @@
                 "type": "auth"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "syria-social-life-and-customs",
+          "name": "Syria--Social life and customs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/05003451/",
+              "url": "http://www.loc.gov/item/05003451/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Syria--Social life and customs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "world-war-1914-1918-humor-caricatures-etc-from-old-catalog",
+          "name": "World War, 1914-1918--Humor, caricatures, etc. [from old catalog]",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/20003187/",
+              "url": "http://www.loc.gov/item/20003187/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/20003187/",
+                "subject": "World War, 1914-1918--Humor, caricatures, etc. [from old catalog]",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -510,6 +1082,49 @@
           }
         }
       ]
+    },
+    "google_books": {
+      "description": "The Wheel of Time turns and Ages come and go, leaving memories that become legend. Legend fades to myth, and even myth is long forgotten when the Age that gave it birth returns again. When The Two Rivers is attacked by Trollocs-- a savage tribe of half-men, half-beasts-- five villagers flee that night into a world they barely imagined. They find new dangers waiting in the shadows and in the light. Rand al'Thor, an orphan, does not know that he is bound to the Wheel of Time-- and there are prophecies to be fulfilled. -- adapted from jacket",
+      "categories": [
+        "Fiction / Fantasy / General",
+        "Fiction / Fantasy / Epic"
+      ],
+      "publishedDate": "1990-02-15",
+      "language": "en",
+      "pageCount": 670
+    },
+    "openlibrary": {
+      "description": "The Wheel of Time turns and Ages come and go, leaving memories that become legend. Legend fades to myth, and even myth is long forgotten when the Age that gave it birth returns again. In the Third Age, an Age of Prophecy, the World and Time themselves hang in the balance. What was, what will be, and what is, may yet fall under the Shadow.",
+      "subjects": [
+        "Rand al'Thor (Fictitious character)",
+        "Fiction",
+        "Fiction - Fantasy",
+        "Fantasy - General",
+        "Fiction / Fantasy / General",
+        "Fantasy fiction",
+        "Fantastic fiction",
+        "Rand al'Thor (Fictitious chara",
+        "series:The Wheel of Time",
+        "Reader recommended, 2001-02",
+        "Fantasy .",
+        "American Fantasy",
+        "al'Thor Rand (Fictitious character)",
+        "Good and evil",
+        "Monsters",
+        "Rand al'thor (fictitious character), fiction",
+        "Fiction, fantasy, epic",
+        "Science fiction",
+        "Children's fiction",
+        "Fiction, fantasy, general",
+        "Comics & graphic novels, fantasy",
+        "Comic books, strips",
+        "nyt:hardcover-graphic-books=2013-02-17",
+        "New York Times bestseller",
+        "Fantasy",
+        "Children's stories",
+        "American literature"
+      ],
+      "coverImage": "https://covers.openlibrary.org/b/id/603075-L.jpg"
     }
   },
   "taxonomy": {
@@ -548,8 +1163,85 @@
         "name": "Orphan",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 14,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "epic",
+        "name": "Epic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2169b24c-feaf-4856-a173-af959ae6859b"
+        ]
+      },
+      {
+        "slug": "balance",
+        "name": "Balance",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2169b24c-feaf-4856-a173-af959ae6859b"
+        ]
+      },
+      {
+        "slug": "prophecy",
+        "name": "Prophecy",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2169b24c-feaf-4856-a173-af959ae6859b"
+        ]
+      },
+      {
+        "slug": "bestseller",
+        "name": "Bestseller",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2169b24c-feaf-4856-a173-af959ae6859b"
+        ]
+      },
+      {
+        "slug": "graphic",
+        "name": "Graphic",
+        "group": "structure",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2169b24c-feaf-4856-a173-af959ae6859b"
+        ]
+      },
+      {
+        "slug": "original",
+        "name": "Original",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 7,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "d4e48e21-6e16-4f9b-a3fc-444896e9d961"
+        ]
+      },
+      {
+        "slug": "epic-tone",
+        "name": "Epic",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "2169b24c-feaf-4856-a173-af959ae6859b"
+        ]
       },
       {
         "slug": "male-protagonist",
@@ -560,23 +1252,15 @@
         "method": "semantic-inference"
       },
       {
-        "slug": "epic-tone",
-        "name": "Epic",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 2.12,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "epic",
-        "name": "Epic",
-        "group": "tone",
+        "slug": "chosen-one",
+        "name": "Chosen One",
+        "group": "tropes_themes",
         "confidence": "low",
         "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 4
+    "cross_tags_count": 10
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=pZJ2H63MAioC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71XynFESAbbJNO3Fw7UWDEt6ucEu1auAQD0s25U-w64wipDH-cixZH6G-gMtiW1EyxHV6v-K59QBB9WUc-SLn6kzfC3KcSmcDlQSSU00jL9VSdK3SxgAWJyFuzu78Cvdnqye5gw&source=gbs_api",
@@ -593,7 +1277,7 @@
       "Using clean Google Books URL (removed scan parameters)"
     ]
   },
-  "last_updated": "2025-11-05T21:18:27.731Z",
+  "last_updated": "2025-11-13T19:06:08.381Z",
   "authors": {
     "original": [
       "Robert Jordan"
@@ -626,5 +1310,35 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "b21a03e6-f2cb-4dcd-beea-c2e6f5cc7670",
+    "work_title": "The Eye of the World",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T20:42:44.767Z",
+    "sources": [
+      {
+        "snapshot_id": "d4e48e21-6e16-4f9b-a3fc-444896e9d961",
+        "source": "wikipedia",
+        "source_key": "The Eye of the World",
+        "revision": "1317061083",
+        "url": "https://en.wikipedia.org/wiki/The_Eye_of_the_World",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-10-25T20:42:44.767Z",
+        "sha256": "ec56e358072ff3f4db62111583c7730d5bdf0c120768709fd0635dae99ac0913",
+        "extract": "The Eye of the World is a high fantasy novel by American writer Robert Jordan and the first book in the The Wheel of Time series. Published by Tor Books on January 15, 1990, it was initially released as a large paperback. The original unabridged audiobook is narrated by Michael Kramer and Kate Reading, with a later unabridged edition read by Rosamund Pike. The initial publication of The Eye of the World included a prologue and 53 chapters, with a subsequent re-release featuring an additional prologue titled Ravens.\nThe book achieved both critical and commercial success. Critics lauded its tone and themes, while its similarities to The Lord of the Rings received both praise and criticism.\nOn January 2, 2002, The Eye of the World was re-released as two separate books, From the Two Rivers and To the Blight, targeting the young adult market with larger text and illustrations. From the Two Rivers included an additional prologue, \"Ravens,\" focusing on Egwene al'Vere. The American Library Association included The Eye of the World on its 2003 list of Popular Paperbacks for Young Adults.\nFollowing the release of the The Wheel of Time television series, The Eye of the World appeared on The New...\n\nCategories: 1990 American novels, 1990 fantasy novels, American fantasy novels, Articles with short description, Novels by Robert Jordan, Short description is different from Wikidata, The Wheel of Time books, Tor Books books, Use dmy dates from December 2021"
+      },
+      {
+        "snapshot_id": "2169b24c-feaf-4856-a173-af959ae6859b",
+        "source": "openlibrary",
+        "source_key": "OL7924103W",
+        "revision": "6",
+        "url": "https://openlibrary.org/works/OL7924103W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T20:42:44.533Z",
+        "sha256": "11054336265d7d834af199e9ea2fa8c91c3ad9112c672e5bfc59f68f6774721a",
+        "extract": "Title: The Eye of the World (The Wheel of Time Book 1)\n\nDescription: The Wheel of Time turns and Ages come and go, leaving memories that become legend. Legend fades to myth, and even myth is long forgotten when the Age that gave it birth returns again. In the Third Age, an Age of Prophecy, the World and Time themselves hang in the balance. What was, what will be, and what is, may yet fall under the Shadow.\n\nSubjects: American literature, series:The Wheel of Time, Fantasy fiction, Rand al'Thor (Fictitious character), Fiction, Reader recommended, 2001-02, Fantasy ., American Fantasy, al'Thor Rand (Fictitious character), Good and evil, Monsters, Rand al'thor (fictitious character), fiction, Fiction, fantasy, epic, Science fiction, Children's fiction, Fiction, fantasy, general, Comics & graphic novels, fantasy, Comic books, strips, nyt:hardcover-graphic-books=2013-02-17, New York Times bestseller, Fantasy, Children's stories\n\nPublication: 2023\n\nLanguages: eng"
+      }
+    ]
   }
 }

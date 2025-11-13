@@ -10,6 +10,8 @@
     "check": "tsc",
     "doctor": "node bin/neon-preflight.js",
     "evidence:sync": "node --dns-result-order=ipv4first -r dotenv/config --import tsx scripts/evidence/sync-enrichment.ts",
+    "evidence:sync-all": "node --dns-result-order=ipv4first -r dotenv/config --import tsx scripts/evidence/sync-all-books.ts",
+    "metadata:collect-all": "node --dns-result-order=ipv4first -r dotenv/config --import tsx scripts/enrichment/collect-all-metadata.ts",
     "enrichment:apply": "node --dns-result-order=ipv4first -r dotenv/config --import tsx scripts/enrichment/apply-to-db.ts",
     "enrichment:cross-tags": "node --dns-result-order=ipv4first -r dotenv/config --import tsx scripts/enrichment/generate-cross-tags.ts",
     "harvest": "node --dns-result-order=ipv4first -r dotenv/config --import tsx scripts/harvest/main.ts",

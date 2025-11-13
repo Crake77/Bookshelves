@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:31:53.716Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:58:40.762Z",
+    "last_run": "2025-11-13T19:04:17.012Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "World of Cultivation",
@@ -19,8 +21,130 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "reference",
+            "name": "Encyclopedias and dictionaries",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/14001720/",
+            "url": "http://www.loc.gov/item/14001720/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/14001720/",
+                "subject": "Encyclopedias and dictionaries",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/98117585/",
+                "subject": "Encyclopedias and dictionaries",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "medicine-popular",
+            "name": "Medicine, Popular",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/16006583/",
+            "url": "http://www.loc.gov/item/16006583/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/16006583/",
+                "subject": "Medicine, Popular",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "etiquette",
+            "name": "Etiquette",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/16006583/",
+            "url": "http://www.loc.gov/item/16006583/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/16006583/",
+                "subject": "Etiquette",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "formulas-recipes-etc",
+            "name": "Formulas, recipes, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/16006583/",
+            "url": "http://www.loc.gov/item/16006583/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/16006583/",
+                "subject": "Formulas, recipes, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "united-states-hawaii-honolulu",
+            "name": "United States -- Hawaii -- Honolulu",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/usteledirec06737/",
+            "url": "http://www.loc.gov/item/usteledirec06737/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/usteledirec06737/",
+                "subject": "United States -- Hawaii -- Honolulu",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "directory",
+            "name": "directory",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/usteledirec06737/",
+            "url": "http://www.loc.gov/item/usteledirec06737/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/usteledirec06737/",
+                "subject": "directory",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -227,11 +351,74 @@
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "reference",
+          "name": "Encyclopedias and dictionaries",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/14001720/",
+              "url": "http://www.loc.gov/item/14001720/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/14001720/",
+                "subject": "Encyclopedias and dictionaries",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://www.loc.gov/item/98117585/",
+                "subject": "Encyclopedias and dictionaries",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "directory",
+          "name": "directory",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/usteledirec06737/",
+              "url": "http://www.loc.gov/item/usteledirec06737/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/usteledirec06737/",
+                "subject": "directory",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
         {
           "slug": "end-of-the-world",
           "name": "End of the world",
@@ -266,6 +453,34 @@
                 "type": "alt"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "etiquette",
+          "name": "Etiquette",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/16006583/",
+              "url": "http://www.loc.gov/item/16006583/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/16006583/",
+                "subject": "Etiquette",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -330,6 +545,62 @@
           }
         },
         {
+          "slug": "formulas-recipes-etc",
+          "name": "Formulas, recipes, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/16006583/",
+              "url": "http://www.loc.gov/item/16006583/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/16006583/",
+                "subject": "Formulas, recipes, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "medicine-popular",
+          "name": "Medicine, Popular",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/16006583/",
+              "url": "http://www.loc.gov/item/16006583/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/16006583/",
+                "subject": "Medicine, Popular",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
           "slug": "news-of-the-world",
           "name": "News of the world",
           "kind": "topic",
@@ -356,6 +627,34 @@
                 "type": "auth"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "united-states-hawaii-honolulu",
+          "name": "United States -- Hawaii -- Honolulu",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/usteledirec06737/",
+              "url": "http://www.loc.gov/item/usteledirec06737/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/usteledirec06737/",
+                "subject": "United States -- Hawaii -- Honolulu",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -510,7 +809,9 @@
           }
         }
       ]
-    }
+    },
+    "google_books": null,
+    "openlibrary": null
   },
   "taxonomy": {
     "domain": {
@@ -554,7 +855,7 @@
         "name": "Cultivation",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 17,
+        "match_score": 14,
         "method": "pattern-match"
       },
       {
@@ -590,14 +891,6 @@
         "method": "pattern-match"
       },
       {
-        "slug": "xianxia",
-        "name": "Xianxia",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3,
-        "method": "pattern-match"
-      },
-      {
         "slug": "farm-setting",
         "name": "Farm Setting",
         "group": "setting",
@@ -606,15 +899,15 @@
         "method": "pattern-match"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
+        "slug": "xianxia",
+        "name": "Xianxia",
         "group": "trope",
         "confidence": "low",
         "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 8
+    "cross_tags_count": 7
   },
   "cover_urls": {
     "existing": "https://novelfull.com/uploads/thumbs/world-of-cultivation-cb76fd4183-2239c49aee6b961904acf173b7e4602a.jpg",
@@ -625,7 +918,7 @@
     "recommended": "https://books.google.com/books/content?id=web-world-of-cultivation&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-05T14:07:12.830Z",
+  "last_updated": "2025-11-13T19:06:17.275Z",
   "authors": {
     "original": [
       "Fang Xiang"

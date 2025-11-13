@@ -5,9 +5,11 @@
     "title": "Path of the Deathless"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:58:28.141Z",
+    "last_run": "2025-11-13T19:03:43.171Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "Delve (Path of the Deathless)",
@@ -21,7 +23,10 @@
     "sources": {
       "loc": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[loc] title lookup returned no matches",
+          "[loc] no matches returned"
+        ]
       },
       "fast": {
         "labels": [
@@ -172,7 +177,9 @@
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
@@ -363,7 +370,9 @@
           }
         }
       ]
-    }
+    },
+    "google_books": null,
+    "openlibrary": null
   },
   "taxonomy": {
     "domain": {
@@ -401,7 +410,7 @@
         "name": "Litrpg",
         "group": "trope",
         "confidence": "high",
-        "match_score": 12,
+        "match_score": 11,
         "method": "pattern-match"
       },
       {
@@ -409,7 +418,7 @@
         "name": "Isekai",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 12,
+        "match_score": 11,
         "method": "pattern-match"
       },
       {
@@ -480,28 +489,20 @@
         "slug": "progression-fantasy",
         "name": "Progression Fantasy",
         "group": "trope",
-        "confidence": "high",
-        "match_score": 3,
+        "confidence": "low",
+        "match_score": 2,
         "method": "pattern-match"
       },
       {
         "slug": "progression",
         "name": "Progression",
         "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 3,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
         "confidence": "low",
         "match_score": 2,
         "method": "pattern-match"
       }
     ],
-    "cross_tags_count": 13
+    "cross_tags_count": 12
   },
   "cover_urls": {
     "existing": "https://www.royalroadcdn.com/public/covers-full/25225-delve.jpg",
@@ -512,7 +513,7 @@
     "recommended": "https://books.google.com/books/content?id=royalroad-path-of-the-deathless&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-05T14:07:11.840Z",
+  "last_updated": "2025-11-13T19:06:13.322Z",
   "authors": {
     "original": [
       "SenescentSoul"

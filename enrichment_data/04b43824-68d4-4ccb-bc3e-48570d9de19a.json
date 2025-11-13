@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL27208943M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:01.384Z",
+  "last_updated": "2025-11-13T19:06:26.508Z",
   "authors": {
     "original": [
       "Abbi Glines"
@@ -62,7 +62,18 @@
         "name": "Abuse",
         "group": "content_flags",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 17,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
+        ]
+      },
+      {
+        "slug": "spirited",
+        "name": "Spirited",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 17,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "7c145ee4-0ba5-4603-a925-0519b61e9f45"
@@ -73,7 +84,7 @@
         "name": "Straightforward",
         "group": "plot",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
@@ -84,7 +95,7 @@
         "name": "Coastal",
         "group": "setting",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
@@ -95,7 +106,7 @@
         "name": "Ranch",
         "group": "setting",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
@@ -106,7 +117,7 @@
         "name": "Accessible",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
@@ -117,7 +128,7 @@
         "name": "Complex",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
@@ -128,21 +139,10 @@
         "name": "Personal",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
-        ]
-      },
-      {
-        "slug": "spirited",
-        "name": "Spirited",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "7c145ee4-0ba5-4603-a925-0519b61e9f45"
         ]
       },
       {
@@ -150,7 +150,7 @@
         "name": "Emotional",
         "group": "tone_mood",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
@@ -161,7 +161,7 @@
         "name": "Family Dynamics",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
@@ -172,7 +172,7 @@
         "name": "Class Differences",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "5865094e-cbe1-4650-a941-f9aa893f2e85"
@@ -195,11 +195,11 @@
         "method": "semantic-inference"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "low",
-        "match_score": 2,
+        "slug": "small-town",
+        "name": "Small Town",
+        "group": "setting",
+        "confidence": "medium",
+        "match_score": 3,
         "method": "pattern-match+evidence"
       }
     ],
@@ -258,9 +258,11 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T18:57:10.154Z",
+    "last_run": "2025-11-13T19:05:37.882Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "When I'm Gone",
@@ -273,8 +275,92 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "ranch-western",
+            "name": "Ranchers--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Ranchers--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "domestic-fiction",
+            "name": "Housekeepers--Fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Housekeepers--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "contemporary-romance",
+            "name": "FICTION / Romance / Contemporary",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "FICTION / Romance / Contemporary",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "romance",
+            "name": "FICTION / Romance / General",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2014049131",
+            "url": "http://lccn.loc.gov/2014049131",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "FICTION / Romance / General",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Love stories",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -490,18 +576,136 @@
           }
         ],
         "notes": [
-          "[fast] title returned no results",
-          "[fast] title-core returned no results",
-          "[fast] fallback succeeded via title-bigram"
+          "[fast] cache hit"
         ]
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "contemporary-romance",
+          "name": "FICTION / Romance / Contemporary",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "romance",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014049131",
+              "url": "http://lccn.loc.gov/2014049131"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "FICTION / Romance / Contemporary",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "domestic-fiction",
+          "name": "Housekeepers--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "contemporary-fiction",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014049131",
+              "url": "http://lccn.loc.gov/2014049131"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Housekeepers--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "ranch-western",
+          "name": "Ranchers--Fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "western",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014049131",
+              "url": "http://lccn.loc.gov/2014049131"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Ranchers--Fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "romance",
+          "name": "FICTION / Romance / General",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2014049131",
+              "url": "http://lccn.loc.gov/2014049131"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "FICTION / Romance / General",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2014049131",
+                "subject": "Love stories",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
         {
           "slug": "can-vei-la-lauzeta-bernart-de-ventadorn",
           "name": "Can vei la lauzeta (Bernart, de Ventadorn)",
@@ -803,6 +1007,32 @@
           }
         }
       ]
+    },
+    "google_books": {
+      "description": "<b>From #1 <i>New York Times </i>bestselling author Abbi Glines comes the next novel in the Rosemary Beach series, in which we meet Mase, a Texas heartthrob first introduced in <i>Take a Chance </i>who comes to Rosemary Beach to stir things up.</b><br><br><i>I had an urge to fix all her problems. Which was stupid. She was doing fine without me. But something about those big eyes…</i><br> <br>Mase Colt-Manning has always preferred his humble life as a Texas rancher to his birthright as the son of a legendary rock star. In fact, he rarely visits his father’s rarefied world in Rosemary Beach, especially if it means bunking at his vile half-sister Nan’s house—until one visit leads to a chance encounter with a young, gorgeous house maid who awakens him with her off-key but spirited imitation of a country music star…<br> <br>Reese Ellis finally has her freedom. After escaping a lifetime of abuse from her parents and classmates for an undiagnosed learning disorder, she seizes the opportunity to be a house maid to some of the richest families in Rosemary Beach. But her job is in jeopardy when she causes an accident at the home of her most important client, Nan Dillon. When a hot, half-naked stranger with a cowboy’s swagger comes to her rescue, she’s intrigued—then afraid once he shows his own interest. Reese has never met a trustworthy man in her life. Will Mase be any different?",
+      "categories": [
+        "Fiction / Romance / General",
+        "Fiction / Romance / Contemporary",
+        "Fiction / Romance / New Adult",
+        "Fiction / Southern"
+      ],
+      "publishedDate": "2015-04-07",
+      "language": "en",
+      "pageCount": 272
+    },
+    "openlibrary": {
+      "description": "\"From #1 New York Times bestselling author Abbi Glines comes the next new adult novel in the Rosemary Beach series, in which we meet Mase, a Texas heartthrob first introduced in Take a Chance who comes to Rosemary Beach to stir things up. I had an urge to fix all her problems. Which was stupid. She was doing fine without me. But something about those big eyes ... Mase Colt-Manning has always preferred his humble life as a Texas rancher to his birthright as the son of a legendary rock star. In fact, he rarely visits his father's rarefied world in Rosemary Beach, especially if it means bunking at his vile half-sister Nan's house--until one visit leads to a chance encounter with a young, gorgeous house maid who awakens him with her off-key but spirited imitation of a country music star ... Reese Ellis finally has her freedom. After escaping a lifetime of abuse from her parents and classmates for an undiagnosed learning disorder, she seizes the opportunity to be a house maid to some of the richest families in Rosemary Beach. But her job is in jeopardy when she causes an accident at the home of her most important client, Nan Dillon. When a hot, half-naked stranger with a cowboy's swagger comes to her rescue, she's intrigued--then afraid once he shows his own interest. Reese has never met a trustworthy man in her life. Will Mase be any different?\"--\r\n\r\n\"A new adult novel set in the fictional town of Rosemary Beach about a Texas Rancher who falls in love with a housemaid at his rock star father's estate\"--",
+      "subjects": [
+        "Housekeepers",
+        "Man-woman relationships",
+        "Ranchers",
+        "Fiction",
+        "FICTION / Romance / Contemporary",
+        "FICTION / Romance / General",
+        "Fiction, romance, contemporary",
+        "Texas, fiction"
+      ],
+      "coverImage": "https://covers.openlibrary.org/b/id/13224903-L.jpg"
     }
   }
 }

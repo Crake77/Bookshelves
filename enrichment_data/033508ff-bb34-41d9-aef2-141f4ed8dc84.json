@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24514166M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:06:58.011Z",
+  "last_updated": "2025-11-13T19:06:25.113Z",
   "authors": {
     "original": [
       "Samuel R. Delany"
@@ -69,78 +69,6 @@
     ],
     "cross_tags": [
       {
-        "slug": "novella",
-        "name": "Novella",
-        "group": "market",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "space",
-        "name": "Space",
-        "group": "setting",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "complex",
-        "name": "Complex",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "experimental",
-        "name": "Experimental",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "literary",
-        "name": "Literary",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "sophisticated",
-        "name": "Sophisticated",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "philosophical",
-        "name": "Philosophical",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "space-opera",
-        "name": "Space Opera",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
-        "slug": "identity",
-        "name": "Identity",
-        "group": "tropes_themes",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence"
-      },
-      {
         "slug": "male-protagonist",
         "name": "Male Protagonist",
         "group": "tropes_themes",
@@ -149,15 +77,79 @@
         "method": "semantic-inference"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
+        "slug": "novella",
+        "name": "Novella",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "complex",
+        "name": "Complex",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "experimental",
+        "name": "Experimental",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "sophisticated",
+        "name": "Sophisticated",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "philosophical",
+        "name": "Philosophical",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
         "group": "trope",
-        "confidence": "low",
-        "match_score": 2,
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "identity",
+        "name": "Identity",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 3,
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 11
+    "cross_tags_count": 10
   },
   "format": {
     "slug": "omnibus",
@@ -174,7 +166,7 @@
     "work_id": "056969dc-9406-4fd3-88db-76a5a9f70adf",
     "work_title": "The Complete Nebula Award-winning Fiction",
     "work_ref": null,
-    "fetched_at": "2025-10-31T14:11:39.219Z",
+    "fetched_at": "2025-11-01T19:54:46.999Z",
     "sources": [
       {
         "snapshot_id": "8d7e14be-df35-4aa2-9024-6ac32a606609",
@@ -183,16 +175,18 @@
         "revision": "3",
         "url": "https://openlibrary.org/works/OL8075956W",
         "license": "CC0",
-        "fetched_at": "2025-10-31T14:11:39.219Z",
+        "fetched_at": "2025-11-01T19:54:46.999Z",
         "sha256": "ac87ee44d5abfb5398a0356ede127b8c7aba44b15487484922b38b2eae9ed033",
         "extract": "Title: The complete Nebula award-winning fiction of Samuel R. Delaney\n\nPublication: 1986\n\nLanguages: eng"
       }
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T18:56:39.568Z",
+    "last_run": "2025-11-13T19:05:26.357Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "The Complete Nebula Award-winning Fiction",
@@ -205,8 +199,315 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "science-fiction",
+            "name": "Science fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/98814342",
+            "url": "http://lccn.loc.gov/98814342",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/98814342",
+                "subject": "Science fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasy",
+            "name": "Fantasy fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/98814342",
+            "url": "http://lccn.loc.gov/98814342",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/98814342",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "adventure-action",
+            "name": "Adventure fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/98814342",
+            "url": "http://lccn.loc.gov/98814342",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/98814342",
+                "subject": "Adventure fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "reference",
+            "name": "Encyclopedias and dictionaries",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/00002444/",
+            "url": "http://www.loc.gov/item/00002444/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/00002444/",
+                "subject": "Encyclopedias and dictionaries",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "title-pages-specimens",
+            "name": "Title pages--Specimens",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2019713453/",
+            "url": "http://www.loc.gov/item/2019713453/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2019713453/",
+                "subject": "Title pages--Specimens",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "copyright-titles-united-states",
+            "name": "Copyright--Titles--United States",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2019713453/",
+            "url": "http://www.loc.gov/item/2019713453/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2019713453/",
+                "subject": "Copyright--Titles--United States",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "copyright-united-states-history-sources",
+            "name": "Copyright--United States--History--Sources",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2019713453/",
+            "url": "http://www.loc.gov/item/2019713453/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2019713453/",
+                "subject": "Copyright--United States--History--Sources",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "united-states-imprints-history-sources",
+            "name": "United States--Imprints--History--Sources",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/2019713453/",
+            "url": "http://www.loc.gov/item/2019713453/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/2019713453/",
+                "subject": "United States--Imprints--History--Sources",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "crawford-james-ludovic-lindsay-earl-of-1847-1913-library-catalogs",
+            "name": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/10027735/",
+            "url": "http://www.loc.gov/item/10027735/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "private-libraries-england-catalogs",
+            "name": "Private libraries--England--Catalogs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/10027735/",
+            "url": "http://www.loc.gov/item/10027735/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Private libraries--England--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "rare-books-england-bibliography-catalogs",
+            "name": "Rare books--England--Bibliography--Catalogs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/10027735/",
+            "url": "http://www.loc.gov/item/10027735/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Rare books--England--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "incunabula-england-bibliography-catalogs",
+            "name": "Incunabula--England--Bibliography--Catalogs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/10027735/",
+            "url": "http://www.loc.gov/item/10027735/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Incunabula--England--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "great-britain-bibliography-catalogs",
+            "name": "Great Britain--Bibliography--Catalogs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/10027735/",
+            "url": "http://www.loc.gov/item/10027735/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Great Britain--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "scotland-bibliography-catalogs",
+            "name": "Scotland--Bibliography--Catalogs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/10027735/",
+            "url": "http://www.loc.gov/item/10027735/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Scotland--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "early-printed-books-bibliography-catalogs",
+            "name": "Early printed books--Bibliography--Catalogs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/10027735/",
+            "url": "http://www.loc.gov/item/10027735/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Early printed books--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "linguistics",
+            "name": "English language--Grammar",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/02005671/",
+            "url": "http://www.loc.gov/item/02005671/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/02005671/",
+                "subject": "English language--Grammar",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -422,18 +723,159 @@
           }
         ],
         "notes": [
-          "[fast] title returned no results",
-          "[fast] title-core returned no results",
-          "[fast] fallback succeeded via title-bigram"
+          "[fast] cache hit"
         ]
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "adventure-action",
+          "name": "Adventure fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/98814342",
+              "url": "http://lccn.loc.gov/98814342"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/98814342",
+                "subject": "Adventure fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "fantasy",
+          "name": "Fantasy fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/98814342",
+              "url": "http://lccn.loc.gov/98814342"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/98814342",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "linguistics",
+          "name": "English language--Grammar",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "language",
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/02005671/",
+              "url": "http://www.loc.gov/item/02005671/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/02005671/",
+                "subject": "English language--Grammar",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "reference",
+          "name": "Encyclopedias and dictionaries",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://www.loc.gov/item/00002444/",
+              "url": "http://www.loc.gov/item/00002444/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/00002444/",
+                "subject": "Encyclopedias and dictionaries",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction",
+          "name": "Science fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/98814342",
+              "url": "http://lccn.loc.gov/98814342"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/98814342",
+                "subject": "Science fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
         {
           "slug": "ba-qi-manzhou-shi-zu-tong-pu",
           "name": "Ba qi Manzhou shi zu tong pu",
@@ -525,6 +967,174 @@
           }
         },
         {
+          "slug": "copyright-titles-united-states",
+          "name": "Copyright--Titles--United States",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/2019713453/",
+              "url": "http://www.loc.gov/item/2019713453/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2019713453/",
+                "subject": "Copyright--Titles--United States",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "copyright-united-states-history-sources",
+          "name": "Copyright--United States--History--Sources",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/2019713453/",
+              "url": "http://www.loc.gov/item/2019713453/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2019713453/",
+                "subject": "Copyright--United States--History--Sources",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "crawford-james-ludovic-lindsay-earl-of-1847-1913-library-catalogs",
+          "name": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/10027735/",
+              "url": "http://www.loc.gov/item/10027735/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Crawford, James Ludovic Lindsay,--Earl of,--1847-1913--Library--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "early-printed-books-bibliography-catalogs",
+          "name": "Early printed books--Bibliography--Catalogs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/10027735/",
+              "url": "http://www.loc.gov/item/10027735/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Early printed books--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "great-britain-bibliography-catalogs",
+          "name": "Great Britain--Bibliography--Catalogs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/10027735/",
+              "url": "http://www.loc.gov/item/10027735/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Great Britain--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "incunabula-england-bibliography-catalogs",
+          "name": "Incunabula--England--Bibliography--Catalogs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/10027735/",
+              "url": "http://www.loc.gov/item/10027735/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Incunabula--England--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
           "slug": "poems-blake-william",
           "name": "Poems (Blake, William)",
           "kind": "topic",
@@ -611,6 +1221,146 @@
                 "type": "alt"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "private-libraries-england-catalogs",
+          "name": "Private libraries--England--Catalogs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/10027735/",
+              "url": "http://www.loc.gov/item/10027735/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Private libraries--England--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "rare-books-england-bibliography-catalogs",
+          "name": "Rare books--England--Bibliography--Catalogs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/10027735/",
+              "url": "http://www.loc.gov/item/10027735/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Rare books--England--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "scotland-bibliography-catalogs",
+          "name": "Scotland--Bibliography--Catalogs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/10027735/",
+              "url": "http://www.loc.gov/item/10027735/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/10027735/",
+                "subject": "Scotland--Bibliography--Catalogs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "title-pages-specimens",
+          "name": "Title pages--Specimens",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/2019713453/",
+              "url": "http://www.loc.gov/item/2019713453/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2019713453/",
+                "subject": "Title pages--Specimens",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "united-states-imprints-history-sources",
+          "name": "United States--Imprints--History--Sources",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/2019713453/",
+              "url": "http://www.loc.gov/item/2019713453/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/2019713453/",
+                "subject": "United States--Imprints--History--Sources",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -735,6 +1485,13 @@
           }
         }
       ]
-    }
+    },
+    "google_books": {
+      "categories": [],
+      "publishedDate": "1986",
+      "language": "en",
+      "pageCount": 425
+    },
+    "openlibrary": null
   }
 }

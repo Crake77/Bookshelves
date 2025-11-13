@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:30:49.291Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:57:37.646Z",
+    "last_run": "2025-11-13T19:03:55.216Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "Ender's Game",
@@ -19,8 +21,265 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "card-orson-scott-enders-game",
+            "name": "Card, Orson Scott.--Ender's game",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2013001228",
+            "url": "http://lccn.loc.gov/2013001228",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2013001228",
+                "subject": "Card, Orson Scott.--Ender's game",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013023124",
+                "subject": "Card, Orson Scott.--Ender's game",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013006641",
+                "subject": "Card, Orson Scott.--Ender's game",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-american-history-and-criticism",
+            "name": "Science fiction, American--History and criticism",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2013001228",
+            "url": "http://lccn.loc.gov/2013001228",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2013001228",
+                "subject": "Science fiction, American--History and criticism",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013006641",
+                "subject": "Science fiction, American--History and criticism",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "wiggin-ender-fictitious-character",
+            "name": "Wiggin, Ender--(Fictitious character)",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2013001228",
+            "url": "http://lccn.loc.gov/2013001228",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2013001228",
+                "subject": "Wiggin, Ender--(Fictitious character)",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013023124",
+                "subject": "Wiggin, Ender--(Fictitious character)",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013006641",
+                "subject": "Wiggin, Ender--(Fictitious character)",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "card-orson-scott-philosophy",
+            "name": "Card, Orson Scott.--Philosophy",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2013023124",
+            "url": "http://lccn.loc.gov/2013023124",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2013023124",
+                "subject": "Card, Orson Scott.--Philosophy",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "philosophy-in-literature",
+            "name": "Philosophy in literature",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2013023124",
+            "url": "http://lccn.loc.gov/2013023124",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2013023124",
+                "subject": "Philosophy in literature",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013006641",
+                "subject": "Philosophy in literature",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "wiggin-ender-fictitious-character-fiction",
+            "name": "Wiggin, Ender--(Fictitious character)--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/85136148",
+            "url": "http://lccn.loc.gov/85136148",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/85136148",
+                "subject": "Wiggin, Ender--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Wiggin, Ender--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "wiggin-peter-fictitious-character-fiction",
+            "name": "Wiggin, Peter--(Fictitious character)--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/85136148",
+            "url": "http://lccn.loc.gov/85136148",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/85136148",
+                "subject": "Wiggin, Peter--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Wiggin, Peter--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction",
+            "name": "Science fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/85136148",
+            "url": "http://lccn.loc.gov/85136148",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/85136148",
+                "subject": "Science fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Science fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "siblings-fiction",
+            "name": "Siblings--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2012462352",
+            "url": "http://lccn.loc.gov/2012462352",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Siblings--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "genetic-engineering-fiction",
+            "name": "Genetic engineering--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2012462352",
+            "url": "http://lccn.loc.gov/2012462352",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Genetic engineering--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "war-games-fiction",
+            "name": "War games--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2012462352",
+            "url": "http://lccn.loc.gov/2012462352",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "War games--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -51,12 +310,212 @@
         ]
       },
       "wikidata": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "science-fiction",
+            "name": "science fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q24925",
+            "url": "https://www.wikidata.org/wiki/Q24925",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q5376051",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q816016",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "united-states",
+            "name": "United States",
+            "kind": "place",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q30",
+            "url": "https://www.wikidata.org/wiki/Q30",
+            "raw": [
+              {
+                "property": "P495",
+                "qid": "Q5376051",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q816016",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[wikidata] cache hit"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "science-fiction",
+          "name": "Science fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/85136148",
+              "url": "http://lccn.loc.gov/85136148"
+            },
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q24925",
+              "url": "https://www.wikidata.org/wiki/Q24925"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/85136148",
+                "subject": "Science fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Science fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q5376051",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q816016",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "united-states",
+          "name": "United States",
+          "kind": "place",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q30",
+              "url": "https://www.wikidata.org/wiki/Q30"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P495",
+                "qid": "Q5376051",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q816016",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "card-orson-scott-enders-game",
+          "name": "Card, Orson Scott.--Ender's game",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2013001228",
+              "url": "http://lccn.loc.gov/2013001228"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2013001228",
+                "subject": "Card, Orson Scott.--Ender's game",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013023124",
+                "subject": "Card, Orson Scott.--Ender's game",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013006641",
+                "subject": "Card, Orson Scott.--Ender's game",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "card-orson-scott-philosophy",
+          "name": "Card, Orson Scott.--Philosophy",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2013023124",
+              "url": "http://lccn.loc.gov/2013023124"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2013023124",
+                "subject": "Card, Orson Scott.--Philosophy",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
         {
           "slug": "enders-game-card-orson-scott",
           "name": "Ender's game (Card, Orson Scott)",
@@ -86,8 +545,336 @@
             ],
             "wikidata": []
           }
+        },
+        {
+          "slug": "genetic-engineering-fiction",
+          "name": "Genetic engineering--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2012462352",
+              "url": "http://lccn.loc.gov/2012462352"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Genetic engineering--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "philosophy-in-literature",
+          "name": "Philosophy in literature",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2013023124",
+              "url": "http://lccn.loc.gov/2013023124"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2013023124",
+                "subject": "Philosophy in literature",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013006641",
+                "subject": "Philosophy in literature",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-american-history-and-criticism",
+          "name": "Science fiction, American--History and criticism",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2013001228",
+              "url": "http://lccn.loc.gov/2013001228"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2013001228",
+                "subject": "Science fiction, American--History and criticism",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013006641",
+                "subject": "Science fiction, American--History and criticism",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "siblings-fiction",
+          "name": "Siblings--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2012462352",
+              "url": "http://lccn.loc.gov/2012462352"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Siblings--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "war-games-fiction",
+          "name": "War games--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2012462352",
+              "url": "http://lccn.loc.gov/2012462352"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "War games--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "wiggin-ender-fictitious-character",
+          "name": "Wiggin, Ender--(Fictitious character)",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2013001228",
+              "url": "http://lccn.loc.gov/2013001228"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2013001228",
+                "subject": "Wiggin, Ender--(Fictitious character)",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013023124",
+                "subject": "Wiggin, Ender--(Fictitious character)",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2013006641",
+                "subject": "Wiggin, Ender--(Fictitious character)",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "wiggin-ender-fictitious-character-fiction",
+          "name": "Wiggin, Ender--(Fictitious character)--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/85136148",
+              "url": "http://lccn.loc.gov/85136148"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/85136148",
+                "subject": "Wiggin, Ender--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Wiggin, Ender--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "wiggin-peter-fictitious-character-fiction",
+          "name": "Wiggin, Peter--(Fictitious character)--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/85136148",
+              "url": "http://lccn.loc.gov/85136148"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/85136148",
+                "subject": "Wiggin, Peter--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2012462352",
+                "subject": "Wiggin, Peter--(Fictitious character)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
         }
       ]
+    },
+    "google_books": {
+      "description": "<p><b>From <i>New York Times </i>bestselling author Orson Scott Card, <i>Ender's Game</i></b>—<b>adapted to film starring Asa Butterfield and Harrison Ford</b>—<b>is the classic Hugo and Nebula award-winning science fiction novel of a young boy's recruitment into the midst of an interstellar war.<br></b><br>In order to develop a secure defense against a hostile alien race's next attack, government agencies breed child geniuses and train them as soldiers. A brilliant young boy, Andrew \"Ender\" Wiggin lives with his kind but distant parents, his sadistic brother Peter, and the person he loves more than anyone else, his sister Valentine. Peter and Valentine were candidates for the soldier-training program but didn't make the cut—young Ender is the Wiggin drafted to the orbiting Battle School for rigorous military training.<br><br>Ender's skills make him a leader in school and respected in the Battle Room, where children play at mock battles in zero gravity. Yet growing up in an artificial community of young soldiers Ender suffers greatly from isolation, rivalry from his peers, pressure from the adult teachers, and an unsettling fear of the alien invaders. His psychological battles include loneliness, fear that he is becoming like the cruel brother he remembers, and fanning the flames of devotion to his beloved sister. <br><br>Is Ender the general Earth needs? But Ender is not the only result of the genetic experiments. The war with the Buggers has been raging for a hundred years, and the quest for the perfect general has been underway for almost as long. Ender's two older siblings are every bit as unusual as he is, but in very different ways. Between the three of them lie the abilities to remake a world. If, that is, the world survives.<br><br>Orson Scott Card's<i> Ender's Game</i> is the winner of the 1985 Nebula Award for Best Novel and the 1986 Hugo Award for Best Novel.<br><br>THE ENDER UNIVERSE<br><br>Ender series<br><i>Ender’s Game</i> /<i> Ender in Exile </i>/ <i>Speaker for the Dead </i>/ <i>Xenocide </i>/ <i>Children of the Mind</i><br><br>Ender’s Shadow series<br><i>Ender’s Shadow </i>/ <i>Shadow of the Hegemon </i>/ <i>Shadow Puppets </i>/ <i>Shadow of the Giant </i>/ <i>Shadows in Flight</i><br><br><i>Children of the Fleet</i><br><br>The First Formic War (with Aaron Johnston)<br><i>Earth Unaware </i>/ <i>Earth Afire </i>/ <i>Earth Awakens</i><br><br>The Second Formic War (with Aaron Johnston)<br><i>The Swarm </i>/<i>The Hive</i><br><br>Ender novellas<br><i>A War of Gifts </i>/<i>First Meetings</i></p>",
+      "categories": [
+        "Fiction / Science Fiction / General",
+        "Fiction / Science Fiction / Action & Adventure",
+        "Fiction / Science Fiction / Hard Science Fiction",
+        "Fiction / Science Fiction / Space Opera",
+        "Fiction / Science Fiction / Military",
+        "Fiction / Family Life / Siblings"
+      ],
+      "publishedDate": "1991-08-15",
+      "language": "en",
+      "pageCount": 226
+    },
+    "openlibrary": {
+      "description": "Ender's Game is a 1985 military science fiction novel by American author Orson Scott Card. Set at an unspecified date in Earth's future, the novel presents an imperiled humankind after two conflicts with the Formics, an insectoid alien species they dub the \"buggers\". In preparation for an anticipated third invasion, children, including the novel's protagonist, Andrew \"Ender\" Wiggin, are trained from a very young age by putting them through increasingly difficult games, including some in zero gravity, where Ender's tactical genius is revealed.\r\n\r\nThe book originated as a short story of the same name, published in the August 1977 issue of Analog Science Fiction and Fact. The novel was published on January 15, 1985. Later, by elaborating on characters and plotlines depicted in the novel, Card was able to write additional books in the Ender's Game series. Card also released an updated version of Ender's Game in 1991, changing some political facts to reflect the times more accurately (e.g., to include the recent collapse of the Soviet Union and the end of the Cold War). The novel has been translated into 34 languages.\r\n\r\nReception of the book has been mostly positive. It has become suggested reading for many military organizations, including the United States Marine Corps. Ender's Game was recognized as \"best novel\" by the 1985 Nebula Award[3] and the 1986 Hugo Award[4] in the genres of science fiction and fantasy. Its four sequels—Speaker for the Dead (1986), Xenocide (1991), Children of the Mind (1996), and Ender in Exile (2008)—follow Ender's subsequent travels to many different worlds in the galaxy. In addition, the later novella A War of Gifts (2007) and novel Ender's Shadow (1999), plus other novels in the Shadow saga, take place during the same time period as the original.\r\n\r\n\r\n----------\r\n\r\nContained in:\r\n[Ender's War](https://openlibrary.org/works/OL49619W)\r\nSee also:\r\n\r\n - [Ender's Game: 1/2](https://openlibrary.org/works/OL19647657W/Ender's_Game._1_2)\r\n\r\n  [1]: http://www.hatrack.com/osc/books/endersgame/",
+      "subjects": [
+        "Wiggin, Ender (Fictitious character) -- Fiction.",
+        "Wiggin, Peter (Fictitious character) -- Fiction.",
+        "New York Times bestseller",
+        "nyt:mass_market_paperback=2011-07-30",
+        "military education",
+        "end of the world",
+        "prize:nebula",
+        "hegemony",
+        "space warfare",
+        "child soldiers",
+        "The Ender Quintet",
+        "science fiction",
+        "automation",
+        "data processing",
+        "aliens",
+        "Military art and science",
+        "Hermanos",
+        "Maniobras de guerra",
+        "Brothers and sisters",
+        "Open Library Staff Picks",
+        "Genetic engineering",
+        "Fiction",
+        "Hugo Award Winner",
+        "award:hugo_award=novel",
+        "Ficción",
+        "Ciencia-ficción",
+        "award:hugo_award=1986",
+        "War games",
+        "Long Now Manual for Civilization",
+        "American Science fiction",
+        "Children's stories, American",
+        "Artificial intelligence",
+        "Ender Wiggin (Fictitious character)",
+        "Reading Level-Grade 7",
+        "Reading Level-Grade 9",
+        "Reading Level-Grade 8",
+        "Reading Level-Grade 11",
+        "Reading Level-Grade 10",
+        "Reading Level-Grade 12",
+        "Wiggin, ender (fictitious character), fiction",
+        "Battle school (imaginary place), fiction",
+        "Fiction, science fiction, hard science fiction",
+        "Brothers and sisters, fiction",
+        "Science-Fiction-Literatur",
+        "Krieg",
+        "Amerikanisches Englisch",
+        "Außerirdische Intelligenz",
+        "award:nebula_award=novel",
+        "Peter Wiggin (Fictitious character)",
+        "Siblings, fiction",
+        "Bean (Fictitious character : Card)",
+        "Terre",
+        "Earth",
+        "Battle School"
+      ],
+      "coverImage": "https://covers.openlibrary.org/b/id/183788-L.jpg"
     }
   },
   "taxonomy": {
@@ -130,56 +917,117 @@
         "name": "Military",
         "group": "setting",
         "confidence": "high",
-        "match_score": 12,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "adapted-to-film",
-        "name": "Adapted to Film",
-        "group": "market",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "recruitment",
-        "name": "Recruitment",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "school",
-        "name": "School",
-        "group": "setting",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "unsettling",
-        "name": "Unsettling",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "quest",
-        "name": "Quest",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 38,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "6e823287-3ad5-436a-87b4-81ef1a8cb1b5",
+          "dde60d2d-5723-499c-a9a8-48dc2e26ca21"
+        ]
       },
       {
         "slug": "war",
         "name": "War",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 36,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "6e823287-3ad5-436a-87b4-81ef1a8cb1b5",
+          "dde60d2d-5723-499c-a9a8-48dc2e26ca21"
+        ]
+      },
+      {
+        "slug": "cold-war",
+        "name": "Cold War",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 19,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "6e823287-3ad5-436a-87b4-81ef1a8cb1b5",
+          "dde60d2d-5723-499c-a9a8-48dc2e26ca21"
+        ]
+      },
+      {
+        "slug": "school",
+        "name": "School",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 17,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "adapted-to-film",
+        "name": "Adapted to Film",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 14,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "recruitment",
+        "name": "Recruitment",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 14,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "unsettling",
+        "name": "Unsettling",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 14,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 14,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "novella",
+        "name": "Novella",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "dde60d2d-5723-499c-a9a8-48dc2e26ca21"
+        ]
+      },
+      {
+        "slug": "united-states",
+        "name": "United States",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "dde60d2d-5723-499c-a9a8-48dc2e26ca21"
+        ]
+      },
+      {
+        "slug": "movie-adaptation",
+        "name": "Movie Adaptation",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 7,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "6e823287-3ad5-436a-87b4-81ef1a8cb1b5"
+        ]
+      },
+      {
+        "slug": "original",
+        "name": "Original",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 5,
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "male-protagonist",
@@ -194,8 +1042,32 @@
         "name": "Child Soldiers",
         "group": "content_flags",
         "confidence": "high",
-        "match_score": 4,
-        "method": "semantic-inference"
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "award-winner",
+        "name": "Award Winner",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "bestseller",
+        "name": "Bestseller",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "eerie",
@@ -203,50 +1075,26 @@
         "group": "tone",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "boot-camp",
-        "name": "Boot Camp",
+        "slug": "alien-contact",
+        "name": "Alien Contact",
         "group": "trope",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "coming-of-age",
-        "name": "Coming of Age",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "military-sf",
-        "name": "Military Sf",
-        "group": "trope",
-        "confidence": "high",
-        "match_score": 3,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "artificial-intelligence",
         "name": "Artificial Intelligence",
         "group": "trope",
-        "confidence": "low",
-        "match_score": 2,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "loyalty",
-        "name": "Loyalty",
-        "group": "tropes_themes",
-        "confidence": "low",
-        "match_score": 2,
-        "method": "pattern-match"
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 15
+    "cross_tags_count": 20
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=k9vI7-WwGmMC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73AF80tkXOCNuJsDDgXrc5a87s6CmnlRFPjcgZ67kVKs2XrfhDHRGnuWhlqZj6AJFobpUsdt7BkCsD8oGhyCYCflv_OeZ63hmjG8rz5FMgf9xwZuZ0ZzvgWJlNowUAWxwgO1Zpm&source=gbs_api",
@@ -257,7 +1105,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL1532287M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:04.337Z",
+  "last_updated": "2025-11-13T19:06:14.858Z",
   "authors": {
     "original": [
       "Orson Scott Card"
@@ -291,5 +1139,46 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "9dd0a063-771d-4ffe-9f39-3282f44001f5",
+    "work_title": "Ender's Game",
+    "work_ref": null,
+    "fetched_at": "2025-11-01T19:54:46.591Z",
+    "sources": [
+      {
+        "snapshot_id": "836a0e1a-c6a7-471e-b2ef-8d19a74a8e3e",
+        "source": "googlebooks",
+        "source_key": "k9vI7-WwGmMC",
+        "revision": "1991-08-15",
+        "url": "http://books.google.com/books?id=k9vI7-WwGmMC&printsec=frontcover&dq=isbn:9780312932084&hl=&cd=1&source=gbs_api",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-11-01T19:54:46.591Z",
+        "sha256": "68cf805b24de2b9444b36dc6677ca5504fd99b10c5fa41774e8daf10f00e7cfb",
+        "extract": "Title: Ender's Game\n\nDescription: Child-hero Ender Wiggin must fight a desperate battle against a deadly alien race if mankind is to survive.\n\nCategories: Fiction"
+      },
+      {
+        "snapshot_id": "6e823287-3ad5-436a-87b4-81ef1a8cb1b5",
+        "source": "wikipedia",
+        "source_key": "Ender's Game",
+        "revision": "1319079347",
+        "url": "https://en.wikipedia.org/wiki/Ender%27s_Game",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-11-01T19:54:46.321Z",
+        "sha256": "12069a021ef8a92b5ccf258183bf2244bc3fa9d5c2da11b542d2fc36a0fda77f",
+        "extract": "Ender's Game is a 1985 military science fiction novel by American author Orson Scott Card. Set at an unspecified date in Earth's future, the novel presents an imperiled humankind after two conflicts with an insectoid alien species they dub \"the buggers\". In preparation for an anticipated third invasion, Earth's international military force recruits young children, including the novel's protagonist, Andrew \"Ender\" Wiggin, to be trained as elite officers. The children learn military strategy and leadership by playing increasingly difficult war games, including some in zero gravity, where Ender's tactical genius is revealed.\nThe book originated as a short story of the same name, published in the August 1977 issue of Analog Science Fiction and Fact. The novel was published on January 15, 1985. Later, by elaborating on characters and plotlines depicted in the novel, Card wrote additional books in the Ender's Game series. Card released an updated version of Ender's Game in 1991, changing some political facts to account for the then-recent dissolution of the Soviet Union and the end of the Cold War. The novel has been translated into 34 languages. In the movie adaptation and novels after the...\n\nCategories: 1985 American novels, 1985 science fiction novels, 433 Eros, All Wikipedia articles written in American English, American novels adapted into films, American science fiction novels, American young adult novels, Articles containing Albanian-language text, Articles containing Bulgarian-language text, Articles containing Catalan-language text, Articles containing Chinese-language text, Articles containing Croatian-language text, Articles containing Czech-language text, Articles containing Danish-language text, Articles containing Dutch-language text, Articles containing Est..."
+      },
+      {
+        "snapshot_id": "dde60d2d-5723-499c-a9a8-48dc2e26ca21",
+        "source": "openlibrary",
+        "source_key": "OL49488W",
+        "revision": "23",
+        "url": "https://openlibrary.org/works/OL49488W",
+        "license": "CC0",
+        "fetched_at": "2025-11-01T19:54:45.955Z",
+        "sha256": "f6b6d4bbf2af69f3dbfc0b37bf1ea0b28bb62da77fdbdf6ca9852d023317e8e1",
+        "extract": "Title: Ender's Game\n\nDescription: Ender's Game is a 1985 military science fiction novel by American author Orson Scott Card. Set at an unspecified date in Earth's future, the novel presents an imperiled humankind after two conflicts with the Formics, an insectoid alien species they dub the \"buggers\". In preparation for an anticipated third invasion, children, including the novel's protagonist, Andrew \"Ender\" Wiggin, are trained from a very young age by putting them through increasingly difficult games, including some in zero gravity, where Ender's tactical genius is revealed.\r\n\r\nThe book originated as a short story of the same name, published in the August 1977 issue of Analog Science Fiction and Fact. The novel was published on January 15, 1985. Later, by elaborating on characters and plotlines depicted in the novel, Card was able to write additional books in the Ender's Game series. Card also released an updated version of Ender's Game in 1991, changing some political facts to reflect the times more accurately (e.g., to include the recent collapse of the Soviet Union and the end of the Cold War). The novel has been translated into 34 languages.\r\n\r\nReception of the book has been mostly positive. It has become suggested reading for many military organizations, including the United States Marine Corps. Ender's Game was recognized as \"best novel\" by the 1985 Nebula Award[3] and the 1986 Hugo Award[4] in the genres of science fiction and fantasy. Its four sequels—Speaker for the Dead (1986), Xenocide (1991), Children of the Mind (1996), and Ender in Exile (2008)—follow Ender's subsequent travels to many different worlds in the galaxy. In addition, the later novella A War of Gifts (2007) and novel Ender's Shadow (1999), plus other novels in the Shadow saga, take place du..."
+      }
+    ]
   }
 }

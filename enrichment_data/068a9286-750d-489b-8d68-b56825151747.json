@@ -8,7 +8,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL1275650M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:03.384Z",
+  "last_updated": "2025-11-13T19:06:12.303Z",
   "authors": {
     "original": [
       "Isaac Asimov",
@@ -75,7 +75,7 @@
         "name": "Space",
         "group": "setting",
         "confidence": "high",
-        "match_score": 18,
+        "match_score": 17,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "a70ec256-c687-4909-a3b8-3bce623ac75c",
@@ -83,66 +83,11 @@
         ]
       },
       {
-        "slug": "manipulation",
-        "name": "Manipulation",
-        "group": "content_flags",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a70ec256-c687-4909-a3b8-3bce623ac75c"
-        ]
-      },
-      {
-        "slug": "complex",
-        "name": "Complex",
+        "slug": "unique",
+        "name": "Unique",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a70ec256-c687-4909-a3b8-3bce623ac75c"
-        ]
-      },
-      {
-        "slug": "creative",
-        "name": "Creative",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a70ec256-c687-4909-a3b8-3bce623ac75c"
-        ]
-      },
-      {
-        "slug": "engaging",
-        "name": "Engaging",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a70ec256-c687-4909-a3b8-3bce623ac75c"
-        ]
-      },
-      {
-        "slug": "imaginative",
-        "name": "Imaginative",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "a70ec256-c687-4909-a3b8-3bce623ac75c"
-        ]
-      },
-      {
-        "slug": "literary",
-        "name": "Literary",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
+        "match_score": 15,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "a70ec256-c687-4909-a3b8-3bce623ac75c"
@@ -153,29 +98,73 @@
         "name": "Original",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 12,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "bc43295f-faed-439b-b6a4-efb20b3cafa8"
         ]
       },
       {
-        "slug": "soft",
-        "name": "Soft",
-        "group": "tone",
+        "slug": "manipulation",
+        "name": "Manipulation",
+        "group": "content_flags",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
-          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
         ]
       },
       {
-        "slug": "unique",
-        "name": "Unique",
+        "slug": "complex",
+        "name": "Complex",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "creative",
+        "name": "Creative",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "engaging",
+        "name": "Engaging",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "imaginative",
+        "name": "Imaginative",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "a70ec256-c687-4909-a3b8-3bce623ac75c"
@@ -186,10 +175,21 @@
         "name": "Artificial Intelligence",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 10,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "a70ec256-c687-4909-a3b8-3bce623ac75c"
+        ]
+      },
+      {
+        "slug": "soft",
+        "name": "Soft",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 7,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "bc43295f-faed-439b-b6a4-efb20b3cafa8"
         ]
       },
       {
@@ -197,7 +197,7 @@
         "name": "Cyberpunk",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 7,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "bc43295f-faed-439b-b6a4-efb20b3cafa8"
@@ -208,7 +208,7 @@
         "name": "Hard Science Fiction",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 7,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "bc43295f-faed-439b-b6a4-efb20b3cafa8"
@@ -219,7 +219,7 @@
         "name": "Parallel Universes",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 7,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "bc43295f-faed-439b-b6a4-efb20b3cafa8"
@@ -230,7 +230,7 @@
         "name": "Revolution",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 7,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "bc43295f-faed-439b-b6a4-efb20b3cafa8"
@@ -241,7 +241,7 @@
         "name": "Space Exploration",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 7,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "bc43295f-faed-439b-b6a4-efb20b3cafa8"
@@ -252,7 +252,7 @@
         "name": "Space Opera",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 7,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "bc43295f-faed-439b-b6a4-efb20b3cafa8"
@@ -263,7 +263,7 @@
         "name": "Time Travel",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 7,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "bc43295f-faed-439b-b6a4-efb20b3cafa8"
@@ -304,7 +304,7 @@
   },
   "evidence": {
     "work_id": "b1e089dd-50f1-4aa6-9435-8d0e6c62983b",
-    "work_title": "Science Fiction: Visions of Tomorrow",
+    "work_title": "Science Fiction",
     "work_ref": null,
     "fetched_at": "2025-10-25T23:03:05.338Z",
     "sources": [
@@ -344,12 +344,14 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T18:57:29.758Z",
+    "last_run": "2025-11-13T19:03:33.082Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
-      "title": "Science Fiction: Visions of Tomorrow",
+      "title": "Science Fiction",
       "authors": [
         "Isaac Asimov",
         "Greg Walz-Chojnacki",
@@ -361,8 +363,73 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "science-nature",
+            "name": "Science--Juvenile literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science--Juvenile literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction",
+            "name": "Science fiction--Juvenile literature",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science fiction--Juvenile literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science fiction--History and criticism",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "future-tense",
+            "name": "Forecasting",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/95007233",
+            "url": "http://lccn.loc.gov/95007233",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Forecasting",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -541,20 +608,57 @@
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
       "subjects": [
         {
-          "slug": "science-fiction",
-          "name": "Science fiction",
+          "slug": "future-tense",
+          "name": "Forecasting",
           "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "style",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/95007233",
+              "url": "http://lccn.loc.gov/95007233"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Forecasting",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction",
+          "name": "Science fiction--Juvenile literature",
+          "kind": "genre",
           "confidence": "high",
           "taxonomy_type": "genre",
           "taxonomy_group": null,
           "taxonomy_parent": null,
           "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/95007233",
+              "url": "http://lccn.loc.gov/95007233"
+            },
             {
               "source": "fast",
               "confidence": "high",
@@ -563,7 +667,18 @@
             }
           ],
           "raw": {
-            "loc": [],
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science fiction--Juvenile literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science fiction--History and criticism",
+                "matchType": "label"
+              }
+            ],
             "fast": [
               {
                 "fastId": "fst01108566",
@@ -580,6 +695,34 @@
                 "type": "auth"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-nature",
+          "name": "Science--Juvenile literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/95007233",
+              "url": "http://lccn.loc.gov/95007233"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/95007233",
+                "subject": "Science--Juvenile literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -778,6 +921,34 @@
           }
         }
       ]
+    },
+    "google_books": {
+      "description": "Asimov's original work forms the basis for a fascinating mixture of science fact and speculation, combined with a simple prose style. The unique result is a series capable of answering, in an understandable and truly informative way, the multitude of questions children ask when they gaze skyward.",
+      "categories": [
+        "Juvenile Nonfiction / Literary Criticism & Collections",
+        "Juvenile Nonfiction / Science & Nature / General",
+        "Juvenile Nonfiction / Science & Nature / Astronomy",
+        "Juvenile Fiction / Science Fiction / General"
+      ],
+      "publishedDate": "1995",
+      "language": "en",
+      "pageCount": 32
+    },
+    "openlibrary": {
+      "description": "Compares what writers over the centuries have written about an imaginary future with the reality revealed by time.",
+      "subjects": [
+        "Science -- Juvenile literature",
+        "Science fiction -- Juvenile literature",
+        "Science fiction -- History and criticism",
+        "Forecasting",
+        "Juvenile literature",
+        "Science fiction",
+        "History and criticism",
+        "Science",
+        "Science, juvenile literature",
+        "Science fiction, juvenile literature"
+      ],
+      "coverImage": "https://covers.openlibrary.org/b/id/9304042-L.jpg"
     }
   }
 }

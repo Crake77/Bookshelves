@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:30:03.013Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:57:25.097Z",
+    "last_run": "2025-11-13T19:03:09.807Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "The Great Hunt",
@@ -19,8 +21,192 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "rand-althor-fictitious-character-fiction",
+            "name": "Rand al'Thor (Fictitious character)--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2012450356",
+            "url": "http://lccn.loc.gov/2012450356",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2012450356",
+                "subject": "Rand al'Thor (Fictitious character)--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/90011128",
+                "subject": "Rand al'Thor (Fictitious character)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "fantasy",
+            "name": "Fantasy fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2012450356",
+            "url": "http://lccn.loc.gov/2012450356",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2012450356",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/90011128",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "hunt-leigh-1784-1859",
+            "name": "Hunt, Leigh,--1784-1859",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/43040215/",
+            "url": "http://www.loc.gov/item/43040215/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/43040215/",
+                "subject": "Hunt, Leigh,--1784-1859",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "authors-english-19th-century-biography",
+            "name": "Authors, English--19th century--Biography",
+            "kind": "person",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/43040215/",
+            "url": "http://www.loc.gov/item/43040215/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/43040215/",
+                "subject": "Authors, English--19th century--Biography",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "syria-social-life-and-customs",
+            "name": "Syria--Social life and customs",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/05003451/",
+            "url": "http://www.loc.gov/item/05003451/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Syria--Social life and customs",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "apologetics",
+            "name": "Apologetics",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/05003451/",
+            "url": "http://www.loc.gov/item/05003451/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Apologetics",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "missions-syria",
+            "name": "Missions--Syria",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/05003451/",
+            "url": "http://www.loc.gov/item/05003451/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Missions--Syria",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "missions-to-jews",
+            "name": "Missions to Jews",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/05003451/",
+            "url": "http://www.loc.gov/item/05003451/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Missions to Jews",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "greene-robert-1558-1592",
+            "name": "Greene, Robert,--1558?-1592",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://www.loc.gov/item/15020972/",
+            "url": "http://www.loc.gov/item/15020972/",
+            "raw": [
+              {
+                "recordId": "http://www.loc.gov/item/15020972/",
+                "subject": "Greene, Robert,--1558?-1592",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -212,12 +398,126 @@
         ]
       },
       "wikidata": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "fantasy",
+            "name": "fantasy",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q132311",
+            "url": "https://www.wikidata.org/wiki/Q132311",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q470229",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "united-states",
+            "name": "United States",
+            "kind": "place",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q30",
+            "url": "https://www.wikidata.org/wiki/Q30",
+            "raw": [
+              {
+                "property": "P495",
+                "qid": "Q470229",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[wikidata] cache hit"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "fantasy",
+          "name": "Fantasy fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2012450356",
+              "url": "http://lccn.loc.gov/2012450356"
+            },
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q132311",
+              "url": "https://www.wikidata.org/wiki/Q132311"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2012450356",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/90011128",
+                "subject": "Fantasy fiction",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q470229",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "united-states",
+          "name": "United States",
+          "kind": "place",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q30",
+              "url": "https://www.wikidata.org/wiki/Q30"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P495",
+                "qid": "Q470229",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
         {
           "slug": "ajax-greek-mythological-figure",
           "name": "Ajax (Greek mythological figure)",
@@ -245,6 +545,62 @@
                 "type": "alt"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "apologetics",
+          "name": "Apologetics",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/05003451/",
+              "url": "http://www.loc.gov/item/05003451/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Apologetics",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "authors-english-19th-century-biography",
+          "name": "Authors, English--19th century--Biography",
+          "kind": "person",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/43040215/",
+              "url": "http://www.loc.gov/item/43040215/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/43040215/",
+                "subject": "Authors, English--19th century--Biography",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -369,6 +725,34 @@
           }
         },
         {
+          "slug": "greene-robert-1558-1592",
+          "name": "Greene, Robert,--1558?-1592",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/15020972/",
+              "url": "http://www.loc.gov/item/15020972/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/15020972/",
+                "subject": "Greene, Robert,--1558?-1592",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
           "slug": "howard-joseph-e-joseph-edgar-1961",
           "name": "Howard, Joseph E. (Joseph Edgar), -1961",
           "kind": "topic",
@@ -395,6 +779,34 @@
                 "type": "alt"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "hunt-leigh-1784-1859",
+          "name": "Hunt, Leigh,--1784-1859",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/43040215/",
+              "url": "http://www.loc.gov/item/43040215/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/43040215/",
+                "subject": "Hunt, Leigh,--1784-1859",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -471,8 +883,169 @@
             ],
             "wikidata": []
           }
+        },
+        {
+          "slug": "missions-syria",
+          "name": "Missions--Syria",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/05003451/",
+              "url": "http://www.loc.gov/item/05003451/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Missions--Syria",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "missions-to-jews",
+          "name": "Missions to Jews",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/05003451/",
+              "url": "http://www.loc.gov/item/05003451/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Missions to Jews",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "rand-althor-fictitious-character-fiction",
+          "name": "Rand al'Thor (Fictitious character)--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2012450356",
+              "url": "http://lccn.loc.gov/2012450356"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2012450356",
+                "subject": "Rand al'Thor (Fictitious character)--Fiction",
+                "matchType": "generated"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/90011128",
+                "subject": "Rand al'Thor (Fictitious character)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "syria-social-life-and-customs",
+          "name": "Syria--Social life and customs",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://www.loc.gov/item/05003451/",
+              "url": "http://www.loc.gov/item/05003451/"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://www.loc.gov/item/05003451/",
+                "subject": "Syria--Social life and customs",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
         }
       ]
+    },
+    "google_books": {
+      "description": "<p><b><i>The Wheel of Time</i> is now an original series on Prime Video, starring Rosamund Pike as Moiraine!<br><br>In <i>The Great Hunt</i>, the second novel in Robert Jordan’s #1 <i>New York Times</i> bestselling epic fantasy series, The Wheel of Time®, Rand al’Thor and his companions set out to retrieve a powerful artifact from The Dark One’s Shadowspawn.</b><br><br>For centuries, gleemen have told the tales of The Great Hunt of the Horn. So many tales about each of the Hunters, and so many Hunters to tell of...<br><br>Now the Horn itself is found: the Horn of Valere long thought only legend, the Horn which will raise the dead heroes of the ages.<br><br>And it is stolen.<br><br>In pursuit of the thieves, Rand al’Thor is determined to keep the Horn out of the grasp of The Dark One. But he has also learned that he is The Dragon Reborn—the Champion of Light destined to stand against the Shadow time and again. It is a duty and a destiny that requires Rand to uncover and master extraordinary capabilities he never imagined he possessed.<br><br>Since its debut in 1990, The Wheel of Time® has captivated millions of readers around the globe with its scope, originality, and compelling characters. The last six books in series were all instant #1 <i>New York Times</i> bestsellers, and <i>The Eye of the World</i> was named one of America's best-loved novels by PBS's The Great American Read.<br><br><b>The Wheel of Time®</b><br><i>New Spring: The Novel</i><br>#1 <i>The Eye of the World</i><br>#2 <i>The Great Hunt</i><br>#3 <i>The Dragon Reborn</i><br>#4 <i>The Shadow Rising</i><br>#5 <i>The Fires of Heaven</i><br>#6 <i>Lord of Chaos</i><br>#7 <i>A Crown of Swords</i><br>#8 <i>The Path of Daggers</i><br>#9 <i>Winter's Heart</i><br>#10 <i>Crossroads of Twilight</i><br>#11 <i>Knife of Dreams</i><br><br><b>By Robert Jordan and Brandon Sanderson</b><br>#12 <i>The Gathering Storm</i><br>#13 <i>Towers of Midnight</i><br>#14 <i>A Memory of Light</i><br><br><b>By Robert Jordan and Teresa Patterson</b><br><i>The World of Robert Jordan's The Wheel of Time</i><br><br><b>By Robert Jordan, Harriet McDougal, Alan Romanczuk, and Maria Simons</b><br><i>The Wheel of Time Companion</i><br><br><b>By Robert Jordan and Amy Romanczuk</b><br><i>Patterns of the Wheel: Coloring Art Based on Robert Jordan's The Wheel of Time</i><br><br>At the Publisher's request, this title is being sold without Digital Rights Management Software (DRM) applied.</p>",
+      "categories": [
+        "Fiction / Fantasy / Epic",
+        "Fiction / Fantasy / Action & Adventure"
+      ],
+      "publishedDate": "2009-11-17",
+      "language": "en",
+      "pageCount": 624
+    },
+    "openlibrary": {
+      "description": "Now in development for TV!\r\n\r\nSince its debut in 1990, The Wheel of Time® by Robert Jordan has captivated millions of readers around the globe with its scope, originality, and compelling characters.\r\n\r\nThe Wheel of Time turns and Ages come and go, leaving memories that become legend. Legend fades to myth, and even myth is long forgotten when the Age that gave it birth returns again. In the Third Age, an Age of Prophecy, the World and Time themselves hang in the balance. What was, what will be, and what is, may yet fall under the Shadow.\r\n\r\nFor centuries, gleemen have told the tales of The Great Hunt of the Horn. So many tales about each of th Hunters, and so many Hunters to tell of...Now the Horn itself is found: the Horn of Valere long thought only legend, the Horn which will raise the dead heroes of the ages. And it is stolen.\r\n\r\nTV series update: \"Sony will produce along with Red Eagle Entertainment and Radar Pictures. Rafe Judkins is attached to write and executive produce. Judkins previously worked on shows such as ABC’s “Agents of SHIELD,” the Netflix series “Hemlock Grove,” and the NBC series “Chuck.” Red Eagle partners Rick Selvage and Larry Mondragon will executive produce along with Radar’s Ted Field and Mike Weber. Darren Lemke will also executive produce, with Jordan’s widow Harriet McDougal serving as consulting producer.\" —*Variety*\r\n\r\nThe Wheel of Time**®**\r\nNew Spring: The Novel\r\n#1 The Eye of the World\r\n#2 The Great Hunt\r\n#3 The Dragon Reborn\r\n#4 The Shadow Rising\r\n#5 The Fires of Heaven\r\n#6 Lord of Chaos\r\n#7 A Crown of Swords\r\n#8 The Path of Daggers\r\n#9 Winter's Heart\r\n#10 Crossroads of Twilight\r\n#11 Knife of Dreams\r\n\r\nBy Robert Jordan and Brandon Sanderson\r\n#12 The Gathering Storm\r\n#13 Towers of Midnight\r\n#14 A Memory of Light",
+      "subjects": [
+        "series:The Wheel of Time",
+        "Fiction",
+        "Fantasy fiction",
+        "Fantasy",
+        "Fiction, fantasy, epic",
+        "Fiction, fantasy, historical",
+        "Fiction, fantasy, general",
+        "Aes Sedai",
+        "Rand al'Thor",
+        "wheel of time",
+        "robert jordon",
+        "American Fantasy fiction",
+        "Imaginary places",
+        "Good and evil",
+        "Adventure stories",
+        "Heroes",
+        "Magic",
+        "Imaginary wars and battles",
+        "Sex role",
+        "Prophecies",
+        "Reincarnation",
+        "American literature",
+        "Novela estadounidense",
+        "Novela fantástica estadounidense",
+        "Tar Valon",
+        "Two Rivers",
+        "Fantasy - differernt world middle age style",
+        "Siglo XX"
+      ],
+      "coverImage": "https://covers.openlibrary.org/b/id/6649822-L.jpg"
     }
   },
   "taxonomy": {
@@ -507,76 +1080,149 @@
     ],
     "cross_tags": [
       {
-        "slug": "epic",
-        "name": "Epic",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 12,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "gathering-storm",
-        "name": "Gathering Storm",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "pursuit",
-        "name": "Pursuit",
-        "group": "plot",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "original",
-        "name": "Original",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "twilight",
-        "name": "Twilight",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "dark",
-        "name": "Dark",
-        "group": "tone_mood",
-        "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
-      },
-      {
         "slug": "crown",
         "name": "Crown",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 33,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "96c412ab-8bd5-4ec3-b0ca-61ebe442d145",
+          "debb0099-2f33-46c1-b869-988fe630443a"
+        ]
       },
       {
         "slug": "heaven",
         "name": "Heaven",
         "group": "trope",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 33,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "96c412ab-8bd5-4ec3-b0ca-61ebe442d145",
+          "debb0099-2f33-46c1-b869-988fe630443a"
+        ]
+      },
+      {
+        "slug": "gathering-storm",
+        "name": "Gathering Storm",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 26,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "debb0099-2f33-46c1-b869-988fe630443a"
+        ]
+      },
+      {
+        "slug": "epic",
+        "name": "Epic",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 26,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "96c412ab-8bd5-4ec3-b0ca-61ebe442d145"
+        ]
+      },
+      {
+        "slug": "twilight",
+        "name": "Twilight",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 26,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "debb0099-2f33-46c1-b869-988fe630443a"
+        ]
+      },
+      {
+        "slug": "pursuit",
+        "name": "Pursuit",
+        "group": "plot",
+        "confidence": "high",
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "96c412ab-8bd5-4ec3-b0ca-61ebe442d145"
+        ]
+      },
+      {
+        "slug": "original",
+        "name": "Original",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "96c412ab-8bd5-4ec3-b0ca-61ebe442d145"
+        ]
+      },
+      {
+        "slug": "dark",
+        "name": "Dark",
+        "group": "tone_mood",
+        "confidence": "high",
+        "match_score": 21,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "96c412ab-8bd5-4ec3-b0ca-61ebe442d145"
+        ]
+      },
+      {
+        "slug": "netflix-series",
+        "name": "Netflix Series",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "debb0099-2f33-46c1-b869-988fe630443a"
+        ]
+      },
+      {
+        "slug": "balance",
+        "name": "Balance",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "debb0099-2f33-46c1-b869-988fe630443a"
+        ]
+      },
+      {
+        "slug": "prophecy",
+        "name": "Prophecy",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "debb0099-2f33-46c1-b869-988fe630443a"
+        ]
       },
       {
         "slug": "epic-tone",
         "name": "Epic",
         "group": "tone_mood",
         "confidence": "high",
-        "match_score": 5,
-        "method": "pattern-match"
+        "match_score": 11,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "96c412ab-8bd5-4ec3-b0ca-61ebe442d145"
+        ]
+      },
+      {
+        "slug": "quest",
+        "name": "Quest",
+        "group": "trope",
+        "confidence": "high",
+        "match_score": 7,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "87ee8b28-6311-41b3-adf7-0f5f44ec8141"
+        ]
       },
       {
         "slug": "male-protagonist",
@@ -592,7 +1238,15 @@
         "group": "content_flags",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "historical",
+        "name": "Historical",
+        "group": "setting",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "dragons",
@@ -600,7 +1254,7 @@
         "group": "trope",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "reincarnation",
@@ -608,26 +1262,26 @@
         "group": "tropes_themes",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "low",
-        "match_score": 2,
-        "method": "pattern-match"
+        "slug": "widow-widower",
+        "name": "Widow Widower",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
       },
       {
-        "slug": "prophecy",
-        "name": "Prophecy",
+        "slug": "chosen-one",
+        "name": "Chosen One",
         "group": "tropes_themes",
         "confidence": "low",
         "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 15
+    "cross_tags_count": 20
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/content?id=yngEsxEO4QYC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE70_Azr3z5bbE4e2MAForYW9MNQQdxip6TfWwhTltnPnL99OUMBHmTXPYfM76MQjeK4_vIgQJsfz5hT7RTWHiAQU6KgRp4lecABulT5izHFXEepH6AAByHlWB5MgpTzhxhv6Z9Hb&source=gbs_api",
@@ -638,7 +1292,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL24395187M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:09.812Z",
+  "last_updated": "2025-11-13T19:06:09.791Z",
   "authors": {
     "original": [
       "Robert Jordan"
@@ -672,5 +1326,46 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "b68748b9-79c9-4c12-b1b7-0f5500f38149",
+    "work_title": "The Great Hunt",
+    "work_ref": null,
+    "fetched_at": "2025-11-01T19:54:46.377Z",
+    "sources": [
+      {
+        "snapshot_id": "96c412ab-8bd5-4ec3-b0ca-61ebe442d145",
+        "source": "googlebooks",
+        "source_key": "yngEsxEO4QYC",
+        "revision": "2009-11-17",
+        "url": "https://books.google.com/books?id=yngEsxEO4QYC",
+        "license": "GOOGLE_BOOKS_TOS",
+        "fetched_at": "2025-11-01T19:54:46.377Z",
+        "sha256": "e51199d5ed453470e1705299bf47d0726aca591421cb2dc370f269baf95bcf13",
+        "extract": "Title: The Great Hunt\n\nDescription: <p><b><i>The Wheel of Time</i> is now an original series on Prime Video, starring Rosamund Pike as Moiraine!<br><br>In <i>The Great Hunt</i>, the second novel in Robert Jordan’s #1 <i>New York Times</i> bestselling epic fantasy series, The Wheel of Time®, Rand al’Thor and his companions set out to retrieve a powerful artifact from The Dark One’s Shadowspawn.</b><br><br>For centuries, gleemen have told the tales of The Great Hunt of the Horn. So many tales about each of the Hunters, and so many Hunters to tell of...<br><br>Now the Horn itself is found: the Horn of Valere long thought only legend, the Horn which will raise the dead heroes of the ages.<br><br>And it is stolen.<br><br>In pursuit of the thieves, Rand al’Thor is determined to keep the Horn out of the grasp of The Dark One. But he has also learned that he is The Dragon Reborn—the Champion of Light destined to stand against the Shadow time and again. It is a duty and a destiny that requires Rand to uncover and master extraordinary capabilities he never imagined he possessed.<br><br>Since its debut in 1990, The Wheel of Time® has captivated millions of readers around the globe with its scope, originality, and compelling characters. The last six books in series were all instant #1 <i>New York Times</i> bestsellers, and <i>The Eye of the World</i> was named one of America's best-loved novels by PBS's The Great American Read.<br><br><b>The Wheel of Time®</b><br><i>New Spring: The Novel</i><br>#1 <i>The Eye of the World</i><br>#2 <i>The Great Hunt</i><br>#3 <i>The Dragon Reborn</i><br>#4 <i>The Shadow Rising</i><br>#5 <i>The Fires of Heaven</i><br>#6 <i>Lord of Chaos</i><br>#7 <i>A Crown of Swords</i><br>#8 <i>The Path of Daggers</i><br>#9 <i>Winter's Heart</i><br>#10 <i>Crossr..."
+      },
+      {
+        "snapshot_id": "87ee8b28-6311-41b3-adf7-0f5f44ec8141",
+        "source": "wikipedia",
+        "source_key": "The Great Hunt",
+        "revision": "1312699438",
+        "url": "https://en.wikipedia.org/wiki/The_Great_Hunt",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-11-01T19:54:46.059Z",
+        "sha256": "9c829c3a6f2b9ae04f98c5c0c637b738e9b82a0b5946a777f7303ec7874118b1",
+        "extract": "The Great Hunt is a fantasy novel by American author Robert Jordan, the second book of The Wheel of Time series. It was published by Tor Books and released on November 15, 1990. The Great Hunt consists of a prologue and 50 chapters. In 2004 The Great Hunt was re-released as two separate books, The Hunt Begins and New Threads in the Pattern.\nThe story features young heroes Rand al'Thor, Mat Cauthon, and Perrin Aybara, who join Shienaren soldiers in a quest to retrieve the Horn of Valere. At the same time, Egwene al'Vere, Nynaeve al'Meara, and Elayne Trakand go to the White Tower in Tar Valon to learn Aes Sedai ways. Finally, an exotic army invades the western coast.\n\nCategories: 1990 American novels, 1990 fantasy novels, American fantasy novels, Articles with short description, Novels by Robert Jordan, Short description matches Wikidata, The Wheel of Time books, Tor Books books, Use mdy dates from March 2025"
+      },
+      {
+        "snapshot_id": "debb0099-2f33-46c1-b869-988fe630443a",
+        "source": "openlibrary",
+        "source_key": "OL7924135W",
+        "revision": "13",
+        "url": "https://openlibrary.org/works/OL7924135W",
+        "license": "CC0",
+        "fetched_at": "2025-11-01T19:54:45.888Z",
+        "sha256": "c19b4b18c3276695fa66c17a6cae2f9f6035f34f05ec9659095291977cc9b6c3",
+        "extract": "Title: The Great Hunt (The Wheel of Time Book 2)\n\nDescription: Now in development for TV!\r\n\r\nSince its debut in 1990, The Wheel of Time® by Robert Jordan has captivated millions of readers around the globe with its scope, originality, and compelling characters.\r\n\r\nThe Wheel of Time turns and Ages come and go, leaving memories that become legend. Legend fades to myth, and even myth is long forgotten when the Age that gave it birth returns again. In the Third Age, an Age of Prophecy, the World and Time themselves hang in the balance. What was, what will be, and what is, may yet fall under the Shadow.\r\n\r\nFor centuries, gleemen have told the tales of The Great Hunt of the Horn. So many tales about each of th Hunters, and so many Hunters to tell of...Now the Horn itself is found: the Horn of Valere long thought only legend, the Horn which will raise the dead heroes of the ages. And it is stolen.\r\n\r\nTV series update: \"Sony will produce along with Red Eagle Entertainment and Radar Pictures. Rafe Judkins is attached to write and executive produce. Judkins previously worked on shows such as ABC’s “Agents of SHIELD,” the Netflix series “Hemlock Grove,” and the NBC series “Chuck.” Red Eagle partners Rick Selvage and Larry Mondragon will executive produce along with Radar’s Ted Field and Mike Weber. Darren Lemke will also executive produce, with Jordan’s widow Harriet McDougal serving as consulting producer.\" —*Variety*\r\n\r\nThe Wheel of Time**®**\r\nNew Spring: The Novel\r\n#1 The Eye of the World\r\n#2 The Great Hunt\r\n#3 The Dragon Reborn\r\n#4 The Shadow Rising\r\n#5 The Fires of Heaven\r\n#6 Lord of Chaos\r\n#7 A Crown of Swords\r\n#8 The Path of Daggers\r\n#9 Winter's Heart\r\n#10 Crossroads of Twilight\r\n#11 Knife of Dreams\r\n\r\nBy Robert Jordan and Brandon Sanderson\r\n#12 The Gathering Storm\r\n#13 ..."
+      }
+    ]
   }
 }

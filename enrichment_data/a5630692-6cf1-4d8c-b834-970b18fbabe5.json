@@ -4,9 +4,11 @@
     "timestamp": "2025-11-04T20:32:19.519Z"
   },
   "external_metadata": {
-    "last_run": "2025-11-04T21:59:05.959Z",
+    "last_run": "2025-11-13T19:05:14.446Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "Dune",
@@ -19,8 +21,391 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "herbert-frank-notebooks-sketchbooks-etc",
+            "name": "Herbert, Frank--Notebooks, sketchbooks, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/87032723",
+            "url": "http://lccn.loc.gov/87032723",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/87032723",
+                "subject": "Herbert, Frank--Notebooks, sketchbooks, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "dune-imaginary-place-quotations-maxims-etc",
+            "name": "Dune (Imaginary place)--Quotations, maxims, etc",
+            "kind": "place",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/87032723",
+            "url": "http://lccn.loc.gov/87032723",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/87032723",
+                "subject": "Dune (Imaginary place)--Quotations, maxims, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-american-quotations",
+            "name": "Science fiction, American--Quotations",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/87032723",
+            "url": "http://lccn.loc.gov/87032723",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/87032723",
+                "subject": "Science fiction, American--Quotations",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-american",
+            "name": "Science fiction, American",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/76353185",
+            "url": "http://lccn.loc.gov/76353185",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/76353185",
+                "subject": "Science fiction, American",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "dune-imaginary-place-fiction",
+            "name": "Dune (Imaginary place)--Fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/76353185",
+            "url": "http://lccn.loc.gov/76353185",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/76353185",
+                "subject": "Dune (Imaginary place)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "herbert-frank-bibliography",
+            "name": "Herbert, Frank--Bibliography",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/87025034",
+            "url": "http://lccn.loc.gov/87025034",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/87025034",
+                "subject": "Herbert, Frank--Bibliography",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-american-bibliography",
+            "name": "Science fiction, American--Bibliography",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/87025034",
+            "url": "http://lccn.loc.gov/87025034",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/87025034",
+                "subject": "Science fiction, American--Bibliography",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "dune-imaginary-place-bibliography",
+            "name": "Dune (Imaginary place)--Bibliography",
+            "kind": "place",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/87025034",
+            "url": "http://lccn.loc.gov/87025034",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/87025034",
+                "subject": "Dune (Imaginary place)--Bibliography",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "herbert-frank-dune-series",
+            "name": "Herbert, Frank.--Dune series",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2022029886",
+            "url": "http://lccn.loc.gov/2022029886",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2022029886",
+                "subject": "Herbert, Frank.--Dune series",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "literary-criticism-science-fiction-fantasy",
+            "name": "LITERARY CRITICISM / Science Fiction & Fantasy",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2022029886",
+            "url": "http://lccn.loc.gov/2022029886",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2022029886",
+                "subject": "LITERARY CRITICISM / Science Fiction & Fantasy",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "essays-criticism",
+            "name": "Literary criticism",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2022029886",
+            "url": "http://lccn.loc.gov/2022029886",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2022029886",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "dune-imaginary-place-comic-books-strips-etc",
+            "name": "Dune (Imaginary place)--Comic books strips, etc",
+            "kind": "place",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Dune (Imaginary place)--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "life-on-other-planets-comic-books-strips-etc",
+            "name": "Life on other planets--Comic books strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Life on other planets--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "prophecies-comic-books-strips-etc",
+            "name": "Prophecies--Comic books strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Prophecies--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "feudalism-comic-books-strips-etc",
+            "name": "Feudalism--Comic books strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Feudalism--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "courts-and-courtiers-comic-books-strips-etc",
+            "name": "Courts and courtiers--Comic books strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Courts and courtiers--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "imaginary-wars-and-battles-comic-books-strips-etc",
+            "name": "Imaginary wars and battles--Comic books strips, etc",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Imaginary wars and battles--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-comics",
+            "name": "Science fiction comics",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Science fiction comics",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "graphic-novel-adaptations",
+            "name": "Graphic novel adaptations",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Graphic novel adaptations",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "graphic-novels",
+            "name": "Graphic novels",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2021936586",
+            "url": "http://lccn.loc.gov/2021936586",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Graphic novels",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -93,12 +478,2989 @@
         ]
       },
       "wikidata": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "soft-science-fiction",
+            "name": "soft science fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q905770",
+            "url": "https://www.wikidata.org/wiki/Q905770",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "religion",
+            "name": "religion",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q9174",
+            "url": "https://www.wikidata.org/wiki/Q9174",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "united-states",
+            "name": "United States",
+            "kind": "place",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q30",
+            "url": "https://www.wikidata.org/wiki/Q30",
+            "raw": [
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "adventure-action",
+            "name": "adventure fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q21802675",
+            "url": "https://www.wikidata.org/wiki/Q21802675",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "outer-space",
+            "name": "outer space",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q4169",
+            "url": "https://www.wikidata.org/wiki/Q4169",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction",
+            "name": "science fiction",
+            "kind": "genre",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q24925",
+            "url": "https://www.wikidata.org/wiki/Q24925",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q6095696",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "society",
+            "name": "society",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q8425",
+            "url": "https://www.wikidata.org/wiki/Q8425",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "speculative-fiction-film",
+            "name": "speculative fiction film",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q2973181",
+            "url": "https://www.wikidata.org/wiki/Q2973181",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "prophecy",
+            "name": "prophecy",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q214267",
+            "url": "https://www.wikidata.org/wiki/Q214267",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "norway",
+            "name": "Norway",
+            "kind": "place",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q20",
+            "url": "https://www.wikidata.org/wiki/Q20",
+            "raw": [
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "canada",
+            "name": "Canada",
+            "kind": "place",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q16",
+            "url": "https://www.wikidata.org/wiki/Q16",
+            "raw": [
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "action-film",
+            "name": "action film",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q188473",
+            "url": "https://www.wikidata.org/wiki/Q188473",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "oppression",
+            "name": "oppression",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q252000",
+            "url": "https://www.wikidata.org/wiki/Q252000",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "adventure-film",
+            "name": "adventure film",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q319221",
+            "url": "https://www.wikidata.org/wiki/Q319221",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "feud",
+            "name": "feud",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q467033",
+            "url": "https://www.wikidata.org/wiki/Q467033",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "civilization",
+            "name": "civilization",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q8432",
+            "url": "https://www.wikidata.org/wiki/Q8432",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "culture",
+            "name": "culture",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q11042",
+            "url": "https://www.wikidata.org/wiki/Q11042",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "feudalism",
+            "name": "feudalism",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q37739",
+            "url": "https://www.wikidata.org/wiki/Q37739",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "cabal",
+            "name": "cabal",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q1416414",
+            "url": "https://www.wikidata.org/wiki/Q1416414",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "power",
+            "name": "power",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q25107",
+            "url": "https://www.wikidata.org/wiki/Q25107",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "science-fiction-film",
+            "name": "science fiction film",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q471839",
+            "url": "https://www.wikidata.org/wiki/Q471839",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "betrayal",
+            "name": "betrayal",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q2166722",
+            "url": "https://www.wikidata.org/wiki/Q2166722",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "destiny",
+            "name": "destiny",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q216774",
+            "url": "https://www.wikidata.org/wiki/Q216774",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "clairvoyance",
+            "name": "clairvoyance",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q2975244",
+            "url": "https://www.wikidata.org/wiki/Q2975244",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "planetary-romance",
+            "name": "planetary romance",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q2630193",
+            "url": "https://www.wikidata.org/wiki/Q2630193",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "social-science-fiction",
+            "name": "social science fiction",
+            "kind": "genre",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q944250",
+            "url": "https://www.wikidata.org/wiki/Q944250",
+            "raw": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "ecology",
+            "name": "ecology",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q7150",
+            "url": "https://www.wikidata.org/wiki/Q7150",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "election",
+            "name": "election",
+            "kind": "topic",
+            "confidence": "medium",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "Q108974081",
+            "url": "https://www.wikidata.org/wiki/Q108974081",
+            "raw": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[wikidata] cache hit"
+        ]
       }
     },
     "merged": {
       "subjects": [
+        {
+          "slug": "adventure-action",
+          "name": "adventure fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q21802675",
+              "url": "https://www.wikidata.org/wiki/Q21802675"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "essays-criticism",
+          "name": "Literary criticism",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2022029886",
+              "url": "http://lccn.loc.gov/2022029886"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2022029886",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction",
+          "name": "science fiction",
+          "kind": "genre",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q24925",
+              "url": "https://www.wikidata.org/wiki/Q24925"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q6095696",
+                "matchType": "label"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "united-states",
+          "name": "United States",
+          "kind": "place",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "high",
+              "id": "Q30",
+              "url": "https://www.wikidata.org/wiki/Q30"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              },
+              {
+                "property": "P495",
+                "qid": "Q190192",
+                "matchType": "label"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "action-film",
+          "name": "action film",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q188473",
+              "url": "https://www.wikidata.org/wiki/Q188473"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "adventure-film",
+          "name": "adventure film",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q319221",
+              "url": "https://www.wikidata.org/wiki/Q319221"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "betrayal",
+          "name": "betrayal",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "trope",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q2166722",
+              "url": "https://www.wikidata.org/wiki/Q2166722"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "cabal",
+          "name": "cabal",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q1416414",
+              "url": "https://www.wikidata.org/wiki/Q1416414"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "canada",
+          "name": "Canada",
+          "kind": "place",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q16",
+              "url": "https://www.wikidata.org/wiki/Q16"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "civilization",
+          "name": "civilization",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q8432",
+              "url": "https://www.wikidata.org/wiki/Q8432"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "clairvoyance",
+          "name": "clairvoyance",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q2975244",
+              "url": "https://www.wikidata.org/wiki/Q2975244"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "courts-and-courtiers-comic-books-strips-etc",
+          "name": "Courts and courtiers--Comic books strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Courts and courtiers--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "culture",
+          "name": "culture",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q11042",
+              "url": "https://www.wikidata.org/wiki/Q11042"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "destiny",
+          "name": "destiny",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q216774",
+              "url": "https://www.wikidata.org/wiki/Q216774"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
         {
           "slug": "dune-chronicles-herbert-frank",
           "name": "Dune chronicles (Herbert, Frank)",
@@ -160,6 +3522,118 @@
           }
         },
         {
+          "slug": "dune-imaginary-place-bibliography",
+          "name": "Dune (Imaginary place)--Bibliography",
+          "kind": "place",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/87025034",
+              "url": "http://lccn.loc.gov/87025034"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/87025034",
+                "subject": "Dune (Imaginary place)--Bibliography",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "dune-imaginary-place-comic-books-strips-etc",
+          "name": "Dune (Imaginary place)--Comic books strips, etc",
+          "kind": "place",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Dune (Imaginary place)--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "dune-imaginary-place-fiction",
+          "name": "Dune (Imaginary place)--Fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/76353185",
+              "url": "http://lccn.loc.gov/76353185"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/76353185",
+                "subject": "Dune (Imaginary place)--Fiction",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "dune-imaginary-place-quotations-maxims-etc",
+          "name": "Dune (Imaginary place)--Quotations, maxims, etc",
+          "kind": "place",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/87032723",
+              "url": "http://lccn.loc.gov/87032723"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/87032723",
+                "subject": "Dune (Imaginary place)--Quotations, maxims, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
           "slug": "dune-series-herbert-frank",
           "name": "Dune series (Herbert, Frank)",
           "kind": "topic",
@@ -188,8 +3662,1534 @@
             ],
             "wikidata": []
           }
+        },
+        {
+          "slug": "ecology",
+          "name": "ecology",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "subgenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": "environmental-science",
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q7150",
+              "url": "https://www.wikidata.org/wiki/Q7150"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "election",
+          "name": "election",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q108974081",
+              "url": "https://www.wikidata.org/wiki/Q108974081"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "feud",
+          "name": "feud",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q467033",
+              "url": "https://www.wikidata.org/wiki/Q467033"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "feudalism",
+          "name": "feudalism",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q37739",
+              "url": "https://www.wikidata.org/wiki/Q37739"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "feudalism-comic-books-strips-etc",
+          "name": "Feudalism--Comic books strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Feudalism--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "graphic-novel-adaptations",
+          "name": "Graphic novel adaptations",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Graphic novel adaptations",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "graphic-novels",
+          "name": "Graphic novels",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Graphic novels",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "herbert-frank-bibliography",
+          "name": "Herbert, Frank--Bibliography",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/87025034",
+              "url": "http://lccn.loc.gov/87025034"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/87025034",
+                "subject": "Herbert, Frank--Bibliography",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "herbert-frank-dune-series",
+          "name": "Herbert, Frank.--Dune series",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2022029886",
+              "url": "http://lccn.loc.gov/2022029886"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2022029886",
+                "subject": "Herbert, Frank.--Dune series",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "herbert-frank-notebooks-sketchbooks-etc",
+          "name": "Herbert, Frank--Notebooks, sketchbooks, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/87032723",
+              "url": "http://lccn.loc.gov/87032723"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/87032723",
+                "subject": "Herbert, Frank--Notebooks, sketchbooks, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "imaginary-wars-and-battles-comic-books-strips-etc",
+          "name": "Imaginary wars and battles--Comic books strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Imaginary wars and battles--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "life-on-other-planets-comic-books-strips-etc",
+          "name": "Life on other planets--Comic books strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Life on other planets--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "literary-criticism-science-fiction-fantasy",
+          "name": "LITERARY CRITICISM / Science Fiction & Fantasy",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2022029886",
+              "url": "http://lccn.loc.gov/2022029886"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2022029886",
+                "subject": "LITERARY CRITICISM / Science Fiction & Fantasy",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "norway",
+          "name": "Norway",
+          "kind": "place",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q20",
+              "url": "https://www.wikidata.org/wiki/Q20"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P495",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "oppression",
+          "name": "oppression",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q252000",
+              "url": "https://www.wikidata.org/wiki/Q252000"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "outer-space",
+          "name": "outer space",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q4169",
+              "url": "https://www.wikidata.org/wiki/Q4169"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "planetary-romance",
+          "name": "planetary romance",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q2630193",
+              "url": "https://www.wikidata.org/wiki/Q2630193"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "power",
+          "name": "power",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q25107",
+              "url": "https://www.wikidata.org/wiki/Q25107"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "prophecies-comic-books-strips-etc",
+          "name": "Prophecies--Comic books strips, etc",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Prophecies--Comic books strips, etc",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "prophecy",
+          "name": "prophecy",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "tropes_themes",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q214267",
+              "url": "https://www.wikidata.org/wiki/Q214267"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "religion",
+          "name": "religion",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q9174",
+              "url": "https://www.wikidata.org/wiki/Q9174"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "science-fiction-american",
+          "name": "Science fiction, American",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/76353185",
+              "url": "http://lccn.loc.gov/76353185"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/76353185",
+                "subject": "Science fiction, American",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-american-bibliography",
+          "name": "Science fiction, American--Bibliography",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/87025034",
+              "url": "http://lccn.loc.gov/87025034"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/87025034",
+                "subject": "Science fiction, American--Bibliography",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-american-quotations",
+          "name": "Science fiction, American--Quotations",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/87032723",
+              "url": "http://lccn.loc.gov/87032723"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/87032723",
+                "subject": "Science fiction, American--Quotations",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-comics",
+          "name": "Science fiction comics",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "medium",
+              "id": "http://lccn.loc.gov/2021936586",
+              "url": "http://lccn.loc.gov/2021936586"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2021936586",
+                "subject": "Science fiction comics",
+                "matchType": "generated"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "science-fiction-film",
+          "name": "science fiction film",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q471839",
+              "url": "https://www.wikidata.org/wiki/Q471839"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "social-science-fiction",
+          "name": "social science fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q944250",
+              "url": "https://www.wikidata.org/wiki/Q944250"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "society",
+          "name": "society",
+          "kind": "topic",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q8425",
+              "url": "https://www.wikidata.org/wiki/Q8425"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P921",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "soft-science-fiction",
+          "name": "soft science fiction",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q905770",
+              "url": "https://www.wikidata.org/wiki/Q905770"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q190192",
+                "matchType": "generated"
+              }
+            ]
+          }
+        },
+        {
+          "slug": "speculative-fiction-film",
+          "name": "speculative fiction film",
+          "kind": "genre",
+          "confidence": "medium",
+          "taxonomy_type": "unknown",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "wikidata",
+              "confidence": "medium",
+              "id": "Q2973181",
+              "url": "https://www.wikidata.org/wiki/Q2973181"
+            }
+          ],
+          "raw": {
+            "loc": [],
+            "fast": [],
+            "wikidata": [
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              },
+              {
+                "property": "P136",
+                "qid": "Q60834962",
+                "matchType": "generated"
+              }
+            ]
+          }
         }
       ]
+    },
+    "google_books": {
+      "description": "<b><b>Frank Herbert’s classic masterpiece—a triumph of the imagination and one of the bestselling science fiction novels of all time.</b></b><br><br>Set on the desert planet Arrakis, <i>Dune</i> is the story of Paul Atreides—who would become known as Muad'Dib—and of a great family's ambition to bring to fruition mankind's most ancient and unattainable dream.<br><br>A stunning blend of adventure and mysticism, environmentalism and politics, <i>Dune</i> won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
+      "categories": [
+        "Fiction / Science Fiction / Space Opera",
+        "Fiction / Classics",
+        "Fiction / Fantasy / Epic"
+      ],
+      "publishedDate": "1990-09-01",
+      "language": "en",
+      "pageCount": 896
+    },
+    "openlibrary": {
+      "description": "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the \"spice\" melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for...\r\n\r\nWhen House Atreides is betrayed, the destruction of Paul's family will set the boy on a journey toward a destiny greater than he could ever have imagined. And as he evolves into the mysterious man known as Muad'Dib, he will bring to fruition humankind's most ancient and unattainable dream.\r\n\r\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
+      "subjects": [
+        "Dune (Imaginary place)",
+        "Fiction",
+        "Fiction, science fiction, general",
+        "Dune (imaginary place), fiction",
+        "New York Times reviewed",
+        "Science fiction",
+        "Science-fiction",
+        "American literature",
+        "nyt:mass-market-monthly=2021-11-07",
+        "New York Times bestseller",
+        "award:nebula_award=novel",
+        "nyt:trade-fiction-paperback=2021-11-07",
+        "Hugo Award Winner",
+        "award:hugo_award=1966",
+        "award:hugo_award=novel",
+        "American Science fiction",
+        "Long Now Manual for Civilization",
+        "Ecology",
+        "Fantasy fiction"
+      ],
+      "coverImage": "https://covers.openlibrary.org/b/isbn/0441172660-L.jpg"
     }
   },
   "taxonomy": {
@@ -232,67 +5232,162 @@
         "name": "Desert",
         "group": "setting",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 33,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "35be2aa1-ca5c-44c9-89d5-4b2ed86976c0",
+          "093493dd-4137-425d-b668-248e64bf5317"
+        ]
       },
       {
         "slug": "desert-planet",
         "name": "Desert Planet",
         "group": "setting",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 26,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "093493dd-4137-425d-b668-248e64bf5317"
+        ]
       },
       {
         "slug": "epic",
         "name": "Epic",
         "group": "tone",
         "confidence": "high",
-        "match_score": 9,
-        "method": "pattern-match"
+        "match_score": 26,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "093493dd-4137-425d-b668-248e64bf5317"
+        ]
+      },
+      {
+        "slug": "mysterious",
+        "name": "Mysterious",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "093493dd-4137-425d-b668-248e64bf5317"
+        ]
+      },
+      {
+        "slug": "journey",
+        "name": "Journey",
+        "group": "tropes_themes",
+        "confidence": "high",
+        "match_score": 12,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "093493dd-4137-425d-b668-248e64bf5317"
+        ]
       },
       {
         "slug": "epic-tone",
         "name": "Epic",
         "group": "tone_mood",
         "confidence": "high",
-        "match_score": 4,
-        "method": "pattern-match"
+        "match_score": 11,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "093493dd-4137-425d-b668-248e64bf5317"
+        ]
       },
       {
-        "slug": "space",
-        "name": "Space",
+        "slug": "award-winner",
+        "name": "Award Winner",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "093493dd-4137-425d-b668-248e64bf5317"
+        ]
+      },
+      {
+        "slug": "bestseller",
+        "name": "Bestseller",
+        "group": "market",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "093493dd-4137-425d-b668-248e64bf5317"
+        ]
+      },
+      {
+        "slug": "coastal",
+        "name": "Coastal",
         "group": "setting",
         "confidence": "high",
-        "match_score": 3,
-        "method": "pattern-match"
+        "match_score": 7,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "35be2aa1-ca5c-44c9-89d5-4b2ed86976c0"
+        ]
       },
       {
-        "slug": "space-opera",
-        "name": "Space Opera",
+        "slug": "complex",
+        "name": "Complex",
+        "group": "tone",
+        "confidence": "high",
+        "match_score": 7,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "35be2aa1-ca5c-44c9-89d5-4b2ed86976c0"
+        ]
+      },
+      {
+        "slug": "betrayal",
+        "name": "Betrayal",
         "group": "trope",
         "confidence": "high",
         "match_score": 3,
-        "method": "pattern-match"
-      },
-      {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "low",
-        "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
       },
       {
         "slug": "quest",
         "name": "Quest",
         "group": "trope",
+        "confidence": "high",
+        "match_score": 3,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "frozen",
+        "name": "Frozen",
+        "group": "setting",
         "confidence": "low",
         "match_score": 2,
-        "method": "pattern-match"
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "space",
+        "name": "Space",
+        "group": "setting",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "space-opera",
+        "name": "Space Opera",
+        "group": "trope",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "prophecy",
+        "name": "Prophecy",
+        "group": "tropes_themes",
+        "confidence": "low",
+        "match_score": 2,
+        "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 8
+    "cross_tags_count": 16
   },
   "cover_urls": {
     "existing": "https://books.google.com/books/publisher/content?id=nrRKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72NCnV0F9-rdKYEXhuQXxSN0jIZaiE6bZia9x9SEnfNrvXT42Tt2ruHVxm4PQc3eJheu10d1GWz6FDho3jZFnZG9xV2Eb-EXBeT35Qbk7zk-BG889DGMI4qwaIvLhy09_1LDv3u&source=gbs_api",
@@ -303,7 +5398,7 @@
     "recommended": "https://covers.openlibrary.org/b/olid/OL59726263M-L.jpg",
     "source": "openlibrary_olid"
   },
-  "last_updated": "2025-11-05T14:07:10.819Z",
+  "last_updated": "2025-11-13T19:06:24.138Z",
   "authors": {
     "original": [
       "Frank Herbert"
@@ -337,5 +5432,35 @@
     "slug": "adult",
     "confidence": "medium",
     "reason": "General adult audience (default for fiction/non-fiction without age qualifiers)"
+  },
+  "evidence": {
+    "work_id": "5f3f2a0d-887b-4e27-bbdd-c8a110d729ff",
+    "work_title": "Dune",
+    "work_ref": null,
+    "fetched_at": "2025-10-25T20:43:57.524Z",
+    "sources": [
+      {
+        "snapshot_id": "35be2aa1-ca5c-44c9-89d5-4b2ed86976c0",
+        "source": "wikipedia",
+        "source_key": "Dune",
+        "revision": "1314326411",
+        "url": "https://en.wikipedia.org/wiki/Dune",
+        "license": "CC-BY-SA-4.0",
+        "fetched_at": "2025-10-25T20:43:57.524Z",
+        "sha256": "f678d1c59e33165ad0b8e9a9771f20beb85da473a0b4c162dce1a6705832d940",
+        "extract": "A dune is a landform composed of wind- or water-driven sand. It typically takes the form of a mound, ridge, or hill. An area with dunes is called a dune system or a dune complex. A large dune complex is called a dune field, while broad, flat regions covered with wind-swept sand or dunes, with little or no vegetation, are called ergs or sand seas. Dunes occur in different shapes and sizes, but most kinds of dunes are longer on the stoss (upflow) side, where the sand is pushed up the dune, and have a shorter slip face in the lee side. The valley or trough between dunes is called a dune slack.\nDunes are most common in desert environments, where the lack of moisture hinders the growth of vegetation that would otherwise interfere with the development of dunes. However, sand deposits are not restricted to deserts, and dunes are also found along sea shores, along streams in semiarid climates, in areas of glacial outwash, and in other areas where poorly cemented sandstone bedrock disintegrates to produce an ample supply of loose sand. Subaqueous dunes can form from the action of water flow (fluvial processes) on sand or gravel beds of rivers, estuaries, and the sea-bed.\nSome coastal areas have...\n\nCategories: Aeolian landforms, All Wikipedia articles written in British English, Articles with dead FTP links, Articles with short description, CS1: long volume value, CS1: unfit URL, CS1 maint: multiple names: authors list, CS1 maint: numeric names: authors list, Coastal and oceanic landforms, Coastal geography, Dunes, Pages using gadget WikiMiniAtlas, Sedimentology, Short description is different from Wikidata, Use British English from December 2018, Use dmy dates from December 2019, Webarchive template wayback links"
+      },
+      {
+        "snapshot_id": "093493dd-4137-425d-b668-248e64bf5317",
+        "source": "openlibrary",
+        "source_key": "OL893415W",
+        "revision": "26",
+        "url": "https://openlibrary.org/works/OL893415W",
+        "license": "CC0",
+        "fetched_at": "2025-10-25T20:43:57.369Z",
+        "sha256": "85667d4265d1f2cf3fb85bc0f9f1a3a883562269b48c29ea365f08a9b4128de6",
+        "extract": "Title: Dune\n\nDescription: Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the \"spice\" melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for...\r\n\r\nWhen House Atreides is betrayed, the destruction of Paul's family will set the boy on a journey toward a destiny greater than he could ever have imagined. And as he evolves into the mysterious man known as Muad'Dib, he will bring to fruition humankind's most ancient and unattainable dream.\r\n\r\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.\n\nSubjects: Dune (Imaginary place), Fiction, Fiction, science fiction, general, Dune (imaginary place), fiction, New York Times reviewed, Science fiction, Science-fiction, American literature, nyt:mass-market-monthly=2021-11-07, New York Times bestseller, award:nebula_award=novel, nyt:trade-fiction-paperback=2021-11-07, Hugo Award Winner, award:hugo_award=1966, award:hugo_award=novel, American Science fiction, Long Now Manual for Civilization, Ecology, Fantasy fiction\n\nPublication: 1987\n\nLanguages: eng"
+      }
+    ]
   }
 }

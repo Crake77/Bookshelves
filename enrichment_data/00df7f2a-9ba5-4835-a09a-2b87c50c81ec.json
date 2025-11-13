@@ -8,7 +8,7 @@
     "recommended": "https://books.google.com/books/content?id=tNe-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     "source": "google_books"
   },
-  "last_updated": "2025-11-05T14:06:54.166Z",
+  "last_updated": "2025-11-13T19:06:04.275Z",
   "authors": {
     "original": [
       "Dominika Oramus"
@@ -35,7 +35,7 @@
   },
   "taxonomy": {
     "domain": {
-      "slug": "non-fiction",
+      "slug": "nonfiction",
       "confidence": "high",
       "reason": "Academic/analytical work (about genres, not in a genre)"
     },
@@ -61,7 +61,7 @@
         "name": "Anxiety",
         "group": "content_flags",
         "confidence": "high",
-        "match_score": 23,
+        "match_score": 27,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "0aab9abf-1e8d-4d44-9590-04ea021d7347"
@@ -72,7 +72,7 @@
         "name": "Holocaust",
         "group": "content_flags",
         "confidence": "high",
-        "match_score": 23,
+        "match_score": 27,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "0aab9abf-1e8d-4d44-9590-04ea021d7347"
@@ -83,29 +83,7 @@
         "name": "Countdown",
         "group": "tropes_themes",
         "confidence": "high",
-        "match_score": 18,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "literary",
-        "name": "Literary",
-        "group": "tone",
-        "confidence": "high",
-        "match_score": 12,
-        "method": "pattern-match+evidence",
-        "provenance_snapshot_ids": [
-          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
-        ]
-      },
-      {
-        "slug": "trauma",
-        "name": "Trauma",
-        "group": "content_flags",
-        "confidence": "high",
-        "match_score": 9,
+        "match_score": 24,
         "method": "pattern-match+evidence",
         "provenance_snapshot_ids": [
           "0aab9abf-1e8d-4d44-9590-04ea021d7347"
@@ -116,13 +94,35 @@
         "name": "Climate Change",
         "group": "setting",
         "confidence": "high",
-        "match_score": 9,
+        "match_score": 14,
         "method": "pattern-match+evidence"
+      },
+      {
+        "slug": "trauma",
+        "name": "Trauma",
+        "group": "content_flags",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
       },
       {
         "slug": "environmental-collapse",
         "name": "Environmental Collapse",
         "group": "trope",
+        "confidence": "high",
+        "match_score": 10,
+        "method": "pattern-match+evidence",
+        "provenance_snapshot_ids": [
+          "0aab9abf-1e8d-4d44-9590-04ea021d7347"
+        ]
+      },
+      {
+        "slug": "literary",
+        "name": "Literary",
+        "group": "tone",
         "confidence": "high",
         "match_score": 9,
         "method": "pattern-match+evidence",
@@ -163,14 +163,6 @@
         "method": "pattern-match+evidence"
       },
       {
-        "slug": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "group": "trope",
-        "confidence": "low",
-        "match_score": 2,
-        "method": "pattern-match+evidence"
-      },
-      {
         "slug": "transformation",
         "name": "Transformation",
         "group": "trope",
@@ -179,7 +171,7 @@
         "method": "pattern-match+evidence"
       }
     ],
-    "cross_tags_count": 13
+    "cross_tags_count": 12
   },
   "format": {
     "slug": "novel",
@@ -212,9 +204,11 @@
     ]
   },
   "external_metadata": {
-    "last_run": "2025-11-01T18:56:01.962Z",
+    "last_run": "2025-11-13T19:02:18.303Z",
     "sources_enabled": [
-      "fast"
+      "loc",
+      "fast",
+      "wikidata"
     ],
     "input_snapshot": {
       "title": "(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction",
@@ -227,8 +221,127 @@
     },
     "sources": {
       "loc": {
-        "labels": [],
-        "notes": []
+        "labels": [
+          {
+            "slug": "climate-change",
+            "name": "Ecofiction--20th century--History and criticism",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Ecofiction--20th century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Ecofiction--21st century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Climatic changes in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Ecofiction--20th century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Ecofiction--21st century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Climatic changes in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "anxiety",
+            "name": "Anxiety in literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Anxiety in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Anxiety in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "environmental-disaster",
+            "name": "Disasters in literature",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Disasters in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Disasters in literature",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          },
+          {
+            "slug": "essays-criticism",
+            "name": "Literary criticism",
+            "kind": "topic",
+            "confidence": "high",
+            "taxonomy_type": null,
+            "taxonomy_group": null,
+            "taxonomy_parent": null,
+            "id": "http://lccn.loc.gov/2023003224",
+            "url": "http://lccn.loc.gov/2023003224",
+            "raw": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              }
+            ],
+            "notes": []
+          }
+        ],
+        "notes": [
+          "[loc] cache hit"
+        ]
       },
       "fast": {
         "labels": [
@@ -444,28 +557,34 @@
           }
         ],
         "notes": [
-          "[fast] title returned no results",
-          "[fast] title-core returned no results",
-          "[fast] title-bigram returned no results",
-          "[fast] fallback succeeded via token:anxiety"
+          "[fast] cache hit"
         ]
       },
       "wikidata": {
         "labels": [],
-        "notes": []
+        "notes": [
+          "[wikidata] retrying with title search",
+          "[wikidata] no matches returned"
+        ]
       }
     },
     "merged": {
       "subjects": [
         {
           "slug": "anxiety",
-          "name": "Anxiety",
+          "name": "Anxiety in literature",
           "kind": "topic",
-          "confidence": "medium",
+          "confidence": "high",
           "taxonomy_type": "cross_tag",
           "taxonomy_group": "content_flags",
           "taxonomy_parent": null,
           "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023003224",
+              "url": "http://lccn.loc.gov/2023003224"
+            },
             {
               "source": "fast",
               "confidence": "medium",
@@ -474,7 +593,18 @@
             }
           ],
           "raw": {
-            "loc": [],
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Anxiety in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Anxiety in literature",
+                "matchType": "label"
+              }
+            ],
             "fast": [
               {
                 "fastId": "fst00810950",
@@ -484,6 +614,125 @@
                 "type": "auth"
               }
             ],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "climate-change",
+          "name": "Ecofiction--20th century--History and criticism",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "genre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023003224",
+              "url": "http://lccn.loc.gov/2023003224"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Ecofiction--20th century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Ecofiction--21st century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Climatic changes in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Ecofiction--20th century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Ecofiction--21st century--History and criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Climatic changes in literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "environmental-disaster",
+          "name": "Disasters in literature",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "cross_tag",
+          "taxonomy_group": "setting",
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023003224",
+              "url": "http://lccn.loc.gov/2023003224"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Disasters in literature",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Disasters in literature",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
+            "wikidata": []
+          }
+        },
+        {
+          "slug": "essays-criticism",
+          "name": "Literary criticism",
+          "kind": "topic",
+          "confidence": "high",
+          "taxonomy_type": "supergenre",
+          "taxonomy_group": null,
+          "taxonomy_parent": null,
+          "sources": [
+            {
+              "source": "loc",
+              "confidence": "high",
+              "id": "http://lccn.loc.gov/2023003224",
+              "url": "http://lccn.loc.gov/2023003224"
+            }
+          ],
+          "raw": {
+            "loc": [
+              {
+                "recordId": "http://lccn.loc.gov/2023003224",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              },
+              {
+                "recordId": "http://lccn.loc.gov/2023003225",
+                "subject": "Literary criticism",
+                "matchType": "label"
+              }
+            ],
+            "fast": [],
             "wikidata": []
           }
         },
@@ -758,6 +1007,19 @@
           }
         }
       ]
-    }
+    },
+    "google_books": {
+      "description": "<p>(Eco)Anxiety in Nuclear Holocaust Fiction and Climate Fiction: Doomsday Clock Narratives demonstrates that disaster fiction— nuclear holocaust and climate change alike— allows us to unearth and anatomise contemporary psychodynamics and enables us to identify pretraumatic stress as the common denominator of seemingly unrelated types of texts. These Doomsday Clock Narratives argue that earth’s demise is soon and certain. They are set after some catastrophe and depict people waiting for an even worse catastrophe to come. References to geology are particularly important— in descriptions of the landscape, the emphasis falls on waste and industrial bric- a- brac, which is seen through the eyes of a future, posthuman archaeologist. Their protagonists have the uncanny feeling that the countdown has already started, and they are coping with both traumatic memories and pretraumatic stress. Readings of novels by Walter M. Miller, Nevil Shute, John Christopher, J. G. Ballard, George Turner, Maggie Gee, Paolo Bacigalupi, Ruth Ozeki, and Yoko Tawada demonstrate that the authors are both indebted to a century- old tradition and inventively looking for new ways of expressing the pretraumatic stress syndrome common in contemporary society. This book is written for an academic audience (postgraduates, researchers, and academics) specialising in British Literature, American Literature, and Science Fiction Studies.</p>",
+      "categories": [
+        "Literary Criticism / General",
+        "Literary Criticism / Comparative Literature",
+        "History / Modern / 20th Century / Holocaust",
+        "Science / Environmental Science"
+      ],
+      "publishedDate": "2023-07-07",
+      "language": "en",
+      "pageCount": 170
+    },
+    "openlibrary": null
   }
 }
