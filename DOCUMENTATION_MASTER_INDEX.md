@@ -1,7 +1,7 @@
 # Bookshelves Project - Master Documentation Index
 
-**Last Updated**: 2025-10-26  
-**Version**: 1.0.0  
+**Last Updated**: 2025-11-05  
+**Version**: 1.1.0  
 **Purpose**: Central index of all active project documentation, logically organized by purpose
 
 ---
@@ -36,11 +36,11 @@ These JSON files contain weighted detection patterns for book classification dur
 | `format_patterns.json` | 34 KB | 28 | Book format detection (novel, manga, light-novel, audiobook, graphic-novel, etc.) with special focus on Asian formats |
 | `age_audience_patterns.json` | 26 KB | 7 | Age/audience classification with conservative rules for mature content (early-readers, middle-grade, YA, new-adult, adult, general-audience) |
 
-### Cross-Tag Patterns (640 patterns - 23% complete)
+### Cross-Tag Patterns (3,140 patterns - 100% complete)
 
 | File | Size | Patterns | Description |
 |------|------|----------|-------------|
-| `cross_tag_patterns_v1.json` | 357 KB | 640 | Orthogonal tags (tropes, themes, settings, tone, content warnings) - merged from 7 batch files |
+| `cross_tag_patterns_v1.json` | 1.2 MB | 3,140 | Orthogonal tags (tropes, themes, settings, tone, content warnings) - 100% pattern coverage, includes 640 manual + 2,500 auto-generated patterns |
 
 ### Reference Data
 
@@ -70,7 +70,8 @@ These markdown files explain the pattern systems and provide usage examples.
 | File | Size | Purpose |
 |------|------|---------|
 | `HANDOFF_AGE_AUDIENCE_PATTERNS.md` | 17 KB | Detailed task specification for age/audience pattern creation (completed, kept as reference) |
-| `NEXT_AGENT_INSTRUCTIONS.md` | 37 KB | **Current handoff** - instructions for next agent session with context and priorities |
+| `NEXT_AGENT_INSTRUCTIONS.md` | 45 KB | **Current handoff** - instructions for next agent session with context and priorities |
+| `COMPREHENSIVE_PATTERN_MATCHING_IMPLEMENTATION.md` | 12 KB | **NEW** - Documentation of comprehensive pattern matching system using all evidence sources |
 
 ---
 
