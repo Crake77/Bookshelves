@@ -115,10 +115,25 @@ Located in `enrichment-tasks/` directory:
 | `task-03-summary.js` | Generate AI-powered book summaries (GPT-4) |
 | `task-04-domain-supergenres.js` | Detect domain and supergenre classifications |
 | `task-05-genres-subgenres.js` | Detect genre and subgenre classifications |
-| `task-06-cross-tags.js` | Detect cross-tags (tropes, themes, settings) |
+| `task-06-cross-tags.js` | **Enhanced** - Detect cross-tags using comprehensive pattern matching across ALL evidence sources |
 | `task-07-format-audience.js` | Detect book format and target audience |
 | `task-08-generate-sql.js` | Generate SQL insert statements for database |
 | `validate-quality.js` | Validate enrichment data quality before import |
+
+### Batch Enrichment Scripts (NEW)
+
+Located in `scripts/enrichment/` and `scripts/evidence/`:
+
+| File | Purpose |
+|------|---------|
+| `collect-metadata.ts` | **Enhanced** - Collect external metadata (LoC, FAST, Wikidata) + Google Books/OpenLibrary descriptions |
+| `collect-all-metadata.ts` | **NEW** - Collect external metadata for all books (`npm run metadata:collect-all`) |
+| `apply-to-db.ts` | Apply enrichment data for a single book to database |
+| `apply-all-to-db.ts` | **NEW** - Apply enrichment data for all books to database (`npm run enrichment:apply-all`) |
+| `sync-enrichment.ts` | Sync evidence pack for a single book |
+| `sync-all-books.ts` | **NEW** - Sync evidence packs for all books (`npm run evidence:sync-all`) |
+| `get-all-book-ids.mjs` | **NEW** - Helper script to get all book IDs from database |
+| `re-enrich-all-books-comprehensive.ps1` | **NEW** - PowerShell script to orchestrate comprehensive re-enrichment (metadata + evidence + tasks + apply) |
 
 ### Batch Processing Scripts
 
