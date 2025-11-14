@@ -186,6 +186,8 @@ export default function CoverCarouselDialog({
     return !editions.some((edition) => edition.coverUrl === fallbackCoverUrl);
   }, [editions, fallbackCoverUrl]);
 
+  // Backend already returns editions sorted correctly (newer, high-quality English first)
+  // Only add synthetic edition at the END as a fallback, not at the beginning
   const editionsWithFallback = useMemo(() => {
     if (!hasSyntheticFallbackCover || !fallbackCoverUrl) return editions;
     const syntheticEdition: Edition = {
@@ -203,20 +205,15 @@ export default function CoverCarouselDialog({
       pageCount: null,
       categories: [],
     };
-    return [syntheticEdition, ...editions];
+    // Add synthetic at the end as fallback, backend already sorted correctly
+    return [...editions, syntheticEdition];
   }, [editions, hasSyntheticFallbackCover, fallbackCoverUrl]);
 
+  // Trust backend sorting - it already prioritizes newer, high-quality English editions
   const sortedEditions = useMemo(() => {
-    const ordered = sortCoverEditions(editionsWithFallback);
-    if (hasSyntheticFallbackCover) {
-      const syntheticIndex = ordered.findIndex((edition) => edition.id === SYNTHETIC_EDITION_ID);
-      if (syntheticIndex > 0) {
-        const [syntheticEdition] = ordered.splice(syntheticIndex, 1);
-        ordered.unshift(syntheticEdition);
-      }
-    }
-    return ordered;
-  }, [editionsWithFallback, hasSyntheticFallbackCover]);
+    // Backend already sorts correctly, just apply frontend sort for consistency with synthetic
+    return sortCoverEditions(editionsWithFallback);
+  }, [editionsWithFallback]);
 
   const [visibleCount, setVisibleCount] = useState(() => Math.min(EDITION_CHUNK_SIZE, sortedEditions.length));
   useEffect(() => {
@@ -277,20 +274,24 @@ export default function CoverCarouselDialog({
     [fitStorageKey, emitFitChange],
   );
 
+  // Default to first edition from backend (best quality, newest, English) unless user has preference
   const [selectedIdInternal, setSelectedIdInternal] = useState<string | null>(() => {
     if (selectedEditionId) return selectedEditionId;
-    if (hasSyntheticFallbackCover) return SYNTHETIC_EDITION_ID;
-    return null;
+    // Backend already sorted correctly - first edition is best (newer, high-quality, English)
+    // Only use synthetic if no real editions exist
+    const firstRealEdition = editions.find(e => e.coverUrl);
+    return firstRealEdition?.id ?? (hasSyntheticFallbackCover ? SYNTHETIC_EDITION_ID : null);
   });
   useEffect(() => {
     if (selectedEditionId) {
       setSelectedIdInternal(selectedEditionId);
-    } else if (hasSyntheticFallbackCover) {
-      setSelectedIdInternal(SYNTHETIC_EDITION_ID);
     } else {
-      setSelectedIdInternal(null);
+      // Default to best edition (first from backend, which is already sorted correctly)
+      // Skip synthetic unless no real editions available
+      const firstRealEdition = editions.find(e => e.coverUrl);
+      setSelectedIdInternal(firstRealEdition?.id ?? (hasSyntheticFallbackCover ? SYNTHETIC_EDITION_ID : null));
     }
-  }, [selectedEditionId, hasSyntheticFallbackCover]);
+  }, [selectedEditionId, hasSyntheticFallbackCover, editions]);
 
   useEffect(() => {
     if (!selectedIdInternal) return;

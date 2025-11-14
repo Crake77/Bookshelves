@@ -151,11 +151,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
       }
 
-      // Filter to only high-quality covers (no scans)
+      // Filter to only high-quality covers (no scans, barcodes, or low-quality indicators)
       const qualityEditions = allEditions.filter((e: any) => {
         if (!e.cover_url && !e.coverUrl) return false;
         const url = (e.cover_url || e.coverUrl || "").toLowerCase();
-        return !url.includes("edge=curl") && !url.includes("edge=shadow");
+        // Reject low-quality indicators
+        if (url.includes("edge=curl") || url.includes("edge=shadow")) return false;
+        // Reject barcodes (common patterns in scan URLs)
+        if (url.includes("barcode") || url.includes("scan") || url.includes("scanned")) return false;
+        // Reject very small images or placeholder images
+        if (url.includes("&img=0") || url.includes("no-cover") || url.includes("nocover")) return false;
+        return true;
       });
 
       // Map to expected format, normalize metadata, and sort for display
@@ -165,6 +171,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       let finalPayload = sortEditionsForDisplay(normalizedRecords);
 
+      // Only add canonical source if it's not already included AND it's high quality
+      // Don't override the sorted list if canonical is low quality
       if (canonicalSource) {
         const canonical = normalizeEditionRecord(canonicalSource, workId);
         const alreadyIncluded = finalPayload.some(
@@ -173,7 +181,42 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             (!!edition.googleBooksId && !!canonical.googleBooksId && edition.googleBooksId === canonical.googleBooksId),
         );
         if (!alreadyIncluded && canonical.coverUrl) {
-          finalPayload.unshift(canonical);
+          // Only add canonical if it's high quality (not a scan)
+          const canonicalQuality = getCoverQualityScore(canonical);
+          if (canonicalQuality >= 50) {
+            // Add to the appropriate position based on sorting, not just front
+            // Insert it in the correct sorted position
+            const insertIndex = finalPayload.findIndex((edition) => {
+              const editionQuality = getCoverQualityScore(edition);
+              const canonicalEnglish = isEnglishEdition(canonical) ? 0 : 1;
+              const editionEnglish = isEnglishEdition(edition) ? 0 : 1;
+              
+              // Find position where canonical should go
+              if (canonicalEnglish !== editionEnglish) {
+                return canonicalEnglish > editionEnglish; // Insert before non-English
+              }
+              if (canonicalQuality > editionQuality) {
+                return false; // Keep looking, canonical is better
+              }
+              if (canonicalQuality < editionQuality) {
+                return true; // Insert here, canonical is worse
+              }
+              // Same quality, check date
+              const canonicalDate = getPublicationTimestamp(canonical);
+              const editionDate = getPublicationTimestamp(edition);
+              if (canonicalDate > editionDate) {
+                return false; // Keep looking, canonical is newer
+              }
+              return canonicalDate < editionDate; // Insert here, canonical is older
+            });
+            
+            if (insertIndex === -1) {
+              finalPayload.push(canonical);
+            } else {
+              finalPayload.splice(insertIndex, 0, canonical);
+            }
+          }
+          // If canonical is low quality, don't add it - let the sorted list handle defaults
         }
       }
 
@@ -635,26 +678,104 @@ const ENGLISH_KEYWORDS = ["english", "us", "u.s.", "united states", "american", 
 
 function sortEditionsForDisplay(editions: EditionPayload[]): EditionPayload[] {
   return [...editions].sort((a, b) => {
+    // Priority 1: English editions first
     const aEnglish = isEnglishEdition(a) ? 0 : 1;
     const bEnglish = isEnglishEdition(b) ? 0 : 1;
     if (aEnglish !== bEnglish) {
       return aEnglish - bEnglish;
     }
 
+    // Priority 2: Cover quality score (higher is better)
+    const aQuality = getCoverQualityScore(a);
+    const bQuality = getCoverQualityScore(b);
+    if (aQuality !== bQuality) {
+      return bQuality - aQuality; // Higher quality first
+    }
+
+    // Priority 3: Newer publication dates first
     const dateDiff = getPublicationTimestamp(b) - getPublicationTimestamp(a);
-    if (dateDiff !== 0) {
+    if (Math.abs(dateDiff) > 86400000) { // Only if difference is more than 1 day
       return dateDiff;
     }
 
-    // Tie-breaker: prefer editions with Google IDs (cleaner covers)
+    // Priority 4: Prefer physical formats (paperback, hardcover) over digital/audio
+    const aFormat = getFormatPriority(a.format);
+    const bFormat = getFormatPriority(b.format);
+    if (aFormat !== bFormat) {
+      return bFormat - aFormat; // Higher priority format first
+    }
+
+    // Priority 5: Prefer editions with Google Books IDs (often cleaner covers)
     const aHasGoogle = Boolean(a.googleBooksId);
     const bHasGoogle = Boolean(b.googleBooksId);
     if (aHasGoogle !== bHasGoogle) {
       return aHasGoogle ? -1 : 1;
     }
 
+    // Priority 6: Prefer editions with ISBNs (more official)
+    const aHasIsbn = Boolean(a.isbn13 || a.isbn10);
+    const bHasIsbn = Boolean(b.isbn13 || b.isbn10);
+    if (aHasIsbn !== bHasIsbn) {
+      return aHasIsbn ? -1 : 1;
+    }
+
+    // Final tie-breaker: alphabetical by format
     return (a.format || "").localeCompare(b.format || "");
   });
+}
+
+/**
+ * Score cover quality based on URL characteristics
+ * Higher score = better quality
+ */
+function getCoverQualityScore(edition: EditionPayload): number {
+  const url = (edition.coverUrl || "").toLowerCase();
+  let score = 50; // Base score
+
+  // Penalize low-quality indicators
+  if (url.includes("edge=curl") || url.includes("edge=shadow")) {
+    score -= 30;
+  }
+  if (url.includes("barcode") || url.includes("scan") || url.includes("scanned")) {
+    score -= 40;
+  }
+  if (url.includes("&img=0") || url.includes("no-cover")) {
+    score -= 50;
+  }
+
+  // Boost high-quality indicators
+  if (url.includes("openlibrary.org")) {
+    score += 20; // OpenLibrary covers are usually high quality
+  }
+  if (url.includes("publisher/content")) {
+    score += 10; // Publisher-provided covers are usually good
+  }
+  if (!url.includes("edge=") && url.includes("google.com")) {
+    score += 15; // Clean Google Books covers (no edge effects)
+  }
+
+  // Boost newer formats (L size is large, better quality)
+  if (url.includes("-l.jpg") || url.includes("-l.jpeg")) {
+    score += 10;
+  } else if (url.includes("-m.jpg") || url.includes("-m.jpeg")) {
+    score += 5;
+  }
+
+  return score;
+}
+
+/**
+ * Get format priority for sorting
+ * Physical formats preferred over digital/audio
+ */
+function getFormatPriority(format: string | null): number {
+  if (!format) return 0;
+  const lower = format.toLowerCase();
+  if (lower === "paperback" || lower === "hardcover") return 10;
+  if (lower === "library binding") return 8;
+  if (lower === "ebook" || lower === "digital") return 5;
+  if (lower === "audiobook" || lower === "audio") return 3;
+  return 0;
 }
 
 function isEnglishEdition(edition: EditionPayload): boolean {

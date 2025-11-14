@@ -936,74 +936,51 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get editions by Google Books ID (for cover selection) - path format (must come before query param route)
+  // Delegates to serverless handler for consistent logic with OpenLibrary fetching and improved sorting
   app.get("/api/books/:googleBooksId/editions", async (req, res) => {
     try {
       const { googleBooksId } = req.params;
-      const { editions, books } = await import("@shared/schema.js");
-      const { works } = await import("@shared/schema.js");
-      const { eq } = await import("drizzle-orm");
       
-      // Find edition by googleBooksId
-      let edition = await db
-        .select()
-        .from(editions)
-        .where(eq(editions.googleBooksId, googleBooksId))
-        .limit(1)
-        .execute();
+      // Delegate to serverless handler for consistent logic
+      const vercelReq = {
+        method: req.method,
+        query: { googleBooksId, endpoint: "editions" },
+        headers: req.headers,
+        url: req.url,
+        body: req.body,
+      } as any;
       
-      // Fallback: If no edition found, check legacy books table
-      if (edition.length === 0) {
-        const legacyBook = await db
-          .select()
-          .from(books)
-          .where(eq(books.googleBooksId, googleBooksId))
-          .limit(1)
-          .execute();
+      let responseSent = false;
+      const vercelRes = {
+        setHeader: (name: string, value: string) => {
+          if (!responseSent) res.setHeader(name, value);
+        },
+        status: (code: number) => {
+          if (responseSent) return vercelRes;
+          responseSent = true;
+          res.status(code);
+          return vercelRes;
+        },
+        json: (data: any) => {
+          if (responseSent) return;
+          responseSent = true;
+          res.json(data);
+        },
+      } as any;
+      
+      try {
+        const handler = await import("../api/books/[googleBooksId]/index.js");
+        await handler.default(vercelReq, vercelRes);
         
-        if (legacyBook.length === 0) {
-          return res.json([]);
+        if (!responseSent) {
+          res.status(500).json({ error: "Handler did not send a response" });
         }
-        
-        // Create a mock edition from the legacy book
-        const mockEdition = {
-          id: legacyBook[0].id,
-          workId: legacyBook[0].id,
-          legacyBookId: legacyBook[0].id,
-          format: "unknown",
-          publicationDate: legacyBook[0].publishedDate ? new Date(legacyBook[0].publishedDate) : null,
-          language: null,
-          market: null,
-          isbn10: legacyBook[0].isbn?.length === 10 ? legacyBook[0].isbn : null,
-          isbn13: legacyBook[0].isbn?.length === 13 ? legacyBook[0].isbn : null,
-          googleBooksId: legacyBook[0].googleBooksId,
-          openLibraryId: null,
-          editionStatement: null,
-          pageCount: legacyBook[0].pageCount,
-          categories: legacyBook[0].categories || [],
-          coverUrl: legacyBook[0].coverUrl,
-          isManual: false,
-          createdAt: new Date(),
-          events: [],
-        };
-        
-        return res.json([mockEdition]);
+      } catch (error) {
+        console.error("Error calling serverless handler:", error);
+        if (!responseSent) {
+          res.status(500).json({ error: "Failed to get editions" });
+        }
       }
-      
-      const workId = edition[0].workId;
-      const { getWorkEditions } = await import("./lib/editions-api.js");
-      
-      // Get all editions for this work
-      const editionsList = await getWorkEditions(workId);
-      
-      // Filter to only high-quality covers (no scans)
-      const qualityEditions = editionsList.filter(e => {
-        if (!e.coverUrl) return false;
-        const url = e.coverUrl.toLowerCase();
-        return !url.includes('edge=curl') && !url.includes('edge=shadow');
-      });
-      
-      // If no quality editions, return all (user can still see them)
-      res.json(qualityEditions.length > 0 ? qualityEditions : editionsList);
     } catch (error) {
       console.error("Get editions error:", error);
       res.status(500).json({ error: "Failed to get editions" });
