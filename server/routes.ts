@@ -458,6 +458,210 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Browse API (uses browse handler logic)
+  app.get("/api/browse", async (req, res) => {
+    try {
+      // Import browse handler functions and logic
+      const { neon } = await import("@neondatabase/serverless");
+      const sql = neon(process.env.DATABASE_URL!);
+      
+      // Import the browse handler module to access internal functions
+      // We'll replicate the logic from the default export
+      const algoParam = (typeof req.query.algo === "string" ? req.query.algo : "").toLowerCase();
+      const algo: "popular" | "rating" | "recent" | "for-you" =
+        algoParam === "rating" || algoParam === "recent" || algoParam === "for-you" ? algoParam : "popular";
+
+      // Helper function to clamp limit
+      const clampLimit = (value: number | null | undefined, max: number, fallback: number): number => {
+        if (!value || Number.isNaN(value)) {
+          return fallback;
+        }
+        return Math.max(1, Math.min(value, max));
+      };
+
+      const limitRaw = typeof req.query.limit === "string" ? Number.parseInt(req.query.limit, 10) : null;
+      const offsetRaw = typeof req.query.offset === "string" ? Number.parseInt(req.query.offset, 10) : null;
+      const limit = clampLimit(limitRaw, 50, 20);
+      const offset = Math.max(0, offsetRaw && !Number.isNaN(offsetRaw) ? offsetRaw : 0);
+      const genre = typeof req.query.genre === "string" ? req.query.genre : null;
+      const subgenreSlug = typeof req.query.subgenre === "string" ? req.query.subgenre : null;
+      const genreSlug = typeof req.query.genreSlug === "string" ? req.query.genreSlug : null;
+      const tagSlug = typeof req.query.tag === "string" ? req.query.tag : null;
+      const userId = typeof req.query.userId === "string" ? req.query.userId : undefined;
+      const tagAnyRaw = typeof req.query.tagAny === "string" ? req.query.tagAny : null;
+      const tagAny = tagAnyRaw ? tagAnyRaw.split(",").map((s) => s.trim()).filter((s) => s.length > 0) : null;
+      const blockedTagsRaw = typeof req.query.blockedTags === "string" ? req.query.blockedTags : null;
+      const blockedTags = blockedTagsRaw ? blockedTagsRaw.split(",").map((s) => s.trim()).filter((s) => s.length > 0) : null;
+      const authorName = typeof req.query.author === "string" ? req.query.author : null;
+      const formatSlug = typeof req.query.format === "string" ? req.query.format : null;
+      const audienceSlug = typeof req.query.audience === "string" ? req.query.audience : null;
+      const domainSlug = typeof req.query.domain === "string" ? req.query.domain : null;
+      const supergenreSlug = typeof req.query.supergenre === "string" ? req.query.supergenre : null;
+      const seriesSlug = typeof req.query.series === "string" ? req.query.series : null;
+      const seriesPosition = typeof req.query.seriesPosition === "string" && req.query.seriesPosition === "true";
+
+      if (algo === "for-you" && !userId) {
+        return res.status(400).json({ error: "userId is required for for-you recommendations" });
+      }
+
+      // Call the Vercel handler's default export which handles all the logic
+      // Create a mock Vercel request/response that proxies to Express
+      const vercelReq = {
+        method: "GET",
+        query: req.query,
+      } as any;
+
+      let responseBody: any = null;
+      let statusCode = 200;
+      let headers: Record<string, string> = {};
+
+      const vercelRes = {
+        setHeader: (name: string, value: string) => {
+          headers[name] = value;
+          res.setHeader(name, value);
+        },
+        status: (code: number) => {
+          statusCode = code;
+          return {
+            json: (data: any) => {
+              responseBody = data;
+              res.status(code).json(data);
+            },
+            end: (data?: any) => {
+              if (data) {
+                res.status(code).send(data);
+              } else {
+                res.status(code).end();
+              }
+            },
+          };
+        },
+      } as any;
+
+      // Import and call the browse handler
+      const browseHandler = await import("./api-handlers/browse.js");
+      await browseHandler.default(vercelReq, vercelRes);
+    } catch (error: any) {
+      console.error("Browse API error:", error);
+      console.error("Error stack:", error?.stack);
+      if (!res.headersSent) {
+        res.status(500).json({
+          error: "Failed to load browse recommendations",
+          debug: String(error?.message || error),
+          hasDbUrl: Boolean(process.env.DATABASE_URL),
+        });
+      }
+    }
+  });
+
+  // Taxonomy List API (uses taxonomy-list handler logic)
+  app.get("/api/taxonomy-list", async (req, res) => {
+    try {
+      const { neon } = await import("@neondatabase/serverless");
+      const sql = neon(process.env.DATABASE_URL!);
+      
+      const q = (typeof req.query.q === "string" ? req.query.q : "").trim();
+      const limit = Math.max(1, Math.min(500, Number(req.query.limit ?? 20)));
+      const like = q ? `%${q.toLowerCase()}%` : null;
+
+      const genres = (await sql`
+        SELECT slug, name
+        FROM genres
+        WHERE enabled = true
+          AND (${like}::text IS NULL OR LOWER(name) LIKE ${like})
+        ORDER BY name ASC
+        LIMIT ${limit}
+      `) as Array<{ slug: string; name: string }>;
+
+      const subgenres = (await sql`
+        SELECT sg.slug as slug, sg.name as name, g.slug as genre_slug, g.name as genre_name
+        FROM subgenres sg
+        JOIN genres g ON g.id = sg.genre_id
+        WHERE sg.enabled = true AND g.enabled = true
+          AND (${like}::text IS NULL OR LOWER(sg.name) LIKE ${like} OR LOWER(g.name) LIKE ${like})
+        ORDER BY sg.name ASC
+        LIMIT ${limit}
+      `) as Array<{ slug: string; name: string; genre_slug: string; genre_name: string }>;
+
+      const tags = (await sql`
+        SELECT slug, name, "group"
+        FROM cross_tags
+        WHERE enabled = true
+          AND (${like}::text IS NULL OR LOWER(name) LIKE ${like} OR LOWER("group") LIKE ${like})
+        ORDER BY name ASC
+        LIMIT ${limit}
+      `) as Array<{ slug: string; name: string; group: string }>;
+
+      const domains = (await sql`
+        SELECT slug, name
+        FROM domains
+        WHERE enabled = true
+          AND (${like}::text IS NULL OR LOWER(name) LIKE ${like})
+        ORDER BY name ASC
+        LIMIT ${limit}
+      `) as Array<{ slug: string; name: string }>;
+
+      const supergenres = (await sql`
+        SELECT slug, name, description
+        FROM supergenres
+        WHERE enabled = true
+          AND (${like}::text IS NULL OR LOWER(name) LIKE ${like})
+        ORDER BY name ASC
+        LIMIT ${limit}
+      `) as Array<{ slug: string; name: string; description: string | null }>;
+
+      const formats = (await sql`
+        SELECT slug, name, description
+        FROM formats
+        WHERE enabled = true
+          AND (${like}::text IS NULL OR LOWER(name) LIKE ${like})
+        ORDER BY name ASC
+        LIMIT ${limit}
+      `) as Array<{ slug: string; name: string; description: string | null }>;
+
+      const ageMarkets = (await sql`
+        SELECT slug, name, min_age, max_age
+        FROM age_markets
+        WHERE enabled = true
+          AND (${like}::text IS NULL OR LOWER(name) LIKE ${like})
+        ORDER BY min_age ASC NULLS LAST, name ASC
+        LIMIT ${limit}
+      `) as Array<{ slug: string; name: string; min_age: number | null; max_age: number | null }>;
+
+      const genreDomainLinks = (await sql`
+        SELECT g.slug as genre_slug, d.slug as domain_slug
+        FROM genre_domains gd
+        JOIN genres g ON g.id = gd.genre_id
+        JOIN domains d ON d.id = gd.domain_id
+        WHERE g.enabled = true AND d.enabled = true
+      `) as Array<{ genre_slug: string; domain_slug: string }>;
+
+      const genreSupergenreLinks = (await sql`
+        SELECT g.slug as genre_slug, s.slug as supergenre_slug
+        FROM genre_supergenres gs
+        JOIN genres g ON g.id = gs.genre_id
+        JOIN supergenres s ON s.id = gs.supergenre_id
+        WHERE g.enabled = true AND s.enabled = true
+      `) as Array<{ genre_slug: string; supergenre_slug: string }>;
+
+      res.json({
+        ok: true,
+        domains,
+        supergenres,
+        genres,
+        subgenres,
+        formats,
+        ageMarkets,
+        tags,
+        genreDomainLinks,
+        genreSupergenreLinks,
+      });
+    } catch (error) {
+      console.error("Taxonomy list API error:", error);
+      res.status(500).json({ ok: false, error: "Failed to load taxonomy list" });
+    }
+  });
+
   // Browse Categories API
   app.get("/api/browse-categories/:userId", async (req, res) => {
     try {
@@ -731,13 +935,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get editions by Google Books ID (for cover selection)
+  // Get editions by Google Books ID (for cover selection) - path format (must come before query param route)
   app.get("/api/books/:googleBooksId/editions", async (req, res) => {
     try {
       const { googleBooksId } = req.params;
       const { editions, books } = await import("@shared/schema.js");
       const { works } = await import("@shared/schema.js");
-      const { eq, or } = await import("drizzle-orm");
+      const { eq } = await import("drizzle-orm");
       
       // Find edition by googleBooksId
       let edition = await db
@@ -761,10 +965,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
         
         // Create a mock edition from the legacy book
-        // Format matches what getWorkEditions returns (edition with events array)
         const mockEdition = {
           id: legacyBook[0].id,
-          workId: legacyBook[0].id, // Use book ID as work ID for now
+          workId: legacyBook[0].id,
           legacyBookId: legacyBook[0].id,
           format: "unknown",
           publicationDate: legacyBook[0].publishedDate ? new Date(legacyBook[0].publishedDate) : null,
@@ -780,13 +983,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
           coverUrl: legacyBook[0].coverUrl,
           isManual: false,
           createdAt: new Date(),
-          events: [], // Empty events array for legacy books
+          events: [],
         };
         
         return res.json([mockEdition]);
       }
       
       const workId = edition[0].workId;
+      const { getWorkEditions } = await import("./lib/editions-api.js");
       
       // Get all editions for this work
       const editionsList = await getWorkEditions(workId);
@@ -806,7 +1010,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get series info for a book
+  // Get series info for a book - path format (must come before query param route)
   app.get("/api/books/:googleBooksId/series-info", async (req, res) => {
     try {
       const { googleBooksId } = req.params;
@@ -837,7 +1041,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
         
         // For legacy books, we don't have series info yet
-        // Return null values (series info will be populated when books are migrated to works/editions)
         return res.json({ series: null, seriesOrder: null, totalBooksInSeries: null, workId: null });
       }
       
@@ -884,6 +1087,70 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Get series info error:", error);
       res.status(500).json({ error: "Failed to get series info" });
+    }
+  });
+
+  // Get editions or series-info by Google Books ID (supports query parameter format)
+  // This route must come AFTER the path-based routes (/editions and /series-info)
+  app.get("/api/books/:googleBooksId", async (req, res) => {
+    try {
+      const { googleBooksId } = req.params;
+      const endpoint = req.query.endpoint as string | undefined;
+      
+      // Handle query parameter format: /api/books/:googleBooksId?endpoint=editions
+      // Use the serverless function handler which includes OpenLibrary fetching
+      if (endpoint === "editions" || endpoint === "series-info") {
+        // Import and call the serverless function handler
+        // Create Vercel-compatible request/response objects
+        const vercelReq = {
+          method: req.method,
+          query: { googleBooksId, endpoint },
+          headers: req.headers,
+          url: req.url,
+          body: req.body,
+        } as any;
+        
+        let responseSent = false;
+        const vercelRes = {
+          setHeader: (name: string, value: string) => {
+            if (!responseSent) res.setHeader(name, value);
+          },
+          status: (code: number) => {
+            if (responseSent) return vercelRes;
+            responseSent = true;
+            res.status(code);
+            return vercelRes;
+          },
+          json: (data: any) => {
+            if (responseSent) return;
+            responseSent = true;
+            res.json(data);
+          },
+        } as any;
+        
+        try {
+          // Import and call the serverless function handler
+          const handler = await import("../api/books/[googleBooksId]/index.js");
+          await handler.default(vercelReq, vercelRes);
+          
+          if (!responseSent) {
+            res.status(500).json({ error: "Handler did not send a response" });
+          }
+          return;
+        } catch (error) {
+          console.error("Error calling serverless handler:", error);
+          if (!responseSent) {
+            res.status(500).json({ error: "Failed to process request" });
+          }
+          return;
+        }
+      } else {
+        // If no endpoint specified, return 400
+        return res.status(400).json({ error: "Invalid endpoint. Use ?endpoint=editions or ?endpoint=series-info" });
+      }
+    } catch (error) {
+      console.error("Get book data error:", error);
+      res.status(500).json({ error: "Failed to get book data" });
     }
   });
 

@@ -403,107 +403,107 @@ export default function CoverCarouselDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[95vw] w-full max-h-[90vh] p-0 overflow-hidden">
-        <div className="sticky top-0 z-20 bg-background/95 backdrop-blur px-6 pt-6 pb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <DialogContent className="max-w-[95vw] w-full max-h-[90vh] p-0 overflow-hidden flex flex-col">
+        {/* Header - Fixed at top, outside scroll area */}
+        <div className="flex-shrink-0 z-20 bg-background border-b px-6 pt-6 pb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-xl font-bold mb-1">Select Cover Edition</h2>
             <p className="text-sm text-muted-foreground">{bookTitle}</p>
           </div>
-            <div className="flex items-center gap-2 text-sm">
-              <span id="fit-toggle-label" className="text-muted-foreground whitespace-nowrap">
-                Fit to card
-              </span>
-              <Switch
-                aria-labelledby="fit-toggle-label"
-                checked={isFillMode}
-                onCheckedChange={handleToggleFit}
-                aria-label="Toggle cover fit mode"
-              />
-            </div>
+          <div className="flex items-center gap-2 text-sm">
+            <span id="fit-toggle-label" className="text-muted-foreground whitespace-nowrap">
+              Fit to card
+            </span>
+            <Switch
+              aria-labelledby="fit-toggle-label"
+              checked={isFillMode}
+              onCheckedChange={handleToggleFit}
+              aria-label="Toggle cover fit mode"
+            />
           </div>
+        </div>
 
-          <div className="relative">
-            <div className="px-12 md:px-16">
+        {/* Scrollable content area */}
+        <div className="flex-1 min-h-0 overflow-hidden">
+          <div
+            data-testid="cover-scroll-container"
+            ref={carouselRef}
+            onScroll={handleScroll}
+            className="flex gap-3 overflow-x-auto scrollbar-hide px-4 py-8"
+            style={{ touchAction: "pan-x" }}
+          >
+            {visibleEditions.map((edition, index) => (
               <div
-                data-testid="cover-scroll-container"
-                ref={carouselRef}
-                onScroll={handleScroll}
-                className="flex gap-3 overflow-x-auto scrollbar-hide px-4 py-8"
-                style={{ touchAction: "pan-x" }}
+                key={edition.id}
+                ref={(el) => {
+                  slidesRef.current[index] = el;
+                }}
+                className={cn(
+                  "flex-shrink-0 cursor-pointer transition-opacity",
+                  "w-32 md:w-40 lg:w-48",
+                  activeIndex === index ? "opacity-100" : "opacity-60",
+                  selectedIdInternal === edition.id ? "ring-2 ring-primary rounded-lg" : "ring-0",
+                )}
+                onClick={() => handleSelect(edition)}
+                data-testid={`cover-option-${edition.id}`}
               >
-              {visibleEditions.map((edition, index) => (
-                <div
-                  key={edition.id}
-                  ref={(el) => {
-                    slidesRef.current[index] = el;
-                  }}
-                  className={cn(
-                    "flex-shrink-0 cursor-pointer transition-opacity",
-                    "w-32 md:w-40 lg:w-48",
-                    activeIndex === index ? "opacity-100" : "opacity-60",
-                    selectedIdInternal === edition.id ? "ring-2 ring-primary rounded-lg" : "ring-0",
-                  )}
-                  onClick={() => handleSelect(edition)}
-                  data-testid={`cover-option-${edition.id}`}
-                >
-                  <div className="relative group">
-                    {edition.coverUrl ? (
-                      <div
-                        className={cn(
-                          "w-full aspect-[2/3] rounded-lg flex items-center justify-center shadow-lg overflow-hidden",
-                          coverFrameClass,
-                        )}
-                      >
-                        <img
-                          src={edition.coverUrl}
-                          alt={`${bookTitle} - ${buildPrimaryLabel(edition)}`}
-                          className={cn("max-w-full max-h-full", coverImageClass)}
-                          loading="lazy"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-full aspect-[2/3] rounded-lg bg-black flex items-center justify-center">
-                        <span className="text-xs text-muted-foreground">No cover</span>
-                      </div>
-                    )}
-
-                    {selectedIdInternal === edition.id && (
-                      <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full p-1">
-                        <Check className="h-3 w-3" />
-                      </div>
-                    )}
-
-                    <div className="absolute bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md p-2 rounded-b-lg">
-                      <div className="text-xs font-medium text-center">{buildPrimaryLabel(edition)}</div>
-                      {edition.market && (
-                        <div className="text-[11px] text-muted-foreground text-center mt-0.5">
-                          {edition.market} edition
-                        </div>
+                <div className="relative group">
+                  {edition.coverUrl ? (
+                    <div
+                      className={cn(
+                        "w-full aspect-[2/3] rounded-lg flex items-center justify-center shadow-lg overflow-hidden",
+                        coverFrameClass,
                       )}
+                    >
+                      <img
+                        src={edition.coverUrl}
+                        alt={`${bookTitle} - ${buildPrimaryLabel(edition)}`}
+                        className={cn("max-w-full max-h-full", coverImageClass)}
+                        loading="lazy"
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="w-full aspect-[2/3] rounded-lg bg-black flex items-center justify-center">
+                      <span className="text-xs text-muted-foreground">No cover</span>
+                    </div>
+                  )}
 
-                  <div className="mt-2 space-y-1 min-h-[3.5rem]">
-                    {edition.editionStatement && (
-                      <div className="text-xs text-muted-foreground text-center">{edition.editionStatement}</div>
-                    )}
-                    {edition.publicationDate && (
-                      <div className="text-xs text-muted-foreground text-center">
-                        Published {formatPublicationDate(edition.publicationDate)}
+                  {selectedIdInternal === edition.id && (
+                    <div className="absolute top-2 right-2 bg-primary text-primary-foreground rounded-full p-1">
+                      <Check className="h-3 w-3" />
+                    </div>
+                  )}
+
+                  <div className="absolute bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md p-2 rounded-b-lg">
+                    <div className="text-xs font-medium text-center">{buildPrimaryLabel(edition)}</div>
+                    {edition.market && (
+                      <div className="text-[11px] text-muted-foreground text-center mt-0.5">
+                        {edition.market} edition
                       </div>
-                    )}
-                    {selectedIdInternal === edition.id && (
-                      <div className="text-[11px] font-medium text-primary text-center">Selected</div>
                     )}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
 
+                <div className="mt-2 space-y-1 min-h-[3.5rem]">
+                  {edition.editionStatement && (
+                    <div className="text-xs text-muted-foreground text-center">{edition.editionStatement}</div>
+                  )}
+                  {edition.publicationDate && (
+                    <div className="text-xs text-muted-foreground text-center">
+                      Published {formatPublicationDate(edition.publicationDate)}
+                    </div>
+                  )}
+                  {selectedIdInternal === edition.id && (
+                    <div className="text-[11px] font-medium text-primary text-center">Selected</div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="px-6 pb-4 text-center text-xs text-muted-foreground">
+        {/* Footer - Fixed at bottom, outside scroll area */}
+        <div className="flex-shrink-0 px-6 pb-4 pt-2 text-center text-xs text-muted-foreground border-t bg-background">
           {visibleEditions.length > 0
             ? `${Math.min(activeIndex + 1, sortedEditions.length)} / ${sortedEditions.length}`
             : "0 / 0"}

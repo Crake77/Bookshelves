@@ -1,4 +1,11 @@
 // server/index.ts
+// Environment variables are loaded by load-env.cjs via --require flag
+
+// Set NODE_ENV to development if not already set
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = "development";
+}
+
 import express, { type Request, Response, NextFunction } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -9,6 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+app.set("env", process.env.NODE_ENV || "development");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
