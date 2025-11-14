@@ -80,6 +80,7 @@ export default function ShelvesPage() {
                     className="w-32 flex-shrink-0"
                   >
                       <BookCard
+                      bookId={userBook.book.googleBooksId}
                       title={userBook.book.title}
                       author={userBook.book.authors[0]}
                       coverUrl={userBook.book.coverUrl}

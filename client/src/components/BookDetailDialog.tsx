@@ -66,7 +66,9 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
   const [isRatingOpen, setIsRatingOpen] = useState(false);
   const [hasTypedRating, setHasTypedRating] = useState(false);
   const [coverCarouselOpen, setCoverCarouselOpen] = useState(false);
+  const [preferredEditionId, setPreferredEditionId] = useState<string | null>(null);
   const [displayCoverUrl, setDisplayCoverUrl] = useState<string | undefined>(book?.coverUrl);
+  const [isCoverFillMode, setIsCoverFillMode] = useState<boolean>(false);
   const headerRef = useRef<HTMLDivElement | null>(null);
   const dividerRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -78,6 +80,35 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
   const [taxonomySource, setTaxonomySource] = useState<{ bookId?: string; googleBooksId?: string } | null>(null);
   const [isTaxonomyDialogOpen, setIsTaxonomyDialogOpen] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    void import("@/components/CoverCarouselDialog");
+  }, []);
+
+  useEffect(() => {
+    if (!book || typeof window === "undefined") {
+      setIsCoverFillMode(false);
+      return;
+    }
+    const key = `bookshelves:cover-fit-mode:${book.googleBooksId}`;
+    try {
+      setIsCoverFillMode(window.localStorage.getItem(key) === "fill");
+    } catch {
+      setIsCoverFillMode(false);
+    }
+
+    const handleFitChange = (event: Event) => {
+      const detail = (event as CustomEvent)?.detail;
+      if (detail?.bookId === book.googleBooksId) {
+        setIsCoverFillMode(detail.mode === "fill");
+      }
+    };
+
+    window.addEventListener("bookshelves:cover-fit-mode-changed", handleFitChange as EventListener);
+    return () => {
+      window.removeEventListener("bookshelves:cover-fit-mode-changed", handleFitChange as EventListener);
+    };
+  }, [book]);
   const lastStatusRef = useRef<string | null>(null);
   const queryClient = useQueryClient();
   const openTaxonomyDialog = useCallback((filter: TaxonomyFilter) => {
@@ -479,11 +510,17 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
     }
   }, [isRatingOpen, book?.googleBooksId]);
 
-  // Fetch editions for cover selection
-  const { data: editions = [], error: editionsError } = useQuery({
+  // Fetch editions for cover selection (preload even before cover dialog opens)
+  const {
+    data: editions = [],
+    error: editionsError,
+    isLoading: editionsLoading,
+    isFetching: editionsFetching,
+  } = useQuery({
     queryKey: ["/api/books", book?.googleBooksId, "editions"],
     queryFn: () => getBookEditions(book!.googleBooksId),
-    enabled: open && !!book?.googleBooksId,
+    enabled: !!book?.googleBooksId,
+    staleTime: 1000 * 60 * 5,
   });
 
   // Fetch series info
@@ -509,8 +546,10 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
     const preference = getCoverPreference(book.googleBooksId);
     if (preference) {
       setDisplayCoverUrl(preference.coverUrl);
+      setPreferredEditionId(preference.editionId);
     } else {
       setDisplayCoverUrl(book.coverUrl);
+      setPreferredEditionId(null);
     }
   }, [book]);
 
@@ -521,6 +560,7 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
     const handleCoverChange = (e: CustomEvent) => {
       if (e.detail.bookId === book.googleBooksId) {
         setDisplayCoverUrl(e.detail.coverUrl || book.coverUrl);
+        setPreferredEditionId(e.detail.editionId ?? null);
       }
     };
     
@@ -613,16 +653,25 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
                     }}
                     title="Click to select cover edition"
                   >
-                    <img
-                      src={displayCoverUrl || book.coverUrl}
-                      alt={book.title}
-                      className="w-32 h-48 rounded-lg object-cover shadow-2xl transition-transform group-hover:scale-105"
-                      data-testid="img-book-cover"
-                    />
+                    <div
+                      className={cn(
+                        "w-32 h-48 rounded-lg flex items-center justify-center shadow-2xl transition-transform group-hover:scale-[1.03]",
+                        isCoverFillMode ? "bg-background" : "bg-black",
+                      )}
+                    >
+                      <img
+                        src={displayCoverUrl || book.coverUrl}
+                        alt={book.title}
+                        className={cn(
+                          "max-h-full max-w-full",
+                          isCoverFillMode ? "object-cover w-full h-full rounded-lg" : "object-contain",
+                        )}
+                        data-testid="img-book-cover"
+                      />
+                    </div>
                     <div className="absolute inset-0 rounded-lg bg-black/0 group-hover:bg-black/5 transition-colors pointer-events-none" />
                   </div>
                 )}
-
                 <h2 className="font-display text-xl font-bold" data-testid="text-book-title">{book.title}</h2>
                 
                 {/* Series Metadata - appears beneath title */}
@@ -908,9 +957,12 @@ export default function BookDetailDialog({ book, open, onOpenChange, taxonomyHin
           bookId={book.googleBooksId}
           bookTitle={book.title}
           editions={editions}
-          selectedEditionId={getCoverPreference(book.googleBooksId)?.editionId}
+          fallbackCoverUrl={book.coverUrl}
+          isLoading={editionsLoading || editionsFetching}
+          selectedEditionId={preferredEditionId ?? undefined}
           onSelect={(editionId, coverUrl) => {
             setDisplayCoverUrl(coverUrl);
+            setPreferredEditionId(editionId);
             // Trigger re-render of book cards if needed
             queryClient.invalidateQueries({ queryKey: ["/api/user-books"] });
           }}

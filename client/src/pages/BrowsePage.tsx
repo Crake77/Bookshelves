@@ -568,6 +568,7 @@ export default function BrowsePage() {
               {searchResults.slice(0, 15).map((book) => (
                 <div key={book.googleBooksId} className="mx-auto w-32" data-testid={`search-result-${book.googleBooksId}`}>
                   <BookCard
+                    bookId={book.googleBooksId}
                     title={book.title}
                     author={book.authors[0]}
                     coverUrl={book.coverUrl}

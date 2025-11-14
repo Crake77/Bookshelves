@@ -33,6 +33,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `;
 
       let workId: string | null = null;
+      let canonicalSource: any = edition[0] ?? null;
 
       // Fallback: If no edition found, check legacy books table and find edition via legacyBookId
       if (edition.length === 0) {
@@ -61,6 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           // Found migrated edition, use it
           edition = linkedEdition;
           workId = linkedEdition[0].work_id;
+          canonicalSource = linkedEdition[0];
         } else {
           // Not migrated yet, create a mock edition from the legacy book
           const mockEdition = {
@@ -97,6 +99,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         WHERE id = ${workId}
         LIMIT 1
       `;
+      const workRecord = workInfo[0];
 
       // Get all editions from database
       const dbEditions = await sql`
@@ -109,85 +112,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       // Try to fetch additional editions from OpenLibrary if we have a work reference
       let openLibraryEditions: any[] = [];
-      if (workInfo.length > 0 && workInfo[0].work_ref_type === 'openlibrary' && workInfo[0].work_ref_value) {
-        try {
-          const olWorkId = workInfo[0].work_ref_value;
-          // Fetch work with all editions from OpenLibrary API
-          const olResponse = await fetch(`https://openlibrary.org/works/${olWorkId}.json`);
-          if (olResponse.ok) {
-            const olWork = await olResponse.json();
-            // OpenLibrary works have an 'editions' field that is a URL endpoint (e.g., "/works/OL123456W/editions")
-            // If it's a relative URL, make it absolute; otherwise use the default endpoint
-            let editionsUrl = olWork.editions;
-            if (editionsUrl && typeof editionsUrl === 'string') {
-              if (editionsUrl.startsWith('/')) {
-                editionsUrl = `https://openlibrary.org${editionsUrl}.json`;
-              } else if (!editionsUrl.startsWith('http')) {
-                editionsUrl = `https://openlibrary.org/works/${olWorkId}/editions.json`;
-              } else {
-                editionsUrl = editionsUrl.endsWith('.json') ? editionsUrl : `${editionsUrl}.json`;
-              }
-            } else {
-              editionsUrl = `https://openlibrary.org/works/${olWorkId}/editions.json`;
-            }
-            const editionsResponse = await fetch(editionsUrl);
-            if (editionsResponse.ok) {
-              const editionsData = await editionsResponse.json();
-              // Process editions array - entries might be in 'entries' or directly in the response
-              const entries = editionsData.entries || editionsData || [];
-                openLibraryEditions = entries.slice(0, 100).map((ed: any) => {
-                  // Build cover URL
-                  let coverUrl = null;
-                  if (ed.covers && ed.covers.length > 0) {
-                    coverUrl = `https://covers.openlibrary.org/b/id/${ed.covers[0]}-L.jpg`;
-                  }
-                  
-                  // Detect format from categories or keywords
-                  let format = 'unknown';
-                  const categories = (ed.subjects || []).map((s: any) => typeof s === 'string' ? s : s.toLowerCase());
-                  const keywords = (ed.keywords || []).map((k: any) => typeof k === 'string' ? k : k.toLowerCase());
-                  const allText = [...categories, ...keywords].join(' ').toLowerCase();
-                  
-                  if (allText.includes('hardcover') || allText.includes('hardback')) format = 'hardcover';
-                  else if (allText.includes('paperback')) format = 'paperback';
-                  else if (allText.includes('ebook') || allText.includes('e-book') || allText.includes('kindle')) format = 'ebook';
-                  else if (allText.includes('audiobook') || allText.includes('audio book')) format = 'audiobook';
-                  else if (ed.physical_format) {
-                    const pf = ed.physical_format.toLowerCase();
-                    if (pf.includes('hardcover') || pf.includes('hardback')) format = 'hardcover';
-                    else if (pf.includes('paperback')) format = 'paperback';
-                    else if (pf.includes('ebook') || pf.includes('kindle')) format = 'ebook';
-                    else if (pf.includes('audiobook') || pf.includes('audio')) format = 'audiobook';
-                    else format = pf;
-                  }
+      let openLibraryWorkKey: string | null = null;
+      if (workRecord?.work_ref_type === "openlibrary" && workRecord.work_ref_value) {
+        openLibraryWorkKey = workRecord.work_ref_value;
+      } else {
+        openLibraryWorkKey = await resolveOpenLibraryWorkKey({
+          title: workRecord?.title,
+          author: Array.isArray(workRecord?.authors) ? workRecord?.authors?.[0] : workRecord?.authors,
+          isbn10: dbEditions[0]?.isbn10 ?? null,
+          isbn13: dbEditions[0]?.isbn13 ?? null,
+        });
+      }
 
-                  return {
-                    id: `ol-${ed.key?.replace('/books/', '') || Date.now()}`,
-                    workId: workId,
-                    legacyBookId: null,
-                    format: format,
-                    publicationDate: ed.publish_date ? new Date(ed.publish_date) : null,
-                    language: ed.languages?.[0]?.key?.replace('/languages/', '') || null,
-                    market: null,
-                    isbn10: ed.isbn_10?.[0] || null,
-                    isbn13: ed.isbn_13?.[0] || null,
-                    googleBooksId: null,
-                    openLibraryId: ed.key?.replace('/books/', '') || null,
-                    editionStatement: null,
-                    pageCount: ed.number_of_pages || null,
-                    categories: ed.subjects || [],
-                    coverUrl: coverUrl,
-                    isManual: false,
-                    createdAt: new Date(),
-                    events: [],
-                  };
-                }).filter((e: any) => e.coverUrl); // Only include editions with covers
-              }
-            }
-          }
-        } catch (e) {
-          console.warn("Failed to fetch OpenLibrary editions:", e);
-        }
+      if (workId && openLibraryWorkKey) {
+        openLibraryEditions = await fetchOpenLibraryEditions(workId, openLibraryWorkKey);
       }
 
       // Combine database editions with OpenLibrary editions
@@ -216,33 +154,63 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // Filter to only high-quality covers (no scans)
       const qualityEditions = allEditions.filter((e: any) => {
         if (!e.cover_url && !e.coverUrl) return false;
-        const url = (e.cover_url || e.coverUrl || '').toLowerCase();
+        const url = (e.cover_url || e.coverUrl || "").toLowerCase();
         return !url.includes("edge=curl") && !url.includes("edge=shadow");
       });
 
-      // Map to expected format
-      const formattedEditions = (qualityEditions.length > 0 ? qualityEditions : allEditions).map((e: any) => ({
-        id: e.id,
-        workId: e.work_id || e.workId,
-        legacyBookId: e.legacy_book_id || e.legacyBookId,
-        format: e.format !== 'unknown' ? e.format : (e.categories?.some((c: string) => c.toLowerCase().includes('hardcover')) ? 'hardcover' : e.categories?.some((c: string) => c.toLowerCase().includes('paperback')) ? 'paperback' : 'unknown'),
-        publicationDate: e.publication_date || e.publicationDate,
-        language: e.language,
-        market: e.market,
-        isbn10: e.isbn10,
-        isbn13: e.isbn13,
-        googleBooksId: e.google_books_id || e.googleBooksId,
-        openLibraryId: e.open_library_id || e.openLibraryId,
-        editionStatement: e.edition_statement || e.editionStatement,
-        pageCount: e.page_count || e.pageCount,
-        categories: e.categories || [],
-        coverUrl: e.cover_url || e.coverUrl,
-        isManual: e.is_manual || e.isManual,
-        createdAt: e.created_at || e.createdAt,
-        events: [],
-      }));
+      // Map to expected format, normalize metadata, and sort for display
+      const normalizedRecords = (qualityEditions.length > 0 ? qualityEditions : allEditions).map((record: any) =>
+        normalizeEditionRecord(record, workId),
+      );
 
-      return res.json(formattedEditions);
+      let finalPayload = sortEditionsForDisplay(normalizedRecords);
+
+      if (canonicalSource) {
+        const canonical = normalizeEditionRecord(canonicalSource, workId);
+        const alreadyIncluded = finalPayload.some(
+          (edition) =>
+            edition.id === canonical.id ||
+            (!!edition.googleBooksId && !!canonical.googleBooksId && edition.googleBooksId === canonical.googleBooksId),
+        );
+        if (!alreadyIncluded && canonical.coverUrl) {
+          finalPayload.unshift(canonical);
+        }
+      }
+
+      if (finalPayload.length === 0) {
+        const fallback = await sql`
+          SELECT id, cover_url, published_date, isbn, categories
+          FROM books
+          WHERE google_books_id = ${googleBooksId}
+          LIMIT 1
+        `;
+        if (fallback.length > 0) {
+          finalPayload = [
+            {
+              id: fallback[0].id,
+              workId,
+              legacyBookId: fallback[0].id,
+              format: "unknown",
+              publicationDate: serializeDate(fallback[0].published_date),
+              language: null,
+              market: null,
+              isbn10: null,
+              isbn13: fallback[0].isbn || null,
+              googleBooksId: googleBooksId,
+              openLibraryId: null,
+              editionStatement: null,
+              pageCount: null,
+              categories: fallback[0].categories || [],
+              coverUrl: fallback[0].cover_url,
+              isManual: false,
+              createdAt: new Date().toISOString(),
+              events: [],
+            },
+          ];
+        }
+      }
+
+      return res.json(finalPayload);
     } else if (endpoint === "series-info") {
       // Find edition by googleBooksId
       let edition = await sql`
@@ -330,4 +298,397 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       debug: process.env.NODE_ENV === "development" ? error?.stack : undefined
     });
   }
+}
+
+const OPEN_LIBRARY_EDITION_LIMIT = 100;
+
+interface ResolveOpenLibraryWorkKeyInput {
+  title?: string | null;
+  author?: string | null;
+  isbn10?: string | null;
+  isbn13?: string | null;
+}
+
+interface EditionPayload {
+  id: string;
+  workId: string | null;
+  legacyBookId: string | null;
+  format: string;
+  publicationDate: string | null;
+  language: string | null;
+  market: string | null;
+  isbn10: string | null;
+  isbn13: string | null;
+  googleBooksId: string | null;
+  openLibraryId: string | null;
+  editionStatement: string | null;
+  pageCount: number | null;
+  categories: string[];
+  coverUrl: string | null;
+  isManual: boolean;
+  createdAt: string | null;
+  events: any[];
+}
+
+function normalizeEditionRecord(record: any, fallbackWorkId: string | null): EditionPayload {
+  return {
+    id: record.id,
+    workId: record.work_id || record.workId || fallbackWorkId,
+    legacyBookId: record.legacy_book_id || record.legacyBookId || null,
+    format: inferEditionFormat(record),
+    publicationDate: serializeDate(record.publication_date || record.publicationDate),
+    language: normalizeLanguageCode(record.language ?? null),
+    market: record.market || null,
+    isbn10: record.isbn10 || null,
+    isbn13: record.isbn13 || null,
+    googleBooksId: record.google_books_id || record.googleBooksId || null,
+    openLibraryId: record.open_library_id || record.openLibraryId || null,
+    editionStatement: record.edition_statement || record.editionStatement || null,
+    pageCount:
+      typeof record.page_count === "number"
+        ? record.page_count
+        : typeof record.pageCount === "number"
+          ? record.pageCount
+          : null,
+    categories: Array.isArray(record.categories) ? record.categories : [],
+    coverUrl: record.cover_url || record.coverUrl || null,
+    isManual: typeof record.is_manual === "boolean" ? record.is_manual : record.isManual ?? false,
+    createdAt: serializeDate(record.created_at || record.createdAt),
+    events: Array.isArray(record.events) ? record.events : [],
+  };
+}
+
+async function fetchOpenLibraryEditions(workId: string, workRefValue: string): Promise<EditionPayload[]> {
+  try {
+    const workResponse = await fetch(`https://openlibrary.org/works/${workRefValue}.json`);
+    if (!workResponse.ok) {
+      return [];
+    }
+
+    const work = await workResponse.json();
+    const editionsUrl = buildOpenLibraryEditionsUrl(work, workRefValue);
+    const editionsResponse = await fetch(editionsUrl);
+    if (!editionsResponse.ok) {
+      return [];
+    }
+
+    const editionsData = await editionsResponse.json();
+    const entries = extractOpenLibraryEditionEntries(editionsData);
+    if (entries.length === 0) {
+      return [];
+    }
+
+    return entries
+      .slice(0, OPEN_LIBRARY_EDITION_LIMIT)
+      .map((entry: any) => normalizeOpenLibraryEdition(entry, workId))
+      .filter((edition) => Boolean(edition.coverUrl));
+  } catch (error) {
+    console.warn("Failed to fetch OpenLibrary editions:", error);
+    return [];
+  }
+}
+
+function buildOpenLibraryEditionsUrl(work: any, workRefValue: string): string {
+  const editionsField = work?.editions;
+  if (typeof editionsField === "string" && editionsField.length > 0) {
+    if (editionsField.startsWith("/")) {
+      return `https://openlibrary.org${editionsField}.json`;
+    }
+    if (editionsField.startsWith("http")) {
+      return editionsField.endsWith(".json") ? editionsField : `${editionsField}.json`;
+    }
+  }
+  return `https://openlibrary.org/works/${workRefValue}/editions.json`;
+}
+
+function extractOpenLibraryEditionEntries(editionsData: any): any[] {
+  if (!editionsData) return [];
+  if (Array.isArray(editionsData.entries)) {
+    return editionsData.entries;
+  }
+  if (Array.isArray(editionsData.editions)) {
+    return editionsData.editions;
+  }
+  if (Array.isArray(editionsData)) {
+    return editionsData;
+  }
+  return [];
+}
+
+function normalizeOpenLibraryEdition(ed: any, workId: string): EditionPayload {
+  return {
+    id: `ol-${ed.key?.replace("/books/", "") || Date.now()}`,
+    workId,
+    legacyBookId: null,
+    format: detectOpenLibraryFormat(ed),
+    publicationDate: serializeDate(ed.publish_date ? new Date(ed.publish_date) : null),
+    language: extractLanguageCode(ed),
+    market: null,
+    isbn10: Array.isArray(ed.isbn_10) ? ed.isbn_10[0] ?? null : null,
+    isbn13: Array.isArray(ed.isbn_13) ? ed.isbn_13[0] ?? null : null,
+    googleBooksId: null,
+    openLibraryId: ed.key?.replace("/books/", "") || null,
+    editionStatement: ed.edition_name ?? ed.edition_statement ?? null,
+    pageCount: ed.number_of_pages ?? null,
+    categories: Array.isArray(ed.subjects) ? ed.subjects : [],
+    coverUrl: pickOpenLibraryCoverUrl(ed),
+    isManual: false,
+    createdAt: new Date().toISOString(),
+    events: [],
+  };
+}
+
+function inferEditionFormat(edition: any): string {
+  const baseFormat =
+    typeof edition.format === "string" && edition.format.length > 0 ? edition.format.toLowerCase() : "";
+  if (baseFormat && baseFormat !== "unknown") {
+    return normalizeFormatString(baseFormat);
+  }
+
+  return detectFormatFromStrings([
+    edition.edition_statement,
+    edition.market,
+    ...(Array.isArray(edition.categories) ? edition.categories : []),
+  ]);
+}
+
+function normalizeFormatString(format: string): string {
+  if (!format) return "unknown";
+  const lower = format.toLowerCase();
+  if (lower.includes("hardcover") || lower.includes("hardback") || lower.includes("cloth")) return "hardcover";
+  if (
+    lower.includes("paperback") ||
+    lower.includes("softcover") ||
+    lower.includes("soft cover") ||
+    lower.includes("mass market") ||
+    lower.includes("trade paperback")
+  ) {
+    return "paperback";
+  }
+  if (lower.includes("ebook") || lower.includes("digital")) return "ebook";
+  if (lower.includes("audio") || lower.includes("audiobook")) return "audiobook";
+  return lower;
+}
+
+function detectOpenLibraryFormat(ed: any): string {
+  const inputs: Array<string | undefined> = [
+    ...(Array.isArray(ed.subjects) ? ed.subjects : []),
+    ...(Array.isArray(ed.keywords) ? ed.keywords : []),
+    ed.physical_format,
+  ];
+  return detectFormatFromStrings(inputs);
+}
+
+function detectFormatFromStrings(inputs: Array<string | undefined | null>): string {
+  const text = inputs
+    .filter(Boolean)
+    .map((val) => String(val).toLowerCase())
+    .join(" ");
+
+  if (!text) {
+    return "unknown";
+  }
+
+  if (
+    text.includes("hardcover") ||
+    text.includes("hardback") ||
+    text.includes("clothbound") ||
+    text.includes("cloth-bound") ||
+    text.includes("clothback")
+  ) {
+    return "hardcover";
+  }
+  if (
+    text.includes("paperback") ||
+    text.includes("mass market") ||
+    text.includes("trade paperback") ||
+    text.includes("softcover") ||
+    text.includes("soft cover") ||
+    text.includes("mmpb") ||
+    text.includes("mass-market")
+  ) {
+    return "paperback";
+  }
+  if (text.includes("ebook") || text.includes("e-book") || text.includes("kindle") || text.includes("digital")) {
+    return "ebook";
+  }
+  if (text.includes("audiobook") || text.includes("audio book") || text.includes("audio cd")) {
+    return "audiobook";
+  }
+  if (text.includes("library binding")) {
+    return "library binding";
+  }
+
+  return "unknown";
+}
+
+function pickOpenLibraryCoverUrl(ed: any): string | null {
+  const covers = Array.isArray(ed.covers) ? ed.covers : [];
+  if (covers.length === 0) {
+    return null;
+  }
+  return `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg`;
+}
+
+function extractLanguageCode(ed: any): string | null {
+  const languages = Array.isArray(ed.languages) ? ed.languages : [];
+  const primary = languages[0];
+  const key = typeof primary?.key === "string" ? primary.key : null;
+  const code = key ? key.replace("/languages/", "") : null;
+  return normalizeLanguageCode(code);
+}
+
+async function resolveOpenLibraryWorkKey(input: ResolveOpenLibraryWorkKeyInput): Promise<string | null> {
+  const isbnCandidates = [input.isbn13, input.isbn10].filter(Boolean) as string[];
+  for (const isbn of isbnCandidates) {
+    const keyFromIsbn = await fetchOpenLibraryWorkKeyFromIsbn(isbn);
+    if (keyFromIsbn) {
+      return keyFromIsbn;
+    }
+  }
+
+  if (input.title) {
+    const keyFromSearch = await searchOpenLibraryWork(input.title, input.author);
+    if (keyFromSearch) {
+      return keyFromSearch;
+    }
+  }
+
+  return null;
+}
+
+async function fetchOpenLibraryWorkKeyFromIsbn(isbn: string): Promise<string | null> {
+  try {
+    const res = await fetch(`https://openlibrary.org/isbn/${encodeURIComponent(isbn)}.json`);
+    if (!res.ok) {
+      return null;
+    }
+    const data = await res.json();
+    const works = Array.isArray(data?.works) ? data.works : [];
+    const key = works[0]?.key;
+    return typeof key === "string" ? key.replace("/works/", "") : null;
+  } catch {
+    return null;
+  }
+}
+
+async function searchOpenLibraryWork(title: string, author?: string | null): Promise<string | null> {
+  try {
+    const url = new URL("https://openlibrary.org/search.json");
+    url.searchParams.set("title", title);
+    if (author) {
+      url.searchParams.set("author", author);
+    }
+    url.searchParams.set("limit", "1");
+    const res = await fetch(url.toString());
+    if (!res.ok) {
+      return null;
+    }
+    const data = await res.json();
+    const doc = Array.isArray(data?.docs) ? data.docs[0] : null;
+    const key =
+      (typeof doc?.key === "string" && doc.key.startsWith("/works/")) ? doc.key.replace("/works/", "") : null;
+    return key ?? (typeof doc?.work_key?.[0] === "string" ? doc.work_key[0].replace("/works/", "") : null);
+  } catch {
+    return null;
+  }
+}
+
+function normalizeLanguageCode(language: string | null): string | null {
+  if (!language) return null;
+  const lower = language.toLowerCase();
+  if (LANGUAGE_CODE_MAP[lower]) {
+    return LANGUAGE_CODE_MAP[lower];
+  }
+  return lower;
+}
+
+const LANGUAGE_CODE_MAP: Record<string, string> = {
+  eng: "en",
+  en: "en",
+  "en-us": "en",
+  "en-gb": "en",
+  english: "en",
+  fre: "fr",
+  fra: "fr",
+  fr: "fr",
+  spa: "es",
+  es: "es",
+  ita: "it",
+  it: "it",
+  ger: "de",
+  deu: "de",
+  de: "de",
+  por: "pt",
+  pt: "pt",
+  rus: "ru",
+  ru: "ru",
+  jpn: "ja",
+  ja: "ja",
+  chi: "zh",
+  zho: "zh",
+  zh: "zh",
+};
+
+const ENGLISH_LANGUAGE_CODES = new Set(["en", "en-us", "en-gb", "english"]);
+const ENGLISH_KEYWORDS = ["english", "us", "u.s.", "united states", "american", "uk", "british", "canada", "australia"];
+
+function sortEditionsForDisplay(editions: EditionPayload[]): EditionPayload[] {
+  return [...editions].sort((a, b) => {
+    const aEnglish = isEnglishEdition(a) ? 0 : 1;
+    const bEnglish = isEnglishEdition(b) ? 0 : 1;
+    if (aEnglish !== bEnglish) {
+      return aEnglish - bEnglish;
+    }
+
+    const dateDiff = getPublicationTimestamp(b) - getPublicationTimestamp(a);
+    if (dateDiff !== 0) {
+      return dateDiff;
+    }
+
+    // Tie-breaker: prefer editions with Google IDs (cleaner covers)
+    const aHasGoogle = Boolean(a.googleBooksId);
+    const bHasGoogle = Boolean(b.googleBooksId);
+    if (aHasGoogle !== bHasGoogle) {
+      return aHasGoogle ? -1 : 1;
+    }
+
+    return (a.format || "").localeCompare(b.format || "");
+  });
+}
+
+function isEnglishEdition(edition: EditionPayload): boolean {
+  const language = edition.language ? normalizeLanguageCode(edition.language) : null;
+  if (language && ENGLISH_LANGUAGE_CODES.has(language)) {
+    return true;
+  }
+
+  if (edition.googleBooksId) {
+    return true;
+  }
+
+  const fields = [
+    edition.market,
+    edition.editionStatement,
+    ...(edition.categories || []),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  return ENGLISH_KEYWORDS.some((keyword) => fields.includes(keyword));
+}
+
+function getPublicationTimestamp(edition: EditionPayload): number {
+  if (!edition.publicationDate) return 0;
+  const date = new Date(edition.publicationDate);
+  return Number.isNaN(date.getTime()) ? 0 : date.getTime();
+}
+
+function serializeDate(value: unknown): string | null {
+  if (!value) return null;
+  const date = value instanceof Date ? value : new Date(value as any);
+  const time = date.getTime();
+  if (Number.isNaN(time)) return null;
+  return new Date(time).toISOString();
 }

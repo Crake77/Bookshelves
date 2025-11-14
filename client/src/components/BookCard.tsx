@@ -1,6 +1,8 @@
 import { Book } from "lucide-react";
+import { usePreferredCover } from "@/hooks/usePreferredCover";
 
 interface BookCardProps {
+  bookId?: string;
   title: string;
   author: string;
   coverUrl?: string;
@@ -9,13 +11,14 @@ interface BookCardProps {
   onClick?: () => void;
 }
 
-export default function BookCard({ 
-  title, 
-  author, 
-  coverUrl, 
+export default function BookCard({
+  bookId,
+  title,
+  author,
+  coverUrl,
   status,
   releaseInfo,
-  onClick 
+  onClick,
 }: BookCardProps) {
   const statusColors: Record<string, string> = {
     reading: "bg-chart-3/20 text-chart-3 border-chart-3",
@@ -30,25 +33,36 @@ export default function BookCard({
     return statusColors[status] || "bg-primary/20 text-primary border-primary";
   };
 
+  const resolvedCoverUrl = usePreferredCover(bookId, coverUrl);
+
   // Check if this is a placeholder cover
-  const isPlaceholder = coverUrl?.startsWith("placeholder:");
-  const placeholderData = isPlaceholder && coverUrl ? {
-    title: decodeURIComponent(coverUrl.split(":")[1] || title),
-    author: decodeURIComponent(coverUrl.split(":")[2] || author)
-  } : null;
+  const isPlaceholder = resolvedCoverUrl?.startsWith("placeholder:");
+  const placeholderData =
+    isPlaceholder && resolvedCoverUrl
+      ? {
+          title: decodeURIComponent(resolvedCoverUrl.split(":")[1] || title),
+          author: decodeURIComponent(resolvedCoverUrl.split(":")[2] || author),
+        }
+      : null;
+
+  const fallbackTestId = `book-card-cover-${title.toLowerCase().replace(/\s+/g, "-")}`;
+  const fallbackCardTestId = `book-card-${title.toLowerCase().replace(/\s+/g, "-")}`;
 
   return (
     <div
-      data-testid={`book-card-${title.toLowerCase().replace(/\s+/g, "-")}`}
+      data-testid={fallbackCardTestId}
+      data-book-id={bookId ?? undefined}
       onClick={onClick}
       className="group relative rounded-lg overflow-hidden shadow-lg hover-elevate active-elevate-2 cursor-pointer transition-transform"
     >
       <div className="aspect-[2/3] relative">
-        {coverUrl && !isPlaceholder ? (
+        {resolvedCoverUrl && !isPlaceholder ? (
           <img 
-            src={coverUrl} 
+            src={resolvedCoverUrl} 
             alt={title}
             className="w-full h-full object-cover"
+            data-testid={bookId ? `book-card-cover-${bookId}` : fallbackTestId}
+            data-book-id={bookId ?? undefined}
           />
         ) : (
           <div className="w-full h-full bg-muted flex flex-col items-center justify-center p-4 relative overflow-hidden">

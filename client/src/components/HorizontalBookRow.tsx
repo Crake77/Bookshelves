@@ -140,6 +140,7 @@ export default function HorizontalBookRow({
             data-testid={`book-card-${book.googleBooksId}`}
           >
             <BookCard
+              bookId={book.googleBooksId}
               title={book.title}
               author={book.authors[0]}
               coverUrl={book.coverUrl}

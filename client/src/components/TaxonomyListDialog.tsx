@@ -135,6 +135,7 @@ export default function TaxonomyListDialog({ open, onOpenChange, filter, ranking
             {books.map((b) => (
               <div key={b.googleBooksId} className="mx-auto w-32" data-testid={`taxonomy-book-${b.googleBooksId}`}>
                 <BookCard
+                  bookId={b.googleBooksId}
                   title={b.title}
                   author={b.authors?.[0] ?? "Unknown"}
                   coverUrl={b.coverUrl}

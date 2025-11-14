@@ -13,7 +13,13 @@ export interface Edition {
   publicationDate: string | null;
   editionStatement: string | null;
   googleBooksId: string | null;
+  openLibraryId: string | null;
+  isbn10: string | null;
   isbn13: string | null;
+  language?: string | null;
+  market?: string | null;
+  pageCount?: number | null;
+  categories?: string[];
 }
 
 export interface Work {
@@ -146,4 +152,3 @@ export function isLowQualityCover(coverUrl: string | null): boolean {
          lowerUrl.includes('edge=shadow') ||
          lowerUrl.includes('edge=thumb');
 }
-

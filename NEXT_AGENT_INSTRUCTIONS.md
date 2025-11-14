@@ -3,6 +3,24 @@
 **Last Updated:** 2025-11-05T22:30:00Z  
 **Priority:** MEDIUM – Comprehensive pattern matching complete, all books re-enriched
 
+## 🚨 2025-11-07 Cover Carousel Status (User escalated)
+
+What was attempted:
+- Replaced GSAP carousel with native `overflow-x-auto` version inside `client/src/components/CoverCarouselDialog.tsx` (header made sticky, toggle reintroduced, selection events maintained).
+- Added `data-book-id` + `data-testid` hooks to `BookCard` consumers so Playwright could track updates and so browse tiles react instantly after selection.
+- Created `e2e/cover-carousel.spec.ts` to open a browse card, launch the dialog, issue a synthetic wheel swipe against `data-testid="cover-scroll-container"`, toggle fit mode, and assert that selection propagates.
+
+Current issues (confirmed by user on desktop + iPhone):
+1. Trackpad/finger swipe still does **not** move the cover list (even though browse carousels work). Need to mirror whatever DOM/CSS combination HorizontalBookRow uses, likely including `snap-x` removal, consistent padding, and ensuring the scroll container is the direct child of the overflow element.
+2. The “Fit to card” toggle disappears on desktop when many covers load. Header must remain outside the scroll container (probably requires restructuring markup so the sticky block isn’t scrolled out or clipped).
+3. Selection occasionally freezes when experimenting with pointer handlers; regression reoccurred during troubleshooting but currently works again—keep an eye on it while refactoring.
+
+Next steps for cursor/dev taking over:
+- Reproduce in browser with actual pointer gestures (desktop trackpad + mobile Safari) before declaring fixes done.
+- Diff `HorizontalBookRow` styles vs `CoverCarouselDialog` and replicate the exact `flex`/padding/width/shrink behavior so scroll physics match.
+- Consider using the same component (or shared utility) for both carousels to avoid divergence.
+- Update `e2e/cover-carousel.spec.ts` to target a deterministic list (instead of search) and enforce that at least two cover tiles render before running swipe assertions.
+
 ## ✅ COMPLETED THIS SESSION (2025-11-05)
 
 ### Comprehensive Pattern Matching Implementation (Complete)

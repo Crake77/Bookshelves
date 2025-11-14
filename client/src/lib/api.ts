@@ -72,6 +72,8 @@ export interface BrowseRequestOptions {
   genreSlug?: string;
   subgenre?: string;
   tag?: string;
+  series?: string;
+  seriesPosition?: boolean;
   author?: string;
   tagAny?: string[];
   blockedTags?: string[];
@@ -588,9 +590,13 @@ export interface Edition {
   publicationDate: string | null;
   editionStatement: string | null;
   googleBooksId: string | null;
+  openLibraryId: string | null;
+  isbn10: string | null;
   isbn13: string | null;
   language: string | null;
   market: string | null;
+  pageCount: number | null;
+  categories?: string[];
 }
 
 export async function getBookEditions(googleBooksId: string): Promise<Edition[]> {

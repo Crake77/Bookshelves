@@ -35,7 +35,7 @@ test("changing shelf status updates immediately", async ({ page }) => {
   ]);
 
   // Close dialog
-  await page.getByRole("button", { name: "Close" }).click();
+  await page.keyboard.press("Escape");
   await expect(page.getByTestId("dialog-book-detail")).toBeHidden({ timeout: 5000 });
 
   // Verify the "Reading" shelf now shows the same book card
