@@ -129,25 +129,47 @@ function getPublicationTimestamp(edition: Edition): number {
   return Number.isNaN(date.getTime()) ? 0 : date.getTime();
 }
 
+// Get format priority for sorting (physical > digital > audio)
+function getFormatPriority(format: string | null): number {
+  if (!format) return 0;
+  const lower = format.toLowerCase();
+  if (lower === "paperback" || lower === "hardcover") return 10;
+  if (lower === "library binding") return 8;
+  if (lower === "ebook" || lower === "digital") return 5;
+  if (lower === "audiobook" || lower === "audio" || lower.includes("audio")) return 2;
+  return 0;
+}
+
 function sortCoverEditions(editions: Edition[]): Edition[] {
   return [...editions].sort((a, b) => {
+    // Priority 1: English editions first
     const aEnglish = isEnglishEdition(a) ? 0 : 1;
     const bEnglish = isEnglishEdition(b) ? 0 : 1;
     if (aEnglish !== bEnglish) {
       return aEnglish - bEnglish;
     }
 
+    // Priority 2: Newer publication dates
     const dateDiff = getPublicationTimestamp(b) - getPublicationTimestamp(a);
-    if (dateDiff !== 0) {
+    if (Math.abs(dateDiff) > 86400000) { // Only if difference is more than 1 day
       return dateDiff;
     }
 
+    // Priority 3: Prefer physical formats over digital/audio
+    const aFormat = getFormatPriority(a.format);
+    const bFormat = getFormatPriority(b.format);
+    if (aFormat !== bFormat) {
+      return bFormat - aFormat; // Higher priority format first
+    }
+
+    // Priority 4: Prefer editions with Google Books IDs
     const aHasGoogle = Boolean(a.googleBooksId);
     const bHasGoogle = Boolean(b.googleBooksId);
     if (aHasGoogle !== bHasGoogle) {
       return aHasGoogle ? -1 : 1;
     }
 
+    // Final tie-breaker: alphabetical by format
     return (a.format || "").localeCompare(b.format || "");
   });
 }
@@ -186,10 +208,17 @@ export default function CoverCarouselDialog({
     return !editions.some((edition) => edition.coverUrl === fallbackCoverUrl);
   }, [editions, fallbackCoverUrl]);
 
+  // Filter out audiobooks entirely - they shouldn't be used as cover options
   // Backend already returns editions sorted correctly (newer, high-quality English first)
   // Only add synthetic edition at the END as a fallback, not at the beginning
   const editionsWithFallback = useMemo(() => {
-    if (!hasSyntheticFallbackCover || !fallbackCoverUrl) return editions;
+    // Filter out audiobooks
+    const filteredEditions = editions.filter((e) => {
+      const format = (e.format || "").toLowerCase();
+      return !format.includes("audio") && !format.includes("audiobook");
+    });
+    
+    if (!hasSyntheticFallbackCover || !fallbackCoverUrl) return filteredEditions;
     const syntheticEdition: Edition = {
       id: SYNTHETIC_EDITION_ID,
       coverUrl: fallbackCoverUrl,
@@ -206,7 +235,7 @@ export default function CoverCarouselDialog({
       categories: [],
     };
     // Add synthetic at the end as fallback, backend already sorted correctly
-    return [...editions, syntheticEdition];
+    return [...filteredEditions, syntheticEdition];
   }, [editions, hasSyntheticFallbackCover, fallbackCoverUrl]);
 
   // Trust backend sorting - it already prioritizes newer, high-quality English editions
@@ -229,10 +258,13 @@ export default function CoverCarouselDialog({
     slidesRef.current = [];
   }, [visibleEditions.length]);
 
+  // Default to "fit" mode (shrink to fit) - user can toggle to "fill" (fill card) if they want
   const [isFillMode, setIsFillMode] = useState<boolean>(() => {
     if (typeof window === "undefined") return false;
     try {
-      return window.localStorage.getItem(fitStorageKey) === "fill";
+      // If no preference stored, default to false (fit mode = shrink to fit)
+      const stored = window.localStorage.getItem(fitStorageKey);
+      return stored === "fill"; // Only fill if explicitly set, otherwise fit
     } catch {
       return false;
     }
@@ -275,10 +307,11 @@ export default function CoverCarouselDialog({
   );
 
   // Default to first edition from backend (best quality, newest, English) unless user has preference
+  // Always prefer real editions over synthetic - synthetic is fallback only
   const [selectedIdInternal, setSelectedIdInternal] = useState<string | null>(() => {
     if (selectedEditionId) return selectedEditionId;
     // Backend already sorted correctly - first edition is best (newer, high-quality, English)
-    // Only use synthetic if no real editions exist
+    // Use editions directly for initial state (sortedEditions might not be ready yet)
     const firstRealEdition = editions.find(e => e.coverUrl);
     return firstRealEdition?.id ?? (hasSyntheticFallbackCover ? SYNTHETIC_EDITION_ID : null);
   });
@@ -287,23 +320,23 @@ export default function CoverCarouselDialog({
       setSelectedIdInternal(selectedEditionId);
     } else {
       // Default to best edition (first from backend, which is already sorted correctly)
-      // Skip synthetic unless no real editions available
-      const firstRealEdition = editions.find(e => e.coverUrl);
+      // Use sortedEditions now that it's computed, but skip synthetic unless no real editions available
+      const firstRealEdition = sortedEditions.find(e => e.id !== SYNTHETIC_EDITION_ID && e.coverUrl);
       setSelectedIdInternal(firstRealEdition?.id ?? (hasSyntheticFallbackCover ? SYNTHETIC_EDITION_ID : null));
     }
-  }, [selectedEditionId, hasSyntheticFallbackCover, editions]);
-
-  useEffect(() => {
-    if (!selectedIdInternal) return;
-    const idx = sortedEditions.findIndex((edition) => edition.id === selectedIdInternal);
-    if (idx >= 0 && idx >= visibleCount) {
-      setVisibleCount((prev) =>
-        Math.min(sortedEditions.length, Math.ceil((idx + 1) / EDITION_CHUNK_SIZE) * EDITION_CHUNK_SIZE),
-      );
-    }
-  }, [selectedIdInternal, sortedEditions, visibleCount]);
+  }, [selectedEditionId, hasSyntheticFallbackCover, sortedEditions, editions]);
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [lastVisibleIndex, setLastVisibleIndex] = useState(0);
+  
+  // Initialize lastVisibleIndex when editions are loaded
+  useEffect(() => {
+    if (sortedEditions.length > 0 && visibleEditions.length > 0) {
+      // Set to the last visible item initially
+      const initialLastVisible = Math.min(visibleEditions.length - 1, sortedEditions.length - 1);
+      setLastVisibleIndex(initialLastVisible);
+    }
+  }, [sortedEditions.length, visibleEditions.length]);
 
   const scrollToIndex = useCallback(
     (index: number, behavior: ScrollBehavior = "smooth") => {
@@ -316,20 +349,47 @@ export default function CoverCarouselDialog({
     [],
   );
 
+  // Ensure selected edition is visible and scrolled into view when dialog opens
+  useEffect(() => {
+    if (!open || !selectedIdInternal) return;
+    const idx = sortedEditions.findIndex((edition) => edition.id === selectedIdInternal);
+    if (idx >= 0) {
+      // Ensure enough editions are loaded to include selected one
+      if (idx >= visibleCount) {
+        setVisibleCount((prev) =>
+          Math.min(sortedEditions.length, Math.ceil((idx + 1) / EDITION_CHUNK_SIZE) * EDITION_CHUNK_SIZE),
+        );
+      }
+      // Scroll to selected edition after a short delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        if (visibleEditions.find(e => e.id === selectedIdInternal)) {
+          const visibleIdx = visibleEditions.findIndex((edition) => edition.id === selectedIdInternal);
+          if (visibleIdx >= 0) {
+            scrollToIndex(visibleIdx, "auto");
+          }
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [open, selectedIdInternal, sortedEditions, visibleCount, visibleEditions, scrollToIndex]);
+
+  // Load more editions when scrolling near the end - trigger on scroll event
+  // This effect runs when handleScroll updates lastVisibleIndex
+  useEffect(() => {
+    if (visibleCount >= sortedEditions.length) return;
+    
+    // Load more when last visible item is within 3 items of the end
+    if (lastVisibleIndex >= visibleCount - 3) {
+      setVisibleCount((prev) => Math.min(prev + EDITION_CHUNK_SIZE, sortedEditions.length));
+    }
+  }, [lastVisibleIndex, visibleCount, sortedEditions.length]);
+
+  // Also load more when activeIndex approaches the end (backup trigger)
   useEffect(() => {
     if (visibleCount < sortedEditions.length && activeIndex >= visibleCount - 2) {
       setVisibleCount((prev) => Math.min(prev + EDITION_CHUNK_SIZE, sortedEditions.length));
     }
   }, [activeIndex, visibleCount, sortedEditions.length]);
-
-  useEffect(() => {
-    if (!open || !selectedIdInternal) return;
-    const idx = visibleEditions.findIndex((edition) => edition.id === selectedIdInternal);
-    if (idx >= 0) {
-      scrollToIndex(idx, "auto");
-      setActiveIndex(idx);
-    }
-  }, [open, selectedIdInternal, visibleEditions, scrollToIndex]);
 
   useEffect(() => {
     if (pendingScrollIndex.current === null) return;
@@ -342,21 +402,41 @@ export default function CoverCarouselDialog({
 
   const handleScroll = useCallback(() => {
     if (!carouselRef.current || visibleEditions.length === 0) return;
-    const containerCenter = carouselRef.current.scrollLeft + carouselRef.current.clientWidth / 2;
+    const container = carouselRef.current;
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+    const scrollRight = container.scrollLeft + container.clientWidth;
+    
     let closestIndex = activeIndex;
     let minDistance = Infinity;
+    let lastVisibleIdx = 0;
+    
     visibleEditions.forEach((_, index) => {
       const slide = slidesRef.current[index];
       if (!slide) return;
+      
+      // Find center item (for activeIndex)
       const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
       const distance = Math.abs(slideCenter - containerCenter);
       if (distance < minDistance) {
         minDistance = distance;
         closestIndex = index;
       }
+      
+      // Find last visible item (for counter)
+      const slideRight = slide.offsetLeft + slide.clientWidth;
+      if (slide.offsetLeft <= scrollRight && slideRight > container.scrollLeft) {
+        lastVisibleIdx = Math.max(lastVisibleIdx, index);
+      }
     });
+    
     setActiveIndex(closestIndex);
-  }, [visibleEditions, activeIndex]);
+    setLastVisibleIndex(lastVisibleIdx);
+    
+    // Trigger load more if we're near the end
+    if (visibleCount < sortedEditions.length && lastVisibleIdx >= visibleCount - 3) {
+      setVisibleCount((prev) => Math.min(prev + EDITION_CHUNK_SIZE, sortedEditions.length));
+    }
+  }, [visibleEditions, activeIndex, visibleCount, sortedEditions.length]);
 
   const handleSelect = (edition: Edition) => {
     if (edition.id === SYNTHETIC_EDITION_ID) {
@@ -486,6 +566,19 @@ export default function CoverCarouselDialog({
                 </div>
 
                 <div className="mt-2 space-y-1 min-h-[3.5rem]">
+                  {selectedIdInternal === edition.id && (
+                    <div className="text-[11px] font-medium text-primary text-center mb-1">Default</div>
+                  )}
+                  {edition.format && (
+                    <div className="text-xs text-muted-foreground text-center capitalize">
+                      {edition.format}
+                    </div>
+                  )}
+                  {edition.language && edition.language !== "en" && (
+                    <div className="text-xs text-muted-foreground text-center uppercase">
+                      {edition.language}
+                    </div>
+                  )}
                   {edition.editionStatement && (
                     <div className="text-xs text-muted-foreground text-center">{edition.editionStatement}</div>
                   )}
@@ -493,9 +586,6 @@ export default function CoverCarouselDialog({
                     <div className="text-xs text-muted-foreground text-center">
                       Published {formatPublicationDate(edition.publicationDate)}
                     </div>
-                  )}
-                  {selectedIdInternal === edition.id && (
-                    <div className="text-[11px] font-medium text-primary text-center">Selected</div>
                   )}
                 </div>
               </div>
@@ -506,7 +596,7 @@ export default function CoverCarouselDialog({
         {/* Footer - Fixed at bottom, outside scroll area */}
         <div className="flex-shrink-0 px-6 pb-4 pt-2 text-center text-xs text-muted-foreground border-t bg-background">
           {visibleEditions.length > 0
-            ? `${Math.min(activeIndex + 1, sortedEditions.length)} / ${sortedEditions.length}`
+            ? `${Math.min(lastVisibleIndex + 1, sortedEditions.length)} / ${sortedEditions.length}`
             : "0 / 0"}
         </div>
       </DialogContent>

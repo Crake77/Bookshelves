@@ -152,8 +152,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
 
       // Filter to only high-quality covers (no scans, barcodes, or low-quality indicators)
+      // Also exclude audiobooks entirely - they shouldn't be used as cover options
       const qualityEditions = allEditions.filter((e: any) => {
         if (!e.cover_url && !e.coverUrl) return false;
+        
+        // Exclude audiobooks entirely
+        const format = (e.format || "").toLowerCase();
+        if (format.includes("audio") || format.includes("audiobook")) return false;
+        
         const url = (e.cover_url || e.coverUrl || "").toLowerCase();
         // Reject low-quality indicators
         if (url.includes("edge=curl") || url.includes("edge=shadow")) return false;

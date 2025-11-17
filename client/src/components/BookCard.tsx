@@ -1,4 +1,5 @@
 import { Book } from "lucide-react";
+import { useEffect, useState } from "react";
 import { usePreferredCover } from "@/hooks/usePreferredCover";
 
 interface BookCardProps {
@@ -20,6 +21,31 @@ export default function BookCard({
   releaseInfo,
   onClick,
 }: BookCardProps) {
+  // Respect user's fit mode preference (default: fit mode = shrink to fit)
+  const [isFillMode, setIsFillMode] = useState<boolean>(false);
+  
+  useEffect(() => {
+    if (!bookId || typeof window === "undefined") return;
+    const fitStorageKey = `bookshelves:cover-fit-mode:${bookId}`;
+    try {
+      const stored = window.localStorage.getItem(fitStorageKey);
+      setIsFillMode(stored === "fill"); // Only fill if explicitly set, otherwise fit
+    } catch {
+      setIsFillMode(false);
+    }
+
+    const handleFitChange = (event: Event) => {
+      const detail = (event as CustomEvent)?.detail;
+      if (detail?.bookId === bookId) {
+        setIsFillMode(detail.mode === "fill");
+      }
+    };
+
+    window.addEventListener("bookshelves:cover-fit-mode-changed", handleFitChange as EventListener);
+    return () => {
+      window.removeEventListener("bookshelves:cover-fit-mode-changed", handleFitChange as EventListener);
+    };
+  }, [bookId]);
   const statusColors: Record<string, string> = {
     reading: "bg-chart-3/20 text-chart-3 border-chart-3",
     completed: "bg-chart-3/20 text-chart-3 border-chart-3",
@@ -60,7 +86,7 @@ export default function BookCard({
           <img 
             src={resolvedCoverUrl} 
             alt={title}
-            className="w-full h-full object-cover"
+            className={isFillMode ? "w-full h-full object-cover" : "w-full h-full object-contain"}
             data-testid={bookId ? `book-card-cover-${bookId}` : fallbackTestId}
             data-book-id={bookId ?? undefined}
           />
